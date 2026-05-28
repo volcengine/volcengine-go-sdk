@@ -144,8 +144,7 @@ func (c *ARKCLAW) CreateClawOmniInstanceWithContext(ctx volcengine.Context, inpu
 type CreateClawOmniInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	// CpuMilli is a required field
-	CpuMilli *int32 `type:"int32" required:"true"`
+	CpuMilli *int32 `type:"int32"`
 
 	Description *string `type:"string"`
 
@@ -153,8 +152,7 @@ type CreateClawOmniInstanceInput struct {
 
 	ExpiredAction *string `type:"string"`
 
-	// Image is a required field
-	Image *string `type:"string" required:"true"`
+	Image *string `type:"string"`
 
 	// MemoryMb is a required field
 	MemoryMb *int32 `type:"int32" required:"true"`
@@ -172,8 +170,16 @@ type CreateClawOmniInstanceInput struct {
 
 	Tags []*TagForCreateClawOmniInstanceInput `type:"list"`
 
+	TemplateId *string `type:"string"`
+
 	// Timeout is a required field
 	Timeout *int32 `type:"int32" required:"true"`
+
+	TokenLimitPerDay *int32 `type:"int32"`
+
+	TokenLimitPerMin *int32 `type:"int32"`
+
+	TokenLimitPerWeek *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -189,12 +195,6 @@ func (s CreateClawOmniInstanceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateClawOmniInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateClawOmniInstanceInput"}
-	if s.CpuMilli == nil {
-		invalidParams.Add(request.NewErrParamRequired("CpuMilli"))
-	}
-	if s.Image == nil {
-		invalidParams.Add(request.NewErrParamRequired("Image"))
-	}
 	if s.MemoryMb == nil {
 		invalidParams.Add(request.NewErrParamRequired("MemoryMb"))
 	}
@@ -303,9 +303,33 @@ func (s *CreateClawOmniInstanceInput) SetTags(v []*TagForCreateClawOmniInstanceI
 	return s
 }
 
+// SetTemplateId sets the TemplateId field's value.
+func (s *CreateClawOmniInstanceInput) SetTemplateId(v string) *CreateClawOmniInstanceInput {
+	s.TemplateId = &v
+	return s
+}
+
 // SetTimeout sets the Timeout field's value.
 func (s *CreateClawOmniInstanceInput) SetTimeout(v int32) *CreateClawOmniInstanceInput {
 	s.Timeout = &v
+	return s
+}
+
+// SetTokenLimitPerDay sets the TokenLimitPerDay field's value.
+func (s *CreateClawOmniInstanceInput) SetTokenLimitPerDay(v int32) *CreateClawOmniInstanceInput {
+	s.TokenLimitPerDay = &v
+	return s
+}
+
+// SetTokenLimitPerMin sets the TokenLimitPerMin field's value.
+func (s *CreateClawOmniInstanceInput) SetTokenLimitPerMin(v int32) *CreateClawOmniInstanceInput {
+	s.TokenLimitPerMin = &v
+	return s
+}
+
+// SetTokenLimitPerWeek sets the TokenLimitPerWeek field's value.
+func (s *CreateClawOmniInstanceInput) SetTokenLimitPerWeek(v int32) *CreateClawOmniInstanceInput {
+	s.TokenLimitPerWeek = &v
 	return s
 }
 

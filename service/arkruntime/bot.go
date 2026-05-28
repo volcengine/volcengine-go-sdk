@@ -14,7 +14,7 @@ const botChatCompletionsSuffix = "/bots/chat/completions"
 func (c *Client) CreateBotChatCompletion(
 	ctx context.Context,
 	request model.BotChatCompletionRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (response model.BotChatCompletionResponse, err error) {
 	// set BotId to request.Model
 	if request.BotId != "" {
@@ -41,7 +41,7 @@ func (c *Client) CreateBotChatCompletion(
 func (c *Client) CreateBotChatCompletionStream(
 	ctx context.Context,
 	request model.BotChatCompletionRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (stream *utils.BotChatCompletionStreamReader, err error) {
 	// set BotId to request.Model
 	if request.BotId != "" {

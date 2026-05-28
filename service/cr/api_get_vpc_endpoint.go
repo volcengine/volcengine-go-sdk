@@ -146,7 +146,7 @@ func (c *CR) GetVpcEndpointWithContext(ctx volcengine.Context, input *GetVpcEndp
 type FilterForGetVpcEndpointInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Statuses []*string `type:"list" json:",omitempty"`
+	Statuses []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -222,7 +222,7 @@ type GetVpcEndpointOutput struct {
 
 	Registry *string `type:"string" json:",omitempty"`
 
-	Vpcs []*VpcForGetVpcEndpointOutput `type:"list" json:",omitempty"`
+	Vpcs []*VpcForGetVpcEndpointOutput `type:"list"`
 }
 
 // String returns the string representation

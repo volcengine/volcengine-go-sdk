@@ -9,6 +9,7 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials/processcreds"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/defaults"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
@@ -65,22 +66,17 @@ func resolveCredsFromProfile(cfg *volcengine.Config,
 		)
 
 	default:
-		// Fallback to default credentials provider, include mock errors for
-		// the credential chain so user can identify why credentials failed to
-		// be retrieved.
-		creds = credentials.NewCredentials(&credentials.ChainProvider{
-			VerboseErrors: volcengine.BoolValue(cfg.CredentialsChainVerboseErrors),
-			Providers: []credentials.Provider{
-				&credProviderError{
-					Err: volcengineerr.New("EnvAccessKeyNotFound",
-						"failed to find credentials in the environment.", nil),
-				},
-				&credProviderError{
-					Err: volcengineerr.New("SharedCredsLoad",
-						fmt.Sprintf("failed to load profile, %s.", envCfg.Profile), nil),
-				},
-			},
-		})
+		if len(sessOpts.Profile) != 0 {
+			creds = credentials.NewCredentials(&credProviderError{
+				Err: volcengineerr.New(
+					"SharedCredsLoad",
+					fmt.Sprintf("failed to load profile, %s.", sessOpts.Profile),
+					nil,
+				),
+			})
+		} else {
+			creds = defaults.CredChain(cfg, handlers)
+		}
 	}
 	if err != nil {
 		return nil, err

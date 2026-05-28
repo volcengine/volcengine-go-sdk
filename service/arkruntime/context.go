@@ -15,7 +15,7 @@ const contextChatSuffix = "/context/chat/completions"
 func (c *Client) CreateContext(
 	goCtx context.Context,
 	request model.CreateContextRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (response model.CreateContextResponse, err error) {
 
 	requestOptions := append(setters, withBody(request))
@@ -30,7 +30,7 @@ func (c *Client) CreateContext(
 func (c *Client) CreateContextChatCompletion(
 	ctx context.Context,
 	request model.ContextChatCompletionRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (response model.ChatCompletionResponse, err error) {
 
 	if request.Stream {
@@ -53,7 +53,7 @@ func (c *Client) CreateContextChatCompletion(
 func (c *Client) CreateContextChatCompletionStream(
 	ctx context.Context,
 	request model.ContextChatCompletionRequest,
-	setters ...requestOption,
+	setters ...RequestOption,
 ) (stream *utils.ChatCompletionStreamReader, err error) {
 
 	request.Stream = true

@@ -29,8 +29,10 @@ const (
 )
 
 type ChatMessageImageURL struct {
-	URL    string         `json:"url,omitempty"`
-	Detail ImageURLDetail `json:"detail,omitempty"`
+	URL       string         `json:"url,omitempty"`
+	Detail    ImageURLDetail `json:"detail,omitempty"`
+	MinPixels *int64         `json:"min_pixels,omitempty"`
+	MaxPixels *int64         `json:"max_pixels,omitempty"`
 }
 
 type ChatMessageVideoURL struct {
@@ -39,7 +41,9 @@ type ChatMessageVideoURL struct {
 }
 
 type ChatMessageAudioURL struct {
-	URL string `json:"url"`
+	URL    string `json:"url,omitempty"`
+	Data   string `json:"data,omitempty"`
+	Format string `json:"format,omitempty"`
 }
 
 type ChatCompletionMessageContentPartType string
@@ -48,15 +52,15 @@ const (
 	ChatCompletionMessageContentPartTypeText     ChatCompletionMessageContentPartType = "text"
 	ChatCompletionMessageContentPartTypeImageURL ChatCompletionMessageContentPartType = "image_url"
 	ChatCompletionMessageContentPartTypeVideoURL ChatCompletionMessageContentPartType = "video_url"
-	ChatCompletionMessageContentPartTypeAudioURL ChatCompletionMessageContentPartType = "audio_url"
+	ChatCompletionMessageContentPartTypeAudioURL ChatCompletionMessageContentPartType = "input_audio"
 )
 
 type ChatCompletionMessageContentPart struct {
-	Type     ChatCompletionMessageContentPartType `json:"type,omitempty"`
-	Text     string                               `json:"text,omitempty"`
-	ImageURL *ChatMessageImageURL                 `json:"image_url,omitempty"`
-	VideoURL *ChatMessageVideoURL                 `json:"video_url,omitempty"`
-	AudioURL *ChatMessageAudioURL                 `json:"audio_url,omitempty"`
+	Type       ChatCompletionMessageContentPartType `json:"type,omitempty"`
+	Text       string                               `json:"text,omitempty"`
+	ImageURL   *ChatMessageImageURL                 `json:"image_url,omitempty"`
+	VideoURL   *ChatMessageVideoURL                 `json:"video_url,omitempty"`
+	InputAudio *ChatMessageAudioURL                 `json:"input_audio,omitempty"`
 }
 
 type ChatCompletionMessageContent struct {
@@ -97,6 +101,7 @@ type ChatCompletionMessage struct {
 	Role             string                        `json:"role"`
 	Content          *ChatCompletionMessageContent `json:"content"`
 	ReasoningContent *string                       `json:"reasoning_content,omitempty"`
+	EncryptedContent *string                       `json:"encrypted_content,omitempty"`
 	Name             *string                       `json:"name"`
 	FunctionCall     *FunctionCall                 `json:"function_call,omitempty"`
 	ToolCalls        []*ToolCall                   `json:"tool_calls,omitempty"`
@@ -407,6 +412,7 @@ type ChatCompletionStreamChoiceDelta struct {
 	Content          string        `json:"content,omitempty"`
 	Role             string        `json:"role,omitempty"`
 	ReasoningContent *string       `json:"reasoning_content,omitempty"`
+	EncryptedContent *string       `json:"encrypted_content,omitempty"`
 	FunctionCall     *FunctionCall `json:"function_call,omitempty"`
 	ToolCalls        []*ToolCall   `json:"tool_calls,omitempty"`
 }

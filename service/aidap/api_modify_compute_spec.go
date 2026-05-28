@@ -166,7 +166,11 @@ type ComputeForModifyComputeSpecOutput struct {
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
+	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForModifyComputeSpecOutput"`
+
 	LastActiveTime *string `type:"string" json:",omitempty"`
+
+	ServiceType *string `type:"string" json:",omitempty" enum:"EnumOfServiceTypeForModifyComputeSpecOutput"`
 
 	StatusChangedTime *string `type:"string" json:",omitempty"`
 
@@ -247,9 +251,21 @@ func (s *ComputeForModifyComputeSpecOutput) SetDisabled(v bool) *ComputeForModif
 	return s
 }
 
+// SetEnableAnalytics sets the EnableAnalytics field's value.
+func (s *ComputeForModifyComputeSpecOutput) SetEnableAnalytics(v string) *ComputeForModifyComputeSpecOutput {
+	s.EnableAnalytics = &v
+	return s
+}
+
 // SetLastActiveTime sets the LastActiveTime field's value.
 func (s *ComputeForModifyComputeSpecOutput) SetLastActiveTime(v string) *ComputeForModifyComputeSpecOutput {
 	s.LastActiveTime = &v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *ComputeForModifyComputeSpecOutput) SetServiceType(v string) *ComputeForModifyComputeSpecOutput {
+	s.ServiceType = &v
 	return s
 }
 
@@ -390,6 +406,9 @@ func (s *ModifyComputeSpecOutput) SetWorkspaceId(v string) *ModifyComputeSpecOut
 }
 
 const (
+	// EnumOfComputeRoleForModifyComputeSpecOutputUnknown is a EnumOfComputeRoleForModifyComputeSpecOutput enum value
+	EnumOfComputeRoleForModifyComputeSpecOutputUnknown = "Unknown"
+
 	// EnumOfComputeRoleForModifyComputeSpecOutputPrimary is a EnumOfComputeRoleForModifyComputeSpecOutput enum value
 	EnumOfComputeRoleForModifyComputeSpecOutputPrimary = "Primary"
 
@@ -456,4 +475,20 @@ const (
 
 	// EnumOfCreationSourceForModifyComputeSpecOutputUitool is a EnumOfCreationSourceForModifyComputeSpecOutput enum value
 	EnumOfCreationSourceForModifyComputeSpecOutputUitool = "UITool"
+)
+
+const (
+	// EnumOfEnableAnalyticsForModifyComputeSpecOutputEnabled is a EnumOfEnableAnalyticsForModifyComputeSpecOutput enum value
+	EnumOfEnableAnalyticsForModifyComputeSpecOutputEnabled = "Enabled"
+
+	// EnumOfEnableAnalyticsForModifyComputeSpecOutputDisabled is a EnumOfEnableAnalyticsForModifyComputeSpecOutput enum value
+	EnumOfEnableAnalyticsForModifyComputeSpecOutputDisabled = "Disabled"
+)
+
+const (
+	// EnumOfServiceTypeForModifyComputeSpecOutputDatabase is a EnumOfServiceTypeForModifyComputeSpecOutput enum value
+	EnumOfServiceTypeForModifyComputeSpecOutputDatabase = "Database"
+
+	// EnumOfServiceTypeForModifyComputeSpecOutputSupabase is a EnumOfServiceTypeForModifyComputeSpecOutput enum value
+	EnumOfServiceTypeForModifyComputeSpecOutputSupabase = "Supabase"
 )

@@ -142,6 +142,8 @@ func (c *TRANSITROUTER) ModifyTransitRouterAttributesWithContext(ctx volcengine.
 type ModifyTransitRouterAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	BillingOwnerType *string `type:"string" enum:"EnumOfBillingOwnerTypeForModifyTransitRouterAttributesInput"`
+
 	Description *string `type:"string"`
 
 	// TransitRouterId is a required field
@@ -171,6 +173,12 @@ func (s *ModifyTransitRouterAttributesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBillingOwnerType sets the BillingOwnerType field's value.
+func (s *ModifyTransitRouterAttributesInput) SetBillingOwnerType(v string) *ModifyTransitRouterAttributesInput {
+	s.BillingOwnerType = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -206,3 +214,11 @@ func (s ModifyTransitRouterAttributesOutput) String() string {
 func (s ModifyTransitRouterAttributesOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfBillingOwnerTypeForModifyTransitRouterAttributesInputResourceOwner is a EnumOfBillingOwnerTypeForModifyTransitRouterAttributesInput enum value
+	EnumOfBillingOwnerTypeForModifyTransitRouterAttributesInputResourceOwner = "ResourceOwner"
+
+	// EnumOfBillingOwnerTypeForModifyTransitRouterAttributesInputTransitRouterOwner is a EnumOfBillingOwnerTypeForModifyTransitRouterAttributesInput enum value
+	EnumOfBillingOwnerTypeForModifyTransitRouterAttributesInputTransitRouterOwner = "TransitRouterOwner"
+)

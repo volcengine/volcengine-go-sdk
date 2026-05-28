@@ -267,7 +267,7 @@ type DescribeTopicAccessPoliciesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AccessPolicies []*AccessPolicyForDescribeTopicAccessPoliciesOutput `type:"list" json:",omitempty"`
+	AccessPolicies []*AccessPolicyForDescribeTopicAccessPoliciesOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

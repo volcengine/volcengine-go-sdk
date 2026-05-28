@@ -32,7 +32,7 @@ const opVideoEditorAddEmotionTagCommon = "VideoEditorAddEmotionTag"
 func (c *I18NOPENAPI) VideoEditorAddEmotionTagCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opVideoEditorAddEmotionTagCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *I18NOPENAPI) VideoEditorAddEmotionTagCommonRequest(input *map[string]in
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opVideoEditorAddEmotionTag = "VideoEditorAddEmotionTag"
 func (c *I18NOPENAPI) VideoEditorAddEmotionTagRequest(input *VideoEditorAddEmotionTagInput) (req *request.Request, output *VideoEditorAddEmotionTagOutput) {
 	op := &request.Operation{
 		Name:       opVideoEditorAddEmotionTag,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *I18NOPENAPI) VideoEditorAddEmotionTagRequest(input *VideoEditorAddEmoti
 
 	output = &VideoEditorAddEmotionTagOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -139,17 +143,39 @@ func (c *I18NOPENAPI) VideoEditorAddEmotionTagWithContext(ctx volcengine.Context
 	return out, req.Send()
 }
 
+type DataForVideoEditorAddEmotionTagOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Id *string `type:"string" json:"id,omitempty"`
+}
+
+// String returns the string representation
+func (s DataForVideoEditorAddEmotionTagOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForVideoEditorAddEmotionTagOutput) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *DataForVideoEditorAddEmotionTagOutput) SetId(v string) *DataForVideoEditorAddEmotionTagOutput {
+	s.Id = &v
+	return s
+}
+
 type VideoEditorAddEmotionTagInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// EmotionTag is a required field
-	EmotionTag *string `locationName:"emotionTag" type:"string" required:"true"`
+	EmotionTag *string `type:"string" json:"emotionTag,omitempty" required:"true"`
 
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `type:"string" json:"name,omitempty" required:"true"`
 
 	// SubtaskId is a required field
-	SubtaskId *int32 `locationName:"subtaskId" type:"int32" required:"true"`
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -194,17 +220,17 @@ func (s *VideoEditorAddEmotionTagInput) SetName(v string) *VideoEditorAddEmotion
 }
 
 // SetSubtaskId sets the SubtaskId field's value.
-func (s *VideoEditorAddEmotionTagInput) SetSubtaskId(v int32) *VideoEditorAddEmotionTagInput {
+func (s *VideoEditorAddEmotionTagInput) SetSubtaskId(v string) *VideoEditorAddEmotionTagInput {
 	s.SubtaskId = &v
 	return s
 }
 
 type VideoEditorAddEmotionTagOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *int32 `type:"int32" json:"id"`
+	Data *DataForVideoEditorAddEmotionTagOutput `type:"structure" json:"data,omitempty"`
 }
 
 // String returns the string representation
@@ -217,8 +243,8 @@ func (s VideoEditorAddEmotionTagOutput) GoString() string {
 	return s.String()
 }
 
-// SetId sets the Id field's value.
-func (s *VideoEditorAddEmotionTagOutput) SetId(v int32) *VideoEditorAddEmotionTagOutput {
-	s.Id = &v
+// SetData sets the Data field's value.
+func (s *VideoEditorAddEmotionTagOutput) SetData(v *DataForVideoEditorAddEmotionTagOutput) *VideoEditorAddEmotionTagOutput {
+	s.Data = v
 	return s
 }

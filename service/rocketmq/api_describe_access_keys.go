@@ -278,7 +278,7 @@ type DescribeAccessKeysOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AccessKeysInfo []*AccessKeysInfoForDescribeAccessKeysOutput `type:"list" json:",omitempty"`
+	AccessKeysInfo []*AccessKeysInfoForDescribeAccessKeysOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

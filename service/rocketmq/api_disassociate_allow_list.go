@@ -146,9 +146,9 @@ func (c *ROCKETMQ) DisassociateAllowListWithContext(ctx volcengine.Context, inpu
 type DisassociateAllowListInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list" json:",omitempty"`
+	AllowListIds []*string `type:"list"`
 
-	InstanceIds []*string `type:"list" json:",omitempty"`
+	InstanceIds []*string `type:"list"`
 }
 
 // String returns the string representation

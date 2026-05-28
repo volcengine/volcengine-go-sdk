@@ -21,9 +21,17 @@ func (r *ResponsesServiceTier_Enum) UnmarshalJSON(bytes []byte) error {
 }
 
 // MarshalJSON ...
+// Reads the name from ResponsesServiceTier_Enum_name directly instead of
+// going through r.String(); the latter consults the proto descriptor, which
+// can lag behind the Go-side enum map when new values are added without a
+// proto regeneration, causing the wire format to fall back to the numeric
+// value (e.g. "3") and the server to reject it.
 func (r ResponsesServiceTier_Enum) MarshalJSON() ([]byte, error) {
 	if r == 0 {
 		return json.Marshal(nil)
+	}
+	if name, ok := ResponsesServiceTier_Enum_name[int32(r)]; ok {
+		return json.Marshal(name)
 	}
 	return json.Marshal(r.String())
 }

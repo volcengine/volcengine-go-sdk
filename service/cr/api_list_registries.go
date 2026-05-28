@@ -146,13 +146,13 @@ func (c *CR) ListRegistriesWithContext(ctx volcengine.Context, input *ListRegist
 type FilterForListRegistriesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Names []*string `type:"list" json:",omitempty"`
+	Names []*string `type:"list"`
 
-	Projects []*string `type:"list" json:",omitempty"`
+	Projects []*string `type:"list"`
 
-	Statuses []*StatusForListRegistriesInput `type:"list" json:",omitempty"`
+	Statuses []*StatusForListRegistriesInput `type:"list"`
 
-	Types []*string `type:"list" json:",omitempty"`
+	Types []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -208,7 +208,7 @@ type ItemForListRegistriesOutput struct {
 
 	RenewType *string `type:"string" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForListRegistriesOutput `type:"list" json:",omitempty"`
+	ResourceTags []*ResourceTagForListRegistriesOutput `type:"list"`
 
 	Status *StatusForListRegistriesOutput `type:"structure" json:",omitempty"`
 
@@ -300,7 +300,7 @@ type ListRegistriesInput struct {
 
 	PageSize *int64 `min:"1" max:"100" type:"int64" json:",omitempty"`
 
-	ResourceTagFilters []*ResourceTagFilterForListRegistriesInput `type:"list" json:",omitempty"`
+	ResourceTagFilters []*ResourceTagFilterForListRegistriesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -358,7 +358,7 @@ type ListRegistriesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListRegistriesOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListRegistriesOutput `type:"list"`
 
 	PageNumber *int64 `type:"int64" json:",omitempty"`
 
@@ -428,7 +428,7 @@ type ResourceTagFilterForListRegistriesInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -516,7 +516,7 @@ func (s *StatusForListRegistriesInput) SetPhase(v string) *StatusForListRegistri
 type StatusForListRegistriesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Conditions []*string `type:"list" json:",omitempty"`
+	Conditions []*string `type:"list"`
 
 	Phase *string `type:"string" json:",omitempty"`
 }

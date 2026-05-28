@@ -46,6 +46,7 @@ func main() {
 		// CallbackUrl: volcengine.String("CALLBACK_URL"),
 		ServiceTier:           volcengine.String("default"),
 		ExecutionExpiresAfter: volcengine.Int64(3600),
+		Priority:              volcengine.Int32(0),
 	}
 
 	createResponse, err := client.CreateContentGenerationTask(ctx, createReq)
@@ -86,6 +87,9 @@ func main() {
 	if getResponse.ExecutionExpiresAfter != nil {
 		fmt.Printf("ExecutionExpiresAfter: %d\n", *getResponse.ExecutionExpiresAfter)
 	}
+	if getResponse.Priority != nil {
+		fmt.Printf("Priority: %d\n", *getResponse.Priority)
+	}
 	if getResponse.Error != nil {
 		fmt.Printf("Error Code: %s\n", getResponse.Error.Code)
 		fmt.Printf("Error Message: %s\n", getResponse.Error.Message)
@@ -118,6 +122,9 @@ func main() {
 		if item.ExecutionExpiresAfter != nil {
 			fmt.Printf("List Item ExecutionExpiresAfter: %d\n", *item.ExecutionExpiresAfter)
 		}
+		if item.Priority != nil {
+			fmt.Printf("List Item Priority: %d\n", *item.Priority)
+		}
 	}
 
 	fmt.Println("----- delete content generation task -----")
@@ -143,6 +150,7 @@ func main() {
 		},
 		ServiceTier:           volcengine.String("flex"),
 		ExecutionExpiresAfter: volcengine.Int64(3600),
+		Priority:              volcengine.Int32(0),
 	}
 
 	createResponseFlex, err := client.CreateContentGenerationTask(ctx, createReqFlex)
@@ -166,6 +174,9 @@ func main() {
 	if getFlexResp.ExecutionExpiresAfter != nil {
 		fmt.Printf("Flex ExecutionExpiresAfter: %d\n", *getFlexResp.ExecutionExpiresAfter)
 	}
+	if getFlexResp.Priority != nil {
+		fmt.Printf("Flex Priority: %d\n", *getFlexResp.Priority)
+	}
 
 	// Optional: list flex tasks to observe filtering
 	fmt.Println("----- list content generation task (flex) -----")
@@ -187,6 +198,9 @@ func main() {
 			}
 			if item.ExecutionExpiresAfter != nil {
 				fmt.Printf("Flex List Item ExecutionExpiresAfter: %d\n", *item.ExecutionExpiresAfter)
+			}
+			if item.Priority != nil {
+				fmt.Printf("Flex List Item Priority: %d\n", *item.Priority)
 			}
 		}
 	}

@@ -62,6 +62,14 @@ type CRAPI interface {
 	CreateRepositoryWithContext(volcengine.Context, *CreateRepositoryInput, ...request.Option) (*CreateRepositoryOutput, error)
 	CreateRepositoryRequest(*CreateRepositoryInput) (*request.Request, *CreateRepositoryOutput)
 
+	CreateRobotAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateRobotAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateRobotAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateRobotAccount(*CreateRobotAccountInput) (*CreateRobotAccountOutput, error)
+	CreateRobotAccountWithContext(volcengine.Context, *CreateRobotAccountInput, ...request.Option) (*CreateRobotAccountOutput, error)
+	CreateRobotAccountRequest(*CreateRobotAccountInput) (*request.Request, *CreateRobotAccountOutput)
+
 	DeleteEndpointAclPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteEndpointAclPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteEndpointAclPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +101,14 @@ type CRAPI interface {
 	DeleteRepository(*DeleteRepositoryInput) (*DeleteRepositoryOutput, error)
 	DeleteRepositoryWithContext(volcengine.Context, *DeleteRepositoryInput, ...request.Option) (*DeleteRepositoryOutput, error)
 	DeleteRepositoryRequest(*DeleteRepositoryInput) (*request.Request, *DeleteRepositoryOutput)
+
+	DeleteRobotAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteRobotAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteRobotAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteRobotAccount(*DeleteRobotAccountInput) (*DeleteRobotAccountOutput, error)
+	DeleteRobotAccountWithContext(volcengine.Context, *DeleteRobotAccountInput, ...request.Option) (*DeleteRobotAccountOutput, error)
+	DeleteRobotAccountRequest(*DeleteRobotAccountInput) (*request.Request, *DeleteRobotAccountOutput)
 
 	DeleteTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -166,6 +182,14 @@ type CRAPI interface {
 	ListRepositoriesWithContext(volcengine.Context, *ListRepositoriesInput, ...request.Option) (*ListRepositoriesOutput, error)
 	ListRepositoriesRequest(*ListRepositoriesInput) (*request.Request, *ListRepositoriesOutput)
 
+	ListRobotAccountsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRobotAccountsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRobotAccountsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRobotAccounts(*ListRobotAccountsInput) (*ListRobotAccountsOutput, error)
+	ListRobotAccountsWithContext(volcengine.Context, *ListRobotAccountsInput, ...request.Option) (*ListRobotAccountsOutput, error)
+	ListRobotAccountsRequest(*ListRobotAccountsInput) (*request.Request, *ListRobotAccountsOutput)
+
 	ListTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -205,6 +229,22 @@ type CRAPI interface {
 	UpdateRepository(*UpdateRepositoryInput) (*UpdateRepositoryOutput, error)
 	UpdateRepositoryWithContext(volcengine.Context, *UpdateRepositoryInput, ...request.Option) (*UpdateRepositoryOutput, error)
 	UpdateRepositoryRequest(*UpdateRepositoryInput) (*request.Request, *UpdateRepositoryOutput)
+
+	UpdateRobotAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateRobotAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateRobotAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateRobotAccount(*UpdateRobotAccountInput) (*UpdateRobotAccountOutput, error)
+	UpdateRobotAccountWithContext(volcengine.Context, *UpdateRobotAccountInput, ...request.Option) (*UpdateRobotAccountOutput, error)
+	UpdateRobotAccountRequest(*UpdateRobotAccountInput) (*request.Request, *UpdateRobotAccountOutput)
+
+	UpdateRobotAccountPasswordCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateRobotAccountPasswordCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateRobotAccountPasswordCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateRobotAccountPassword(*UpdateRobotAccountPasswordInput) (*UpdateRobotAccountPasswordOutput, error)
+	UpdateRobotAccountPasswordWithContext(volcengine.Context, *UpdateRobotAccountPasswordInput, ...request.Option) (*UpdateRobotAccountPasswordOutput, error)
+	UpdateRobotAccountPasswordRequest(*UpdateRobotAccountPasswordInput) (*request.Request, *UpdateRobotAccountPasswordOutput)
 
 	UpdateVpcEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateVpcEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

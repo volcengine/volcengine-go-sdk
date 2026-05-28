@@ -153,7 +153,7 @@ type CreateRegistryInput struct {
 
 	Project *string `type:"string" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForCreateRegistryInput `type:"list" json:",omitempty"`
+	ResourceTags []*ResourceTagForCreateRegistryInput `type:"list"`
 
 	Type *string `type:"string" json:",omitempty"`
 }

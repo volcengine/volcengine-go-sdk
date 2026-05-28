@@ -558,13 +558,13 @@ type RestoreWindowForDescribeRestorableBranchesOutput struct {
 
 	BranchCreateTime *string `type:"string" json:",omitempty"`
 
-	BranchId *string `min:"2" max:"64" type:"string" json:",omitempty"`
+	BranchId *string `type:"string" json:",omitempty"`
 
 	EndTime *string `type:"string" json:",omitempty"`
 
 	StartTime *string `type:"string" json:",omitempty"`
 
-	WindowSizeSeconds *int32 `type:"int32" json:",omitempty"`
+	WindowSizeSeconds *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -602,7 +602,7 @@ func (s *RestoreWindowForDescribeRestorableBranchesOutput) SetStartTime(v string
 }
 
 // SetWindowSizeSeconds sets the WindowSizeSeconds field's value.
-func (s *RestoreWindowForDescribeRestorableBranchesOutput) SetWindowSizeSeconds(v int32) *RestoreWindowForDescribeRestorableBranchesOutput {
+func (s *RestoreWindowForDescribeRestorableBranchesOutput) SetWindowSizeSeconds(v int64) *RestoreWindowForDescribeRestorableBranchesOutput {
 	s.WindowSizeSeconds = &v
 	return s
 }
@@ -649,6 +649,9 @@ const (
 
 	// EnumOfBranchStatusForDescribeRestorableBranchesOutputRestarting is a EnumOfBranchStatusForDescribeRestorableBranchesOutput enum value
 	EnumOfBranchStatusForDescribeRestorableBranchesOutputRestarting = "Restarting"
+
+	// EnumOfBranchStatusForDescribeRestorableBranchesOutputUpdating is a EnumOfBranchStatusForDescribeRestorableBranchesOutput enum value
+	EnumOfBranchStatusForDescribeRestorableBranchesOutputUpdating = "Updating"
 )
 
 const (
@@ -675,6 +678,6 @@ const (
 	// EnumOfInitSourceForDescribeRestorableBranchesOutputParentData is a EnumOfInitSourceForDescribeRestorableBranchesOutput enum value
 	EnumOfInitSourceForDescribeRestorableBranchesOutputParentData = "ParentData"
 
-	// EnumOfInitSourceForDescribeRestorableBranchesOutputSchemeOnly is a EnumOfInitSourceForDescribeRestorableBranchesOutput enum value
-	EnumOfInitSourceForDescribeRestorableBranchesOutputSchemeOnly = "SchemeOnly"
+	// EnumOfInitSourceForDescribeRestorableBranchesOutputSchemaOnly is a EnumOfInitSourceForDescribeRestorableBranchesOutput enum value
+	EnumOfInitSourceForDescribeRestorableBranchesOutputSchemaOnly = "SchemaOnly"
 )

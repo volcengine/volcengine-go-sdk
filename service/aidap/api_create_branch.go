@@ -449,6 +449,8 @@ type ComputeSettingForCreateBranchInput struct {
 	AutoScalingLimitMinCU *float64 `type:"double" json:",omitempty"`
 
 	ComputeRole *string `type:"string" json:",omitempty" enum:"EnumOfComputeRoleForCreateBranchInput"`
+
+	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForCreateBranchInput"`
 }
 
 // String returns the string representation
@@ -476,6 +478,12 @@ func (s *ComputeSettingForCreateBranchInput) SetAutoScalingLimitMinCU(v float64)
 // SetComputeRole sets the ComputeRole field's value.
 func (s *ComputeSettingForCreateBranchInput) SetComputeRole(v string) *ComputeSettingForCreateBranchInput {
 	s.ComputeRole = &v
+	return s
+}
+
+// SetEnableAnalytics sets the EnableAnalytics field's value.
+func (s *ComputeSettingForCreateBranchInput) SetEnableAnalytics(v string) *ComputeSettingForCreateBranchInput {
+	s.EnableAnalytics = &v
 	return s
 }
 
@@ -659,6 +667,9 @@ const (
 
 	// EnumOfBranchStatusForCreateBranchOutputRestarting is a EnumOfBranchStatusForCreateBranchOutput enum value
 	EnumOfBranchStatusForCreateBranchOutputRestarting = "Restarting"
+
+	// EnumOfBranchStatusForCreateBranchOutputUpdating is a EnumOfBranchStatusForCreateBranchOutput enum value
+	EnumOfBranchStatusForCreateBranchOutputUpdating = "Updating"
 )
 
 const (
@@ -687,14 +698,22 @@ const (
 )
 
 const (
+	// EnumOfEnableAnalyticsForCreateBranchInputEnabled is a EnumOfEnableAnalyticsForCreateBranchInput enum value
+	EnumOfEnableAnalyticsForCreateBranchInputEnabled = "Enabled"
+
+	// EnumOfEnableAnalyticsForCreateBranchInputDisabled is a EnumOfEnableAnalyticsForCreateBranchInput enum value
+	EnumOfEnableAnalyticsForCreateBranchInputDisabled = "Disabled"
+)
+
+const (
 	// EnumOfInitSourceForCreateBranchInputNone is a EnumOfInitSourceForCreateBranchInput enum value
 	EnumOfInitSourceForCreateBranchInputNone = "None"
 
 	// EnumOfInitSourceForCreateBranchInputParentData is a EnumOfInitSourceForCreateBranchInput enum value
 	EnumOfInitSourceForCreateBranchInputParentData = "ParentData"
 
-	// EnumOfInitSourceForCreateBranchInputSchemeOnly is a EnumOfInitSourceForCreateBranchInput enum value
-	EnumOfInitSourceForCreateBranchInputSchemeOnly = "SchemeOnly"
+	// EnumOfInitSourceForCreateBranchInputSchemaOnly is a EnumOfInitSourceForCreateBranchInput enum value
+	EnumOfInitSourceForCreateBranchInputSchemaOnly = "SchemaOnly"
 )
 
 const (
@@ -704,6 +723,6 @@ const (
 	// EnumOfInitSourceForCreateBranchOutputParentData is a EnumOfInitSourceForCreateBranchOutput enum value
 	EnumOfInitSourceForCreateBranchOutputParentData = "ParentData"
 
-	// EnumOfInitSourceForCreateBranchOutputSchemeOnly is a EnumOfInitSourceForCreateBranchOutput enum value
-	EnumOfInitSourceForCreateBranchOutputSchemeOnly = "SchemeOnly"
+	// EnumOfInitSourceForCreateBranchOutputSchemaOnly is a EnumOfInitSourceForCreateBranchOutput enum value
+	EnumOfInitSourceForCreateBranchOutputSchemaOnly = "SchemaOnly"
 )

@@ -226,6 +226,8 @@ type DescribeInstancesInput struct {
 
 	ChargeType *string `type:"string" json:",omitempty"`
 
+	IgnoreBrokerInfo *bool `type:"boolean" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
@@ -246,7 +248,7 @@ type DescribeInstancesInput struct {
 
 	Spec *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForDescribeInstancesInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForDescribeInstancesInput `type:"list"`
 
 	Version *string `type:"string" json:",omitempty"`
 
@@ -284,6 +286,12 @@ func (s *DescribeInstancesInput) Validate() error {
 // SetChargeType sets the ChargeType field's value.
 func (s *DescribeInstancesInput) SetChargeType(v string) *DescribeInstancesInput {
 	s.ChargeType = &v
+	return s
+}
+
+// SetIgnoreBrokerInfo sets the IgnoreBrokerInfo field's value.
+func (s *DescribeInstancesInput) SetIgnoreBrokerInfo(v bool) *DescribeInstancesInput {
+	s.IgnoreBrokerInfo = &v
 	return s
 }
 
@@ -370,7 +378,7 @@ type DescribeInstancesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InstancesInfo []*InstancesInfoForDescribeInstancesOutput `type:"list" json:",omitempty"`
+	InstancesInfo []*InstancesInfoForDescribeInstancesOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
@@ -434,7 +442,11 @@ type InstancesInfoForDescribeInstancesOutput struct {
 
 	ApplyPrivateDNSToPublic *bool `type:"boolean" json:",omitempty"`
 
+	AvailableGroupNumber *int32 `type:"int32" json:",omitempty"`
+
 	AvailableQueueNumber *int32 `type:"int32" json:",omitempty"`
+
+	AvailableTopicNumber *int32 `type:"int32" json:",omitempty"`
 
 	ChargeDetail *ChargeDetailForDescribeInstancesOutput `type:"structure" json:",omitempty"`
 
@@ -443,6 +455,8 @@ type InstancesInfoForDescribeInstancesOutput struct {
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	EipId *string `type:"string" json:",omitempty"`
+
+	EnableInspect *bool `type:"boolean" json:",omitempty"`
 
 	EnableSSL *bool `type:"boolean" json:",omitempty"`
 
@@ -456,7 +470,9 @@ type InstancesInfoForDescribeInstancesOutput struct {
 
 	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	InstanceTags []*InstanceTagForDescribeInstancesOutput `type:"list" json:",omitempty"`
+	InstanceTags []*InstanceTagForDescribeInstancesOutput `type:"list"`
+
+	ProductVersion *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -464,9 +480,13 @@ type InstancesInfoForDescribeInstancesOutput struct {
 
 	SSLMode *string `type:"string" json:",omitempty"`
 
+	SendReceiveRatio *int32 `min:"1" max:"99" type:"int32" json:",omitempty"`
+
 	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	SubnetId *string `type:"string" json:",omitempty"`
+
+	TotalTps *int32 `type:"int32" json:",omitempty"`
 
 	UsedGroupNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -505,9 +525,21 @@ func (s *InstancesInfoForDescribeInstancesOutput) SetApplyPrivateDNSToPublic(v b
 	return s
 }
 
+// SetAvailableGroupNumber sets the AvailableGroupNumber field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetAvailableGroupNumber(v int32) *InstancesInfoForDescribeInstancesOutput {
+	s.AvailableGroupNumber = &v
+	return s
+}
+
 // SetAvailableQueueNumber sets the AvailableQueueNumber field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetAvailableQueueNumber(v int32) *InstancesInfoForDescribeInstancesOutput {
 	s.AvailableQueueNumber = &v
+	return s
+}
+
+// SetAvailableTopicNumber sets the AvailableTopicNumber field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetAvailableTopicNumber(v int32) *InstancesInfoForDescribeInstancesOutput {
+	s.AvailableTopicNumber = &v
 	return s
 }
 
@@ -532,6 +564,12 @@ func (s *InstancesInfoForDescribeInstancesOutput) SetCreateTime(v string) *Insta
 // SetEipId sets the EipId field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetEipId(v string) *InstancesInfoForDescribeInstancesOutput {
 	s.EipId = &v
+	return s
+}
+
+// SetEnableInspect sets the EnableInspect field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetEnableInspect(v bool) *InstancesInfoForDescribeInstancesOutput {
+	s.EnableInspect = &v
 	return s
 }
 
@@ -577,6 +615,12 @@ func (s *InstancesInfoForDescribeInstancesOutput) SetInstanceTags(v []*InstanceT
 	return s
 }
 
+// SetProductVersion sets the ProductVersion field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetProductVersion(v string) *InstancesInfoForDescribeInstancesOutput {
+	s.ProductVersion = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetProjectName(v string) *InstancesInfoForDescribeInstancesOutput {
 	s.ProjectName = &v
@@ -595,6 +639,12 @@ func (s *InstancesInfoForDescribeInstancesOutput) SetSSLMode(v string) *Instance
 	return s
 }
 
+// SetSendReceiveRatio sets the SendReceiveRatio field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetSendReceiveRatio(v int32) *InstancesInfoForDescribeInstancesOutput {
+	s.SendReceiveRatio = &v
+	return s
+}
+
 // SetStorageSpace sets the StorageSpace field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetStorageSpace(v int32) *InstancesInfoForDescribeInstancesOutput {
 	s.StorageSpace = &v
@@ -604,6 +654,12 @@ func (s *InstancesInfoForDescribeInstancesOutput) SetStorageSpace(v int32) *Inst
 // SetSubnetId sets the SubnetId field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetSubnetId(v string) *InstancesInfoForDescribeInstancesOutput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTotalTps sets the TotalTps field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetTotalTps(v int32) *InstancesInfoForDescribeInstancesOutput {
+	s.TotalTps = &v
 	return s
 }
 
@@ -654,7 +710,7 @@ type TagFilterForDescribeInstancesInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation

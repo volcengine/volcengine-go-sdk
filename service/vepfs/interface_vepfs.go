@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VEPFS.
 //    func myFunc(svc VEPFSAPI) bool {
-//        // Make svc.AttachMountServiceToSelfFileSystem request
+//        // Make svc.AddMountServiceClients request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type VEPFSAPI interface {
+	AddMountServiceClientsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddMountServiceClientsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddMountServiceClientsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddMountServiceClients(*AddMountServiceClientsInput) (*AddMountServiceClientsOutput, error)
+	AddMountServiceClientsWithContext(volcengine.Context, *AddMountServiceClientsInput, ...request.Option) (*AddMountServiceClientsOutput, error)
+	AddMountServiceClientsRequest(*AddMountServiceClientsInput) (*request.Request, *AddMountServiceClientsOutput)
+
 	AttachMountServiceToSelfFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachMountServiceToSelfFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AttachMountServiceToSelfFileSystemCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -262,6 +270,14 @@ type VEPFSAPI interface {
 	DescribeLensTasksWithContext(volcengine.Context, *DescribeLensTasksInput, ...request.Option) (*DescribeLensTasksOutput, error)
 	DescribeLensTasksRequest(*DescribeLensTasksInput) (*request.Request, *DescribeLensTasksOutput)
 
+	DescribeMountServiceClientsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeMountServiceClientsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeMountServiceClientsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeMountServiceClients(*DescribeMountServiceClientsInput) (*DescribeMountServiceClientsOutput, error)
+	DescribeMountServiceClientsWithContext(volcengine.Context, *DescribeMountServiceClientsInput, ...request.Option) (*DescribeMountServiceClientsOutput, error)
+	DescribeMountServiceClientsRequest(*DescribeMountServiceClientsInput) (*request.Request, *DescribeMountServiceClientsOutput)
+
 	DescribeMountServiceNodeTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeMountServiceNodeTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeMountServiceNodeTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -269,6 +285,22 @@ type VEPFSAPI interface {
 	DescribeMountServiceNodeTypes(*DescribeMountServiceNodeTypesInput) (*DescribeMountServiceNodeTypesOutput, error)
 	DescribeMountServiceNodeTypesWithContext(volcengine.Context, *DescribeMountServiceNodeTypesInput, ...request.Option) (*DescribeMountServiceNodeTypesOutput, error)
 	DescribeMountServiceNodeTypesRequest(*DescribeMountServiceNodeTypesInput) (*request.Request, *DescribeMountServiceNodeTypesOutput)
+
+	DescribeMountServiceTaskResultsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeMountServiceTaskResultsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeMountServiceTaskResultsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeMountServiceTaskResults(*DescribeMountServiceTaskResultsInput) (*DescribeMountServiceTaskResultsOutput, error)
+	DescribeMountServiceTaskResultsWithContext(volcengine.Context, *DescribeMountServiceTaskResultsInput, ...request.Option) (*DescribeMountServiceTaskResultsOutput, error)
+	DescribeMountServiceTaskResultsRequest(*DescribeMountServiceTaskResultsInput) (*request.Request, *DescribeMountServiceTaskResultsOutput)
+
+	DescribeMountServiceTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeMountServiceTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeMountServiceTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeMountServiceTasks(*DescribeMountServiceTasksInput) (*DescribeMountServiceTasksOutput, error)
+	DescribeMountServiceTasksWithContext(volcengine.Context, *DescribeMountServiceTasksInput, ...request.Option) (*DescribeMountServiceTasksOutput, error)
+	DescribeMountServiceTasksRequest(*DescribeMountServiceTasksInput) (*request.Request, *DescribeMountServiceTasksOutput)
 
 	DescribeMountServicesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeMountServicesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -317,6 +349,14 @@ type VEPFSAPI interface {
 	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
+	RemoveMountServiceClientsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveMountServiceClientsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveMountServiceClientsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveMountServiceClients(*RemoveMountServiceClientsInput) (*RemoveMountServiceClientsOutput, error)
+	RemoveMountServiceClientsWithContext(volcengine.Context, *RemoveMountServiceClientsInput, ...request.Option) (*RemoveMountServiceClientsOutput, error)
+	RemoveMountServiceClientsRequest(*RemoveMountServiceClientsInput) (*request.Request, *RemoveMountServiceClientsOutput)
 
 	SetFilesetQosCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetFilesetQosCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -429,6 +469,14 @@ type VEPFSAPI interface {
 	UpdateMountService(*UpdateMountServiceInput) (*UpdateMountServiceOutput, error)
 	UpdateMountServiceWithContext(volcengine.Context, *UpdateMountServiceInput, ...request.Option) (*UpdateMountServiceOutput, error)
 	UpdateMountServiceRequest(*UpdateMountServiceInput) (*request.Request, *UpdateMountServiceOutput)
+
+	VerifyMountServiceClientsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VerifyMountServiceClientsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VerifyMountServiceClientsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VerifyMountServiceClients(*VerifyMountServiceClientsInput) (*VerifyMountServiceClientsOutput, error)
+	VerifyMountServiceClientsWithContext(volcengine.Context, *VerifyMountServiceClientsInput, ...request.Option) (*VerifyMountServiceClientsOutput, error)
+	VerifyMountServiceClientsRequest(*VerifyMountServiceClientsInput) (*request.Request, *VerifyMountServiceClientsOutput)
 }
 
 var _ VEPFSAPI = (*VEPFS)(nil)

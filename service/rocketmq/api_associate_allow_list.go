@@ -146,9 +146,9 @@ func (c *ROCKETMQ) AssociateAllowListWithContext(ctx volcengine.Context, input *
 type AssociateAllowListInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list" json:",omitempty"`
+	AllowListIds []*string `type:"list"`
 
-	InstanceIds []*string `type:"list" json:",omitempty"`
+	InstanceIds []*string `type:"list"`
 }
 
 // String returns the string representation

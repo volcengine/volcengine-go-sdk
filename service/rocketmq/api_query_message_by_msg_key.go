@@ -304,7 +304,7 @@ type QueryMessageByMsgKeyOutput struct {
 
 	HasMoreMessage *bool `type:"boolean" json:",omitempty"`
 
-	MessageList []*MessageListForQueryMessageByMsgKeyOutput `type:"list" json:",omitempty"`
+	MessageList []*MessageListForQueryMessageByMsgKeyOutput `type:"list"`
 }
 
 // String returns the string representation

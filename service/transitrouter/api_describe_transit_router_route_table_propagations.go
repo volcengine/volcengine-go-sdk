@@ -252,6 +252,8 @@ type TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropaga
 
 	CreationTime *string `type:"string"`
 
+	PropagationGranularity *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	TransitRouterAttachmentId *string `type:"string"`
@@ -272,6 +274,12 @@ func (s TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTableProp
 // SetCreationTime sets the CreationTime field's value.
 func (s *TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput) SetCreationTime(v string) *TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput {
 	s.CreationTime = &v
+	return s
+}
+
+// SetPropagationGranularity sets the PropagationGranularity field's value.
+func (s *TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput) SetPropagationGranularity(v string) *TransitRouterRouteTablePropagationForDescribeTransitRouterRouteTablePropagationsOutput {
+	s.PropagationGranularity = &v
 	return s
 }
 

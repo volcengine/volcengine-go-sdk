@@ -148,7 +148,7 @@ type CreateEndpointAclPoliciesInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
-	Entries []*string `type:"list" json:",omitempty"`
+	Entries []*string `type:"list"`
 
 	// Registry is a required field
 	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`

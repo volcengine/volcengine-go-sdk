@@ -492,6 +492,8 @@ type KubernetesConfigForCreateDefaultNodePoolInput struct {
 
 	NameUseHostname *bool `type:"boolean" json:",omitempty"`
 
+	Runtime *RuntimeForCreateDefaultNodePoolInput `type:"structure" json:",omitempty"`
+
 	Taints []*TaintForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
 }
 
@@ -550,6 +552,12 @@ func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetNameSuffix(v string) 
 // SetNameUseHostname sets the NameUseHostname field's value.
 func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetNameUseHostname(v bool) *KubernetesConfigForCreateDefaultNodePoolInput {
 	s.NameUseHostname = &v
+	return s
+}
+
+// SetRuntime sets the Runtime field's value.
+func (s *KubernetesConfigForCreateDefaultNodePoolInput) SetRuntime(v *RuntimeForCreateDefaultNodePoolInput) *KubernetesConfigForCreateDefaultNodePoolInput {
+	s.Runtime = v
 	return s
 }
 
@@ -700,6 +708,36 @@ func (s *RegistryProxyConfigForCreateDefaultNodePoolInput) SetProxyEndpoints(v [
 // SetRegistry sets the Registry field's value.
 func (s *RegistryProxyConfigForCreateDefaultNodePoolInput) SetRegistry(v string) *RegistryProxyConfigForCreateDefaultNodePoolInput {
 	s.Registry = &v
+	return s
+}
+
+type RuntimeForCreateDefaultNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateDefaultNodePoolInput"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RuntimeForCreateDefaultNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuntimeForCreateDefaultNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetType sets the Type field's value.
+func (s *RuntimeForCreateDefaultNodePoolInput) SetType(v string) *RuntimeForCreateDefaultNodePoolInput {
+	s.Type = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *RuntimeForCreateDefaultNodePoolInput) SetVersion(v string) *RuntimeForCreateDefaultNodePoolInput {
+	s.Version = &v
 	return s
 }
 
@@ -914,4 +952,9 @@ const (
 
 	// EnumOfTopologyManagerScopeForCreateDefaultNodePoolInputContainer is a EnumOfTopologyManagerScopeForCreateDefaultNodePoolInput enum value
 	EnumOfTopologyManagerScopeForCreateDefaultNodePoolInputContainer = "container"
+)
+
+const (
+	// EnumOfTypeForCreateDefaultNodePoolInputContainerd is a EnumOfTypeForCreateDefaultNodePoolInput enum value
+	EnumOfTypeForCreateDefaultNodePoolInputContainerd = "containerd"
 )

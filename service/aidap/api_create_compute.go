@@ -166,7 +166,11 @@ type ComputeForCreateComputeOutput struct {
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
+	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForCreateComputeOutput"`
+
 	LastActiveTime *string `type:"string" json:",omitempty"`
+
+	ServiceType *string `type:"string" json:",omitempty" enum:"EnumOfServiceTypeForCreateComputeOutput"`
 
 	StatusChangedTime *string `type:"string" json:",omitempty"`
 
@@ -247,9 +251,21 @@ func (s *ComputeForCreateComputeOutput) SetDisabled(v bool) *ComputeForCreateCom
 	return s
 }
 
+// SetEnableAnalytics sets the EnableAnalytics field's value.
+func (s *ComputeForCreateComputeOutput) SetEnableAnalytics(v string) *ComputeForCreateComputeOutput {
+	s.EnableAnalytics = &v
+	return s
+}
+
 // SetLastActiveTime sets the LastActiveTime field's value.
 func (s *ComputeForCreateComputeOutput) SetLastActiveTime(v string) *ComputeForCreateComputeOutput {
 	s.LastActiveTime = &v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *ComputeForCreateComputeOutput) SetServiceType(v string) *ComputeForCreateComputeOutput {
+	s.ServiceType = &v
 	return s
 }
 
@@ -285,6 +301,8 @@ type ComputeSettingsForCreateComputeInput struct {
 	AutoScalingLimitMinCU *float64 `type:"double" json:",omitempty"`
 
 	ComputeRole *string `type:"string" json:",omitempty" enum:"EnumOfComputeRoleForCreateComputeInput"`
+
+	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForCreateComputeInput"`
 }
 
 // String returns the string representation
@@ -312,6 +330,12 @@ func (s *ComputeSettingsForCreateComputeInput) SetAutoScalingLimitMinCU(v float6
 // SetComputeRole sets the ComputeRole field's value.
 func (s *ComputeSettingsForCreateComputeInput) SetComputeRole(v string) *ComputeSettingsForCreateComputeInput {
 	s.ComputeRole = &v
+	return s
+}
+
+// SetEnableAnalytics sets the EnableAnalytics field's value.
+func (s *ComputeSettingsForCreateComputeInput) SetEnableAnalytics(v string) *ComputeSettingsForCreateComputeInput {
+	s.EnableAnalytics = &v
 	return s
 }
 
@@ -436,6 +460,9 @@ const (
 )
 
 const (
+	// EnumOfComputeRoleForCreateComputeOutputUnknown is a EnumOfComputeRoleForCreateComputeOutput enum value
+	EnumOfComputeRoleForCreateComputeOutputUnknown = "Unknown"
+
 	// EnumOfComputeRoleForCreateComputeOutputPrimary is a EnumOfComputeRoleForCreateComputeOutput enum value
 	EnumOfComputeRoleForCreateComputeOutputPrimary = "Primary"
 
@@ -502,4 +529,28 @@ const (
 
 	// EnumOfCreationSourceForCreateComputeOutputUitool is a EnumOfCreationSourceForCreateComputeOutput enum value
 	EnumOfCreationSourceForCreateComputeOutputUitool = "UITool"
+)
+
+const (
+	// EnumOfEnableAnalyticsForCreateComputeInputEnabled is a EnumOfEnableAnalyticsForCreateComputeInput enum value
+	EnumOfEnableAnalyticsForCreateComputeInputEnabled = "Enabled"
+
+	// EnumOfEnableAnalyticsForCreateComputeInputDisabled is a EnumOfEnableAnalyticsForCreateComputeInput enum value
+	EnumOfEnableAnalyticsForCreateComputeInputDisabled = "Disabled"
+)
+
+const (
+	// EnumOfEnableAnalyticsForCreateComputeOutputEnabled is a EnumOfEnableAnalyticsForCreateComputeOutput enum value
+	EnumOfEnableAnalyticsForCreateComputeOutputEnabled = "Enabled"
+
+	// EnumOfEnableAnalyticsForCreateComputeOutputDisabled is a EnumOfEnableAnalyticsForCreateComputeOutput enum value
+	EnumOfEnableAnalyticsForCreateComputeOutputDisabled = "Disabled"
+)
+
+const (
+	// EnumOfServiceTypeForCreateComputeOutputDatabase is a EnumOfServiceTypeForCreateComputeOutput enum value
+	EnumOfServiceTypeForCreateComputeOutputDatabase = "Database"
+
+	// EnumOfServiceTypeForCreateComputeOutputSupabase is a EnumOfServiceTypeForCreateComputeOutput enum value
+	EnumOfServiceTypeForCreateComputeOutputSupabase = "Supabase"
 )

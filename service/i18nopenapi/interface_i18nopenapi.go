@@ -638,6 +638,22 @@ type I18NOPENAPIAPI interface {
 	VideoEditorAddSpeakerWithContext(volcengine.Context, *VideoEditorAddSpeakerInput, ...request.Option) (*VideoEditorAddSpeakerOutput, error)
 	VideoEditorAddSpeakerRequest(*VideoEditorAddSpeakerInput) (*request.Request, *VideoEditorAddSpeakerOutput)
 
+	VideoEditorAddSubtitleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorAddSubtitleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorAddSubtitleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorAddSubtitle(*VideoEditorAddSubtitleInput) (*VideoEditorAddSubtitleOutput, error)
+	VideoEditorAddSubtitleWithContext(volcengine.Context, *VideoEditorAddSubtitleInput, ...request.Option) (*VideoEditorAddSubtitleOutput, error)
+	VideoEditorAddSubtitleRequest(*VideoEditorAddSubtitleInput) (*request.Request, *VideoEditorAddSubtitleOutput)
+
+	VideoEditorAiMTBySegmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorAiMTBySegmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorAiMTBySegmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorAiMTBySegment(*VideoEditorAiMTBySegmentInput) (*VideoEditorAiMTBySegmentOutput, error)
+	VideoEditorAiMTBySegmentWithContext(volcengine.Context, *VideoEditorAiMTBySegmentInput, ...request.Option) (*VideoEditorAiMTBySegmentOutput, error)
+	VideoEditorAiMTBySegmentRequest(*VideoEditorAiMTBySegmentInput) (*request.Request, *VideoEditorAiMTBySegmentOutput)
+
 	VideoEditorAsyncGenDubbingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoEditorAsyncGenDubbingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoEditorAsyncGenDubbingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -645,6 +661,22 @@ type I18NOPENAPIAPI interface {
 	VideoEditorAsyncGenDubbing(*VideoEditorAsyncGenDubbingInput) (*VideoEditorAsyncGenDubbingOutput, error)
 	VideoEditorAsyncGenDubbingWithContext(volcengine.Context, *VideoEditorAsyncGenDubbingInput, ...request.Option) (*VideoEditorAsyncGenDubbingOutput, error)
 	VideoEditorAsyncGenDubbingRequest(*VideoEditorAsyncGenDubbingInput) (*request.Request, *VideoEditorAsyncGenDubbingOutput)
+
+	VideoEditorBatchAddSubtitleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorBatchAddSubtitleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorBatchAddSubtitleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorBatchAddSubtitle(*VideoEditorBatchAddSubtitleInput) (*VideoEditorBatchAddSubtitleOutput, error)
+	VideoEditorBatchAddSubtitleWithContext(volcengine.Context, *VideoEditorBatchAddSubtitleInput, ...request.Option) (*VideoEditorBatchAddSubtitleOutput, error)
+	VideoEditorBatchAddSubtitleRequest(*VideoEditorBatchAddSubtitleInput) (*request.Request, *VideoEditorBatchAddSubtitleOutput)
+
+	VideoEditorBatchUpdateStyleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorBatchUpdateStyleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorBatchUpdateStyleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorBatchUpdateStyle(*VideoEditorBatchUpdateStyleInput) (*VideoEditorBatchUpdateStyleOutput, error)
+	VideoEditorBatchUpdateStyleWithContext(volcengine.Context, *VideoEditorBatchUpdateStyleInput, ...request.Option) (*VideoEditorBatchUpdateStyleOutput, error)
+	VideoEditorBatchUpdateStyleRequest(*VideoEditorBatchUpdateStyleInput) (*request.Request, *VideoEditorBatchUpdateStyleOutput)
 
 	VideoEditorDeleteEmotionTagCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoEditorDeleteEmotionTagCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -661,6 +693,22 @@ type I18NOPENAPIAPI interface {
 	VideoEditorDeleteSpeaker(*VideoEditorDeleteSpeakerInput) (*VideoEditorDeleteSpeakerOutput, error)
 	VideoEditorDeleteSpeakerWithContext(volcengine.Context, *VideoEditorDeleteSpeakerInput, ...request.Option) (*VideoEditorDeleteSpeakerOutput, error)
 	VideoEditorDeleteSpeakerRequest(*VideoEditorDeleteSpeakerInput) (*request.Request, *VideoEditorDeleteSpeakerOutput)
+
+	VideoEditorDeleteSubtitleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorDeleteSubtitleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorDeleteSubtitleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorDeleteSubtitle(*VideoEditorDeleteSubtitleInput) (*VideoEditorDeleteSubtitleOutput, error)
+	VideoEditorDeleteSubtitleWithContext(volcengine.Context, *VideoEditorDeleteSubtitleInput, ...request.Option) (*VideoEditorDeleteSubtitleOutput, error)
+	VideoEditorDeleteSubtitleRequest(*VideoEditorDeleteSubtitleInput) (*request.Request, *VideoEditorDeleteSubtitleOutput)
+
+	VideoEditorDownloadSubtitleFileUrlCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorDownloadSubtitleFileUrlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorDownloadSubtitleFileUrlCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorDownloadSubtitleFileUrl(*VideoEditorDownloadSubtitleFileUrlInput) (*VideoEditorDownloadSubtitleFileUrlOutput, error)
+	VideoEditorDownloadSubtitleFileUrlWithContext(volcengine.Context, *VideoEditorDownloadSubtitleFileUrlInput, ...request.Option) (*VideoEditorDownloadSubtitleFileUrlOutput, error)
+	VideoEditorDownloadSubtitleFileUrlRequest(*VideoEditorDownloadSubtitleFileUrlInput) (*request.Request, *VideoEditorDownloadSubtitleFileUrlOutput)
 
 	VideoEditorGenDubbingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoEditorGenDubbingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -694,6 +742,14 @@ type I18NOPENAPIAPI interface {
 	VideoEditorListSubtitlesWithContext(volcengine.Context, *VideoEditorListSubtitlesInput, ...request.Option) (*VideoEditorListSubtitlesOutput, error)
 	VideoEditorListSubtitlesRequest(*VideoEditorListSubtitlesInput) (*request.Request, *VideoEditorListSubtitlesOutput)
 
+	VideoEditorQueryAIMTBySegmentResultCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorQueryAIMTBySegmentResultCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorQueryAIMTBySegmentResultCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorQueryAIMTBySegmentResult(*VideoEditorQueryAIMTBySegmentResultInput) (*VideoEditorQueryAIMTBySegmentResultOutput, error)
+	VideoEditorQueryAIMTBySegmentResultWithContext(volcengine.Context, *VideoEditorQueryAIMTBySegmentResultInput, ...request.Option) (*VideoEditorQueryAIMTBySegmentResultOutput, error)
+	VideoEditorQueryAIMTBySegmentResultRequest(*VideoEditorQueryAIMTBySegmentResultInput) (*request.Request, *VideoEditorQueryAIMTBySegmentResultOutput)
+
 	VideoEditorQueryAsyncGenDubbingResultCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoEditorQueryAsyncGenDubbingResultCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoEditorQueryAsyncGenDubbingResultCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -726,6 +782,14 @@ type I18NOPENAPIAPI interface {
 	VideoEditorSyncSpeakerToSubTaskWithContext(volcengine.Context, *VideoEditorSyncSpeakerToSubTaskInput, ...request.Option) (*VideoEditorSyncSpeakerToSubTaskOutput, error)
 	VideoEditorSyncSpeakerToSubTaskRequest(*VideoEditorSyncSpeakerToSubTaskInput) (*request.Request, *VideoEditorSyncSpeakerToSubTaskOutput)
 
+	VideoEditorUpdateGlobalStyleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoEditorUpdateGlobalStyleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoEditorUpdateGlobalStyleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoEditorUpdateGlobalStyle(*VideoEditorUpdateGlobalStyleInput) (*VideoEditorUpdateGlobalStyleOutput, error)
+	VideoEditorUpdateGlobalStyleWithContext(volcengine.Context, *VideoEditorUpdateGlobalStyleInput, ...request.Option) (*VideoEditorUpdateGlobalStyleOutput, error)
+	VideoEditorUpdateGlobalStyleRequest(*VideoEditorUpdateGlobalStyleInput) (*request.Request, *VideoEditorUpdateGlobalStyleOutput)
+
 	VideoEditorUpdateSpeakerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoEditorUpdateSpeakerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoEditorUpdateSpeakerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -741,6 +805,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectCreate(*VideoProjectCreateInput) (*VideoProjectCreateOutput, error)
 	VideoProjectCreateWithContext(volcengine.Context, *VideoProjectCreateInput, ...request.Option) (*VideoProjectCreateOutput, error)
 	VideoProjectCreateRequest(*VideoProjectCreateInput) (*request.Request, *VideoProjectCreateOutput)
+
+	VideoProjectGetVideoUploadStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectGetVideoUploadStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectGetVideoUploadStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectGetVideoUploadStatus(*VideoProjectGetVideoUploadStatusInput) (*VideoProjectGetVideoUploadStatusOutput, error)
+	VideoProjectGetVideoUploadStatusWithContext(volcengine.Context, *VideoProjectGetVideoUploadStatusInput, ...request.Option) (*VideoProjectGetVideoUploadStatusOutput, error)
+	VideoProjectGetVideoUploadStatusRequest(*VideoProjectGetVideoUploadStatusInput) (*request.Request, *VideoProjectGetVideoUploadStatusOutput)
 
 	VideoProjectListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -797,6 +869,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectTaskList(*VideoProjectTaskListInput) (*VideoProjectTaskListOutput, error)
 	VideoProjectTaskListWithContext(volcengine.Context, *VideoProjectTaskListInput, ...request.Option) (*VideoProjectTaskListOutput, error)
 	VideoProjectTaskListRequest(*VideoProjectTaskListInput) (*request.Request, *VideoProjectTaskListOutput)
+
+	VideoProjectVideoUploadCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectVideoUploadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectVideoUploadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectVideoUpload(*VideoProjectVideoUploadInput) (*VideoProjectVideoUploadOutput, error)
+	VideoProjectVideoUploadWithContext(volcengine.Context, *VideoProjectVideoUploadInput, ...request.Option) (*VideoProjectVideoUploadOutput, error)
+	VideoProjectVideoUploadRequest(*VideoProjectVideoUploadInput) (*request.Request, *VideoProjectVideoUploadOutput)
 
 	VideoResourceUploadCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoResourceUploadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
