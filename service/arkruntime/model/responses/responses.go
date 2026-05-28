@@ -58,6 +58,9 @@ func (x ResponsesServiceTier_Enum) Enum() *ResponsesServiceTier_Enum {
 }
 
 func (x ResponsesServiceTier_Enum) String() string {
+	if name, ok := ResponsesServiceTier_Enum_name[int32(x)]; ok {
+		return name
+	}
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
