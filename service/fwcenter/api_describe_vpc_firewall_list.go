@@ -178,7 +178,7 @@ type DataForDescribeVpcFirewallListOutput struct {
 
 	TransitRouterName *string `type:"string" json:",omitempty"`
 
-	UpgradeProgress *float64 `type:"float" json:",omitempty"`
+	UpgradeProgress *float32 `type:"float" json:",omitempty"`
 
 	UpgradeStatus *string `type:"string" json:",omitempty"`
 
@@ -298,7 +298,7 @@ func (s *DataForDescribeVpcFirewallListOutput) SetTransitRouterName(v string) *D
 }
 
 // SetUpgradeProgress sets the UpgradeProgress field's value.
-func (s *DataForDescribeVpcFirewallListOutput) SetUpgradeProgress(v float64) *DataForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetUpgradeProgress(v float32) *DataForDescribeVpcFirewallListOutput {
 	s.UpgradeProgress = &v
 	return s
 }

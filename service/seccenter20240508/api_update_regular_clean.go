@@ -148,6 +148,8 @@ type UpdateRegularCleanInput struct {
 
 	CleanDays *int64 `type:"int64" json:",omitempty"`
 
+	CleanHours *int64 `type:"int64" json:",omitempty"`
+
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
@@ -164,6 +166,12 @@ func (s UpdateRegularCleanInput) GoString() string {
 // SetCleanDays sets the CleanDays field's value.
 func (s *UpdateRegularCleanInput) SetCleanDays(v int64) *UpdateRegularCleanInput {
 	s.CleanDays = &v
+	return s
+}
+
+// SetCleanHours sets the CleanHours field's value.
+func (s *UpdateRegularCleanInput) SetCleanHours(v int64) *UpdateRegularCleanInput {
+	s.CleanHours = &v
 	return s
 }
 

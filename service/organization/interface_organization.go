@@ -134,6 +134,14 @@ type ORGANIZATIONAPI interface {
 	DeleteServiceControlPolicyWithContext(volcengine.Context, *DeleteServiceControlPolicyInput, ...request.Option) (*DeleteServiceControlPolicyOutput, error)
 	DeleteServiceControlPolicyRequest(*DeleteServiceControlPolicyInput) (*request.Request, *DeleteServiceControlPolicyOutput)
 
+	DeregisterDelegatedAdministratorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeregisterDelegatedAdministratorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeregisterDelegatedAdministratorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeregisterDelegatedAdministrator(*DeregisterDelegatedAdministratorInput) (*DeregisterDelegatedAdministratorOutput, error)
+	DeregisterDelegatedAdministratorWithContext(volcengine.Context, *DeregisterDelegatedAdministratorInput, ...request.Option) (*DeregisterDelegatedAdministratorOutput, error)
+	DeregisterDelegatedAdministratorRequest(*DeregisterDelegatedAdministratorInput) (*request.Request, *DeregisterDelegatedAdministratorOutput)
+
 	DescribeAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -326,6 +334,14 @@ type ORGANIZATIONAPI interface {
 	ListTargetsForPolicyWithContext(volcengine.Context, *ListTargetsForPolicyInput, ...request.Option) (*ListTargetsForPolicyOutput, error)
 	ListTargetsForPolicyRequest(*ListTargetsForPolicyInput) (*request.Request, *ListTargetsForPolicyOutput)
 
+	ListTrustedServiceStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTrustedServiceStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTrustedServiceStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTrustedServiceStatus(*ListTrustedServiceStatusInput) (*ListTrustedServiceStatusOutput, error)
+	ListTrustedServiceStatusWithContext(volcengine.Context, *ListTrustedServiceStatusInput, ...request.Option) (*ListTrustedServiceStatusOutput, error)
+	ListTrustedServiceStatusRequest(*ListTrustedServiceStatusInput) (*request.Request, *ListTrustedServiceStatusOutput)
+
 	MoveAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	MoveAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	MoveAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -349,6 +365,14 @@ type ORGANIZATIONAPI interface {
 	ReInviteAccount(*ReInviteAccountInput) (*ReInviteAccountOutput, error)
 	ReInviteAccountWithContext(volcengine.Context, *ReInviteAccountInput, ...request.Option) (*ReInviteAccountOutput, error)
 	ReInviteAccountRequest(*ReInviteAccountInput) (*request.Request, *ReInviteAccountOutput)
+
+	RegisterDelegatedAdministratorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RegisterDelegatedAdministratorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RegisterDelegatedAdministratorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RegisterDelegatedAdministrator(*RegisterDelegatedAdministratorInput) (*RegisterDelegatedAdministratorOutput, error)
+	RegisterDelegatedAdministratorWithContext(volcengine.Context, *RegisterDelegatedAdministratorInput, ...request.Option) (*RegisterDelegatedAdministratorOutput, error)
+	RegisterDelegatedAdministratorRequest(*RegisterDelegatedAdministratorInput) (*request.Request, *RegisterDelegatedAdministratorOutput)
 
 	RejectInvitationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RejectInvitationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

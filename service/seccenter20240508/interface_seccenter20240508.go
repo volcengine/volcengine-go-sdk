@@ -86,6 +86,14 @@ type SECCENTER20240508API interface {
 	AddRaspConfigWithContext(volcengine.Context, *AddRaspConfigInput, ...request.Option) (*AddRaspConfigOutput, error)
 	AddRaspConfigRequest(*AddRaspConfigInput) (*request.Request, *AddRaspConfigOutput)
 
+	AddUserAutoDefenseRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddUserAutoDefenseRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddUserAutoDefenseRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddUserAutoDefenseRule(*AddUserAutoDefenseRuleInput) (*AddUserAutoDefenseRuleOutput, error)
+	AddUserAutoDefenseRuleWithContext(volcengine.Context, *AddUserAutoDefenseRuleInput, ...request.Option) (*AddUserAutoDefenseRuleOutput, error)
+	AddUserAutoDefenseRuleRequest(*AddUserAutoDefenseRuleInput) (*request.Request, *AddUserAutoDefenseRuleOutput)
+
 	AddWhiteListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddWhiteListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddWhiteListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -165,6 +173,14 @@ type SECCENTER20240508API interface {
 	BatchInstallVarmorApps(*BatchInstallVarmorAppsInput) (*BatchInstallVarmorAppsOutput, error)
 	BatchInstallVarmorAppsWithContext(volcengine.Context, *BatchInstallVarmorAppsInput, ...request.Option) (*BatchInstallVarmorAppsOutput, error)
 	BatchInstallVarmorAppsRequest(*BatchInstallVarmorAppsInput) (*request.Request, *BatchInstallVarmorAppsOutput)
+
+	BatchUnBanIPItemCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchUnBanIPItemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchUnBanIPItemCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchUnBanIPItem(*BatchUnBanIPItemInput) (*BatchUnBanIPItemOutput, error)
+	BatchUnBanIPItemWithContext(volcengine.Context, *BatchUnBanIPItemInput, ...request.Option) (*BatchUnBanIPItemOutput, error)
+	BatchUnBanIPItemRequest(*BatchUnBanIPItemInput) (*request.Request, *BatchUnBanIPItemOutput)
 
 	BatchUninstallVarmorAppsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BatchUninstallVarmorAppsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -397,6 +413,14 @@ type SECCENTER20240508API interface {
 	DeleteRaspConfig(*DeleteRaspConfigInput) (*DeleteRaspConfigOutput, error)
 	DeleteRaspConfigWithContext(volcengine.Context, *DeleteRaspConfigInput, ...request.Option) (*DeleteRaspConfigOutput, error)
 	DeleteRaspConfigRequest(*DeleteRaspConfigInput) (*request.Request, *DeleteRaspConfigOutput)
+
+	DeleteUserAutoDefenseRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteUserAutoDefenseRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteUserAutoDefenseRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteUserAutoDefenseRule(*DeleteUserAutoDefenseRuleInput) (*DeleteUserAutoDefenseRuleOutput, error)
+	DeleteUserAutoDefenseRuleWithContext(volcengine.Context, *DeleteUserAutoDefenseRuleInput, ...request.Option) (*DeleteUserAutoDefenseRuleOutput, error)
+	DeleteUserAutoDefenseRuleRequest(*DeleteUserAutoDefenseRuleInput) (*request.Request, *DeleteUserAutoDefenseRuleOutput)
 
 	DeleteWhiteListsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteWhiteListsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1030,6 +1054,14 @@ type SECCENTER20240508API interface {
 	GetDownloadStatusWithContext(volcengine.Context, *GetDownloadStatusInput, ...request.Option) (*GetDownloadStatusOutput, error)
 	GetDownloadStatusRequest(*GetDownloadStatusInput) (*request.Request, *GetDownloadStatusOutput)
 
+	GetFingerprintAIAppCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetFingerprintAIAppCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetFingerprintAIAppCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetFingerprintAIApp(*GetFingerprintAIAppInput) (*GetFingerprintAIAppOutput, error)
+	GetFingerprintAIAppWithContext(volcengine.Context, *GetFingerprintAIAppInput, ...request.Option) (*GetFingerprintAIAppOutput, error)
+	GetFingerprintAIAppRequest(*GetFingerprintAIAppInput) (*request.Request, *GetFingerprintAIAppOutput)
+
 	GetFingerprintAppCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetFingerprintAppCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetFingerprintAppCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1613,6 +1645,14 @@ type SECCENTER20240508API interface {
 	GetUserBatchScanStatus(*GetUserBatchScanStatusInput) (*GetUserBatchScanStatusOutput, error)
 	GetUserBatchScanStatusWithContext(volcengine.Context, *GetUserBatchScanStatusInput, ...request.Option) (*GetUserBatchScanStatusOutput, error)
 	GetUserBatchScanStatusRequest(*GetUserBatchScanStatusInput) (*request.Request, *GetUserBatchScanStatusOutput)
+
+	GetVarmorAuthInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVarmorAuthInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVarmorAuthInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVarmorAuthInfo(*GetVarmorAuthInfoInput) (*GetVarmorAuthInfoOutput, error)
+	GetVarmorAuthInfoWithContext(volcengine.Context, *GetVarmorAuthInfoInput, ...request.Option) (*GetVarmorAuthInfoOutput, error)
+	GetVarmorAuthInfoRequest(*GetVarmorAuthInfoInput) (*request.Request, *GetVarmorAuthInfoOutput)
 
 	GetVarmorConfigYAMLCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetVarmorConfigYAMLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -2637,6 +2677,14 @@ type SECCENTER20240508API interface {
 	ModifyTLSConfig(*ModifyTLSConfigInput) (*ModifyTLSConfigOutput, error)
 	ModifyTLSConfigWithContext(volcengine.Context, *ModifyTLSConfigInput, ...request.Option) (*ModifyTLSConfigOutput, error)
 	ModifyTLSConfigRequest(*ModifyTLSConfigInput) (*request.Request, *ModifyTLSConfigOutput)
+
+	ModifyUserAutoDefenseRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyUserAutoDefenseRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyUserAutoDefenseRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyUserAutoDefenseRule(*ModifyUserAutoDefenseRuleInput) (*ModifyUserAutoDefenseRuleOutput, error)
+	ModifyUserAutoDefenseRuleWithContext(volcengine.Context, *ModifyUserAutoDefenseRuleInput, ...request.Option) (*ModifyUserAutoDefenseRuleOutput, error)
+	ModifyUserAutoDefenseRuleRequest(*ModifyUserAutoDefenseRuleInput) (*request.Request, *ModifyUserAutoDefenseRuleOutput)
 
 	ModifyWhiteListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyWhiteListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

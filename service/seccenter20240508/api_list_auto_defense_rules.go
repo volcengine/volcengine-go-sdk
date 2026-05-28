@@ -156,6 +156,8 @@ type DataForListAutoDefenseRulesOutput struct {
 
 	Enable *bool `type:"boolean" json:",omitempty"`
 
+	HarmLevel *string `type:"string" json:",omitempty"`
+
 	Range *RangeForListAutoDefenseRulesOutput `type:"structure" json:",omitempty"`
 
 	RuleDesc *string `type:"string" json:",omitempty"`
@@ -169,6 +171,8 @@ type DataForListAutoDefenseRulesOutput struct {
 	UpdateTime *int64 `type:"int64" json:",omitempty"`
 
 	UpdateUser *string `type:"string" json:",omitempty"`
+
+	UserAutoDefenseRule *UserAutoDefenseRuleForListAutoDefenseRulesOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -211,6 +215,12 @@ func (s *DataForListAutoDefenseRulesOutput) SetEnable(v bool) *DataForListAutoDe
 	return s
 }
 
+// SetHarmLevel sets the HarmLevel field's value.
+func (s *DataForListAutoDefenseRulesOutput) SetHarmLevel(v string) *DataForListAutoDefenseRulesOutput {
+	s.HarmLevel = &v
+	return s
+}
+
 // SetRange sets the Range field's value.
 func (s *DataForListAutoDefenseRulesOutput) SetRange(v *RangeForListAutoDefenseRulesOutput) *DataForListAutoDefenseRulesOutput {
 	s.Range = v
@@ -250,6 +260,12 @@ func (s *DataForListAutoDefenseRulesOutput) SetUpdateTime(v int64) *DataForListA
 // SetUpdateUser sets the UpdateUser field's value.
 func (s *DataForListAutoDefenseRulesOutput) SetUpdateUser(v string) *DataForListAutoDefenseRulesOutput {
 	s.UpdateUser = &v
+	return s
+}
+
+// SetUserAutoDefenseRule sets the UserAutoDefenseRule field's value.
+func (s *DataForListAutoDefenseRulesOutput) SetUserAutoDefenseRule(v *UserAutoDefenseRuleForListAutoDefenseRulesOutput) *DataForListAutoDefenseRulesOutput {
+	s.UserAutoDefenseRule = v
 	return s
 }
 
@@ -316,6 +332,8 @@ type ListAutoDefenseRulesInput struct {
 	// PageSize is a required field
 	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
+	RuleScope *string `type:"string" json:",omitempty"`
+
 	SortBy *string `type:"string" json:",omitempty"`
 
 	SortOrder *string `type:"string" json:",omitempty"`
@@ -358,6 +376,12 @@ func (s *ListAutoDefenseRulesInput) SetPageNumber(v int64) *ListAutoDefenseRules
 // SetPageSize sets the PageSize field's value.
 func (s *ListAutoDefenseRulesInput) SetPageSize(v int64) *ListAutoDefenseRulesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetRuleScope sets the RuleScope field's value.
+func (s *ListAutoDefenseRulesInput) SetRuleScope(v string) *ListAutoDefenseRulesInput {
+	s.RuleScope = &v
 	return s
 }
 
@@ -478,5 +502,59 @@ func (s *RangeForListAutoDefenseRulesOutput) SetLeafGroupIDList(v []*string) *Ra
 // SetSingleGroupPath sets the SingleGroupPath field's value.
 func (s *RangeForListAutoDefenseRulesOutput) SetSingleGroupPath(v string) *RangeForListAutoDefenseRulesOutput {
 	s.SingleGroupPath = &v
+	return s
+}
+
+type UserAutoDefenseRuleForListAutoDefenseRulesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Argv *string `type:"string" json:",omitempty"`
+
+	Domain *string `type:"string" json:",omitempty"`
+
+	Exe *string `type:"string" json:",omitempty"`
+
+	ID *string `type:"string" json:",omitempty"`
+
+	M2MD5 *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s UserAutoDefenseRuleForListAutoDefenseRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UserAutoDefenseRuleForListAutoDefenseRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetArgv sets the Argv field's value.
+func (s *UserAutoDefenseRuleForListAutoDefenseRulesOutput) SetArgv(v string) *UserAutoDefenseRuleForListAutoDefenseRulesOutput {
+	s.Argv = &v
+	return s
+}
+
+// SetDomain sets the Domain field's value.
+func (s *UserAutoDefenseRuleForListAutoDefenseRulesOutput) SetDomain(v string) *UserAutoDefenseRuleForListAutoDefenseRulesOutput {
+	s.Domain = &v
+	return s
+}
+
+// SetExe sets the Exe field's value.
+func (s *UserAutoDefenseRuleForListAutoDefenseRulesOutput) SetExe(v string) *UserAutoDefenseRuleForListAutoDefenseRulesOutput {
+	s.Exe = &v
+	return s
+}
+
+// SetID sets the ID field's value.
+func (s *UserAutoDefenseRuleForListAutoDefenseRulesOutput) SetID(v string) *UserAutoDefenseRuleForListAutoDefenseRulesOutput {
+	s.ID = &v
+	return s
+}
+
+// SetM2MD5 sets the M2MD5 field's value.
+func (s *UserAutoDefenseRuleForListAutoDefenseRulesOutput) SetM2MD5(v string) *UserAutoDefenseRuleForListAutoDefenseRulesOutput {
+	s.M2MD5 = &v
 	return s
 }

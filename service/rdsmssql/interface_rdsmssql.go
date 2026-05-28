@@ -190,6 +190,14 @@ type RDSMSSQLAPI interface {
 	DescribeDBInstanceParametersWithContext(volcengine.Context, *DescribeDBInstanceParametersInput, ...request.Option) (*DescribeDBInstanceParametersOutput, error)
 	DescribeDBInstanceParametersRequest(*DescribeDBInstanceParametersInput) (*request.Request, *DescribeDBInstanceParametersOutput)
 
+	DescribeDBInstanceSSLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceSSLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceSSLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceSSL(*DescribeDBInstanceSSLInput) (*DescribeDBInstanceSSLOutput, error)
+	DescribeDBInstanceSSLWithContext(volcengine.Context, *DescribeDBInstanceSSLInput, ...request.Option) (*DescribeDBInstanceSSLOutput, error)
+	DescribeDBInstanceSSLRequest(*DescribeDBInstanceSSLInput) (*request.Request, *DescribeDBInstanceSSLOutput)
+
 	DescribeDBInstanceSpecsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceSpecsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceSpecsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -197,6 +205,14 @@ type RDSMSSQLAPI interface {
 	DescribeDBInstanceSpecs(*DescribeDBInstanceSpecsInput) (*DescribeDBInstanceSpecsOutput, error)
 	DescribeDBInstanceSpecsWithContext(volcengine.Context, *DescribeDBInstanceSpecsInput, ...request.Option) (*DescribeDBInstanceSpecsOutput, error)
 	DescribeDBInstanceSpecsRequest(*DescribeDBInstanceSpecsInput) (*request.Request, *DescribeDBInstanceSpecsOutput)
+
+	DescribeDBInstanceTDECommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceTDECommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceTDECommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceTDE(*DescribeDBInstanceTDEInput) (*DescribeDBInstanceTDEOutput, error)
+	DescribeDBInstanceTDEWithContext(volcengine.Context, *DescribeDBInstanceTDEInput, ...request.Option) (*DescribeDBInstanceTDEOutput, error)
+	DescribeDBInstanceTDERequest(*DescribeDBInstanceTDEInput) (*request.Request, *DescribeDBInstanceTDEOutput)
 
 	DescribeDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -254,6 +270,14 @@ type RDSMSSQLAPI interface {
 	DownloadBackupWithContext(volcengine.Context, *DownloadBackupInput, ...request.Option) (*DownloadBackupOutput, error)
 	DownloadBackupRequest(*DownloadBackupInput) (*request.Request, *DownloadBackupOutput)
 
+	DownloadSSLCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DownloadSSLCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DownloadSSLCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DownloadSSLCertificate(*DownloadSSLCertificateInput) (*DownloadSSLCertificateOutput, error)
+	DownloadSSLCertificateWithContext(volcengine.Context, *DownloadSSLCertificateInput, ...request.Option) (*DownloadSSLCertificateOutput, error)
+	DownloadSSLCertificateRequest(*DownloadSSLCertificateInput) (*request.Request, *DownloadSSLCertificateOutput)
+
 	GrantDBAccountPrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GrantDBAccountPrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GrantDBAccountPrivilegeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -309,6 +333,22 @@ type RDSMSSQLAPI interface {
 	ModifyDBInstanceName(*ModifyDBInstanceNameInput) (*ModifyDBInstanceNameOutput, error)
 	ModifyDBInstanceNameWithContext(volcengine.Context, *ModifyDBInstanceNameInput, ...request.Option) (*ModifyDBInstanceNameOutput, error)
 	ModifyDBInstanceNameRequest(*ModifyDBInstanceNameInput) (*request.Request, *ModifyDBInstanceNameOutput)
+
+	ModifyDBInstanceSSLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceSSLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceSSLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceSSL(*ModifyDBInstanceSSLInput) (*ModifyDBInstanceSSLOutput, error)
+	ModifyDBInstanceSSLWithContext(volcengine.Context, *ModifyDBInstanceSSLInput, ...request.Option) (*ModifyDBInstanceSSLOutput, error)
+	ModifyDBInstanceSSLRequest(*ModifyDBInstanceSSLInput) (*request.Request, *ModifyDBInstanceSSLOutput)
+
+	ModifyDBInstanceTDECommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceTDECommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceTDECommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceTDE(*ModifyDBInstanceTDEInput) (*ModifyDBInstanceTDEOutput, error)
+	ModifyDBInstanceTDEWithContext(volcengine.Context, *ModifyDBInstanceTDEInput, ...request.Option) (*ModifyDBInstanceTDEOutput, error)
+	ModifyDBInstanceTDERequest(*ModifyDBInstanceTDEInput) (*request.Request, *ModifyDBInstanceTDEOutput)
 
 	ModifyInstanceAdvancedFeaturesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceAdvancedFeaturesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

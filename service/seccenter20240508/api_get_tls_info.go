@@ -254,8 +254,6 @@ type GetTLSInfoOutput struct {
 
 	ProjectID *string `type:"string" json:",omitempty"`
 
-	ProjectId *string `type:"string" json:",omitempty"`
-
 	QuotaTotal *int64 `type:"int64" json:",omitempty"`
 
 	QuotaUsed *int64 `type:"int64" json:",omitempty"`
@@ -328,12 +326,6 @@ func (s *GetTLSInfoOutput) SetProcessStartTopicConfig(v *ProcessStartTopicConfig
 // SetProjectID sets the ProjectID field's value.
 func (s *GetTLSInfoOutput) SetProjectID(v string) *GetTLSInfoOutput {
 	s.ProjectID = &v
-	return s
-}
-
-// SetProjectId sets the ProjectId field's value.
-func (s *GetTLSInfoOutput) SetProjectId(v string) *GetTLSInfoOutput {
-	s.ProjectId = &v
 	return s
 }
 
