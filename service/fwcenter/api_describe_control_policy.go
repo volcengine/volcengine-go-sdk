@@ -180,7 +180,7 @@ type DataForDescribeControlPolicyOutput struct {
 
 	EffectStatus *int32 `type:"int32" json:",omitempty"`
 
-	EndTime *int32 `type:"int32" json:",omitempty"`
+	EndTime *int64 `type:"int64" json:",omitempty"`
 
 	HitCnt *int64 `type:"int64" json:",omitempty"`
 
@@ -334,7 +334,7 @@ func (s *DataForDescribeControlPolicyOutput) SetEffectStatus(v int32) *DataForDe
 }
 
 // SetEndTime sets the EndTime field's value.
-func (s *DataForDescribeControlPolicyOutput) SetEndTime(v int32) *DataForDescribeControlPolicyOutput {
+func (s *DataForDescribeControlPolicyOutput) SetEndTime(v int64) *DataForDescribeControlPolicyOutput {
 	s.EndTime = &v
 	return s
 }
