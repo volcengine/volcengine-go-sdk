@@ -362,6 +362,9 @@ func (p *TosStorage) InitDefault() {
 var TosStorage_Bucket_DEFAULT string
 
 func (p *TosStorage) GetBucket() (v string) {
+	if p == nil {
+		return TosStorage_Bucket_DEFAULT
+	}
 	if !p.IsSetBucket() {
 		return TosStorage_Bucket_DEFAULT
 	}
@@ -371,6 +374,9 @@ func (p *TosStorage) GetBucket() (v string) {
 var TosStorage_Prefix_DEFAULT string
 
 func (p *TosStorage) GetPrefix() (v string) {
+	if p == nil {
+		return TosStorage_Prefix_DEFAULT
+	}
 	if !p.IsSetPrefix() {
 		return TosStorage_Prefix_DEFAULT
 	}
@@ -380,6 +386,9 @@ func (p *TosStorage) GetPrefix() (v string) {
 var TosStorage_ObjectKey_DEFAULT string
 
 func (p *TosStorage) GetObjectKey() (v string) {
+	if p == nil {
+		return TosStorage_ObjectKey_DEFAULT
+	}
 	if !p.IsSetObjectKey() {
 		return TosStorage_ObjectKey_DEFAULT
 	}
@@ -387,14 +396,23 @@ func (p *TosStorage) GetObjectKey() (v string) {
 }
 
 func (p *TosStorage) IsSetBucket() bool {
+	if p == nil {
+		return false
+	}
 	return p.Bucket != nil
 }
 
 func (p *TosStorage) IsSetPrefix() bool {
+	if p == nil {
+		return false
+	}
 	return p.Prefix != nil
 }
 
 func (p *TosStorage) IsSetObjectKey() bool {
+	if p == nil {
+		return false
+	}
 	return p.ObjectKey != nil
 }
 
@@ -493,8 +511,7 @@ func (p *UploadFileRequest) String() string {
 }
 
 type RetrieveFileRequest struct {
-	ID                       string `thrift:"ID,1,required" json:"ID,required" path:"id,required"`
-	PreSignedURLExpiresAfter *int64 `thrift:"PreSignedURLExpiresAfter,2,optional" header:"X-Ark-PreSignedURL-ExpiresAfter" json:"PreSignedURLExpiresAfter,omitempty"`
+	ID string `thrift:"ID,1,required" json:"ID,required" path:"id,required"`
 }
 
 func NewRetrieveFileRequest() *RetrieveFileRequest {
@@ -506,19 +523,6 @@ func (p *RetrieveFileRequest) InitDefault() {
 
 func (p *RetrieveFileRequest) GetID() (v string) {
 	return p.ID
-}
-
-var RetrieveFileRequest_PreSignedURLExpiresAfter_DEFAULT int64
-
-func (p *RetrieveFileRequest) GetPreSignedURLExpiresAfter() (v int64) {
-	if !p.IsSetPreSignedURLExpiresAfter() {
-		return RetrieveFileRequest_PreSignedURLExpiresAfter_DEFAULT
-	}
-	return *p.PreSignedURLExpiresAfter
-}
-
-func (p *RetrieveFileRequest) IsSetPreSignedURLExpiresAfter() bool {
-	return p.PreSignedURLExpiresAfter != nil
 }
 
 func (p *RetrieveFileRequest) String() string {
