@@ -188,6 +188,8 @@ type UpdateResolverRuleInput struct {
 	RuleTrn *string `type:"string" json:",omitempty"`
 
 	Vpcs []*VpcForUpdateResolverRuleInput `type:"list" json:",omitempty"`
+
+	ZoneName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -246,6 +248,12 @@ func (s *UpdateResolverRuleInput) SetRuleTrn(v string) *UpdateResolverRuleInput 
 // SetVpcs sets the Vpcs field's value.
 func (s *UpdateResolverRuleInput) SetVpcs(v []*VpcForUpdateResolverRuleInput) *UpdateResolverRuleInput {
 	s.Vpcs = v
+	return s
+}
+
+// SetZoneName sets the ZoneName field's value.
+func (s *UpdateResolverRuleInput) SetZoneName(v string) *UpdateResolverRuleInput {
+	s.ZoneName = &v
 	return s
 }
 

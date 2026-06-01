@@ -38,6 +38,14 @@ type PRIVATEZONEAPI interface {
 	BatchCreateRecordWithContext(volcengine.Context, *BatchCreateRecordInput, ...request.Option) (*BatchCreateRecordOutput, error)
 	BatchCreateRecordRequest(*BatchCreateRecordInput) (*request.Request, *BatchCreateRecordOutput)
 
+	BatchDeleteCustomLineCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchDeleteCustomLineCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchDeleteCustomLineCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchDeleteCustomLine(*BatchDeleteCustomLineInput) (*BatchDeleteCustomLineOutput, error)
+	BatchDeleteCustomLineWithContext(volcengine.Context, *BatchDeleteCustomLineInput, ...request.Option) (*BatchDeleteCustomLineOutput, error)
+	BatchDeleteCustomLineRequest(*BatchDeleteCustomLineInput) (*request.Request, *BatchDeleteCustomLineOutput)
+
 	BatchDeleteRecordCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BatchDeleteRecordCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	BatchDeleteRecordCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +85,14 @@ type PRIVATEZONEAPI interface {
 	CreateAuthorizedUser(*CreateAuthorizedUserInput) (*CreateAuthorizedUserOutput, error)
 	CreateAuthorizedUserWithContext(volcengine.Context, *CreateAuthorizedUserInput, ...request.Option) (*CreateAuthorizedUserOutput, error)
 	CreateAuthorizedUserRequest(*CreateAuthorizedUserInput) (*request.Request, *CreateAuthorizedUserOutput)
+
+	CreateCustomLineCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateCustomLineCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateCustomLineCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateCustomLine(*CreateCustomLineInput) (*CreateCustomLineOutput, error)
+	CreateCustomLineWithContext(volcengine.Context, *CreateCustomLineInput, ...request.Option) (*CreateCustomLineOutput, error)
+	CreateCustomLineRequest(*CreateCustomLineInput) (*request.Request, *CreateCustomLineOutput)
 
 	CreatePrivateZoneCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreatePrivateZoneCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -182,6 +198,14 @@ type PRIVATEZONEAPI interface {
 	ListAuthorizedUsersWithContext(volcengine.Context, *ListAuthorizedUsersInput, ...request.Option) (*ListAuthorizedUsersOutput, error)
 	ListAuthorizedUsersRequest(*ListAuthorizedUsersInput) (*request.Request, *ListAuthorizedUsersOutput)
 
+	ListAvailabilityZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAvailabilityZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAvailabilityZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAvailabilityZones(*ListAvailabilityZonesInput) (*ListAvailabilityZonesOutput, error)
+	ListAvailabilityZonesWithContext(volcengine.Context, *ListAvailabilityZonesInput, ...request.Option) (*ListAvailabilityZonesOutput, error)
+	ListAvailabilityZonesRequest(*ListAvailabilityZonesInput) (*request.Request, *ListAvailabilityZonesOutput)
+
 	ListBindVPCCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListBindVPCCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListBindVPCCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -189,6 +213,14 @@ type PRIVATEZONEAPI interface {
 	ListBindVPC(*ListBindVPCInput) (*ListBindVPCOutput, error)
 	ListBindVPCWithContext(volcengine.Context, *ListBindVPCInput, ...request.Option) (*ListBindVPCOutput, error)
 	ListBindVPCRequest(*ListBindVPCInput) (*request.Request, *ListBindVPCOutput)
+
+	ListCustomLinesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListCustomLinesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListCustomLinesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListCustomLines(*ListCustomLinesInput) (*ListCustomLinesOutput, error)
+	ListCustomLinesWithContext(volcengine.Context, *ListCustomLinesInput, ...request.Option) (*ListCustomLinesOutput, error)
+	ListCustomLinesRequest(*ListCustomLinesInput) (*request.Request, *ListCustomLinesOutput)
 
 	ListPrivateZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListPrivateZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -205,6 +237,14 @@ type PRIVATEZONEAPI interface {
 	ListRecordAttributes(*ListRecordAttributesInput) (*ListRecordAttributesOutput, error)
 	ListRecordAttributesWithContext(volcengine.Context, *ListRecordAttributesInput, ...request.Option) (*ListRecordAttributesOutput, error)
 	ListRecordAttributesRequest(*ListRecordAttributesInput) (*request.Request, *ListRecordAttributesOutput)
+
+	ListRecordDigestByLineCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRecordDigestByLineCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRecordDigestByLineCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRecordDigestByLine(*ListRecordDigestByLineInput) (*ListRecordDigestByLineOutput, error)
+	ListRecordDigestByLineWithContext(volcengine.Context, *ListRecordDigestByLineInput, ...request.Option) (*ListRecordDigestByLineOutput, error)
+	ListRecordDigestByLineRequest(*ListRecordDigestByLineInput) (*request.Request, *ListRecordDigestByLineOutput)
 
 	ListRecordSetsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListRecordSetsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -357,6 +397,14 @@ type PRIVATEZONEAPI interface {
 	UpdateBindVPC(*UpdateBindVPCInput) (*UpdateBindVPCOutput, error)
 	UpdateBindVPCWithContext(volcengine.Context, *UpdateBindVPCInput, ...request.Option) (*UpdateBindVPCOutput, error)
 	UpdateBindVPCRequest(*UpdateBindVPCInput) (*request.Request, *UpdateBindVPCOutput)
+
+	UpdateCustomLineCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateCustomLineCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateCustomLineCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateCustomLine(*UpdateCustomLineInput) (*UpdateCustomLineOutput, error)
+	UpdateCustomLineWithContext(volcengine.Context, *UpdateCustomLineInput, ...request.Option) (*UpdateCustomLineOutput, error)
+	UpdateCustomLineRequest(*UpdateCustomLineInput) (*request.Request, *UpdateCustomLineOutput)
 
 	UpdateEcsHostSyncTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateEcsHostSyncTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
