@@ -140,7 +140,7 @@ func (c *Client) SetAiccInit() error {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("AiccList %s, %s, %s, %s, %s\n", aiccTopAddr, serAccID, serPolicyID, serServiceName, serTrnInfo)
+	// fmt.Printf("AiccList %s, %s, %s, %s, %s\n", aiccTopAddr, serAccID, serPolicyID, serServiceName, serTrnInfo)
 
 	aiccRfTick := float64(1800)
 	aiccSerAddr := c.url
