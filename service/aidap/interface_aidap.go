@@ -102,6 +102,14 @@ type AIDAPAPI interface {
 	CreateEndpointPublicAddressWithContext(volcengine.Context, *CreateEndpointPublicAddressInput, ...request.Option) (*CreateEndpointPublicAddressOutput, error)
 	CreateEndpointPublicAddressRequest(*CreateEndpointPublicAddressInput) (*request.Request, *CreateEndpointPublicAddressOutput)
 
+	CreateSchemaDiffCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSchemaDiffCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSchemaDiffCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSchemaDiff(*CreateSchemaDiffInput) (*CreateSchemaDiffOutput, error)
+	CreateSchemaDiffWithContext(volcengine.Context, *CreateSchemaDiffInput, ...request.Option) (*CreateSchemaDiffOutput, error)
+	CreateSchemaDiffRequest(*CreateSchemaDiffInput) (*request.Request, *CreateSchemaDiffOutput)
+
 	CreateWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateWorkspaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -174,14 +182,6 @@ type AIDAPAPI interface {
 	DescribeAccessControlListWithContext(volcengine.Context, *DescribeAccessControlListInput, ...request.Option) (*DescribeAccessControlListOutput, error)
 	DescribeAccessControlListRequest(*DescribeAccessControlListInput) (*request.Request, *DescribeAccessControlListOutput)
 
-	DescribeBranchAIFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeBranchAIFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeBranchAIFunctionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeBranchAIFunction(*DescribeBranchAIFunctionInput) (*DescribeBranchAIFunctionOutput, error)
-	DescribeBranchAIFunctionWithContext(volcengine.Context, *DescribeBranchAIFunctionInput, ...request.Option) (*DescribeBranchAIFunctionOutput, error)
-	DescribeBranchAIFunctionRequest(*DescribeBranchAIFunctionInput) (*request.Request, *DescribeBranchAIFunctionOutput)
-
 	DescribeBranchDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeBranchDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeBranchDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -190,6 +190,14 @@ type AIDAPAPI interface {
 	DescribeBranchDetailWithContext(volcengine.Context, *DescribeBranchDetailInput, ...request.Option) (*DescribeBranchDetailOutput, error)
 	DescribeBranchDetailRequest(*DescribeBranchDetailInput) (*request.Request, *DescribeBranchDetailOutput)
 
+	DescribeBranchSchemaNamesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBranchSchemaNamesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBranchSchemaNamesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBranchSchemaNames(*DescribeBranchSchemaNamesInput) (*DescribeBranchSchemaNamesOutput, error)
+	DescribeBranchSchemaNamesWithContext(volcengine.Context, *DescribeBranchSchemaNamesInput, ...request.Option) (*DescribeBranchSchemaNamesOutput, error)
+	DescribeBranchSchemaNamesRequest(*DescribeBranchSchemaNamesInput) (*request.Request, *DescribeBranchSchemaNamesOutput)
+
 	DescribeBranchesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeBranchesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeBranchesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -197,6 +205,22 @@ type AIDAPAPI interface {
 	DescribeBranches(*DescribeBranchesInput) (*DescribeBranchesOutput, error)
 	DescribeBranchesWithContext(volcengine.Context, *DescribeBranchesInput, ...request.Option) (*DescribeBranchesOutput, error)
 	DescribeBranchesRequest(*DescribeBranchesInput) (*request.Request, *DescribeBranchesOutput)
+
+	DescribeBranchesListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBranchesListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBranchesListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBranchesList(*DescribeBranchesListInput) (*DescribeBranchesListOutput, error)
+	DescribeBranchesListWithContext(volcengine.Context, *DescribeBranchesListInput, ...request.Option) (*DescribeBranchesListOutput, error)
+	DescribeBranchesListRequest(*DescribeBranchesListInput) (*request.Request, *DescribeBranchesListOutput)
+
+	DescribeChargeInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeChargeInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeChargeInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeChargeInfo(*DescribeChargeInfoInput) (*DescribeChargeInfoOutput, error)
+	DescribeChargeInfoWithContext(volcengine.Context, *DescribeChargeInfoInput, ...request.Option) (*DescribeChargeInfoOutput, error)
+	DescribeChargeInfoRequest(*DescribeChargeInfoInput) (*request.Request, *DescribeChargeInfoOutput)
 
 	DescribeChildBranchesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeChildBranchesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -254,6 +278,14 @@ type AIDAPAPI interface {
 	DescribeDefaultBranchWithContext(volcengine.Context, *DescribeDefaultBranchInput, ...request.Option) (*DescribeDefaultBranchOutput, error)
 	DescribeDefaultBranchRequest(*DescribeDefaultBranchInput) (*request.Request, *DescribeDefaultBranchOutput)
 
+	DescribeDefaultBranchListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDefaultBranchListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDefaultBranchListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDefaultBranchList(*DescribeDefaultBranchListInput) (*DescribeDefaultBranchListOutput, error)
+	DescribeDefaultBranchListWithContext(volcengine.Context, *DescribeDefaultBranchListInput, ...request.Option) (*DescribeDefaultBranchListOutput, error)
+	DescribeDefaultBranchListRequest(*DescribeDefaultBranchListInput) (*request.Request, *DescribeDefaultBranchListOutput)
+
 	DescribeOperationsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeOperationsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeOperationsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -270,6 +302,46 @@ type AIDAPAPI interface {
 	DescribeRestorableBranchesWithContext(volcengine.Context, *DescribeRestorableBranchesInput, ...request.Option) (*DescribeRestorableBranchesOutput, error)
 	DescribeRestorableBranchesRequest(*DescribeRestorableBranchesInput) (*request.Request, *DescribeRestorableBranchesOutput)
 
+	DescribeSchemaDiffJobStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSchemaDiffJobStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSchemaDiffJobStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSchemaDiffJobStatus(*DescribeSchemaDiffJobStatusInput) (*DescribeSchemaDiffJobStatusOutput, error)
+	DescribeSchemaDiffJobStatusWithContext(volcengine.Context, *DescribeSchemaDiffJobStatusInput, ...request.Option) (*DescribeSchemaDiffJobStatusOutput, error)
+	DescribeSchemaDiffJobStatusRequest(*DescribeSchemaDiffJobStatusInput) (*request.Request, *DescribeSchemaDiffJobStatusOutput)
+
+	DescribeSchemaDiffResultMetaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSchemaDiffResultMetaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSchemaDiffResultMetaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSchemaDiffResultMeta(*DescribeSchemaDiffResultMetaInput) (*DescribeSchemaDiffResultMetaOutput, error)
+	DescribeSchemaDiffResultMetaWithContext(volcengine.Context, *DescribeSchemaDiffResultMetaInput, ...request.Option) (*DescribeSchemaDiffResultMetaOutput, error)
+	DescribeSchemaDiffResultMetaRequest(*DescribeSchemaDiffResultMetaInput) (*request.Request, *DescribeSchemaDiffResultMetaOutput)
+
+	DescribeSchemaDiffResultSQLTextCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSchemaDiffResultSQLTextCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSchemaDiffResultSQLTextCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSchemaDiffResultSQLText(*DescribeSchemaDiffResultSQLTextInput) (*DescribeSchemaDiffResultSQLTextOutput, error)
+	DescribeSchemaDiffResultSQLTextWithContext(volcengine.Context, *DescribeSchemaDiffResultSQLTextInput, ...request.Option) (*DescribeSchemaDiffResultSQLTextOutput, error)
+	DescribeSchemaDiffResultSQLTextRequest(*DescribeSchemaDiffResultSQLTextInput) (*request.Request, *DescribeSchemaDiffResultSQLTextOutput)
+
+	DescribeSchemaDiffResultSQLTextAllCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSchemaDiffResultSQLTextAllCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSchemaDiffResultSQLTextAllCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSchemaDiffResultSQLTextAll(*DescribeSchemaDiffResultSQLTextAllInput) (*DescribeSchemaDiffResultSQLTextAllOutput, error)
+	DescribeSchemaDiffResultSQLTextAllWithContext(volcengine.Context, *DescribeSchemaDiffResultSQLTextAllInput, ...request.Option) (*DescribeSchemaDiffResultSQLTextAllOutput, error)
+	DescribeSchemaDiffResultSQLTextAllRequest(*DescribeSchemaDiffResultSQLTextAllInput) (*request.Request, *DescribeSchemaDiffResultSQLTextAllOutput)
+
+	DescribeSupabaseDeployEnvVarsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSupabaseDeployEnvVarsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSupabaseDeployEnvVarsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSupabaseDeployEnvVars(*DescribeSupabaseDeployEnvVarsInput) (*DescribeSupabaseDeployEnvVarsOutput, error)
+	DescribeSupabaseDeployEnvVarsWithContext(volcengine.Context, *DescribeSupabaseDeployEnvVarsInput, ...request.Option) (*DescribeSupabaseDeployEnvVarsOutput, error)
+	DescribeSupabaseDeployEnvVarsRequest(*DescribeSupabaseDeployEnvVarsInput) (*request.Request, *DescribeSupabaseDeployEnvVarsOutput)
+
 	DescribeWorkspaceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeWorkspaceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeWorkspaceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -278,6 +350,14 @@ type AIDAPAPI interface {
 	DescribeWorkspaceDetailWithContext(volcengine.Context, *DescribeWorkspaceDetailInput, ...request.Option) (*DescribeWorkspaceDetailOutput, error)
 	DescribeWorkspaceDetailRequest(*DescribeWorkspaceDetailInput) (*request.Request, *DescribeWorkspaceDetailOutput)
 
+	DescribeWorkspaceDetailListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeWorkspaceDetailListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeWorkspaceDetailListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeWorkspaceDetailList(*DescribeWorkspaceDetailListInput) (*DescribeWorkspaceDetailListOutput, error)
+	DescribeWorkspaceDetailListWithContext(volcengine.Context, *DescribeWorkspaceDetailListInput, ...request.Option) (*DescribeWorkspaceDetailListOutput, error)
+	DescribeWorkspaceDetailListRequest(*DescribeWorkspaceDetailListInput) (*request.Request, *DescribeWorkspaceDetailListOutput)
+
 	DescribeWorkspaceEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeWorkspaceEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeWorkspaceEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -285,6 +365,14 @@ type AIDAPAPI interface {
 	DescribeWorkspaceEndpoint(*DescribeWorkspaceEndpointInput) (*DescribeWorkspaceEndpointOutput, error)
 	DescribeWorkspaceEndpointWithContext(volcengine.Context, *DescribeWorkspaceEndpointInput, ...request.Option) (*DescribeWorkspaceEndpointOutput, error)
 	DescribeWorkspaceEndpointRequest(*DescribeWorkspaceEndpointInput) (*request.Request, *DescribeWorkspaceEndpointOutput)
+
+	DescribeWorkspaceEndpointListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeWorkspaceEndpointListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeWorkspaceEndpointListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeWorkspaceEndpointList(*DescribeWorkspaceEndpointListInput) (*DescribeWorkspaceEndpointListOutput, error)
+	DescribeWorkspaceEndpointListWithContext(volcengine.Context, *DescribeWorkspaceEndpointListInput, ...request.Option) (*DescribeWorkspaceEndpointListOutput, error)
+	DescribeWorkspaceEndpointListRequest(*DescribeWorkspaceEndpointListInput) (*request.Request, *DescribeWorkspaceEndpointListOutput)
 
 	DescribeWorkspaceOverviewCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeWorkspaceOverviewCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -310,14 +398,6 @@ type AIDAPAPI interface {
 	DropDatabaseWithContext(volcengine.Context, *DropDatabaseInput, ...request.Option) (*DropDatabaseOutput, error)
 	DropDatabaseRequest(*DropDatabaseInput) (*request.Request, *DropDatabaseOutput)
 
-	EnableBranchAIFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	EnableBranchAIFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	EnableBranchAIFunctionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	EnableBranchAIFunction(*EnableBranchAIFunctionInput) (*EnableBranchAIFunctionOutput, error)
-	EnableBranchAIFunctionWithContext(volcengine.Context, *EnableBranchAIFunctionInput, ...request.Option) (*EnableBranchAIFunctionOutput, error)
-	EnableBranchAIFunctionRequest(*EnableBranchAIFunctionInput) (*request.Request, *EnableBranchAIFunctionOutput)
-
 	GetRestoreWindowCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetRestoreWindowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetRestoreWindowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -325,6 +405,14 @@ type AIDAPAPI interface {
 	GetRestoreWindow(*GetRestoreWindowInput) (*GetRestoreWindowOutput, error)
 	GetRestoreWindowWithContext(volcengine.Context, *GetRestoreWindowInput, ...request.Option) (*GetRestoreWindowOutput, error)
 	GetRestoreWindowRequest(*GetRestoreWindowInput) (*request.Request, *GetRestoreWindowOutput)
+
+	GetSchemaDiffResultDownloadLinkCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSchemaDiffResultDownloadLinkCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSchemaDiffResultDownloadLinkCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSchemaDiffResultDownloadLink(*GetSchemaDiffResultDownloadLinkInput) (*GetSchemaDiffResultDownloadLinkOutput, error)
+	GetSchemaDiffResultDownloadLinkWithContext(volcengine.Context, *GetSchemaDiffResultDownloadLinkInput, ...request.Option) (*GetSchemaDiffResultDownloadLinkOutput, error)
+	GetSchemaDiffResultDownloadLinkRequest(*GetSchemaDiffResultDownloadLinkInput) (*request.Request, *GetSchemaDiffResultDownloadLinkOutput)
 
 	ListWorkspaceUsageTopCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListWorkspaceUsageTopCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -342,13 +430,13 @@ type AIDAPAPI interface {
 	ModifyAccessControlListWithContext(volcengine.Context, *ModifyAccessControlListInput, ...request.Option) (*ModifyAccessControlListOutput, error)
 	ModifyAccessControlListRequest(*ModifyAccessControlListInput) (*request.Request, *ModifyAccessControlListOutput)
 
-	ModifyBranchAIFunctionSettingsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyBranchAIFunctionSettingsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyBranchAIFunctionSettingsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ModifyComputeAnalyticPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyComputeAnalyticPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyComputeAnalyticPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	ModifyBranchAIFunctionSettings(*ModifyBranchAIFunctionSettingsInput) (*ModifyBranchAIFunctionSettingsOutput, error)
-	ModifyBranchAIFunctionSettingsWithContext(volcengine.Context, *ModifyBranchAIFunctionSettingsInput, ...request.Option) (*ModifyBranchAIFunctionSettingsOutput, error)
-	ModifyBranchAIFunctionSettingsRequest(*ModifyBranchAIFunctionSettingsInput) (*request.Request, *ModifyBranchAIFunctionSettingsOutput)
+	ModifyComputeAnalyticPolicy(*ModifyComputeAnalyticPolicyInput) (*ModifyComputeAnalyticPolicyOutput, error)
+	ModifyComputeAnalyticPolicyWithContext(volcengine.Context, *ModifyComputeAnalyticPolicyInput, ...request.Option) (*ModifyComputeAnalyticPolicyOutput, error)
+	ModifyComputeAnalyticPolicyRequest(*ModifyComputeAnalyticPolicyInput) (*request.Request, *ModifyComputeAnalyticPolicyOutput)
 
 	ModifyComputeNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyComputeNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -381,14 +469,6 @@ type AIDAPAPI interface {
 	ModifyVpcSettings(*ModifyVpcSettingsInput) (*ModifyVpcSettingsOutput, error)
 	ModifyVpcSettingsWithContext(volcengine.Context, *ModifyVpcSettingsInput, ...request.Option) (*ModifyVpcSettingsOutput, error)
 	ModifyVpcSettingsRequest(*ModifyVpcSettingsInput) (*request.Request, *ModifyVpcSettingsOutput)
-
-	ModifyWorkspaceAIModelSettingsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyWorkspaceAIModelSettingsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyWorkspaceAIModelSettingsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyWorkspaceAIModelSettings(*ModifyWorkspaceAIModelSettingsInput) (*ModifyWorkspaceAIModelSettingsOutput, error)
-	ModifyWorkspaceAIModelSettingsWithContext(volcengine.Context, *ModifyWorkspaceAIModelSettingsInput, ...request.Option) (*ModifyWorkspaceAIModelSettingsOutput, error)
-	ModifyWorkspaceAIModelSettingsRequest(*ModifyWorkspaceAIModelSettingsInput) (*request.Request, *ModifyWorkspaceAIModelSettingsOutput)
 
 	ModifyWorkspaceDeletionProtectionPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyWorkspaceDeletionProtectionPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

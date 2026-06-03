@@ -166,7 +166,7 @@ type ComputeForCreateComputeOutput struct {
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
-	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForCreateComputeOutput"`
+	EnableAnalytic *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticForCreateComputeOutput"`
 
 	LastActiveTime *string `type:"string" json:",omitempty"`
 
@@ -251,9 +251,9 @@ func (s *ComputeForCreateComputeOutput) SetDisabled(v bool) *ComputeForCreateCom
 	return s
 }
 
-// SetEnableAnalytics sets the EnableAnalytics field's value.
-func (s *ComputeForCreateComputeOutput) SetEnableAnalytics(v string) *ComputeForCreateComputeOutput {
-	s.EnableAnalytics = &v
+// SetEnableAnalytic sets the EnableAnalytic field's value.
+func (s *ComputeForCreateComputeOutput) SetEnableAnalytic(v string) *ComputeForCreateComputeOutput {
+	s.EnableAnalytic = &v
 	return s
 }
 
@@ -302,7 +302,7 @@ type ComputeSettingsForCreateComputeInput struct {
 
 	ComputeRole *string `type:"string" json:",omitempty" enum:"EnumOfComputeRoleForCreateComputeInput"`
 
-	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForCreateComputeInput"`
+	EnableAnalytic *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticForCreateComputeInput"`
 }
 
 // String returns the string representation
@@ -333,9 +333,9 @@ func (s *ComputeSettingsForCreateComputeInput) SetComputeRole(v string) *Compute
 	return s
 }
 
-// SetEnableAnalytics sets the EnableAnalytics field's value.
-func (s *ComputeSettingsForCreateComputeInput) SetEnableAnalytics(v string) *ComputeSettingsForCreateComputeInput {
-	s.EnableAnalytics = &v
+// SetEnableAnalytic sets the EnableAnalytic field's value.
+func (s *ComputeSettingsForCreateComputeInput) SetEnableAnalytic(v string) *ComputeSettingsForCreateComputeInput {
+	s.EnableAnalytic = &v
 	return s
 }
 
@@ -457,6 +457,9 @@ const (
 
 	// EnumOfComputeRoleForCreateComputeInputReadOnly is a EnumOfComputeRoleForCreateComputeInput enum value
 	EnumOfComputeRoleForCreateComputeInputReadOnly = "ReadOnly"
+
+	// EnumOfComputeRoleForCreateComputeInputAnalytic is a EnumOfComputeRoleForCreateComputeInput enum value
+	EnumOfComputeRoleForCreateComputeInputAnalytic = "Analytic"
 )
 
 const (
@@ -532,19 +535,19 @@ const (
 )
 
 const (
-	// EnumOfEnableAnalyticsForCreateComputeInputEnabled is a EnumOfEnableAnalyticsForCreateComputeInput enum value
-	EnumOfEnableAnalyticsForCreateComputeInputEnabled = "Enabled"
+	// EnumOfEnableAnalyticForCreateComputeInputEnabled is a EnumOfEnableAnalyticForCreateComputeInput enum value
+	EnumOfEnableAnalyticForCreateComputeInputEnabled = "Enabled"
 
-	// EnumOfEnableAnalyticsForCreateComputeInputDisabled is a EnumOfEnableAnalyticsForCreateComputeInput enum value
-	EnumOfEnableAnalyticsForCreateComputeInputDisabled = "Disabled"
+	// EnumOfEnableAnalyticForCreateComputeInputDisabled is a EnumOfEnableAnalyticForCreateComputeInput enum value
+	EnumOfEnableAnalyticForCreateComputeInputDisabled = "Disabled"
 )
 
 const (
-	// EnumOfEnableAnalyticsForCreateComputeOutputEnabled is a EnumOfEnableAnalyticsForCreateComputeOutput enum value
-	EnumOfEnableAnalyticsForCreateComputeOutputEnabled = "Enabled"
+	// EnumOfEnableAnalyticForCreateComputeOutputEnabled is a EnumOfEnableAnalyticForCreateComputeOutput enum value
+	EnumOfEnableAnalyticForCreateComputeOutputEnabled = "Enabled"
 
-	// EnumOfEnableAnalyticsForCreateComputeOutputDisabled is a EnumOfEnableAnalyticsForCreateComputeOutput enum value
-	EnumOfEnableAnalyticsForCreateComputeOutputDisabled = "Disabled"
+	// EnumOfEnableAnalyticForCreateComputeOutputDisabled is a EnumOfEnableAnalyticForCreateComputeOutput enum value
+	EnumOfEnableAnalyticForCreateComputeOutputDisabled = "Disabled"
 )
 
 const (

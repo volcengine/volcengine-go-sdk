@@ -176,6 +176,8 @@ type BranchForDescribeChildBranchesOutput struct {
 
 	StatusChangedTime *string `type:"string" json:",omitempty"`
 
+	SupportAnalytic *bool `type:"boolean" json:",omitempty"`
+
 	UpdateTime *string `type:"string" json:",omitempty"`
 
 	WorkspaceId *string `type:"string" json:",omitempty"`
@@ -278,6 +280,12 @@ func (s *BranchForDescribeChildBranchesOutput) SetStartParentTime(v string) *Bra
 // SetStatusChangedTime sets the StatusChangedTime field's value.
 func (s *BranchForDescribeChildBranchesOutput) SetStatusChangedTime(v string) *BranchForDescribeChildBranchesOutput {
 	s.StatusChangedTime = &v
+	return s
+}
+
+// SetSupportAnalytic sets the SupportAnalytic field's value.
+func (s *BranchForDescribeChildBranchesOutput) SetSupportAnalytic(v bool) *BranchForDescribeChildBranchesOutput {
+	s.SupportAnalytic = &v
 	return s
 }
 

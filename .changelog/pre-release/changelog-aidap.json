@@ -1,0 +1,5 @@
+{
+  "description": "AIDAP: 新增 DescribeSchemaDiffResultSQLText, GetSchemaDiffResultDownloadLink, DescribeSchemaDiffResultSQLTextAll, DescribeSupabaseDeployEnvVars, ModifyComputeAnalyticPolicy, DescribeBranchSchemaNames, DescribeBranchesList, DescribeDefaultBranchList, DescribeSchemaDiffJobStatus, DescribeSchemaDiffResultMeta, DescribeWorkspaceDetailList, DescribeWorkspaceEndpointList, CreateSchemaDiff, DescribeChargeInfo；删除 ModifyWorkspaceAIModelSettings, DescribeBranchAIFunction, EnableBranchAIFunction, ModifyBranchAIFunctionSettings；修改 UpdateBranch, DescribeComputeDetail, ModifyComputeSpec, ModifyWorkspaceName, CreateWorkspace, SetAsDefaultBranch, ModifyWorkspaceSettings, DescribeRestorableBranches, CreateBranch, DescribeComputes, DescribeWorkspaceDetail, DescribeBranchDetail, DescribeBranches, DescribeChildBranches, DescribeDefaultBranch, ResetBranch, CreateCompute, DescribeWorkspaces, ModifyComputeSettings",
+  "modules": "service/aidap",
+  "type": "breaking-change"
+}
