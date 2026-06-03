@@ -4,8 +4,8 @@ package volcengine
 // Copy from https://github.com/aws/aws-sdk-go
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
-// SDKName is the name of this SDK
+// SDKName is the name of this volcengine SDK
 const SDKName = "volcengine-go-sdk"
 
 // SDKVersion is the version of this SDK
-const SDKVersion = "1.2.32"
+const SDKVersion = "1.2.33"

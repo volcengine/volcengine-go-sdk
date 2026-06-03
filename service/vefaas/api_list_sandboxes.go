@@ -143,6 +143,96 @@ func (c *VEFAAS) ListSandboxesWithContext(ctx volcengine.Context, input *ListSan
 	return out, req.Send()
 }
 
+type EBSVolumeForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+
+	VolumeID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EBSVolumeForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EBSVolumeForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountPath sets the MountPath field's value.
+func (s *EBSVolumeForListSandboxesOutput) SetMountPath(v string) *EBSVolumeForListSandboxesOutput {
+	s.MountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *EBSVolumeForListSandboxesOutput) SetReadOnly(v bool) *EBSVolumeForListSandboxesOutput {
+	s.ReadOnly = &v
+	return s
+}
+
+// SetVolumeID sets the VolumeID field's value.
+func (s *EBSVolumeForListSandboxesOutput) SetVolumeID(v string) *EBSVolumeForListSandboxesOutput {
+	s.VolumeID = &v
+	return s
+}
+
+type EmptyDirVolumeForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPath *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EmptyDirVolumeForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EmptyDirVolumeForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountPath sets the MountPath field's value.
+func (s *EmptyDirVolumeForListSandboxesOutput) SetMountPath(v string) *EmptyDirVolumeForListSandboxesOutput {
+	s.MountPath = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *EmptyDirVolumeForListSandboxesOutput) SetName(v string) *EmptyDirVolumeForListSandboxesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *EmptyDirVolumeForListSandboxesOutput) SetReadOnly(v bool) *EmptyDirVolumeForListSandboxesOutput {
+	s.ReadOnly = &v
+	return s
+}
+
+type EnvsForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EnvsForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnvsForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
 type FilterForListSandboxesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -270,6 +360,8 @@ type ListSandboxesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	RevisionCount *RevisionCountForListSandboxesOutput `type:"structure" json:",omitempty"`
+
 	Sandboxes []*SandboxForListSandboxesOutput `type:"list" json:",omitempty"`
 
 	StatusCount map[string]*int32 `type:"map" json:",omitempty"`
@@ -285,6 +377,12 @@ func (s ListSandboxesOutput) String() string {
 // GoString returns the string representation
 func (s ListSandboxesOutput) GoString() string {
 	return s.String()
+}
+
+// SetRevisionCount sets the RevisionCount field's value.
+func (s *ListSandboxesOutput) SetRevisionCount(v *RevisionCountForListSandboxesOutput) *ListSandboxesOutput {
+	s.RevisionCount = v
+	return s
 }
 
 // SetSandboxes sets the Sandboxes field's value.
@@ -305,14 +403,32 @@ func (s *ListSandboxesOutput) SetTotal(v int32) *ListSandboxesOutput {
 	return s
 }
 
+type RevisionCountForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RevisionCountForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RevisionCountForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
 type SandboxForListSandboxesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	AssignStatus *string `type:"string" json:",omitempty"`
 
 	AvailabilityZone *string `type:"string" json:",omitempty"`
 
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
 	CreatedAt *string `type:"string" json:",omitempty"`
+
+	EBSVolumes []*EBSVolumeForListSandboxesOutput `type:"list" json:",omitempty"`
 
 	ErrorCode *string `type:"string" json:",omitempty"`
 
@@ -332,11 +448,15 @@ type SandboxForListSandboxesOutput struct {
 
 	Metadata map[string]*string `type:"map" json:",omitempty"`
 
+	PausedAt *string `type:"string" json:",omitempty"`
+
 	Pending *bool `type:"boolean" json:",omitempty"`
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
 	SessionId *string `type:"string" json:",omitempty"`
+
+	Sidecars []*SidecarForListSandboxesOutput `type:"list" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -349,6 +469,12 @@ func (s SandboxForListSandboxesOutput) String() string {
 // GoString returns the string representation
 func (s SandboxForListSandboxesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAssignStatus sets the AssignStatus field's value.
+func (s *SandboxForListSandboxesOutput) SetAssignStatus(v string) *SandboxForListSandboxesOutput {
+	s.AssignStatus = &v
+	return s
 }
 
 // SetAvailabilityZone sets the AvailabilityZone field's value.
@@ -366,6 +492,12 @@ func (s *SandboxForListSandboxesOutput) SetCpuMilli(v int32) *SandboxForListSand
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *SandboxForListSandboxesOutput) SetCreatedAt(v string) *SandboxForListSandboxesOutput {
 	s.CreatedAt = &v
+	return s
+}
+
+// SetEBSVolumes sets the EBSVolumes field's value.
+func (s *SandboxForListSandboxesOutput) SetEBSVolumes(v []*EBSVolumeForListSandboxesOutput) *SandboxForListSandboxesOutput {
+	s.EBSVolumes = v
 	return s
 }
 
@@ -423,6 +555,12 @@ func (s *SandboxForListSandboxesOutput) SetMetadata(v map[string]*string) *Sandb
 	return s
 }
 
+// SetPausedAt sets the PausedAt field's value.
+func (s *SandboxForListSandboxesOutput) SetPausedAt(v string) *SandboxForListSandboxesOutput {
+	s.PausedAt = &v
+	return s
+}
+
 // SetPending sets the Pending field's value.
 func (s *SandboxForListSandboxesOutput) SetPending(v bool) *SandboxForListSandboxesOutput {
 	s.Pending = &v
@@ -441,8 +579,100 @@ func (s *SandboxForListSandboxesOutput) SetSessionId(v string) *SandboxForListSa
 	return s
 }
 
+// SetSidecars sets the Sidecars field's value.
+func (s *SandboxForListSandboxesOutput) SetSidecars(v []*SidecarForListSandboxesOutput) *SandboxForListSandboxesOutput {
+	s.Sidecars = v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *SandboxForListSandboxesOutput) SetStatus(v string) *SandboxForListSandboxesOutput {
 	s.Status = &v
+	return s
+}
+
+type SidecarForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Args []*string `type:"list" json:",omitempty"`
+
+	Command []*string `type:"list" json:",omitempty"`
+
+	CpuMilli *int32 `type:"int32" json:",omitempty"`
+
+	EmptyDirVolume []*EmptyDirVolumeForListSandboxesOutput `type:"list" json:",omitempty"`
+
+	Envs *EnvsForListSandboxesOutput `type:"structure" json:",omitempty"`
+
+	Image *string `type:"string" json:",omitempty"`
+
+	IsInitContainer *bool `type:"boolean" json:",omitempty"`
+
+	MemoryMB *int32 `type:"int32" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SidecarForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SidecarForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetArgs sets the Args field's value.
+func (s *SidecarForListSandboxesOutput) SetArgs(v []*string) *SidecarForListSandboxesOutput {
+	s.Args = v
+	return s
+}
+
+// SetCommand sets the Command field's value.
+func (s *SidecarForListSandboxesOutput) SetCommand(v []*string) *SidecarForListSandboxesOutput {
+	s.Command = v
+	return s
+}
+
+// SetCpuMilli sets the CpuMilli field's value.
+func (s *SidecarForListSandboxesOutput) SetCpuMilli(v int32) *SidecarForListSandboxesOutput {
+	s.CpuMilli = &v
+	return s
+}
+
+// SetEmptyDirVolume sets the EmptyDirVolume field's value.
+func (s *SidecarForListSandboxesOutput) SetEmptyDirVolume(v []*EmptyDirVolumeForListSandboxesOutput) *SidecarForListSandboxesOutput {
+	s.EmptyDirVolume = v
+	return s
+}
+
+// SetEnvs sets the Envs field's value.
+func (s *SidecarForListSandboxesOutput) SetEnvs(v *EnvsForListSandboxesOutput) *SidecarForListSandboxesOutput {
+	s.Envs = v
+	return s
+}
+
+// SetImage sets the Image field's value.
+func (s *SidecarForListSandboxesOutput) SetImage(v string) *SidecarForListSandboxesOutput {
+	s.Image = &v
+	return s
+}
+
+// SetIsInitContainer sets the IsInitContainer field's value.
+func (s *SidecarForListSandboxesOutput) SetIsInitContainer(v bool) *SidecarForListSandboxesOutput {
+	s.IsInitContainer = &v
+	return s
+}
+
+// SetMemoryMB sets the MemoryMB field's value.
+func (s *SidecarForListSandboxesOutput) SetMemoryMB(v int32) *SidecarForListSandboxesOutput {
+	s.MemoryMB = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *SidecarForListSandboxesOutput) SetName(v string) *SidecarForListSandboxesOutput {
+	s.Name = &v
 	return s
 }
