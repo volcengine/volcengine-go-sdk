@@ -9,6 +9,7 @@ import (
 
 const (
 	PurposeUserData = "user_data"
+	PurposeAgent    = "agent"
 
 	StatusActive = "active"
 
@@ -84,9 +85,12 @@ type FileMeta struct {
 	ExpireAt  int64  `thrift:"ExpireAt,8,required" form:"expire_at,required" json:"expire_at,required"`
 	Status    Status `thrift:"Status,9,required" form:"status,required" json:"status,required"`
 
+	// download tos url
+	DownloadURL *string `thrift:"DownloadURL,10,optional" form:"download_url" json:"download_url,omitempty"`
 	// only set when status = failed
 	Error             *Error             `thrift:"Error,11,optional" form:"error" json:"error,omitempty"`
 	PreprocessConfigs *PreprocessConfigs `thrift:"PreprocessConfigs,12,optional" form:"preprocess_configs" json:"preprocess_configs,omitempty"`
+	Tos               *TosStorage        `thrift:"Tos,13,optional" form:"tos" json:"tos,omitempty"`
 	model.HttpHeader
 }
 
@@ -161,6 +165,24 @@ func (p *FileMeta) GetPreprocessConfigs() (v *PreprocessConfigs) {
 	return p.PreprocessConfigs
 }
 
+var FileMeta_Tos_DEFAULT *TosStorage
+
+func (p *FileMeta) GetTos() (v *TosStorage) {
+	if !p.IsSetTos() {
+		return FileMeta_Tos_DEFAULT
+	}
+	return p.Tos
+}
+
+var FileMeta_DownloadURL_DEFAULT string
+
+func (p *FileMeta) GetDownloadURL() (v string) {
+	if !p.IsSetDownloadURL() {
+		return FileMeta_DownloadURL_DEFAULT
+	}
+	return *p.DownloadURL
+}
+
 func (p *FileMeta) IsSetBytes() bool {
 	return p.Bytes != nil
 }
@@ -177,6 +199,14 @@ func (p *FileMeta) IsSetPreprocessConfigs() bool {
 	return p.PreprocessConfigs != nil
 }
 
+func (p *FileMeta) IsSetDownloadURL() bool {
+	return p.DownloadURL != nil
+}
+
+func (p *FileMeta) IsSetTos() bool {
+	return p.Tos != nil
+}
+
 func (p *FileMeta) String() string {
 	if p == nil {
 		return "<nil>"
@@ -185,7 +215,12 @@ func (p *FileMeta) String() string {
 }
 
 type Video struct {
-	Fps *float64 `thrift:"fps,1,optional" form:"fps" json:"fps,omitempty"`
+	Fps            *float64 `thrift:"fps,1,optional" form:"fps" json:"fps,omitempty"`
+	Model          *string  `thrift:"model,2,optional" form:"model" json:"model,omitempty"`
+	MaxVideoTokens *int64   `thrift:"max_video_tokens,3,optional" form:"max_video_tokens" json:"max_video_tokens,omitempty"`
+	MinFrameTokens *int64   `thrift:"min_frame_tokens,4,optional" form:"min_frame_tokens" json:"min_frame_tokens,omitempty"`
+	MaxFrameTokens *int64   `thrift:"max_frame_tokens,5,optional" form:"max_frame_tokens" json:"max_frame_tokens,omitempty"`
+	MinFrames      *int64   `thrift:"min_frames,6,optional" form:"min_frames" json:"min_frames,omitempty"`
 }
 
 func NewVideo() *Video {
@@ -204,8 +239,73 @@ func (p *Video) GetFps() (v float64) {
 	return *p.Fps
 }
 
+var Video_Model_DEFAULT string
+
+func (p *Video) GetModel() (v string) {
+	if !p.IsSetModel() {
+		return Video_Model_DEFAULT
+	}
+	return *p.Model
+}
+
+var Video_MaxVideoTokens_DEFAULT int64
+
+func (p *Video) GetMaxVideoTokens() (v int64) {
+	if !p.IsSetMaxVideoTokens() {
+		return Video_MaxVideoTokens_DEFAULT
+	}
+	return *p.MaxVideoTokens
+}
+
+var Video_MinFrameTokens_DEFAULT int64
+
+func (p *Video) GetMinFrameTokens() (v int64) {
+	if !p.IsSetMinFrameTokens() {
+		return Video_MinFrameTokens_DEFAULT
+	}
+	return *p.MinFrameTokens
+}
+
+var Video_MaxFrameTokens_DEFAULT int64
+
+func (p *Video) GetMaxFrameTokens() (v int64) {
+	if !p.IsSetMaxFrameTokens() {
+		return Video_MaxFrameTokens_DEFAULT
+	}
+	return *p.MaxFrameTokens
+}
+
+var Video_MinFrames_DEFAULT int64
+
+func (p *Video) GetMinFrames() (v int64) {
+	if !p.IsSetMinFrames() {
+		return Video_MinFrames_DEFAULT
+	}
+	return *p.MinFrames
+}
+
 func (p *Video) IsSetFps() bool {
 	return p.Fps != nil
+}
+
+func (p *Video) IsSetModel() bool {
+	return p.Model != nil
+}
+
+func (p *Video) IsSetMaxVideoTokens() bool {
+	return p.MaxVideoTokens != nil
+}
+
+func (p *Video) IsSetMinFrameTokens() bool {
+	return p.MinFrameTokens != nil
+}
+
+func (p *Video) IsSetMaxFrameTokens() bool {
+	return p.MaxFrameTokens != nil
+}
+
+func (p *Video) IsSetMinFrames() bool {
+	return p.MinFrames != nil
 }
 
 func (p *Video) String() string {
@@ -246,6 +346,83 @@ func (p *PreprocessConfigs) String() string {
 	return fmt.Sprintf("PreprocessConfigs(%+v)", *p)
 }
 
+type TosStorage struct {
+	Bucket    *string `thrift:"Bucket,1,optional" form:"bucket" json:"bucket,omitempty"`
+	Prefix    *string `thrift:"Prefix,2,optional" form:"prefix" json:"prefix,omitempty"`
+	ObjectKey *string `thrift:"ObjectKey,3,optional" form:"object_key" json:"object_key,omitempty"`
+}
+
+func NewTosStorage() *TosStorage {
+	return &TosStorage{}
+}
+
+func (p *TosStorage) InitDefault() {
+}
+
+var TosStorage_Bucket_DEFAULT string
+
+func (p *TosStorage) GetBucket() (v string) {
+	if p == nil {
+		return TosStorage_Bucket_DEFAULT
+	}
+	if !p.IsSetBucket() {
+		return TosStorage_Bucket_DEFAULT
+	}
+	return *p.Bucket
+}
+
+var TosStorage_Prefix_DEFAULT string
+
+func (p *TosStorage) GetPrefix() (v string) {
+	if p == nil {
+		return TosStorage_Prefix_DEFAULT
+	}
+	if !p.IsSetPrefix() {
+		return TosStorage_Prefix_DEFAULT
+	}
+	return *p.Prefix
+}
+
+var TosStorage_ObjectKey_DEFAULT string
+
+func (p *TosStorage) GetObjectKey() (v string) {
+	if p == nil {
+		return TosStorage_ObjectKey_DEFAULT
+	}
+	if !p.IsSetObjectKey() {
+		return TosStorage_ObjectKey_DEFAULT
+	}
+	return *p.ObjectKey
+}
+
+func (p *TosStorage) IsSetBucket() bool {
+	if p == nil {
+		return false
+	}
+	return p.Bucket != nil
+}
+
+func (p *TosStorage) IsSetPrefix() bool {
+	if p == nil {
+		return false
+	}
+	return p.Prefix != nil
+}
+
+func (p *TosStorage) IsSetObjectKey() bool {
+	if p == nil {
+		return false
+	}
+	return p.ObjectKey != nil
+}
+
+func (p *TosStorage) String() string {
+	if p == nil {
+		return "<nil>"
+	}
+	return fmt.Sprintf("TosStorage(%+v)", *p)
+}
+
 // UploadFileRequest upload file request, it's a form request with file field
 type UploadFileRequest struct {
 	// The File object (not file name) to be uploaded.
@@ -256,6 +433,11 @@ type UploadFileRequest struct {
 	PreprocessConfigs *PreprocessConfigs `form:"preprocess_configs,omitempty"`
 	// The expiration timestamp for a file.
 	ExpireAt *int64 `form:"expire_at,omitempty"`
+	// URL provides an alternative file source (http/https or tos:// scheme).
+	// Mutually exclusive with the binary file field.
+	URL *string `form:"url,omitempty"`
+	// Tos specifies the user-owned TOS bucket destination.
+	Tos *TosStorage `form:"tos,omitempty"`
 }
 
 func NewUploadFileRequest() *UploadFileRequest {
@@ -293,6 +475,32 @@ func (p *UploadFileRequest) IsSetPreprocessConfigs() bool {
 
 func (p *UploadFileRequest) IsSetExpireAt() bool {
 	return p.ExpireAt != nil
+}
+
+var UploadFileRequest_URL_DEFAULT string
+
+func (p *UploadFileRequest) GetURL() (v string) {
+	if !p.IsSetURL() {
+		return UploadFileRequest_URL_DEFAULT
+	}
+	return *p.URL
+}
+
+var UploadFileRequest_Tos_DEFAULT *TosStorage
+
+func (p *UploadFileRequest) GetTos() (v *TosStorage) {
+	if !p.IsSetTos() {
+		return UploadFileRequest_Tos_DEFAULT
+	}
+	return p.Tos
+}
+
+func (p *UploadFileRequest) IsSetURL() bool {
+	return p.URL != nil
+}
+
+func (p *UploadFileRequest) IsSetTos() bool {
+	return p.Tos != nil
 }
 
 func (p *UploadFileRequest) String() string {
