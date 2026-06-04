@@ -16,19 +16,18 @@ import (
 // VEENEDGEAPI provides an interface to enable mocking the
 // veenedge.VEENEDGE service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // VEENEDGE.
-//    func myFunc(svc VEENEDGEAPI) bool {
-//        // Make svc.AckSecondaryInternalIpStatus request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// VEENEDGE.
+//	func myFunc(svc VEENEDGEAPI) bool {
+//	    // Make svc.AckSecondaryInternalIpStatus request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := veenedge.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := veenedge.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type VEENEDGEAPI interface {
 	AckSecondaryInternalIpStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AckSecondaryInternalIpStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -790,6 +789,14 @@ type VEENEDGEAPI interface {
 	LeaveSecurityGroupWithContext(volcengine.Context, *LeaveSecurityGroupInput, ...request.Option) (*LeaveSecurityGroupOutput, error)
 	LeaveSecurityGroupRequest(*LeaveSecurityGroupInput) (*request.Request, *LeaveSecurityGroupOutput)
 
+	ListAccountTagsV2Common(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAccountTagsV2CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAccountTagsV2CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAccountTagsV2(*ListAccountTagsV2Input) (*ListAccountTagsV2Output, error)
+	ListAccountTagsV2WithContext(volcengine.Context, *ListAccountTagsV2Input, ...request.Option) (*ListAccountTagsV2Output, error)
+	ListAccountTagsV2Request(*ListAccountTagsV2Input) (*request.Request, *ListAccountTagsV2Output)
+
 	ListAvailableClassicNetworkClustersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAvailableClassicNetworkClustersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAvailableClassicNetworkClustersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1038,6 +1045,14 @@ type VEENEDGEAPI interface {
 	ListSubnetInstancesWithContext(volcengine.Context, *ListSubnetInstancesInput, ...request.Option) (*ListSubnetInstancesOutput, error)
 	ListSubnetInstancesRequest(*ListSubnetInstancesInput) (*request.Request, *ListSubnetInstancesOutput)
 
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
 	ListVPCInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListVPCInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListVPCInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1270,6 +1285,14 @@ type VEENEDGEAPI interface {
 	StopInstancesWithContext(volcengine.Context, *StopInstancesInput, ...request.Option) (*StopInstancesOutput, error)
 	StopInstancesRequest(*StopInstancesInput) (*request.Request, *StopInstancesOutput)
 
+	TagResourcesV2Common(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesV2CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesV2CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResourcesV2(*TagResourcesV2Input) (*TagResourcesV2Output, error)
+	TagResourcesV2WithContext(volcengine.Context, *TagResourcesV2Input, ...request.Option) (*TagResourcesV2Output, error)
+	TagResourcesV2Request(*TagResourcesV2Input) (*request.Request, *TagResourcesV2Output)
+
 	UnassociateRouteTableWithSubnetsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UnassociateRouteTableWithSubnetsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UnassociateRouteTableWithSubnetsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1309,6 +1332,14 @@ type VEENEDGEAPI interface {
 	UnbindIPFromLB(*UnbindIPFromLBInput) (*UnbindIPFromLBOutput, error)
 	UnbindIPFromLBWithContext(volcengine.Context, *UnbindIPFromLBInput, ...request.Option) (*UnbindIPFromLBOutput, error)
 	UnbindIPFromLBRequest(*UnbindIPFromLBInput) (*request.Request, *UnbindIPFromLBOutput)
+
+	UntagResourcesV2Common(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesV2CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesV2CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResourcesV2(*UntagResourcesV2Input) (*UntagResourcesV2Output, error)
+	UntagResourcesV2WithContext(volcengine.Context, *UntagResourcesV2Input, ...request.Option) (*UntagResourcesV2Output, error)
+	UntagResourcesV2Request(*UntagResourcesV2Input) (*request.Request, *UntagResourcesV2Output)
 
 	UpdateBillingMethodCalculatePriceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateBillingMethodCalculatePriceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

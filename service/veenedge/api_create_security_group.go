@@ -22,13 +22,13 @@ const opCreateSecurityGroupCommon = "CreateSecurityGroup"
 // See CreateSecurityGroupCommon for more information on using the CreateSecurityGroupCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateSecurityGroupCommonRequest method.
-//    req, resp := client.CreateSecurityGroupCommonRequest(params)
+//	// Example sending a request using the CreateSecurityGroupCommonRequest method.
+//	req, resp := client.CreateSecurityGroupCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) CreateSecurityGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateSecurityGroupCommon,
@@ -89,13 +89,13 @@ const opCreateSecurityGroup = "CreateSecurityGroup"
 // See CreateSecurityGroup for more information on using the CreateSecurityGroup
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateSecurityGroupRequest method.
-//    req, resp := client.CreateSecurityGroupRequest(params)
+//	// Example sending a request using the CreateSecurityGroupRequest method.
+//	req, resp := client.CreateSecurityGroupRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) CreateSecurityGroupRequest(input *CreateSecurityGroupInput) (req *request.Request, output *CreateSecurityGroupOutput) {
 	op := &request.Operation{
 		Name:       opCreateSecurityGroup,
@@ -526,7 +526,7 @@ type Security_groupForCreateSecurityGroupOutput struct {
 
 	Tags []*TagForCreateSecurityGroupOutput `type:"list"`
 
-	Update_time *string `type:"string" json:"update_time,omitempty"`
+	Update_time *int32 `type:"int32" json:"update_time,omitempty"`
 
 	User_identity *int32 `type:"int32" json:"user_identity,omitempty"`
 
@@ -638,7 +638,7 @@ func (s *Security_groupForCreateSecurityGroupOutput) SetTags(v []*TagForCreateSe
 }
 
 // SetUpdate_time sets the Update_time field's value.
-func (s *Security_groupForCreateSecurityGroupOutput) SetUpdate_time(v string) *Security_groupForCreateSecurityGroupOutput {
+func (s *Security_groupForCreateSecurityGroupOutput) SetUpdate_time(v int32) *Security_groupForCreateSecurityGroupOutput {
 	s.Update_time = &v
 	return s
 }

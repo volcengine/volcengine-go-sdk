@@ -22,13 +22,13 @@ const opCopySecurityGroupCommon = "CopySecurityGroup"
 // See CopySecurityGroupCommon for more information on using the CopySecurityGroupCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CopySecurityGroupCommonRequest method.
-//    req, resp := client.CopySecurityGroupCommonRequest(params)
+//	// Example sending a request using the CopySecurityGroupCommonRequest method.
+//	req, resp := client.CopySecurityGroupCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) CopySecurityGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCopySecurityGroupCommon,
@@ -89,13 +89,13 @@ const opCopySecurityGroup = "CopySecurityGroup"
 // See CopySecurityGroup for more information on using the CopySecurityGroup
 // API call, and error handling.
 //
-//    // Example sending a request using the CopySecurityGroupRequest method.
-//    req, resp := client.CopySecurityGroupRequest(params)
+//	// Example sending a request using the CopySecurityGroupRequest method.
+//	req, resp := client.CopySecurityGroupRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) CopySecurityGroupRequest(input *CopySecurityGroupInput) (req *request.Request, output *CopySecurityGroupOutput) {
 	op := &request.Operation{
 		Name:       opCopySecurityGroup,
@@ -518,7 +518,7 @@ type Source_groupForCopySecurityGroupOutput struct {
 
 	Tags []*TagForCopySecurityGroupOutput `type:"list"`
 
-	Update_time *string `type:"string" json:"update_time,omitempty"`
+	Update_time *int32 `type:"int32" json:"update_time,omitempty"`
 
 	User_identity *int32 `type:"int32" json:"user_identity,omitempty"`
 
@@ -630,7 +630,7 @@ func (s *Source_groupForCopySecurityGroupOutput) SetTags(v []*TagForCopySecurity
 }
 
 // SetUpdate_time sets the Update_time field's value.
-func (s *Source_groupForCopySecurityGroupOutput) SetUpdate_time(v string) *Source_groupForCopySecurityGroupOutput {
+func (s *Source_groupForCopySecurityGroupOutput) SetUpdate_time(v int32) *Source_groupForCopySecurityGroupOutput {
 	s.Update_time = &v
 	return s
 }

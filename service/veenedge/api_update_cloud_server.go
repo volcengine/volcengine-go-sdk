@@ -22,13 +22,13 @@ const opUpdateCloudServerCommon = "UpdateCloudServer"
 // See UpdateCloudServerCommon for more information on using the UpdateCloudServerCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateCloudServerCommonRequest method.
-//    req, resp := client.UpdateCloudServerCommonRequest(params)
+//	// Example sending a request using the UpdateCloudServerCommonRequest method.
+//	req, resp := client.UpdateCloudServerCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) UpdateCloudServerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateCloudServerCommon,
@@ -89,13 +89,13 @@ const opUpdateCloudServer = "UpdateCloudServer"
 // See UpdateCloudServer for more information on using the UpdateCloudServer
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateCloudServerRequest method.
-//    req, resp := client.UpdateCloudServerRequest(params)
+//	// Example sending a request using the UpdateCloudServerRequest method.
+//	req, resp := client.UpdateCloudServerRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) UpdateCloudServerRequest(input *UpdateCloudServerInput) (req *request.Request, output *UpdateCloudServerOutput) {
 	op := &request.Operation{
 		Name:       opUpdateCloudServer,
@@ -404,7 +404,7 @@ type Network_configForUpdateCloudServerInput struct {
 
 	Custom_internal_interface_name *string `type:"string" json:"custom_internal_interface_name,omitempty"`
 
-	Disable_ipv4 *string `type:"string" json:"disable_ipv4,omitempty"`
+	Disable_ipv4 *bool `type:"boolean" json:"disable_ipv4,omitempty"`
 
 	Dns_list []*string `type:"list" json:"dns_list"`
 
@@ -448,7 +448,7 @@ func (s *Network_configForUpdateCloudServerInput) SetCustom_internal_interface_n
 }
 
 // SetDisable_ipv4 sets the Disable_ipv4 field's value.
-func (s *Network_configForUpdateCloudServerInput) SetDisable_ipv4(v string) *Network_configForUpdateCloudServerInput {
+func (s *Network_configForUpdateCloudServerInput) SetDisable_ipv4(v bool) *Network_configForUpdateCloudServerInput {
 	s.Disable_ipv4 = &v
 	return s
 }
