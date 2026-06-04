@@ -160,7 +160,7 @@ func (s HttpHeaderForUpdateRuleInput) GoString() string {
 type HttpUsabilityCodeForUpdateRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Codes []*int32 `type:"list" json:",omitempty"`
+	Codes []*int32 `type:"list"`
 
 	Operator *string `type:"string" json:",omitempty"`
 }
@@ -224,7 +224,7 @@ type PoolSetForUpdateRuleInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	Pools []*PoolForUpdateRuleInput `type:"list" json:",omitempty"`
+	Pools []*PoolForUpdateRuleInput `type:"list"`
 }
 
 // String returns the string representation
@@ -270,13 +270,13 @@ type ProbeForUpdateRuleInput struct {
 
 	HttpMethod *string `type:"string" json:",omitempty"`
 
-	HttpUsabilityCodes []*HttpUsabilityCodeForUpdateRuleInput `type:"list" json:",omitempty"`
+	HttpUsabilityCodes []*HttpUsabilityCodeForUpdateRuleInput `type:"list"`
 
 	Interval *int32 `type:"int32" json:",omitempty"`
 
 	IsManualNodes *bool `type:"boolean" json:",omitempty"`
 
-	Nodes []*string `type:"list" json:",omitempty"`
+	Nodes []*string `type:"list"`
 
 	PingCount *int32 `type:"int32" json:",omitempty"`
 
@@ -410,7 +410,7 @@ type RuleForUpdateRuleInput struct {
 
 	PoolSetMode *string `type:"string" json:",omitempty"`
 
-	PoolSets []*PoolSetForUpdateRuleInput `type:"list" json:",omitempty"`
+	PoolSets []*PoolSetForUpdateRuleInput `type:"list"`
 
 	Probe *ProbeForUpdateRuleInput `type:"structure" json:",omitempty"`
 
