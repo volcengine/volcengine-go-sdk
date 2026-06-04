@@ -996,6 +996,8 @@ type ListSplitBillDetailInput struct {
 
 	Product []*string `type:"list" json:",omitempty"`
 
+	Project []*string `type:"list" json:",omitempty"`
+
 	SplitDimension *string `type:"string" json:",omitempty"`
 
 	SplitItemID *string `type:"string" json:",omitempty"`
@@ -1102,6 +1104,12 @@ func (s *ListSplitBillDetailInput) SetPayerID(v []*int64) *ListSplitBillDetailIn
 // SetProduct sets the Product field's value.
 func (s *ListSplitBillDetailInput) SetProduct(v []*string) *ListSplitBillDetailInput {
 	s.Product = v
+	return s
+}
+
+// SetProject sets the Project field's value.
+func (s *ListSplitBillDetailInput) SetProject(v []*string) *ListSplitBillDetailInput {
+	s.Project = v
 	return s
 }
 
