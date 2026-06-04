@@ -392,7 +392,7 @@ type ZoneForListPrivateZonesOutput struct {
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
 
-	ZID *int32 `type:"int32" json:",omitempty"`
+	ZID *int64 `type:"int64" json:",omitempty"`
 
 	ZoneName *string `type:"string" json:",omitempty"`
 }
@@ -468,7 +468,7 @@ func (s *ZoneForListPrivateZonesOutput) SetUpdatedAt(v string) *ZoneForListPriva
 }
 
 // SetZID sets the ZID field's value.
-func (s *ZoneForListPrivateZonesOutput) SetZID(v int32) *ZoneForListPrivateZonesOutput {
+func (s *ZoneForListPrivateZonesOutput) SetZID(v int64) *ZoneForListPrivateZonesOutput {
 	s.ZID = &v
 	return s
 }

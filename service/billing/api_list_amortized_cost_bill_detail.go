@@ -175,6 +175,8 @@ type ListAmortizedCostBillDetailInput struct {
 	PayerID []*int64 `type:"list" json:",omitempty"`
 
 	Product []*string `type:"list" json:",omitempty"`
+
+	Project []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -284,6 +286,12 @@ func (s *ListAmortizedCostBillDetailInput) SetPayerID(v []*int64) *ListAmortized
 // SetProduct sets the Product field's value.
 func (s *ListAmortizedCostBillDetailInput) SetProduct(v []*string) *ListAmortizedCostBillDetailInput {
 	s.Product = v
+	return s
+}
+
+// SetProject sets the Project field's value.
+func (s *ListAmortizedCostBillDetailInput) SetProject(v []*string) *ListAmortizedCostBillDetailInput {
+	s.Project = v
 	return s
 }
 

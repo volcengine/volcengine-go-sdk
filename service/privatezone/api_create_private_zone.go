@@ -152,6 +152,8 @@ type CreatePrivateZoneInput struct {
 
 	LineMode *int32 `type:"int32" json:",omitempty"`
 
+	NodataFallback *bool `type:"boolean" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RecursionMode *bool `type:"boolean" json:",omitempty"`
@@ -210,6 +212,12 @@ func (s *CreatePrivateZoneInput) SetClientToken(v string) *CreatePrivateZoneInpu
 // SetLineMode sets the LineMode field's value.
 func (s *CreatePrivateZoneInput) SetLineMode(v int32) *CreatePrivateZoneInput {
 	s.LineMode = &v
+	return s
+}
+
+// SetNodataFallback sets the NodataFallback field's value.
+func (s *CreatePrivateZoneInput) SetNodataFallback(v bool) *CreatePrivateZoneInput {
+	s.NodataFallback = &v
 	return s
 }
 

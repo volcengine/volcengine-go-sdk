@@ -176,7 +176,7 @@ func (s *ForwardIPForListResolverRulesOutput) SetPort(v int32) *ForwardIPForList
 type ListResolverRulesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndpointID *int32 `type:"int32" json:",omitempty"`
+	EndpointID *int64 `type:"int64" json:",omitempty"`
 
 	EndpointTrn *string `type:"string" json:",omitempty"`
 
@@ -204,7 +204,7 @@ func (s ListResolverRulesInput) GoString() string {
 }
 
 // SetEndpointID sets the EndpointID field's value.
-func (s *ListResolverRulesInput) SetEndpointID(v int32) *ListResolverRulesInput {
+func (s *ListResolverRulesInput) SetEndpointID(v int64) *ListResolverRulesInput {
 	s.EndpointID = &v
 	return s
 }
@@ -308,7 +308,7 @@ type RuleForListResolverRulesOutput struct {
 
 	ForwardIPs []*ForwardIPForListResolverRulesOutput `type:"list" json:",omitempty"`
 
-	ID *int32 `type:"int32" json:",omitempty"`
+	ID *int64 `type:"int64" json:",omitempty"`
 
 	LastOperator *string `type:"string" json:",omitempty"`
 
@@ -354,7 +354,7 @@ func (s *RuleForListResolverRulesOutput) SetForwardIPs(v []*ForwardIPForListReso
 }
 
 // SetID sets the ID field's value.
-func (s *RuleForListResolverRulesOutput) SetID(v int32) *RuleForListResolverRulesOutput {
+func (s *RuleForListResolverRulesOutput) SetID(v int64) *RuleForListResolverRulesOutput {
 	s.ID = &v
 	return s
 }
