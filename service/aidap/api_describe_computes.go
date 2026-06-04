@@ -166,7 +166,7 @@ type ComputeForDescribeComputesOutput struct {
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
-	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForDescribeComputesOutput"`
+	EnableAnalytic *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticForDescribeComputesOutput"`
 
 	LastActiveTime *string `type:"string" json:",omitempty"`
 
@@ -251,9 +251,9 @@ func (s *ComputeForDescribeComputesOutput) SetDisabled(v bool) *ComputeForDescri
 	return s
 }
 
-// SetEnableAnalytics sets the EnableAnalytics field's value.
-func (s *ComputeForDescribeComputesOutput) SetEnableAnalytics(v string) *ComputeForDescribeComputesOutput {
-	s.EnableAnalytics = &v
+// SetEnableAnalytic sets the EnableAnalytic field's value.
+func (s *ComputeForDescribeComputesOutput) SetEnableAnalytic(v string) *ComputeForDescribeComputesOutput {
+	s.EnableAnalytic = &v
 	return s
 }
 
@@ -454,11 +454,11 @@ const (
 )
 
 const (
-	// EnumOfEnableAnalyticsForDescribeComputesOutputEnabled is a EnumOfEnableAnalyticsForDescribeComputesOutput enum value
-	EnumOfEnableAnalyticsForDescribeComputesOutputEnabled = "Enabled"
+	// EnumOfEnableAnalyticForDescribeComputesOutputEnabled is a EnumOfEnableAnalyticForDescribeComputesOutput enum value
+	EnumOfEnableAnalyticForDescribeComputesOutputEnabled = "Enabled"
 
-	// EnumOfEnableAnalyticsForDescribeComputesOutputDisabled is a EnumOfEnableAnalyticsForDescribeComputesOutput enum value
-	EnumOfEnableAnalyticsForDescribeComputesOutputDisabled = "Disabled"
+	// EnumOfEnableAnalyticForDescribeComputesOutputDisabled is a EnumOfEnableAnalyticForDescribeComputesOutput enum value
+	EnumOfEnableAnalyticForDescribeComputesOutputDisabled = "Disabled"
 )
 
 const (

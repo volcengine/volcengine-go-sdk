@@ -176,6 +176,8 @@ type BranchForCreateBranchOutput struct {
 
 	StatusChangedTime *string `type:"string" json:",omitempty"`
 
+	SupportAnalytic *bool `type:"boolean" json:",omitempty"`
+
 	UpdateTime *string `type:"string" json:",omitempty"`
 
 	WorkspaceId *string `type:"string" json:",omitempty"`
@@ -278,6 +280,12 @@ func (s *BranchForCreateBranchOutput) SetStartParentTime(v string) *BranchForCre
 // SetStatusChangedTime sets the StatusChangedTime field's value.
 func (s *BranchForCreateBranchOutput) SetStatusChangedTime(v string) *BranchForCreateBranchOutput {
 	s.StatusChangedTime = &v
+	return s
+}
+
+// SetSupportAnalytic sets the SupportAnalytic field's value.
+func (s *BranchForCreateBranchOutput) SetSupportAnalytic(v bool) *BranchForCreateBranchOutput {
+	s.SupportAnalytic = &v
 	return s
 }
 
@@ -450,7 +458,7 @@ type ComputeSettingForCreateBranchInput struct {
 
 	ComputeRole *string `type:"string" json:",omitempty" enum:"EnumOfComputeRoleForCreateBranchInput"`
 
-	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForCreateBranchInput"`
+	EnableAnalytic *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticForCreateBranchInput"`
 }
 
 // String returns the string representation
@@ -481,9 +489,9 @@ func (s *ComputeSettingForCreateBranchInput) SetComputeRole(v string) *ComputeSe
 	return s
 }
 
-// SetEnableAnalytics sets the EnableAnalytics field's value.
-func (s *ComputeSettingForCreateBranchInput) SetEnableAnalytics(v string) *ComputeSettingForCreateBranchInput {
-	s.EnableAnalytics = &v
+// SetEnableAnalytic sets the EnableAnalytic field's value.
+func (s *ComputeSettingForCreateBranchInput) SetEnableAnalytic(v string) *ComputeSettingForCreateBranchInput {
+	s.EnableAnalytic = &v
 	return s
 }
 
@@ -678,6 +686,9 @@ const (
 
 	// EnumOfComputeRoleForCreateBranchInputReadOnly is a EnumOfComputeRoleForCreateBranchInput enum value
 	EnumOfComputeRoleForCreateBranchInputReadOnly = "ReadOnly"
+
+	// EnumOfComputeRoleForCreateBranchInputAnalytic is a EnumOfComputeRoleForCreateBranchInput enum value
+	EnumOfComputeRoleForCreateBranchInputAnalytic = "Analytic"
 )
 
 const (
@@ -698,11 +709,11 @@ const (
 )
 
 const (
-	// EnumOfEnableAnalyticsForCreateBranchInputEnabled is a EnumOfEnableAnalyticsForCreateBranchInput enum value
-	EnumOfEnableAnalyticsForCreateBranchInputEnabled = "Enabled"
+	// EnumOfEnableAnalyticForCreateBranchInputEnabled is a EnumOfEnableAnalyticForCreateBranchInput enum value
+	EnumOfEnableAnalyticForCreateBranchInputEnabled = "Enabled"
 
-	// EnumOfEnableAnalyticsForCreateBranchInputDisabled is a EnumOfEnableAnalyticsForCreateBranchInput enum value
-	EnumOfEnableAnalyticsForCreateBranchInputDisabled = "Disabled"
+	// EnumOfEnableAnalyticForCreateBranchInputDisabled is a EnumOfEnableAnalyticForCreateBranchInput enum value
+	EnumOfEnableAnalyticForCreateBranchInputDisabled = "Disabled"
 )
 
 const (

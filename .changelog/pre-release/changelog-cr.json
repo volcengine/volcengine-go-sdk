@@ -1,5 +1,0 @@
-{
-  "description": "CR: 新增 CreateRobotAccount, DeleteRobotAccount, ListRobotAccounts, UpdateRobotAccount, UpdateRobotAccountPassword；修改 UpdateVpcEndpoint",
-  "modules": "service/cr",
-  "type": "feature"
-}

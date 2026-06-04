@@ -146,7 +146,11 @@ func (c *PRIVATEZONE) UpdatePrivateZoneWithContext(ctx volcengine.Context, input
 type UpdatePrivateZoneInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	LineMode *int32 `type:"int32" json:",omitempty"`
+
 	LoadBalance *bool `type:"boolean" json:",omitempty"`
+
+	NodataFallback *bool `type:"boolean" json:",omitempty"`
 
 	RecursionMode *bool `type:"boolean" json:",omitempty"`
 
@@ -179,9 +183,21 @@ func (s *UpdatePrivateZoneInput) Validate() error {
 	return nil
 }
 
+// SetLineMode sets the LineMode field's value.
+func (s *UpdatePrivateZoneInput) SetLineMode(v int32) *UpdatePrivateZoneInput {
+	s.LineMode = &v
+	return s
+}
+
 // SetLoadBalance sets the LoadBalance field's value.
 func (s *UpdatePrivateZoneInput) SetLoadBalance(v bool) *UpdatePrivateZoneInput {
 	s.LoadBalance = &v
+	return s
+}
+
+// SetNodataFallback sets the NodataFallback field's value.
+func (s *UpdatePrivateZoneInput) SetNodataFallback(v bool) *UpdatePrivateZoneInput {
+	s.NodataFallback = &v
 	return s
 }
 
@@ -213,6 +229,8 @@ type UpdatePrivateZoneOutput struct {
 	LastOperator *string `type:"string" json:",omitempty"`
 
 	LineMode *int32 `type:"int32" json:",omitempty"`
+
+	NodataFallback *bool `type:"boolean" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -256,6 +274,12 @@ func (s *UpdatePrivateZoneOutput) SetLastOperator(v string) *UpdatePrivateZoneOu
 // SetLineMode sets the LineMode field's value.
 func (s *UpdatePrivateZoneOutput) SetLineMode(v int32) *UpdatePrivateZoneOutput {
 	s.LineMode = &v
+	return s
+}
+
+// SetNodataFallback sets the NodataFallback field's value.
+func (s *UpdatePrivateZoneOutput) SetNodataFallback(v bool) *UpdatePrivateZoneOutput {
+	s.NodataFallback = &v
 	return s
 }
 

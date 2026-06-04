@@ -150,7 +150,9 @@ type EndpointForListResolverEndpointsOutput struct {
 
 	Direction *string `type:"string" json:",omitempty"`
 
-	ID *int32 `type:"int32" json:",omitempty"`
+	EndpointType *string `type:"string" json:",omitempty"`
+
+	ID *int64 `type:"int64" json:",omitempty"`
 
 	IpConfigs []*IpConfigForListResolverEndpointsOutput `type:"list" json:",omitempty"`
 
@@ -193,8 +195,14 @@ func (s *EndpointForListResolverEndpointsOutput) SetDirection(v string) *Endpoin
 	return s
 }
 
+// SetEndpointType sets the EndpointType field's value.
+func (s *EndpointForListResolverEndpointsOutput) SetEndpointType(v string) *EndpointForListResolverEndpointsOutput {
+	s.EndpointType = &v
+	return s
+}
+
 // SetID sets the ID field's value.
-func (s *EndpointForListResolverEndpointsOutput) SetID(v int32) *EndpointForListResolverEndpointsOutput {
+func (s *EndpointForListResolverEndpointsOutput) SetID(v int64) *EndpointForListResolverEndpointsOutput {
 	s.ID = &v
 	return s
 }

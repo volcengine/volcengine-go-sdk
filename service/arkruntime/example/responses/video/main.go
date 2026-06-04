@@ -13,28 +13,24 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
-/**
- * Authentication
- * If you authorize your endpoint using an API key, you can set your api key to environment variable "ARK_API_KEY"
- * client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
- * Note: If you use an API key, this API key will not be refreshed.
- * To prevent the API from expiring and failing after some time, choose an API key with no expiration date.
- */
-
 func main() {
 	client := arkruntime.NewClientWithApiKey(os.Getenv("ARK_API_KEY"))
 	ctx := context.Background()
 
-	fmt.Println("----- upload video data -----")
-	data, err := os.Open("ark_vlm_video_input.mp4")
-	if err != nil {
-		fmt.Printf("read file error: %v\n", err)
-		return
-	}
-	fileInfo, err := client.UploadFile(ctx, &file.UploadFileRequest{
-		File:    data,
+	// Upload video via URL with user-owned TOS bucket.
+	// Replace the following with your own TOS info:
+	//   YOUR_TOS_BUCKET - your TOS bucket name
+	//   YOUR_TOS_PREFIX - the upload prefix in your bucket
+	fmt.Println("----- upload video via url to user TOS -----")
+	uploadReq := &file.UploadFileRequest{
 		Purpose: file.PurposeUserData,
-	})
+		URL:     volcengine.String("https://ark-project.tos-cn-beijing.volces.com/videos/aigen.mp4"),
+		Tos: &file.TosStorage{
+			Bucket: volcengine.String("YOUR_TOS_BUCKET"),
+			Prefix: volcengine.String("YOUR_TOS_PREFIX"),
+		},
+	}
+	fileInfo, err := client.UploadFile(ctx, uploadReq)
 	if err != nil {
 		fmt.Printf("upload file error: %v\n", err)
 		return
@@ -76,7 +72,7 @@ func main() {
 		},
 	}
 	createResponsesReq := &responses.ResponsesRequest{
-		Model: "doubao-seed-1-6",
+		Model: "doubao-seed-2-0-lite-260428",
 		Input: &responses.ResponsesInput{
 			Union: &responses.ResponsesInput_ListValue{
 				ListValue: &responses.InputItemList{ListValue: []*responses.InputItem{{

@@ -1,5 +1,0 @@
-{
-  "description": "GTM: 新增 CreateGtm；删除 ListProbeTaskIds, ReadProbeTaskDetail；修改 ListRules, UpdatePolicy, GetGtm, GetRule",
-  "modules": "service/gtm",
-  "type": "breaking-change"
-}

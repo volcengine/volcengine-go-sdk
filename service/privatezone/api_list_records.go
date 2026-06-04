@@ -324,7 +324,7 @@ type RecordForListRecordsOutput struct {
 
 	Weight *int32 `type:"int32"`
 
-	ZID *int32 `type:"int32"`
+	ZID *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -410,7 +410,7 @@ func (s *RecordForListRecordsOutput) SetWeight(v int32) *RecordForListRecordsOut
 }
 
 // SetZID sets the ZID field's value.
-func (s *RecordForListRecordsOutput) SetZID(v int32) *RecordForListRecordsOutput {
+func (s *RecordForListRecordsOutput) SetZID(v int64) *RecordForListRecordsOutput {
 	s.ZID = &v
 	return s
 }
