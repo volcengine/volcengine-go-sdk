@@ -143,6 +143,36 @@ func (c *AIDAP) DescribeWorkspacesWithContext(ctx volcengine.Context, input *Des
 	return out, req.Send()
 }
 
+type AgentPlanInfoForDescribeWorkspacesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	APIKey *string `type:"string" json:",omitempty"`
+
+	APIKeyId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AgentPlanInfoForDescribeWorkspacesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AgentPlanInfoForDescribeWorkspacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAPIKey sets the APIKey field's value.
+func (s *AgentPlanInfoForDescribeWorkspacesOutput) SetAPIKey(v string) *AgentPlanInfoForDescribeWorkspacesOutput {
+	s.APIKey = &v
+	return s
+}
+
+// SetAPIKeyId sets the APIKeyId field's value.
+func (s *AgentPlanInfoForDescribeWorkspacesOutput) SetAPIKeyId(v string) *AgentPlanInfoForDescribeWorkspacesOutput {
+	s.APIKeyId = &v
+	return s
+}
+
 type BaasComputeSettingsForDescribeWorkspacesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -150,7 +180,7 @@ type BaasComputeSettingsForDescribeWorkspacesOutput struct {
 
 	AutoScalingLimitMinCU *float64 `type:"double" json:",omitempty"`
 
-	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForDescribeWorkspacesOutput"`
+	EnableAnalytic *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticForDescribeWorkspacesOutput"`
 
 	SuspendTimeoutSeconds *int32 `type:"int32" json:",omitempty"`
 }
@@ -177,9 +207,9 @@ func (s *BaasComputeSettingsForDescribeWorkspacesOutput) SetAutoScalingLimitMinC
 	return s
 }
 
-// SetEnableAnalytics sets the EnableAnalytics field's value.
-func (s *BaasComputeSettingsForDescribeWorkspacesOutput) SetEnableAnalytics(v string) *BaasComputeSettingsForDescribeWorkspacesOutput {
-	s.EnableAnalytics = &v
+// SetEnableAnalytic sets the EnableAnalytic field's value.
+func (s *BaasComputeSettingsForDescribeWorkspacesOutput) SetEnableAnalytic(v string) *BaasComputeSettingsForDescribeWorkspacesOutput {
+	s.EnableAnalytic = &v
 	return s
 }
 
@@ -196,7 +226,7 @@ type ComputeSettingsForDescribeWorkspacesOutput struct {
 
 	AutoScalingLimitMinCU *float64 `type:"double" json:",omitempty"`
 
-	EnableAnalytics *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticsForDescribeWorkspacesOutput"`
+	EnableAnalytic *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticForDescribeWorkspacesOutput"`
 
 	SuspendTimeoutSeconds *int32 `type:"int32" json:",omitempty"`
 }
@@ -223,9 +253,9 @@ func (s *ComputeSettingsForDescribeWorkspacesOutput) SetAutoScalingLimitMinCU(v 
 	return s
 }
 
-// SetEnableAnalytics sets the EnableAnalytics field's value.
-func (s *ComputeSettingsForDescribeWorkspacesOutput) SetEnableAnalytics(v string) *ComputeSettingsForDescribeWorkspacesOutput {
-	s.EnableAnalytics = &v
+// SetEnableAnalytic sets the EnableAnalytic field's value.
+func (s *ComputeSettingsForDescribeWorkspacesOutput) SetEnableAnalytic(v string) *ComputeSettingsForDescribeWorkspacesOutput {
+	s.EnableAnalytic = &v
 	return s
 }
 
@@ -380,6 +410,8 @@ type WorkspaceForDescribeWorkspacesOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
+	AgentPlanInfo *AgentPlanInfoForDescribeWorkspacesOutput `type:"structure" json:",omitempty"`
+
 	BaasComputeSettings *BaasComputeSettingsForDescribeWorkspacesOutput `type:"structure" json:",omitempty"`
 
 	ComputeSettings *ComputeSettingsForDescribeWorkspacesOutput `type:"structure" json:",omitempty"`
@@ -398,6 +430,8 @@ type WorkspaceForDescribeWorkspacesOutput struct {
 
 	InternetProtocol *string `type:"string" json:",omitempty" enum:"EnumOfInternetProtocolForDescribeWorkspacesOutput"`
 
+	IsAgentPlanInstance *bool `type:"boolean" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
@@ -405,10 +439,6 @@ type WorkspaceForDescribeWorkspacesOutput struct {
 	SharedPrivateNetwork *bool `type:"boolean" json:",omitempty"`
 
 	StatusChangedTime *string `type:"string" json:",omitempty"`
-
-	StorageSize *int32 `type:"int32" json:",omitempty"`
-
-	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForDescribeWorkspacesOutput"`
 
 	SubnetId *string `type:"string" json:",omitempty"`
 
@@ -442,6 +472,12 @@ func (s WorkspaceForDescribeWorkspacesOutput) GoString() string {
 // SetAccountId sets the AccountId field's value.
 func (s *WorkspaceForDescribeWorkspacesOutput) SetAccountId(v string) *WorkspaceForDescribeWorkspacesOutput {
 	s.AccountId = &v
+	return s
+}
+
+// SetAgentPlanInfo sets the AgentPlanInfo field's value.
+func (s *WorkspaceForDescribeWorkspacesOutput) SetAgentPlanInfo(v *AgentPlanInfoForDescribeWorkspacesOutput) *WorkspaceForDescribeWorkspacesOutput {
+	s.AgentPlanInfo = v
 	return s
 }
 
@@ -499,6 +535,12 @@ func (s *WorkspaceForDescribeWorkspacesOutput) SetInternetProtocol(v string) *Wo
 	return s
 }
 
+// SetIsAgentPlanInstance sets the IsAgentPlanInstance field's value.
+func (s *WorkspaceForDescribeWorkspacesOutput) SetIsAgentPlanInstance(v bool) *WorkspaceForDescribeWorkspacesOutput {
+	s.IsAgentPlanInstance = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *WorkspaceForDescribeWorkspacesOutput) SetProjectName(v string) *WorkspaceForDescribeWorkspacesOutput {
 	s.ProjectName = &v
@@ -520,18 +562,6 @@ func (s *WorkspaceForDescribeWorkspacesOutput) SetSharedPrivateNetwork(v bool) *
 // SetStatusChangedTime sets the StatusChangedTime field's value.
 func (s *WorkspaceForDescribeWorkspacesOutput) SetStatusChangedTime(v string) *WorkspaceForDescribeWorkspacesOutput {
 	s.StatusChangedTime = &v
-	return s
-}
-
-// SetStorageSize sets the StorageSize field's value.
-func (s *WorkspaceForDescribeWorkspacesOutput) SetStorageSize(v int32) *WorkspaceForDescribeWorkspacesOutput {
-	s.StorageSize = &v
-	return s
-}
-
-// SetStorageType sets the StorageType field's value.
-func (s *WorkspaceForDescribeWorkspacesOutput) SetStorageType(v string) *WorkspaceForDescribeWorkspacesOutput {
-	s.StorageType = &v
 	return s
 }
 
@@ -818,11 +848,11 @@ const (
 )
 
 const (
-	// EnumOfEnableAnalyticsForDescribeWorkspacesOutputEnabled is a EnumOfEnableAnalyticsForDescribeWorkspacesOutput enum value
-	EnumOfEnableAnalyticsForDescribeWorkspacesOutputEnabled = "Enabled"
+	// EnumOfEnableAnalyticForDescribeWorkspacesOutputEnabled is a EnumOfEnableAnalyticForDescribeWorkspacesOutput enum value
+	EnumOfEnableAnalyticForDescribeWorkspacesOutputEnabled = "Enabled"
 
-	// EnumOfEnableAnalyticsForDescribeWorkspacesOutputDisabled is a EnumOfEnableAnalyticsForDescribeWorkspacesOutput enum value
-	EnumOfEnableAnalyticsForDescribeWorkspacesOutputDisabled = "Disabled"
+	// EnumOfEnableAnalyticForDescribeWorkspacesOutputDisabled is a EnumOfEnableAnalyticForDescribeWorkspacesOutput enum value
+	EnumOfEnableAnalyticForDescribeWorkspacesOutputDisabled = "Disabled"
 )
 
 const (
@@ -875,23 +905,6 @@ const (
 
 	// EnumOfSortOrderForDescribeWorkspacesInputAsc is a EnumOfSortOrderForDescribeWorkspacesInput enum value
 	EnumOfSortOrderForDescribeWorkspacesInputAsc = "Asc"
-)
-
-const (
-	// EnumOfStorageTypeForDescribeWorkspacesOutputLocalSsd is a EnumOfStorageTypeForDescribeWorkspacesOutput enum value
-	EnumOfStorageTypeForDescribeWorkspacesOutputLocalSsd = "LocalSSD"
-
-	// EnumOfStorageTypeForDescribeWorkspacesOutputCloudEssdPl0 is a EnumOfStorageTypeForDescribeWorkspacesOutput enum value
-	EnumOfStorageTypeForDescribeWorkspacesOutputCloudEssdPl0 = "CloudESSD_PL0"
-
-	// EnumOfStorageTypeForDescribeWorkspacesOutputCloudEssdFlexPl is a EnumOfStorageTypeForDescribeWorkspacesOutput enum value
-	EnumOfStorageTypeForDescribeWorkspacesOutputCloudEssdFlexPl = "CloudESSD_FlexPL"
-
-	// EnumOfStorageTypeForDescribeWorkspacesOutputStoragePool is a EnumOfStorageTypeForDescribeWorkspacesOutput enum value
-	EnumOfStorageTypeForDescribeWorkspacesOutputStoragePool = "StoragePool"
-
-	// EnumOfStorageTypeForDescribeWorkspacesOutputNotInvolved is a EnumOfStorageTypeForDescribeWorkspacesOutput enum value
-	EnumOfStorageTypeForDescribeWorkspacesOutputNotInvolved = "NotInvolved"
 )
 
 const (
