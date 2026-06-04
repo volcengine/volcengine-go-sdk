@@ -1,4 +1,4 @@
-[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [超时配置 →](4-Timeout-zh.md)
+[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [代理配置 →](4-Proxy-zh.md)
 
 ---
 
@@ -36,7 +36,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithHTTPClient(client).
-		WithCredentials(credentials.NewEnvCredentials()) //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) //需要配置环境变量
 
 	sess, err := session.NewSession(config)
 	if err != nil {
@@ -62,7 +62,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithDisableSSL(true).                            //true 表示scheme为http，false表示为https，默认为false
-		WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) // 需要配置环境变量
 
 	sess, err := session.NewSession(config)
 	if err != nil {
@@ -105,7 +105,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithHTTPClient(client).
-		WithCredentials(credentials.NewEnvCredentials()) //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) //需要配置环境变量
 
 	sess, err := session.NewSession(config)
 	if err != nil {
@@ -151,7 +151,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithHTTPClient(client).
-		WithCredentials(credentials.NewEnvCredentials()) //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) //需要配置环境变量
 
 	sess, err := session.NewSession(config)
 	if err != nil {
@@ -161,33 +161,6 @@ func main() {
 }
 ```
 
-## HTTP(S) 代理配置
-
-> **默认**
->
-> - 无代理
-
-### 配置 HTTP(S) 代理
-
-```go
-var ak, sk, region string
-config = volcengine.NewConfig().
-	WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-	WithRegion(region).WithHTTPProxy("http://your_proxy:8080").WithHTTPSProxy("http://your_proxy:8080")
-
-sess, _ = session.NewSession(config)
-client = ecs.New(sess)
-```
-
-### 注意事项
-
-支持通过以下环境变量配置代理：
-
-- `http_proxy` / `HTTP_PROXY`
-- `https_proxy` / `HTTPS_PROXY`
-
-优先级：代码指定 > 环境变量。
-
 ---
 
-[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [超时配置 →](4-Timeout-zh.md)
+[← Endpoint 配置](2-Endpoint-zh.md) | Transport[(English)](3-Transport.md) | [代理配置 →](4-Proxy-zh.md)

@@ -1,4 +1,4 @@
-[← Transport](3-Transport.md) | Timeout[(中文)](4-Timeout-zh.md) | [Retry →](5-Retry.md)
+[← Proxy](4-Proxy.md) | Timeout[(中文)](5-Timeout-zh.md) | [Retry →](6-Retry.md)
 
 ---
 
@@ -8,9 +8,9 @@
 
 > **Default**
 >
-> - `ConnectTimeout`: 30s
-> - `ReadTimeout`: unlimited
-> - Default client: `http.DefaultClient`
+> - Default client: `http.DefaultClient` (set by `defaults/defaults.go:WithHTTPClient`)
+> - `ConnectTimeout`: 30s (which uses `net.Dialer{Timeout: 30s}`)
+> - `ReadTimeout` / overall request timeout: unlimited (`http.DefaultClient.Timeout == 0`)
 
 Configure timeouts via a custom `http.Client`.
 
@@ -76,4 +76,4 @@ func main() {
 
 ---
 
-[← Transport](3-Transport.md) | Timeout[(中文)](4-Timeout-zh.md) | [Retry →](5-Retry.md)
+[← Proxy](4-Proxy.md) | Timeout[(中文)](5-Timeout-zh.md) | [Retry →](6-Retry.md)

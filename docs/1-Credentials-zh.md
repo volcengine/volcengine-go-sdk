@@ -112,7 +112,7 @@ func main() {
 			//     o.Timeout = 5 * time.Second       // 请求超时时间
 			//     o.DurationSeconds = 900           // 临时凭证有效期（秒），默认 3600
 			//     o.Policy = `{"Statement":[...]}`  // session policy JSON
-			//     o.MaxRetries = volcengine.Int(3)   // 重试次数；nil 默认 3，0 关闭重试
+			//     o.MaxRetries = 3                   // 重试次数；0 或负数回退到 DefaultRetryerMaxNumRetries（默认 3）
 			//     o.RetryInterval = 1 * time.Second // 重试间隔；<= 0 回退到 1s
 			// },
 		))
@@ -142,7 +142,7 @@ func main() {
 			Timeout:         5 * time.Second, // 请求sts的超时时间
 			DurationSeconds: 900,             // STS临时凭证过期时长，单位为秒
 			// Policy: 可选的 session policy JSON，用于进一步收窄临时凭证的权限，例如：`{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`,
-			MaxRetries:    volcengine.Int(3), // 可选：AssumeRole 失败时的额外重试次数；nil 默认 3，0 表示关闭重试
+			MaxRetries:    3,                 // 可选：AssumeRole 失败时的额外重试次数；0 或负数回退到 DefaultRetryerMaxNumRetries（默认 3）
 			RetryInterval: 1 * time.Second,   // 可选：重试间隔；<= 0 时回退到 1s
 		}))
 
@@ -349,13 +349,14 @@ func main() {
 
 支持的 Profile 模式（不区分大小写）：
 
-| 模式 | 说明 |
-| --- | --- |
-| `ak` / 空 | 从 profile 中读取静态 AK/SK |
-| `sso` | SSO 登录（OIDC Device Authorization） |
-| `ramrolearn` | STS AssumeRole（委托给 `StsProvider`） |
+| 模式 | 说明                                                    |
+| --- |-------------------------------------------------------|
+| `ak` / 空 | 从 profile 中读取静态 AK/SK                                 |
+| `sso` | 从 CLI sso 缓存读取 STS 凭证（SDK 自动在内存中刷新 access token，永不写入缓存文件） |
+| `ramrolearn` | STS AssumeRole（委托给 `StsProvider`）                     |
 | `oidc` | STS AssumeRoleWithOIDC（委托给 `OIDCCredentialsProvider`） |
-| `ecsrole` | ECS IMDS（委托给 `EcsRoleProvider`） |
+| `ecsrole` | ECS IMDS（委托给 `EcsRoleProvider`）                       |
+| `console-login` | 从 CLI console-login 缓存读取 STS 凭证（SDK 通过 OAuth `refresh_token` 在内存中自动刷新，永不写入缓存文件） |
 
 ```go
 package main
@@ -381,6 +382,29 @@ func main() {
 	}
 }
 ```
+
+#### 运行时刷新行为（sso / console-login）
+
+`sso` 与 `console-login` 模式下，SDK 自管理刷新，且**永不写入任何本地文件**：
+
+- **只读磁盘**：`config.json`、`~/.volcengine/sso/cache/*.json` 与
+  `~/.volcengine/login/cache/*.json` 仅在 bootstrap 时读取一次；sso 与
+  console-login 在服务端返回 `invalid_grant` 时会再读一次磁盘 fallback。
+  SDK 永不写入。
+- **内存刷新**：缓存的 `access_token` 进入到期窗口（60 秒）后，SDK 用内存中
+  的 `refresh_token` 调 OAuth `/token` 端点续期，仅更新内存状态。SSO 模式还
+  会接着调 Portal `GetRoleCredentials` 拿 STS 三元组。
+- **invalid_grant fallback**（sso 与 console-login 均适用）：当服务端返回
+  HTTP 400 `invalid_grant` 时，SDK 重新读取一次磁盘 cache。若磁盘上的
+  `refresh_token` 与内存不同（说明 `ve login` / `ve sso login` 在期间更新
+  过），则用磁盘 RT 再尝试一次刷新；否则报错并提示用户重跑 `ve login`
+  （console-login）或 `ve sso login`（SSO）。
+- **refresh_token 过期**：当内存与磁盘上的 refresh_token 都被服务端拒绝时，
+  SDK 抛出明确错误，提示用户重跑 `ve login`（console-login）或 `ve sso login`
+  （SSO）。
+- **并发**：每进程加锁，保证多个调用方共享单次 in-flight refresh。
+
+完整契约见 [`cli-console-login-credential-plan.md`](./cli-console-login-credential-plan.md)。
 
 ### ECS 实例角色凭证提供者
 

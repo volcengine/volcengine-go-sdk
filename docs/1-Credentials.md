@@ -114,7 +114,7 @@ func main() {
 			//     o.Timeout = 5 * time.Second       // Request timeout
 			//     o.DurationSeconds = 900           // TTL in seconds, default 3600
 			//     o.Policy = `{"Statement":[...]}`  // Session policy JSON
-			//     o.MaxRetries = volcengine.Int(3)  // Retry attempts; nil defaults to 3, 0 disables
+			//     o.MaxRetries = 3                  // Retry attempts; 0 or negative falls back to DefaultRetryerMaxNumRetries (3)
 			//     o.RetryInterval = 1 * time.Second // Sleep between retries; <= 0 falls back to 1s
 			// },
 		))
@@ -154,7 +154,7 @@ func main() {
 			Timeout:         5 * time.Second, // STS request timeout
 			DurationSeconds: 900,             // TTL of the temporary credentials, in seconds
 			// Policy: optional session policy JSON, e.g. `{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`
-			MaxRetries:    volcengine.Int(3), // optional extra retry attempts; nil defaults to 3, 0 disables retries
+			MaxRetries:    3,                 // optional extra retry attempts; 0 or negative falls back to DefaultRetryerMaxNumRetries (3)
 			RetryInterval: 1 * time.Second,   // optional sleep between retries; <= 0 falls back to 1s
 		}))
 
@@ -384,13 +384,14 @@ func main() {
 
 Supported modes in profile (case-insensitive):
 
-| Mode | Description |
-| --- | --- |
-| `ak` / empty | Static AK/SK from profile |
-| `sso` | SSO login via OIDC Device Authorization |
-| `ramrolearn` | STS AssumeRole (delegates to `StsProvider`) |
+| Mode | Description                                                     |
+| --- |-----------------------------------------------------------------|
+| `ak` / empty | Static AK/SK from profile                                       |
+| `sso` | Reads STS credentials from the CLI sso cache (SDK refreshes access token in-memory, never writes the cache file) |
+| `ramrolearn` | STS AssumeRole (delegates to `StsProvider`)                     |
 | `oidc` | STS AssumeRoleWithOIDC (delegates to `OIDCCredentialsProvider`) |
-| `ecsrole` | ECS IMDS (delegates to `EcsRoleProvider`) |
+| `ecsrole` | ECS IMDS (delegates to `EcsRoleProvider`)                       |
+| `console-login` | Reads STS credentials from the CLI console-login cache (SDK refreshes via OAuth `refresh_token` in-memory, never writes the cache file) |
 
 ```go
 package main
@@ -416,6 +417,34 @@ func main() {
 	}
 }
 ```
+
+#### Runtime Refresh Behavior (sso / console-login)
+
+For `sso` and `console-login` modes the SDK now owns refresh in-memory and
+never writes any local file. Key invariants:
+
+- **Read-only on disk**: `config.json`, `~/.volcengine/sso/cache/*.json` and
+  `~/.volcengine/login/cache/*.json` are read on bootstrap and once more if
+  the authorization service rejects the in-memory refresh token (`invalid_grant`
+  fallback). They are never written by the SDK.
+- **In-memory refresh**: when the cached `access_token` is past its expiry
+  buffer (60 seconds), the SDK exchanges the cached `refresh_token` at the
+  OAuth `/token` endpoint and updates its in-memory state. SSO then calls
+  the Portal `GetRoleCredentials` API for the STS triple.
+- **Invalid-grant fallback** (both sso and console-login): on HTTP 400
+  `invalid_grant`, the SDK re-reads the cache file once. If the disk
+  `refresh_token` differs from the in-memory one (i.e. `ve login` /
+  `ve sso login` rotated it under the SDK), the SDK retries with the disk RT;
+  otherwise it reports an actionable error pointing at `ve login` or
+  `ve sso login`.
+- **Refresh-token expiry**: when the SDK exhausts both the in-memory and
+  disk refresh tokens, it raises a clear error instructing the user to run
+  `ve login` (console-login) or `ve sso login` (SSO).
+- **Concurrency**: a per-process lock serializes refreshes so concurrent
+  callers share a single in-flight refresh.
+
+See [`cli-console-login-credential-plan.md`](./cli-console-login-credential-plan.md)
+for the full contract.
 
 ### ECS Role Credential Provider
 

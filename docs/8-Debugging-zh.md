@@ -1,4 +1,4 @@
-[← 异常处理](6-ErrorHandling-zh.md) | Debug 机制[(English)](7-Debugging.md) | [概览 →](0-Overview-zh.md)
+[← 异常处理](7-ErrorHandling-zh.md) | Debug 机制[(English)](8-Debugging.md) | [概览 →](0-Overview-zh.md)
 
 ---
 
@@ -29,7 +29,7 @@ func main() {
 		WithRegion(region).
 		// 开启debug日志
 		WithDebug(true).
-		WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) // 需要配置环境变量
 }
 ```
 
@@ -61,10 +61,10 @@ func main() {
 		WithRegion(region).
 		WithDebug(true).
 		WithLogWriter(file).
-		WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) // 需要配置环境变量
 }
 ```
 
 ---
 
-[← 异常处理](6-ErrorHandling-zh.md) | Debug 机制[(English)](7-Debugging.md) | [概览 →](0-Overview-zh.md)
+[← 异常处理](7-ErrorHandling-zh.md) | Debug 机制[(English)](8-Debugging.md) | [概览 →](0-Overview-zh.md)

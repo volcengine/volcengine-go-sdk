@@ -1,7 +1,6 @@
 package clicreds
 
 import (
-	"context"
 	"crypto/sha1"
 	"encoding/json"
 	"fmt"
@@ -18,13 +17,15 @@ import (
 
 const (
 	// CliProviderName provides a name of CLI config provider.
-	CliProviderName = "CliProvider"
-	modeSSO         = "sso"
-	modeAK          = "ak"
-	modeRamRoleArn  = "ramrolearn"
-	modeOIDC        = "oidc"
-	modeEcsRole     = "ecsrole"
-	defaultRegion   = "cn-beijing"
+	CliProviderName        = "CliProvider"
+	modeSSO                = "sso"
+	modeAK                 = "ak"
+	modeRamRoleArn         = "ramrolearn"
+	modeOIDC               = "oidc"
+	modeEcsRole            = "ecsrole"
+	modeConsoleLogin       = "console-login"
+	defaultRegion          = "cn-beijing"
+	loginCacheDirectoryEnv = "VOLCENGINE_LOGIN_CACHE_DIRECTORY"
 )
 
 type cliConfigure struct {
@@ -42,6 +43,7 @@ type cliProfile struct {
 	SsoSessionName string `json:"sso-session-name"`
 	AccountId      string `json:"account-id"`
 	RoleName       string `json:"role-name"`
+	LoginSession   string `json:"login-session"`
 
 	OidcTokenFile    string `json:"oidc-token-file"`
 	RoleTrn          string `json:"role-trn"`
@@ -71,6 +73,28 @@ type SsoTokenCache struct {
 	Region                string `json:"region"`
 }
 
+type LoginTokenCache struct {
+	LoginSession string          `json:"login_session"`
+	AccessToken  json.RawMessage `json:"access_token"`
+	IssuedAt     string          `json:"issued_at"`
+	ExpiresIn    int64           `json:"expires_in"`
+	TokenType    string          `json:"token_type"`
+
+	// RefreshToken / ClientID / Scope / EndpointURL are required for the SDK to
+	// silently refresh the access_token in-memory; mirrors the fields written by
+	// volcengine-cli's ve login.
+	RefreshToken string `json:"refresh_token,omitempty"`
+	ClientID     string `json:"client_id,omitempty"`
+	Scope        string `json:"scope,omitempty"`
+	EndpointURL  string `json:"endpoint_url,omitempty"`
+}
+
+type consoleLoginStsCredentials struct {
+	AccessKeyID     string `json:"access_key_id"`
+	SecretAccessKey string `json:"secret_access_key"`
+	SessionToken    string `json:"session_token"`
+}
+
 // CliProvider retrieves credentials from volcengine-cli's config file
 // (~/.volcengine/config.json).
 //
@@ -90,9 +114,10 @@ type CliProvider struct {
 	// VOLCENGINE_PROFILE (fallback VOLCSTACK_PROFILE), then use config.current.
 	profile string
 
-	// delegate is a cached provider for modes that delegate credential
-	// retrieval (RamRoleArn, OIDC, EcsRole). Once created on first
-	// Retrieve(), subsequent calls forward to delegate.Retrieve().
+	// delegate is a long-lived provider for modes that delegate credential
+	// retrieval (SSO, console-login, RamRoleArn, OIDC, EcsRole). Once created
+	// on first Retrieve(), subsequent calls forward to delegate.Retrieve();
+	// the delegate manages its own expiry and in-memory refresh internally.
 	delegate credentials.Provider
 
 	retrieved     bool
@@ -126,7 +151,11 @@ func NewCliCredentials(configPath, profile string) *credentials.Credentials {
 }
 
 func (p *CliProvider) Retrieve() (credentials.Value, error) {
-	// If a delegate provider exists and is not expired, reuse it
+	// Fast path: delegate not yet expired — reuse without touching config.
+	// On expiry, fall through to reload the config so profile / mode / AK
+	// changes made by the user (or by `ve` cli) are picked up. The delegate's
+	// own invalid_grant fallback still protects against in-flight RT rotation,
+	// so rebuilding the delegate here is safe.
 	if p.delegate != nil && !p.delegate.IsExpired() {
 		return p.delegate.Retrieve()
 	}
@@ -186,6 +215,8 @@ func (p *CliProvider) Retrieve() (credentials.Value, error) {
 		return p.retrieveOIDC(profile, profileName, p.configPath)
 	case modeEcsRole:
 		return p.retrieveEcsRole(profile, profileName, p.configPath)
+	case modeConsoleLogin:
+		return p.retrieveConsoleLogin(profile, profileName, p.configPath)
 	default:
 		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
 			"CliConfigModeInvalid",
@@ -221,51 +252,26 @@ func (p *CliProvider) retrieveAK(profile *cliProfile, profileName, configPath st
 }
 
 func (p *CliProvider) retrieveSSO(profile *cliProfile, profileName, configPath string, cfg *cliConfigure) (credentials.Value, error) {
+	// Fast path: if the profile carries valid STS credentials, use them directly
+	// without constructing the delegate.
 	if value, ok, err := p.useStsCredentialsIfValid(profile, profileName, configPath); err != nil {
 		return value, err
 	} else if ok {
 		return value, nil
 	}
 
-	sessionName, startURL, region, err := p.resolveSsoSession(profile, profileName, configPath, cfg)
-	if err != nil {
-		return credentials.Value{ProviderName: CliProviderName}, err
+	if p.delegate == nil {
+		sessionName, startURL, region, err := p.resolveSsoSession(profile, profileName, configPath, cfg)
+		if err != nil {
+			return credentials.Value{ProviderName: CliProviderName}, err
+		}
+		tokenPath, err := p.resolveTokenCachePath(startURL, sessionName, profileName, configPath)
+		if err != nil {
+			return credentials.Value{ProviderName: CliProviderName}, err
+		}
+		p.delegate = newSsoRefreshableProvider(tokenPath, profile, profileName, configPath, region)
 	}
-	tokenPath, err := p.resolveTokenCachePath(startURL, sessionName, profileName, configPath)
-	if err != nil {
-		return credentials.Value{ProviderName: CliProviderName}, err
-	}
-
-	tokenCache, err := loadSsoTokenCache(tokenPath)
-	if err != nil {
-		return credentials.Value{ProviderName: CliProviderName}, err
-	}
-	accessToken := strings.TrimSpace(tokenCache.AccessToken)
-	if accessToken == "" {
-		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
-			"CliSsoTokenAccessMissing",
-			fmt.Sprintf("sso token cache file %s did not contain access token", tokenPath),
-			nil,
-		)
-	}
-	expired, err := isTokenExpired(tokenCache.ExpiresAt)
-	if err != nil {
-		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
-			"CliSsoTokenExpiresParse",
-			fmt.Sprintf("failed to parse access token expiration in %s", tokenPath),
-			err,
-		)
-	}
-	if !expired {
-		return p.getRoleCredentials(accessToken, profile, profileName, configPath, region)
-	}
-
-	refreshedToken, err := p.refreshAccessToken(tokenCache, tokenPath, region)
-	if err != nil {
-		return credentials.Value{ProviderName: CliProviderName}, err
-	}
-
-	return p.getRoleCredentials(refreshedToken, profile, profileName, configPath, region)
+	return p.delegate.Retrieve()
 }
 
 func (p *CliProvider) useStsCredentialsIfValid(profile *cliProfile, profileName, configPath string) (credentials.Value, bool, error) {
@@ -359,7 +365,7 @@ func (p *CliProvider) resolveTokenCachePath(startURL, sessionName, profileName, 
 	if p.cacheDir == "" {
 		return "", volcengineerr.New(
 			"CliSsoCacheDirMissing",
-			fmt.Sprintf("cli config profile %s in %s did not resolve cache directory", profileName, configPath),
+			fmt.Sprintf("cli config profile %s in %s did not resolve cache directory; please run 've sso login' to re-authenticate", profileName, configPath),
 			nil,
 		)
 	}
@@ -369,144 +375,18 @@ func (p *CliProvider) resolveTokenCachePath(startURL, sessionName, profileName, 
 		if os.IsNotExist(err) {
 			return "", volcengineerr.New(
 				"CliSsoTokenCacheMissing",
-				fmt.Sprintf("sso token cache file %s does not exist", tokenPath),
+				fmt.Sprintf("sso token cache file %s does not exist; please run 've sso login' to re-authenticate", tokenPath),
 				err,
 			)
 		}
 		return "", volcengineerr.New(
 			"CliSsoTokenCacheStat",
-			fmt.Sprintf("failed to stat sso token cache file %s", tokenPath),
+			fmt.Sprintf("failed to stat sso token cache file %s; please run 've sso login' to re-authenticate", tokenPath),
 			err,
 		)
 	}
 
 	return tokenPath, nil
-}
-
-func (p *CliProvider) refreshAccessToken(tokenCache *SsoTokenCache, tokenPath, region string) (string, error) {
-	if strings.TrimSpace(tokenCache.RefreshToken) == "" {
-		return "", volcengineerr.New(
-			"CliSsoTokenRefreshMissing",
-			fmt.Sprintf("sso token cache file %s did not contain refresh token", tokenPath),
-			nil,
-		)
-	}
-	refreshExpired, err := isRefreshTokenExpired(tokenCache)
-	if err != nil {
-		return "", volcengineerr.New(
-			"CliSsoTokenRefreshExpiresParse",
-			fmt.Sprintf("failed to parse refresh token expiration in %s", tokenPath),
-			err,
-		)
-	}
-	if refreshExpired {
-		return "", volcengineerr.New(
-			"CliSsoTokenRefreshExpired",
-			fmt.Sprintf("refresh token in %s has expired", tokenPath),
-			nil,
-		)
-	}
-	if strings.TrimSpace(tokenCache.ClientId) == "" || strings.TrimSpace(tokenCache.ClientSecret) == "" {
-		return "", volcengineerr.New(
-			"CliSsoTokenClientMissing",
-			fmt.Sprintf("sso token cache file %s did not contain client id/secret", tokenPath),
-			nil,
-		)
-	}
-
-	oauthClient := NewOAuthClient(&OAuthClientConfig{Region: region})
-	tokenResp, err := oauthClient.CreateToken(context.Background(), &CreateTokenRequest{
-		GrantType:    "refresh_token",
-		ClientID:     tokenCache.ClientId,
-		ClientSecret: tokenCache.ClientSecret,
-		RefreshToken: tokenCache.RefreshToken,
-	})
-	if err != nil {
-		return "", volcengineerr.New(
-			"CliSsoTokenRefreshFailed",
-			"failed to refresh access token",
-			err,
-		)
-	}
-	if tokenResp == nil || strings.TrimSpace(tokenResp.AccessToken) == "" {
-		return "", volcengineerr.New(
-			"CliSsoTokenRefreshEmpty",
-			"refresh token response did not include access token",
-			nil,
-		)
-	}
-	if tokenResp.ExpiresIn <= 0 {
-		return "", volcengineerr.New(
-			"CliSsoTokenRefreshExpiresIn",
-			"refresh token response did not include expires_in",
-			nil,
-		)
-	}
-
-	tokenCache.AccessToken = tokenResp.AccessToken
-	if strings.TrimSpace(tokenResp.RefreshToken) != "" {
-		tokenCache.RefreshToken = tokenResp.RefreshToken
-	}
-	tokenCache.ExpiresAt = time.Now().Add(time.Duration(tokenResp.ExpiresIn) * time.Second).UTC().Format(time.RFC3339)
-	if err := saveSsoTokenCache(tokenPath, tokenCache); err != nil {
-		return "", err
-	}
-
-	return tokenCache.AccessToken, nil
-}
-
-func (p *CliProvider) getRoleCredentials(accessToken string, profile *cliProfile, profileName, configPath, region string) (credentials.Value, error) {
-	accountID := strings.TrimSpace(profile.AccountId)
-	if accountID == "" {
-		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
-			"CliConfigAccountIDMissing",
-			fmt.Sprintf("cli config profile %s in %s did not contain account-id", profileName, configPath),
-			nil,
-		)
-	}
-	roleName := strings.TrimSpace(profile.RoleName)
-	if roleName == "" {
-		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
-			"CliConfigRoleNameMissing",
-			fmt.Sprintf("cli config profile %s in %s did not contain role-name", profileName, configPath),
-			nil,
-		)
-	}
-	portalClient := NewPortalClient(&PortalClientConfig{Region: region})
-	resp, err := portalClient.GetRoleCredentials(context.Background(), &GetRoleCredentialsRequest{
-		AccessToken: accessToken,
-		AccountID:   accountID,
-		RoleName:    roleName,
-	})
-	if err != nil {
-		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
-			"CliSsoPortalCredentials",
-			"failed to get role credentials",
-			err,
-		)
-	}
-
-	creds := resp.RoleCredentials
-	if strings.TrimSpace(creds.AccessKeyID) == "" || strings.TrimSpace(creds.SecretAccessKey) == "" {
-		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
-			"CliSsoPortalCredentialsEmpty",
-			"portal credentials response did not include access key or secret key",
-			nil,
-		)
-	}
-	if creds.Expiration > 0 {
-		exp := UnixTimestampToTime(creds.Expiration)
-		p.hasExpiration = true
-		p.SetExpiration(exp, time.Minute)
-	}
-
-	p.retrieved = true
-	return credentials.Value{
-		AccessKeyID:     creds.AccessKeyID,
-		SecretAccessKey: creds.SecretAccessKey,
-		SessionToken:    creds.SessionToken,
-		ProviderName:    CliProviderName,
-	}, nil
 }
 
 func (p *CliProvider) retrieveRamRoleArn(profile *cliProfile, profileName, configPath string) (credentials.Value, error) {
@@ -612,19 +492,45 @@ func (p *CliProvider) retrieveEcsRole(profile *cliProfile, profileName, configPa
 	return p.delegate.Retrieve()
 }
 
+func (p *CliProvider) retrieveConsoleLogin(profile *cliProfile, profileName, configPath string) (credentials.Value, error) {
+	loginSession := strings.TrimSpace(profile.LoginSession)
+	if loginSession == "" {
+		return credentials.Value{ProviderName: CliProviderName}, volcengineerr.New(
+			"CliConfigLoginSessionMissing",
+			fmt.Sprintf("cli config profile %s in %s did not contain login-session; run 've login' first", profileName, configPath),
+			nil,
+		)
+	}
+
+	if p.delegate == nil {
+		p.delegate = newConsoleLoginRefreshableProvider(loginSession, resolveLoginCacheDir(configPath))
+	}
+	return p.delegate.Retrieve()
+}
+
+// resolveLoginCacheDir resolves the login cache directory. It honours the
+// VOLCENGINE_LOGIN_CACHE_DIRECTORY env var first, otherwise defaults to
+// <configDir>/login/cache (matching ve cli's layout).
+func resolveLoginCacheDir(configPath string) string {
+	if dir := os.Getenv(loginCacheDirectoryEnv); dir != "" {
+		return dir
+	}
+	return filepath.Join(filepath.Dir(configPath), "login", "cache")
+}
+
 func loadSsoTokenCache(path string) (*SsoTokenCache, error) {
 	data, err := ioutil.ReadFile(path)
 	if err != nil {
 		return nil, volcengineerr.New(
 			"CliSsoTokenCacheLoad",
-			fmt.Sprintf("failed to load sso token cache file %s", path),
+			fmt.Sprintf("failed to load sso token cache file %s; please run 've sso login' to re-authenticate", path),
 			err,
 		)
 	}
 	if len(strings.TrimSpace(string(data))) == 0 {
 		return nil, volcengineerr.New(
 			"CliSsoTokenCacheEmpty",
-			fmt.Sprintf("sso token cache file %s was empty", path),
+			fmt.Sprintf("sso token cache file %s was empty; please run 've sso login' to re-authenticate", path),
 			nil,
 		)
 	}
@@ -633,30 +539,52 @@ func loadSsoTokenCache(path string) (*SsoTokenCache, error) {
 	if err := json.Unmarshal(data, cache); err != nil {
 		return nil, volcengineerr.New(
 			"CliSsoTokenCacheUnmarshal",
-			fmt.Sprintf("failed to unmarshal sso token cache file %s", path),
+			fmt.Sprintf("failed to unmarshal sso token cache file %s; please run 've sso login' to re-authenticate", path),
 			err,
 		)
 	}
 	return cache, nil
 }
 
-func saveSsoTokenCache(path string, cache *SsoTokenCache) error {
-	if err := writeJSONFileAtomic(path, 0600, cache); err != nil {
-		return volcengineerr.New(
-			"CliSsoTokenCacheWrite",
-			fmt.Sprintf("failed to write sso token cache file %s", path),
-			err,
-		)
+func consoleLoginCacheExpiration(cache *LoginTokenCache) (time.Time, error) {
+	if cache == nil {
+		return time.Time{}, fmt.Errorf("token cache is nil")
 	}
-	return nil
+	issuedAt, err := parseTokenExpiration(cache.IssuedAt)
+	if err != nil {
+		return time.Time{}, err
+	}
+	if cache.ExpiresIn <= 0 {
+		return time.Time{}, fmt.Errorf("expires_in is missing or invalid")
+	}
+	return issuedAt.Add(time.Duration(cache.ExpiresIn) * time.Second), nil
 }
 
-func isTokenExpired(expiresAt string) (bool, error) {
-	exp, err := parseTokenExpiration(expiresAt)
-	if err != nil {
-		return true, err
+func parseConsoleLoginAccessToken(raw json.RawMessage) (*consoleLoginStsCredentials, error) {
+	if len(raw) == 0 {
+		return nil, fmt.Errorf("access_token is empty")
 	}
-	return time.Now().After(exp), nil
+
+	tokenBytes := []byte(raw)
+	var tokenString string
+	if err := json.Unmarshal(raw, &tokenString); err == nil {
+		tokenBytes = []byte(tokenString)
+	}
+
+	var stsCreds consoleLoginStsCredentials
+	if err := json.Unmarshal(tokenBytes, &stsCreds); err != nil {
+		return nil, err
+	}
+	if strings.TrimSpace(stsCreds.AccessKeyID) == "" {
+		return nil, fmt.Errorf("parsed STS credentials missing access_key_id")
+	}
+	if strings.TrimSpace(stsCreds.SecretAccessKey) == "" {
+		return nil, fmt.Errorf("parsed STS credentials missing secret_access_key")
+	}
+	if strings.TrimSpace(stsCreds.SessionToken) == "" {
+		return nil, fmt.Errorf("parsed STS credentials missing session_token")
+	}
+	return &stsCreds, nil
 }
 
 func parseTokenExpiration(expiresAt string) (time.Time, error) {
@@ -744,49 +672,4 @@ func tokenCacheFileName(startURL, sessionName string) string {
 	}
 	hash := sha1.Sum(data)
 	return fmt.Sprintf("%x.json", hash)
-}
-
-// 使用临时文件写入后原子替换，避免中断导致缓存损坏。
-func writeJSONFileAtomic(path string, perm os.FileMode, payload interface{}) (retErr error) {
-	dir := filepath.Dir(path)
-	tempFile, err := os.CreateTemp(dir, ".tmp-*")
-	if err != nil {
-		return fmt.Errorf("failed to create temp file: %w", err)
-	}
-	tempName := tempFile.Name()
-	defer func() {
-		if retErr != nil {
-			_ = tempFile.Close()
-			_ = os.Remove(tempName)
-		}
-	}()
-
-	if err := tempFile.Chmod(perm); err != nil {
-		retErr = fmt.Errorf("failed to set cache file permissions: %w", err)
-		return retErr
-	}
-
-	encoder := json.NewEncoder(tempFile)
-	if err := encoder.Encode(payload); err != nil {
-		retErr = fmt.Errorf("failed to write cache file: %w", err)
-		return retErr
-	}
-
-	if err := tempFile.Close(); err != nil {
-		retErr = fmt.Errorf("failed to close cache file: %w", err)
-		return retErr
-	}
-
-	if err := os.Rename(tempName, path); err != nil {
-		removeErr := os.Remove(path)
-		if removeErr == nil || os.IsNotExist(removeErr) {
-			if err2 := os.Rename(tempName, path); err2 == nil {
-				return nil
-			}
-		}
-		retErr = fmt.Errorf("failed to replace cache file: %w", err)
-		return retErr
-	}
-
-	return nil
 }

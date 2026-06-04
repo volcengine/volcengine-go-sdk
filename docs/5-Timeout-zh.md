@@ -1,4 +1,4 @@
-[← Transport](3-Transport-zh.md) | 超时配置[(English)](4-Timeout.md) | [重试机制 →](5-Retry-zh.md)
+[← 代理配置](4-Proxy-zh.md) | 超时配置[(English)](5-Timeout.md) | [重试机制 →](6-Retry-zh.md)
 
 ---
 
@@ -8,9 +8,9 @@
 
 > **默认**
 >
+> - 默认 HTTP Client：`http.DefaultClient`（由 `defaults/defaults.go:WithHTTPClient` 设置）
 > - `ConnectTimeout` - 30s
-> - `ReadTimeout` - 不限制
-> - 备注：默认用的是 `http.DefaultClient`
+> - `ReadTimeout` / 整体请求超时 - 不限制（`http.DefaultClient.Timeout == 0`）
 
 暂不支持直接设置 `ConnectTimeOut` 和 `ReadTimeout` 配置，可以通过自定义 HttpClient 来实现。
 
@@ -37,7 +37,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithHTTPClient(client).
-		WithCredentials(credentials.NewEnvCredentials()) // 环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) // 需要配置环境变量
 
 	sess, err := session.NewSession(config)
 	if err != nil {
@@ -56,7 +56,7 @@ func main() {
 	region := "cn-beijing"
 	config := volcengine.NewConfig().
 		WithRegion(region).
-		WithCredentials(credentials.NewEnvCredentials()) //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()) //需要配置环境变量
 	sess, err := session.NewSession(config)
 	if err != nil {
 		panic(err)
@@ -83,4 +83,4 @@ func main() {
 
 ---
 
-[← Transport](3-Transport-zh.md) | 超时配置[(English)](4-Timeout.md) | [重试机制 →](5-Retry-zh.md)
+[← 代理配置](4-Proxy-zh.md) | 超时配置[(English)](5-Timeout.md) | [重试机制 →](6-Retry-zh.md)

@@ -1,4 +1,4 @@
-[← 超时配置](4-Timeout-zh.md) | 重试机制[(English)](5-Retry.md) | [异常处理 →](6-ErrorHandling-zh.md)
+[← 超时配置](5-Timeout-zh.md) | 重试机制[(English)](6-Retry.md) | [异常处理 →](7-ErrorHandling-zh.md)
 
 ---
 
@@ -18,13 +18,14 @@ delay = min(MaxDelay, 2ⁿ × minDelay × (1 + Rand[0, 1)) + Retry-After
 
 | 参数 | 说明 |
 |---|---|
-| `maxDelay` | 最大延迟时间，计算的最大延迟不会超过 `maxDelay`，默认 500ms |
+| `maxDelay` | 最大延迟时间，计算的最大延迟不会超过 `maxDelay`，默认 300s（`DefaultRetryerMaxRetryDelay`） |
+| `minDelay` | 最小延迟时间基线，默认 30ms（`DefaultRetryerMinRetryDelay`） |
 | `2ⁿ` | 纯指数增长 |
 | `(1 + Rand[0, 1))` | 把结果随机放大 1 ~ 2 倍，避免「惊群效应」 |
 | `min(...)` | 防止无限增长，超过 `MaxDelay` |
 | `Retry-After` | 服务端如果显式告知休眠时长，则先按它要求静默 |
 
-#### 举例说明
+#### 举例说明（演示用：把 `MaxDelay` 缩小到 500ms 便于观察封顶行为）
 
 `MaxDelay=500ms`，`minDelay=30ms`：
 
@@ -50,7 +51,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithDisableSSL(true).
-		WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()). //需要配置环境变量
 		// 关闭重试
 		WithMaxRetries(0)
 
@@ -77,7 +78,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithDisableSSL(true).
-		WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()). //需要配置环境变量
 		// 设置最大重试次数 (default is DefaultRetryerMaxNumRetries)
 		WithMaxRetries(4)
 
@@ -100,7 +101,7 @@ func main() {
 	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithDisableSSL(true).
-		WithCredentials(credentials.NewEnvCredentials()). //环境变量配置：VOLCSTACK_ACCESS_KEY_ID、VOLCSTACK_SECRET_ACCESS_KEY、VOLCSTACK_SESSION_TOKEN
+		WithCredentials(credentials.NewEnvCredentials()). //需要配置环境变量
 		// 设置最大重试次数 (default is DefaultRetryerMaxNumRetries)
 		WithMaxRetries(4)
 
@@ -128,4 +129,4 @@ func main() {
 
 ---
 
-[← 超时配置](4-Timeout-zh.md) | 重试机制[(English)](5-Retry.md) | [异常处理 →](6-ErrorHandling-zh.md)
+[← 超时配置](5-Timeout-zh.md) | 重试机制[(English)](6-Retry.md) | [异常处理 →](7-ErrorHandling-zh.md)

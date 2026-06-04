@@ -71,6 +71,7 @@ setx VOLCENGINE_SESSION_TOKEN your-session-token /M
 |---|---|
 | `VOLCENGINE_CLI_CONFIG_FILE` | 配置文件路径，默认 `~/.volcengine/config.json` |
 | `VOLCENGINE_PROFILE` | 使用的 profile 名 |
+| `VOLCENGINE_LOGIN_CACHE_DIRECTORY` | 可选的 console-login 缓存目录，默认 `<配置文件目录>/login/cache` |
 
 #### 历史兼容变量（`VOLCSTACK_*`）
 
@@ -87,7 +88,7 @@ setx VOLCENGINE_SESSION_TOKEN your-session-token /M
 
 #### 默认凭证链顺序
 
-未显式配置凭证时，四端 SDK 均按以下顺序依次尝试，首个成功的 Provider 生效：
+未显式配置凭证时，Go SDK 按以下顺序依次尝试，首个成功的 Provider 生效：
 
 1. 环境变量 Provider（`VOLCENGINE_ACCESS_KEY` / `VOLCENGINE_SECRET_KEY`[/`VOLCENGINE_SESSION_TOKEN`]）
 2. OIDC Provider（从 `VOLCENGINE_OIDC_*` 读取）
