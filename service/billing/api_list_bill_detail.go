@@ -175,6 +175,8 @@ type ListBillDetailInput struct {
 	PayerID []*int64 `type:"list" json:",omitempty"`
 
 	Product []*string `type:"list" json:",omitempty"`
+
+	Project []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -284,6 +286,12 @@ func (s *ListBillDetailInput) SetPayerID(v []*int64) *ListBillDetailInput {
 // SetProduct sets the Product field's value.
 func (s *ListBillDetailInput) SetProduct(v []*string) *ListBillDetailInput {
 	s.Product = v
+	return s
+}
+
+// SetProject sets the Project field's value.
+func (s *ListBillDetailInput) SetProject(v []*string) *ListBillDetailInput {
+	s.Project = v
 	return s
 }
 
@@ -441,6 +449,12 @@ type ListForListBillDetailOutput struct {
 	PayerID *string `type:"string" json:",omitempty"`
 
 	PayerUserName *string `type:"string" json:",omitempty"`
+
+	PickupVoucherCountUnit *string `type:"string" json:",omitempty"`
+
+	PickupVoucherDeductCount *string `type:"string" json:",omitempty"`
+
+	PickupVoucherID *string `type:"string" json:",omitempty"`
 
 	PosttaxAmount *string `type:"string" json:",omitempty"`
 
@@ -856,6 +870,24 @@ func (s *ListForListBillDetailOutput) SetPayerID(v string) *ListForListBillDetai
 // SetPayerUserName sets the PayerUserName field's value.
 func (s *ListForListBillDetailOutput) SetPayerUserName(v string) *ListForListBillDetailOutput {
 	s.PayerUserName = &v
+	return s
+}
+
+// SetPickupVoucherCountUnit sets the PickupVoucherCountUnit field's value.
+func (s *ListForListBillDetailOutput) SetPickupVoucherCountUnit(v string) *ListForListBillDetailOutput {
+	s.PickupVoucherCountUnit = &v
+	return s
+}
+
+// SetPickupVoucherDeductCount sets the PickupVoucherDeductCount field's value.
+func (s *ListForListBillDetailOutput) SetPickupVoucherDeductCount(v string) *ListForListBillDetailOutput {
+	s.PickupVoucherDeductCount = &v
+	return s
+}
+
+// SetPickupVoucherID sets the PickupVoucherID field's value.
+func (s *ListForListBillDetailOutput) SetPickupVoucherID(v string) *ListForListBillDetailOutput {
+	s.PickupVoucherID = &v
 	return s
 }
 

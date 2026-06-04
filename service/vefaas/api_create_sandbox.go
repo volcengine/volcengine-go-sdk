@@ -150,6 +150,8 @@ type CreateSandboxInput struct {
 
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
+	EBSVolumes []*EBSVolumeForCreateSandboxInput `type:"list" json:",omitempty"`
+
 	EmptyDirVolume []*EmptyDirVolumeForCreateSandboxInput `type:"list" json:",omitempty"`
 
 	Envs []*EnvForCreateSandboxInput `type:"list" json:",omitempty"`
@@ -170,6 +172,8 @@ type CreateSandboxInput struct {
 	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
+
+	RoleChainTrn []*string `type:"list" json:",omitempty"`
 
 	SessionId *string `type:"string" json:",omitempty"`
 
@@ -212,6 +216,12 @@ func (s *CreateSandboxInput) SetAsync(v bool) *CreateSandboxInput {
 // SetCpuMilli sets the CpuMilli field's value.
 func (s *CreateSandboxInput) SetCpuMilli(v int32) *CreateSandboxInput {
 	s.CpuMilli = &v
+	return s
+}
+
+// SetEBSVolumes sets the EBSVolumes field's value.
+func (s *CreateSandboxInput) SetEBSVolumes(v []*EBSVolumeForCreateSandboxInput) *CreateSandboxInput {
+	s.EBSVolumes = v
 	return s
 }
 
@@ -275,6 +285,12 @@ func (s *CreateSandboxInput) SetRequestTimeout(v int32) *CreateSandboxInput {
 	return s
 }
 
+// SetRoleChainTrn sets the RoleChainTrn field's value.
+func (s *CreateSandboxInput) SetRoleChainTrn(v []*string) *CreateSandboxInput {
+	s.RoleChainTrn = v
+	return s
+}
+
 // SetSessionId sets the SessionId field's value.
 func (s *CreateSandboxInput) SetSessionId(v string) *CreateSandboxInput {
 	s.SessionId = &v
@@ -304,6 +320,8 @@ type CreateSandboxOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AssignStatus *string `type:"string" json:",omitempty"`
+
 	SandboxId *string `type:"string" json:",omitempty"`
 }
 
@@ -315,6 +333,12 @@ func (s CreateSandboxOutput) String() string {
 // GoString returns the string representation
 func (s CreateSandboxOutput) GoString() string {
 	return s.String()
+}
+
+// SetAssignStatus sets the AssignStatus field's value.
+func (s *CreateSandboxOutput) SetAssignStatus(v string) *CreateSandboxOutput {
+	s.AssignStatus = &v
+	return s
 }
 
 // SetSandboxId sets the SandboxId field's value.
@@ -358,6 +382,44 @@ func (s *CredentialsForCreateSandboxInput) SetSecretAccessKey(v string) *Credent
 // SetSessionToken sets the SessionToken field's value.
 func (s *CredentialsForCreateSandboxInput) SetSessionToken(v string) *CredentialsForCreateSandboxInput {
 	s.SessionToken = &v
+	return s
+}
+
+type EBSVolumeForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+
+	VolumeID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EBSVolumeForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EBSVolumeForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetMountPath sets the MountPath field's value.
+func (s *EBSVolumeForCreateSandboxInput) SetMountPath(v string) *EBSVolumeForCreateSandboxInput {
+	s.MountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *EBSVolumeForCreateSandboxInput) SetReadOnly(v bool) *EBSVolumeForCreateSandboxInput {
+	s.ReadOnly = &v
+	return s
+}
+
+// SetVolumeID sets the VolumeID field's value.
+func (s *EBSVolumeForCreateSandboxInput) SetVolumeID(v string) *EBSVolumeForCreateSandboxInput {
+	s.VolumeID = &v
 	return s
 }
 
@@ -680,6 +742,8 @@ type SidecarForCreateSandboxInput struct {
 
 	Image *string `type:"string" json:",omitempty"`
 
+	IsInitContainer *bool `type:"boolean" json:",omitempty"`
+
 	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
@@ -731,6 +795,12 @@ func (s *SidecarForCreateSandboxInput) SetImage(v string) *SidecarForCreateSandb
 	return s
 }
 
+// SetIsInitContainer sets the IsInitContainer field's value.
+func (s *SidecarForCreateSandboxInput) SetIsInitContainer(v bool) *SidecarForCreateSandboxInput {
+	s.IsInitContainer = &v
+	return s
+}
+
 // SetMemoryMB sets the MemoryMB field's value.
 func (s *SidecarForCreateSandboxInput) SetMemoryMB(v int32) *SidecarForCreateSandboxInput {
 	s.MemoryMB = &v
@@ -759,6 +829,8 @@ type TosMountPointForCreateSandboxInput struct {
 	Endpoint *string `type:"string" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	PreMount *bool `type:"boolean" json:",omitempty"`
 
 	ReadOnly *bool `type:"boolean" json:",omitempty"`
 }
@@ -812,6 +884,12 @@ func (s *TosMountPointForCreateSandboxInput) SetEndpoint(v string) *TosMountPoin
 // SetLocalMountPath sets the LocalMountPath field's value.
 func (s *TosMountPointForCreateSandboxInput) SetLocalMountPath(v string) *TosMountPointForCreateSandboxInput {
 	s.LocalMountPath = &v
+	return s
+}
+
+// SetPreMount sets the PreMount field's value.
+func (s *TosMountPointForCreateSandboxInput) SetPreMount(v bool) *TosMountPointForCreateSandboxInput {
+	s.PreMount = &v
 	return s
 }
 

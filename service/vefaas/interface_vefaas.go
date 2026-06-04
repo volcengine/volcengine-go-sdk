@@ -86,6 +86,14 @@ type VEFAASAPI interface {
 	CreateSandboxWithContext(volcengine.Context, *CreateSandboxInput, ...request.Option) (*CreateSandboxOutput, error)
 	CreateSandboxRequest(*CreateSandboxInput) (*request.Request, *CreateSandboxOutput)
 
+	CreateSandboxSnapshotCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSandboxSnapshotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSandboxSnapshotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSandboxSnapshot(*CreateSandboxSnapshotInput) (*CreateSandboxSnapshotOutput, error)
+	CreateSandboxSnapshotWithContext(volcengine.Context, *CreateSandboxSnapshotInput, ...request.Option) (*CreateSandboxSnapshotOutput, error)
+	CreateSandboxSnapshotRequest(*CreateSandboxSnapshotInput) (*request.Request, *CreateSandboxSnapshotOutput)
+
 	CreateTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateTimerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -118,6 +126,14 @@ type VEFAASAPI interface {
 	DeleteSandboxImageWithContext(volcengine.Context, *DeleteSandboxImageInput, ...request.Option) (*DeleteSandboxImageOutput, error)
 	DeleteSandboxImageRequest(*DeleteSandboxImageInput) (*request.Request, *DeleteSandboxImageOutput)
 
+	DeleteSandboxSnapshotCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSandboxSnapshotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSandboxSnapshotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSandboxSnapshot(*DeleteSandboxSnapshotInput) (*DeleteSandboxSnapshotOutput, error)
+	DeleteSandboxSnapshotWithContext(volcengine.Context, *DeleteSandboxSnapshotInput, ...request.Option) (*DeleteSandboxSnapshotOutput, error)
+	DeleteSandboxSnapshotRequest(*DeleteSandboxSnapshotInput) (*request.Request, *DeleteSandboxSnapshotOutput)
+
 	DeleteTimerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteTimerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteTimerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +149,14 @@ type VEFAASAPI interface {
 	DescribeSandbox(*DescribeSandboxInput) (*DescribeSandboxOutput, error)
 	DescribeSandboxWithContext(volcengine.Context, *DescribeSandboxInput, ...request.Option) (*DescribeSandboxOutput, error)
 	DescribeSandboxRequest(*DescribeSandboxInput) (*request.Request, *DescribeSandboxOutput)
+
+	DescribeSandboxSnapshotCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSandboxSnapshotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSandboxSnapshotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSandboxSnapshot(*DescribeSandboxSnapshotInput) (*DescribeSandboxSnapshotOutput, error)
+	DescribeSandboxSnapshotWithContext(volcengine.Context, *DescribeSandboxSnapshotInput, ...request.Option) (*DescribeSandboxSnapshotOutput, error)
+	DescribeSandboxSnapshotRequest(*DescribeSandboxSnapshotInput) (*request.Request, *DescribeSandboxSnapshotOutput)
 
 	EnableUserCrVpcTunnelCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableUserCrVpcTunnelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -349,6 +373,14 @@ type VEFAASAPI interface {
 	ListSandboxImages(*ListSandboxImagesInput) (*ListSandboxImagesOutput, error)
 	ListSandboxImagesWithContext(volcengine.Context, *ListSandboxImagesInput, ...request.Option) (*ListSandboxImagesOutput, error)
 	ListSandboxImagesRequest(*ListSandboxImagesInput) (*request.Request, *ListSandboxImagesOutput)
+
+	ListSandboxSnapshotsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSandboxSnapshotsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSandboxSnapshotsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSandboxSnapshots(*ListSandboxSnapshotsInput) (*ListSandboxSnapshotsOutput, error)
+	ListSandboxSnapshotsWithContext(volcengine.Context, *ListSandboxSnapshotsInput, ...request.Option) (*ListSandboxSnapshotsOutput, error)
+	ListSandboxSnapshotsRequest(*ListSandboxSnapshotsInput) (*request.Request, *ListSandboxSnapshotsOutput)
 
 	ListSandboxesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSandboxesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
