@@ -172,7 +172,7 @@ type DataForListGtmsOutput struct {
 
 	Remark *string `type:"string" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForListGtmsOutput `type:"list" json:",omitempty"`
+	ResourceTags []*ResourceTagForListGtmsOutput `type:"list"`
 
 	SpecName *string `type:"string" json:",omitempty"`
 
@@ -318,7 +318,7 @@ type ListGtmsInput struct {
 
 	SpecName *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForListGtmsInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForListGtmsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -425,7 +425,7 @@ type ListGtmsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListGtmsOutput `type:"list" json:",omitempty"`
+	Data []*DataForListGtmsOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -503,7 +503,7 @@ type TagFilterForListGtmsInput struct {
 
 	Key *string `min:"1" max:"128" type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation

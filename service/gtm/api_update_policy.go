@@ -150,7 +150,7 @@ type PolicyForUpdatePolicyInput struct {
 
 	RoutingMode *string `type:"string" json:",omitempty"`
 
-	Targets []*TargetForUpdatePolicyInput `type:"list" json:",omitempty"`
+	Targets []*TargetForUpdatePolicyInput `type:"list"`
 }
 
 // String returns the string representation

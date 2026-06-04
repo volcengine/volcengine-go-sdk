@@ -148,13 +148,13 @@ type StatisticForUpdateLoadInput struct {
 
 	AddrValue *string `type:"string" json:",omitempty"`
 
-	Capacity *int64 `type:"int64" json:",omitempty"`
+	Capacity *float64 `type:"double" json:",omitempty"`
 
-	CurrentLoad *int64 `type:"int64" json:",omitempty"`
+	CurrentLoad *float64 `type:"double" json:",omitempty"`
 
 	PoolName *string `type:"string" json:",omitempty"`
 
-	TargetLoad *int64 `type:"int64" json:",omitempty"`
+	TargetLoad *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,13 +174,13 @@ func (s *StatisticForUpdateLoadInput) SetAddrValue(v string) *StatisticForUpdate
 }
 
 // SetCapacity sets the Capacity field's value.
-func (s *StatisticForUpdateLoadInput) SetCapacity(v int64) *StatisticForUpdateLoadInput {
+func (s *StatisticForUpdateLoadInput) SetCapacity(v float64) *StatisticForUpdateLoadInput {
 	s.Capacity = &v
 	return s
 }
 
 // SetCurrentLoad sets the CurrentLoad field's value.
-func (s *StatisticForUpdateLoadInput) SetCurrentLoad(v int64) *StatisticForUpdateLoadInput {
+func (s *StatisticForUpdateLoadInput) SetCurrentLoad(v float64) *StatisticForUpdateLoadInput {
 	s.CurrentLoad = &v
 	return s
 }
@@ -192,7 +192,7 @@ func (s *StatisticForUpdateLoadInput) SetPoolName(v string) *StatisticForUpdateL
 }
 
 // SetTargetLoad sets the TargetLoad field's value.
-func (s *StatisticForUpdateLoadInput) SetTargetLoad(v int64) *StatisticForUpdateLoadInput {
+func (s *StatisticForUpdateLoadInput) SetTargetLoad(v float64) *StatisticForUpdateLoadInput {
 	s.TargetLoad = &v
 	return s
 }
@@ -203,7 +203,7 @@ type UpdateLoadInput struct {
 	// GtmId is a required field
 	GtmId *string `type:"string" json:",omitempty" required:"true"`
 
-	Statistics []*StatisticForUpdateLoadInput `type:"list" json:",omitempty"`
+	Statistics []*StatisticForUpdateLoadInput `type:"list"`
 
 	// Timestamp is a required field
 	Timestamp *int64 `type:"int64" json:",omitempty" required:"true"`

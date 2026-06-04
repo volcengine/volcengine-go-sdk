@@ -150,7 +150,7 @@ type AddressForCreatePoolInput struct {
 
 	Mode *string `type:"string" json:",omitempty"`
 
-	RectifiedGeos []*string `type:"list" json:",omitempty"`
+	RectifiedGeos []*string `type:"list"`
 
 	Value *string `type:"string" json:",omitempty"`
 
@@ -270,7 +270,7 @@ type PoolForCreatePoolInput struct {
 
 	AddrType *string `type:"string" json:",omitempty"`
 
-	Addresses []*AddressForCreatePoolInput `type:"list" json:",omitempty"`
+	Addresses []*AddressForCreatePoolInput `type:"list"`
 
 	Capacity *int32 `type:"int32" json:",omitempty"`
 

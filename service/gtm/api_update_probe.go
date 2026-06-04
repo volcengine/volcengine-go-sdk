@@ -160,7 +160,7 @@ func (s HttpHeaderForUpdateProbeInput) GoString() string {
 type HttpUsabilityCodeForUpdateProbeInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Codes []*int32 `type:"list" json:",omitempty"`
+	Codes []*int32 `type:"list"`
 
 	Operator *string `type:"string" json:",omitempty"`
 }
@@ -202,13 +202,13 @@ type ProbeForUpdateProbeInput struct {
 
 	HttpMethod *string `type:"string" json:",omitempty"`
 
-	HttpUsabilityCodes []*HttpUsabilityCodeForUpdateProbeInput `type:"list" json:",omitempty"`
+	HttpUsabilityCodes []*HttpUsabilityCodeForUpdateProbeInput `type:"list"`
 
 	Interval *int32 `type:"int32" json:",omitempty"`
 
 	IsManualNodes *bool `type:"boolean" json:",omitempty"`
 
-	Nodes []*string `type:"list" json:",omitempty"`
+	Nodes []*string `type:"list"`
 
 	PingCount *int32 `type:"int32" json:",omitempty"`
 
