@@ -293,7 +293,7 @@ func buildTopHeaders(ak, sk, service, region, method string, reqURL *url.URL, bo
 			if strings.Contains(value, ":") {
 				parts := strings.Split(value, ":")
 				port := parts[1]
-				if port == "80" || port == "443" {
+				if (reqURL.Scheme == "http" && port == "80") || (reqURL.Scheme == "https" && port == "443") {
 					value = parts[0]
 				}
 			}
