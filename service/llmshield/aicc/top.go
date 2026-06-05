@@ -25,17 +25,17 @@ const timeFormatV4 = "20060102T150405Z"
 
 // TopInfo holds configuration for the TOP API request.
 type TopInfo struct {
-	AK          string `json:"ak"`           // Access Key
-	SK          string `json:"sk"`           // Secret Key
-	Service     string `json:"service"`      // Service name (required)
-	Region      string `json:"region"`       // Region (default: "cn-beijing")
-	Method      string `json:"method"`       // HTTP method (default: "POST")
-	Action      string `json:"action"`       // Deprecated: Use action parameter in RequestTop
-	Version     string `json:"version"`      // API version (default: "2024-12-24")
-	URL         string `json:"url"`          // Base URL (for signing)
-	URLRewrite  string `json:"url_rewrite"`  // Optional URL rewrite (for actual request)
-	AiccSaaSTrn string `json:"aicc_saas_trn"`// Optional: STS AssumeRole TRN
-	TargetUID   string `json:"target_uid"`   // Optional: Target UID for header
+	AK          string `json:"ak"`            // Access Key
+	SK          string `json:"sk"`            // Secret Key
+	Service     string `json:"service"`       // Service name (required)
+	Region      string `json:"region"`        // Region (default: "cn-beijing")
+	Method      string `json:"method"`        // HTTP method (default: "POST")
+	Action      string `json:"action"`        // Deprecated: Use action parameter in RequestTop
+	Version     string `json:"version"`       // API version (default: "2024-12-24")
+	URL         string `json:"url"`           // Base URL (for signing)
+	URLRewrite  string `json:"url_rewrite"`   // Optional URL rewrite (for actual request)
+	AiccSaaSTrn string `json:"aicc_saas_trn"` // Optional: STS AssumeRole TRN
+	TargetUID   string `json:"target_uid"`    // Optional: Target UID for header
 }
 
 // tempCredentials holds STS AssumeRole result
@@ -45,6 +45,7 @@ type tempCredentials struct {
 	SessionToken string
 }
 
+/*
 type signingMetadata struct {
 	algorithm       string
 	date            string
@@ -53,6 +54,7 @@ type signingMetadata struct {
 	signedHeaders   string
 	credentialScope string
 }
+*/
 
 // deserializeTopInfo parses a JSON reader into a TopInfo struct with defaults.
 func deserializeTopInfo(reader io.Reader) (TopInfo, error) {
@@ -363,6 +365,7 @@ func signingKeyV4(secretKey, date, region, service string) []byte {
 	return kSigning
 }
 
+/*
 func normuri(uri string) string {
 	parts := strings.Split(uri, "/")
 	for i := range parts {
@@ -408,6 +411,7 @@ func shouldEscape(c byte) bool {
 	}
 	return true
 }
+*/
 
 func normquery(v url.Values) string {
 	queryString := v.Encode()

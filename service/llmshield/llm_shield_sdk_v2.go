@@ -7,9 +7,19 @@ import (
 	"io"
 	"net/http"
 	purl "net/url"
+	"os"
 	"time"
 
 	aicc "github.com/volcengine/volcengine-go-sdk/service/llmshield/aicc"
+)
+
+// 客户端初始化选项 Key
+const (
+	OptionEnableAicc = "EnableAicc"
+	OptionLogLevel   = "LogLevel"
+	OptionProxyAddr  = "ProxyAddr"
+	OptionConnMax    = "ConnMax"
+	OptionTimeout    = "Timeout"
 )
 
 // New 创建一个新的客户端实例
@@ -55,6 +65,75 @@ func NewAdvanced(url string, ak string, sk string, region string, timeout time.D
 		sk:     sk,
 		region: region,
 	}
+}
+
+// NewWithOptions 创建一个新的客户端实例，支持通过 options 配置额外能力（如 AICC、代理、连接池、超时）
+// 类似 Python SDK 的 ClientV2.__init__ 方法
+// options 支持的键：
+//   - OptionEnableAicc (bool): 是否启用 AICC 加密能力
+//   - OptionLogLevel (string): AICC 日志级别，默认为 "ERROR"
+//   - OptionProxyAddr (string): 代理地址，如 "http://proxy.example.com:8080"
+//   - OptionConnMax (int): 最大连接数，设置后会同时设置 MaxIdleConns、MaxConnsPerHost、MaxIdleConnsPerHost
+//   - OptionTimeout (time.Duration): HTTP 客户端超时时间，默认为 0（不超时）
+func NewWithOptions(url string, ak string, sk string, region string, options map[string]interface{}) (*Client, error) {
+	transport := &http.Transport{}
+	hasTransport := false
+	timeout := time.Duration(0)
+
+	if options != nil {
+		// 配置代理
+		if proxyAddr, ok := options[OptionProxyAddr].(string); ok && proxyAddr != "" {
+			proxyHandler, err := purl.Parse(proxyAddr)
+			if err != nil {
+				return nil, fmt.Errorf("NewWithOptions Parse proxy addr error: %w", err)
+			}
+			transport.Proxy = http.ProxyURL(proxyHandler)
+			hasTransport = true
+		}
+
+		// 配置最大连接数
+		if connMax, ok := options[OptionConnMax].(int); ok && connMax > 0 {
+			transport.MaxIdleConns = connMax
+			transport.MaxConnsPerHost = connMax
+			transport.MaxIdleConnsPerHost = connMax
+			hasTransport = true
+		}
+
+		// 配置超时时间
+		if t, ok := options[OptionTimeout].(time.Duration); ok {
+			timeout = t
+		}
+	}
+
+	httpClient := &http.Client{
+		Timeout: timeout,
+	}
+	if hasTransport {
+		httpClient.Transport = transport
+	}
+
+	client := &Client{
+		url:        url,
+		httpClient: httpClient,
+		ak:         ak,
+		sk:         sk,
+		region:     region,
+	}
+
+	if options != nil {
+		if enableAicc, ok := options[OptionEnableAicc].(bool); ok && enableAicc {
+			logLevel := "ERROR"
+			if ll, ok := options[OptionLogLevel].(string); ok && ll != "" {
+				logLevel = ll
+			}
+			os.Setenv("LOG_LEVEL", logLevel)
+			if err := client.SetAiccInit(); err != nil {
+				return nil, fmt.Errorf("AICC 初始化失败: %w", err)
+			}
+		}
+	}
+
+	return client, nil
 }
 
 func SetServiceDev(IsDev bool) {
