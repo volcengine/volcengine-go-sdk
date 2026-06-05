@@ -184,8 +184,11 @@ func requestTop(topInfo *TopInfo, action string, extraHeaders map[string]string,
 		return nil, fmt.Errorf("failed to parse JSON response: %w", err)
 	}
 
-	results := respJson["Result"].(map[string]interface{})
-	return results, nil
+	result, ok := respJson["Result"].(map[string]interface{})
+	if !ok {
+		return nil, fmt.Errorf("missing or invalid Result in response: %s", string(respBody))
+	}
+	return result, nil
 }
 
 // assumeRole calls STS AssumeRole to get temporary credentials
