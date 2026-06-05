@@ -1,6 +1,7 @@
 package jeddak_secure_channel
 
 import (
+	"sync"
 	"errors"
 	"io"
 	"log"
@@ -13,6 +14,7 @@ type Client struct {
 	config     ClientConfig
 	ticker     *time.Ticker
 	done       chan struct{}
+	closeOnce  sync.Once
 	sessionKey *ClientSessionKey
 }
 
@@ -59,7 +61,9 @@ func NewClient(config ClientConfig) *Client {
 
 // Close stops periodic attestation and cleans up resources.
 func (c *Client) Close() error {
-	close(c.done)
+	c.closeOnce.Do(func() {
+		close(c.done)
+    })
 	if c.ticker != nil {
 		c.ticker.Stop()
 	}
