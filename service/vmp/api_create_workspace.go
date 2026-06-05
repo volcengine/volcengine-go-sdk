@@ -150,6 +150,8 @@ type CreateWorkspaceInput struct {
 
 	BearerToken *string `type:"string" json:",omitempty"`
 
+	ChargeType *string `type:"string" json:",omitempty"`
+
 	DeleteProtectionEnabled *bool `type:"boolean" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -206,6 +208,12 @@ func (s *CreateWorkspaceInput) SetAuthType(v string) *CreateWorkspaceInput {
 // SetBearerToken sets the BearerToken field's value.
 func (s *CreateWorkspaceInput) SetBearerToken(v string) *CreateWorkspaceInput {
 	s.BearerToken = &v
+	return s
+}
+
+// SetChargeType sets the ChargeType field's value.
+func (s *CreateWorkspaceInput) SetChargeType(v string) *CreateWorkspaceInput {
+	s.ChargeType = &v
 	return s
 }
 

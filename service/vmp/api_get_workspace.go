@@ -211,6 +211,90 @@ func (s *CalculatePriceParamForGetWorkspaceOutput) SetPeriod(v string) *Calculat
 	return s
 }
 
+type CalculateVolumePriceParamForGetWorkspaceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CalChargeItemList []*CalChargeItemListForGetWorkspaceOutput `type:"list" json:",omitempty"`
+
+	ConfigurationCode *string `type:"string" json:",omitempty"`
+
+	Period *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CalculateVolumePriceParamForGetWorkspaceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CalculateVolumePriceParamForGetWorkspaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetCalChargeItemList sets the CalChargeItemList field's value.
+func (s *CalculateVolumePriceParamForGetWorkspaceOutput) SetCalChargeItemList(v []*CalChargeItemListForGetWorkspaceOutput) *CalculateVolumePriceParamForGetWorkspaceOutput {
+	s.CalChargeItemList = v
+	return s
+}
+
+// SetConfigurationCode sets the ConfigurationCode field's value.
+func (s *CalculateVolumePriceParamForGetWorkspaceOutput) SetConfigurationCode(v string) *CalculateVolumePriceParamForGetWorkspaceOutput {
+	s.ConfigurationCode = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *CalculateVolumePriceParamForGetWorkspaceOutput) SetPeriod(v string) *CalculateVolumePriceParamForGetWorkspaceOutput {
+	s.Period = &v
+	return s
+}
+
+type ExclusiveResourceConfigForGetWorkspaceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CreateBy *string `type:"string" json:",omitempty"`
+
+	DenyDelete *bool `type:"boolean" json:",omitempty"`
+
+	DenyUpdate *bool `type:"boolean" json:",omitempty"`
+
+	RelatedResource *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ExclusiveResourceConfigForGetWorkspaceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExclusiveResourceConfigForGetWorkspaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateBy sets the CreateBy field's value.
+func (s *ExclusiveResourceConfigForGetWorkspaceOutput) SetCreateBy(v string) *ExclusiveResourceConfigForGetWorkspaceOutput {
+	s.CreateBy = &v
+	return s
+}
+
+// SetDenyDelete sets the DenyDelete field's value.
+func (s *ExclusiveResourceConfigForGetWorkspaceOutput) SetDenyDelete(v bool) *ExclusiveResourceConfigForGetWorkspaceOutput {
+	s.DenyDelete = &v
+	return s
+}
+
+// SetDenyUpdate sets the DenyUpdate field's value.
+func (s *ExclusiveResourceConfigForGetWorkspaceOutput) SetDenyUpdate(v bool) *ExclusiveResourceConfigForGetWorkspaceOutput {
+	s.DenyUpdate = &v
+	return s
+}
+
+// SetRelatedResource sets the RelatedResource field's value.
+func (s *ExclusiveResourceConfigForGetWorkspaceOutput) SetRelatedResource(v string) *ExclusiveResourceConfigForGetWorkspaceOutput {
+	s.RelatedResource = &v
+	return s
+}
+
 type GetWorkspaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -254,11 +338,15 @@ type GetWorkspaceOutput struct {
 
 	AuthType *string `type:"string" json:",omitempty"`
 
+	ChargeType *string `type:"string" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	DeleteProtectionEnabled *bool `type:"boolean" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	ExclusiveResourceConfig *ExclusiveResourceConfigForGetWorkspaceOutput `type:"structure" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
 
@@ -271,6 +359,8 @@ type GetWorkspaceOutput struct {
 	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	PrometheusFederateEndpoint *string `type:"string" json:",omitempty"`
 
 	PrometheusPushEndpoint *string `type:"string" json:",omitempty"`
 
@@ -317,6 +407,12 @@ func (s *GetWorkspaceOutput) SetAuthType(v string) *GetWorkspaceOutput {
 	return s
 }
 
+// SetChargeType sets the ChargeType field's value.
+func (s *GetWorkspaceOutput) SetChargeType(v string) *GetWorkspaceOutput {
+	s.ChargeType = &v
+	return s
+}
+
 // SetCreateTime sets the CreateTime field's value.
 func (s *GetWorkspaceOutput) SetCreateTime(v string) *GetWorkspaceOutput {
 	s.CreateTime = &v
@@ -332,6 +428,12 @@ func (s *GetWorkspaceOutput) SetDeleteProtectionEnabled(v bool) *GetWorkspaceOut
 // SetDescription sets the Description field's value.
 func (s *GetWorkspaceOutput) SetDescription(v string) *GetWorkspaceOutput {
 	s.Description = &v
+	return s
+}
+
+// SetExclusiveResourceConfig sets the ExclusiveResourceConfig field's value.
+func (s *GetWorkspaceOutput) SetExclusiveResourceConfig(v *ExclusiveResourceConfigForGetWorkspaceOutput) *GetWorkspaceOutput {
+	s.ExclusiveResourceConfig = v
 	return s
 }
 
@@ -368,6 +470,12 @@ func (s *GetWorkspaceOutput) SetOverdueReclaimTime(v string) *GetWorkspaceOutput
 // SetProjectName sets the ProjectName field's value.
 func (s *GetWorkspaceOutput) SetProjectName(v string) *GetWorkspaceOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetPrometheusFederateEndpoint sets the PrometheusFederateEndpoint field's value.
+func (s *GetWorkspaceOutput) SetPrometheusFederateEndpoint(v string) *GetWorkspaceOutput {
+	s.PrometheusFederateEndpoint = &v
 	return s
 }
 
@@ -464,11 +572,17 @@ type InstanceTypeForGetWorkspaceOutput struct {
 
 	CalculatePriceParams []*CalculatePriceParamForGetWorkspaceOutput `type:"list" json:",omitempty"`
 
+	CalculateVolumePriceParams []*CalculateVolumePriceParamForGetWorkspaceOutput `type:"list" json:",omitempty"`
+
 	DownsamplingPeriods []*string `type:"list" json:",omitempty"`
+
+	FederatePerSecond *int32 `type:"int32" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
 
 	IngestSamplesPerSecond *int32 `type:"int32" json:",omitempty"`
+
+	MaxFederateSeries *int32 `type:"int32" json:",omitempty"`
 
 	QueryConcurrency *int32 `type:"int32" json:",omitempty"`
 
@@ -511,9 +625,21 @@ func (s *InstanceTypeForGetWorkspaceOutput) SetCalculatePriceParams(v []*Calcula
 	return s
 }
 
+// SetCalculateVolumePriceParams sets the CalculateVolumePriceParams field's value.
+func (s *InstanceTypeForGetWorkspaceOutput) SetCalculateVolumePriceParams(v []*CalculateVolumePriceParamForGetWorkspaceOutput) *InstanceTypeForGetWorkspaceOutput {
+	s.CalculateVolumePriceParams = v
+	return s
+}
+
 // SetDownsamplingPeriods sets the DownsamplingPeriods field's value.
 func (s *InstanceTypeForGetWorkspaceOutput) SetDownsamplingPeriods(v []*string) *InstanceTypeForGetWorkspaceOutput {
 	s.DownsamplingPeriods = v
+	return s
+}
+
+// SetFederatePerSecond sets the FederatePerSecond field's value.
+func (s *InstanceTypeForGetWorkspaceOutput) SetFederatePerSecond(v int32) *InstanceTypeForGetWorkspaceOutput {
+	s.FederatePerSecond = &v
 	return s
 }
 
@@ -526,6 +652,12 @@ func (s *InstanceTypeForGetWorkspaceOutput) SetId(v string) *InstanceTypeForGetW
 // SetIngestSamplesPerSecond sets the IngestSamplesPerSecond field's value.
 func (s *InstanceTypeForGetWorkspaceOutput) SetIngestSamplesPerSecond(v int32) *InstanceTypeForGetWorkspaceOutput {
 	s.IngestSamplesPerSecond = &v
+	return s
+}
+
+// SetMaxFederateSeries sets the MaxFederateSeries field's value.
+func (s *InstanceTypeForGetWorkspaceOutput) SetMaxFederateSeries(v int32) *InstanceTypeForGetWorkspaceOutput {
+	s.MaxFederateSeries = &v
 	return s
 }
 
