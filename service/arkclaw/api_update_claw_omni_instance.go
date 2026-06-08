@@ -156,6 +156,8 @@ type UpdateClawOmniInstanceInput struct {
 	TokenLimitPerMin *int32 `type:"int32" json:",omitempty"`
 
 	TokenLimitPerWeek *string `type:"string" json:",omitempty"`
+
+	TokenQuota *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -208,6 +210,12 @@ func (s *UpdateClawOmniInstanceInput) SetTokenLimitPerMin(v int32) *UpdateClawOm
 // SetTokenLimitPerWeek sets the TokenLimitPerWeek field's value.
 func (s *UpdateClawOmniInstanceInput) SetTokenLimitPerWeek(v string) *UpdateClawOmniInstanceInput {
 	s.TokenLimitPerWeek = &v
+	return s
+}
+
+// SetTokenQuota sets the TokenQuota field's value.
+func (s *UpdateClawOmniInstanceInput) SetTokenQuota(v string) *UpdateClawOmniInstanceInput {
+	s.TokenQuota = &v
 	return s
 }
 

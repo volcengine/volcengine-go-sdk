@@ -148,6 +148,9 @@ type CreatePrivateClawOmniSpaceTemplateInput struct {
 
 	AgentMd *string `type:"string" json:",omitempty"`
 
+	// ApplicationVersionId is a required field
+	ApplicationVersionId *string `type:"string" json:",omitempty" required:"true"`
+
 	// CpuMilli is a required field
 	CpuMilli *int32 `type:"int32" json:",omitempty" required:"true"`
 
@@ -157,8 +160,9 @@ type CreatePrivateClawOmniSpaceTemplateInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
-	// ImageId is a required field
-	ImageId *string `type:"string" json:",omitempty" required:"true"`
+	ImageId *string `type:"string" json:",omitempty"`
+
+	Input *string `type:"string" json:",omitempty"`
 
 	// MemoryMb is a required field
 	MemoryMb *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -170,12 +174,12 @@ type CreatePrivateClawOmniSpaceTemplateInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	Reasoning *string `type:"string" json:",omitempty"`
+
 	SkillConfig *string `type:"string" json:",omitempty"`
 
 	// Soul is a required field
 	Soul *string `type:"string" json:",omitempty" required:"true"`
-
-	TemplateLabel *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -191,11 +195,11 @@ func (s CreatePrivateClawOmniSpaceTemplateInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreatePrivateClawOmniSpaceTemplateInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreatePrivateClawOmniSpaceTemplateInput"}
+	if s.ApplicationVersionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ApplicationVersionId"))
+	}
 	if s.CpuMilli == nil {
 		invalidParams.Add(request.NewErrParamRequired("CpuMilli"))
-	}
-	if s.ImageId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ImageId"))
 	}
 	if s.MemoryMb == nil {
 		invalidParams.Add(request.NewErrParamRequired("MemoryMb"))
@@ -216,6 +220,12 @@ func (s *CreatePrivateClawOmniSpaceTemplateInput) Validate() error {
 // SetAgentMd sets the AgentMd field's value.
 func (s *CreatePrivateClawOmniSpaceTemplateInput) SetAgentMd(v string) *CreatePrivateClawOmniSpaceTemplateInput {
 	s.AgentMd = &v
+	return s
+}
+
+// SetApplicationVersionId sets the ApplicationVersionId field's value.
+func (s *CreatePrivateClawOmniSpaceTemplateInput) SetApplicationVersionId(v string) *CreatePrivateClawOmniSpaceTemplateInput {
+	s.ApplicationVersionId = &v
 	return s
 }
 
@@ -249,6 +259,12 @@ func (s *CreatePrivateClawOmniSpaceTemplateInput) SetImageId(v string) *CreatePr
 	return s
 }
 
+// SetInput sets the Input field's value.
+func (s *CreatePrivateClawOmniSpaceTemplateInput) SetInput(v string) *CreatePrivateClawOmniSpaceTemplateInput {
+	s.Input = &v
+	return s
+}
+
 // SetMemoryMb sets the MemoryMb field's value.
 func (s *CreatePrivateClawOmniSpaceTemplateInput) SetMemoryMb(v int32) *CreatePrivateClawOmniSpaceTemplateInput {
 	s.MemoryMb = &v
@@ -273,6 +289,12 @@ func (s *CreatePrivateClawOmniSpaceTemplateInput) SetProjectName(v string) *Crea
 	return s
 }
 
+// SetReasoning sets the Reasoning field's value.
+func (s *CreatePrivateClawOmniSpaceTemplateInput) SetReasoning(v string) *CreatePrivateClawOmniSpaceTemplateInput {
+	s.Reasoning = &v
+	return s
+}
+
 // SetSkillConfig sets the SkillConfig field's value.
 func (s *CreatePrivateClawOmniSpaceTemplateInput) SetSkillConfig(v string) *CreatePrivateClawOmniSpaceTemplateInput {
 	s.SkillConfig = &v
@@ -285,18 +307,16 @@ func (s *CreatePrivateClawOmniSpaceTemplateInput) SetSoul(v string) *CreatePriva
 	return s
 }
 
-// SetTemplateLabel sets the TemplateLabel field's value.
-func (s *CreatePrivateClawOmniSpaceTemplateInput) SetTemplateLabel(v string) *CreatePrivateClawOmniSpaceTemplateInput {
-	s.TemplateLabel = &v
-	return s
-}
-
 type CreatePrivateClawOmniSpaceTemplateOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
 	Id *string `type:"string" json:",omitempty"`
+
+	ImageBuildStatus *string `type:"string" json:",omitempty"`
+
+	VersionId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -312,5 +332,17 @@ func (s CreatePrivateClawOmniSpaceTemplateOutput) GoString() string {
 // SetId sets the Id field's value.
 func (s *CreatePrivateClawOmniSpaceTemplateOutput) SetId(v string) *CreatePrivateClawOmniSpaceTemplateOutput {
 	s.Id = &v
+	return s
+}
+
+// SetImageBuildStatus sets the ImageBuildStatus field's value.
+func (s *CreatePrivateClawOmniSpaceTemplateOutput) SetImageBuildStatus(v string) *CreatePrivateClawOmniSpaceTemplateOutput {
+	s.ImageBuildStatus = &v
+	return s
+}
+
+// SetVersionId sets the VersionId field's value.
+func (s *CreatePrivateClawOmniSpaceTemplateOutput) SetVersionId(v string) *CreatePrivateClawOmniSpaceTemplateOutput {
+	s.VersionId = &v
 	return s
 }

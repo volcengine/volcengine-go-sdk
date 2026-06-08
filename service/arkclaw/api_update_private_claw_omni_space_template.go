@@ -170,8 +170,6 @@ type UpdatePrivateClawOmniSpaceTemplateInput struct {
 	SkillConfig *string `type:"string" json:",omitempty"`
 
 	Soul *string `type:"string" json:",omitempty"`
-
-	TemplateLabel *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,12 +264,6 @@ func (s *UpdatePrivateClawOmniSpaceTemplateInput) SetSkillConfig(v string) *Upda
 // SetSoul sets the Soul field's value.
 func (s *UpdatePrivateClawOmniSpaceTemplateInput) SetSoul(v string) *UpdatePrivateClawOmniSpaceTemplateInput {
 	s.Soul = &v
-	return s
-}
-
-// SetTemplateLabel sets the TemplateLabel field's value.
-func (s *UpdatePrivateClawOmniSpaceTemplateInput) SetTemplateLabel(v string) *UpdatePrivateClawOmniSpaceTemplateInput {
-	s.TemplateLabel = &v
 	return s
 }
 
