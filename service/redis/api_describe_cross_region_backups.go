@@ -150,6 +150,8 @@ type BackupForDescribeCrossRegionBackupsOutput struct {
 
 	BackupPointName *string `type:"string" json:",omitempty"`
 
+	BackupProgress *int32 `type:"int32" json:",omitempty"`
+
 	BackupStrategy *string `type:"string" json:",omitempty" enum:"EnumOfBackupStrategyForDescribeCrossRegionBackupsOutput"`
 
 	BackupType *string `type:"string" json:",omitempty" enum:"EnumOfBackupTypeForDescribeCrossRegionBackupsOutput"`
@@ -194,6 +196,12 @@ func (s *BackupForDescribeCrossRegionBackupsOutput) SetBackupPointId(v string) *
 // SetBackupPointName sets the BackupPointName field's value.
 func (s *BackupForDescribeCrossRegionBackupsOutput) SetBackupPointName(v string) *BackupForDescribeCrossRegionBackupsOutput {
 	s.BackupPointName = &v
+	return s
+}
+
+// SetBackupProgress sets the BackupProgress field's value.
+func (s *BackupForDescribeCrossRegionBackupsOutput) SetBackupProgress(v int32) *BackupForDescribeCrossRegionBackupsOutput {
+	s.BackupProgress = &v
 	return s
 }
 
@@ -410,6 +418,8 @@ type InstanceInfoForDescribeCrossRegionBackupsOutput struct {
 
 	ArchType *string `type:"string" json:",omitempty"`
 
+	BlueGreenRole *string `type:"string" json:",omitempty" enum:"EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutput"`
+
 	ChargeType *string `type:"string" json:",omitempty"`
 
 	DeletionProtection *string `type:"string" json:",omitempty"`
@@ -460,6 +470,12 @@ func (s *InstanceInfoForDescribeCrossRegionBackupsOutput) SetAccountId(v int64) 
 // SetArchType sets the ArchType field's value.
 func (s *InstanceInfoForDescribeCrossRegionBackupsOutput) SetArchType(v string) *InstanceInfoForDescribeCrossRegionBackupsOutput {
 	s.ArchType = &v
+	return s
+}
+
+// SetBlueGreenRole sets the BlueGreenRole field's value.
+func (s *InstanceInfoForDescribeCrossRegionBackupsOutput) SetBlueGreenRole(v string) *InstanceInfoForDescribeCrossRegionBackupsOutput {
+	s.BlueGreenRole = &v
 	return s
 }
 
@@ -593,6 +609,14 @@ const (
 
 	// EnumOfBackupTypeForDescribeCrossRegionBackupsOutputAll is a EnumOfBackupTypeForDescribeCrossRegionBackupsOutput enum value
 	EnumOfBackupTypeForDescribeCrossRegionBackupsOutputAll = "All"
+)
+
+const (
+	// EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutputBlue is a EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutput enum value
+	EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutputBlue = "Blue"
+
+	// EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutputGreen is a EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutput enum value
+	EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutputGreen = "Green"
 )
 
 const (
