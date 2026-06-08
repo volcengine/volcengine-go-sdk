@@ -346,9 +346,13 @@ type FlowLogForDescribeFlowLogsOutput struct {
 
 	Tags []*TagForDescribeFlowLogsOutput `type:"list"`
 
+	TrafficPath []*int64 `type:"list"`
+
 	TrafficType *string `type:"string" enum:"TrafficTypeForDescribeFlowLogsOutput"`
 
 	UpdatedAt *string `type:"string"`
+
+	Version *int64 `type:"integer"`
 
 	VpcId *string `type:"string"`
 }
@@ -453,6 +457,12 @@ func (s *FlowLogForDescribeFlowLogsOutput) SetTags(v []*TagForDescribeFlowLogsOu
 	return s
 }
 
+// SetTrafficPath sets the TrafficPath field's value.
+func (s *FlowLogForDescribeFlowLogsOutput) SetTrafficPath(v []*int64) *FlowLogForDescribeFlowLogsOutput {
+	s.TrafficPath = v
+	return s
+}
+
 // SetTrafficType sets the TrafficType field's value.
 func (s *FlowLogForDescribeFlowLogsOutput) SetTrafficType(v string) *FlowLogForDescribeFlowLogsOutput {
 	s.TrafficType = &v
@@ -462,6 +472,12 @@ func (s *FlowLogForDescribeFlowLogsOutput) SetTrafficType(v string) *FlowLogForD
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *FlowLogForDescribeFlowLogsOutput) SetUpdatedAt(v string) *FlowLogForDescribeFlowLogsOutput {
 	s.UpdatedAt = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *FlowLogForDescribeFlowLogsOutput) SetVersion(v int64) *FlowLogForDescribeFlowLogsOutput {
+	s.Version = &v
 	return s
 }
 
