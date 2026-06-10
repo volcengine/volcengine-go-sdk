@@ -248,7 +248,7 @@ type DescribeOriginStatusCodeRankingOutput struct {
 
 	Metric *string `type:"string" json:",omitempty"`
 
-	TopDataDetails []*TopDataDetailForDescribeOriginStatusCodeRankingOutput `type:"list" json:",omitempty"`
+	TopDataDetails []*TopDataDetailForDescribeOriginStatusCodeRankingOutput `type:"list"`
 }
 
 // String returns the string representation

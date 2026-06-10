@@ -186,7 +186,7 @@ type CertInfoForListCdnCertInfoOutput struct {
 
 	ConfiguredDomain *string `type:"string" json:",omitempty"`
 
-	ConfiguredDomainDetail []*ConfiguredDomainDetailForListCdnCertInfoOutput `type:"list" json:",omitempty"`
+	ConfiguredDomainDetail []*ConfiguredDomainDetailForListCdnCertInfoOutput `type:"list"`
 
 	Desc *string `type:"string" json:",omitempty"`
 
@@ -420,7 +420,7 @@ type ListCdnCertInfoOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	CertInfo []*CertInfoForListCdnCertInfoOutput `type:"list" json:",omitempty"`
+	CertInfo []*CertInfoForListCdnCertInfoOutput `type:"list"`
 
 	ExpiringCount *int64 `type:"int64" json:",omitempty"`
 

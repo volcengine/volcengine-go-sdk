@@ -182,10 +182,11 @@ type SubmitPreloadTaskInput struct {
 
 	Layer *string `type:"string" json:",omitempty"`
 
-	RequestHeaderInstances []*RequestHeaderInstanceForSubmitPreloadTaskInput `type:"list" json:",omitempty"`
+	RequestHeaderInstances []*RequestHeaderInstanceForSubmitPreloadTaskInput `type:"list"`
 
-	// Urls is a required field
-	Urls *string `type:"string" json:",omitempty" required:"true"`
+	UrlList []*string `type:"list"`
+
+	Urls *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,19 +197,6 @@ func (s SubmitPreloadTaskInput) String() string {
 // GoString returns the string representation
 func (s SubmitPreloadTaskInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *SubmitPreloadTaskInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "SubmitPreloadTaskInput"}
-	if s.Urls == nil {
-		invalidParams.Add(request.NewErrParamRequired("Urls"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetArea sets the Area field's value.
@@ -232,6 +220,12 @@ func (s *SubmitPreloadTaskInput) SetLayer(v string) *SubmitPreloadTaskInput {
 // SetRequestHeaderInstances sets the RequestHeaderInstances field's value.
 func (s *SubmitPreloadTaskInput) SetRequestHeaderInstances(v []*RequestHeaderInstanceForSubmitPreloadTaskInput) *SubmitPreloadTaskInput {
 	s.RequestHeaderInstances = v
+	return s
+}
+
+// SetUrlList sets the UrlList field's value.
+func (s *SubmitPreloadTaskInput) SetUrlList(v []*string) *SubmitPreloadTaskInput {
+	s.UrlList = v
 	return s
 }
 

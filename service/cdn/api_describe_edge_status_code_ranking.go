@@ -248,7 +248,7 @@ type DescribeEdgeStatusCodeRankingOutput struct {
 
 	Metric *string `type:"string" json:",omitempty"`
 
-	TopDataDetails []*TopDataDetailForDescribeEdgeStatusCodeRankingOutput `type:"list" json:",omitempty"`
+	TopDataDetails []*TopDataDetailForDescribeEdgeStatusCodeRankingOutput `type:"list"`
 }
 
 // String returns the string representation

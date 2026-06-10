@@ -78,6 +78,14 @@ type CDNAPI interface {
 	BatchUpdateCdnConfigWithContext(volcengine.Context, *BatchUpdateCdnConfigInput, ...request.Option) (*BatchUpdateCdnConfigOutput, error)
 	BatchUpdateCdnConfigRequest(*BatchUpdateCdnConfigInput) (*request.Request, *BatchUpdateCdnConfigOutput)
 
+	CreateDomainVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDomainVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDomainVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDomainVersion(*CreateDomainVersionInput) (*CreateDomainVersionOutput, error)
+	CreateDomainVersionWithContext(volcengine.Context, *CreateDomainVersionInput, ...request.Option) (*CreateDomainVersionOutput, error)
+	CreateDomainVersionRequest(*CreateDomainVersionInput) (*request.Request, *CreateDomainVersionOutput)
+
 	CreateUsageReportCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateUsageReportCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateUsageReportCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +109,14 @@ type CDNAPI interface {
 	DeleteCdnDomain(*DeleteCdnDomainInput) (*DeleteCdnDomainOutput, error)
 	DeleteCdnDomainWithContext(volcengine.Context, *DeleteCdnDomainInput, ...request.Option) (*DeleteCdnDomainOutput, error)
 	DeleteCdnDomainRequest(*DeleteCdnDomainInput) (*request.Request, *DeleteCdnDomainOutput)
+
+	DeleteDomainVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDomainVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDomainVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDomainVersion(*DeleteDomainVersionInput) (*DeleteDomainVersionOutput, error)
+	DeleteDomainVersionWithContext(volcengine.Context, *DeleteDomainVersionInput, ...request.Option) (*DeleteDomainVersionOutput, error)
+	DeleteDomainVersionRequest(*DeleteDomainVersionInput) (*request.Request, *DeleteDomainVersionOutput)
 
 	DeleteResourceTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteResourceTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -246,6 +262,22 @@ type CDNAPI interface {
 	DescribeDistrictSummaryWithContext(volcengine.Context, *DescribeDistrictSummaryInput, ...request.Option) (*DescribeDistrictSummaryOutput, error)
 	DescribeDistrictSummaryRequest(*DescribeDistrictSummaryInput) (*request.Request, *DescribeDistrictSummaryOutput)
 
+	DescribeDomainEnvVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDomainEnvVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDomainEnvVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDomainEnvVersion(*DescribeDomainEnvVersionInput) (*DescribeDomainEnvVersionOutput, error)
+	DescribeDomainEnvVersionWithContext(volcengine.Context, *DescribeDomainEnvVersionInput, ...request.Option) (*DescribeDomainEnvVersionOutput, error)
+	DescribeDomainEnvVersionRequest(*DescribeDomainEnvVersionInput) (*request.Request, *DescribeDomainEnvVersionOutput)
+
+	DescribeDomainVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDomainVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDomainVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDomainVersion(*DescribeDomainVersionInput) (*DescribeDomainVersionOutput, error)
+	DescribeDomainVersionWithContext(volcengine.Context, *DescribeDomainVersionInput, ...request.Option) (*DescribeDomainVersionOutput, error)
+	DescribeDomainVersionRequest(*DescribeDomainVersionInput) (*request.Request, *DescribeDomainVersionOutput)
+
 	DescribeEdgeDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeEdgeDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeEdgeDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -310,6 +342,14 @@ type CDNAPI interface {
 	DescribeOriginSummaryWithContext(volcengine.Context, *DescribeOriginSummaryInput, ...request.Option) (*DescribeOriginSummaryOutput, error)
 	DescribeOriginSummaryRequest(*DescribeOriginSummaryInput) (*request.Request, *DescribeOriginSummaryOutput)
 
+	DescribeRetrieveInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeRetrieveInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeRetrieveInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeRetrieveInfo(*DescribeRetrieveInfoInput) (*DescribeRetrieveInfoOutput, error)
+	DescribeRetrieveInfoWithContext(volcengine.Context, *DescribeRetrieveInfoInput, ...request.Option) (*DescribeRetrieveInfoOutput, error)
+	DescribeRetrieveInfoRequest(*DescribeRetrieveInfoInput) (*request.Request, *DescribeRetrieveInfoOutput)
+
 	DescribeSharedConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSharedConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeSharedConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -358,6 +398,14 @@ type CDNAPI interface {
 	ListCertInfoWithContext(volcengine.Context, *ListCertInfoInput, ...request.Option) (*ListCertInfoOutput, error)
 	ListCertInfoRequest(*ListCertInfoInput) (*request.Request, *ListCertInfoOutput)
 
+	ListDomainVersionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDomainVersionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDomainVersionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDomainVersions(*ListDomainVersionsInput) (*ListDomainVersionsOutput, error)
+	ListDomainVersionsWithContext(volcengine.Context, *ListDomainVersionsInput, ...request.Option) (*ListDomainVersionsOutput, error)
+	ListDomainVersionsRequest(*ListDomainVersionsInput) (*request.Request, *ListDomainVersionsOutput)
+
 	ListResourceTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListResourceTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListResourceTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -381,6 +429,14 @@ type CDNAPI interface {
 	ListUsageReports(*ListUsageReportsInput) (*ListUsageReportsOutput, error)
 	ListUsageReportsWithContext(volcengine.Context, *ListUsageReportsInput, ...request.Option) (*ListUsageReportsOutput, error)
 	ListUsageReportsRequest(*ListUsageReportsInput) (*request.Request, *ListUsageReportsOutput)
+
+	ReleaseDomainVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReleaseDomainVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReleaseDomainVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReleaseDomainVersion(*ReleaseDomainVersionInput) (*ReleaseDomainVersionOutput, error)
+	ReleaseDomainVersionWithContext(volcengine.Context, *ReleaseDomainVersionInput, ...request.Option) (*ReleaseDomainVersionOutput, error)
+	ReleaseDomainVersionRequest(*ReleaseDomainVersionInput) (*request.Request, *ReleaseDomainVersionOutput)
 
 	StartCdnDomainCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartCdnDomainCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -437,6 +493,14 @@ type CDNAPI interface {
 	UpdateCdnConfig(*UpdateCdnConfigInput) (*UpdateCdnConfigOutput, error)
 	UpdateCdnConfigWithContext(volcengine.Context, *UpdateCdnConfigInput, ...request.Option) (*UpdateCdnConfigOutput, error)
 	UpdateCdnConfigRequest(*UpdateCdnConfigInput) (*request.Request, *UpdateCdnConfigOutput)
+
+	UpdateDomainVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateDomainVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateDomainVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateDomainVersion(*UpdateDomainVersionInput) (*UpdateDomainVersionOutput, error)
+	UpdateDomainVersionWithContext(volcengine.Context, *UpdateDomainVersionInput, ...request.Option) (*UpdateDomainVersionOutput, error)
+	UpdateDomainVersionRequest(*UpdateDomainVersionInput) (*request.Request, *UpdateDomainVersionOutput)
 
 	UpdateResourceTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateResourceTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

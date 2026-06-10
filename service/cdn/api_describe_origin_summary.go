@@ -232,7 +232,7 @@ type DescribeOriginSummaryOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeOriginSummaryOutput `type:"list" json:",omitempty"`
+	MetricDataList []*MetricDataListForDescribeOriginSummaryOutput `type:"list"`
 }
 
 // String returns the string representation

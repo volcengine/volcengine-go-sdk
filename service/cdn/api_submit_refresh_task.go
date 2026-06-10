@@ -143,17 +143,52 @@ func (c *CDN) SubmitRefreshTaskWithContext(ctx volcengine.Context, input *Submit
 	return out, req.Send()
 }
 
+type RequestHeaderInstanceForSubmitRefreshTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RequestHeaderInstanceForSubmitRefreshTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RequestHeaderInstanceForSubmitRefreshTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *RequestHeaderInstanceForSubmitRefreshTaskInput) SetKey(v string) *RequestHeaderInstanceForSubmitRefreshTaskInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *RequestHeaderInstanceForSubmitRefreshTaskInput) SetValue(v string) *RequestHeaderInstanceForSubmitRefreshTaskInput {
+	s.Value = &v
+	return s
+}
+
 type SubmitRefreshTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	CacheShared *bool `type:"boolean" json:",omitempty"`
 
 	Delete *bool `type:"boolean" json:",omitempty"`
 
 	Prefix *bool `type:"boolean" json:",omitempty"`
 
+	RequestHeaderInstances []*RequestHeaderInstanceForSubmitRefreshTaskInput `type:"list"`
+
 	Type *string `type:"string" json:",omitempty"`
 
-	// Urls is a required field
-	Urls *string `type:"string" json:",omitempty" required:"true"`
+	UrlList []*string `type:"list"`
+
+	Urls *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -166,17 +201,10 @@ func (s SubmitRefreshTaskInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *SubmitRefreshTaskInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "SubmitRefreshTaskInput"}
-	if s.Urls == nil {
-		invalidParams.Add(request.NewErrParamRequired("Urls"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetCacheShared sets the CacheShared field's value.
+func (s *SubmitRefreshTaskInput) SetCacheShared(v bool) *SubmitRefreshTaskInput {
+	s.CacheShared = &v
+	return s
 }
 
 // SetDelete sets the Delete field's value.
@@ -191,9 +219,21 @@ func (s *SubmitRefreshTaskInput) SetPrefix(v bool) *SubmitRefreshTaskInput {
 	return s
 }
 
+// SetRequestHeaderInstances sets the RequestHeaderInstances field's value.
+func (s *SubmitRefreshTaskInput) SetRequestHeaderInstances(v []*RequestHeaderInstanceForSubmitRefreshTaskInput) *SubmitRefreshTaskInput {
+	s.RequestHeaderInstances = v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *SubmitRefreshTaskInput) SetType(v string) *SubmitRefreshTaskInput {
 	s.Type = &v
+	return s
+}
+
+// SetUrlList sets the UrlList field's value.
+func (s *SubmitRefreshTaskInput) SetUrlList(v []*string) *SubmitRefreshTaskInput {
+	s.UrlList = v
 	return s
 }
 

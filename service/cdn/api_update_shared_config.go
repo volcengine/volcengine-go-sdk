@@ -148,7 +148,7 @@ type AllowIpAccessRuleForUpdateSharedConfigInput struct {
 
 	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list" json:",omitempty"`
+	Rules []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -232,7 +232,7 @@ type CommonTypeForUpdateSharedConfigInput struct {
 
 	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list" json:",omitempty"`
+	Rules []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -268,7 +268,7 @@ type DenyIpAccessRuleForUpdateSharedConfigInput struct {
 
 	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list" json:",omitempty"`
+	Rules []*string `type:"list"`
 }
 
 // String returns the string representation
