@@ -188,7 +188,7 @@ type ZoneForDescribeZonesOutput struct {
 
 	ZoneName *string `type:"string" json:",omitempty"`
 
-	ZoneStatus *string `type:"string" json:",omitempty"`
+	ZoneStatus *string `type:"string" json:",omitempty" enum:"EnumOfZoneStatusForDescribeZonesOutput"`
 }
 
 // String returns the string representation
@@ -218,3 +218,11 @@ func (s *ZoneForDescribeZonesOutput) SetZoneStatus(v string) *ZoneForDescribeZon
 	s.ZoneStatus = &v
 	return s
 }
+
+const (
+	// EnumOfZoneStatusForDescribeZonesOutputAvailable is a EnumOfZoneStatusForDescribeZonesOutput enum value
+	EnumOfZoneStatusForDescribeZonesOutputAvailable = "AVAILABLE"
+
+	// EnumOfZoneStatusForDescribeZonesOutputSoldOut is a EnumOfZoneStatusForDescribeZonesOutput enum value
+	EnumOfZoneStatusForDescribeZonesOutputSoldOut = "SOLD_OUT"
+)

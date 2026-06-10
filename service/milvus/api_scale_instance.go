@@ -155,6 +155,8 @@ type ComponentSpecListForScaleInstanceInput struct {
 	NodeNum *int32 `type:"int32" json:",omitempty"`
 
 	NodeType *string `type:"string" json:",omitempty"`
+
+	ResourceSpecName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -197,19 +199,23 @@ func (s *ComponentSpecListForScaleInstanceInput) SetNodeType(v string) *Componen
 	return s
 }
 
+// SetResourceSpecName sets the ResourceSpecName field's value.
+func (s *ComponentSpecListForScaleInstanceInput) SetResourceSpecName(v string) *ComponentSpecListForScaleInstanceInput {
+	s.ResourceSpecName = &v
+	return s
+}
+
 type ScaleInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	ComponentSpecList []*ComponentSpecListForScaleInstanceInput `type:"list" json:",omitempty"`
 
-	// HaEnabled is a required field
-	HaEnabled *bool `type:"boolean" json:",omitempty" required:"true"`
+	HaEnabled *bool `type:"boolean" json:",omitempty"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	// OneStep is a required field
-	OneStep *bool `type:"boolean" json:",omitempty" required:"true"`
+	OneStep *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -225,14 +231,8 @@ func (s ScaleInstanceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ScaleInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ScaleInstanceInput"}
-	if s.HaEnabled == nil {
-		invalidParams.Add(request.NewErrParamRequired("HaEnabled"))
-	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
-	}
-	if s.OneStep == nil {
-		invalidParams.Add(request.NewErrParamRequired("OneStep"))
 	}
 
 	if invalidParams.Len() > 0 {
