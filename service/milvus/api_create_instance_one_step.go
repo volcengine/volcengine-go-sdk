@@ -192,13 +192,13 @@ func (s *ChargeConfigForCreateInstanceOneStepInput) SetPeriod(v int32) *ChargeCo
 type ComponentSpecListForCreateInstanceOneStepInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CpuNum *float64 `type:"float" json:",omitempty"`
+	CpuNum *int32 `type:"int32" json:",omitempty"`
 
-	MemSize *float64 `type:"float" json:",omitempty"`
+	MemSize *int32 `type:"int32" json:",omitempty"`
 
 	NodeCUType *string `type:"string" json:",omitempty"`
 
-	NodeNum *float64 `type:"float" json:",omitempty"`
+	NodeNum *int32 `type:"int32" json:",omitempty"`
 
 	NodeType *string `type:"string" json:",omitempty"`
 
@@ -216,13 +216,13 @@ func (s ComponentSpecListForCreateInstanceOneStepInput) GoString() string {
 }
 
 // SetCpuNum sets the CpuNum field's value.
-func (s *ComponentSpecListForCreateInstanceOneStepInput) SetCpuNum(v float64) *ComponentSpecListForCreateInstanceOneStepInput {
+func (s *ComponentSpecListForCreateInstanceOneStepInput) SetCpuNum(v int32) *ComponentSpecListForCreateInstanceOneStepInput {
 	s.CpuNum = &v
 	return s
 }
 
 // SetMemSize sets the MemSize field's value.
-func (s *ComponentSpecListForCreateInstanceOneStepInput) SetMemSize(v float64) *ComponentSpecListForCreateInstanceOneStepInput {
+func (s *ComponentSpecListForCreateInstanceOneStepInput) SetMemSize(v int32) *ComponentSpecListForCreateInstanceOneStepInput {
 	s.MemSize = &v
 	return s
 }
@@ -234,7 +234,7 @@ func (s *ComponentSpecListForCreateInstanceOneStepInput) SetNodeCUType(v string)
 }
 
 // SetNodeNum sets the NodeNum field's value.
-func (s *ComponentSpecListForCreateInstanceOneStepInput) SetNodeNum(v float64) *ComponentSpecListForCreateInstanceOneStepInput {
+func (s *ComponentSpecListForCreateInstanceOneStepInput) SetNodeNum(v int32) *ComponentSpecListForCreateInstanceOneStepInput {
 	s.NodeNum = &v
 	return s
 }
@@ -264,8 +264,7 @@ type CreateInstanceOneStepInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	// Region is a required field
-	Region *string `type:"string" json:",omitempty" required:"true"`
+	Region *string `type:"string" json:",omitempty"`
 
 	Tags []*TagForCreateInstanceOneStepInput `type:"list" json:",omitempty"`
 
@@ -280,19 +279,6 @@ func (s CreateInstanceOneStepInput) String() string {
 // GoString returns the string representation
 func (s CreateInstanceOneStepInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *CreateInstanceOneStepInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "CreateInstanceOneStepInput"}
-	if s.Region == nil {
-		invalidParams.Add(request.NewErrParamRequired("Region"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetChargeConfig sets the ChargeConfig field's value.
@@ -456,8 +442,6 @@ func (s *InstanceConfigurationForCreateInstanceOneStepInput) SetInstanceVersion(
 type NetworkConfigForCreateInstanceOneStepInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InnerEndpointEnabled *bool `type:"boolean" json:",omitempty"`
-
 	SubnetInfo *SubnetInfoForCreateInstanceOneStepInput `type:"structure" json:",omitempty"`
 
 	VpcInfo *VpcInfoForCreateInstanceOneStepInput `type:"structure" json:",omitempty"`
@@ -471,12 +455,6 @@ func (s NetworkConfigForCreateInstanceOneStepInput) String() string {
 // GoString returns the string representation
 func (s NetworkConfigForCreateInstanceOneStepInput) GoString() string {
 	return s.String()
-}
-
-// SetInnerEndpointEnabled sets the InnerEndpointEnabled field's value.
-func (s *NetworkConfigForCreateInstanceOneStepInput) SetInnerEndpointEnabled(v bool) *NetworkConfigForCreateInstanceOneStepInput {
-	s.InnerEndpointEnabled = &v
-	return s
 }
 
 // SetSubnetInfo sets the SubnetInfo field's value.
