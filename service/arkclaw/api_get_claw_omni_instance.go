@@ -146,6 +146,8 @@ func (c *ARKCLAW) GetClawOmniInstanceWithContext(ctx volcengine.Context, input *
 type ClawOmniInstanceForGetClawOmniInstanceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AgentMd *string `type:"string" json:",omitempty"`
+
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
 	CreatedAt *string `type:"string" json:",omitempty"`
@@ -193,6 +195,12 @@ func (s ClawOmniInstanceForGetClawOmniInstanceOutput) String() string {
 // GoString returns the string representation
 func (s ClawOmniInstanceForGetClawOmniInstanceOutput) GoString() string {
 	return s.String()
+}
+
+// SetAgentMd sets the AgentMd field's value.
+func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetAgentMd(v string) *ClawOmniInstanceForGetClawOmniInstanceOutput {
+	s.AgentMd = &v
+	return s
 }
 
 // SetCpuMilli sets the CpuMilli field's value.

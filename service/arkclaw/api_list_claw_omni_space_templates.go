@@ -160,7 +160,17 @@ type ItemForListClawOmniSpaceTemplatesOutput struct {
 
 	Id *string `type:"string" json:",omitempty"`
 
+	ImageBuildError *string `type:"string" json:",omitempty"`
+
+	ImageBuildStatus *string `type:"string" json:",omitempty"`
+
 	ImageId *string `type:"string" json:",omitempty"`
+
+	ImageUrl *string `type:"string" json:",omitempty"`
+
+	Input *string `type:"string" json:",omitempty"`
+
+	IsImaged *bool `type:"boolean" json:",omitempty"`
 
 	MemoryMb *int32 `type:"int32" json:",omitempty"`
 
@@ -170,13 +180,15 @@ type ItemForListClawOmniSpaceTemplatesOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	Reasoning *string `type:"string" json:",omitempty"`
+
 	SkillConfig *string `type:"string" json:",omitempty"`
 
 	Soul *string `type:"string" json:",omitempty"`
 
 	TemplateCurrentVersionId *string `type:"string" json:",omitempty"`
 
-	TemplateLabel *string `type:"string" json:",omitempty"`
+	TemplatePendingVersionId *string `type:"string" json:",omitempty"`
 
 	TemplateVersionId *string `type:"string" json:",omitempty"`
 
@@ -237,9 +249,39 @@ func (s *ItemForListClawOmniSpaceTemplatesOutput) SetId(v string) *ItemForListCl
 	return s
 }
 
+// SetImageBuildError sets the ImageBuildError field's value.
+func (s *ItemForListClawOmniSpaceTemplatesOutput) SetImageBuildError(v string) *ItemForListClawOmniSpaceTemplatesOutput {
+	s.ImageBuildError = &v
+	return s
+}
+
+// SetImageBuildStatus sets the ImageBuildStatus field's value.
+func (s *ItemForListClawOmniSpaceTemplatesOutput) SetImageBuildStatus(v string) *ItemForListClawOmniSpaceTemplatesOutput {
+	s.ImageBuildStatus = &v
+	return s
+}
+
 // SetImageId sets the ImageId field's value.
 func (s *ItemForListClawOmniSpaceTemplatesOutput) SetImageId(v string) *ItemForListClawOmniSpaceTemplatesOutput {
 	s.ImageId = &v
+	return s
+}
+
+// SetImageUrl sets the ImageUrl field's value.
+func (s *ItemForListClawOmniSpaceTemplatesOutput) SetImageUrl(v string) *ItemForListClawOmniSpaceTemplatesOutput {
+	s.ImageUrl = &v
+	return s
+}
+
+// SetInput sets the Input field's value.
+func (s *ItemForListClawOmniSpaceTemplatesOutput) SetInput(v string) *ItemForListClawOmniSpaceTemplatesOutput {
+	s.Input = &v
+	return s
+}
+
+// SetIsImaged sets the IsImaged field's value.
+func (s *ItemForListClawOmniSpaceTemplatesOutput) SetIsImaged(v bool) *ItemForListClawOmniSpaceTemplatesOutput {
+	s.IsImaged = &v
 	return s
 }
 
@@ -267,6 +309,12 @@ func (s *ItemForListClawOmniSpaceTemplatesOutput) SetProjectName(v string) *Item
 	return s
 }
 
+// SetReasoning sets the Reasoning field's value.
+func (s *ItemForListClawOmniSpaceTemplatesOutput) SetReasoning(v string) *ItemForListClawOmniSpaceTemplatesOutput {
+	s.Reasoning = &v
+	return s
+}
+
 // SetSkillConfig sets the SkillConfig field's value.
 func (s *ItemForListClawOmniSpaceTemplatesOutput) SetSkillConfig(v string) *ItemForListClawOmniSpaceTemplatesOutput {
 	s.SkillConfig = &v
@@ -285,9 +333,9 @@ func (s *ItemForListClawOmniSpaceTemplatesOutput) SetTemplateCurrentVersionId(v 
 	return s
 }
 
-// SetTemplateLabel sets the TemplateLabel field's value.
-func (s *ItemForListClawOmniSpaceTemplatesOutput) SetTemplateLabel(v string) *ItemForListClawOmniSpaceTemplatesOutput {
-	s.TemplateLabel = &v
+// SetTemplatePendingVersionId sets the TemplatePendingVersionId field's value.
+func (s *ItemForListClawOmniSpaceTemplatesOutput) SetTemplatePendingVersionId(v string) *ItemForListClawOmniSpaceTemplatesOutput {
+	s.TemplatePendingVersionId = &v
 	return s
 }
 
