@@ -142,6 +142,8 @@ func (c *VPC) AttachNetworkInterfaceWithContext(ctx volcengine.Context, input *A
 type AttachNetworkInterfaceInput struct {
 	_ struct{} `type:"structure"`
 
+	DeleteOnTermination *bool `type:"boolean"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *AttachNetworkInterfaceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetDeleteOnTermination sets the DeleteOnTermination field's value.
+func (s *AttachNetworkInterfaceInput) SetDeleteOnTermination(v bool) *AttachNetworkInterfaceInput {
+	s.DeleteOnTermination = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

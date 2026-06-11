@@ -126,6 +126,14 @@ type VPCAPI interface {
 	AssociateVpcCidrBlockWithContext(volcengine.Context, *AssociateVpcCidrBlockInput, ...request.Option) (*AssociateVpcCidrBlockOutput, error)
 	AssociateVpcCidrBlockRequest(*AssociateVpcCidrBlockInput) (*request.Request, *AssociateVpcCidrBlockOutput)
 
+	AssociateVpcUserCidrBlockCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateVpcUserCidrBlockCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateVpcUserCidrBlockCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateVpcUserCidrBlock(*AssociateVpcUserCidrBlockInput) (*AssociateVpcUserCidrBlockOutput, error)
+	AssociateVpcUserCidrBlockWithContext(volcengine.Context, *AssociateVpcUserCidrBlockInput, ...request.Option) (*AssociateVpcUserCidrBlockOutput, error)
+	AssociateVpcUserCidrBlockRequest(*AssociateVpcUserCidrBlockInput) (*request.Request, *AssociateVpcUserCidrBlockOutput)
+
 	AttachNetworkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachNetworkInterfaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AttachNetworkInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -205,6 +213,30 @@ type VPCAPI interface {
 	CreateIpAddressPool(*CreateIpAddressPoolInput) (*CreateIpAddressPoolOutput, error)
 	CreateIpAddressPoolWithContext(volcengine.Context, *CreateIpAddressPoolInput, ...request.Option) (*CreateIpAddressPoolOutput, error)
 	CreateIpAddressPoolRequest(*CreateIpAddressPoolInput) (*request.Request, *CreateIpAddressPoolOutput)
+
+	CreateIpamCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateIpamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateIpamCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateIpam(*CreateIpamInput) (*CreateIpamOutput, error)
+	CreateIpamWithContext(volcengine.Context, *CreateIpamInput, ...request.Option) (*CreateIpamOutput, error)
+	CreateIpamRequest(*CreateIpamInput) (*request.Request, *CreateIpamOutput)
+
+	CreateIpamPoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateIpamPoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateIpamPoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateIpamPool(*CreateIpamPoolInput) (*CreateIpamPoolOutput, error)
+	CreateIpamPoolWithContext(volcengine.Context, *CreateIpamPoolInput, ...request.Option) (*CreateIpamPoolOutput, error)
+	CreateIpamPoolRequest(*CreateIpamPoolInput) (*request.Request, *CreateIpamPoolOutput)
+
+	CreateIpamScopeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateIpamScopeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateIpamScopeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateIpamScope(*CreateIpamScopeInput) (*CreateIpamScopeOutput, error)
+	CreateIpamScopeWithContext(volcengine.Context, *CreateIpamScopeInput, ...request.Option) (*CreateIpamScopeOutput, error)
+	CreateIpamScopeRequest(*CreateIpamScopeInput) (*request.Request, *CreateIpamScopeOutput)
 
 	CreateIpv6EgressOnlyRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateIpv6EgressOnlyRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -374,6 +406,30 @@ type VPCAPI interface {
 	DeleteIpAddressPoolCidrBlockWithContext(volcengine.Context, *DeleteIpAddressPoolCidrBlockInput, ...request.Option) (*DeleteIpAddressPoolCidrBlockOutput, error)
 	DeleteIpAddressPoolCidrBlockRequest(*DeleteIpAddressPoolCidrBlockInput) (*request.Request, *DeleteIpAddressPoolCidrBlockOutput)
 
+	DeleteIpamCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIpamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIpamCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIpam(*DeleteIpamInput) (*DeleteIpamOutput, error)
+	DeleteIpamWithContext(volcengine.Context, *DeleteIpamInput, ...request.Option) (*DeleteIpamOutput, error)
+	DeleteIpamRequest(*DeleteIpamInput) (*request.Request, *DeleteIpamOutput)
+
+	DeleteIpamPoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIpamPoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIpamPoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIpamPool(*DeleteIpamPoolInput) (*DeleteIpamPoolOutput, error)
+	DeleteIpamPoolWithContext(volcengine.Context, *DeleteIpamPoolInput, ...request.Option) (*DeleteIpamPoolOutput, error)
+	DeleteIpamPoolRequest(*DeleteIpamPoolInput) (*request.Request, *DeleteIpamPoolOutput)
+
+	DeleteIpamScopeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIpamScopeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIpamScopeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIpamScope(*DeleteIpamScopeInput) (*DeleteIpamScopeOutput, error)
+	DeleteIpamScopeWithContext(volcengine.Context, *DeleteIpamScopeInput, ...request.Option) (*DeleteIpamScopeOutput, error)
+	DeleteIpamScopeRequest(*DeleteIpamScopeInput) (*request.Request, *DeleteIpamScopeOutput)
+
 	DeleteIpv6EgressOnlyRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteIpv6EgressOnlyRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteIpv6EgressOnlyRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -486,6 +542,14 @@ type VPCAPI interface {
 	DeleteVpcWithContext(volcengine.Context, *DeleteVpcInput, ...request.Option) (*DeleteVpcOutput, error)
 	DeleteVpcRequest(*DeleteVpcInput) (*request.Request, *DeleteVpcOutput)
 
+	DeprovisionIpamPoolCidrCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeprovisionIpamPoolCidrCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeprovisionIpamPoolCidrCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeprovisionIpamPoolCidr(*DeprovisionIpamPoolCidrInput) (*DeprovisionIpamPoolCidrOutput, error)
+	DeprovisionIpamPoolCidrWithContext(volcengine.Context, *DeprovisionIpamPoolCidrInput, ...request.Option) (*DeprovisionIpamPoolCidrOutput, error)
+	DeprovisionIpamPoolCidrRequest(*DeprovisionIpamPoolCidrInput) (*request.Request, *DeprovisionIpamPoolCidrOutput)
+
 	DescribeBandwidthPackagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeBandwidthPackagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeBandwidthPackagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -501,6 +565,14 @@ type VPCAPI interface {
 	DescribeEipAddressAttributes(*DescribeEipAddressAttributesInput) (*DescribeEipAddressAttributesOutput, error)
 	DescribeEipAddressAttributesWithContext(volcengine.Context, *DescribeEipAddressAttributesInput, ...request.Option) (*DescribeEipAddressAttributesOutput, error)
 	DescribeEipAddressAttributesRequest(*DescribeEipAddressAttributesInput) (*request.Request, *DescribeEipAddressAttributesOutput)
+
+	DescribeEipAddressHighResolutionMonitorAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEipAddressHighResolutionMonitorAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEipAddressHighResolutionMonitorAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEipAddressHighResolutionMonitorAttribute(*DescribeEipAddressHighResolutionMonitorAttributeInput) (*DescribeEipAddressHighResolutionMonitorAttributeOutput, error)
+	DescribeEipAddressHighResolutionMonitorAttributeWithContext(volcengine.Context, *DescribeEipAddressHighResolutionMonitorAttributeInput, ...request.Option) (*DescribeEipAddressHighResolutionMonitorAttributeOutput, error)
+	DescribeEipAddressHighResolutionMonitorAttributeRequest(*DescribeEipAddressHighResolutionMonitorAttributeInput) (*request.Request, *DescribeEipAddressHighResolutionMonitorAttributeOutput)
 
 	DescribeEipAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeEipAddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -557,6 +629,94 @@ type VPCAPI interface {
 	DescribeIpAddressPools(*DescribeIpAddressPoolsInput) (*DescribeIpAddressPoolsOutput, error)
 	DescribeIpAddressPoolsWithContext(volcengine.Context, *DescribeIpAddressPoolsInput, ...request.Option) (*DescribeIpAddressPoolsOutput, error)
 	DescribeIpAddressPoolsRequest(*DescribeIpAddressPoolsInput) (*request.Request, *DescribeIpAddressPoolsOutput)
+
+	DescribeIpamCloudMonitorDimensionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpamCloudMonitorDimensionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpamCloudMonitorDimensionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpamCloudMonitorDimensions(*DescribeIpamCloudMonitorDimensionsInput) (*DescribeIpamCloudMonitorDimensionsOutput, error)
+	DescribeIpamCloudMonitorDimensionsWithContext(volcengine.Context, *DescribeIpamCloudMonitorDimensionsInput, ...request.Option) (*DescribeIpamCloudMonitorDimensionsOutput, error)
+	DescribeIpamCloudMonitorDimensionsRequest(*DescribeIpamCloudMonitorDimensionsInput) (*request.Request, *DescribeIpamCloudMonitorDimensionsOutput)
+
+	DescribeIpamDiscoveredResourceCidrsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpamDiscoveredResourceCidrsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpamDiscoveredResourceCidrsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpamDiscoveredResourceCidrs(*DescribeIpamDiscoveredResourceCidrsInput) (*DescribeIpamDiscoveredResourceCidrsOutput, error)
+	DescribeIpamDiscoveredResourceCidrsWithContext(volcengine.Context, *DescribeIpamDiscoveredResourceCidrsInput, ...request.Option) (*DescribeIpamDiscoveredResourceCidrsOutput, error)
+	DescribeIpamDiscoveredResourceCidrsRequest(*DescribeIpamDiscoveredResourceCidrsInput) (*request.Request, *DescribeIpamDiscoveredResourceCidrsOutput)
+
+	DescribeIpamPoolAllocationsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpamPoolAllocationsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpamPoolAllocationsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpamPoolAllocations(*DescribeIpamPoolAllocationsInput) (*DescribeIpamPoolAllocationsOutput, error)
+	DescribeIpamPoolAllocationsWithContext(volcengine.Context, *DescribeIpamPoolAllocationsInput, ...request.Option) (*DescribeIpamPoolAllocationsOutput, error)
+	DescribeIpamPoolAllocationsRequest(*DescribeIpamPoolAllocationsInput) (*request.Request, *DescribeIpamPoolAllocationsOutput)
+
+	DescribeIpamPoolCidrsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpamPoolCidrsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpamPoolCidrsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpamPoolCidrs(*DescribeIpamPoolCidrsInput) (*DescribeIpamPoolCidrsOutput, error)
+	DescribeIpamPoolCidrsWithContext(volcengine.Context, *DescribeIpamPoolCidrsInput, ...request.Option) (*DescribeIpamPoolCidrsOutput, error)
+	DescribeIpamPoolCidrsRequest(*DescribeIpamPoolCidrsInput) (*request.Request, *DescribeIpamPoolCidrsOutput)
+
+	DescribeIpamPoolsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpamPoolsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpamPoolsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpamPools(*DescribeIpamPoolsInput) (*DescribeIpamPoolsOutput, error)
+	DescribeIpamPoolsWithContext(volcengine.Context, *DescribeIpamPoolsInput, ...request.Option) (*DescribeIpamPoolsOutput, error)
+	DescribeIpamPoolsRequest(*DescribeIpamPoolsInput) (*request.Request, *DescribeIpamPoolsOutput)
+
+	DescribeIpamResourceCidrsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpamResourceCidrsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpamResourceCidrsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpamResourceCidrs(*DescribeIpamResourceCidrsInput) (*DescribeIpamResourceCidrsOutput, error)
+	DescribeIpamResourceCidrsWithContext(volcengine.Context, *DescribeIpamResourceCidrsInput, ...request.Option) (*DescribeIpamResourceCidrsOutput, error)
+	DescribeIpamResourceCidrsRequest(*DescribeIpamResourceCidrsInput) (*request.Request, *DescribeIpamResourceCidrsOutput)
+
+	DescribeIpamResourceDiscoveriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpamResourceDiscoveriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpamResourceDiscoveriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpamResourceDiscoveries(*DescribeIpamResourceDiscoveriesInput) (*DescribeIpamResourceDiscoveriesOutput, error)
+	DescribeIpamResourceDiscoveriesWithContext(volcengine.Context, *DescribeIpamResourceDiscoveriesInput, ...request.Option) (*DescribeIpamResourceDiscoveriesOutput, error)
+	DescribeIpamResourceDiscoveriesRequest(*DescribeIpamResourceDiscoveriesInput) (*request.Request, *DescribeIpamResourceDiscoveriesOutput)
+
+	DescribeIpamResourceDiscoveryAssociationsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpamResourceDiscoveryAssociationsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpamResourceDiscoveryAssociationsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpamResourceDiscoveryAssociations(*DescribeIpamResourceDiscoveryAssociationsInput) (*DescribeIpamResourceDiscoveryAssociationsOutput, error)
+	DescribeIpamResourceDiscoveryAssociationsWithContext(volcengine.Context, *DescribeIpamResourceDiscoveryAssociationsInput, ...request.Option) (*DescribeIpamResourceDiscoveryAssociationsOutput, error)
+	DescribeIpamResourceDiscoveryAssociationsRequest(*DescribeIpamResourceDiscoveryAssociationsInput) (*request.Request, *DescribeIpamResourceDiscoveryAssociationsOutput)
+
+	DescribeIpamScopeStatsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpamScopeStatsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpamScopeStatsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpamScopeStats(*DescribeIpamScopeStatsInput) (*DescribeIpamScopeStatsOutput, error)
+	DescribeIpamScopeStatsWithContext(volcengine.Context, *DescribeIpamScopeStatsInput, ...request.Option) (*DescribeIpamScopeStatsOutput, error)
+	DescribeIpamScopeStatsRequest(*DescribeIpamScopeStatsInput) (*request.Request, *DescribeIpamScopeStatsOutput)
+
+	DescribeIpamScopesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpamScopesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpamScopesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpamScopes(*DescribeIpamScopesInput) (*DescribeIpamScopesOutput, error)
+	DescribeIpamScopesWithContext(volcengine.Context, *DescribeIpamScopesInput, ...request.Option) (*DescribeIpamScopesOutput, error)
+	DescribeIpamScopesRequest(*DescribeIpamScopesInput) (*request.Request, *DescribeIpamScopesOutput)
+
+	DescribeIpamsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpamsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpamsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpams(*DescribeIpamsInput) (*DescribeIpamsOutput, error)
+	DescribeIpamsWithContext(volcengine.Context, *DescribeIpamsInput, ...request.Option) (*DescribeIpamsOutput, error)
+	DescribeIpamsRequest(*DescribeIpamsInput) (*request.Request, *DescribeIpamsOutput)
 
 	DescribeIpv6AddressBandwidthAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeIpv6AddressBandwidthAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -750,6 +910,14 @@ type VPCAPI interface {
 	DetachNetworkInterfaceWithContext(volcengine.Context, *DetachNetworkInterfaceInput, ...request.Option) (*DetachNetworkInterfaceOutput, error)
 	DetachNetworkInterfaceRequest(*DetachNetworkInterfaceInput) (*request.Request, *DetachNetworkInterfaceOutput)
 
+	DisableEipAddressHighResolutionMonitorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableEipAddressHighResolutionMonitorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableEipAddressHighResolutionMonitorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableEipAddressHighResolutionMonitor(*DisableEipAddressHighResolutionMonitorInput) (*DisableEipAddressHighResolutionMonitorOutput, error)
+	DisableEipAddressHighResolutionMonitorWithContext(volcengine.Context, *DisableEipAddressHighResolutionMonitorInput, ...request.Option) (*DisableEipAddressHighResolutionMonitorOutput, error)
+	DisableEipAddressHighResolutionMonitorRequest(*DisableEipAddressHighResolutionMonitorInput) (*request.Request, *DisableEipAddressHighResolutionMonitorOutput)
+
 	DisassociateEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisassociateEipAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisassociateEipAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -789,6 +957,38 @@ type VPCAPI interface {
 	DisassociateVpcCidrBlock(*DisassociateVpcCidrBlockInput) (*DisassociateVpcCidrBlockOutput, error)
 	DisassociateVpcCidrBlockWithContext(volcengine.Context, *DisassociateVpcCidrBlockInput, ...request.Option) (*DisassociateVpcCidrBlockOutput, error)
 	DisassociateVpcCidrBlockRequest(*DisassociateVpcCidrBlockInput) (*request.Request, *DisassociateVpcCidrBlockOutput)
+
+	DisassociateVpcUserCidrBlockCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateVpcUserCidrBlockCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateVpcUserCidrBlockCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateVpcUserCidrBlock(*DisassociateVpcUserCidrBlockInput) (*DisassociateVpcUserCidrBlockOutput, error)
+	DisassociateVpcUserCidrBlockWithContext(volcengine.Context, *DisassociateVpcUserCidrBlockInput, ...request.Option) (*DisassociateVpcUserCidrBlockOutput, error)
+	DisassociateVpcUserCidrBlockRequest(*DisassociateVpcUserCidrBlockInput) (*request.Request, *DisassociateVpcUserCidrBlockOutput)
+
+	EnableEipAddressHighResolutionMonitorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableEipAddressHighResolutionMonitorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableEipAddressHighResolutionMonitorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableEipAddressHighResolutionMonitor(*EnableEipAddressHighResolutionMonitorInput) (*EnableEipAddressHighResolutionMonitorOutput, error)
+	EnableEipAddressHighResolutionMonitorWithContext(volcengine.Context, *EnableEipAddressHighResolutionMonitorInput, ...request.Option) (*EnableEipAddressHighResolutionMonitorOutput, error)
+	EnableEipAddressHighResolutionMonitorRequest(*EnableEipAddressHighResolutionMonitorInput) (*request.Request, *EnableEipAddressHighResolutionMonitorOutput)
+
+	GetIpamPoolAvailableCidrCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetIpamPoolAvailableCidrCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetIpamPoolAvailableCidrCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetIpamPoolAvailableCidr(*GetIpamPoolAvailableCidrInput) (*GetIpamPoolAvailableCidrOutput, error)
+	GetIpamPoolAvailableCidrWithContext(volcengine.Context, *GetIpamPoolAvailableCidrInput, ...request.Option) (*GetIpamPoolAvailableCidrOutput, error)
+	GetIpamPoolAvailableCidrRequest(*GetIpamPoolAvailableCidrInput) (*request.Request, *GetIpamPoolAvailableCidrOutput)
+
+	ListTagsForIpamResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForIpamResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForIpamResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForIpamResources(*ListTagsForIpamResourcesInput) (*ListTagsForIpamResourcesOutput, error)
+	ListTagsForIpamResourcesWithContext(volcengine.Context, *ListTagsForIpamResourcesInput, ...request.Option) (*ListTagsForIpamResourcesOutput, error)
+	ListTagsForIpamResourcesRequest(*ListTagsForIpamResourcesInput) (*request.Request, *ListTagsForIpamResourcesOutput)
 
 	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -869,6 +1069,46 @@ type VPCAPI interface {
 	ModifyIpAddressPoolAttributes(*ModifyIpAddressPoolAttributesInput) (*ModifyIpAddressPoolAttributesOutput, error)
 	ModifyIpAddressPoolAttributesWithContext(volcengine.Context, *ModifyIpAddressPoolAttributesInput, ...request.Option) (*ModifyIpAddressPoolAttributesOutput, error)
 	ModifyIpAddressPoolAttributesRequest(*ModifyIpAddressPoolAttributesInput) (*request.Request, *ModifyIpAddressPoolAttributesOutput)
+
+	ModifyIpamCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyIpamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyIpamCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyIpam(*ModifyIpamInput) (*ModifyIpamOutput, error)
+	ModifyIpamWithContext(volcengine.Context, *ModifyIpamInput, ...request.Option) (*ModifyIpamOutput, error)
+	ModifyIpamRequest(*ModifyIpamInput) (*request.Request, *ModifyIpamOutput)
+
+	ModifyIpamPoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyIpamPoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyIpamPoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyIpamPool(*ModifyIpamPoolInput) (*ModifyIpamPoolOutput, error)
+	ModifyIpamPoolWithContext(volcengine.Context, *ModifyIpamPoolInput, ...request.Option) (*ModifyIpamPoolOutput, error)
+	ModifyIpamPoolRequest(*ModifyIpamPoolInput) (*request.Request, *ModifyIpamPoolOutput)
+
+	ModifyIpamResourceCidrCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyIpamResourceCidrCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyIpamResourceCidrCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyIpamResourceCidr(*ModifyIpamResourceCidrInput) (*ModifyIpamResourceCidrOutput, error)
+	ModifyIpamResourceCidrWithContext(volcengine.Context, *ModifyIpamResourceCidrInput, ...request.Option) (*ModifyIpamResourceCidrOutput, error)
+	ModifyIpamResourceCidrRequest(*ModifyIpamResourceCidrInput) (*request.Request, *ModifyIpamResourceCidrOutput)
+
+	ModifyIpamResourceDiscoveryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyIpamResourceDiscoveryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyIpamResourceDiscoveryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyIpamResourceDiscovery(*ModifyIpamResourceDiscoveryInput) (*ModifyIpamResourceDiscoveryOutput, error)
+	ModifyIpamResourceDiscoveryWithContext(volcengine.Context, *ModifyIpamResourceDiscoveryInput, ...request.Option) (*ModifyIpamResourceDiscoveryOutput, error)
+	ModifyIpamResourceDiscoveryRequest(*ModifyIpamResourceDiscoveryInput) (*request.Request, *ModifyIpamResourceDiscoveryOutput)
+
+	ModifyIpamScopeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyIpamScopeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyIpamScopeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyIpamScope(*ModifyIpamScopeInput) (*ModifyIpamScopeOutput, error)
+	ModifyIpamScopeWithContext(volcengine.Context, *ModifyIpamScopeInput, ...request.Option) (*ModifyIpamScopeOutput, error)
+	ModifyIpamScopeRequest(*ModifyIpamScopeInput) (*request.Request, *ModifyIpamScopeOutput)
 
 	ModifyIpv6AddressBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyIpv6AddressBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1006,6 +1246,14 @@ type VPCAPI interface {
 	ModifyVpcAttributesWithContext(volcengine.Context, *ModifyVpcAttributesInput, ...request.Option) (*ModifyVpcAttributesOutput, error)
 	ModifyVpcAttributesRequest(*ModifyVpcAttributesInput) (*request.Request, *ModifyVpcAttributesOutput)
 
+	ProvisionIpamPoolCidrCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProvisionIpamPoolCidrCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProvisionIpamPoolCidrCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProvisionIpamPoolCidr(*ProvisionIpamPoolCidrInput) (*ProvisionIpamPoolCidrOutput, error)
+	ProvisionIpamPoolCidrWithContext(volcengine.Context, *ProvisionIpamPoolCidrInput, ...request.Option) (*ProvisionIpamPoolCidrOutput, error)
+	ProvisionIpamPoolCidrRequest(*ProvisionIpamPoolCidrInput) (*request.Request, *ProvisionIpamPoolCidrOutput)
+
 	ReleaseEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ReleaseEipAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ReleaseEipAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1013,6 +1261,14 @@ type VPCAPI interface {
 	ReleaseEipAddress(*ReleaseEipAddressInput) (*ReleaseEipAddressOutput, error)
 	ReleaseEipAddressWithContext(volcengine.Context, *ReleaseEipAddressInput, ...request.Option) (*ReleaseEipAddressOutput, error)
 	ReleaseEipAddressRequest(*ReleaseEipAddressInput) (*request.Request, *ReleaseEipAddressOutput)
+
+	ReleaseIpamPoolAllocationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReleaseIpamPoolAllocationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReleaseIpamPoolAllocationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReleaseIpamPoolAllocation(*ReleaseIpamPoolAllocationInput) (*ReleaseIpamPoolAllocationOutput, error)
+	ReleaseIpamPoolAllocationWithContext(volcengine.Context, *ReleaseIpamPoolAllocationInput, ...request.Option) (*ReleaseIpamPoolAllocationOutput, error)
+	ReleaseIpamPoolAllocationRequest(*ReleaseIpamPoolAllocationInput) (*request.Request, *ReleaseIpamPoolAllocationOutput)
 
 	ReleaseIpv6AddressBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ReleaseIpv6AddressBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1046,6 +1302,14 @@ type VPCAPI interface {
 	RevokeSecurityGroupIngressWithContext(volcengine.Context, *RevokeSecurityGroupIngressInput, ...request.Option) (*RevokeSecurityGroupIngressOutput, error)
 	RevokeSecurityGroupIngressRequest(*RevokeSecurityGroupIngressInput) (*request.Request, *RevokeSecurityGroupIngressOutput)
 
+	TagIpamResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagIpamResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagIpamResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagIpamResources(*TagIpamResourcesInput) (*TagIpamResourcesOutput, error)
+	TagIpamResourcesWithContext(volcengine.Context, *TagIpamResourcesInput, ...request.Option) (*TagIpamResourcesOutput, error)
+	TagIpamResourcesRequest(*TagIpamResourcesInput) (*request.Request, *TagIpamResourcesOutput)
+
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1077,6 +1341,14 @@ type VPCAPI interface {
 	UnassignPrivateIpAddresses(*UnassignPrivateIpAddressesInput) (*UnassignPrivateIpAddressesOutput, error)
 	UnassignPrivateIpAddressesWithContext(volcengine.Context, *UnassignPrivateIpAddressesInput, ...request.Option) (*UnassignPrivateIpAddressesOutput, error)
 	UnassignPrivateIpAddressesRequest(*UnassignPrivateIpAddressesInput) (*request.Request, *UnassignPrivateIpAddressesOutput)
+
+	UntagIpamResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagIpamResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagIpamResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagIpamResources(*UntagIpamResourcesInput) (*UntagIpamResourcesOutput, error)
+	UntagIpamResourcesWithContext(volcengine.Context, *UntagIpamResourcesInput, ...request.Option) (*UntagIpamResourcesOutput, error)
+	UntagIpamResourcesRequest(*UntagIpamResourcesInput) (*request.Request, *UntagIpamResourcesOutput)
 
 	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
