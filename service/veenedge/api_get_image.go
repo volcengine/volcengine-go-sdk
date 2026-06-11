@@ -22,13 +22,13 @@ const opGetImageCommon = "GetImage"
 // See GetImageCommon for more information on using the GetImageCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the GetImageCommonRequest method.
-//    req, resp := client.GetImageCommonRequest(params)
+//	// Example sending a request using the GetImageCommonRequest method.
+//	req, resp := client.GetImageCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) GetImageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetImageCommon,
@@ -87,13 +87,13 @@ const opGetImage = "GetImage"
 // See GetImage for more information on using the GetImage
 // API call, and error handling.
 //
-//    // Example sending a request using the GetImageRequest method.
-//    req, resp := client.GetImageRequest(params)
+//	// Example sending a request using the GetImageRequest method.
+//	req, resp := client.GetImageRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) GetImageRequest(input *GetImageInput) (req *request.Request, output *GetImageOutput) {
 	op := &request.Operation{
 		Name:       opGetImage,
@@ -220,7 +220,7 @@ type ImageForGetImageOutput struct {
 
 	Status *string `type:"string" json:"status"`
 
-	System_arch *int32 `type:"int32" json:"system_arch"`
+	System_arch *string `type:"string" json:"system_arch"`
 
 	System_bit *string `type:"string" json:"system_bit"`
 
@@ -296,7 +296,7 @@ func (s *ImageForGetImageOutput) SetStatus(v string) *ImageForGetImageOutput {
 }
 
 // SetSystem_arch sets the System_arch field's value.
-func (s *ImageForGetImageOutput) SetSystem_arch(v int32) *ImageForGetImageOutput {
+func (s *ImageForGetImageOutput) SetSystem_arch(v string) *ImageForGetImageOutput {
 	s.System_arch = &v
 	return s
 }

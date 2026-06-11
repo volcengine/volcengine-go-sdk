@@ -22,13 +22,13 @@ const opListImagesCommon = "ListImages"
 // See ListImagesCommon for more information on using the ListImagesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListImagesCommonRequest method.
-//    req, resp := client.ListImagesCommonRequest(params)
+//	// Example sending a request using the ListImagesCommonRequest method.
+//	req, resp := client.ListImagesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) ListImagesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListImagesCommon,
@@ -87,13 +87,13 @@ const opListImages = "ListImages"
 // See ListImages for more information on using the ListImages
 // API call, and error handling.
 //
-//    // Example sending a request using the ListImagesRequest method.
-//    req, resp := client.ListImagesRequest(params)
+//	// Example sending a request using the ListImagesRequest method.
+//	req, resp := client.ListImagesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) ListImagesRequest(input *ListImagesInput) (req *request.Request, output *ListImagesOutput) {
 	op := &request.Operation{
 		Name:       opListImages,
@@ -160,7 +160,7 @@ type ImageForListImagesOutput struct {
 
 	Status *string `type:"string" json:"status"`
 
-	System_arch *int32 `type:"int32" json:"system_arch"`
+	System_arch *string `type:"string" json:"system_arch"`
 
 	System_bit *string `type:"string" json:"system_bit"`
 
@@ -236,7 +236,7 @@ func (s *ImageForListImagesOutput) SetStatus(v string) *ImageForListImagesOutput
 }
 
 // SetSystem_arch sets the System_arch field's value.
-func (s *ImageForListImagesOutput) SetSystem_arch(v int32) *ImageForListImagesOutput {
+func (s *ImageForListImagesOutput) SetSystem_arch(v string) *ImageForListImagesOutput {
 	s.System_arch = &v
 	return s
 }

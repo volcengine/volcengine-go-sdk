@@ -22,13 +22,13 @@ const opDescribeSecurityGroupsCommon = "DescribeSecurityGroups"
 // See DescribeSecurityGroupsCommon for more information on using the DescribeSecurityGroupsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeSecurityGroupsCommonRequest method.
-//    req, resp := client.DescribeSecurityGroupsCommonRequest(params)
+//	// Example sending a request using the DescribeSecurityGroupsCommonRequest method.
+//	req, resp := client.DescribeSecurityGroupsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) DescribeSecurityGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroupsCommon,
@@ -87,13 +87,13 @@ const opDescribeSecurityGroups = "DescribeSecurityGroups"
 // See DescribeSecurityGroups for more information on using the DescribeSecurityGroups
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeSecurityGroupsRequest method.
-//    req, resp := client.DescribeSecurityGroupsRequest(params)
+//	// Example sending a request using the DescribeSecurityGroupsRequest method.
+//	req, resp := client.DescribeSecurityGroupsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VEENEDGE) DescribeSecurityGroupsRequest(input *DescribeSecurityGroupsInput) (req *request.Request, output *DescribeSecurityGroupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroups,
@@ -520,7 +520,7 @@ type Security_groupForDescribeSecurityGroupsOutput struct {
 
 	Tags []*TagForDescribeSecurityGroupsOutput `type:"list"`
 
-	Update_time *string `type:"string" json:"update_time"`
+	Update_time *int32 `type:"int32" json:"update_time"`
 
 	User_identity *int32 `type:"int32" json:"user_identity"`
 
@@ -632,7 +632,7 @@ func (s *Security_groupForDescribeSecurityGroupsOutput) SetTags(v []*TagForDescr
 }
 
 // SetUpdate_time sets the Update_time field's value.
-func (s *Security_groupForDescribeSecurityGroupsOutput) SetUpdate_time(v string) *Security_groupForDescribeSecurityGroupsOutput {
+func (s *Security_groupForDescribeSecurityGroupsOutput) SetUpdate_time(v int32) *Security_groupForDescribeSecurityGroupsOutput {
 	s.Update_time = &v
 	return s
 }
