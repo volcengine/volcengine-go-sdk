@@ -146,9 +146,9 @@ func (c *CDN) AddResourceTagsWithContext(ctx volcengine.Context, input *AddResou
 type AddResourceTagsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForAddResourceTagsInput `type:"list" json:",omitempty"`
+	ResourceTags []*ResourceTagForAddResourceTagsInput `type:"list"`
 
-	Resources []*string `type:"list" json:",omitempty"`
+	Resources []*string `type:"list"`
 }
 
 // String returns the string representation

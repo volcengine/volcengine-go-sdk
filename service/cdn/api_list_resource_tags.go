@@ -162,7 +162,9 @@ type ListResourceTagsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResourceTags []*ResourceTagForListResourceTagsOutput `type:"list" json:",omitempty"`
+	ResourceTags []*ResourceTagForListResourceTagsOutput `type:"list"`
+
+	SystemTags []*SystemTagForListResourceTagsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -178,6 +180,12 @@ func (s ListResourceTagsOutput) GoString() string {
 // SetResourceTags sets the ResourceTags field's value.
 func (s *ListResourceTagsOutput) SetResourceTags(v []*ResourceTagForListResourceTagsOutput) *ListResourceTagsOutput {
 	s.ResourceTags = v
+	return s
+}
+
+// SetSystemTags sets the SystemTags field's value.
+func (s *ListResourceTagsOutput) SetSystemTags(v []*SystemTagForListResourceTagsOutput) *ListResourceTagsOutput {
+	s.SystemTags = v
 	return s
 }
 
@@ -207,6 +215,36 @@ func (s *ResourceTagForListResourceTagsOutput) SetKey(v string) *ResourceTagForL
 
 // SetValue sets the Value field's value.
 func (s *ResourceTagForListResourceTagsOutput) SetValue(v string) *ResourceTagForListResourceTagsOutput {
+	s.Value = &v
+	return s
+}
+
+type SystemTagForListResourceTagsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SystemTagForListResourceTagsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SystemTagForListResourceTagsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *SystemTagForListResourceTagsOutput) SetKey(v string) *SystemTagForListResourceTagsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *SystemTagForListResourceTagsOutput) SetValue(v string) *SystemTagForListResourceTagsOutput {
 	s.Value = &v
 	return s
 }

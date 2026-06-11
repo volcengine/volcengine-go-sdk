@@ -178,9 +178,9 @@ type DescribeCdnRegionAndIspOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Isps []*IspForDescribeCdnRegionAndIspOutput `type:"list" json:",omitempty"`
+	Isps []*IspForDescribeCdnRegionAndIspOutput `type:"list"`
 
-	Regions []*RegionForDescribeCdnRegionAndIspOutput `type:"list" json:",omitempty"`
+	Regions []*RegionForDescribeCdnRegionAndIspOutput `type:"list"`
 }
 
 // String returns the string representation

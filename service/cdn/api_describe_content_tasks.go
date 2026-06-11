@@ -146,6 +146,8 @@ func (c *CDN) DescribeContentTasksWithContext(ctx volcengine.Context, input *Des
 type DataForDescribeContentTasksOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CacheShared *bool `type:"boolean" json:",omitempty"`
+
 	CreateTime *int64 `type:"int64" json:",omitempty"`
 
 	Delete *bool `type:"boolean" json:",omitempty"`
@@ -158,7 +160,11 @@ type DataForDescribeContentTasksOutput struct {
 
 	Remark *string `type:"string" json:",omitempty"`
 
+	RequestHeaderInstances []*RequestHeaderInstanceForDescribeContentTasksOutput `type:"list"`
+
 	Status *string `type:"string" json:",omitempty"`
+
+	StatusCode *int64 `type:"int64" json:",omitempty"`
 
 	TaskID *string `type:"string" json:",omitempty"`
 
@@ -175,6 +181,12 @@ func (s DataForDescribeContentTasksOutput) String() string {
 // GoString returns the string representation
 func (s DataForDescribeContentTasksOutput) GoString() string {
 	return s.String()
+}
+
+// SetCacheShared sets the CacheShared field's value.
+func (s *DataForDescribeContentTasksOutput) SetCacheShared(v bool) *DataForDescribeContentTasksOutput {
+	s.CacheShared = &v
+	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
@@ -213,9 +225,21 @@ func (s *DataForDescribeContentTasksOutput) SetRemark(v string) *DataForDescribe
 	return s
 }
 
+// SetRequestHeaderInstances sets the RequestHeaderInstances field's value.
+func (s *DataForDescribeContentTasksOutput) SetRequestHeaderInstances(v []*RequestHeaderInstanceForDescribeContentTasksOutput) *DataForDescribeContentTasksOutput {
+	s.RequestHeaderInstances = v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DataForDescribeContentTasksOutput) SetStatus(v string) *DataForDescribeContentTasksOutput {
 	s.Status = &v
+	return s
+}
+
+// SetStatusCode sets the StatusCode field's value.
+func (s *DataForDescribeContentTasksOutput) SetStatusCode(v int64) *DataForDescribeContentTasksOutput {
+	s.StatusCode = &v
 	return s
 }
 
@@ -260,6 +284,8 @@ type DescribeContentTasksInput struct {
 	TaskType *string `type:"string" json:",omitempty" required:"true"`
 
 	Url *string `type:"string" json:",omitempty"`
+
+	UrlList []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -345,12 +371,18 @@ func (s *DescribeContentTasksInput) SetUrl(v string) *DescribeContentTasksInput 
 	return s
 }
 
+// SetUrlList sets the UrlList field's value.
+func (s *DescribeContentTasksInput) SetUrlList(v []*string) *DescribeContentTasksInput {
+	s.UrlList = v
+	return s
+}
+
 type DescribeContentTasksOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForDescribeContentTasksOutput `type:"list" json:",omitempty"`
+	Data []*DataForDescribeContentTasksOutput `type:"list"`
 
 	PageNum *int32 `type:"int32" json:",omitempty"`
 
@@ -390,5 +422,35 @@ func (s *DescribeContentTasksOutput) SetPageSize(v int32) *DescribeContentTasksO
 // SetTotal sets the Total field's value.
 func (s *DescribeContentTasksOutput) SetTotal(v int32) *DescribeContentTasksOutput {
 	s.Total = &v
+	return s
+}
+
+type RequestHeaderInstanceForDescribeContentTasksOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RequestHeaderInstanceForDescribeContentTasksOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RequestHeaderInstanceForDescribeContentTasksOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *RequestHeaderInstanceForDescribeContentTasksOutput) SetKey(v string) *RequestHeaderInstanceForDescribeContentTasksOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *RequestHeaderInstanceForDescribeContentTasksOutput) SetValue(v string) *RequestHeaderInstanceForDescribeContentTasksOutput {
+	s.Value = &v
 	return s
 }

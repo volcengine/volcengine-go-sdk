@@ -148,7 +148,7 @@ type AccessActionForAddCdnDomainInput struct {
 
 	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	ListRules []*string `type:"list" json:",omitempty"`
+	ListRules []*string `type:"list"`
 
 	RequestHeader *string `type:"string" json:",omitempty"`
 
@@ -192,7 +192,7 @@ func (s *AccessActionForAddCdnDomainInput) SetRuleType(v string) *AccessActionFo
 type ActionsForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginLines []*OriginLineForAddCdnDomainInput `type:"list" json:",omitempty"`
+	OriginLines []*OriginLineForAddCdnDomainInput `type:"list"`
 }
 
 // String returns the string representation
@@ -218,13 +218,13 @@ type AddCdnDomainInput struct {
 
 	BandwidthLimit *BandwidthLimitForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
-	BrowserCache []*BrowserCacheForAddCdnDomainInput `type:"list" json:",omitempty"`
+	BrowserCache []*BrowserCacheForAddCdnDomainInput `type:"list"`
 
-	Cache []*CacheForAddCdnDomainInput `type:"list" json:",omitempty"`
+	Cache []*CacheForAddCdnDomainInput `type:"list"`
 
 	CacheHost *CacheHostForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
-	CacheKey []*CacheKeyForAddCdnDomainInput `type:"list" json:",omitempty"`
+	CacheKey []*CacheKeyForAddCdnDomainInput `type:"list"`
 
 	Compression *CompressionForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
@@ -255,15 +255,15 @@ type AddCdnDomainInput struct {
 
 	MultiRange *MultiRangeForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
-	NegativeCache []*NegativeCacheForAddCdnDomainInput `type:"list" json:",omitempty"`
+	NegativeCache []*NegativeCacheForAddCdnDomainInput `type:"list"`
 
 	OfflineCache *OfflineCacheForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
-	Origin []*OriginForAddCdnDomainInput `type:"list" json:",omitempty"`
+	Origin []*OriginForAddCdnDomainInput `type:"list"`
 
 	OriginAccessRule *OriginAccessRuleForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
-	OriginArg []*OriginArgForAddCdnDomainInput `type:"list" json:",omitempty"`
+	OriginArg []*OriginArgForAddCdnDomainInput `type:"list"`
 
 	OriginCertCheck *OriginCertCheckForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
@@ -295,13 +295,15 @@ type AddCdnDomainInput struct {
 
 	RequestBlockRule *RequestBlockRuleForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
-	RequestHeader []*RequestHeaderForAddCdnDomainInput `type:"list" json:",omitempty"`
+	RequestHeader []*RequestHeaderForAddCdnDomainInput `type:"list"`
 
-	ResourceTags []*ResourceTagForAddCdnDomainInput `type:"list" json:",omitempty"`
+	ResourceTags []*ResourceTagForAddCdnDomainInput `type:"list"`
 
-	ResponseHeader []*ResponseHeaderForAddCdnDomainInput `type:"list" json:",omitempty"`
+	ResponseHeader []*ResponseHeaderForAddCdnDomainInput `type:"list"`
 
 	RewriteHLS *RewriteHLSForAddCdnDomainInput `type:"structure" json:",omitempty"`
+
+	RuleEngine *RuleEngineForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
 	ServiceRegion *string `type:"string" json:",omitempty"`
 
@@ -609,6 +611,12 @@ func (s *AddCdnDomainInput) SetRewriteHLS(v *RewriteHLSForAddCdnDomainInput) *Ad
 	return s
 }
 
+// SetRuleEngine sets the RuleEngine field's value.
+func (s *AddCdnDomainInput) SetRuleEngine(v *RuleEngineForAddCdnDomainInput) *AddCdnDomainInput {
+	s.RuleEngine = v
+	return s
+}
+
 // SetServiceRegion sets the ServiceRegion field's value.
 func (s *AddCdnDomainInput) SetServiceRegion(v string) *AddCdnDomainInput {
 	s.ServiceRegion = &v
@@ -656,7 +664,7 @@ type AddCdnDomainOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResourceIds []*string `type:"list" json:",omitempty"`
+	ResourceIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -678,7 +686,7 @@ func (s *AddCdnDomainOutput) SetResourceIds(v []*string) *AddCdnDomainOutput {
 type AreaAccessRuleForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Area []*string `type:"list" json:",omitempty"`
+	Area []*string `type:"list"`
 
 	RuleType *string `type:"string" json:",omitempty"`
 
@@ -1134,7 +1142,7 @@ func (s *CacheHostActionForAddCdnDomainInput) SetCacheHost(v string) *CacheHostA
 type CacheHostForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheHostRule []*CacheHostRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	CacheHostRule []*CacheHostRuleForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -1194,7 +1202,7 @@ func (s *CacheHostRuleForAddCdnDomainInput) SetCondition(v *ConditionForAddCdnDo
 type CacheKeyActionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheKeyComponents []*CacheKeyComponentForAddCdnDomainInput `type:"list" json:",omitempty"`
+	CacheKeyComponents []*CacheKeyComponentForAddCdnDomainInput `type:"list"`
 }
 
 // String returns the string representation
@@ -1292,7 +1300,7 @@ func (s *CacheKeyForAddCdnDomainInput) SetCondition(v *ConditionForAddCdnDomainI
 type CertCheckForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CertInfoList []*CertInfoListForAddCdnDomainInput `type:"list" json:",omitempty"`
+	CertInfoList []*CertInfoListForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -1528,7 +1536,7 @@ type CommonTypeForAddCdnDomainInput struct {
 
 	IgnoreScheme *bool `type:"boolean" json:",omitempty"`
 
-	Referers []*string `type:"list" json:",omitempty"`
+	Referers []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -1566,7 +1574,7 @@ type CompressionActionForAddCdnDomainInput struct {
 
 	CompressionTarget *string `type:"string" json:",omitempty"`
 
-	CompressionType []*string `type:"list" json:",omitempty"`
+	CompressionType []*string `type:"list"`
 
 	MaxFileSizeKB *int64 `type:"int64" json:",omitempty"`
 
@@ -1616,7 +1624,7 @@ func (s *CompressionActionForAddCdnDomainInput) SetMinFileSizeKB(v int64) *Compr
 type CompressionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CompressionRules []*CompressionRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	CompressionRules []*CompressionRuleForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -1676,7 +1684,7 @@ func (s *CompressionRuleForAddCdnDomainInput) SetCondition(v *ConditionForAddCdn
 type ConditionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConditionRule []*ConditionRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	ConditionRule []*ConditionRuleForAddCdnDomainInput `type:"list"`
 
 	Connective *string `type:"string" json:",omitempty"`
 }
@@ -1790,7 +1798,7 @@ func (s *ConditionRuleForAddCdnDomainInput) SetValue(v string) *ConditionRuleFor
 type ConditionalOriginForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginRules []*OriginRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	OriginRules []*OriginRuleForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -1822,7 +1830,7 @@ type ConvertCacheActionForAddCdnDomainInput struct {
 
 	Action *string `type:"string" json:",omitempty"`
 
-	CacheKey []*string `type:"list" json:",omitempty"`
+	CacheKey []*string `type:"list"`
 
 	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
@@ -1870,7 +1878,7 @@ type ConvertConditionForAddCdnDomainInput struct {
 
 	Operator *string `type:"string" json:",omitempty"`
 
-	Value []*string `type:"list" json:",omitempty"`
+	Value []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -1904,7 +1912,7 @@ func (s *ConvertConditionForAddCdnDomainInput) SetValue(v []*string) *ConvertCon
 type ConvertConvertConditionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConditionGroups []*ConditionGroupForAddCdnDomainInput `type:"list" json:",omitempty"`
+	ConditionGroups []*ConditionGroupForAddCdnDomainInput `type:"list"`
 
 	Connective *string `type:"string" json:",omitempty"`
 
@@ -2074,7 +2082,7 @@ func (s *ConvertTimeoutActionForAddCdnDomainInput) SetTcpTimeout(v int64) *Conve
 type CustomErrorPageForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ErrorPageRule []*ErrorPageRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	ErrorPageRule []*ErrorPageRuleForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -2142,7 +2150,7 @@ func (s *CustomVariableInstanceForAddCdnDomainInput) SetValue(v string) *CustomV
 type CustomVariableRulesForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomVariableInstances []*CustomVariableInstanceForAddCdnDomainInput `type:"list" json:",omitempty"`
+	CustomVariableInstances []*CustomVariableInstanceForAddCdnDomainInput `type:"list"`
 }
 
 // String returns the string representation
@@ -2164,7 +2172,7 @@ func (s *CustomVariableRulesForAddCdnDomainInput) SetCustomVariableInstances(v [
 type CustomizeAccessRuleForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomizeInstances []*CustomizeInstanceForAddCdnDomainInput `type:"list" json:",omitempty"`
+	CustomizeInstances []*CustomizeInstanceForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -2284,7 +2292,7 @@ func (s *DownloadSpeedLimitActionForAddCdnDomainInput) SetSpeedLimitTime(v *Spee
 type DownloadSpeedLimitForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DownloadSpeedLimitRules []*DownloadSpeedLimitRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	DownloadSpeedLimitRules []*DownloadSpeedLimitRuleForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -2484,7 +2492,7 @@ type HTTPSForAddCdnDomainInput struct {
 
 	CertInfo *CertInfoForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
-	CertInfoList []*CertInfoListForAddCdnDomainInput `type:"list" json:",omitempty"`
+	CertInfoList []*CertInfoListForAddCdnDomainInput `type:"list"`
 
 	DisableHttp *bool `type:"boolean" json:",omitempty"`
 
@@ -2498,7 +2506,7 @@ type HTTPSForAddCdnDomainInput struct {
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 
-	TlsVersion []*string `type:"list" json:",omitempty"`
+	TlsVersion []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -2664,7 +2672,7 @@ func (s *IPv6ForAddCdnDomainInput) SetSwitch(v bool) *IPv6ForAddCdnDomainInput {
 type IpAccessRuleForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Ip []*string `type:"list" json:",omitempty"`
+	Ip []*string `type:"list"`
 
 	RuleType *string `type:"string" json:",omitempty"`
 
@@ -2748,7 +2756,7 @@ func (s *IpFreqLimitActionForAddCdnDomainInput) SetStatusCode(v string) *IpFreqL
 type IpFreqLimitForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	IpFreqLimitRules []*IpFreqLimitRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	IpFreqLimitRules []*IpFreqLimitRuleForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -2978,7 +2986,7 @@ type OriginAccessRuleForAddCdnDomainInput struct {
 
 	IgnoreCase *bool `type:"boolean" json:",omitempty"`
 
-	Origins []*string `type:"list" json:",omitempty"`
+	Origins []*string `type:"list"`
 
 	RuleType *string `type:"string" json:",omitempty"`
 
@@ -3028,7 +3036,7 @@ func (s *OriginAccessRuleForAddCdnDomainInput) SetSwitch(v bool) *OriginAccessRu
 type OriginActionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginLines []*ConvertOriginLineForAddCdnDomainInput `type:"list" json:",omitempty"`
+	OriginLines []*ConvertOriginLineForAddCdnDomainInput `type:"list"`
 }
 
 // String returns the string representation
@@ -3050,7 +3058,7 @@ func (s *OriginActionForAddCdnDomainInput) SetOriginLines(v []*ConvertOriginLine
 type OriginArgActionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginArgComponents []*OriginArgComponentForAddCdnDomainInput `type:"list" json:",omitempty"`
+	OriginArgComponents []*OriginArgComponentForAddCdnDomainInput `type:"list"`
 }
 
 // String returns the string representation
@@ -3140,6 +3148,8 @@ func (s *OriginArgForAddCdnDomainInput) SetOriginArgAction(v *OriginArgActionFor
 type OriginCertCheckForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CertInfoList []*CertInfoListForAddCdnDomainInput `type:"list"`
+
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
 
@@ -3151,6 +3161,12 @@ func (s OriginCertCheckForAddCdnDomainInput) String() string {
 // GoString returns the string representation
 func (s OriginCertCheckForAddCdnDomainInput) GoString() string {
 	return s.String()
+}
+
+// SetCertInfoList sets the CertInfoList field's value.
+func (s *OriginCertCheckForAddCdnDomainInput) SetCertInfoList(v []*CertInfoListForAddCdnDomainInput) *OriginCertCheckForAddCdnDomainInput {
+	s.CertInfoList = v
+	return s
 }
 
 // SetSwitch sets the Switch field's value.
@@ -3314,7 +3330,7 @@ func (s *OriginRewriteActionForAddCdnDomainInput) SetTargetPath(v string) *Origi
 type OriginRewriteForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	OriginRewriteRule []*OriginRewriteRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	OriginRewriteRule []*OriginRewriteRuleForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -3434,7 +3450,7 @@ func (s *OriginSniForAddCdnDomainInput) SetSwitch(v bool) *OriginSniForAddCdnDom
 type PageOptimizationForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	OptimizationType []*string `type:"list" json:",omitempty"`
+	OptimizationType []*string `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -3580,7 +3596,7 @@ type QueryStringRulesForAddCdnDomainInput struct {
 
 	QueryStringComponents *QueryStringComponentsForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
-	QueryStringInstances []*QueryStringInstanceForAddCdnDomainInput `type:"list" json:",omitempty"`
+	QueryStringInstances []*QueryStringInstanceForAddCdnDomainInput `type:"list"`
 }
 
 // String returns the string representation
@@ -3692,7 +3708,7 @@ func (s *RedirectionActionForAddCdnDomainInput) SetTargetQueryComponents(v *Targ
 type RedirectionRewriteForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	RedirectionRule []*RedirectionRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	RedirectionRule []*RedirectionRuleForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -3746,7 +3762,7 @@ type RefererAccessRuleForAddCdnDomainInput struct {
 
 	AllowEmpty *bool `type:"boolean" json:",omitempty"`
 
-	Referers []*string `type:"list" json:",omitempty"`
+	Referers []*string `type:"list"`
 
 	ReferersType *ReferersTypeForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
@@ -3836,7 +3852,7 @@ func (s *ReferersTypeForAddCdnDomainInput) SetRegularType(v *RegularTypeForAddCd
 type RegularTypeForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Referers []*string `type:"list" json:",omitempty"`
+	Referers []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -3858,7 +3874,7 @@ func (s *RegularTypeForAddCdnDomainInput) SetReferers(v []*string) *RegularTypeF
 type RemoteAuthForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	RemoteAuthRules []*RemoteAuthRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	RemoteAuthRules []*RemoteAuthRuleForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -3972,7 +3988,7 @@ func (s *RemoteAuthRuleForAddCdnDomainInput) SetRemoteAuthRuleAction(v *RemoteAu
 type RequestBlockRuleForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BlockRule []*BlockRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	BlockRule []*BlockRuleForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -4002,7 +4018,7 @@ func (s *RequestBlockRuleForAddCdnDomainInput) SetSwitch(v bool) *RequestBlockRu
 type RequestHeaderActionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	RequestHeaderInstances []*RequestHeaderInstanceForAddCdnDomainInput `type:"list" json:",omitempty"`
+	RequestHeaderInstances []*RequestHeaderInstanceForAddCdnDomainInput `type:"list"`
 }
 
 // String returns the string representation
@@ -4132,7 +4148,7 @@ type RequestHeaderRulesForAddCdnDomainInput struct {
 
 	RequestHeaderComponents *RequestHeaderComponentsForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
-	RequestHeaderInstances []*RequestHeaderInstanceForAddCdnDomainInput `type:"list" json:",omitempty"`
+	RequestHeaderInstances []*RequestHeaderInstanceForAddCdnDomainInput `type:"list"`
 
 	RequestHost *string `type:"string" json:",omitempty"`
 }
@@ -4220,7 +4236,7 @@ func (s *ResponseActionForAddCdnDomainInput) SetStatusCode(v string) *ResponseAc
 type ResponseHeaderActionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResponseHeaderInstances []*ResponseHeaderInstanceForAddCdnDomainInput `type:"list" json:",omitempty"`
+	ResponseHeaderInstances []*ResponseHeaderInstanceForAddCdnDomainInput `type:"list"`
 }
 
 // String returns the string representation
@@ -4391,6 +4407,90 @@ func (s *RewriteM3u8RuleForAddCdnDomainInput) SetTransferEncoding(v bool) *Rewri
 	return s
 }
 
+type RuleEngineForAddCdnDomainInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Rules []*RuleForAddCdnDomainInput `type:"list"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RuleEngineForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuleEngineForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetRules sets the Rules field's value.
+func (s *RuleEngineForAddCdnDomainInput) SetRules(v []*RuleForAddCdnDomainInput) *RuleEngineForAddCdnDomainInput {
+	s.Rules = v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *RuleEngineForAddCdnDomainInput) SetSwitch(v bool) *RuleEngineForAddCdnDomainInput {
+	s.Switch = &v
+	return s
+}
+
+type RuleForAddCdnDomainInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DSLRule *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	Locked *bool `type:"boolean" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Rule *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RuleForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuleForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetDSLRule sets the DSLRule field's value.
+func (s *RuleForAddCdnDomainInput) SetDSLRule(v string) *RuleForAddCdnDomainInput {
+	s.DSLRule = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *RuleForAddCdnDomainInput) SetId(v string) *RuleForAddCdnDomainInput {
+	s.Id = &v
+	return s
+}
+
+// SetLocked sets the Locked field's value.
+func (s *RuleForAddCdnDomainInput) SetLocked(v bool) *RuleForAddCdnDomainInput {
+	s.Locked = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *RuleForAddCdnDomainInput) SetName(v string) *RuleForAddCdnDomainInput {
+	s.Name = &v
+	return s
+}
+
+// SetRule sets the Rule field's value.
+func (s *RuleForAddCdnDomainInput) SetRule(v string) *RuleForAddCdnDomainInput {
+	s.Rule = &v
+	return s
+}
+
 type SharedConfigForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -4530,7 +4630,7 @@ type SignedUrlAuthActionForAddCdnDomainInput struct {
 
 	SignName *string `type:"string" json:",omitempty"`
 
-	SignatureRule []*string `type:"list" json:",omitempty"`
+	SignatureRule []*string `type:"list"`
 
 	TimeFormat *string `type:"string" json:",omitempty"`
 
@@ -4650,7 +4750,7 @@ func (s *SignedUrlAuthActionForAddCdnDomainInput) SetUrlAuthCustomAction(v *UrlA
 type SignedUrlAuthForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	SignedUrlAuthRules []*SignedUrlAuthRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	SignedUrlAuthRules []*SignedUrlAuthRuleForAddCdnDomainInput `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }
@@ -4848,7 +4948,7 @@ type TimeoutForAddCdnDomainInput struct {
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 
-	TimeoutRules []*TimeoutRuleForAddCdnDomainInput `type:"list" json:",omitempty"`
+	TimeoutRules []*TimeoutRuleForAddCdnDomainInput `type:"list"`
 }
 
 // String returns the string representation
@@ -4952,7 +5052,7 @@ type UaAccessRuleForAddCdnDomainInput struct {
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 
-	UserAgent []*string `type:"list" json:",omitempty"`
+	UserAgent []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -5046,13 +5146,13 @@ type UrlAuthCustomActionForAddCdnDomainInput struct {
 
 	ExpTimeCapRule *ExpTimeCapRuleForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
-	ParamCalRules []*string `type:"list" json:",omitempty"`
+	ParamCalRules []*string `type:"list"`
 
 	SignCapRule *SignCapRuleForAddCdnDomainInput `type:"structure" json:",omitempty"`
 
 	SignJoinSymbol *string `type:"string" json:",omitempty"`
 
-	SignParam []*SignParamForAddCdnDomainInput `type:"list" json:",omitempty"`
+	SignParam []*SignParamForAddCdnDomainInput `type:"list"`
 }
 
 // String returns the string representation
@@ -5098,7 +5198,7 @@ func (s *UrlAuthCustomActionForAddCdnDomainInput) SetSignParam(v []*SignParamFor
 type UrlNormalizeForAddCdnDomainInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	NormalizeObject []*string `type:"list" json:",omitempty"`
+	NormalizeObject []*string `type:"list"`
 
 	Switch *bool `type:"boolean" json:",omitempty"`
 }

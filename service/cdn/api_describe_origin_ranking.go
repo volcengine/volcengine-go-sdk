@@ -246,7 +246,7 @@ type DescribeOriginRankingOutput struct {
 
 	Item *string `type:"string" json:",omitempty"`
 
-	TopDataDetails []*TopDataDetailForDescribeOriginRankingOutput `type:"list" json:",omitempty"`
+	TopDataDetails []*TopDataDetailForDescribeOriginRankingOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -276,7 +276,7 @@ type TopDataDetailForDescribeOriginRankingOutput struct {
 
 	Metric *string `type:"string" json:",omitempty"`
 
-	ValueDetails []*ValueDetailForDescribeOriginRankingOutput `type:"list" json:",omitempty"`
+	ValueDetails []*ValueDetailForDescribeOriginRankingOutput `type:"list"`
 }
 
 // String returns the string representation

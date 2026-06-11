@@ -248,7 +248,7 @@ type DescribeBillingDetailOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	TimestampPoint []*TimestampPointForDescribeBillingDetailOutput `type:"list" json:",omitempty"`
+	TimestampPoint []*TimestampPointForDescribeBillingDetailOutput `type:"list"`
 }
 
 // String returns the string representation

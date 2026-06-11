@@ -202,6 +202,8 @@ type DescribeCertConfigInput struct {
 	EncryType *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
+
+	TargetConfig *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -257,16 +259,22 @@ func (s *DescribeCertConfigInput) SetStatus(v string) *DescribeCertConfigInput {
 	return s
 }
 
+// SetTargetConfig sets the TargetConfig field's value.
+func (s *DescribeCertConfigInput) SetTargetConfig(v string) *DescribeCertConfigInput {
+	s.TargetConfig = &v
+	return s
+}
+
 type DescribeCertConfigOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	CertNotConfig []*CertNotConfigForDescribeCertConfigOutput `type:"list" json:",omitempty"`
+	CertNotConfig []*CertNotConfigForDescribeCertConfigOutput `type:"list"`
 
-	OtherCertConfig []*OtherCertConfigForDescribeCertConfigOutput `type:"list" json:",omitempty"`
+	OtherCertConfig []*OtherCertConfigForDescribeCertConfigOutput `type:"list"`
 
-	SpecifiedCertConfig []*SpecifiedCertConfigForDescribeCertConfigOutput `type:"list" json:",omitempty"`
+	SpecifiedCertConfig []*SpecifiedCertConfigForDescribeCertConfigOutput `type:"list"`
 }
 
 // String returns the string representation

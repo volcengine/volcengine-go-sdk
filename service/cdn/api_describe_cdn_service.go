@@ -162,7 +162,7 @@ type DescribeCdnServiceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ServiceInfos []*ServiceInfoForDescribeCdnServiceOutput `type:"list" json:",omitempty"`
+	ServiceInfos []*ServiceInfoForDescribeCdnServiceOutput `type:"list"`
 }
 
 // String returns the string representation

@@ -186,7 +186,7 @@ type CertInfoForListCertInfoOutput struct {
 
 	ConfiguredDomain *string `type:"string" json:",omitempty"`
 
-	ConfiguredDomainDetail []*ConfiguredDomainDetailForListCertInfoOutput `type:"list" json:",omitempty"`
+	ConfiguredDomainDetail []*ConfiguredDomainDetailForListCertInfoOutput `type:"list"`
 
 	Desc *string `type:"string" json:",omitempty"`
 
@@ -340,6 +340,8 @@ type ListCertInfoInput struct {
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
+	SearchCertName *string `type:"string" json:",omitempty"`
+
 	SortRule *SortRuleForListCertInfoInput `type:"structure" json:",omitempty"`
 
 	// Source is a required field
@@ -419,6 +421,12 @@ func (s *ListCertInfoInput) SetPageSize(v int32) *ListCertInfoInput {
 	return s
 }
 
+// SetSearchCertName sets the SearchCertName field's value.
+func (s *ListCertInfoInput) SetSearchCertName(v string) *ListCertInfoInput {
+	s.SearchCertName = &v
+	return s
+}
+
 // SetSortRule sets the SortRule field's value.
 func (s *ListCertInfoInput) SetSortRule(v *SortRuleForListCertInfoInput) *ListCertInfoInput {
 	s.SortRule = v
@@ -442,7 +450,7 @@ type ListCertInfoOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	CertInfo []*CertInfoForListCertInfoOutput `type:"list" json:",omitempty"`
+	CertInfo []*CertInfoForListCertInfoOutput `type:"list"`
 
 	ExpiringCount *int64 `type:"int64" json:",omitempty"`
 
