@@ -233,6 +233,8 @@ type DetailHostOutput struct {
 	Status *int32 `type:"int32" json:",omitempty"`
 
 	VolcRegion *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -356,5 +358,11 @@ func (s *DetailHostOutput) SetStatus(v int32) *DetailHostOutput {
 // SetVolcRegion sets the VolcRegion field's value.
 func (s *DetailHostOutput) SetVolcRegion(v string) *DetailHostOutput {
 	s.VolcRegion = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DetailHostOutput) SetZoneId(v string) *DetailHostOutput {
+	s.ZoneId = &v
 	return s
 }
