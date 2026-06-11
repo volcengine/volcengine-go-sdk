@@ -232,7 +232,11 @@ type GetAlertingRuleOutput struct {
 
 	NotifyGroupPolicyId *string `type:"string" json:",omitempty"`
 
+	NotifyGroupPolicySource *string `type:"string" json:",omitempty"`
+
 	NotifyPolicyId *string `type:"string" json:",omitempty"`
+
+	NotifyPolicySource *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -311,9 +315,21 @@ func (s *GetAlertingRuleOutput) SetNotifyGroupPolicyId(v string) *GetAlertingRul
 	return s
 }
 
+// SetNotifyGroupPolicySource sets the NotifyGroupPolicySource field's value.
+func (s *GetAlertingRuleOutput) SetNotifyGroupPolicySource(v string) *GetAlertingRuleOutput {
+	s.NotifyGroupPolicySource = &v
+	return s
+}
+
 // SetNotifyPolicyId sets the NotifyPolicyId field's value.
 func (s *GetAlertingRuleOutput) SetNotifyPolicyId(v string) *GetAlertingRuleOutput {
 	s.NotifyPolicyId = &v
+	return s
+}
+
+// SetNotifyPolicySource sets the NotifyPolicySource field's value.
+func (s *GetAlertingRuleOutput) SetNotifyPolicySource(v string) *GetAlertingRuleOutput {
+	s.NotifyPolicySource = &v
 	return s
 }
 

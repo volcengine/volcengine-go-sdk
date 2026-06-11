@@ -1,0 +1,5 @@
+{
+  "description": "VEENEDGE: 新增 ListAccountTagsV2, TagResourcesV2, UntagResourcesV2, ListTagsForResources",
+  "modules": "service/veenedge",
+  "type": "breaking-change"
+}

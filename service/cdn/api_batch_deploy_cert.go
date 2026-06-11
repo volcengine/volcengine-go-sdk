@@ -153,6 +153,8 @@ type BatchDeployCertInput struct {
 
 	// Domain is a required field
 	Domain *string `type:"string" json:",omitempty" required:"true"`
+
+	TargetConfig *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -199,12 +201,18 @@ func (s *BatchDeployCertInput) SetDomain(v string) *BatchDeployCertInput {
 	return s
 }
 
+// SetTargetConfig sets the TargetConfig field's value.
+func (s *BatchDeployCertInput) SetTargetConfig(v string) *BatchDeployCertInput {
+	s.TargetConfig = &v
+	return s
+}
+
 type BatchDeployCertOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	DeployResult []*DeployResultForBatchDeployCertOutput `type:"list" json:",omitempty"`
+	DeployResult []*DeployResultForBatchDeployCertOutput `type:"list"`
 }
 
 // String returns the string representation

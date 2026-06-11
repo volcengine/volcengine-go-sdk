@@ -180,6 +180,8 @@ func (s *FilterForListClawOmniInstancesInput) SetValues(v []*string) *FilterForL
 type InstanceForListClawOmniInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
+	AgentMd *string `type:"string"`
+
 	CpuMilli *int32 `type:"int32"`
 
 	CreatedAt *string `type:"string"`
@@ -227,6 +229,12 @@ func (s InstanceForListClawOmniInstancesOutput) String() string {
 // GoString returns the string representation
 func (s InstanceForListClawOmniInstancesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAgentMd sets the AgentMd field's value.
+func (s *InstanceForListClawOmniInstancesOutput) SetAgentMd(v string) *InstanceForListClawOmniInstancesOutput {
+	s.AgentMd = &v
+	return s
 }
 
 // SetCpuMilli sets the CpuMilli field's value.

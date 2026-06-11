@@ -148,8 +148,9 @@ type SubmitBlockTaskInput struct {
 
 	Type *string `type:"string" json:",omitempty"`
 
-	// Urls is a required field
-	Urls *string `type:"string" json:",omitempty" required:"true"`
+	UrlList []*string `type:"list"`
+
+	Urls *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -162,22 +163,15 @@ func (s SubmitBlockTaskInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *SubmitBlockTaskInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "SubmitBlockTaskInput"}
-	if s.Urls == nil {
-		invalidParams.Add(request.NewErrParamRequired("Urls"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetType sets the Type field's value.
 func (s *SubmitBlockTaskInput) SetType(v string) *SubmitBlockTaskInput {
 	s.Type = &v
+	return s
+}
+
+// SetUrlList sets the UrlList field's value.
+func (s *SubmitBlockTaskInput) SetUrlList(v []*string) *SubmitBlockTaskInput {
+	s.UrlList = v
 	return s
 }
 

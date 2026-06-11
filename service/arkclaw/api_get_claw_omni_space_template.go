@@ -220,7 +220,17 @@ type TemplateForGetClawOmniSpaceTemplateOutput struct {
 
 	Id *string `type:"string" json:",omitempty"`
 
+	ImageBuildError *string `type:"string" json:",omitempty"`
+
+	ImageBuildStatus *string `type:"string" json:",omitempty"`
+
 	ImageId *string `type:"string" json:",omitempty"`
+
+	ImageUrl *string `type:"string" json:",omitempty"`
+
+	Input *string `type:"string" json:",omitempty"`
+
+	IsImaged *bool `type:"boolean" json:",omitempty"`
 
 	MemoryMb *int32 `type:"int32" json:",omitempty"`
 
@@ -230,13 +240,15 @@ type TemplateForGetClawOmniSpaceTemplateOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	Reasoning *string `type:"string" json:",omitempty"`
+
 	SkillConfig *string `type:"string" json:",omitempty"`
 
 	Soul *string `type:"string" json:",omitempty"`
 
 	TemplateCurrentVersionId *string `type:"string" json:",omitempty"`
 
-	TemplateLabel *string `type:"string" json:",omitempty"`
+	TemplatePendingVersionId *string `type:"string" json:",omitempty"`
 
 	TemplateVersionId *string `type:"string" json:",omitempty"`
 
@@ -297,9 +309,39 @@ func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetId(v string) *TemplateFor
 	return s
 }
 
+// SetImageBuildError sets the ImageBuildError field's value.
+func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetImageBuildError(v string) *TemplateForGetClawOmniSpaceTemplateOutput {
+	s.ImageBuildError = &v
+	return s
+}
+
+// SetImageBuildStatus sets the ImageBuildStatus field's value.
+func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetImageBuildStatus(v string) *TemplateForGetClawOmniSpaceTemplateOutput {
+	s.ImageBuildStatus = &v
+	return s
+}
+
 // SetImageId sets the ImageId field's value.
 func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetImageId(v string) *TemplateForGetClawOmniSpaceTemplateOutput {
 	s.ImageId = &v
+	return s
+}
+
+// SetImageUrl sets the ImageUrl field's value.
+func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetImageUrl(v string) *TemplateForGetClawOmniSpaceTemplateOutput {
+	s.ImageUrl = &v
+	return s
+}
+
+// SetInput sets the Input field's value.
+func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetInput(v string) *TemplateForGetClawOmniSpaceTemplateOutput {
+	s.Input = &v
+	return s
+}
+
+// SetIsImaged sets the IsImaged field's value.
+func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetIsImaged(v bool) *TemplateForGetClawOmniSpaceTemplateOutput {
+	s.IsImaged = &v
 	return s
 }
 
@@ -327,6 +369,12 @@ func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetProjectName(v string) *Te
 	return s
 }
 
+// SetReasoning sets the Reasoning field's value.
+func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetReasoning(v string) *TemplateForGetClawOmniSpaceTemplateOutput {
+	s.Reasoning = &v
+	return s
+}
+
 // SetSkillConfig sets the SkillConfig field's value.
 func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetSkillConfig(v string) *TemplateForGetClawOmniSpaceTemplateOutput {
 	s.SkillConfig = &v
@@ -345,9 +393,9 @@ func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetTemplateCurrentVersionId(
 	return s
 }
 
-// SetTemplateLabel sets the TemplateLabel field's value.
-func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetTemplateLabel(v string) *TemplateForGetClawOmniSpaceTemplateOutput {
-	s.TemplateLabel = &v
+// SetTemplatePendingVersionId sets the TemplatePendingVersionId field's value.
+func (s *TemplateForGetClawOmniSpaceTemplateOutput) SetTemplatePendingVersionId(v string) *TemplateForGetClawOmniSpaceTemplateOutput {
+	s.TemplatePendingVersionId = &v
 	return s
 }
 

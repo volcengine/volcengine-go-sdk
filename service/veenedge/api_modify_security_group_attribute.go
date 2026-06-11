@@ -510,7 +510,7 @@ type Security_groupForModifySecurityGroupAttributeOutput struct {
 
 	Tags []*TagForModifySecurityGroupAttributeOutput `type:"list"`
 
-	Update_time *string `type:"string" json:"update_time,omitempty"`
+	Update_time *int32 `type:"int32" json:"update_time,omitempty"`
 
 	User_identity *int32 `type:"int32" json:"user_identity,omitempty"`
 
@@ -622,7 +622,7 @@ func (s *Security_groupForModifySecurityGroupAttributeOutput) SetTags(v []*TagFo
 }
 
 // SetUpdate_time sets the Update_time field's value.
-func (s *Security_groupForModifySecurityGroupAttributeOutput) SetUpdate_time(v string) *Security_groupForModifySecurityGroupAttributeOutput {
+func (s *Security_groupForModifySecurityGroupAttributeOutput) SetUpdate_time(v int32) *Security_groupForModifySecurityGroupAttributeOutput {
 	s.Update_time = &v
 	return s
 }

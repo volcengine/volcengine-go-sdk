@@ -143,108 +143,6 @@ func (c *REDIS) SwitchoverBlueGreenDeploymentWithContext(ctx volcengine.Context,
 	return out, req.Send()
 }
 
-type BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	CreateTime *string `type:"string" json:",omitempty"`
-
-	DataSyncProgress *float64 `type:"double" json:",omitempty"`
-
-	EndTime *string `type:"string" json:",omitempty"`
-
-	Name *string `type:"string" json:",omitempty"`
-
-	SourceEngineVersion *string `type:"string" json:",omitempty"`
-
-	SourceInstanceId *string `type:"string" json:",omitempty"`
-
-	SourceInstanceName *string `type:"string" json:",omitempty"`
-
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForSwitchoverBlueGreenDeploymentOutput"`
-
-	TargetEngineVersion *string `type:"string" json:",omitempty"`
-
-	TargetInstanceId *string `type:"string" json:",omitempty"`
-
-	TargetInstanceName *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) GoString() string {
-	return s.String()
-}
-
-// SetCreateTime sets the CreateTime field's value.
-func (s *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) SetCreateTime(v string) *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput {
-	s.CreateTime = &v
-	return s
-}
-
-// SetDataSyncProgress sets the DataSyncProgress field's value.
-func (s *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) SetDataSyncProgress(v float64) *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput {
-	s.DataSyncProgress = &v
-	return s
-}
-
-// SetEndTime sets the EndTime field's value.
-func (s *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) SetEndTime(v string) *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput {
-	s.EndTime = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) SetName(v string) *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput {
-	s.Name = &v
-	return s
-}
-
-// SetSourceEngineVersion sets the SourceEngineVersion field's value.
-func (s *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) SetSourceEngineVersion(v string) *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput {
-	s.SourceEngineVersion = &v
-	return s
-}
-
-// SetSourceInstanceId sets the SourceInstanceId field's value.
-func (s *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) SetSourceInstanceId(v string) *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput {
-	s.SourceInstanceId = &v
-	return s
-}
-
-// SetSourceInstanceName sets the SourceInstanceName field's value.
-func (s *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) SetSourceInstanceName(v string) *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput {
-	s.SourceInstanceName = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) SetStatus(v string) *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput {
-	s.Status = &v
-	return s
-}
-
-// SetTargetEngineVersion sets the TargetEngineVersion field's value.
-func (s *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) SetTargetEngineVersion(v string) *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput {
-	s.TargetEngineVersion = &v
-	return s
-}
-
-// SetTargetInstanceId sets the TargetInstanceId field's value.
-func (s *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) SetTargetInstanceId(v string) *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput {
-	s.TargetInstanceId = &v
-	return s
-}
-
-// SetTargetInstanceName sets the TargetInstanceName field's value.
-func (s *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) SetTargetInstanceName(v string) *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput {
-	s.TargetInstanceName = &v
-	return s
-}
-
 type SwitchoverBlueGreenDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -298,7 +196,27 @@ type SwitchoverBlueGreenDeploymentOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BlueGreenDeployment *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput `type:"structure" json:",omitempty"`
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	DataSyncProgress *float64 `type:"double" json:",omitempty"`
+
+	EndTime *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	SourceEngineVersion *string `type:"string" json:",omitempty"`
+
+	SourceInstanceId *string `type:"string" json:",omitempty"`
+
+	SourceInstanceName *string `type:"string" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty"`
+
+	TargetEngineVersion *string `type:"string" json:",omitempty"`
+
+	TargetInstanceId *string `type:"string" json:",omitempty"`
+
+	TargetInstanceName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -311,43 +229,68 @@ func (s SwitchoverBlueGreenDeploymentOutput) GoString() string {
 	return s.String()
 }
 
-// SetBlueGreenDeployment sets the BlueGreenDeployment field's value.
-func (s *SwitchoverBlueGreenDeploymentOutput) SetBlueGreenDeployment(v *BlueGreenDeploymentForSwitchoverBlueGreenDeploymentOutput) *SwitchoverBlueGreenDeploymentOutput {
-	s.BlueGreenDeployment = v
+// SetCreateTime sets the CreateTime field's value.
+func (s *SwitchoverBlueGreenDeploymentOutput) SetCreateTime(v string) *SwitchoverBlueGreenDeploymentOutput {
+	s.CreateTime = &v
 	return s
 }
 
-const (
-	// EnumOfStatusForSwitchoverBlueGreenDeploymentOutputInit is a EnumOfStatusForSwitchoverBlueGreenDeploymentOutput enum value
-	EnumOfStatusForSwitchoverBlueGreenDeploymentOutputInit = "INIT"
+// SetDataSyncProgress sets the DataSyncProgress field's value.
+func (s *SwitchoverBlueGreenDeploymentOutput) SetDataSyncProgress(v float64) *SwitchoverBlueGreenDeploymentOutput {
+	s.DataSyncProgress = &v
+	return s
+}
 
-	// EnumOfStatusForSwitchoverBlueGreenDeploymentOutputProvisioning is a EnumOfStatusForSwitchoverBlueGreenDeploymentOutput enum value
-	EnumOfStatusForSwitchoverBlueGreenDeploymentOutputProvisioning = "PROVISIONING"
+// SetEndTime sets the EndTime field's value.
+func (s *SwitchoverBlueGreenDeploymentOutput) SetEndTime(v string) *SwitchoverBlueGreenDeploymentOutput {
+	s.EndTime = &v
+	return s
+}
 
-	// EnumOfStatusForSwitchoverBlueGreenDeploymentOutputAvailable is a EnumOfStatusForSwitchoverBlueGreenDeploymentOutput enum value
-	EnumOfStatusForSwitchoverBlueGreenDeploymentOutputAvailable = "AVAILABLE"
+// SetName sets the Name field's value.
+func (s *SwitchoverBlueGreenDeploymentOutput) SetName(v string) *SwitchoverBlueGreenDeploymentOutput {
+	s.Name = &v
+	return s
+}
 
-	// EnumOfStatusForSwitchoverBlueGreenDeploymentOutputDataSynchronizing is a EnumOfStatusForSwitchoverBlueGreenDeploymentOutput enum value
-	EnumOfStatusForSwitchoverBlueGreenDeploymentOutputDataSynchronizing = "DATA_SYNCHRONIZING"
+// SetSourceEngineVersion sets the SourceEngineVersion field's value.
+func (s *SwitchoverBlueGreenDeploymentOutput) SetSourceEngineVersion(v string) *SwitchoverBlueGreenDeploymentOutput {
+	s.SourceEngineVersion = &v
+	return s
+}
 
-	// EnumOfStatusForSwitchoverBlueGreenDeploymentOutputSwitchoverAvailable is a EnumOfStatusForSwitchoverBlueGreenDeploymentOutput enum value
-	EnumOfStatusForSwitchoverBlueGreenDeploymentOutputSwitchoverAvailable = "SWITCHOVER_AVAILABLE"
+// SetSourceInstanceId sets the SourceInstanceId field's value.
+func (s *SwitchoverBlueGreenDeploymentOutput) SetSourceInstanceId(v string) *SwitchoverBlueGreenDeploymentOutput {
+	s.SourceInstanceId = &v
+	return s
+}
 
-	// EnumOfStatusForSwitchoverBlueGreenDeploymentOutputSwitchoverInProgress is a EnumOfStatusForSwitchoverBlueGreenDeploymentOutput enum value
-	EnumOfStatusForSwitchoverBlueGreenDeploymentOutputSwitchoverInProgress = "SWITCHOVER_IN_PROGRESS"
+// SetSourceInstanceName sets the SourceInstanceName field's value.
+func (s *SwitchoverBlueGreenDeploymentOutput) SetSourceInstanceName(v string) *SwitchoverBlueGreenDeploymentOutput {
+	s.SourceInstanceName = &v
+	return s
+}
 
-	// EnumOfStatusForSwitchoverBlueGreenDeploymentOutputSwitchoverPending is a EnumOfStatusForSwitchoverBlueGreenDeploymentOutput enum value
-	EnumOfStatusForSwitchoverBlueGreenDeploymentOutputSwitchoverPending = "SWITCHOVER_PENDING"
+// SetStatus sets the Status field's value.
+func (s *SwitchoverBlueGreenDeploymentOutput) SetStatus(v string) *SwitchoverBlueGreenDeploymentOutput {
+	s.Status = &v
+	return s
+}
 
-	// EnumOfStatusForSwitchoverBlueGreenDeploymentOutputSwitchoverCompleted is a EnumOfStatusForSwitchoverBlueGreenDeploymentOutput enum value
-	EnumOfStatusForSwitchoverBlueGreenDeploymentOutputSwitchoverCompleted = "SWITCHOVER_COMPLETED"
+// SetTargetEngineVersion sets the TargetEngineVersion field's value.
+func (s *SwitchoverBlueGreenDeploymentOutput) SetTargetEngineVersion(v string) *SwitchoverBlueGreenDeploymentOutput {
+	s.TargetEngineVersion = &v
+	return s
+}
 
-	// EnumOfStatusForSwitchoverBlueGreenDeploymentOutputSwitchoverFailed is a EnumOfStatusForSwitchoverBlueGreenDeploymentOutput enum value
-	EnumOfStatusForSwitchoverBlueGreenDeploymentOutputSwitchoverFailed = "SWITCHOVER_FAILED"
+// SetTargetInstanceId sets the TargetInstanceId field's value.
+func (s *SwitchoverBlueGreenDeploymentOutput) SetTargetInstanceId(v string) *SwitchoverBlueGreenDeploymentOutput {
+	s.TargetInstanceId = &v
+	return s
+}
 
-	// EnumOfStatusForSwitchoverBlueGreenDeploymentOutputDeleting is a EnumOfStatusForSwitchoverBlueGreenDeploymentOutput enum value
-	EnumOfStatusForSwitchoverBlueGreenDeploymentOutputDeleting = "DELETING"
-
-	// EnumOfStatusForSwitchoverBlueGreenDeploymentOutputDeleteCompleted is a EnumOfStatusForSwitchoverBlueGreenDeploymentOutput enum value
-	EnumOfStatusForSwitchoverBlueGreenDeploymentOutputDeleteCompleted = "DELETE_COMPLETED"
-)
+// SetTargetInstanceName sets the TargetInstanceName field's value.
+func (s *SwitchoverBlueGreenDeploymentOutput) SetTargetInstanceName(v string) *SwitchoverBlueGreenDeploymentOutput {
+	s.TargetInstanceName = &v
+	return s
+}

@@ -46,6 +46,22 @@ type ARKCLAWAPI interface {
 	ClearClawOmniInstanceDevicePairedWithContext(volcengine.Context, *ClearClawOmniInstanceDevicePairedInput, ...request.Option) (*ClearClawOmniInstanceDevicePairedOutput, error)
 	ClearClawOmniInstanceDevicePairedRequest(*ClearClawOmniInstanceDevicePairedInput) (*request.Request, *ClearClawOmniInstanceDevicePairedOutput)
 
+	CreateClawInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateClawInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateClawInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateClawInstance(*CreateClawInstanceInput) (*CreateClawInstanceOutput, error)
+	CreateClawInstanceWithContext(volcengine.Context, *CreateClawInstanceInput, ...request.Option) (*CreateClawInstanceOutput, error)
+	CreateClawInstanceRequest(*CreateClawInstanceInput) (*request.Request, *CreateClawInstanceOutput)
+
+	CreateClawOmniAutoChannelJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateClawOmniAutoChannelJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateClawOmniAutoChannelJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateClawOmniAutoChannelJob(*CreateClawOmniAutoChannelJobInput) (*CreateClawOmniAutoChannelJobOutput, error)
+	CreateClawOmniAutoChannelJobWithContext(volcengine.Context, *CreateClawOmniAutoChannelJobInput, ...request.Option) (*CreateClawOmniAutoChannelJobOutput, error)
+	CreateClawOmniAutoChannelJobRequest(*CreateClawOmniAutoChannelJobInput) (*request.Request, *CreateClawOmniAutoChannelJobOutput)
+
 	CreateClawOmniInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateClawOmniInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateClawOmniInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -70,6 +86,22 @@ type ARKCLAWAPI interface {
 	CreatePrivateClawOmniSpaceTemplateWithContext(volcengine.Context, *CreatePrivateClawOmniSpaceTemplateInput, ...request.Option) (*CreatePrivateClawOmniSpaceTemplateOutput, error)
 	CreatePrivateClawOmniSpaceTemplateRequest(*CreatePrivateClawOmniSpaceTemplateInput) (*request.Request, *CreatePrivateClawOmniSpaceTemplateOutput)
 
+	DeleteClawInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteClawInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteClawInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteClawInstance(*DeleteClawInstanceInput) (*DeleteClawInstanceOutput, error)
+	DeleteClawInstanceWithContext(volcengine.Context, *DeleteClawInstanceInput, ...request.Option) (*DeleteClawInstanceOutput, error)
+	DeleteClawInstanceRequest(*DeleteClawInstanceInput) (*request.Request, *DeleteClawInstanceOutput)
+
+	DeleteClawOmniChannelCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteClawOmniChannelCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteClawOmniChannelCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteClawOmniChannel(*DeleteClawOmniChannelInput) (*DeleteClawOmniChannelOutput, error)
+	DeleteClawOmniChannelWithContext(volcengine.Context, *DeleteClawOmniChannelInput, ...request.Option) (*DeleteClawOmniChannelOutput, error)
+	DeleteClawOmniChannelRequest(*DeleteClawOmniChannelInput) (*request.Request, *DeleteClawOmniChannelOutput)
+
 	DeleteClawOmniInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteClawOmniInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteClawOmniInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,6 +117,22 @@ type ARKCLAWAPI interface {
 	ExecuteClawOmniInstanceCommand(*ExecuteClawOmniInstanceCommandInput) (*ExecuteClawOmniInstanceCommandOutput, error)
 	ExecuteClawOmniInstanceCommandWithContext(volcengine.Context, *ExecuteClawOmniInstanceCommandInput, ...request.Option) (*ExecuteClawOmniInstanceCommandOutput, error)
 	ExecuteClawOmniInstanceCommandRequest(*ExecuteClawOmniInstanceCommandInput) (*request.Request, *ExecuteClawOmniInstanceCommandOutput)
+
+	GetClawInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetClawInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetClawInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetClawInstance(*GetClawInstanceInput) (*GetClawInstanceOutput, error)
+	GetClawInstanceWithContext(volcengine.Context, *GetClawInstanceInput, ...request.Option) (*GetClawInstanceOutput, error)
+	GetClawInstanceRequest(*GetClawInstanceInput) (*request.Request, *GetClawInstanceOutput)
+
+	GetClawOmniAutoChannelJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetClawOmniAutoChannelJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetClawOmniAutoChannelJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetClawOmniAutoChannelJob(*GetClawOmniAutoChannelJobInput) (*GetClawOmniAutoChannelJobOutput, error)
+	GetClawOmniAutoChannelJobWithContext(volcengine.Context, *GetClawOmniAutoChannelJobInput, ...request.Option) (*GetClawOmniAutoChannelJobOutput, error)
+	GetClawOmniAutoChannelJobRequest(*GetClawOmniAutoChannelJobInput) (*request.Request, *GetClawOmniAutoChannelJobOutput)
 
 	GetClawOmniInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetClawOmniInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -125,6 +173,22 @@ type ARKCLAWAPI interface {
 	GetClawOmniSpaceTemplate(*GetClawOmniSpaceTemplateInput) (*GetClawOmniSpaceTemplateOutput, error)
 	GetClawOmniSpaceTemplateWithContext(volcengine.Context, *GetClawOmniSpaceTemplateInput, ...request.Option) (*GetClawOmniSpaceTemplateOutput, error)
 	GetClawOmniSpaceTemplateRequest(*GetClawOmniSpaceTemplateInput) (*request.Request, *GetClawOmniSpaceTemplateOutput)
+
+	InstallClawOmniInstanceSkillCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	InstallClawOmniInstanceSkillCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	InstallClawOmniInstanceSkillCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	InstallClawOmniInstanceSkill(*InstallClawOmniInstanceSkillInput) (*InstallClawOmniInstanceSkillOutput, error)
+	InstallClawOmniInstanceSkillWithContext(volcengine.Context, *InstallClawOmniInstanceSkillInput, ...request.Option) (*InstallClawOmniInstanceSkillOutput, error)
+	InstallClawOmniInstanceSkillRequest(*InstallClawOmniInstanceSkillInput) (*request.Request, *InstallClawOmniInstanceSkillOutput)
+
+	ListClawInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListClawInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListClawInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListClawInstances(*ListClawInstancesInput) (*ListClawInstancesOutput, error)
+	ListClawInstancesWithContext(volcengine.Context, *ListClawInstancesInput, ...request.Option) (*ListClawInstancesOutput, error)
+	ListClawInstancesRequest(*ListClawInstancesInput) (*request.Request, *ListClawInstancesOutput)
 
 	ListClawOmniChannelsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListClawOmniChannelsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -182,6 +246,22 @@ type ARKCLAWAPI interface {
 	ListClawOmniSpaceTemplatesWithContext(volcengine.Context, *ListClawOmniSpaceTemplatesInput, ...request.Option) (*ListClawOmniSpaceTemplatesOutput, error)
 	ListClawOmniSpaceTemplatesRequest(*ListClawOmniSpaceTemplatesInput) (*request.Request, *ListClawOmniSpaceTemplatesOutput)
 
+	ListClawSpaceSeatsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListClawSpaceSeatsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListClawSpaceSeatsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListClawSpaceSeats(*ListClawSpaceSeatsInput) (*ListClawSpaceSeatsOutput, error)
+	ListClawSpaceSeatsWithContext(volcengine.Context, *ListClawSpaceSeatsInput, ...request.Option) (*ListClawSpaceSeatsOutput, error)
+	ListClawSpaceSeatsRequest(*ListClawSpaceSeatsInput) (*request.Request, *ListClawSpaceSeatsOutput)
+
+	ListUsersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListUsersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListUsersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListUsers(*ListUsersInput) (*ListUsersOutput, error)
+	ListUsersWithContext(volcengine.Context, *ListUsersInput, ...request.Option) (*ListUsersOutput, error)
+	ListUsersRequest(*ListUsersInput) (*request.Request, *ListUsersOutput)
+
 	PauseClawOmniInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	PauseClawOmniInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	PauseClawOmniInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -222,6 +302,14 @@ type ARKCLAWAPI interface {
 	ResumeClawOmniInstanceWithContext(volcengine.Context, *ResumeClawOmniInstanceInput, ...request.Option) (*ResumeClawOmniInstanceOutput, error)
 	ResumeClawOmniInstanceRequest(*ResumeClawOmniInstanceInput) (*request.Request, *ResumeClawOmniInstanceOutput)
 
+	StopClawOmniAutoChannelJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopClawOmniAutoChannelJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopClawOmniAutoChannelJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopClawOmniAutoChannelJob(*StopClawOmniAutoChannelJobInput) (*StopClawOmniAutoChannelJobOutput, error)
+	StopClawOmniAutoChannelJobWithContext(volcengine.Context, *StopClawOmniAutoChannelJobInput, ...request.Option) (*StopClawOmniAutoChannelJobOutput, error)
+	StopClawOmniAutoChannelJobRequest(*StopClawOmniAutoChannelJobInput) (*request.Request, *StopClawOmniAutoChannelJobOutput)
+
 	StopClawOmniInstanceCommandJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StopClawOmniInstanceCommandJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StopClawOmniInstanceCommandJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -253,6 +341,22 @@ type ARKCLAWAPI interface {
 	UpdatePrivateClawOmniSpaceTemplate(*UpdatePrivateClawOmniSpaceTemplateInput) (*UpdatePrivateClawOmniSpaceTemplateOutput, error)
 	UpdatePrivateClawOmniSpaceTemplateWithContext(volcengine.Context, *UpdatePrivateClawOmniSpaceTemplateInput, ...request.Option) (*UpdatePrivateClawOmniSpaceTemplateOutput, error)
 	UpdatePrivateClawOmniSpaceTemplateRequest(*UpdatePrivateClawOmniSpaceTemplateInput) (*request.Request, *UpdatePrivateClawOmniSpaceTemplateOutput)
+
+	UpdateSpaceUserConfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateSpaceUserConfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateSpaceUserConfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateSpaceUserConfigs(*UpdateSpaceUserConfigsInput) (*UpdateSpaceUserConfigsOutput, error)
+	UpdateSpaceUserConfigsWithContext(volcengine.Context, *UpdateSpaceUserConfigsInput, ...request.Option) (*UpdateSpaceUserConfigsOutput, error)
+	UpdateSpaceUserConfigsRequest(*UpdateSpaceUserConfigsInput) (*request.Request, *UpdateSpaceUserConfigsOutput)
+
+	UpdateUsersQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateUsersQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateUsersQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateUsersQuota(*UpdateUsersQuotaInput) (*UpdateUsersQuotaOutput, error)
+	UpdateUsersQuotaWithContext(volcengine.Context, *UpdateUsersQuotaInput, ...request.Option) (*UpdateUsersQuotaOutput, error)
+	UpdateUsersQuotaRequest(*UpdateUsersQuotaInput) (*request.Request, *UpdateUsersQuotaOutput)
 }
 
 var _ ARKCLAWAPI = (*ARKCLAW)(nil)

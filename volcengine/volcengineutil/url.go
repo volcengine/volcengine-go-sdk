@@ -195,6 +195,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	"arkclaw":                     {Service: "arkclaw", IsGlobal: false},
 	"i18n_openapi":                {Service: "i18n_openapi", IsGlobal: true},
 	"config":                      {Service: "config", IsGlobal: true},
+	"milvus":                      {Service: "milvus", IsGlobal: false},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {

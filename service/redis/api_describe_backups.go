@@ -150,6 +150,8 @@ type BackupForDescribeBackupsOutput struct {
 
 	BackupPointName *string `type:"string" json:",omitempty"`
 
+	BackupProgress *int32 `type:"int32" json:",omitempty"`
+
 	BackupStrategy *string `type:"string" json:",omitempty" enum:"EnumOfBackupStrategyForDescribeBackupsOutput"`
 
 	BackupType *string `type:"string" json:",omitempty" enum:"EnumOfBackupTypeForDescribeBackupsOutput"`
@@ -190,6 +192,12 @@ func (s *BackupForDescribeBackupsOutput) SetBackupPointId(v string) *BackupForDe
 // SetBackupPointName sets the BackupPointName field's value.
 func (s *BackupForDescribeBackupsOutput) SetBackupPointName(v string) *BackupForDescribeBackupsOutput {
 	s.BackupPointName = &v
+	return s
+}
+
+// SetBackupProgress sets the BackupProgress field's value.
+func (s *BackupForDescribeBackupsOutput) SetBackupProgress(v int32) *BackupForDescribeBackupsOutput {
+	s.BackupProgress = &v
 	return s
 }
 

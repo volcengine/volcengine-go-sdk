@@ -244,7 +244,7 @@ type DescribeUserDataOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeUserDataOutput `type:"list" json:",omitempty"`
+	MetricDataList []*MetricDataListForDescribeUserDataOutput `type:"list"`
 }
 
 // String returns the string representation

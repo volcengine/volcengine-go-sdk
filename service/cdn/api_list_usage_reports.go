@@ -208,7 +208,7 @@ type ListUsageReportsOutput struct {
 
 	Total *int64 `type:"int64" json:",omitempty"`
 
-	UsageReportsDetails []*UsageReportsDetailForListUsageReportsOutput `type:"list" json:",omitempty"`
+	UsageReportsDetails []*UsageReportsDetailForListUsageReportsOutput `type:"list"`
 }
 
 // String returns the string representation

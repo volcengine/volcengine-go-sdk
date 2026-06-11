@@ -272,7 +272,7 @@ type DescribeDistrictSummaryOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeDistrictSummaryOutput `type:"list" json:",omitempty"`
+	MetricDataList []*MetricDataListForDescribeDistrictSummaryOutput `type:"list"`
 }
 
 // String returns the string representation

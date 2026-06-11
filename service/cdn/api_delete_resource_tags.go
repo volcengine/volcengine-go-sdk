@@ -146,9 +146,9 @@ func (c *CDN) DeleteResourceTagsWithContext(ctx volcengine.Context, input *Delet
 type DeleteResourceTagsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForDeleteResourceTagsInput `type:"list" json:",omitempty"`
+	ResourceTags []*ResourceTagForDeleteResourceTagsInput `type:"list"`
 
-	Resources []*string `type:"list" json:",omitempty"`
+	Resources []*string `type:"list"`
 }
 
 // String returns the string representation

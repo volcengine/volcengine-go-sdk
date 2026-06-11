@@ -148,7 +148,7 @@ type DataForListCdnDomainsOutput struct {
 
 	BackupCname *string `type:"string" json:",omitempty"`
 
-	BackupOrigin []*string `type:"list" json:",omitempty"`
+	BackupOrigin []*string `type:"list"`
 
 	CacheShared *string `type:"string" json:",omitempty"`
 
@@ -174,11 +174,11 @@ type DataForListCdnDomainsOutput struct {
 
 	OriginProtocol *string `type:"string" json:",omitempty"`
 
-	PrimaryOrigin []*string `type:"list" json:",omitempty"`
+	PrimaryOrigin []*string `type:"list"`
 
 	Project *string `type:"string" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForListCdnDomainsOutput `type:"list" json:",omitempty"`
+	ResourceTags []*ResourceTagForListCdnDomainsOutput `type:"list"`
 
 	ServiceRegion *string `type:"string" json:",omitempty"`
 
@@ -359,6 +359,8 @@ type FeatureConfigForListCdnDomainsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	OriginV2 *bool `type:"boolean" json:",omitempty"`
+
+	RuleEngine *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -374,6 +376,12 @@ func (s FeatureConfigForListCdnDomainsOutput) GoString() string {
 // SetOriginV2 sets the OriginV2 field's value.
 func (s *FeatureConfigForListCdnDomainsOutput) SetOriginV2(v bool) *FeatureConfigForListCdnDomainsOutput {
 	s.OriginV2 = &v
+	return s
+}
+
+// SetRuleEngine sets the RuleEngine field's value.
+func (s *FeatureConfigForListCdnDomainsOutput) SetRuleEngine(v bool) *FeatureConfigForListCdnDomainsOutput {
+	s.RuleEngine = &v
 	return s
 }
 
@@ -400,7 +408,7 @@ type ListCdnDomainsInput struct {
 
 	Project *string `type:"string" json:",omitempty"`
 
-	ResourceTags []*string `type:"list" json:",omitempty"`
+	ResourceTags []*string `type:"list"`
 
 	ServiceRegion *string `type:"string" json:",omitempty"`
 
@@ -516,7 +524,7 @@ type ListCdnDomainsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListCdnDomainsOutput `type:"list" json:",omitempty"`
+	Data []*DataForListCdnDomainsOutput `type:"list"`
 
 	PageNum *int64 `type:"int64" json:",omitempty"`
 

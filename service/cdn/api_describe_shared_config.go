@@ -148,7 +148,7 @@ type AllowIpAccessRuleForDescribeSharedConfigOutput struct {
 
 	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list" json:",omitempty"`
+	Rules []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -232,7 +232,7 @@ type CommonTypeForDescribeSharedConfigOutput struct {
 
 	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list" json:",omitempty"`
+	Rules []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -268,7 +268,7 @@ type DenyIpAccessRuleForDescribeSharedConfigOutput struct {
 
 	Option *string `type:"string" json:",omitempty"`
 
-	Rules []*string `type:"list" json:",omitempty"`
+	Rules []*string `type:"list"`
 }
 
 // String returns the string representation

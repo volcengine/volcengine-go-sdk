@@ -160,6 +160,8 @@ func (s APIPayloadForGetPreSignedEdgeURLInput) GoString() string {
 type GetPreSignedEdgeURLInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	APIBodyHash *string `type:"string" json:",omitempty"`
+
 	APIPath *string `type:"string" json:",omitempty"`
 
 	APIPayload *APIPayloadForGetPreSignedEdgeURLInput `type:"structure" json:",omitempty"`
@@ -172,8 +174,6 @@ type GetPreSignedEdgeURLInput struct {
 
 	// ProductId is a required field
 	ProductId *string `type:"string" json:",omitempty" required:"true"`
-
-	SingleUse *bool `type:"boolean" json:",omitempty"`
 
 	TTL *int32 `type:"int32" json:",omitempty"`
 
@@ -209,6 +209,12 @@ func (s *GetPreSignedEdgeURLInput) Validate() error {
 	return nil
 }
 
+// SetAPIBodyHash sets the APIBodyHash field's value.
+func (s *GetPreSignedEdgeURLInput) SetAPIBodyHash(v string) *GetPreSignedEdgeURLInput {
+	s.APIBodyHash = &v
+	return s
+}
+
 // SetAPIPath sets the APIPath field's value.
 func (s *GetPreSignedEdgeURLInput) SetAPIPath(v string) *GetPreSignedEdgeURLInput {
 	s.APIPath = &v
@@ -236,12 +242,6 @@ func (s *GetPreSignedEdgeURLInput) SetPodId(v string) *GetPreSignedEdgeURLInput 
 // SetProductId sets the ProductId field's value.
 func (s *GetPreSignedEdgeURLInput) SetProductId(v string) *GetPreSignedEdgeURLInput {
 	s.ProductId = &v
-	return s
-}
-
-// SetSingleUse sets the SingleUse field's value.
-func (s *GetPreSignedEdgeURLInput) SetSingleUse(v bool) *GetPreSignedEdgeURLInput {
-	s.SingleUse = &v
 	return s
 }
 

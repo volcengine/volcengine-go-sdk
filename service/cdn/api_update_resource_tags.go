@@ -176,9 +176,9 @@ func (s *ResourceTagForUpdateResourceTagsInput) SetValue(v string) *ResourceTagF
 type UpdateResourceTagsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForUpdateResourceTagsInput `type:"list" json:",omitempty"`
+	ResourceTags []*ResourceTagForUpdateResourceTagsInput `type:"list"`
 
-	Resources []*string `type:"list" json:",omitempty"`
+	Resources []*string `type:"list"`
 }
 
 // String returns the string representation

@@ -310,7 +310,7 @@ type DescribeContentBlockTasksOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForDescribeContentBlockTasksOutput `type:"list" json:",omitempty"`
+	Data []*DataForDescribeContentBlockTasksOutput `type:"list"`
 
 	PageNum *int64 `type:"int64" json:",omitempty"`
 

@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // MILVUS.
 //    func myFunc(svc MILVUSAPI) bool {
-//        // Make svc.CreateInstance request
+//        // Make svc.CreateInstanceOneStep request
 //    }
 //
 //    func main() {
@@ -30,14 +30,6 @@ import (
 //    }
 //
 type MILVUSAPI interface {
-	CreateInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateInstance(*CreateInstanceInput) (*CreateInstanceOutput, error)
-	CreateInstanceWithContext(volcengine.Context, *CreateInstanceInput, ...request.Option) (*CreateInstanceOutput, error)
-	CreateInstanceRequest(*CreateInstanceInput) (*request.Request, *CreateInstanceOutput)
-
 	CreateInstanceOneStepCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateInstanceOneStepCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateInstanceOneStepCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -46,13 +38,69 @@ type MILVUSAPI interface {
 	CreateInstanceOneStepWithContext(volcengine.Context, *CreateInstanceOneStepInput, ...request.Option) (*CreateInstanceOneStepOutput, error)
 	CreateInstanceOneStepRequest(*CreateInstanceOneStepInput) (*request.Request, *CreateInstanceOneStepOutput)
 
-	DescribeAvailableSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeAvailableSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeAvailableSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DMCreateWorkflowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DMCreateWorkflowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DMCreateWorkflowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DescribeAvailableSpec(*DescribeAvailableSpecInput) (*DescribeAvailableSpecOutput, error)
-	DescribeAvailableSpecWithContext(volcengine.Context, *DescribeAvailableSpecInput, ...request.Option) (*DescribeAvailableSpecOutput, error)
-	DescribeAvailableSpecRequest(*DescribeAvailableSpecInput) (*request.Request, *DescribeAvailableSpecOutput)
+	DMCreateWorkflow(*DMCreateWorkflowInput) (*DMCreateWorkflowOutput, error)
+	DMCreateWorkflowWithContext(volcengine.Context, *DMCreateWorkflowInput, ...request.Option) (*DMCreateWorkflowOutput, error)
+	DMCreateWorkflowRequest(*DMCreateWorkflowInput) (*request.Request, *DMCreateWorkflowOutput)
+
+	DMDeleteWorkflowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DMDeleteWorkflowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DMDeleteWorkflowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DMDeleteWorkflow(*DMDeleteWorkflowInput) (*DMDeleteWorkflowOutput, error)
+	DMDeleteWorkflowWithContext(volcengine.Context, *DMDeleteWorkflowInput, ...request.Option) (*DMDeleteWorkflowOutput, error)
+	DMDeleteWorkflowRequest(*DMDeleteWorkflowInput) (*request.Request, *DMDeleteWorkflowOutput)
+
+	DMDescribeWorkflowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DMDescribeWorkflowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DMDescribeWorkflowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DMDescribeWorkflow(*DMDescribeWorkflowInput) (*DMDescribeWorkflowOutput, error)
+	DMDescribeWorkflowWithContext(volcengine.Context, *DMDescribeWorkflowInput, ...request.Option) (*DMDescribeWorkflowOutput, error)
+	DMDescribeWorkflowRequest(*DMDescribeWorkflowInput) (*request.Request, *DMDescribeWorkflowOutput)
+
+	DMDescribeWorkflowsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DMDescribeWorkflowsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DMDescribeWorkflowsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DMDescribeWorkflows(*DMDescribeWorkflowsInput) (*DMDescribeWorkflowsOutput, error)
+	DMDescribeWorkflowsWithContext(volcengine.Context, *DMDescribeWorkflowsInput, ...request.Option) (*DMDescribeWorkflowsOutput, error)
+	DMDescribeWorkflowsRequest(*DMDescribeWorkflowsInput) (*request.Request, *DMDescribeWorkflowsOutput)
+
+	DMStartWorkflowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DMStartWorkflowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DMStartWorkflowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DMStartWorkflow(*DMStartWorkflowInput) (*DMStartWorkflowOutput, error)
+	DMStartWorkflowWithContext(volcengine.Context, *DMStartWorkflowInput, ...request.Option) (*DMStartWorkflowOutput, error)
+	DMStartWorkflowRequest(*DMStartWorkflowInput) (*request.Request, *DMStartWorkflowOutput)
+
+	DMStopWorkflowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DMStopWorkflowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DMStopWorkflowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DMStopWorkflow(*DMStopWorkflowInput) (*DMStopWorkflowOutput, error)
+	DMStopWorkflowWithContext(volcengine.Context, *DMStopWorkflowInput, ...request.Option) (*DMStopWorkflowOutput, error)
+	DMStopWorkflowRequest(*DMStopWorkflowInput) (*request.Request, *DMStopWorkflowOutput)
+
+	DMUpdateWorkflowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DMUpdateWorkflowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DMUpdateWorkflowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DMUpdateWorkflow(*DMUpdateWorkflowInput) (*DMUpdateWorkflowOutput, error)
+	DMUpdateWorkflowWithContext(volcengine.Context, *DMUpdateWorkflowInput, ...request.Option) (*DMUpdateWorkflowOutput, error)
+	DMUpdateWorkflowRequest(*DMUpdateWorkflowInput) (*request.Request, *DMUpdateWorkflowOutput)
+
+	DescribeAvailableSpecV2Common(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAvailableSpecV2CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAvailableSpecV2CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAvailableSpecV2(*DescribeAvailableSpecV2Input) (*DescribeAvailableSpecV2Output, error)
+	DescribeAvailableSpecV2WithContext(volcengine.Context, *DescribeAvailableSpecV2Input, ...request.Option) (*DescribeAvailableSpecV2Output, error)
+	DescribeAvailableSpecV2Request(*DescribeAvailableSpecV2Input) (*request.Request, *DescribeAvailableSpecV2Output)
 
 	DescribeAvailableVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAvailableVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -102,13 +150,13 @@ type MILVUSAPI interface {
 	DescribeNodeInfoWithContext(volcengine.Context, *DescribeNodeInfoInput, ...request.Option) (*DescribeNodeInfoOutput, error)
 	DescribeNodeInfoRequest(*DescribeNodeInfoInput) (*request.Request, *DescribeNodeInfoOutput)
 
-	DescribePriceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribePriceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribePriceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DescribePriceV2Common(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePriceV2CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePriceV2CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DescribePrice(*DescribePriceInput) (*DescribePriceOutput, error)
-	DescribePriceWithContext(volcengine.Context, *DescribePriceInput, ...request.Option) (*DescribePriceOutput, error)
-	DescribePriceRequest(*DescribePriceInput) (*request.Request, *DescribePriceOutput)
+	DescribePriceV2(*DescribePriceV2Input) (*DescribePriceV2Output, error)
+	DescribePriceV2WithContext(volcengine.Context, *DescribePriceV2Input, ...request.Option) (*DescribePriceV2Output, error)
+	DescribePriceV2Request(*DescribePriceV2Input) (*request.Request, *DescribePriceV2Output)
 
 	DescribeZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -117,14 +165,6 @@ type MILVUSAPI interface {
 	DescribeZones(*DescribeZonesInput) (*DescribeZonesOutput, error)
 	DescribeZonesWithContext(volcengine.Context, *DescribeZonesInput, ...request.Option) (*DescribeZonesOutput, error)
 	DescribeZonesRequest(*DescribeZonesInput) (*request.Request, *DescribeZonesOutput)
-
-	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
-	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
-	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
 
 	MSCreateInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	MSCreateInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -206,30 +246,6 @@ type MILVUSAPI interface {
 	ModifyInstanceNameWithContext(volcengine.Context, *ModifyInstanceNameInput, ...request.Option) (*ModifyInstanceNameOutput, error)
 	ModifyInstanceNameRequest(*ModifyInstanceNameInput) (*request.Request, *ModifyInstanceNameOutput)
 
-	ModifyPostPaidCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyPostPaidCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyPostPaidCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyPostPaid(*ModifyPostPaidInput) (*ModifyPostPaidOutput, error)
-	ModifyPostPaidWithContext(volcengine.Context, *ModifyPostPaidInput, ...request.Option) (*ModifyPostPaidOutput, error)
-	ModifyPostPaidRequest(*ModifyPostPaidInput) (*request.Request, *ModifyPostPaidOutput)
-
-	ModifyPrePaidCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyPrePaidCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyPrePaidCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyPrePaid(*ModifyPrePaidInput) (*ModifyPrePaidOutput, error)
-	ModifyPrePaidWithContext(volcengine.Context, *ModifyPrePaidInput, ...request.Option) (*ModifyPrePaidOutput, error)
-	ModifyPrePaidRequest(*ModifyPrePaidInput) (*request.Request, *ModifyPrePaidOutput)
-
-	ModifyResourceTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyResourceTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyResourceTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyResourceTags(*ModifyResourceTagsInput) (*ModifyResourceTagsOutput, error)
-	ModifyResourceTagsWithContext(volcengine.Context, *ModifyResourceTagsInput, ...request.Option) (*ModifyResourceTagsOutput, error)
-	ModifyResourceTagsRequest(*ModifyResourceTagsInput) (*request.Request, *ModifyResourceTagsOutput)
-
 	ReleaseInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ReleaseInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ReleaseInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -245,22 +261,6 @@ type MILVUSAPI interface {
 	ScaleInstance(*ScaleInstanceInput) (*ScaleInstanceOutput, error)
 	ScaleInstanceWithContext(volcengine.Context, *ScaleInstanceInput, ...request.Option) (*ScaleInstanceOutput, error)
 	ScaleInstanceRequest(*ScaleInstanceInput) (*request.Request, *ScaleInstanceOutput)
-
-	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
-	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
-	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
-
-	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
-	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
-	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 }
 
 var _ MILVUSAPI = (*MILVUS)(nil)

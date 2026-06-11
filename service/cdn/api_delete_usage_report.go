@@ -184,7 +184,7 @@ type DeleteUsageReportOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	TaskIds []*string `type:"list" json:",omitempty"`
+	TaskIds []*string `type:"list"`
 }
 
 // String returns the string representation

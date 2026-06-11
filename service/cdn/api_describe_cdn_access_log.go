@@ -234,7 +234,7 @@ type DescribeCdnAccessLogOutput struct {
 
 	Domain *string `type:"string" json:",omitempty"`
 
-	DomainLogDetails []*DomainLogDetailForDescribeCdnAccessLogOutput `type:"list" json:",omitempty"`
+	DomainLogDetails []*DomainLogDetailForDescribeCdnAccessLogOutput `type:"list"`
 
 	PageNum *int64 `type:"int64" json:",omitempty"`
 
