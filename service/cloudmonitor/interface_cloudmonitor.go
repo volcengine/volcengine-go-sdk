@@ -262,6 +262,14 @@ type CLOUDMONITORAPI interface {
 	GetTopDataWithContext(volcengine.Context, *GetTopDataInput, ...request.Option) (*GetTopDataOutput, error)
 	GetTopDataRequest(*GetTopDataInput) (*request.Request, *GetTopDataOutput)
 
+	ListAlertCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAlertCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAlertCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAlert(*ListAlertInput) (*ListAlertOutput, error)
+	ListAlertWithContext(volcengine.Context, *ListAlertInput, ...request.Option) (*ListAlertOutput, error)
+	ListAlertRequest(*ListAlertInput) (*request.Request, *ListAlertOutput)
+
 	ListAlertGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAlertGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAlertGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
