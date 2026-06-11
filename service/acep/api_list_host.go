@@ -383,6 +383,8 @@ type RowForListHostOutput struct {
 	Status *int32 `type:"int32" json:",omitempty"`
 
 	VolcRegion *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -518,5 +520,11 @@ func (s *RowForListHostOutput) SetStatus(v int32) *RowForListHostOutput {
 // SetVolcRegion sets the VolcRegion field's value.
 func (s *RowForListHostOutput) SetVolcRegion(v string) *RowForListHostOutput {
 	s.VolcRegion = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *RowForListHostOutput) SetZoneId(v string) *RowForListHostOutput {
+	s.ZoneId = &v
 	return s
 }

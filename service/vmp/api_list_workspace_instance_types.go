@@ -211,6 +211,44 @@ func (s *CalculatePriceParamForListWorkspaceInstanceTypesOutput) SetPeriod(v str
 	return s
 }
 
+type CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CalChargeItemList []*CalChargeItemListForListWorkspaceInstanceTypesOutput `type:"list" json:",omitempty"`
+
+	ConfigurationCode *string `type:"string" json:",omitempty"`
+
+	Period *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCalChargeItemList sets the CalChargeItemList field's value.
+func (s *CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput) SetCalChargeItemList(v []*CalChargeItemListForListWorkspaceInstanceTypesOutput) *CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput {
+	s.CalChargeItemList = v
+	return s
+}
+
+// SetConfigurationCode sets the ConfigurationCode field's value.
+func (s *CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput) SetConfigurationCode(v string) *CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput {
+	s.ConfigurationCode = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput) SetPeriod(v string) *CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput {
+	s.Period = &v
+	return s
+}
+
 type FiltersForListWorkspaceInstanceTypesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -242,11 +280,17 @@ type ItemForListWorkspaceInstanceTypesOutput struct {
 
 	CalculatePriceParams []*CalculatePriceParamForListWorkspaceInstanceTypesOutput `type:"list" json:",omitempty"`
 
+	CalculateVolumePriceParams []*CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput `type:"list" json:",omitempty"`
+
 	DownsamplingPeriods []*string `type:"list" json:",omitempty"`
+
+	FederatePerSecond *int32 `type:"int32" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
 
 	IngestSamplesPerSecond *int32 `type:"int32" json:",omitempty"`
+
+	MaxFederateSeries *int32 `type:"int32" json:",omitempty"`
 
 	QueryConcurrency *int32 `type:"int32" json:",omitempty"`
 
@@ -289,9 +333,21 @@ func (s *ItemForListWorkspaceInstanceTypesOutput) SetCalculatePriceParams(v []*C
 	return s
 }
 
+// SetCalculateVolumePriceParams sets the CalculateVolumePriceParams field's value.
+func (s *ItemForListWorkspaceInstanceTypesOutput) SetCalculateVolumePriceParams(v []*CalculateVolumePriceParamForListWorkspaceInstanceTypesOutput) *ItemForListWorkspaceInstanceTypesOutput {
+	s.CalculateVolumePriceParams = v
+	return s
+}
+
 // SetDownsamplingPeriods sets the DownsamplingPeriods field's value.
 func (s *ItemForListWorkspaceInstanceTypesOutput) SetDownsamplingPeriods(v []*string) *ItemForListWorkspaceInstanceTypesOutput {
 	s.DownsamplingPeriods = v
+	return s
+}
+
+// SetFederatePerSecond sets the FederatePerSecond field's value.
+func (s *ItemForListWorkspaceInstanceTypesOutput) SetFederatePerSecond(v int32) *ItemForListWorkspaceInstanceTypesOutput {
+	s.FederatePerSecond = &v
 	return s
 }
 
@@ -304,6 +360,12 @@ func (s *ItemForListWorkspaceInstanceTypesOutput) SetId(v string) *ItemForListWo
 // SetIngestSamplesPerSecond sets the IngestSamplesPerSecond field's value.
 func (s *ItemForListWorkspaceInstanceTypesOutput) SetIngestSamplesPerSecond(v int32) *ItemForListWorkspaceInstanceTypesOutput {
 	s.IngestSamplesPerSecond = &v
+	return s
+}
+
+// SetMaxFederateSeries sets the MaxFederateSeries field's value.
+func (s *ItemForListWorkspaceInstanceTypesOutput) SetMaxFederateSeries(v int32) *ItemForListWorkspaceInstanceTypesOutput {
+	s.MaxFederateSeries = &v
 	return s
 }
 

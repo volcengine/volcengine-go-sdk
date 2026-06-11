@@ -146,7 +146,7 @@ func (c *CDN) DescribeCdnIPWithContext(ctx volcengine.Context, input *DescribeCd
 type DescribeCdnIPInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	IPs []*string `type:"list" json:",omitempty"`
+	IPs []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -170,7 +170,7 @@ type DescribeCdnIPOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	IPs []*IPForDescribeCdnIPOutput `type:"list" json:",omitempty"`
+	IPs []*IPForDescribeCdnIPOutput `type:"list"`
 }
 
 // String returns the string representation

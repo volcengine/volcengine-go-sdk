@@ -252,7 +252,7 @@ type DescribeStatisticalRankingOutput struct {
 
 	Metric *string `type:"string" json:",omitempty"`
 
-	RankingDataList []*RankingDataListForDescribeStatisticalRankingOutput `type:"list" json:",omitempty"`
+	RankingDataList []*RankingDataListForDescribeStatisticalRankingOutput `type:"list"`
 
 	UaType *string `type:"string" json:",omitempty"`
 }

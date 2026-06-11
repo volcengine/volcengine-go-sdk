@@ -246,7 +246,7 @@ type DescribeDistrictRankingOutput struct {
 
 	Item *string `type:"string" json:",omitempty"`
 
-	TopDataDetails []*TopDataDetailForDescribeDistrictRankingOutput `type:"list" json:",omitempty"`
+	TopDataDetails []*TopDataDetailForDescribeDistrictRankingOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -276,7 +276,7 @@ type TopDataDetailForDescribeDistrictRankingOutput struct {
 
 	Metric *string `type:"string" json:",omitempty"`
 
-	ValueDetails []*ValueDetailForDescribeDistrictRankingOutput `type:"list" json:",omitempty"`
+	ValueDetails []*ValueDetailForDescribeDistrictRankingOutput `type:"list"`
 }
 
 // String returns the string representation

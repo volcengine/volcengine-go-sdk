@@ -254,7 +254,7 @@ type DescribeEdgeRankingOutput struct {
 
 	Item *string `type:"string" json:",omitempty"`
 
-	TopDataDetails []*TopDataDetailForDescribeEdgeRankingOutput `type:"list" json:",omitempty"`
+	TopDataDetails []*TopDataDetailForDescribeEdgeRankingOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -284,7 +284,7 @@ type TopDataDetailForDescribeEdgeRankingOutput struct {
 
 	Metric *string `type:"string" json:",omitempty"`
 
-	ValueDetails []*ValueDetailForDescribeEdgeRankingOutput `type:"list" json:",omitempty"`
+	ValueDetails []*ValueDetailForDescribeEdgeRankingOutput `type:"list"`
 }
 
 // String returns the string representation

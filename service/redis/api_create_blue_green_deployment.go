@@ -143,108 +143,6 @@ func (c *REDIS) CreateBlueGreenDeploymentWithContext(ctx volcengine.Context, inp
 	return out, req.Send()
 }
 
-type BlueGreenDeploymentForCreateBlueGreenDeploymentOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	CreateTime *string `type:"string" json:",omitempty"`
-
-	DataSyncProgress *float64 `type:"double" json:",omitempty"`
-
-	EndTime *string `type:"string" json:",omitempty"`
-
-	Name *string `type:"string" json:",omitempty"`
-
-	SourceEngineVersion *string `type:"string" json:",omitempty"`
-
-	SourceInstanceId *string `type:"string" json:",omitempty"`
-
-	SourceInstanceName *string `type:"string" json:",omitempty"`
-
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForCreateBlueGreenDeploymentOutput"`
-
-	TargetEngineVersion *string `type:"string" json:",omitempty"`
-
-	TargetInstanceId *string `type:"string" json:",omitempty"`
-
-	TargetInstanceName *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) GoString() string {
-	return s.String()
-}
-
-// SetCreateTime sets the CreateTime field's value.
-func (s *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) SetCreateTime(v string) *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput {
-	s.CreateTime = &v
-	return s
-}
-
-// SetDataSyncProgress sets the DataSyncProgress field's value.
-func (s *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) SetDataSyncProgress(v float64) *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput {
-	s.DataSyncProgress = &v
-	return s
-}
-
-// SetEndTime sets the EndTime field's value.
-func (s *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) SetEndTime(v string) *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput {
-	s.EndTime = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) SetName(v string) *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput {
-	s.Name = &v
-	return s
-}
-
-// SetSourceEngineVersion sets the SourceEngineVersion field's value.
-func (s *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) SetSourceEngineVersion(v string) *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput {
-	s.SourceEngineVersion = &v
-	return s
-}
-
-// SetSourceInstanceId sets the SourceInstanceId field's value.
-func (s *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) SetSourceInstanceId(v string) *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput {
-	s.SourceInstanceId = &v
-	return s
-}
-
-// SetSourceInstanceName sets the SourceInstanceName field's value.
-func (s *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) SetSourceInstanceName(v string) *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput {
-	s.SourceInstanceName = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) SetStatus(v string) *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput {
-	s.Status = &v
-	return s
-}
-
-// SetTargetEngineVersion sets the TargetEngineVersion field's value.
-func (s *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) SetTargetEngineVersion(v string) *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput {
-	s.TargetEngineVersion = &v
-	return s
-}
-
-// SetTargetInstanceId sets the TargetInstanceId field's value.
-func (s *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) SetTargetInstanceId(v string) *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput {
-	s.TargetInstanceId = &v
-	return s
-}
-
-// SetTargetInstanceName sets the TargetInstanceName field's value.
-func (s *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) SetTargetInstanceName(v string) *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput {
-	s.TargetInstanceName = &v
-	return s
-}
-
 type CreateBlueGreenDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -310,7 +208,27 @@ type CreateBlueGreenDeploymentOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BlueGreenDeployment *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput `type:"structure" json:",omitempty"`
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	DataSyncProgress *float64 `type:"double" json:",omitempty"`
+
+	EndTime *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	SourceEngineVersion *string `type:"string" json:",omitempty"`
+
+	SourceInstanceId *string `type:"string" json:",omitempty"`
+
+	SourceInstanceName *string `type:"string" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty"`
+
+	TargetEngineVersion *string `type:"string" json:",omitempty"`
+
+	TargetInstanceId *string `type:"string" json:",omitempty"`
+
+	TargetInstanceName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -323,43 +241,68 @@ func (s CreateBlueGreenDeploymentOutput) GoString() string {
 	return s.String()
 }
 
-// SetBlueGreenDeployment sets the BlueGreenDeployment field's value.
-func (s *CreateBlueGreenDeploymentOutput) SetBlueGreenDeployment(v *BlueGreenDeploymentForCreateBlueGreenDeploymentOutput) *CreateBlueGreenDeploymentOutput {
-	s.BlueGreenDeployment = v
+// SetCreateTime sets the CreateTime field's value.
+func (s *CreateBlueGreenDeploymentOutput) SetCreateTime(v string) *CreateBlueGreenDeploymentOutput {
+	s.CreateTime = &v
 	return s
 }
 
-const (
-	// EnumOfStatusForCreateBlueGreenDeploymentOutputInit is a EnumOfStatusForCreateBlueGreenDeploymentOutput enum value
-	EnumOfStatusForCreateBlueGreenDeploymentOutputInit = "INIT"
+// SetDataSyncProgress sets the DataSyncProgress field's value.
+func (s *CreateBlueGreenDeploymentOutput) SetDataSyncProgress(v float64) *CreateBlueGreenDeploymentOutput {
+	s.DataSyncProgress = &v
+	return s
+}
 
-	// EnumOfStatusForCreateBlueGreenDeploymentOutputProvisioning is a EnumOfStatusForCreateBlueGreenDeploymentOutput enum value
-	EnumOfStatusForCreateBlueGreenDeploymentOutputProvisioning = "PROVISIONING"
+// SetEndTime sets the EndTime field's value.
+func (s *CreateBlueGreenDeploymentOutput) SetEndTime(v string) *CreateBlueGreenDeploymentOutput {
+	s.EndTime = &v
+	return s
+}
 
-	// EnumOfStatusForCreateBlueGreenDeploymentOutputAvailable is a EnumOfStatusForCreateBlueGreenDeploymentOutput enum value
-	EnumOfStatusForCreateBlueGreenDeploymentOutputAvailable = "AVAILABLE"
+// SetName sets the Name field's value.
+func (s *CreateBlueGreenDeploymentOutput) SetName(v string) *CreateBlueGreenDeploymentOutput {
+	s.Name = &v
+	return s
+}
 
-	// EnumOfStatusForCreateBlueGreenDeploymentOutputDataSynchronizing is a EnumOfStatusForCreateBlueGreenDeploymentOutput enum value
-	EnumOfStatusForCreateBlueGreenDeploymentOutputDataSynchronizing = "DATA_SYNCHRONIZING"
+// SetSourceEngineVersion sets the SourceEngineVersion field's value.
+func (s *CreateBlueGreenDeploymentOutput) SetSourceEngineVersion(v string) *CreateBlueGreenDeploymentOutput {
+	s.SourceEngineVersion = &v
+	return s
+}
 
-	// EnumOfStatusForCreateBlueGreenDeploymentOutputSwitchoverAvailable is a EnumOfStatusForCreateBlueGreenDeploymentOutput enum value
-	EnumOfStatusForCreateBlueGreenDeploymentOutputSwitchoverAvailable = "SWITCHOVER_AVAILABLE"
+// SetSourceInstanceId sets the SourceInstanceId field's value.
+func (s *CreateBlueGreenDeploymentOutput) SetSourceInstanceId(v string) *CreateBlueGreenDeploymentOutput {
+	s.SourceInstanceId = &v
+	return s
+}
 
-	// EnumOfStatusForCreateBlueGreenDeploymentOutputSwitchoverInProgress is a EnumOfStatusForCreateBlueGreenDeploymentOutput enum value
-	EnumOfStatusForCreateBlueGreenDeploymentOutputSwitchoverInProgress = "SWITCHOVER_IN_PROGRESS"
+// SetSourceInstanceName sets the SourceInstanceName field's value.
+func (s *CreateBlueGreenDeploymentOutput) SetSourceInstanceName(v string) *CreateBlueGreenDeploymentOutput {
+	s.SourceInstanceName = &v
+	return s
+}
 
-	// EnumOfStatusForCreateBlueGreenDeploymentOutputSwitchoverPending is a EnumOfStatusForCreateBlueGreenDeploymentOutput enum value
-	EnumOfStatusForCreateBlueGreenDeploymentOutputSwitchoverPending = "SWITCHOVER_PENDING"
+// SetStatus sets the Status field's value.
+func (s *CreateBlueGreenDeploymentOutput) SetStatus(v string) *CreateBlueGreenDeploymentOutput {
+	s.Status = &v
+	return s
+}
 
-	// EnumOfStatusForCreateBlueGreenDeploymentOutputSwitchoverCompleted is a EnumOfStatusForCreateBlueGreenDeploymentOutput enum value
-	EnumOfStatusForCreateBlueGreenDeploymentOutputSwitchoverCompleted = "SWITCHOVER_COMPLETED"
+// SetTargetEngineVersion sets the TargetEngineVersion field's value.
+func (s *CreateBlueGreenDeploymentOutput) SetTargetEngineVersion(v string) *CreateBlueGreenDeploymentOutput {
+	s.TargetEngineVersion = &v
+	return s
+}
 
-	// EnumOfStatusForCreateBlueGreenDeploymentOutputSwitchoverFailed is a EnumOfStatusForCreateBlueGreenDeploymentOutput enum value
-	EnumOfStatusForCreateBlueGreenDeploymentOutputSwitchoverFailed = "SWITCHOVER_FAILED"
+// SetTargetInstanceId sets the TargetInstanceId field's value.
+func (s *CreateBlueGreenDeploymentOutput) SetTargetInstanceId(v string) *CreateBlueGreenDeploymentOutput {
+	s.TargetInstanceId = &v
+	return s
+}
 
-	// EnumOfStatusForCreateBlueGreenDeploymentOutputDeleting is a EnumOfStatusForCreateBlueGreenDeploymentOutput enum value
-	EnumOfStatusForCreateBlueGreenDeploymentOutputDeleting = "DELETING"
-
-	// EnumOfStatusForCreateBlueGreenDeploymentOutputDeleteCompleted is a EnumOfStatusForCreateBlueGreenDeploymentOutput enum value
-	EnumOfStatusForCreateBlueGreenDeploymentOutputDeleteCompleted = "DELETE_COMPLETED"
-)
+// SetTargetInstanceName sets the TargetInstanceName field's value.
+func (s *CreateBlueGreenDeploymentOutput) SetTargetInstanceName(v string) *CreateBlueGreenDeploymentOutput {
+	s.TargetInstanceName = &v
+	return s
+}

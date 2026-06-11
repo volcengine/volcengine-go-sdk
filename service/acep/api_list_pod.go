@@ -294,6 +294,8 @@ type ListPodInput struct {
 
 	DcList []*string `type:"list"`
 
+	FilterAI *bool `type:"boolean" json:",omitempty"`
+
 	HostId *string `type:"string" json:",omitempty"`
 
 	MaxResults *int32 `type:"int32" json:",omitempty"`
@@ -370,6 +372,12 @@ func (s *ListPodInput) SetDNSId(v string) *ListPodInput {
 // SetDcList sets the DcList field's value.
 func (s *ListPodInput) SetDcList(v []*string) *ListPodInput {
 	s.DcList = v
+	return s
+}
+
+// SetFilterAI sets the FilterAI field's value.
+func (s *ListPodInput) SetFilterAI(v bool) *ListPodInput {
+	s.FilterAI = &v
 	return s
 }
 
@@ -474,6 +482,60 @@ func (s *ListPodOutput) SetNextToken(v string) *ListPodOutput {
 // SetRow sets the Row field's value.
 func (s *ListPodOutput) SetRow(v []*RowForListPodOutput) *ListPodOutput {
 	s.Row = v
+	return s
+}
+
+type PodAIAgentListForListPodOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AgentId *string `type:"string" json:",omitempty"`
+
+	BaseUrl *string `type:"string" json:",omitempty"`
+
+	ModelId *string `type:"string" json:",omitempty"`
+
+	ModelStatus *string `type:"string" json:",omitempty"`
+
+	ModelType *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PodAIAgentListForListPodOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PodAIAgentListForListPodOutput) GoString() string {
+	return s.String()
+}
+
+// SetAgentId sets the AgentId field's value.
+func (s *PodAIAgentListForListPodOutput) SetAgentId(v string) *PodAIAgentListForListPodOutput {
+	s.AgentId = &v
+	return s
+}
+
+// SetBaseUrl sets the BaseUrl field's value.
+func (s *PodAIAgentListForListPodOutput) SetBaseUrl(v string) *PodAIAgentListForListPodOutput {
+	s.BaseUrl = &v
+	return s
+}
+
+// SetModelId sets the ModelId field's value.
+func (s *PodAIAgentListForListPodOutput) SetModelId(v string) *PodAIAgentListForListPodOutput {
+	s.ModelId = &v
+	return s
+}
+
+// SetModelStatus sets the ModelStatus field's value.
+func (s *PodAIAgentListForListPodOutput) SetModelStatus(v string) *PodAIAgentListForListPodOutput {
+	s.ModelStatus = &v
+	return s
+}
+
+// SetModelType sets the ModelType field's value.
+func (s *PodAIAgentListForListPodOutput) SetModelType(v string) *PodAIAgentListForListPodOutput {
+	s.ModelType = &v
 	return s
 }
 
@@ -630,9 +692,13 @@ type RowForListPodOutput struct {
 
 	IntranetIP *string `type:"string" json:",omitempty"`
 
+	IsAI *bool `type:"boolean" json:",omitempty"`
+
 	Online *int32 `type:"int32" json:",omitempty"`
 
 	PhoneTemplateId *string `type:"string" json:",omitempty"`
+
+	PodAIAgentList []*PodAIAgentListForListPodOutput `type:"list"`
 
 	PodId *string `type:"string" json:",omitempty"`
 
@@ -787,6 +853,12 @@ func (s *RowForListPodOutput) SetIntranetIP(v string) *RowForListPodOutput {
 	return s
 }
 
+// SetIsAI sets the IsAI field's value.
+func (s *RowForListPodOutput) SetIsAI(v bool) *RowForListPodOutput {
+	s.IsAI = &v
+	return s
+}
+
 // SetOnline sets the Online field's value.
 func (s *RowForListPodOutput) SetOnline(v int32) *RowForListPodOutput {
 	s.Online = &v
@@ -796,6 +868,12 @@ func (s *RowForListPodOutput) SetOnline(v int32) *RowForListPodOutput {
 // SetPhoneTemplateId sets the PhoneTemplateId field's value.
 func (s *RowForListPodOutput) SetPhoneTemplateId(v string) *RowForListPodOutput {
 	s.PhoneTemplateId = &v
+	return s
+}
+
+// SetPodAIAgentList sets the PodAIAgentList field's value.
+func (s *RowForListPodOutput) SetPodAIAgentList(v []*PodAIAgentListForListPodOutput) *RowForListPodOutput {
+	s.PodAIAgentList = v
 	return s
 }
 

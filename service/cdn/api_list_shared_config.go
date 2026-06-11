@@ -204,7 +204,7 @@ type ListSharedConfigInput struct {
 
 	ConfigType *string `type:"string" json:",omitempty"`
 
-	ConfigTypeList []*string `type:"list" json:",omitempty"`
+	ConfigTypeList []*string `type:"list"`
 
 	PageNum *int64 `type:"int64" json:",omitempty"`
 
@@ -264,7 +264,7 @@ type ListSharedConfigOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ConfigData []*ConfigDataForListSharedConfigOutput `type:"list" json:",omitempty"`
+	ConfigData []*ConfigDataForListSharedConfigOutput `type:"list"`
 
 	PageNum *int64 `type:"int64" json:",omitempty"`
 

@@ -240,7 +240,7 @@ type DescribeEdgeDataOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeEdgeDataOutput `type:"list" json:",omitempty"`
+	MetricDataList []*MetricDataListForDescribeEdgeDataOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -264,7 +264,7 @@ type MetricDataListForDescribeEdgeDataOutput struct {
 
 	Metric *string `type:"string" json:",omitempty"`
 
-	Values []*ValueForDescribeEdgeDataOutput `type:"list" json:",omitempty"`
+	Values []*ValueForDescribeEdgeDataOutput `type:"list"`
 }
 
 // String returns the string representation

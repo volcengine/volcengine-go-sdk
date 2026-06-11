@@ -240,7 +240,7 @@ type DescribeEdgeSummaryOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeEdgeSummaryOutput `type:"list" json:",omitempty"`
+	MetricDataList []*MetricDataListForDescribeEdgeSummaryOutput `type:"list"`
 }
 
 // String returns the string representation

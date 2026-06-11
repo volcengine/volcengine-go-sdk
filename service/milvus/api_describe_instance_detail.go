@@ -178,17 +178,11 @@ type BaseInstanceForDescribeInstanceDetailOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
-	DeployClusterId *string `type:"string" json:",omitempty"`
-
-	Id *int32 `type:"int32" json:",omitempty"`
-
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
 	InstanceVersion *string `type:"string" json:",omitempty"`
-
-	Namespace *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -197,10 +191,6 @@ type BaseInstanceForDescribeInstanceDetailOutput struct {
 	Status *string `type:"string" json:",omitempty"`
 
 	SubAccountId *string `type:"string" json:",omitempty"`
-
-	TaskId *string `type:"string" json:",omitempty"`
-
-	Version *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -219,18 +209,6 @@ func (s *BaseInstanceForDescribeInstanceDetailOutput) SetAccountId(v string) *Ba
 	return s
 }
 
-// SetDeployClusterId sets the DeployClusterId field's value.
-func (s *BaseInstanceForDescribeInstanceDetailOutput) SetDeployClusterId(v string) *BaseInstanceForDescribeInstanceDetailOutput {
-	s.DeployClusterId = &v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *BaseInstanceForDescribeInstanceDetailOutput) SetId(v int32) *BaseInstanceForDescribeInstanceDetailOutput {
-	s.Id = &v
-	return s
-}
-
 // SetInstanceId sets the InstanceId field's value.
 func (s *BaseInstanceForDescribeInstanceDetailOutput) SetInstanceId(v string) *BaseInstanceForDescribeInstanceDetailOutput {
 	s.InstanceId = &v
@@ -246,12 +224,6 @@ func (s *BaseInstanceForDescribeInstanceDetailOutput) SetInstanceName(v string) 
 // SetInstanceVersion sets the InstanceVersion field's value.
 func (s *BaseInstanceForDescribeInstanceDetailOutput) SetInstanceVersion(v string) *BaseInstanceForDescribeInstanceDetailOutput {
 	s.InstanceVersion = &v
-	return s
-}
-
-// SetNamespace sets the Namespace field's value.
-func (s *BaseInstanceForDescribeInstanceDetailOutput) SetNamespace(v string) *BaseInstanceForDescribeInstanceDetailOutput {
-	s.Namespace = &v
 	return s
 }
 
@@ -276,18 +248,6 @@ func (s *BaseInstanceForDescribeInstanceDetailOutput) SetStatus(v string) *BaseI
 // SetSubAccountId sets the SubAccountId field's value.
 func (s *BaseInstanceForDescribeInstanceDetailOutput) SetSubAccountId(v string) *BaseInstanceForDescribeInstanceDetailOutput {
 	s.SubAccountId = &v
-	return s
-}
-
-// SetTaskId sets the TaskId field's value.
-func (s *BaseInstanceForDescribeInstanceDetailOutput) SetTaskId(v string) *BaseInstanceForDescribeInstanceDetailOutput {
-	s.TaskId = &v
-	return s
-}
-
-// SetVersion sets the Version field's value.
-func (s *BaseInstanceForDescribeInstanceDetailOutput) SetVersion(v int32) *BaseInstanceForDescribeInstanceDetailOutput {
-	s.Version = &v
 	return s
 }
 
@@ -566,8 +526,6 @@ func (s *EndpointListForDescribeInstanceDetailOutput) SetType(v string) *Endpoin
 type NetworkConfigForDescribeInstanceDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InnerEndpointEnabled *bool `type:"boolean" json:",omitempty"`
-
 	SubnetInfo *SubnetInfoForDescribeInstanceDetailOutput `type:"structure" json:",omitempty"`
 
 	VpcInfo *VpcInfoForDescribeInstanceDetailOutput `type:"structure" json:",omitempty"`
@@ -581,12 +539,6 @@ func (s NetworkConfigForDescribeInstanceDetailOutput) String() string {
 // GoString returns the string representation
 func (s NetworkConfigForDescribeInstanceDetailOutput) GoString() string {
 	return s.String()
-}
-
-// SetInnerEndpointEnabled sets the InnerEndpointEnabled field's value.
-func (s *NetworkConfigForDescribeInstanceDetailOutput) SetInnerEndpointEnabled(v bool) *NetworkConfigForDescribeInstanceDetailOutput {
-	s.InnerEndpointEnabled = &v
-	return s
 }
 
 // SetSubnetInfo sets the SubnetInfo field's value.
@@ -606,6 +558,8 @@ type SpecConfigForDescribeInstanceDetailOutput struct {
 
 	CpuNum *int32 `type:"int32" json:",omitempty"`
 
+	DisplayName *string `type:"string" json:",omitempty"`
+
 	MemSize *int32 `type:"int32" json:",omitempty"`
 
 	NodeCUType *string `type:"string" json:",omitempty"`
@@ -613,6 +567,10 @@ type SpecConfigForDescribeInstanceDetailOutput struct {
 	NodeNum *int32 `type:"int32" json:",omitempty"`
 
 	NodeType *string `type:"string" json:",omitempty"`
+
+	ResourceSpecName *string `type:"string" json:",omitempty"`
+
+	SpecType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -628,6 +586,12 @@ func (s SpecConfigForDescribeInstanceDetailOutput) GoString() string {
 // SetCpuNum sets the CpuNum field's value.
 func (s *SpecConfigForDescribeInstanceDetailOutput) SetCpuNum(v int32) *SpecConfigForDescribeInstanceDetailOutput {
 	s.CpuNum = &v
+	return s
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *SpecConfigForDescribeInstanceDetailOutput) SetDisplayName(v string) *SpecConfigForDescribeInstanceDetailOutput {
+	s.DisplayName = &v
 	return s
 }
 
@@ -652,6 +616,18 @@ func (s *SpecConfigForDescribeInstanceDetailOutput) SetNodeNum(v int32) *SpecCon
 // SetNodeType sets the NodeType field's value.
 func (s *SpecConfigForDescribeInstanceDetailOutput) SetNodeType(v string) *SpecConfigForDescribeInstanceDetailOutput {
 	s.NodeType = &v
+	return s
+}
+
+// SetResourceSpecName sets the ResourceSpecName field's value.
+func (s *SpecConfigForDescribeInstanceDetailOutput) SetResourceSpecName(v string) *SpecConfigForDescribeInstanceDetailOutput {
+	s.ResourceSpecName = &v
+	return s
+}
+
+// SetSpecType sets the SpecType field's value.
+func (s *SpecConfigForDescribeInstanceDetailOutput) SetSpecType(v string) *SpecConfigForDescribeInstanceDetailOutput {
+	s.SpecType = &v
 	return s
 }
 

@@ -420,8 +420,6 @@ func (s *InstanceInfoForDescribeInstancesOutput) SetZones(v []*string) *Instance
 type NetworkConfigForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InnerEndpointEnabled *bool `type:"boolean" json:",omitempty"`
-
 	SubnetInfo *SubnetInfoForDescribeInstancesOutput `type:"structure" json:",omitempty"`
 
 	VpcInfo *VpcInfoForDescribeInstancesOutput `type:"structure" json:",omitempty"`
@@ -435,12 +433,6 @@ func (s NetworkConfigForDescribeInstancesOutput) String() string {
 // GoString returns the string representation
 func (s NetworkConfigForDescribeInstancesOutput) GoString() string {
 	return s.String()
-}
-
-// SetInnerEndpointEnabled sets the InnerEndpointEnabled field's value.
-func (s *NetworkConfigForDescribeInstancesOutput) SetInnerEndpointEnabled(v bool) *NetworkConfigForDescribeInstancesOutput {
-	s.InnerEndpointEnabled = &v
-	return s
 }
 
 // SetSubnetInfo sets the SubnetInfo field's value.

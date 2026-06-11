@@ -272,7 +272,7 @@ type DescribeDistrictDataOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	MetricDataList []*MetricDataListForDescribeDistrictDataOutput `type:"list" json:",omitempty"`
+	MetricDataList []*MetricDataListForDescribeDistrictDataOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -296,7 +296,7 @@ type MetricDataListForDescribeDistrictDataOutput struct {
 
 	Metric *string `type:"string" json:",omitempty"`
 
-	Values []*ValueForDescribeDistrictDataOutput `type:"list" json:",omitempty"`
+	Values []*ValueForDescribeDistrictDataOutput `type:"list"`
 }
 
 // String returns the string representation

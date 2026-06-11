@@ -170,6 +170,8 @@ type CreateFlowLogInput struct {
 
 	Tags []*TagForCreateFlowLogInput `type:"list"`
 
+	TrafficPath []*int64 `type:"list"`
+
 	// TrafficType is a required field
 	TrafficType *string `type:"string" required:"true"`
 }
@@ -287,6 +289,12 @@ func (s *CreateFlowLogInput) SetResourceType(v string) *CreateFlowLogInput {
 // SetTags sets the Tags field's value.
 func (s *CreateFlowLogInput) SetTags(v []*TagForCreateFlowLogInput) *CreateFlowLogInput {
 	s.Tags = v
+	return s
+}
+
+// SetTrafficPath sets the TrafficPath field's value.
+func (s *CreateFlowLogInput) SetTrafficPath(v []*int64) *CreateFlowLogInput {
+	s.TrafficPath = v
 	return s
 }
 

@@ -342,6 +342,14 @@ type REDISAPI interface {
 	DescribeDBInstanceShardsWithContext(volcengine.Context, *DescribeDBInstanceShardsInput, ...request.Option) (*DescribeDBInstanceShardsOutput, error)
 	DescribeDBInstanceShardsRequest(*DescribeDBInstanceShardsInput) (*request.Request, *DescribeDBInstanceShardsOutput)
 
+	DescribeDBInstanceSlotsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceSlotsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceSlotsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceSlots(*DescribeDBInstanceSlotsInput) (*DescribeDBInstanceSlotsOutput, error)
+	DescribeDBInstanceSlotsWithContext(volcengine.Context, *DescribeDBInstanceSlotsInput, ...request.Option) (*DescribeDBInstanceSlotsOutput, error)
+	DescribeDBInstanceSlotsRequest(*DescribeDBInstanceSlotsInput) (*request.Request, *DescribeDBInstanceSlotsOutput)
+
 	DescribeDBInstanceSpecsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceSpecsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceSpecsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -389,6 +397,14 @@ type REDISAPI interface {
 	DescribeEnterpriseZones(*DescribeEnterpriseZonesInput) (*DescribeEnterpriseZonesOutput, error)
 	DescribeEnterpriseZonesWithContext(volcengine.Context, *DescribeEnterpriseZonesInput, ...request.Option) (*DescribeEnterpriseZonesOutput, error)
 	DescribeEnterpriseZonesRequest(*DescribeEnterpriseZonesInput) (*request.Request, *DescribeEnterpriseZonesOutput)
+
+	DescribeFatLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeFatLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeFatLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeFatLogs(*DescribeFatLogsInput) (*DescribeFatLogsOutput, error)
+	DescribeFatLogsWithContext(volcengine.Context, *DescribeFatLogsInput, ...request.Option) (*DescribeFatLogsOutput, error)
+	DescribeFatLogsRequest(*DescribeFatLogsInput) (*request.Request, *DescribeFatLogsOutput)
 
 	DescribeHotKeysCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeHotKeysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

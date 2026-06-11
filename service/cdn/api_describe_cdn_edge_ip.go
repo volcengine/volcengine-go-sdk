@@ -224,9 +224,9 @@ type DescribeCdnEdgeIpOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	CdnIpv4 []*string `type:"list" json:",omitempty"`
+	CdnIpv4 []*string `type:"list"`
 
-	CdnIpv6 []*string `type:"list" json:",omitempty"`
+	CdnIpv6 []*string `type:"list"`
 }
 
 // String returns the string representation

@@ -250,6 +250,8 @@ func (s *DescribePlannedEventsOutput) SetTotal(v int32) *DescribePlannedEventsOu
 type PlannedEventForDescribePlannedEventsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Action *string `type:"string" json:",omitempty"`
+
 	ActionName *string `type:"string" json:",omitempty"`
 
 	CanCancel *bool `type:"boolean" json:",omitempty"`
@@ -281,6 +283,12 @@ func (s PlannedEventForDescribePlannedEventsOutput) String() string {
 // GoString returns the string representation
 func (s PlannedEventForDescribePlannedEventsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *PlannedEventForDescribePlannedEventsOutput) SetAction(v string) *PlannedEventForDescribePlannedEventsOutput {
+	s.Action = &v
+	return s
 }
 
 // SetActionName sets the ActionName field's value.

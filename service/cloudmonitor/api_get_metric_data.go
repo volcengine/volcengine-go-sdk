@@ -234,7 +234,7 @@ type DataPointForGetMetricDataOutput struct {
 
 	Timestamp *int32 `type:"int32" json:",omitempty"`
 
-	Value *float64 `type:"float" json:",omitempty"`
+	Value *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation

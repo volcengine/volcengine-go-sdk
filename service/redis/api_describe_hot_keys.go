@@ -266,6 +266,8 @@ func (s *DescribeHotKeysOutput) SetTotal(v int32) *DescribeHotKeysOutput {
 type HotKeyForDescribeHotKeysOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ActionType *string `type:"string" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	DBName *string `type:"string" json:",omitempty"`
@@ -289,6 +291,12 @@ func (s HotKeyForDescribeHotKeysOutput) String() string {
 // GoString returns the string representation
 func (s HotKeyForDescribeHotKeysOutput) GoString() string {
 	return s.String()
+}
+
+// SetActionType sets the ActionType field's value.
+func (s *HotKeyForDescribeHotKeysOutput) SetActionType(v string) *HotKeyForDescribeHotKeysOutput {
+	s.ActionType = &v
+	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
