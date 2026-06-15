@@ -38,6 +38,14 @@ type APIG20221112API interface {
 	CheckRouteExistWithContext(volcengine.Context, *CheckRouteExistInput, ...request.Option) (*CheckRouteExistOutput, error)
 	CheckRouteExistRequest(*CheckRouteExistInput) (*request.Request, *CheckRouteExistOutput)
 
+	CreatePluginCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePluginCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePluginCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePlugin(*CreatePluginInput) (*CreatePluginOutput, error)
+	CreatePluginWithContext(volcengine.Context, *CreatePluginInput, ...request.Option) (*CreatePluginOutput, error)
+	CreatePluginRequest(*CreatePluginInput) (*request.Request, *CreatePluginOutput)
+
 	CreateRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -46,6 +54,14 @@ type APIG20221112API interface {
 	CreateRouteWithContext(volcengine.Context, *CreateRouteInput, ...request.Option) (*CreateRouteOutput, error)
 	CreateRouteRequest(*CreateRouteInput) (*request.Request, *CreateRouteOutput)
 
+	DeletePluginCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeletePluginCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeletePluginCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeletePlugin(*DeletePluginInput) (*DeletePluginOutput, error)
+	DeletePluginWithContext(volcengine.Context, *DeletePluginInput, ...request.Option) (*DeletePluginOutput, error)
+	DeletePluginRequest(*DeletePluginInput) (*request.Request, *DeletePluginOutput)
+
 	DeleteRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +69,14 @@ type APIG20221112API interface {
 	DeleteRoute(*DeleteRouteInput) (*DeleteRouteOutput, error)
 	DeleteRouteWithContext(volcengine.Context, *DeleteRouteInput, ...request.Option) (*DeleteRouteOutput, error)
 	DeleteRouteRequest(*DeleteRouteInput) (*request.Request, *DeleteRouteOutput)
+
+	GetPluginCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPluginCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPluginCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPlugin(*GetPluginInput) (*GetPluginOutput, error)
+	GetPluginWithContext(volcengine.Context, *GetPluginInput, ...request.Option) (*GetPluginOutput, error)
+	GetPluginRequest(*GetPluginInput) (*request.Request, *GetPluginOutput)
 
 	GetRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -69,6 +93,14 @@ type APIG20221112API interface {
 	ListRoutes(*ListRoutesInput) (*ListRoutesOutput, error)
 	ListRoutesWithContext(volcengine.Context, *ListRoutesInput, ...request.Option) (*ListRoutesOutput, error)
 	ListRoutesRequest(*ListRoutesInput) (*request.Request, *ListRoutesOutput)
+
+	UpdatePluginCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdatePluginCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdatePluginCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdatePlugin(*UpdatePluginInput) (*UpdatePluginOutput, error)
+	UpdatePluginWithContext(volcengine.Context, *UpdatePluginInput, ...request.Option) (*UpdatePluginOutput, error)
+	UpdatePluginRequest(*UpdatePluginInput) (*request.Request, *UpdatePluginOutput)
 
 	UpdateRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
