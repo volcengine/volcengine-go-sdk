@@ -22,13 +22,13 @@ const opCreateSecurityGroupCommon = "CreateSecurityGroup"
 // See CreateSecurityGroupCommon for more information on using the CreateSecurityGroupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateSecurityGroupCommonRequest method.
-//	req, resp := client.CreateSecurityGroupCommonRequest(params)
+//    // Example sending a request using the CreateSecurityGroupCommonRequest method.
+//    req, resp := client.CreateSecurityGroupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) CreateSecurityGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateSecurityGroupCommon,
@@ -89,13 +89,13 @@ const opCreateSecurityGroup = "CreateSecurityGroup"
 // See CreateSecurityGroup for more information on using the CreateSecurityGroup
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateSecurityGroupRequest method.
-//	req, resp := client.CreateSecurityGroupRequest(params)
+//    // Example sending a request using the CreateSecurityGroupRequest method.
+//    req, resp := client.CreateSecurityGroupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) CreateSecurityGroupRequest(input *CreateSecurityGroupInput) (req *request.Request, output *CreateSecurityGroupOutput) {
 	op := &request.Operation{
 		Name:       opCreateSecurityGroup,
@@ -222,6 +222,8 @@ func (s *BindsForCreateSecurityGroupOutput) SetTotal(v int32) *BindsForCreateSec
 type CreateSecurityGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Group_type *string `type:"string" json:"group_type,omitempty"`
+
 	// Name is a required field
 	Name *string `type:"string" json:"name,omitempty" required:"true"`
 
@@ -259,6 +261,12 @@ func (s *CreateSecurityGroupInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetGroup_type sets the Group_type field's value.
+func (s *CreateSecurityGroupInput) SetGroup_type(v string) *CreateSecurityGroupInput {
+	s.Group_type = &v
+	return s
 }
 
 // SetName sets the Name field's value.

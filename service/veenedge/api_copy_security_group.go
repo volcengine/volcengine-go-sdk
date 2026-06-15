@@ -22,13 +22,13 @@ const opCopySecurityGroupCommon = "CopySecurityGroup"
 // See CopySecurityGroupCommon for more information on using the CopySecurityGroupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CopySecurityGroupCommonRequest method.
-//	req, resp := client.CopySecurityGroupCommonRequest(params)
+//    // Example sending a request using the CopySecurityGroupCommonRequest method.
+//    req, resp := client.CopySecurityGroupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) CopySecurityGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCopySecurityGroupCommon,
@@ -89,13 +89,13 @@ const opCopySecurityGroup = "CopySecurityGroup"
 // See CopySecurityGroup for more information on using the CopySecurityGroup
 // API call, and error handling.
 //
-//	// Example sending a request using the CopySecurityGroupRequest method.
-//	req, resp := client.CopySecurityGroupRequest(params)
+//    // Example sending a request using the CopySecurityGroupRequest method.
+//    req, resp := client.CopySecurityGroupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) CopySecurityGroupRequest(input *CopySecurityGroupInput) (req *request.Request, output *CopySecurityGroupOutput) {
 	op := &request.Operation{
 		Name:       opCopySecurityGroup,

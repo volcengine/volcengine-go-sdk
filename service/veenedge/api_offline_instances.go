@@ -146,8 +146,7 @@ func (c *VEENEDGE) OfflineInstancesWithContext(ctx volcengine.Context, input *Of
 type OfflineInstancesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Instance_identities is a required field
-	Instance_identities *string `type:"string" json:"instance_identities,omitempty" required:"true"`
+	Instance_identities []*string `type:"list" json:"instance_identities"`
 }
 
 // String returns the string representation
@@ -160,22 +159,9 @@ func (s OfflineInstancesInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *OfflineInstancesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "OfflineInstancesInput"}
-	if s.Instance_identities == nil {
-		invalidParams.Add(request.NewErrParamRequired("Instance_identities"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetInstance_identities sets the Instance_identities field's value.
-func (s *OfflineInstancesInput) SetInstance_identities(v string) *OfflineInstancesInput {
-	s.Instance_identities = &v
+func (s *OfflineInstancesInput) SetInstance_identities(v []*string) *OfflineInstancesInput {
+	s.Instance_identities = v
 	return s
 }
 
