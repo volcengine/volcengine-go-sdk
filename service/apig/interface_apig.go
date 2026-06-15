@@ -94,6 +94,14 @@ type APIGAPI interface {
 	CheckUpstreamExistWithContext(volcengine.Context, *CheckUpstreamExistInput, ...request.Option) (*CheckUpstreamExistOutput, error)
 	CheckUpstreamExistRequest(*CheckUpstreamExistInput) (*request.Request, *CheckUpstreamExistOutput)
 
+	CheckUpstreamSpecExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckUpstreamSpecExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckUpstreamSpecExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckUpstreamSpecExist(*CheckUpstreamSpecExistInput) (*CheckUpstreamSpecExistOutput, error)
+	CheckUpstreamSpecExistWithContext(volcengine.Context, *CheckUpstreamSpecExistInput, ...request.Option) (*CheckUpstreamSpecExistOutput, error)
+	CheckUpstreamSpecExistRequest(*CheckUpstreamSpecExistInput) (*request.Request, *CheckUpstreamSpecExistOutput)
+
 	CheckUpstreamVersionExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CheckUpstreamVersionExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CheckUpstreamVersionExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -278,6 +286,14 @@ type APIGAPI interface {
 	GetGatewayWithContext(volcengine.Context, *GetGatewayInput, ...request.Option) (*GetGatewayOutput, error)
 	GetGatewayRequest(*GetGatewayInput) (*request.Request, *GetGatewayOutput)
 
+	GetGatewayParametersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetGatewayParametersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetGatewayParametersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetGatewayParameters(*GetGatewayParametersInput) (*GetGatewayParametersOutput, error)
+	GetGatewayParametersWithContext(volcengine.Context, *GetGatewayParametersInput, ...request.Option) (*GetGatewayParametersOutput, error)
+	GetGatewayParametersRequest(*GetGatewayParametersInput) (*request.Request, *GetGatewayParametersOutput)
+
 	GetGatewayServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetGatewayServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetGatewayServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -421,6 +437,14 @@ type APIGAPI interface {
 	UpdateGatewayCustomLog(*UpdateGatewayCustomLogInput) (*UpdateGatewayCustomLogOutput, error)
 	UpdateGatewayCustomLogWithContext(volcengine.Context, *UpdateGatewayCustomLogInput, ...request.Option) (*UpdateGatewayCustomLogOutput, error)
 	UpdateGatewayCustomLogRequest(*UpdateGatewayCustomLogInput) (*request.Request, *UpdateGatewayCustomLogOutput)
+
+	UpdateGatewayDownstreamConnectionBufferLimitsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateGatewayDownstreamConnectionBufferLimitsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateGatewayDownstreamConnectionBufferLimitsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateGatewayDownstreamConnectionBufferLimits(*UpdateGatewayDownstreamConnectionBufferLimitsInput) (*UpdateGatewayDownstreamConnectionBufferLimitsOutput, error)
+	UpdateGatewayDownstreamConnectionBufferLimitsWithContext(volcengine.Context, *UpdateGatewayDownstreamConnectionBufferLimitsInput, ...request.Option) (*UpdateGatewayDownstreamConnectionBufferLimitsOutput, error)
+	UpdateGatewayDownstreamConnectionBufferLimitsRequest(*UpdateGatewayDownstreamConnectionBufferLimitsInput) (*request.Request, *UpdateGatewayDownstreamConnectionBufferLimitsOutput)
 
 	UpdateGatewayLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateGatewayLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

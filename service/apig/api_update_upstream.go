@@ -146,6 +146,8 @@ func (c *APIG) UpdateUpstreamWithContext(ctx volcengine.Context, input *UpdateUp
 type AIProviderForUpdateUpstreamInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ApiProtocol *string `type:"string" json:",omitempty"`
+
 	BaseUrl *string `type:"string" json:",omitempty"`
 
 	CustomBodyParams *CustomBodyParamsForUpdateUpstreamInput `type:"structure" json:",omitempty"`
@@ -154,9 +156,13 @@ type AIProviderForUpdateUpstreamInput struct {
 
 	CustomModelService *CustomModelServiceForUpdateUpstreamInput `type:"structure" json:",omitempty"`
 
+	MaxRetries *int64 `type:"int64" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Token *string `type:"string" json:",omitempty"`
+
+	TokenPool []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -167,6 +173,12 @@ func (s AIProviderForUpdateUpstreamInput) String() string {
 // GoString returns the string representation
 func (s AIProviderForUpdateUpstreamInput) GoString() string {
 	return s.String()
+}
+
+// SetApiProtocol sets the ApiProtocol field's value.
+func (s *AIProviderForUpdateUpstreamInput) SetApiProtocol(v string) *AIProviderForUpdateUpstreamInput {
+	s.ApiProtocol = &v
+	return s
 }
 
 // SetBaseUrl sets the BaseUrl field's value.
@@ -193,6 +205,12 @@ func (s *AIProviderForUpdateUpstreamInput) SetCustomModelService(v *CustomModelS
 	return s
 }
 
+// SetMaxRetries sets the MaxRetries field's value.
+func (s *AIProviderForUpdateUpstreamInput) SetMaxRetries(v int64) *AIProviderForUpdateUpstreamInput {
+	s.MaxRetries = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *AIProviderForUpdateUpstreamInput) SetName(v string) *AIProviderForUpdateUpstreamInput {
 	s.Name = &v
@@ -202,6 +220,12 @@ func (s *AIProviderForUpdateUpstreamInput) SetName(v string) *AIProviderForUpdat
 // SetToken sets the Token field's value.
 func (s *AIProviderForUpdateUpstreamInput) SetToken(v string) *AIProviderForUpdateUpstreamInput {
 	s.Token = &v
+	return s
+}
+
+// SetTokenPool sets the TokenPool field's value.
+func (s *AIProviderForUpdateUpstreamInput) SetTokenPool(v []*string) *AIProviderForUpdateUpstreamInput {
+	s.TokenPool = v
 	return s
 }
 
@@ -527,6 +551,36 @@ func (s *EcsListForUpdateUpstreamInput) SetIP(v string) *EcsListForUpdateUpstrea
 
 // SetPort sets the Port field's value.
 func (s *EcsListForUpdateUpstreamInput) SetPort(v int32) *EcsListForUpdateUpstreamInput {
+	s.Port = &v
+	return s
+}
+
+type FixedIPListForUpdateUpstreamInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IP *string `type:"string" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FixedIPListForUpdateUpstreamInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FixedIPListForUpdateUpstreamInput) GoString() string {
+	return s.String()
+}
+
+// SetIP sets the IP field's value.
+func (s *FixedIPListForUpdateUpstreamInput) SetIP(v string) *FixedIPListForUpdateUpstreamInput {
+	s.IP = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *FixedIPListForUpdateUpstreamInput) SetPort(v int32) *FixedIPListForUpdateUpstreamInput {
 	s.Port = &v
 	return s
 }
@@ -886,6 +940,8 @@ type UpstreamSpecForUpdateUpstreamInput struct {
 
 	EcsList []*EcsListForUpdateUpstreamInput `type:"list" json:",omitempty"`
 
+	FixedIPList []*FixedIPListForUpdateUpstreamInput `type:"list" json:",omitempty"`
+
 	K8SService *K8SServiceForUpdateUpstreamInput `type:"structure" json:",omitempty"`
 
 	NacosService *NacosServiceForUpdateUpstreamInput `type:"structure" json:",omitempty"`
@@ -918,6 +974,12 @@ func (s *UpstreamSpecForUpdateUpstreamInput) SetDomain(v *DomainForUpdateUpstrea
 // SetEcsList sets the EcsList field's value.
 func (s *UpstreamSpecForUpdateUpstreamInput) SetEcsList(v []*EcsListForUpdateUpstreamInput) *UpstreamSpecForUpdateUpstreamInput {
 	s.EcsList = v
+	return s
+}
+
+// SetFixedIPList sets the FixedIPList field's value.
+func (s *UpstreamSpecForUpdateUpstreamInput) SetFixedIPList(v []*FixedIPListForUpdateUpstreamInput) *UpstreamSpecForUpdateUpstreamInput {
+	s.FixedIPList = v
 	return s
 }
 
