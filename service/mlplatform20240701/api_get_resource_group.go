@@ -184,9 +184,15 @@ func (s *ComputeResourceForGetResourceGroupOutput) SetZoneId(v string) *ComputeR
 type EicForGetResourceGroupOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CacheType *string `type:"string" json:",omitempty"`
+
 	EicId *string `type:"string" json:",omitempty"`
 
 	EicStatus *string `type:"string" json:",omitempty"`
+
+	EnableRDMA *bool `type:"boolean" json:",omitempty"`
+
+	EnableShmIpc *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -199,6 +205,12 @@ func (s EicForGetResourceGroupOutput) GoString() string {
 	return s.String()
 }
 
+// SetCacheType sets the CacheType field's value.
+func (s *EicForGetResourceGroupOutput) SetCacheType(v string) *EicForGetResourceGroupOutput {
+	s.CacheType = &v
+	return s
+}
+
 // SetEicId sets the EicId field's value.
 func (s *EicForGetResourceGroupOutput) SetEicId(v string) *EicForGetResourceGroupOutput {
 	s.EicId = &v
@@ -208,6 +220,18 @@ func (s *EicForGetResourceGroupOutput) SetEicId(v string) *EicForGetResourceGrou
 // SetEicStatus sets the EicStatus field's value.
 func (s *EicForGetResourceGroupOutput) SetEicStatus(v string) *EicForGetResourceGroupOutput {
 	s.EicStatus = &v
+	return s
+}
+
+// SetEnableRDMA sets the EnableRDMA field's value.
+func (s *EicForGetResourceGroupOutput) SetEnableRDMA(v bool) *EicForGetResourceGroupOutput {
+	s.EnableRDMA = &v
+	return s
+}
+
+// SetEnableShmIpc sets the EnableShmIpc field's value.
+func (s *EicForGetResourceGroupOutput) SetEnableShmIpc(v bool) *EicForGetResourceGroupOutput {
+	s.EnableShmIpc = &v
 	return s
 }
 
@@ -253,6 +277,8 @@ type GetResourceGroupOutput struct {
 	Metadata *response.ResponseMetadata
 
 	AutoRenewPeriod *int32 `type:"int32" json:",omitempty"`
+
+	ByteKDSprofileEnabled *bool `type:"boolean" json:",omitempty"`
 
 	ChargeType *string `type:"string" json:",omitempty"`
 
@@ -304,6 +330,12 @@ func (s GetResourceGroupOutput) GoString() string {
 // SetAutoRenewPeriod sets the AutoRenewPeriod field's value.
 func (s *GetResourceGroupOutput) SetAutoRenewPeriod(v int32) *GetResourceGroupOutput {
 	s.AutoRenewPeriod = &v
+	return s
+}
+
+// SetByteKDSprofileEnabled sets the ByteKDSprofileEnabled field's value.
+func (s *GetResourceGroupOutput) SetByteKDSprofileEnabled(v bool) *GetResourceGroupOutput {
+	s.ByteKDSprofileEnabled = &v
 	return s
 }
 
