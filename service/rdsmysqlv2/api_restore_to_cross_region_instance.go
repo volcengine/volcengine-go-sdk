@@ -356,6 +356,8 @@ type RestoreToCrossRegionInstanceInput struct {
 
 	AutoStorageScalingConfig *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput `type:"structure" json:",omitempty"`
 
+	AutoUpgradeMinorVersion *string `type:"string" json:",omitempty"`
+
 	BackupId *string `type:"string" json:",omitempty"`
 
 	ChargeInfo *ChargeInfoForRestoreToCrossRegionInstanceInput `type:"structure" json:",omitempty"`
@@ -448,6 +450,12 @@ func (s *RestoreToCrossRegionInstanceInput) SetAllowListIds(v []*string) *Restor
 // SetAutoStorageScalingConfig sets the AutoStorageScalingConfig field's value.
 func (s *RestoreToCrossRegionInstanceInput) SetAutoStorageScalingConfig(v *AutoStorageScalingConfigForRestoreToCrossRegionInstanceInput) *RestoreToCrossRegionInstanceInput {
 	s.AutoStorageScalingConfig = v
+	return s
+}
+
+// SetAutoUpgradeMinorVersion sets the AutoUpgradeMinorVersion field's value.
+func (s *RestoreToCrossRegionInstanceInput) SetAutoUpgradeMinorVersion(v string) *RestoreToCrossRegionInstanceInput {
+	s.AutoUpgradeMinorVersion = &v
 	return s
 }
 

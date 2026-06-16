@@ -180,6 +180,8 @@ type CreateBackupInput struct {
 
 	BackupMethod *string `type:"string" json:",omitempty"`
 
+	BackupName *string `type:"string" json:",omitempty"`
+
 	BackupType *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
@@ -218,6 +220,12 @@ func (s *CreateBackupInput) SetBackupMeta(v []*BackupMetaForCreateBackupInput) *
 // SetBackupMethod sets the BackupMethod field's value.
 func (s *CreateBackupInput) SetBackupMethod(v string) *CreateBackupInput {
 	s.BackupMethod = &v
+	return s
+}
+
+// SetBackupName sets the BackupName field's value.
+func (s *CreateBackupInput) SetBackupName(v string) *CreateBackupInput {
+	s.BackupName = &v
 	return s
 }
 

@@ -143,6 +143,58 @@ func (c *RDSMYSQLV2) ModifyDBEndpointWithContext(ctx volcengine.Context, input *
 	return out, req.Send()
 }
 
+type CustomRouteStrategyForModifyDBEndpointInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	KeywordRouteStrategy []*KeywordRouteStrategyForModifyDBEndpointInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomRouteStrategyForModifyDBEndpointInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomRouteStrategyForModifyDBEndpointInput) GoString() string {
+	return s.String()
+}
+
+// SetKeywordRouteStrategy sets the KeywordRouteStrategy field's value.
+func (s *CustomRouteStrategyForModifyDBEndpointInput) SetKeywordRouteStrategy(v []*KeywordRouteStrategyForModifyDBEndpointInput) *CustomRouteStrategyForModifyDBEndpointInput {
+	s.KeywordRouteStrategy = v
+	return s
+}
+
+type KeywordRouteStrategyForModifyDBEndpointInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NodeType *string `type:"string" json:",omitempty"`
+
+	SQLKeyword *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KeywordRouteStrategyForModifyDBEndpointInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KeywordRouteStrategyForModifyDBEndpointInput) GoString() string {
+	return s.String()
+}
+
+// SetNodeType sets the NodeType field's value.
+func (s *KeywordRouteStrategyForModifyDBEndpointInput) SetNodeType(v string) *KeywordRouteStrategyForModifyDBEndpointInput {
+	s.NodeType = &v
+	return s
+}
+
+// SetSQLKeyword sets the SQLKeyword field's value.
+func (s *KeywordRouteStrategyForModifyDBEndpointInput) SetSQLKeyword(v string) *KeywordRouteStrategyForModifyDBEndpointInput {
+	s.SQLKeyword = &v
+	return s
+}
+
 type ModifyDBEndpointInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -151,6 +203,8 @@ type ModifyDBEndpointInput struct {
 	ConnectAllSlaveNodes *bool `type:"boolean" json:",omitempty"`
 
 	ConnectionPoolType *string `type:"string" json:",omitempty"`
+
+	CustomRouteStrategy *CustomRouteStrategyForModifyDBEndpointInput `type:"structure" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -230,6 +284,12 @@ func (s *ModifyDBEndpointInput) SetConnectAllSlaveNodes(v bool) *ModifyDBEndpoin
 // SetConnectionPoolType sets the ConnectionPoolType field's value.
 func (s *ModifyDBEndpointInput) SetConnectionPoolType(v string) *ModifyDBEndpointInput {
 	s.ConnectionPoolType = &v
+	return s
+}
+
+// SetCustomRouteStrategy sets the CustomRouteStrategy field's value.
+func (s *ModifyDBEndpointInput) SetCustomRouteStrategy(v *CustomRouteStrategyForModifyDBEndpointInput) *ModifyDBEndpointInput {
+	s.CustomRouteStrategy = v
 	return s
 }
 

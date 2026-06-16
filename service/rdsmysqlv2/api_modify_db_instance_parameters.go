@@ -154,6 +154,8 @@ type ModifyDBInstanceParametersInput struct {
 	ParamApplyScope *string `type:"string" json:",omitempty"`
 
 	Parameters []*ParameterForModifyDBInstanceParametersInput `type:"list" json:",omitempty"`
+
+	TemplateId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,6 +202,12 @@ func (s *ModifyDBInstanceParametersInput) SetParamApplyScope(v string) *ModifyDB
 // SetParameters sets the Parameters field's value.
 func (s *ModifyDBInstanceParametersInput) SetParameters(v []*ParameterForModifyDBInstanceParametersInput) *ModifyDBInstanceParametersInput {
 	s.Parameters = v
+	return s
+}
+
+// SetTemplateId sets the TemplateId field's value.
+func (s *ModifyDBInstanceParametersInput) SetTemplateId(v string) *ModifyDBInstanceParametersInput {
+	s.TemplateId = &v
 	return s
 }
 

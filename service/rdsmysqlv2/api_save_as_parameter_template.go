@@ -149,6 +149,8 @@ type SaveAsParameterTemplateInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	TemplateDesc *string `type:"string" json:",omitempty"`
 
 	// TemplateName is a required field
@@ -187,6 +189,12 @@ func (s *SaveAsParameterTemplateInput) SetInstanceId(v string) *SaveAsParameterT
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *SaveAsParameterTemplateInput) SetProjectName(v string) *SaveAsParameterTemplateInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetTemplateDesc sets the TemplateDesc field's value.
 func (s *SaveAsParameterTemplateInput) SetTemplateDesc(v string) *SaveAsParameterTemplateInput {
 	s.TemplateDesc = &v
@@ -203,6 +211,8 @@ type SaveAsParameterTemplateOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	TemplateId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -213,4 +223,10 @@ func (s SaveAsParameterTemplateOutput) String() string {
 // GoString returns the string representation
 func (s SaveAsParameterTemplateOutput) GoString() string {
 	return s.String()
+}
+
+// SetTemplateId sets the TemplateId field's value.
+func (s *SaveAsParameterTemplateOutput) SetTemplateId(v string) *SaveAsParameterTemplateOutput {
+	s.TemplateId = &v
+	return s
 }

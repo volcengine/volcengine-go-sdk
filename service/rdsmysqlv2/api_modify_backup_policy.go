@@ -195,6 +195,8 @@ type ModifyBackupPolicyInput struct {
 
 	LockDDLTime *int32 `type:"int32" json:",omitempty"`
 
+	LockDDLTimeSecond *int32 `type:"int32" json:",omitempty"`
+
 	LogBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
 
 	RetentionPolicySynced *bool `type:"boolean" json:",omitempty"`
@@ -364,6 +366,12 @@ func (s *ModifyBackupPolicyInput) SetKeepCrossBackupEnableAfterReleased(v bool) 
 // SetLockDDLTime sets the LockDDLTime field's value.
 func (s *ModifyBackupPolicyInput) SetLockDDLTime(v int32) *ModifyBackupPolicyInput {
 	s.LockDDLTime = &v
+	return s
+}
+
+// SetLockDDLTimeSecond sets the LockDDLTimeSecond field's value.
+func (s *ModifyBackupPolicyInput) SetLockDDLTimeSecond(v int32) *ModifyBackupPolicyInput {
+	s.LockDDLTimeSecond = &v
 	return s
 }
 
