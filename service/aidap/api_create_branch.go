@@ -449,58 +449,10 @@ func (s *BranchUsageForCreateBranchOutput) SetWorkspaceId(v string) *BranchUsage
 	return s
 }
 
-type ComputeSettingForCreateBranchInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AutoScalingLimitMaxCU *float64 `type:"double" json:",omitempty"`
-
-	AutoScalingLimitMinCU *float64 `type:"double" json:",omitempty"`
-
-	ComputeRole *string `type:"string" json:",omitempty" enum:"EnumOfComputeRoleForCreateBranchInput"`
-
-	EnableAnalytic *string `type:"string" json:",omitempty" enum:"EnumOfEnableAnalyticForCreateBranchInput"`
-}
-
-// String returns the string representation
-func (s ComputeSettingForCreateBranchInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ComputeSettingForCreateBranchInput) GoString() string {
-	return s.String()
-}
-
-// SetAutoScalingLimitMaxCU sets the AutoScalingLimitMaxCU field's value.
-func (s *ComputeSettingForCreateBranchInput) SetAutoScalingLimitMaxCU(v float64) *ComputeSettingForCreateBranchInput {
-	s.AutoScalingLimitMaxCU = &v
-	return s
-}
-
-// SetAutoScalingLimitMinCU sets the AutoScalingLimitMinCU field's value.
-func (s *ComputeSettingForCreateBranchInput) SetAutoScalingLimitMinCU(v float64) *ComputeSettingForCreateBranchInput {
-	s.AutoScalingLimitMinCU = &v
-	return s
-}
-
-// SetComputeRole sets the ComputeRole field's value.
-func (s *ComputeSettingForCreateBranchInput) SetComputeRole(v string) *ComputeSettingForCreateBranchInput {
-	s.ComputeRole = &v
-	return s
-}
-
-// SetEnableAnalytic sets the EnableAnalytic field's value.
-func (s *ComputeSettingForCreateBranchInput) SetEnableAnalytic(v string) *ComputeSettingForCreateBranchInput {
-	s.EnableAnalytic = &v
-	return s
-}
-
 type CreateBranchInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	BranchSettings *BranchSettingsForCreateBranchInput `type:"structure" json:",omitempty"`
-
-	ComputeSettings []*ComputeSettingForCreateBranchInput `type:"list" json:",omitempty"`
 
 	// WorkspaceId is a required field
 	WorkspaceId *string `type:"string" json:",omitempty" required:"true"`
@@ -532,12 +484,6 @@ func (s *CreateBranchInput) Validate() error {
 // SetBranchSettings sets the BranchSettings field's value.
 func (s *CreateBranchInput) SetBranchSettings(v *BranchSettingsForCreateBranchInput) *CreateBranchInput {
 	s.BranchSettings = v
-	return s
-}
-
-// SetComputeSettings sets the ComputeSettings field's value.
-func (s *CreateBranchInput) SetComputeSettings(v []*ComputeSettingForCreateBranchInput) *CreateBranchInput {
-	s.ComputeSettings = v
 	return s
 }
 
@@ -681,17 +627,6 @@ const (
 )
 
 const (
-	// EnumOfComputeRoleForCreateBranchInputPrimary is a EnumOfComputeRoleForCreateBranchInput enum value
-	EnumOfComputeRoleForCreateBranchInputPrimary = "Primary"
-
-	// EnumOfComputeRoleForCreateBranchInputReadOnly is a EnumOfComputeRoleForCreateBranchInput enum value
-	EnumOfComputeRoleForCreateBranchInputReadOnly = "ReadOnly"
-
-	// EnumOfComputeRoleForCreateBranchInputAnalytic is a EnumOfComputeRoleForCreateBranchInput enum value
-	EnumOfComputeRoleForCreateBranchInputAnalytic = "Analytic"
-)
-
-const (
 	// EnumOfCreationSourceForCreateBranchOutputSdk is a EnumOfCreationSourceForCreateBranchOutput enum value
 	EnumOfCreationSourceForCreateBranchOutputSdk = "SDK"
 
@@ -706,14 +641,6 @@ const (
 
 	// EnumOfCreationSourceForCreateBranchOutputUitool is a EnumOfCreationSourceForCreateBranchOutput enum value
 	EnumOfCreationSourceForCreateBranchOutputUitool = "UITool"
-)
-
-const (
-	// EnumOfEnableAnalyticForCreateBranchInputEnabled is a EnumOfEnableAnalyticForCreateBranchInput enum value
-	EnumOfEnableAnalyticForCreateBranchInputEnabled = "Enabled"
-
-	// EnumOfEnableAnalyticForCreateBranchInputDisabled is a EnumOfEnableAnalyticForCreateBranchInput enum value
-	EnumOfEnableAnalyticForCreateBranchInputDisabled = "Disabled"
 )
 
 const (

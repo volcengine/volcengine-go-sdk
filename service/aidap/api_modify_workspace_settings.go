@@ -348,6 +348,8 @@ type WorkspaceForModifyWorkspaceSettingsOutput struct {
 
 	AgentPlanInfo *AgentPlanInfoForModifyWorkspaceSettingsOutput `type:"structure" json:",omitempty"`
 
+	AgentPlanSeatId *string `type:"string" json:",omitempty"`
+
 	BaasComputeSettings *BaasComputeSettingsForModifyWorkspaceSettingsOutput `type:"structure" json:",omitempty"`
 
 	ComputeSettings *ComputeSettingsForModifyWorkspaceSettingsOutput `type:"structure" json:",omitempty"`
@@ -365,6 +367,8 @@ type WorkspaceForModifyWorkspaceSettingsOutput struct {
 	EngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfEngineVersionForModifyWorkspaceSettingsOutput"`
 
 	InternetProtocol *string `type:"string" json:",omitempty" enum:"EnumOfInternetProtocolForModifyWorkspaceSettingsOutput"`
+
+	IsAgentPlan *bool `type:"boolean" json:",omitempty"`
 
 	IsAgentPlanInstance *bool `type:"boolean" json:",omitempty"`
 
@@ -414,6 +418,12 @@ func (s *WorkspaceForModifyWorkspaceSettingsOutput) SetAccountId(v string) *Work
 // SetAgentPlanInfo sets the AgentPlanInfo field's value.
 func (s *WorkspaceForModifyWorkspaceSettingsOutput) SetAgentPlanInfo(v *AgentPlanInfoForModifyWorkspaceSettingsOutput) *WorkspaceForModifyWorkspaceSettingsOutput {
 	s.AgentPlanInfo = v
+	return s
+}
+
+// SetAgentPlanSeatId sets the AgentPlanSeatId field's value.
+func (s *WorkspaceForModifyWorkspaceSettingsOutput) SetAgentPlanSeatId(v string) *WorkspaceForModifyWorkspaceSettingsOutput {
+	s.AgentPlanSeatId = &v
 	return s
 }
 
@@ -468,6 +478,12 @@ func (s *WorkspaceForModifyWorkspaceSettingsOutput) SetEngineVersion(v string) *
 // SetInternetProtocol sets the InternetProtocol field's value.
 func (s *WorkspaceForModifyWorkspaceSettingsOutput) SetInternetProtocol(v string) *WorkspaceForModifyWorkspaceSettingsOutput {
 	s.InternetProtocol = &v
+	return s
+}
+
+// SetIsAgentPlan sets the IsAgentPlan field's value.
+func (s *WorkspaceForModifyWorkspaceSettingsOutput) SetIsAgentPlan(v bool) *WorkspaceForModifyWorkspaceSettingsOutput {
+	s.IsAgentPlan = &v
 	return s
 }
 

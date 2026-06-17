@@ -176,8 +176,7 @@ func (s *ConnectionExampleForDescribeDBAccountConnectionOutput) SetConnectionTyp
 type DescribeDBAccountConnectionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// AccountName is a required field
-	AccountName *string `type:"string" json:",omitempty" required:"true"`
+	AccountName *string `type:"string" json:",omitempty"`
 
 	AddressId *string `type:"string" json:",omitempty"`
 
@@ -207,9 +206,6 @@ func (s DescribeDBAccountConnectionInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeDBAccountConnectionInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeDBAccountConnectionInput"}
-	if s.AccountName == nil {
-		invalidParams.Add(request.NewErrParamRequired("AccountName"))
-	}
 	if s.BranchId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BranchId"))
 	}

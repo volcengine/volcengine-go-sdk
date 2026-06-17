@@ -173,6 +173,36 @@ func (s *AgentPlanInfoForCreateWorkspaceOutput) SetAPIKeyId(v string) *AgentPlan
 	return s
 }
 
+type AgentPlanSettingsForCreateWorkspaceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AgentPlanSeatId *string `type:"string" json:",omitempty"`
+
+	IsAgentPlan *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AgentPlanSettingsForCreateWorkspaceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AgentPlanSettingsForCreateWorkspaceInput) GoString() string {
+	return s.String()
+}
+
+// SetAgentPlanSeatId sets the AgentPlanSeatId field's value.
+func (s *AgentPlanSettingsForCreateWorkspaceInput) SetAgentPlanSeatId(v string) *AgentPlanSettingsForCreateWorkspaceInput {
+	s.AgentPlanSeatId = &v
+	return s
+}
+
+// SetIsAgentPlan sets the IsAgentPlan field's value.
+func (s *AgentPlanSettingsForCreateWorkspaceInput) SetIsAgentPlan(v bool) *AgentPlanSettingsForCreateWorkspaceInput {
+	s.IsAgentPlan = &v
+	return s
+}
+
 type BaasComputeSettingsForCreateWorkspaceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -354,6 +384,8 @@ type CreateWorkspaceInput struct {
 
 	AgentPlanApiKey *string `type:"string" json:",omitempty"`
 
+	AgentPlanSettings *AgentPlanSettingsForCreateWorkspaceInput `type:"structure" json:",omitempty"`
+
 	BranchSettings *BranchSettingsForCreateWorkspaceInput `type:"structure" json:",omitempty"`
 
 	ComputeSettings *ComputeSettingsForCreateWorkspaceInput `type:"structure" json:",omitempty"`
@@ -400,6 +432,12 @@ func (s *CreateWorkspaceInput) Validate() error {
 // SetAgentPlanApiKey sets the AgentPlanApiKey field's value.
 func (s *CreateWorkspaceInput) SetAgentPlanApiKey(v string) *CreateWorkspaceInput {
 	s.AgentPlanApiKey = &v
+	return s
+}
+
+// SetAgentPlanSettings sets the AgentPlanSettings field's value.
+func (s *CreateWorkspaceInput) SetAgentPlanSettings(v *AgentPlanSettingsForCreateWorkspaceInput) *CreateWorkspaceInput {
+	s.AgentPlanSettings = v
 	return s
 }
 
@@ -558,6 +596,8 @@ type WorkspaceForCreateWorkspaceOutput struct {
 
 	AgentPlanInfo *AgentPlanInfoForCreateWorkspaceOutput `type:"structure" json:",omitempty"`
 
+	AgentPlanSeatId *string `type:"string" json:",omitempty"`
+
 	BaasComputeSettings *BaasComputeSettingsForCreateWorkspaceOutput `type:"structure" json:",omitempty"`
 
 	ComputeSettings *ComputeSettingsForCreateWorkspaceOutput `type:"structure" json:",omitempty"`
@@ -575,6 +615,8 @@ type WorkspaceForCreateWorkspaceOutput struct {
 	EngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfEngineVersionForCreateWorkspaceOutput"`
 
 	InternetProtocol *string `type:"string" json:",omitempty" enum:"EnumOfInternetProtocolForCreateWorkspaceOutput"`
+
+	IsAgentPlan *bool `type:"boolean" json:",omitempty"`
 
 	IsAgentPlanInstance *bool `type:"boolean" json:",omitempty"`
 
@@ -624,6 +666,12 @@ func (s *WorkspaceForCreateWorkspaceOutput) SetAccountId(v string) *WorkspaceFor
 // SetAgentPlanInfo sets the AgentPlanInfo field's value.
 func (s *WorkspaceForCreateWorkspaceOutput) SetAgentPlanInfo(v *AgentPlanInfoForCreateWorkspaceOutput) *WorkspaceForCreateWorkspaceOutput {
 	s.AgentPlanInfo = v
+	return s
+}
+
+// SetAgentPlanSeatId sets the AgentPlanSeatId field's value.
+func (s *WorkspaceForCreateWorkspaceOutput) SetAgentPlanSeatId(v string) *WorkspaceForCreateWorkspaceOutput {
+	s.AgentPlanSeatId = &v
 	return s
 }
 
@@ -678,6 +726,12 @@ func (s *WorkspaceForCreateWorkspaceOutput) SetEngineVersion(v string) *Workspac
 // SetInternetProtocol sets the InternetProtocol field's value.
 func (s *WorkspaceForCreateWorkspaceOutput) SetInternetProtocol(v string) *WorkspaceForCreateWorkspaceOutput {
 	s.InternetProtocol = &v
+	return s
+}
+
+// SetIsAgentPlan sets the IsAgentPlan field's value.
+func (s *WorkspaceForCreateWorkspaceOutput) SetIsAgentPlan(v bool) *WorkspaceForCreateWorkspaceOutput {
+	s.IsAgentPlan = &v
 	return s
 }
 
