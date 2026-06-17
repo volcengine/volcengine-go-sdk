@@ -46,6 +46,14 @@ type AIDAPAPI interface {
 	ApplyPrivateDNSToPublicWithContext(volcengine.Context, *ApplyPrivateDNSToPublicInput, ...request.Option) (*ApplyPrivateDNSToPublicOutput, error)
 	ApplyPrivateDNSToPublicRequest(*ApplyPrivateDNSToPublicInput) (*request.Request, *ApplyPrivateDNSToPublicOutput)
 
+	BindPagesProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BindPagesProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BindPagesProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BindPagesProject(*BindPagesProjectInput) (*BindPagesProjectOutput, error)
+	BindPagesProjectWithContext(volcengine.Context, *BindPagesProjectInput, ...request.Option) (*BindPagesProjectOutput, error)
+	BindPagesProjectRequest(*BindPagesProjectInput) (*request.Request, *BindPagesProjectOutput)
+
 	BranchRestoreCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BranchRestoreCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	BranchRestoreCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -294,6 +302,14 @@ type AIDAPAPI interface {
 	DescribeOperationsWithContext(volcengine.Context, *DescribeOperationsInput, ...request.Option) (*DescribeOperationsOutput, error)
 	DescribeOperationsRequest(*DescribeOperationsInput) (*request.Request, *DescribeOperationsOutput)
 
+	DescribePagesBindingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePagesBindingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePagesBindingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePagesBinding(*DescribePagesBindingInput) (*DescribePagesBindingOutput, error)
+	DescribePagesBindingWithContext(volcengine.Context, *DescribePagesBindingInput, ...request.Option) (*DescribePagesBindingOutput, error)
+	DescribePagesBindingRequest(*DescribePagesBindingInput) (*request.Request, *DescribePagesBindingOutput)
+
 	DescribeRestorableBranchesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRestorableBranchesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeRestorableBranchesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -413,6 +429,14 @@ type AIDAPAPI interface {
 	GetSchemaDiffResultDownloadLink(*GetSchemaDiffResultDownloadLinkInput) (*GetSchemaDiffResultDownloadLinkOutput, error)
 	GetSchemaDiffResultDownloadLinkWithContext(volcengine.Context, *GetSchemaDiffResultDownloadLinkInput, ...request.Option) (*GetSchemaDiffResultDownloadLinkOutput, error)
 	GetSchemaDiffResultDownloadLinkRequest(*GetSchemaDiffResultDownloadLinkInput) (*request.Request, *GetSchemaDiffResultDownloadLinkOutput)
+
+	ListPagesProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListPagesProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListPagesProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListPagesProject(*ListPagesProjectInput) (*ListPagesProjectOutput, error)
+	ListPagesProjectWithContext(volcengine.Context, *ListPagesProjectInput, ...request.Option) (*ListPagesProjectOutput, error)
+	ListPagesProjectRequest(*ListPagesProjectInput) (*request.Request, *ListPagesProjectOutput)
 
 	ListWorkspaceUsageTopCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListWorkspaceUsageTopCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -565,6 +589,22 @@ type AIDAPAPI interface {
 	StopWorkspace(*StopWorkspaceInput) (*StopWorkspaceOutput, error)
 	StopWorkspaceWithContext(volcengine.Context, *StopWorkspaceInput, ...request.Option) (*StopWorkspaceOutput, error)
 	StopWorkspaceRequest(*StopWorkspaceInput) (*request.Request, *StopWorkspaceOutput)
+
+	SyncPagesDeployEnvVarsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SyncPagesDeployEnvVarsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SyncPagesDeployEnvVarsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SyncPagesDeployEnvVars(*SyncPagesDeployEnvVarsInput) (*SyncPagesDeployEnvVarsOutput, error)
+	SyncPagesDeployEnvVarsWithContext(volcengine.Context, *SyncPagesDeployEnvVarsInput, ...request.Option) (*SyncPagesDeployEnvVarsOutput, error)
+	SyncPagesDeployEnvVarsRequest(*SyncPagesDeployEnvVarsInput) (*request.Request, *SyncPagesDeployEnvVarsOutput)
+
+	UnbindPagesProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnbindPagesProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnbindPagesProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnbindPagesProject(*UnbindPagesProjectInput) (*UnbindPagesProjectOutput, error)
+	UnbindPagesProjectWithContext(volcengine.Context, *UnbindPagesProjectInput, ...request.Option) (*UnbindPagesProjectOutput, error)
+	UnbindPagesProjectRequest(*UnbindPagesProjectInput) (*request.Request, *UnbindPagesProjectOutput)
 
 	UpdateBranchCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateBranchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

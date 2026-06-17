@@ -342,6 +342,8 @@ type WorkspaceForDescribeWorkspaceDetailListOutput struct {
 
 	AgentPlanInfo *AgentPlanInfoForDescribeWorkspaceDetailListOutput `type:"structure" json:",omitempty"`
 
+	AgentPlanSeatId *string `type:"string" json:",omitempty"`
+
 	BaasComputeSettings *BaasComputeSettingsForDescribeWorkspaceDetailListOutput `type:"structure" json:",omitempty"`
 
 	ComputeSettings *ComputeSettingsForDescribeWorkspaceDetailListOutput `type:"structure" json:",omitempty"`
@@ -359,6 +361,8 @@ type WorkspaceForDescribeWorkspaceDetailListOutput struct {
 	EngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfEngineVersionForDescribeWorkspaceDetailListOutput"`
 
 	InternetProtocol *string `type:"string" json:",omitempty" enum:"EnumOfInternetProtocolForDescribeWorkspaceDetailListOutput"`
+
+	IsAgentPlan *bool `type:"boolean" json:",omitempty"`
 
 	IsAgentPlanInstance *bool `type:"boolean" json:",omitempty"`
 
@@ -408,6 +412,12 @@ func (s *WorkspaceForDescribeWorkspaceDetailListOutput) SetAccountId(v string) *
 // SetAgentPlanInfo sets the AgentPlanInfo field's value.
 func (s *WorkspaceForDescribeWorkspaceDetailListOutput) SetAgentPlanInfo(v *AgentPlanInfoForDescribeWorkspaceDetailListOutput) *WorkspaceForDescribeWorkspaceDetailListOutput {
 	s.AgentPlanInfo = v
+	return s
+}
+
+// SetAgentPlanSeatId sets the AgentPlanSeatId field's value.
+func (s *WorkspaceForDescribeWorkspaceDetailListOutput) SetAgentPlanSeatId(v string) *WorkspaceForDescribeWorkspaceDetailListOutput {
+	s.AgentPlanSeatId = &v
 	return s
 }
 
@@ -462,6 +472,12 @@ func (s *WorkspaceForDescribeWorkspaceDetailListOutput) SetEngineVersion(v strin
 // SetInternetProtocol sets the InternetProtocol field's value.
 func (s *WorkspaceForDescribeWorkspaceDetailListOutput) SetInternetProtocol(v string) *WorkspaceForDescribeWorkspaceDetailListOutput {
 	s.InternetProtocol = &v
+	return s
+}
+
+// SetIsAgentPlan sets the IsAgentPlan field's value.
+func (s *WorkspaceForDescribeWorkspaceDetailListOutput) SetIsAgentPlan(v bool) *WorkspaceForDescribeWorkspaceDetailListOutput {
+	s.IsAgentPlan = &v
 	return s
 }
 
