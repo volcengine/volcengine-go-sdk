@@ -193,6 +193,7 @@ var ServiceInfos = map[string]ServiceInfo{
 	"i18n_openapi":                {Service: "i18n_openapi", IsGlobal: true},
 	"config":                      {Service: "config", IsGlobal: true},
 	"milvus":                      {Service: "milvus", IsGlobal: false},
+	"dramart":                     {Service: "dramart", IsGlobal: true},
 }
 
 type RegionInfo struct{}
