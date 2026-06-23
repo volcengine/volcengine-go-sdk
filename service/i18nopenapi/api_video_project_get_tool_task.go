@@ -161,6 +161,194 @@ func (s *DataForVideoProjectGetToolTaskOutput) SetToolTask(v *ToolTaskForVideoPr
 	return s
 }
 
+type InputVideoInfoForVideoProjectGetToolTaskOutput struct {
+	_ struct{} `type:"structure"`
+
+	PosterUrl *string `type:"string" json:"posterUrl"`
+
+	SourceLastTime *string `type:"string" json:"sourceLastTime"`
+
+	SourceName *string `type:"string" json:"sourceName"`
+
+	SourceVid *string `type:"string" json:"sourceVid"`
+
+	SourceVideoUrl *string `type:"string" json:"sourceVideoUrl"`
+
+	TargetDownloadUrl *string `type:"string" json:"targetDownloadUrl"`
+
+	TargetLastTime *string `type:"string" json:"targetLastTime"`
+
+	TargetName *string `type:"string" json:"targetName"`
+
+	TargetVid *string `type:"string" json:"targetVid"`
+
+	TargetVideoUrl *string `type:"string" json:"targetVideoUrl"`
+}
+
+// String returns the string representation
+func (s InputVideoInfoForVideoProjectGetToolTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InputVideoInfoForVideoProjectGetToolTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetPosterUrl sets the PosterUrl field's value.
+func (s *InputVideoInfoForVideoProjectGetToolTaskOutput) SetPosterUrl(v string) *InputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.PosterUrl = &v
+	return s
+}
+
+// SetSourceLastTime sets the SourceLastTime field's value.
+func (s *InputVideoInfoForVideoProjectGetToolTaskOutput) SetSourceLastTime(v string) *InputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.SourceLastTime = &v
+	return s
+}
+
+// SetSourceName sets the SourceName field's value.
+func (s *InputVideoInfoForVideoProjectGetToolTaskOutput) SetSourceName(v string) *InputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.SourceName = &v
+	return s
+}
+
+// SetSourceVid sets the SourceVid field's value.
+func (s *InputVideoInfoForVideoProjectGetToolTaskOutput) SetSourceVid(v string) *InputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.SourceVid = &v
+	return s
+}
+
+// SetSourceVideoUrl sets the SourceVideoUrl field's value.
+func (s *InputVideoInfoForVideoProjectGetToolTaskOutput) SetSourceVideoUrl(v string) *InputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.SourceVideoUrl = &v
+	return s
+}
+
+// SetTargetDownloadUrl sets the TargetDownloadUrl field's value.
+func (s *InputVideoInfoForVideoProjectGetToolTaskOutput) SetTargetDownloadUrl(v string) *InputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.TargetDownloadUrl = &v
+	return s
+}
+
+// SetTargetLastTime sets the TargetLastTime field's value.
+func (s *InputVideoInfoForVideoProjectGetToolTaskOutput) SetTargetLastTime(v string) *InputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.TargetLastTime = &v
+	return s
+}
+
+// SetTargetName sets the TargetName field's value.
+func (s *InputVideoInfoForVideoProjectGetToolTaskOutput) SetTargetName(v string) *InputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.TargetName = &v
+	return s
+}
+
+// SetTargetVid sets the TargetVid field's value.
+func (s *InputVideoInfoForVideoProjectGetToolTaskOutput) SetTargetVid(v string) *InputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.TargetVid = &v
+	return s
+}
+
+// SetTargetVideoUrl sets the TargetVideoUrl field's value.
+func (s *InputVideoInfoForVideoProjectGetToolTaskOutput) SetTargetVideoUrl(v string) *InputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.TargetVideoUrl = &v
+	return s
+}
+
+type OutputVideoInfoForVideoProjectGetToolTaskOutput struct {
+	_ struct{} `type:"structure"`
+
+	PosterUrl *string `type:"string" json:"posterUrl"`
+
+	SourceLastTime *string `type:"string" json:"sourceLastTime"`
+
+	SourceName *string `type:"string" json:"sourceName"`
+
+	SourceVid *string `type:"string" json:"sourceVid"`
+
+	SourceVideoUrl *string `type:"string" json:"sourceVideoUrl"`
+
+	TargetDownloadUrl *string `type:"string" json:"targetDownloadUrl"`
+
+	TargetLastTime *string `type:"string" json:"targetLastTime"`
+
+	TargetName *string `type:"string" json:"targetName"`
+
+	TargetVid *string `type:"string" json:"targetVid"`
+
+	TargetVideoUrl *string `type:"string" json:"targetVideoUrl"`
+}
+
+// String returns the string representation
+func (s OutputVideoInfoForVideoProjectGetToolTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OutputVideoInfoForVideoProjectGetToolTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetPosterUrl sets the PosterUrl field's value.
+func (s *OutputVideoInfoForVideoProjectGetToolTaskOutput) SetPosterUrl(v string) *OutputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.PosterUrl = &v
+	return s
+}
+
+// SetSourceLastTime sets the SourceLastTime field's value.
+func (s *OutputVideoInfoForVideoProjectGetToolTaskOutput) SetSourceLastTime(v string) *OutputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.SourceLastTime = &v
+	return s
+}
+
+// SetSourceName sets the SourceName field's value.
+func (s *OutputVideoInfoForVideoProjectGetToolTaskOutput) SetSourceName(v string) *OutputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.SourceName = &v
+	return s
+}
+
+// SetSourceVid sets the SourceVid field's value.
+func (s *OutputVideoInfoForVideoProjectGetToolTaskOutput) SetSourceVid(v string) *OutputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.SourceVid = &v
+	return s
+}
+
+// SetSourceVideoUrl sets the SourceVideoUrl field's value.
+func (s *OutputVideoInfoForVideoProjectGetToolTaskOutput) SetSourceVideoUrl(v string) *OutputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.SourceVideoUrl = &v
+	return s
+}
+
+// SetTargetDownloadUrl sets the TargetDownloadUrl field's value.
+func (s *OutputVideoInfoForVideoProjectGetToolTaskOutput) SetTargetDownloadUrl(v string) *OutputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.TargetDownloadUrl = &v
+	return s
+}
+
+// SetTargetLastTime sets the TargetLastTime field's value.
+func (s *OutputVideoInfoForVideoProjectGetToolTaskOutput) SetTargetLastTime(v string) *OutputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.TargetLastTime = &v
+	return s
+}
+
+// SetTargetName sets the TargetName field's value.
+func (s *OutputVideoInfoForVideoProjectGetToolTaskOutput) SetTargetName(v string) *OutputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.TargetName = &v
+	return s
+}
+
+// SetTargetVid sets the TargetVid field's value.
+func (s *OutputVideoInfoForVideoProjectGetToolTaskOutput) SetTargetVid(v string) *OutputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.TargetVid = &v
+	return s
+}
+
+// SetTargetVideoUrl sets the TargetVideoUrl field's value.
+func (s *OutputVideoInfoForVideoProjectGetToolTaskOutput) SetTargetVideoUrl(v string) *OutputVideoInfoForVideoProjectGetToolTaskOutput {
+	s.TargetVideoUrl = &v
+	return s
+}
+
 type ToolResourceForVideoProjectGetToolTaskOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -232,11 +420,11 @@ type ToolTaskForVideoProjectGetToolTaskOutput struct {
 
 	OutputVid *string `type:"string" json:"outputVid"`
 
-	ProjectID *string `type:"string" json:"projectID"`
+	ProjectId *string `type:"string" json:"projectId"`
 
-	ResourceID *string `type:"string" json:"resourceID"`
+	ResourceId *string `type:"string" json:"resourceId"`
 
-	TaskID *string `type:"string" json:"taskID"`
+	TaskId *string `type:"string" json:"taskId"`
 
 	TaskParams *string `type:"string" json:"taskParams"`
 
@@ -248,9 +436,11 @@ type ToolTaskForVideoProjectGetToolTaskOutput struct {
 
 	ToolResource *ToolResourceForVideoProjectGetToolTaskOutput `type:"structure" json:"toolResource"`
 
+	ToolTaskResults []*ToolTaskResultForVideoProjectGetToolTaskOutput `type:"list" json:"toolTaskResults"`
+
 	UpdateTime *string `type:"string" json:"updateTime"`
 
-	UserID *string `type:"string" json:"userID"`
+	UserId *string `type:"string" json:"userId"`
 }
 
 // String returns the string representation
@@ -281,21 +471,21 @@ func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetOutputVid(v string) *ToolT
 	return s
 }
 
-// SetProjectID sets the ProjectID field's value.
-func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetProjectID(v string) *ToolTaskForVideoProjectGetToolTaskOutput {
-	s.ProjectID = &v
+// SetProjectId sets the ProjectId field's value.
+func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetProjectId(v string) *ToolTaskForVideoProjectGetToolTaskOutput {
+	s.ProjectId = &v
 	return s
 }
 
-// SetResourceID sets the ResourceID field's value.
-func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetResourceID(v string) *ToolTaskForVideoProjectGetToolTaskOutput {
-	s.ResourceID = &v
+// SetResourceId sets the ResourceId field's value.
+func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetResourceId(v string) *ToolTaskForVideoProjectGetToolTaskOutput {
+	s.ResourceId = &v
 	return s
 }
 
-// SetTaskID sets the TaskID field's value.
-func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetTaskID(v string) *ToolTaskForVideoProjectGetToolTaskOutput {
-	s.TaskID = &v
+// SetTaskId sets the TaskId field's value.
+func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetTaskId(v string) *ToolTaskForVideoProjectGetToolTaskOutput {
+	s.TaskId = &v
 	return s
 }
 
@@ -329,20 +519,83 @@ func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetToolResource(v *ToolResour
 	return s
 }
 
+// SetToolTaskResults sets the ToolTaskResults field's value.
+func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetToolTaskResults(v []*ToolTaskResultForVideoProjectGetToolTaskOutput) *ToolTaskForVideoProjectGetToolTaskOutput {
+	s.ToolTaskResults = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetUpdateTime(v string) *ToolTaskForVideoProjectGetToolTaskOutput {
 	s.UpdateTime = &v
 	return s
 }
 
-// SetUserID sets the UserID field's value.
-func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetUserID(v string) *ToolTaskForVideoProjectGetToolTaskOutput {
-	s.UserID = &v
+// SetUserId sets the UserId field's value.
+func (s *ToolTaskForVideoProjectGetToolTaskOutput) SetUserId(v string) *ToolTaskForVideoProjectGetToolTaskOutput {
+	s.UserId = &v
+	return s
+}
+
+type ToolTaskResultForVideoProjectGetToolTaskOutput struct {
+	_ struct{} `type:"structure"`
+
+	EpisodeNum *string `type:"string" json:"episodeNum"`
+
+	InputVid *string `type:"string" json:"inputVid"`
+
+	InputVideoInfo *InputVideoInfoForVideoProjectGetToolTaskOutput `type:"structure" json:"inputVideoInfo"`
+
+	OutputVid *string `type:"string" json:"outputVid"`
+
+	OutputVideoInfo *OutputVideoInfoForVideoProjectGetToolTaskOutput `type:"structure" json:"outputVideoInfo"`
+}
+
+// String returns the string representation
+func (s ToolTaskResultForVideoProjectGetToolTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ToolTaskResultForVideoProjectGetToolTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetEpisodeNum sets the EpisodeNum field's value.
+func (s *ToolTaskResultForVideoProjectGetToolTaskOutput) SetEpisodeNum(v string) *ToolTaskResultForVideoProjectGetToolTaskOutput {
+	s.EpisodeNum = &v
+	return s
+}
+
+// SetInputVid sets the InputVid field's value.
+func (s *ToolTaskResultForVideoProjectGetToolTaskOutput) SetInputVid(v string) *ToolTaskResultForVideoProjectGetToolTaskOutput {
+	s.InputVid = &v
+	return s
+}
+
+// SetInputVideoInfo sets the InputVideoInfo field's value.
+func (s *ToolTaskResultForVideoProjectGetToolTaskOutput) SetInputVideoInfo(v *InputVideoInfoForVideoProjectGetToolTaskOutput) *ToolTaskResultForVideoProjectGetToolTaskOutput {
+	s.InputVideoInfo = v
+	return s
+}
+
+// SetOutputVid sets the OutputVid field's value.
+func (s *ToolTaskResultForVideoProjectGetToolTaskOutput) SetOutputVid(v string) *ToolTaskResultForVideoProjectGetToolTaskOutput {
+	s.OutputVid = &v
+	return s
+}
+
+// SetOutputVideoInfo sets the OutputVideoInfo field's value.
+func (s *ToolTaskResultForVideoProjectGetToolTaskOutput) SetOutputVideoInfo(v *OutputVideoInfoForVideoProjectGetToolTaskOutput) *ToolTaskResultForVideoProjectGetToolTaskOutput {
+	s.OutputVideoInfo = v
 	return s
 }
 
 type VideoProjectGetToolTaskInput struct {
 	_ struct{} `type:"structure"`
+
+	// ProjectId is a required field
+	ProjectId *string `locationName:"projectId" type:"string" required:"true"`
 
 	// TaskId is a required field
 	TaskId *string `locationName:"taskId" type:"string" required:"true"`
@@ -361,6 +614,9 @@ func (s VideoProjectGetToolTaskInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *VideoProjectGetToolTaskInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "VideoProjectGetToolTaskInput"}
+	if s.ProjectId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ProjectId"))
+	}
 	if s.TaskId == nil {
 		invalidParams.Add(request.NewErrParamRequired("TaskId"))
 	}
@@ -369,6 +625,12 @@ func (s *VideoProjectGetToolTaskInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetProjectId sets the ProjectId field's value.
+func (s *VideoProjectGetToolTaskInput) SetProjectId(v string) *VideoProjectGetToolTaskInput {
+	s.ProjectId = &v
+	return s
 }
 
 // SetTaskId sets the TaskId field's value.

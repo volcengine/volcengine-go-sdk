@@ -472,6 +472,10 @@ type SuppressionVideoInfoForVideoProjectTaskDetailOutput struct {
 
 	SourceVideoUrl *string `type:"string" json:"sourceVideoUrl"`
 
+	TargetAudioDownloadUrl *string `type:"string" json:"targetAudioDownloadUrl"`
+
+	TargetAudioUrl *string `type:"string" json:"targetAudioUrl"`
+
 	TargetDownloadUrl *string `type:"string" json:"targetDownloadUrl"`
 
 	TargetLastTime *string `type:"string" json:"targetLastTime"`
@@ -520,6 +524,18 @@ func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetSourceVid(v str
 // SetSourceVideoUrl sets the SourceVideoUrl field's value.
 func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetSourceVideoUrl(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
 	s.SourceVideoUrl = &v
+	return s
+}
+
+// SetTargetAudioDownloadUrl sets the TargetAudioDownloadUrl field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetTargetAudioDownloadUrl(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.TargetAudioDownloadUrl = &v
+	return s
+}
+
+// SetTargetAudioUrl sets the TargetAudioUrl field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetTargetAudioUrl(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.TargetAudioUrl = &v
 	return s
 }
 

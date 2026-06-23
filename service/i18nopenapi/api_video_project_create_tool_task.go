@@ -175,8 +175,6 @@ type VideoProjectCreateToolTaskInput struct {
 
 	ToolParamsJson *string `type:"string" json:"toolParamsJson,omitempty"`
 
-	UserId *string `type:"string" json:"userId,omitempty"`
-
 	VideoIDs []*string `type:"list" json:"videoIDs,omitempty"`
 }
 
@@ -218,12 +216,6 @@ func (s *VideoProjectCreateToolTaskInput) SetTaskType(v int32) *VideoProjectCrea
 // SetToolParamsJson sets the ToolParamsJson field's value.
 func (s *VideoProjectCreateToolTaskInput) SetToolParamsJson(v string) *VideoProjectCreateToolTaskInput {
 	s.ToolParamsJson = &v
-	return s
-}
-
-// SetUserId sets the UserId field's value.
-func (s *VideoProjectCreateToolTaskInput) SetUserId(v string) *VideoProjectCreateToolTaskInput {
-	s.UserId = &v
 	return s
 }
 

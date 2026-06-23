@@ -798,6 +798,14 @@ type I18NOPENAPIAPI interface {
 	VideoEditorUpdateSpeakerWithContext(volcengine.Context, *VideoEditorUpdateSpeakerInput, ...request.Option) (*VideoEditorUpdateSpeakerOutput, error)
 	VideoEditorUpdateSpeakerRequest(*VideoEditorUpdateSpeakerInput) (*request.Request, *VideoEditorUpdateSpeakerOutput)
 
+	VideoProjectAddTargetLangsToExistingDramaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectAddTargetLangsToExistingDramaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectAddTargetLangsToExistingDramaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectAddTargetLangsToExistingDrama(*VideoProjectAddTargetLangsToExistingDramaInput) (*VideoProjectAddTargetLangsToExistingDramaOutput, error)
+	VideoProjectAddTargetLangsToExistingDramaWithContext(volcengine.Context, *VideoProjectAddTargetLangsToExistingDramaInput, ...request.Option) (*VideoProjectAddTargetLangsToExistingDramaOutput, error)
+	VideoProjectAddTargetLangsToExistingDramaRequest(*VideoProjectAddTargetLangsToExistingDramaInput) (*request.Request, *VideoProjectAddTargetLangsToExistingDramaOutput)
+
 	VideoProjectCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectCreateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -813,6 +821,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectCreateToolTask(*VideoProjectCreateToolTaskInput) (*VideoProjectCreateToolTaskOutput, error)
 	VideoProjectCreateToolTaskWithContext(volcengine.Context, *VideoProjectCreateToolTaskInput, ...request.Option) (*VideoProjectCreateToolTaskOutput, error)
 	VideoProjectCreateToolTaskRequest(*VideoProjectCreateToolTaskInput) (*request.Request, *VideoProjectCreateToolTaskOutput)
+
+	VideoProjectDeleteVideoDramaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectDeleteVideoDramaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectDeleteVideoDramaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectDeleteVideoDrama(*VideoProjectDeleteVideoDramaInput) (*VideoProjectDeleteVideoDramaOutput, error)
+	VideoProjectDeleteVideoDramaWithContext(volcengine.Context, *VideoProjectDeleteVideoDramaInput, ...request.Option) (*VideoProjectDeleteVideoDramaOutput, error)
+	VideoProjectDeleteVideoDramaRequest(*VideoProjectDeleteVideoDramaInput) (*request.Request, *VideoProjectDeleteVideoDramaOutput)
 
 	VideoProjectGetToolTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectGetToolTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -838,6 +854,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectListWithContext(volcengine.Context, *VideoProjectListInput, ...request.Option) (*VideoProjectListOutput, error)
 	VideoProjectListRequest(*VideoProjectListInput) (*request.Request, *VideoProjectListOutput)
 
+	VideoProjectListToolProjectResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectListToolProjectResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectListToolProjectResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectListToolProjectResources(*VideoProjectListToolProjectResourcesInput) (*VideoProjectListToolProjectResourcesOutput, error)
+	VideoProjectListToolProjectResourcesWithContext(volcengine.Context, *VideoProjectListToolProjectResourcesInput, ...request.Option) (*VideoProjectListToolProjectResourcesOutput, error)
+	VideoProjectListToolProjectResourcesRequest(*VideoProjectListToolProjectResourcesInput) (*request.Request, *VideoProjectListToolProjectResourcesOutput)
+
 	VideoProjectListToolTaskByResourceIDsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectListToolTaskByResourceIDsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectListToolTaskByResourceIDsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -845,6 +869,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectListToolTaskByResourceIDs(*VideoProjectListToolTaskByResourceIDsInput) (*VideoProjectListToolTaskByResourceIDsOutput, error)
 	VideoProjectListToolTaskByResourceIDsWithContext(volcengine.Context, *VideoProjectListToolTaskByResourceIDsInput, ...request.Option) (*VideoProjectListToolTaskByResourceIDsOutput, error)
 	VideoProjectListToolTaskByResourceIDsRequest(*VideoProjectListToolTaskByResourceIDsInput) (*request.Request, *VideoProjectListToolTaskByResourceIDsOutput)
+
+	VideoProjectListVideoDramaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectListVideoDramaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectListVideoDramaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectListVideoDrama(*VideoProjectListVideoDramaInput) (*VideoProjectListVideoDramaOutput, error)
+	VideoProjectListVideoDramaWithContext(volcengine.Context, *VideoProjectListVideoDramaInput, ...request.Option) (*VideoProjectListVideoDramaOutput, error)
+	VideoProjectListVideoDramaRequest(*VideoProjectListVideoDramaInput) (*request.Request, *VideoProjectListVideoDramaOutput)
 
 	VideoProjectSerialDubTaskCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectSerialDubTaskCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
