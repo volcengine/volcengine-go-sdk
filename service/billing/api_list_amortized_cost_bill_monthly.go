@@ -350,6 +350,8 @@ type ListForListAmortizedCostBillMonthlyOutput struct {
 
 	BeforeAmortizedPayableAmount *string `type:"string" json:",omitempty"`
 
+	BeforeAmortizedPointDeductAmount *string `type:"string" json:",omitempty"`
+
 	BeforeAmortizedPosttaxAmount *string `type:"string" json:",omitempty"`
 
 	BeforeAmortizedPreTaxPayableAmount *string `type:"string" json:",omitempty"`
@@ -423,6 +425,8 @@ type ListForListAmortizedCostBillMonthlyOutput struct {
 	DailyAmortizedPaidAmount *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedPayableAmount *string `type:"string" json:",omitempty"`
+
+	DailyAmortizedPointDeductAmount *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedPosttaxAmount *string `type:"string" json:",omitempty"`
 
@@ -498,6 +502,8 @@ type ListForListAmortizedCostBillMonthlyOutput struct {
 
 	NowAmortizedPayableAmount *string `type:"string" json:",omitempty"`
 
+	NowAmortizedPointDeductAmount *string `type:"string" json:",omitempty"`
+
 	NowAmortizedPosttaxAmount *string `type:"string" json:",omitempty"`
 
 	NowAmortizedPreTaxPayableAmount *string `type:"string" json:",omitempty"`
@@ -549,6 +555,8 @@ type ListForListAmortizedCostBillMonthlyOutput struct {
 	PayerID *string `type:"string" json:",omitempty"`
 
 	PayerUserName *string `type:"string" json:",omitempty"`
+
+	PointDeductAmount *string `type:"string" json:",omitempty"`
 
 	PosttaxAmount *string `type:"string" json:",omitempty"`
 
@@ -627,6 +635,8 @@ type ListForListAmortizedCostBillMonthlyOutput struct {
 	UnamortizedPaidAmount *string `type:"string" json:",omitempty"`
 
 	UnamortizedPayableAmount *string `type:"string" json:",omitempty"`
+
+	UnamortizedPointDeductAmount *string `type:"string" json:",omitempty"`
 
 	UnamortizedPosttaxAmount *string `type:"string" json:",omitempty"`
 
@@ -734,6 +744,12 @@ func (s *ListForListAmortizedCostBillMonthlyOutput) SetBeforeAmortizedPaidAmount
 // SetBeforeAmortizedPayableAmount sets the BeforeAmortizedPayableAmount field's value.
 func (s *ListForListAmortizedCostBillMonthlyOutput) SetBeforeAmortizedPayableAmount(v string) *ListForListAmortizedCostBillMonthlyOutput {
 	s.BeforeAmortizedPayableAmount = &v
+	return s
+}
+
+// SetBeforeAmortizedPointDeductAmount sets the BeforeAmortizedPointDeductAmount field's value.
+func (s *ListForListAmortizedCostBillMonthlyOutput) SetBeforeAmortizedPointDeductAmount(v string) *ListForListAmortizedCostBillMonthlyOutput {
+	s.BeforeAmortizedPointDeductAmount = &v
 	return s
 }
 
@@ -959,6 +975,12 @@ func (s *ListForListAmortizedCostBillMonthlyOutput) SetDailyAmortizedPayableAmou
 	return s
 }
 
+// SetDailyAmortizedPointDeductAmount sets the DailyAmortizedPointDeductAmount field's value.
+func (s *ListForListAmortizedCostBillMonthlyOutput) SetDailyAmortizedPointDeductAmount(v string) *ListForListAmortizedCostBillMonthlyOutput {
+	s.DailyAmortizedPointDeductAmount = &v
+	return s
+}
+
 // SetDailyAmortizedPosttaxAmount sets the DailyAmortizedPosttaxAmount field's value.
 func (s *ListForListAmortizedCostBillMonthlyOutput) SetDailyAmortizedPosttaxAmount(v string) *ListForListAmortizedCostBillMonthlyOutput {
 	s.DailyAmortizedPosttaxAmount = &v
@@ -1181,6 +1203,12 @@ func (s *ListForListAmortizedCostBillMonthlyOutput) SetNowAmortizedPayableAmount
 	return s
 }
 
+// SetNowAmortizedPointDeductAmount sets the NowAmortizedPointDeductAmount field's value.
+func (s *ListForListAmortizedCostBillMonthlyOutput) SetNowAmortizedPointDeductAmount(v string) *ListForListAmortizedCostBillMonthlyOutput {
+	s.NowAmortizedPointDeductAmount = &v
+	return s
+}
+
 // SetNowAmortizedPosttaxAmount sets the NowAmortizedPosttaxAmount field's value.
 func (s *ListForListAmortizedCostBillMonthlyOutput) SetNowAmortizedPosttaxAmount(v string) *ListForListAmortizedCostBillMonthlyOutput {
 	s.NowAmortizedPosttaxAmount = &v
@@ -1334,6 +1362,12 @@ func (s *ListForListAmortizedCostBillMonthlyOutput) SetPayerID(v string) *ListFo
 // SetPayerUserName sets the PayerUserName field's value.
 func (s *ListForListAmortizedCostBillMonthlyOutput) SetPayerUserName(v string) *ListForListAmortizedCostBillMonthlyOutput {
 	s.PayerUserName = &v
+	return s
+}
+
+// SetPointDeductAmount sets the PointDeductAmount field's value.
+func (s *ListForListAmortizedCostBillMonthlyOutput) SetPointDeductAmount(v string) *ListForListAmortizedCostBillMonthlyOutput {
+	s.PointDeductAmount = &v
 	return s
 }
 
@@ -1568,6 +1602,12 @@ func (s *ListForListAmortizedCostBillMonthlyOutput) SetUnamortizedPaidAmount(v s
 // SetUnamortizedPayableAmount sets the UnamortizedPayableAmount field's value.
 func (s *ListForListAmortizedCostBillMonthlyOutput) SetUnamortizedPayableAmount(v string) *ListForListAmortizedCostBillMonthlyOutput {
 	s.UnamortizedPayableAmount = &v
+	return s
+}
+
+// SetUnamortizedPointDeductAmount sets the UnamortizedPointDeductAmount field's value.
+func (s *ListForListAmortizedCostBillMonthlyOutput) SetUnamortizedPointDeductAmount(v string) *ListForListAmortizedCostBillMonthlyOutput {
+	s.UnamortizedPointDeductAmount = &v
 	return s
 }
 

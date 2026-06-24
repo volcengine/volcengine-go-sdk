@@ -70,6 +70,14 @@ type BILLINGAPI interface {
 	CreateBudgetWithContext(volcengine.Context, *CreateBudgetInput, ...request.Option) (*CreateBudgetOutput, error)
 	CreateBudgetRequest(*CreateBudgetInput) (*request.Request, *CreateBudgetOutput)
 
+	CreateDropShippingOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDropShippingOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDropShippingOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDropShippingOrder(*CreateDropShippingOrderInput) (*CreateDropShippingOrderOutput, error)
+	CreateDropShippingOrderWithContext(volcengine.Context, *CreateDropShippingOrderInput, ...request.Option) (*CreateDropShippingOrderOutput, error)
+	CreateDropShippingOrderRequest(*CreateDropShippingOrderInput) (*request.Request, *CreateDropShippingOrderOutput)
+
 	CreateFinancialRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFinancialRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateFinancialRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +101,14 @@ type BILLINGAPI interface {
 	DeleteFinancialRelation(*DeleteFinancialRelationInput) (*DeleteFinancialRelationOutput, error)
 	DeleteFinancialRelationWithContext(volcengine.Context, *DeleteFinancialRelationInput, ...request.Option) (*DeleteFinancialRelationOutput, error)
 	DeleteFinancialRelationRequest(*DeleteFinancialRelationInput) (*request.Request, *DeleteFinancialRelationOutput)
+
+	GetDropShippingOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetDropShippingOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetDropShippingOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetDropShippingOrder(*GetDropShippingOrderInput) (*GetDropShippingOrderOutput, error)
+	GetDropShippingOrderWithContext(volcengine.Context, *GetDropShippingOrderInput, ...request.Option) (*GetDropShippingOrderOutput, error)
+	GetDropShippingOrderRequest(*GetDropShippingOrderInput) (*request.Request, *GetDropShippingOrderOutput)
 
 	GetFilterInfoForCostAnalysisCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetFilterInfoForCostAnalysisCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -373,6 +389,14 @@ type BILLINGAPI interface {
 	PayOrder(*PayOrderInput) (*PayOrderOutput, error)
 	PayOrderWithContext(volcengine.Context, *PayOrderInput, ...request.Option) (*PayOrderOutput, error)
 	PayOrderRequest(*PayOrderInput) (*request.Request, *PayOrderOutput)
+
+	PreCheckDropShippingOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PreCheckDropShippingOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PreCheckDropShippingOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PreCheckDropShippingOrder(*PreCheckDropShippingOrderInput) (*PreCheckDropShippingOrderOutput, error)
+	PreCheckDropShippingOrderWithContext(volcengine.Context, *PreCheckDropShippingOrderInput, ...request.Option) (*PreCheckDropShippingOrderOutput, error)
+	PreCheckDropShippingOrderRequest(*PreCheckDropShippingOrderInput) (*request.Request, *PreCheckDropShippingOrderOutput)
 
 	QueryBalanceAcctCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryBalanceAcctCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

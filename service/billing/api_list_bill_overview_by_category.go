@@ -304,6 +304,8 @@ type ListForListBillOverviewByCategoryOutput struct {
 
 	PayerUserName *string `type:"string" json:",omitempty"`
 
+	PointDeductAmount *string `type:"string" json:",omitempty"`
+
 	PosttaxAmount *string `type:"string" json:",omitempty"`
 
 	PreTaxPayableAmount *string `type:"string" json:",omitempty"`
@@ -468,6 +470,12 @@ func (s *ListForListBillOverviewByCategoryOutput) SetPayerID(v string) *ListForL
 // SetPayerUserName sets the PayerUserName field's value.
 func (s *ListForListBillOverviewByCategoryOutput) SetPayerUserName(v string) *ListForListBillOverviewByCategoryOutput {
 	s.PayerUserName = &v
+	return s
+}
+
+// SetPointDeductAmount sets the PointDeductAmount field's value.
+func (s *ListForListBillOverviewByCategoryOutput) SetPointDeductAmount(v string) *ListForListBillOverviewByCategoryOutput {
+	s.PointDeductAmount = &v
 	return s
 }
 
