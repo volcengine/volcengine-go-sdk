@@ -69,6 +69,9 @@ func (c *Client) CreateBatchMultiModalEmbeddings(
 	request model.MultiModalEmbeddingRequest,
 	setters ...RequestOption,
 ) (res model.MultimodalEmbeddingResponse, err error) {
+	if err = request.Validate(); err != nil {
+		return
+	}
 
 	requestOptions := append(setters, withBody(request))
 	if request.EncodingFormat != nil && *request.EncodingFormat == model.EmbeddingEncodingFormatBase64 {

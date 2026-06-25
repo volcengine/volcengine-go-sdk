@@ -49,9 +49,11 @@ func (b base64String) Decode() ([]float32, error) {
 
 // Base64Embedding is a container for base64 encoded embeddings.
 type Base64Embedding struct {
-	Object    string       `json:"object"`
-	Embedding base64String `json:"embedding"`
-	Index     int          `json:"index"`
+	Object          string               `json:"object"`
+	Embedding       base64String         `json:"embedding"`
+	Index           int                  `json:"index"`
+	SparseEmbedding *[]SparseEmbedding   `json:"sparse_embedding,omitempty"`
+	MultiEmbedding  *MultiEmbeddingValue `json:"multi_embedding,omitempty"`
 }
 
 // EmbeddingResponseBase64 is the response from a Create embeddings request with base64 encoding format.
