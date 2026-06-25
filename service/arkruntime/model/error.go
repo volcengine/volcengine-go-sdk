@@ -56,4 +56,5 @@ var (
 	ErrBodyWithoutBot                   = errors.New("can't fetch bot sts token without bot id")
 	ErrAKSKNotSupported                 = errors.New("ak&sk authentication is currently not supported for this method, please use api key instead")
 	ErrBodyWithoutProjectName           = errors.New("project name is required for preset endpoint")
+	ErrMultiEmbeddingBlosc2Unsupported  = errors.New("multi_embedding compression blosc2 is not supported by Go SDK")
 )

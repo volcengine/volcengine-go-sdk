@@ -194,6 +194,10 @@ type ConfigForUpdateDeploymentInput struct {
 
 	Cfs *CfsForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 
+	Efs *EfsForUpdateDeploymentInput `type:"structure" json:",omitempty"`
+
+	EfsAP *EfsAPForUpdateDeploymentInput `type:"structure" json:",omitempty"`
+
 	Nas *NasForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 
 	NasAP *NasAPForUpdateDeploymentInput `type:"structure" json:",omitempty"`
@@ -222,6 +226,18 @@ func (s ConfigForUpdateDeploymentInput) GoString() string {
 // SetCfs sets the Cfs field's value.
 func (s *ConfigForUpdateDeploymentInput) SetCfs(v *CfsForUpdateDeploymentInput) *ConfigForUpdateDeploymentInput {
 	s.Cfs = v
+	return s
+}
+
+// SetEfs sets the Efs field's value.
+func (s *ConfigForUpdateDeploymentInput) SetEfs(v *EfsForUpdateDeploymentInput) *ConfigForUpdateDeploymentInput {
+	s.Efs = v
+	return s
+}
+
+// SetEfsAP sets the EfsAP field's value.
+func (s *ConfigForUpdateDeploymentInput) SetEfsAP(v *EfsAPForUpdateDeploymentInput) *ConfigForUpdateDeploymentInput {
+	s.EfsAP = v
 	return s
 }
 
@@ -362,6 +378,90 @@ func (s *CredentialForUpdateDeploymentInput) SetSecretAccessKey(v string) *Crede
 // SetUseServiceLinkedRole sets the UseServiceLinkedRole field's value.
 func (s *CredentialForUpdateDeploymentInput) SetUseServiceLinkedRole(v bool) *CredentialForUpdateDeploymentInput {
 	s.UseServiceLinkedRole = &v
+	return s
+}
+
+type EfsAPForUpdateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsAPForUpdateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsAPForUpdateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *EfsAPForUpdateDeploymentInput) SetAccessPointId(v string) *EfsAPForUpdateDeploymentInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EfsAPForUpdateDeploymentInput) SetId(v string) *EfsAPForUpdateDeploymentInput {
+	s.Id = &v
+	return s
+}
+
+type EfsForUpdateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	EfsType *string `type:"string" json:",omitempty"`
+
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	SubPath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsForUpdateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsForUpdateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *EfsForUpdateDeploymentInput) SetAddr(v string) *EfsForUpdateDeploymentInput {
+	s.Addr = &v
+	return s
+}
+
+// SetEfsType sets the EfsType field's value.
+func (s *EfsForUpdateDeploymentInput) SetEfsType(v string) *EfsForUpdateDeploymentInput {
+	s.EfsType = &v
+	return s
+}
+
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *EfsForUpdateDeploymentInput) SetFileSystemName(v string) *EfsForUpdateDeploymentInput {
+	s.FileSystemName = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EfsForUpdateDeploymentInput) SetId(v string) *EfsForUpdateDeploymentInput {
+	s.Id = &v
+	return s
+}
+
+// SetSubPath sets the SubPath field's value.
+func (s *EfsForUpdateDeploymentInput) SetSubPath(v string) *EfsForUpdateDeploymentInput {
+	s.SubPath = &v
 	return s
 }
 
@@ -1598,6 +1698,8 @@ type UpdateDeploymentInput struct {
 	ResourceQueueId *string `type:"string" json:",omitempty"`
 
 	Roles []*RoleForUpdateDeploymentInput `type:"list" json:",omitempty"`
+
+	UseServerlessResource *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1662,6 +1764,12 @@ func (s *UpdateDeploymentInput) SetResourceQueueId(v string) *UpdateDeploymentIn
 // SetRoles sets the Roles field's value.
 func (s *UpdateDeploymentInput) SetRoles(v []*RoleForUpdateDeploymentInput) *UpdateDeploymentInput {
 	s.Roles = v
+	return s
+}
+
+// SetUseServerlessResource sets the UseServerlessResource field's value.
+func (s *UpdateDeploymentInput) SetUseServerlessResource(v bool) *UpdateDeploymentInput {
+	s.UseServerlessResource = &v
 	return s
 }
 

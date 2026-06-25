@@ -422,7 +422,7 @@ type DescribeDBProxyPriceDetailOutput struct {
 
 	Quantity *int32 `type:"int32" json:",omitempty"`
 
-	RefundAmount *float64 `type:"float" json:",omitempty"`
+	RefundAmount *float32 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -496,7 +496,7 @@ func (s *DescribeDBProxyPriceDetailOutput) SetQuantity(v int32) *DescribeDBProxy
 }
 
 // SetRefundAmount sets the RefundAmount field's value.
-func (s *DescribeDBProxyPriceDetailOutput) SetRefundAmount(v float64) *DescribeDBProxyPriceDetailOutput {
+func (s *DescribeDBProxyPriceDetailOutput) SetRefundAmount(v float32) *DescribeDBProxyPriceDetailOutput {
 	s.RefundAmount = &v
 	return s
 }

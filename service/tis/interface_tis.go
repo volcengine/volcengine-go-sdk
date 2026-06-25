@@ -62,6 +62,22 @@ type TISAPI interface {
 	CreateDeviceWithoutApprovalWithContext(volcengine.Context, *CreateDeviceWithoutApprovalInput, ...request.Option) (*CreateDeviceWithoutApprovalOutput, error)
 	CreateDeviceWithoutApprovalRequest(*CreateDeviceWithoutApprovalInput) (*request.Request, *CreateDeviceWithoutApprovalOutput)
 
+	CreateVoicePrintCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateVoicePrintCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateVoicePrintCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateVoicePrint(*CreateVoicePrintInput) (*CreateVoicePrintOutput, error)
+	CreateVoicePrintWithContext(volcengine.Context, *CreateVoicePrintInput, ...request.Option) (*CreateVoicePrintOutput, error)
+	CreateVoicePrintRequest(*CreateVoicePrintInput) (*request.Request, *CreateVoicePrintOutput)
+
+	DeleteVoicePrintCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteVoicePrintCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteVoicePrintCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteVoicePrint(*DeleteVoicePrintInput) (*DeleteVoicePrintOutput, error)
+	DeleteVoicePrintWithContext(volcengine.Context, *DeleteVoicePrintInput, ...request.Option) (*DeleteVoicePrintOutput, error)
+	DeleteVoicePrintRequest(*DeleteVoicePrintInput) (*request.Request, *DeleteVoicePrintOutput)
+
 	GetAgentListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAgentListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetAgentListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -118,6 +134,14 @@ type TISAPI interface {
 	PushMsgToDeviceWithContext(volcengine.Context, *PushMsgToDeviceInput, ...request.Option) (*PushMsgToDeviceOutput, error)
 	PushMsgToDeviceRequest(*PushMsgToDeviceInput) (*request.Request, *PushMsgToDeviceOutput)
 
+	QueryVoicePrintCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryVoicePrintCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryVoicePrintCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryVoicePrint(*QueryVoicePrintInput) (*QueryVoicePrintOutput, error)
+	QueryVoicePrintWithContext(volcengine.Context, *QueryVoicePrintInput, ...request.Option) (*QueryVoicePrintOutput, error)
+	QueryVoicePrintRequest(*QueryVoicePrintInput) (*request.Request, *QueryVoicePrintOutput)
+
 	TopActionDispatchCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TopActionDispatchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TopActionDispatchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -125,6 +149,14 @@ type TISAPI interface {
 	TopActionDispatch(*TopActionDispatchInput) (*TopActionDispatchOutput, error)
 	TopActionDispatchWithContext(volcengine.Context, *TopActionDispatchInput, ...request.Option) (*TopActionDispatchOutput, error)
 	TopActionDispatchRequest(*TopActionDispatchInput) (*request.Request, *TopActionDispatchOutput)
+
+	UpdateVoicePrintCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateVoicePrintCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateVoicePrintCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateVoicePrint(*UpdateVoicePrintInput) (*UpdateVoicePrintOutput, error)
+	UpdateVoicePrintWithContext(volcengine.Context, *UpdateVoicePrintInput, ...request.Option) (*UpdateVoicePrintOutput, error)
+	UpdateVoicePrintRequest(*UpdateVoicePrintInput) (*request.Request, *UpdateVoicePrintOutput)
 }
 
 var _ TISAPI = (*TIS)(nil)

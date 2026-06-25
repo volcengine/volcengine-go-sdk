@@ -150,6 +150,8 @@ type CreateDBEndpointReqForModifyDBEndpointConnectionModeInput struct {
 
 	ConnectionPoolType *string `type:"string" json:",omitempty"`
 
+	CustomRouteStrategy *CustomRouteStrategyForModifyDBEndpointConnectionModeInput `type:"structure" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	EndpointName *string `type:"string" json:",omitempty"`
@@ -202,6 +204,12 @@ func (s *CreateDBEndpointReqForModifyDBEndpointConnectionModeInput) SetAutoAddNe
 // SetConnectionPoolType sets the ConnectionPoolType field's value.
 func (s *CreateDBEndpointReqForModifyDBEndpointConnectionModeInput) SetConnectionPoolType(v string) *CreateDBEndpointReqForModifyDBEndpointConnectionModeInput {
 	s.ConnectionPoolType = &v
+	return s
+}
+
+// SetCustomRouteStrategy sets the CustomRouteStrategy field's value.
+func (s *CreateDBEndpointReqForModifyDBEndpointConnectionModeInput) SetCustomRouteStrategy(v *CustomRouteStrategyForModifyDBEndpointConnectionModeInput) *CreateDBEndpointReqForModifyDBEndpointConnectionModeInput {
+	s.CustomRouteStrategy = v
 	return s
 }
 
@@ -298,6 +306,58 @@ func (s *CreateDBEndpointReqForModifyDBEndpointConnectionModeInput) SetReadWrite
 // SetReadWriteSpliting sets the ReadWriteSpliting field's value.
 func (s *CreateDBEndpointReqForModifyDBEndpointConnectionModeInput) SetReadWriteSpliting(v bool) *CreateDBEndpointReqForModifyDBEndpointConnectionModeInput {
 	s.ReadWriteSpliting = &v
+	return s
+}
+
+type CustomRouteStrategyForModifyDBEndpointConnectionModeInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	KeywordRouteStrategy []*KeywordRouteStrategyForModifyDBEndpointConnectionModeInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomRouteStrategyForModifyDBEndpointConnectionModeInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomRouteStrategyForModifyDBEndpointConnectionModeInput) GoString() string {
+	return s.String()
+}
+
+// SetKeywordRouteStrategy sets the KeywordRouteStrategy field's value.
+func (s *CustomRouteStrategyForModifyDBEndpointConnectionModeInput) SetKeywordRouteStrategy(v []*KeywordRouteStrategyForModifyDBEndpointConnectionModeInput) *CustomRouteStrategyForModifyDBEndpointConnectionModeInput {
+	s.KeywordRouteStrategy = v
+	return s
+}
+
+type KeywordRouteStrategyForModifyDBEndpointConnectionModeInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NodeType *string `type:"string" json:",omitempty"`
+
+	SQLKeyword *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KeywordRouteStrategyForModifyDBEndpointConnectionModeInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KeywordRouteStrategyForModifyDBEndpointConnectionModeInput) GoString() string {
+	return s.String()
+}
+
+// SetNodeType sets the NodeType field's value.
+func (s *KeywordRouteStrategyForModifyDBEndpointConnectionModeInput) SetNodeType(v string) *KeywordRouteStrategyForModifyDBEndpointConnectionModeInput {
+	s.NodeType = &v
+	return s
+}
+
+// SetSQLKeyword sets the SQLKeyword field's value.
+func (s *KeywordRouteStrategyForModifyDBEndpointConnectionModeInput) SetSQLKeyword(v string) *KeywordRouteStrategyForModifyDBEndpointConnectionModeInput {
+	s.SQLKeyword = &v
 	return s
 }
 

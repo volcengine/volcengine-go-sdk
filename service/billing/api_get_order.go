@@ -208,6 +208,8 @@ type OrderFailRefundInfoForGetOrderOutput struct {
 
 	CouponAmount *string `type:"string" json:",omitempty"`
 
+	DeductionCount *string `type:"string" json:",omitempty"`
+
 	DiscountAmount *string `type:"string" json:",omitempty"`
 
 	OriginalAmount *string `type:"string" json:",omitempty"`
@@ -230,6 +232,12 @@ func (s OrderFailRefundInfoForGetOrderOutput) GoString() string {
 // SetCouponAmount sets the CouponAmount field's value.
 func (s *OrderFailRefundInfoForGetOrderOutput) SetCouponAmount(v string) *OrderFailRefundInfoForGetOrderOutput {
 	s.CouponAmount = &v
+	return s
+}
+
+// SetDeductionCount sets the DeductionCount field's value.
+func (s *OrderFailRefundInfoForGetOrderOutput) SetDeductionCount(v string) *OrderFailRefundInfoForGetOrderOutput {
+	s.DeductionCount = &v
 	return s
 }
 

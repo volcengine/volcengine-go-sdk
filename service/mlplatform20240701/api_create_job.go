@@ -232,6 +232,10 @@ type ConfigForCreateJobInput struct {
 
 	Cfs *CfsForCreateJobInput `type:"structure" json:",omitempty"`
 
+	Efs *EfsForCreateJobInput `type:"structure" json:",omitempty"`
+
+	EfsAP *EfsAPForCreateJobInput `type:"structure" json:",omitempty"`
+
 	Nas *NasForCreateJobInput `type:"structure" json:",omitempty"`
 
 	NasAP *NasAPForCreateJobInput `type:"structure" json:",omitempty"`
@@ -260,6 +264,18 @@ func (s ConfigForCreateJobInput) GoString() string {
 // SetCfs sets the Cfs field's value.
 func (s *ConfigForCreateJobInput) SetCfs(v *CfsForCreateJobInput) *ConfigForCreateJobInput {
 	s.Cfs = v
+	return s
+}
+
+// SetEfs sets the Efs field's value.
+func (s *ConfigForCreateJobInput) SetEfs(v *EfsForCreateJobInput) *ConfigForCreateJobInput {
+	s.Efs = v
+	return s
+}
+
+// SetEfsAP sets the EfsAP field's value.
+func (s *ConfigForCreateJobInput) SetEfsAP(v *EfsAPForCreateJobInput) *ConfigForCreateJobInput {
+	s.EfsAP = v
 	return s
 }
 
@@ -610,6 +626,90 @@ func (s *DiagnoseConfigForCreateJobInput) SetName(v string) *DiagnoseConfigForCr
 // SetTriggers sets the Triggers field's value.
 func (s *DiagnoseConfigForCreateJobInput) SetTriggers(v []*string) *DiagnoseConfigForCreateJobInput {
 	s.Triggers = v
+	return s
+}
+
+type EfsAPForCreateJobInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsAPForCreateJobInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsAPForCreateJobInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *EfsAPForCreateJobInput) SetAccessPointId(v string) *EfsAPForCreateJobInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EfsAPForCreateJobInput) SetId(v string) *EfsAPForCreateJobInput {
+	s.Id = &v
+	return s
+}
+
+type EfsForCreateJobInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	EfsType *string `type:"string" json:",omitempty"`
+
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	SubPath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsForCreateJobInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsForCreateJobInput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *EfsForCreateJobInput) SetAddr(v string) *EfsForCreateJobInput {
+	s.Addr = &v
+	return s
+}
+
+// SetEfsType sets the EfsType field's value.
+func (s *EfsForCreateJobInput) SetEfsType(v string) *EfsForCreateJobInput {
+	s.EfsType = &v
+	return s
+}
+
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *EfsForCreateJobInput) SetFileSystemName(v string) *EfsForCreateJobInput {
+	s.FileSystemName = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EfsForCreateJobInput) SetId(v string) *EfsForCreateJobInput {
+	s.Id = &v
+	return s
+}
+
+// SetSubPath sets the SubPath field's value.
+func (s *EfsForCreateJobInput) SetSubPath(v string) *EfsForCreateJobInput {
+	s.SubPath = &v
 	return s
 }
 
@@ -1635,6 +1735,9 @@ const (
 
 	// EnumOfNameForCreateJobInputLogDetection is a EnumOfNameForCreateJobInput enum value
 	EnumOfNameForCreateJobInputLogDetection = "LogDetection"
+
+	// EnumOfNameForCreateJobInputVecclHangDetection is a EnumOfNameForCreateJobInput enum value
+	EnumOfNameForCreateJobInputVecclHangDetection = "VecclHangDetection"
 )
 
 const (

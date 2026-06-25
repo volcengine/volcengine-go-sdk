@@ -414,7 +414,7 @@ type Network_configForUpdateCloudServerInput struct {
 
 	Security_group_id_list []*string `type:"list" json:"security_group_id_list"`
 
-	Tcp_timeout *string `type:"string" json:"tcp_timeout,omitempty"`
+	Tcp_timeout *int32 `type:"int32" json:"tcp_timeout,omitempty"`
 
 	Udp_timeout *int32 `type:"int32" json:"udp_timeout,omitempty"`
 }
@@ -478,7 +478,7 @@ func (s *Network_configForUpdateCloudServerInput) SetSecurity_group_id_list(v []
 }
 
 // SetTcp_timeout sets the Tcp_timeout field's value.
-func (s *Network_configForUpdateCloudServerInput) SetTcp_timeout(v string) *Network_configForUpdateCloudServerInput {
+func (s *Network_configForUpdateCloudServerInput) SetTcp_timeout(v int32) *Network_configForUpdateCloudServerInput {
 	s.Tcp_timeout = &v
 	return s
 }
@@ -641,7 +641,7 @@ type UpdateCloudServerInput struct {
 	// Cloud_server_identity is a required field
 	Cloud_server_identity *string `type:"string" json:"cloud_server_identity,omitempty" required:"true"`
 
-	Cloudserver_name *string `type:"string" json:"cloudserver_name,omitempty"`
+	Cloud_server_name *string `type:"string" json:"cloud_server_name,omitempty"`
 
 	Custom_data *Custom_dataForUpdateCloudServerInput `type:"structure" json:"custom_data,omitempty"`
 
@@ -711,9 +711,9 @@ func (s *UpdateCloudServerInput) SetCloud_server_identity(v string) *UpdateCloud
 	return s
 }
 
-// SetCloudserver_name sets the Cloudserver_name field's value.
-func (s *UpdateCloudServerInput) SetCloudserver_name(v string) *UpdateCloudServerInput {
-	s.Cloudserver_name = &v
+// SetCloud_server_name sets the Cloud_server_name field's value.
+func (s *UpdateCloudServerInput) SetCloud_server_name(v string) *UpdateCloudServerInput {
+	s.Cloud_server_name = &v
 	return s
 }
 

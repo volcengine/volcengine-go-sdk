@@ -151,6 +151,10 @@ type ModifyDBInstanceTypeInput struct {
 
 	NodeInfo []*NodeInfoForModifyDBInstanceTypeInput `type:"list" json:",omitempty"`
 
+	SpecifiedSwitchEndTime *string `type:"string" json:",omitempty"`
+
+	SpecifiedSwitchStartTime *string `type:"string" json:",omitempty"`
+
 	SwitchType *string `type:"string" json:",omitempty"`
 
 	// TypeConvertPath is a required field
@@ -192,6 +196,18 @@ func (s *ModifyDBInstanceTypeInput) SetInstanceId(v string) *ModifyDBInstanceTyp
 // SetNodeInfo sets the NodeInfo field's value.
 func (s *ModifyDBInstanceTypeInput) SetNodeInfo(v []*NodeInfoForModifyDBInstanceTypeInput) *ModifyDBInstanceTypeInput {
 	s.NodeInfo = v
+	return s
+}
+
+// SetSpecifiedSwitchEndTime sets the SpecifiedSwitchEndTime field's value.
+func (s *ModifyDBInstanceTypeInput) SetSpecifiedSwitchEndTime(v string) *ModifyDBInstanceTypeInput {
+	s.SpecifiedSwitchEndTime = &v
+	return s
+}
+
+// SetSpecifiedSwitchStartTime sets the SpecifiedSwitchStartTime field's value.
+func (s *ModifyDBInstanceTypeInput) SetSpecifiedSwitchStartTime(v string) *ModifyDBInstanceTypeInput {
+	s.SpecifiedSwitchStartTime = &v
 	return s
 }
 

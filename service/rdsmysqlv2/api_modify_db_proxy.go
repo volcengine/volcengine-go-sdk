@@ -148,7 +148,8 @@ type ModifyDBProxyInput struct {
 
 	ConvertDefaultEndpoint *bool `type:"boolean" json:",omitempty"`
 
-	EnableDBProxy *bool `type:"boolean" json:",omitempty"`
+	// EnableDBProxy is a required field
+	EnableDBProxy *bool `type:"boolean" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
@@ -169,6 +170,9 @@ func (s ModifyDBProxyInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyDBProxyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBProxyInput"}
+	if s.EnableDBProxy == nil {
+		invalidParams.Add(request.NewErrParamRequired("EnableDBProxy"))
+	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}

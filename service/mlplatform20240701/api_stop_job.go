@@ -236,4 +236,7 @@ const (
 
 	// EnumOfDiagnoseNameListForStopJobInputLogDetection is a EnumOfDiagnoseNameListForStopJobInput enum value
 	EnumOfDiagnoseNameListForStopJobInputLogDetection = "LogDetection"
+
+	// EnumOfDiagnoseNameListForStopJobInputVecclHangDetection is a EnumOfDiagnoseNameListForStopJobInput enum value
+	EnumOfDiagnoseNameListForStopJobInputVecclHangDetection = "VecclHangDetection"
 )

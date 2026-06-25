@@ -197,6 +197,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	"config":                      {Service: "config", IsGlobal: true},
 	"milvus":                      {Service: "milvus", IsGlobal: false},
 	"dramart":                     {Service: "dramart", IsGlobal: true},
+	"partner":                     {Service: "partner", IsGlobal: true},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {

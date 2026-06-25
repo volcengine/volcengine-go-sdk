@@ -32,7 +32,7 @@ const opModifyBackupNameCommon = "ModifyBackupName"
 func (c *RDSMYSQLV2) ModifyBackupNameCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyBackupNameCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *RDSMYSQLV2) ModifyBackupNameCommonRequest(input *map[string]interface{}
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opModifyBackupName = "ModifyBackupName"
 func (c *RDSMYSQLV2) ModifyBackupNameRequest(input *ModifyBackupNameInput) (req *request.Request, output *ModifyBackupNameOutput) {
 	op := &request.Operation{
 		Name:       opModifyBackupName,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *RDSMYSQLV2) ModifyBackupNameRequest(input *ModifyBackupNameInput) (req 
 
 	output = &ModifyBackupNameOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,16 +144,16 @@ func (c *RDSMYSQLV2) ModifyBackupNameWithContext(ctx volcengine.Context, input *
 }
 
 type ModifyBackupNameInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// BackupId is a required field
-	BackupId *string `type:"string" required:"true"`
+	BackupId *string `type:"string" json:",omitempty" required:"true"`
 
 	// BackupName is a required field
-	BackupName *string `type:"string" required:"true"`
+	BackupName *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -200,7 +204,7 @@ func (s *ModifyBackupNameInput) SetInstanceId(v string) *ModifyBackupNameInput {
 }
 
 type ModifyBackupNameOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

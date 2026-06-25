@@ -232,6 +232,10 @@ type ConfigForGetJobOutput struct {
 
 	Cfs *CfsForGetJobOutput `type:"structure" json:",omitempty"`
 
+	Efs *EfsForGetJobOutput `type:"structure" json:",omitempty"`
+
+	EfsAP *EfsAPForGetJobOutput `type:"structure" json:",omitempty"`
+
 	Nas *NasForGetJobOutput `type:"structure" json:",omitempty"`
 
 	NasAP *NasAPForGetJobOutput `type:"structure" json:",omitempty"`
@@ -260,6 +264,18 @@ func (s ConfigForGetJobOutput) GoString() string {
 // SetCfs sets the Cfs field's value.
 func (s *ConfigForGetJobOutput) SetCfs(v *CfsForGetJobOutput) *ConfigForGetJobOutput {
 	s.Cfs = v
+	return s
+}
+
+// SetEfs sets the Efs field's value.
+func (s *ConfigForGetJobOutput) SetEfs(v *EfsForGetJobOutput) *ConfigForGetJobOutput {
+	s.Efs = v
+	return s
+}
+
+// SetEfsAP sets the EfsAP field's value.
+func (s *ConfigForGetJobOutput) SetEfsAP(v *EfsAPForGetJobOutput) *ConfigForGetJobOutput {
+	s.EfsAP = v
 	return s
 }
 
@@ -438,6 +454,90 @@ func (s *DiagnoseConfigForGetJobOutput) SetName(v string) *DiagnoseConfigForGetJ
 // SetTriggers sets the Triggers field's value.
 func (s *DiagnoseConfigForGetJobOutput) SetTriggers(v []*string) *DiagnoseConfigForGetJobOutput {
 	s.Triggers = v
+	return s
+}
+
+type EfsAPForGetJobOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsAPForGetJobOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsAPForGetJobOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *EfsAPForGetJobOutput) SetAccessPointId(v string) *EfsAPForGetJobOutput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EfsAPForGetJobOutput) SetId(v string) *EfsAPForGetJobOutput {
+	s.Id = &v
+	return s
+}
+
+type EfsForGetJobOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	EfsType *string `type:"string" json:",omitempty"`
+
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	SubPath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsForGetJobOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsForGetJobOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *EfsForGetJobOutput) SetAddr(v string) *EfsForGetJobOutput {
+	s.Addr = &v
+	return s
+}
+
+// SetEfsType sets the EfsType field's value.
+func (s *EfsForGetJobOutput) SetEfsType(v string) *EfsForGetJobOutput {
+	s.EfsType = &v
+	return s
+}
+
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *EfsForGetJobOutput) SetFileSystemName(v string) *EfsForGetJobOutput {
+	s.FileSystemName = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EfsForGetJobOutput) SetId(v string) *EfsForGetJobOutput {
+	s.Id = &v
+	return s
+}
+
+// SetSubPath sets the SubPath field's value.
+func (s *EfsForGetJobOutput) SetSubPath(v string) *EfsForGetJobOutput {
+	s.SubPath = &v
 	return s
 }
 
@@ -1800,6 +1900,9 @@ const (
 
 	// EnumOfNameForGetJobOutputLogDetection is a EnumOfNameForGetJobOutput enum value
 	EnumOfNameForGetJobOutputLogDetection = "LogDetection"
+
+	// EnumOfNameForGetJobOutputVecclHangDetection is a EnumOfNameForGetJobOutput enum value
+	EnumOfNameForGetJobOutputVecclHangDetection = "VecclHangDetection"
 )
 
 const (

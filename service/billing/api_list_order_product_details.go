@@ -240,6 +240,8 @@ type OrderFailRefundInfoForListOrderProductDetailsOutput struct {
 
 	CouponAmount *string `type:"string" json:",omitempty"`
 
+	DeductionCount *string `type:"string" json:",omitempty"`
+
 	DiscountAmount *string `type:"string" json:",omitempty"`
 
 	OriginalAmount *string `type:"string" json:",omitempty"`
@@ -262,6 +264,12 @@ func (s OrderFailRefundInfoForListOrderProductDetailsOutput) GoString() string {
 // SetCouponAmount sets the CouponAmount field's value.
 func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetCouponAmount(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
 	s.CouponAmount = &v
+	return s
+}
+
+// SetDeductionCount sets the DeductionCount field's value.
+func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetDeductionCount(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
+	s.DeductionCount = &v
 	return s
 }
 
@@ -298,6 +306,10 @@ type OrderProductInfoForListOrderProductDetailsOutput struct {
 
 	CouponAmount *string `type:"string" json:",omitempty"`
 
+	DeductionCount *string `type:"string" json:",omitempty"`
+
+	DeductionCountUnit *string `type:"string" json:",omitempty"`
+
 	DiscountAmount *string `type:"string" json:",omitempty"`
 
 	EndTime *string `type:"string" json:",omitempty"`
@@ -319,6 +331,8 @@ type OrderProductInfoForListOrderProductDetailsOutput struct {
 	PaymentMethod *string `type:"string" json:",omitempty"`
 
 	Period *string `type:"string" json:",omitempty"`
+
+	PickupVoucherID *string `type:"string" json:",omitempty"`
 
 	Product *string `type:"string" json:",omitempty"`
 
@@ -352,6 +366,18 @@ func (s *OrderProductInfoForListOrderProductDetailsOutput) SetConfigurationCode(
 // SetCouponAmount sets the CouponAmount field's value.
 func (s *OrderProductInfoForListOrderProductDetailsOutput) SetCouponAmount(v string) *OrderProductInfoForListOrderProductDetailsOutput {
 	s.CouponAmount = &v
+	return s
+}
+
+// SetDeductionCount sets the DeductionCount field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetDeductionCount(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.DeductionCount = &v
+	return s
+}
+
+// SetDeductionCountUnit sets the DeductionCountUnit field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetDeductionCountUnit(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.DeductionCountUnit = &v
 	return s
 }
 
@@ -418,6 +444,12 @@ func (s *OrderProductInfoForListOrderProductDetailsOutput) SetPaymentMethod(v st
 // SetPeriod sets the Period field's value.
 func (s *OrderProductInfoForListOrderProductDetailsOutput) SetPeriod(v string) *OrderProductInfoForListOrderProductDetailsOutput {
 	s.Period = &v
+	return s
+}
+
+// SetPickupVoucherID sets the PickupVoucherID field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetPickupVoucherID(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.PickupVoucherID = &v
 	return s
 }
 
