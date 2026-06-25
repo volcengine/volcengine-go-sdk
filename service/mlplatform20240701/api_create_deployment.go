@@ -254,6 +254,10 @@ type ConfigForCreateDeploymentInput struct {
 
 	Cfs *CfsForCreateDeploymentInput `type:"structure" json:",omitempty"`
 
+	Efs *EfsForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
+	EfsAP *EfsAPForCreateDeploymentInput `type:"structure" json:",omitempty"`
+
 	Nas *NasForCreateDeploymentInput `type:"structure" json:",omitempty"`
 
 	NasAP *NasAPForCreateDeploymentInput `type:"structure" json:",omitempty"`
@@ -282,6 +286,18 @@ func (s ConfigForCreateDeploymentInput) GoString() string {
 // SetCfs sets the Cfs field's value.
 func (s *ConfigForCreateDeploymentInput) SetCfs(v *CfsForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
 	s.Cfs = v
+	return s
+}
+
+// SetEfs sets the Efs field's value.
+func (s *ConfigForCreateDeploymentInput) SetEfs(v *EfsForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
+	s.Efs = v
+	return s
+}
+
+// SetEfsAP sets the EfsAP field's value.
+func (s *ConfigForCreateDeploymentInput) SetEfsAP(v *EfsAPForCreateDeploymentInput) *ConfigForCreateDeploymentInput {
+	s.EfsAP = v
 	return s
 }
 
@@ -616,6 +632,90 @@ func (s *CredentialForCreateDeploymentInput) SetSecretAccessKey(v string) *Crede
 // SetUseServiceLinkedRole sets the UseServiceLinkedRole field's value.
 func (s *CredentialForCreateDeploymentInput) SetUseServiceLinkedRole(v bool) *CredentialForCreateDeploymentInput {
 	s.UseServiceLinkedRole = &v
+	return s
+}
+
+type EfsAPForCreateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsAPForCreateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsAPForCreateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *EfsAPForCreateDeploymentInput) SetAccessPointId(v string) *EfsAPForCreateDeploymentInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EfsAPForCreateDeploymentInput) SetId(v string) *EfsAPForCreateDeploymentInput {
+	s.Id = &v
+	return s
+}
+
+type EfsForCreateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	EfsType *string `type:"string" json:",omitempty"`
+
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	SubPath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsForCreateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsForCreateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *EfsForCreateDeploymentInput) SetAddr(v string) *EfsForCreateDeploymentInput {
+	s.Addr = &v
+	return s
+}
+
+// SetEfsType sets the EfsType field's value.
+func (s *EfsForCreateDeploymentInput) SetEfsType(v string) *EfsForCreateDeploymentInput {
+	s.EfsType = &v
+	return s
+}
+
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *EfsForCreateDeploymentInput) SetFileSystemName(v string) *EfsForCreateDeploymentInput {
+	s.FileSystemName = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EfsForCreateDeploymentInput) SetId(v string) *EfsForCreateDeploymentInput {
+	s.Id = &v
+	return s
+}
+
+// SetSubPath sets the SubPath field's value.
+func (s *EfsForCreateDeploymentInput) SetSubPath(v string) *EfsForCreateDeploymentInput {
+	s.SubPath = &v
 	return s
 }
 

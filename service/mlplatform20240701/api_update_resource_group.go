@@ -184,7 +184,13 @@ func (s *ComputeResourceForUpdateResourceGroupInput) SetZoneId(v string) *Comput
 type EicForUpdateResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CacheType *string `type:"string" json:",omitempty"`
+
 	EicId *string `type:"string" json:",omitempty"`
+
+	EnableRDMA *bool `type:"boolean" json:",omitempty"`
+
+	EnableShmIpc *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -197,9 +203,27 @@ func (s EicForUpdateResourceGroupInput) GoString() string {
 	return s.String()
 }
 
+// SetCacheType sets the CacheType field's value.
+func (s *EicForUpdateResourceGroupInput) SetCacheType(v string) *EicForUpdateResourceGroupInput {
+	s.CacheType = &v
+	return s
+}
+
 // SetEicId sets the EicId field's value.
 func (s *EicForUpdateResourceGroupInput) SetEicId(v string) *EicForUpdateResourceGroupInput {
 	s.EicId = &v
+	return s
+}
+
+// SetEnableRDMA sets the EnableRDMA field's value.
+func (s *EicForUpdateResourceGroupInput) SetEnableRDMA(v bool) *EicForUpdateResourceGroupInput {
+	s.EnableRDMA = &v
+	return s
+}
+
+// SetEnableShmIpc sets the EnableShmIpc field's value.
+func (s *EicForUpdateResourceGroupInput) SetEnableShmIpc(v bool) *EicForUpdateResourceGroupInput {
+	s.EnableShmIpc = &v
 	return s
 }
 
@@ -358,6 +382,8 @@ func (s *StorageNetworkConfigForUpdateResourceGroupInput) SetVpcId(v string) *St
 type UpdateResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ByteKDSprofileEnabled *bool `type:"boolean" json:",omitempty"`
+
 	Description *string `min:"1" max:"500" type:"string" json:",omitempty"`
 
 	// Id is a required field
@@ -407,6 +433,12 @@ func (s *UpdateResourceGroupInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetByteKDSprofileEnabled sets the ByteKDSprofileEnabled field's value.
+func (s *UpdateResourceGroupInput) SetByteKDSprofileEnabled(v bool) *UpdateResourceGroupInput {
+	s.ByteKDSprofileEnabled = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

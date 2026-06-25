@@ -313,6 +313,184 @@ func (s *CronSpecForGetResourceQueueOutput) SetTimeZone(v string) *CronSpecForGe
 	return s
 }
 
+type DevCpuLowUsageRuleForGetResourceQueueOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	CreatorTrn *string `type:"string" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	IdleShutdownRuleTypes []*string `type:"list" json:",omitempty"`
+
+	MinutePeriod *int32 `type:"int32" json:",omitempty"`
+
+	Period *int32 `type:"int32" json:",omitempty"`
+
+	Threshold *float64 `type:"double" json:",omitempty"`
+
+	TriggeredTimes *int32 `type:"int32" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
+
+	UpdatorTrn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DevCpuLowUsageRuleForGetResourceQueueOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DevCpuLowUsageRuleForGetResourceQueueOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *DevCpuLowUsageRuleForGetResourceQueueOutput) SetCreateTime(v string) *DevCpuLowUsageRuleForGetResourceQueueOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatorTrn sets the CreatorTrn field's value.
+func (s *DevCpuLowUsageRuleForGetResourceQueueOutput) SetCreatorTrn(v string) *DevCpuLowUsageRuleForGetResourceQueueOutput {
+	s.CreatorTrn = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *DevCpuLowUsageRuleForGetResourceQueueOutput) SetEnabled(v bool) *DevCpuLowUsageRuleForGetResourceQueueOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *DevCpuLowUsageRuleForGetResourceQueueOutput) SetId(v string) *DevCpuLowUsageRuleForGetResourceQueueOutput {
+	s.Id = &v
+	return s
+}
+
+// SetIdleShutdownRuleTypes sets the IdleShutdownRuleTypes field's value.
+func (s *DevCpuLowUsageRuleForGetResourceQueueOutput) SetIdleShutdownRuleTypes(v []*string) *DevCpuLowUsageRuleForGetResourceQueueOutput {
+	s.IdleShutdownRuleTypes = v
+	return s
+}
+
+// SetMinutePeriod sets the MinutePeriod field's value.
+func (s *DevCpuLowUsageRuleForGetResourceQueueOutput) SetMinutePeriod(v int32) *DevCpuLowUsageRuleForGetResourceQueueOutput {
+	s.MinutePeriod = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *DevCpuLowUsageRuleForGetResourceQueueOutput) SetPeriod(v int32) *DevCpuLowUsageRuleForGetResourceQueueOutput {
+	s.Period = &v
+	return s
+}
+
+// SetThreshold sets the Threshold field's value.
+func (s *DevCpuLowUsageRuleForGetResourceQueueOutput) SetThreshold(v float64) *DevCpuLowUsageRuleForGetResourceQueueOutput {
+	s.Threshold = &v
+	return s
+}
+
+// SetTriggeredTimes sets the TriggeredTimes field's value.
+func (s *DevCpuLowUsageRuleForGetResourceQueueOutput) SetTriggeredTimes(v int32) *DevCpuLowUsageRuleForGetResourceQueueOutput {
+	s.TriggeredTimes = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DevCpuLowUsageRuleForGetResourceQueueOutput) SetUpdateTime(v string) *DevCpuLowUsageRuleForGetResourceQueueOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatorTrn sets the UpdatorTrn field's value.
+func (s *DevCpuLowUsageRuleForGetResourceQueueOutput) SetUpdatorTrn(v string) *DevCpuLowUsageRuleForGetResourceQueueOutput {
+	s.UpdatorTrn = &v
+	return s
+}
+
+type FlavorOngoingForGetResourceQueueOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	InstanceTypeId *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FlavorOngoingForGetResourceQueueOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FlavorOngoingForGetResourceQueueOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *FlavorOngoingForGetResourceQueueOutput) SetCount(v int32) *FlavorOngoingForGetResourceQueueOutput {
+	s.Count = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *FlavorOngoingForGetResourceQueueOutput) SetInstanceTypeId(v string) *FlavorOngoingForGetResourceQueueOutput {
+	s.InstanceTypeId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *FlavorOngoingForGetResourceQueueOutput) SetZoneId(v string) *FlavorOngoingForGetResourceQueueOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type FlavorOutgoingForGetResourceQueueOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	InstanceTypeId *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FlavorOutgoingForGetResourceQueueOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FlavorOutgoingForGetResourceQueueOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *FlavorOutgoingForGetResourceQueueOutput) SetCount(v int32) *FlavorOutgoingForGetResourceQueueOutput {
+	s.Count = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *FlavorOutgoingForGetResourceQueueOutput) SetInstanceTypeId(v string) *FlavorOutgoingForGetResourceQueueOutput {
+	s.InstanceTypeId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *FlavorOutgoingForGetResourceQueueOutput) SetZoneId(v string) *FlavorOutgoingForGetResourceQueueOutput {
+	s.ZoneId = &v
+	return s
+}
+
 type GeneralIdleRuleForGetResourceQueueOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -462,7 +640,13 @@ type GetResourceQueueOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	FlavorOngoing []*FlavorOngoingForGetResourceQueueOutput `type:"list" json:",omitempty"`
+
+	FlavorOutgoing []*FlavorOutgoingForGetResourceQueueOutput `type:"list" json:",omitempty"`
+
 	Id *string `type:"string" json:",omitempty"`
+
+	IsOverQuota *bool `type:"boolean" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -519,9 +703,27 @@ func (s *GetResourceQueueOutput) SetDescription(v string) *GetResourceQueueOutpu
 	return s
 }
 
+// SetFlavorOngoing sets the FlavorOngoing field's value.
+func (s *GetResourceQueueOutput) SetFlavorOngoing(v []*FlavorOngoingForGetResourceQueueOutput) *GetResourceQueueOutput {
+	s.FlavorOngoing = v
+	return s
+}
+
+// SetFlavorOutgoing sets the FlavorOutgoing field's value.
+func (s *GetResourceQueueOutput) SetFlavorOutgoing(v []*FlavorOutgoingForGetResourceQueueOutput) *GetResourceQueueOutput {
+	s.FlavorOutgoing = v
+	return s
+}
+
 // SetId sets the Id field's value.
 func (s *GetResourceQueueOutput) SetId(v string) *GetResourceQueueOutput {
 	s.Id = &v
+	return s
+}
+
+// SetIsOverQuota sets the IsOverQuota field's value.
+func (s *GetResourceQueueOutput) SetIsOverQuota(v bool) *GetResourceQueueOutput {
+	s.IsOverQuota = &v
 	return s
 }
 
@@ -956,6 +1158,8 @@ type RulesForGetResourceQueueOutput struct {
 
 	AutoCompactGPUResourceRule *AutoCompactGPUResourceRuleForGetResourceQueueOutput `type:"structure" json:",omitempty"`
 
+	DevCpuLowUsageRule *DevCpuLowUsageRuleForGetResourceQueueOutput `type:"structure" json:",omitempty"`
+
 	GeneralIdleRule *GeneralIdleRuleForGetResourceQueueOutput `type:"structure" json:",omitempty"`
 
 	GpuUtilizationRule *GpuUtilizationRuleForGetResourceQueueOutput `type:"structure" json:",omitempty"`
@@ -974,6 +1178,12 @@ func (s RulesForGetResourceQueueOutput) GoString() string {
 // SetAutoCompactGPUResourceRule sets the AutoCompactGPUResourceRule field's value.
 func (s *RulesForGetResourceQueueOutput) SetAutoCompactGPUResourceRule(v *AutoCompactGPUResourceRuleForGetResourceQueueOutput) *RulesForGetResourceQueueOutput {
 	s.AutoCompactGPUResourceRule = v
+	return s
+}
+
+// SetDevCpuLowUsageRule sets the DevCpuLowUsageRule field's value.
+func (s *RulesForGetResourceQueueOutput) SetDevCpuLowUsageRule(v *DevCpuLowUsageRuleForGetResourceQueueOutput) *RulesForGetResourceQueueOutput {
+	s.DevCpuLowUsageRule = v
 	return s
 }
 
