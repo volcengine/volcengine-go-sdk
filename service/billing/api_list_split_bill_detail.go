@@ -246,6 +246,8 @@ type ListForListSplitBillDetailOutput struct {
 
 	PayerUserName *string `type:"string" json:",omitempty"`
 
+	PointDeductAmount *string `type:"string" json:",omitempty"`
+
 	PosttaxAmount *string `type:"string" json:",omitempty"`
 
 	PreTaxPayableAmount *string `type:"string" json:",omitempty"`
@@ -269,6 +271,8 @@ type ListForListSplitBillDetailOutput struct {
 	Project *string `type:"string" json:",omitempty"`
 
 	ProjectDisplayName *string `type:"string" json:",omitempty"`
+
+	ProjectRemark *string `type:"string" json:",omitempty"`
 
 	RealValue *string `type:"string" json:",omitempty"`
 
@@ -329,6 +333,8 @@ type ListForListSplitBillDetailOutput struct {
 	SubjectName *string `type:"string" json:",omitempty"`
 
 	Tag *string `type:"string" json:",omitempty"`
+
+	TagRemark *string `type:"string" json:",omitempty"`
 
 	Tax *string `type:"string" json:",omitempty"`
 
@@ -659,6 +665,12 @@ func (s *ListForListSplitBillDetailOutput) SetPayerUserName(v string) *ListForLi
 	return s
 }
 
+// SetPointDeductAmount sets the PointDeductAmount field's value.
+func (s *ListForListSplitBillDetailOutput) SetPointDeductAmount(v string) *ListForListSplitBillDetailOutput {
+	s.PointDeductAmount = &v
+	return s
+}
+
 // SetPosttaxAmount sets the PosttaxAmount field's value.
 func (s *ListForListSplitBillDetailOutput) SetPosttaxAmount(v string) *ListForListSplitBillDetailOutput {
 	s.PosttaxAmount = &v
@@ -728,6 +740,12 @@ func (s *ListForListSplitBillDetailOutput) SetProject(v string) *ListForListSpli
 // SetProjectDisplayName sets the ProjectDisplayName field's value.
 func (s *ListForListSplitBillDetailOutput) SetProjectDisplayName(v string) *ListForListSplitBillDetailOutput {
 	s.ProjectDisplayName = &v
+	return s
+}
+
+// SetProjectRemark sets the ProjectRemark field's value.
+func (s *ListForListSplitBillDetailOutput) SetProjectRemark(v string) *ListForListSplitBillDetailOutput {
+	s.ProjectRemark = &v
 	return s
 }
 
@@ -908,6 +926,12 @@ func (s *ListForListSplitBillDetailOutput) SetSubjectName(v string) *ListForList
 // SetTag sets the Tag field's value.
 func (s *ListForListSplitBillDetailOutput) SetTag(v string) *ListForListSplitBillDetailOutput {
 	s.Tag = &v
+	return s
+}
+
+// SetTagRemark sets the TagRemark field's value.
+func (s *ListForListSplitBillDetailOutput) SetTagRemark(v string) *ListForListSplitBillDetailOutput {
+	s.TagRemark = &v
 	return s
 }
 
