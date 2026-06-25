@@ -248,6 +248,8 @@ type DeviceListForCreateDeviceWithoutApprovalInput struct {
 
 	DeviceName *string `type:"string" json:",omitempty"`
 
+	DeviceSecret *string `type:"string" json:",omitempty"`
+
 	NickName *string `type:"string" json:",omitempty"`
 }
 
@@ -264,6 +266,12 @@ func (s DeviceListForCreateDeviceWithoutApprovalInput) GoString() string {
 // SetDeviceName sets the DeviceName field's value.
 func (s *DeviceListForCreateDeviceWithoutApprovalInput) SetDeviceName(v string) *DeviceListForCreateDeviceWithoutApprovalInput {
 	s.DeviceName = &v
+	return s
+}
+
+// SetDeviceSecret sets the DeviceSecret field's value.
+func (s *DeviceListForCreateDeviceWithoutApprovalInput) SetDeviceSecret(v string) *DeviceListForCreateDeviceWithoutApprovalInput {
+	s.DeviceSecret = &v
 	return s
 }
 
