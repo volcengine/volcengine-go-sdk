@@ -356,6 +356,8 @@ type RestoreToNewInstanceInput struct {
 
 	AutoStorageScalingConfig *AutoStorageScalingConfigForRestoreToNewInstanceInput `type:"structure" json:",omitempty"`
 
+	AutoUpgradeMinorVersion *string `type:"string" json:",omitempty"`
+
 	BackupId *string `type:"string" json:",omitempty"`
 
 	ChargeInfo *ChargeInfoForRestoreToNewInstanceInput `type:"structure" json:",omitempty"`
@@ -438,6 +440,12 @@ func (s *RestoreToNewInstanceInput) SetAllowListIds(v []*string) *RestoreToNewIn
 // SetAutoStorageScalingConfig sets the AutoStorageScalingConfig field's value.
 func (s *RestoreToNewInstanceInput) SetAutoStorageScalingConfig(v *AutoStorageScalingConfigForRestoreToNewInstanceInput) *RestoreToNewInstanceInput {
 	s.AutoStorageScalingConfig = v
+	return s
+}
+
+// SetAutoUpgradeMinorVersion sets the AutoUpgradeMinorVersion field's value.
+func (s *RestoreToNewInstanceInput) SetAutoUpgradeMinorVersion(v string) *RestoreToNewInstanceInput {
+	s.AutoUpgradeMinorVersion = &v
 	return s
 }
 

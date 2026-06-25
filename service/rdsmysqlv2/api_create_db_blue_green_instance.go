@@ -200,6 +200,8 @@ func (s *ChargeInfoForCreateDBBlueGreenInstanceInput) SetPeriodUnit(v string) *C
 type CreateDBBlueGreenInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AutoUpgradeMinorVersion *string `type:"string" json:",omitempty"`
+
 	ChargeInfo *ChargeInfoForCreateDBBlueGreenInstanceInput `type:"structure" json:",omitempty"`
 
 	// DBEngineVersion is a required field
@@ -263,6 +265,12 @@ func (s *CreateDBBlueGreenInstanceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAutoUpgradeMinorVersion sets the AutoUpgradeMinorVersion field's value.
+func (s *CreateDBBlueGreenInstanceInput) SetAutoUpgradeMinorVersion(v string) *CreateDBBlueGreenInstanceInput {
+	s.AutoUpgradeMinorVersion = &v
+	return s
 }
 
 // SetChargeInfo sets the ChargeInfo field's value.

@@ -152,6 +152,8 @@ type CreateDBEndpointInput struct {
 
 	ConnectionPoolType *string `type:"string" json:",omitempty"`
 
+	CustomRouteStrategy *CustomRouteStrategyForCreateDBEndpointInput `type:"structure" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	EnableConnectionPersistent *bool `type:"boolean" json:",omitempty"`
@@ -230,6 +232,12 @@ func (s *CreateDBEndpointInput) SetConnectionMode(v string) *CreateDBEndpointInp
 // SetConnectionPoolType sets the ConnectionPoolType field's value.
 func (s *CreateDBEndpointInput) SetConnectionPoolType(v string) *CreateDBEndpointInput {
 	s.ConnectionPoolType = &v
+	return s
+}
+
+// SetCustomRouteStrategy sets the CustomRouteStrategy field's value.
+func (s *CreateDBEndpointInput) SetCustomRouteStrategy(v *CustomRouteStrategyForCreateDBEndpointInput) *CreateDBEndpointInput {
+	s.CustomRouteStrategy = v
 	return s
 }
 
@@ -364,6 +372,58 @@ func (s *CreateDBEndpointOutput) SetEndpointId(v string) *CreateDBEndpointOutput
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateDBEndpointOutput) SetInstanceId(v string) *CreateDBEndpointOutput {
 	s.InstanceId = &v
+	return s
+}
+
+type CustomRouteStrategyForCreateDBEndpointInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	KeywordRouteStrategy []*KeywordRouteStrategyForCreateDBEndpointInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomRouteStrategyForCreateDBEndpointInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomRouteStrategyForCreateDBEndpointInput) GoString() string {
+	return s.String()
+}
+
+// SetKeywordRouteStrategy sets the KeywordRouteStrategy field's value.
+func (s *CustomRouteStrategyForCreateDBEndpointInput) SetKeywordRouteStrategy(v []*KeywordRouteStrategyForCreateDBEndpointInput) *CustomRouteStrategyForCreateDBEndpointInput {
+	s.KeywordRouteStrategy = v
+	return s
+}
+
+type KeywordRouteStrategyForCreateDBEndpointInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NodeType *string `type:"string" json:",omitempty"`
+
+	SQLKeyword *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KeywordRouteStrategyForCreateDBEndpointInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KeywordRouteStrategyForCreateDBEndpointInput) GoString() string {
+	return s.String()
+}
+
+// SetNodeType sets the NodeType field's value.
+func (s *KeywordRouteStrategyForCreateDBEndpointInput) SetNodeType(v string) *KeywordRouteStrategyForCreateDBEndpointInput {
+	s.NodeType = &v
+	return s
+}
+
+// SetSQLKeyword sets the SQLKeyword field's value.
+func (s *KeywordRouteStrategyForCreateDBEndpointInput) SetSQLKeyword(v string) *KeywordRouteStrategyForCreateDBEndpointInput {
+	s.SQLKeyword = &v
 	return s
 }
 

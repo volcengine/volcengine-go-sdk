@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) CreateDrDBInstanceWithContext(ctx volcengine.Context, input
 type CreateDrDBInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AutoUpgradeMinorVersion *string `type:"string" json:",omitempty"`
+
 	DeletionProtection *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
@@ -207,6 +209,12 @@ func (s *CreateDrDBInstanceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAutoUpgradeMinorVersion sets the AutoUpgradeMinorVersion field's value.
+func (s *CreateDrDBInstanceInput) SetAutoUpgradeMinorVersion(v string) *CreateDrDBInstanceInput {
+	s.AutoUpgradeMinorVersion = &v
+	return s
 }
 
 // SetDeletionProtection sets the DeletionProtection field's value.

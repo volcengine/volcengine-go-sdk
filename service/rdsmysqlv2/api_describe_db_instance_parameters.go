@@ -143,6 +143,44 @@ func (c *RDSMYSQLV2) DescribeDBInstanceParametersWithContext(ctx volcengine.Cont
 	return out, req.Send()
 }
 
+type ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	TemplateId *string `type:"string" json:",omitempty"`
+
+	TemplateName *string `type:"string" json:",omitempty"`
+
+	TemplateSource *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput) GoString() string {
+	return s.String()
+}
+
+// SetTemplateId sets the TemplateId field's value.
+func (s *ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput) SetTemplateId(v string) *ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput {
+	s.TemplateId = &v
+	return s
+}
+
+// SetTemplateName sets the TemplateName field's value.
+func (s *ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput) SetTemplateName(v string) *ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput {
+	s.TemplateName = &v
+	return s
+}
+
+// SetTemplateSource sets the TemplateSource field's value.
+func (s *ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput) SetTemplateSource(v string) *ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput {
+	s.TemplateSource = &v
+	return s
+}
+
 type DescribeDBInstanceParametersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -200,6 +238,8 @@ type DescribeDBInstanceParametersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	ApplyParamTemplateInfo *ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput `type:"structure" json:",omitempty"`
+
 	DBEngine *string `type:"string" json:",omitempty"`
 
 	DBEngineVersion *string `type:"string" json:",omitempty"`
@@ -219,6 +259,12 @@ func (s DescribeDBInstanceParametersOutput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstanceParametersOutput) GoString() string {
 	return s.String()
+}
+
+// SetApplyParamTemplateInfo sets the ApplyParamTemplateInfo field's value.
+func (s *DescribeDBInstanceParametersOutput) SetApplyParamTemplateInfo(v *ApplyParamTemplateInfoForDescribeDBInstanceParametersOutput) *DescribeDBInstanceParametersOutput {
+	s.ApplyParamTemplateInfo = v
+	return s
 }
 
 // SetDBEngine sets the DBEngine field's value.

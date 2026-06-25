@@ -194,6 +194,10 @@ type ConfigForUpdateDevInstanceInput struct {
 
 	Cfs *CfsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 
+	Efs *EfsForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+
+	EfsAP *EfsAPForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
+
 	Nas *NasForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
 
 	NasAP *NasAPForUpdateDevInstanceInput `type:"structure" json:",omitempty"`
@@ -222,6 +226,18 @@ func (s ConfigForUpdateDevInstanceInput) GoString() string {
 // SetCfs sets the Cfs field's value.
 func (s *ConfigForUpdateDevInstanceInput) SetCfs(v *CfsForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
 	s.Cfs = v
+	return s
+}
+
+// SetEfs sets the Efs field's value.
+func (s *ConfigForUpdateDevInstanceInput) SetEfs(v *EfsForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
+	s.Efs = v
+	return s
+}
+
+// SetEfsAP sets the EfsAP field's value.
+func (s *ConfigForUpdateDevInstanceInput) SetEfsAP(v *EfsAPForUpdateDevInstanceInput) *ConfigForUpdateDevInstanceInput {
+	s.EfsAP = v
 	return s
 }
 
@@ -332,6 +348,90 @@ func (s *CredentialForUpdateDevInstanceInput) SetSecretAccessKey(v string) *Cred
 // SetUseServiceLinkedRole sets the UseServiceLinkedRole field's value.
 func (s *CredentialForUpdateDevInstanceInput) SetUseServiceLinkedRole(v bool) *CredentialForUpdateDevInstanceInput {
 	s.UseServiceLinkedRole = &v
+	return s
+}
+
+type EfsAPForUpdateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessPointId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsAPForUpdateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsAPForUpdateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPointId sets the AccessPointId field's value.
+func (s *EfsAPForUpdateDevInstanceInput) SetAccessPointId(v string) *EfsAPForUpdateDevInstanceInput {
+	s.AccessPointId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EfsAPForUpdateDevInstanceInput) SetId(v string) *EfsAPForUpdateDevInstanceInput {
+	s.Id = &v
+	return s
+}
+
+type EfsForUpdateDevInstanceInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	EfsType *string `type:"string" json:",omitempty"`
+
+	FileSystemName *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	SubPath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsForUpdateDevInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsForUpdateDevInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *EfsForUpdateDevInstanceInput) SetAddr(v string) *EfsForUpdateDevInstanceInput {
+	s.Addr = &v
+	return s
+}
+
+// SetEfsType sets the EfsType field's value.
+func (s *EfsForUpdateDevInstanceInput) SetEfsType(v string) *EfsForUpdateDevInstanceInput {
+	s.EfsType = &v
+	return s
+}
+
+// SetFileSystemName sets the FileSystemName field's value.
+func (s *EfsForUpdateDevInstanceInput) SetFileSystemName(v string) *EfsForUpdateDevInstanceInput {
+	s.FileSystemName = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *EfsForUpdateDevInstanceInput) SetId(v string) *EfsForUpdateDevInstanceInput {
+	s.Id = &v
+	return s
+}
+
+// SetSubPath sets the SubPath field's value.
+func (s *EfsForUpdateDevInstanceInput) SetSubPath(v string) *EfsForUpdateDevInstanceInput {
+	s.SubPath = &v
 	return s
 }
 

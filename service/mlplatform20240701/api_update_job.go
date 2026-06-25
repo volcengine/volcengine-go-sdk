@@ -382,6 +382,9 @@ const (
 
 	// EnumOfNameForUpdateJobInputLogDetection is a EnumOfNameForUpdateJobInput enum value
 	EnumOfNameForUpdateJobInputLogDetection = "LogDetection"
+
+	// EnumOfNameForUpdateJobInputVecclHangDetection is a EnumOfNameForUpdateJobInput enum value
+	EnumOfNameForUpdateJobInputVecclHangDetection = "VecclHangDetection"
 )
 
 const (

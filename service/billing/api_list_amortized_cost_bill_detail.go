@@ -402,6 +402,8 @@ type ListForListAmortizedCostBillDetailOutput struct {
 
 	DailyAmortizedPayableAmount *string `type:"string" json:",omitempty"`
 
+	DailyAmortizedPointDeductAmount *string `type:"string" json:",omitempty"`
+
 	DailyAmortizedPosttaxAmount *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedPreTaxPayableAmount *string `type:"string" json:",omitempty"`
@@ -492,6 +494,8 @@ type ListForListAmortizedCostBillDetailOutput struct {
 
 	PayerUserName *string `type:"string" json:",omitempty"`
 
+	PointDeductAmount *string `type:"string" json:",omitempty"`
+
 	PosttaxAmount *string `type:"string" json:",omitempty"`
 
 	PreTaxPayableAmount *string `type:"string" json:",omitempty"`
@@ -515,6 +519,8 @@ type ListForListAmortizedCostBillDetailOutput struct {
 	Project *string `type:"string" json:",omitempty"`
 
 	ProjectDisplayName *string `type:"string" json:",omitempty"`
+
+	ProjectRemark *string `type:"string" json:",omitempty"`
 
 	RealValue *string `type:"string" json:",omitempty"`
 
@@ -557,6 +563,8 @@ type ListForListAmortizedCostBillDetailOutput struct {
 	SubjectName *string `type:"string" json:",omitempty"`
 
 	Tag *string `type:"string" json:",omitempty"`
+
+	TagRemark *string `type:"string" json:",omitempty"`
 
 	Tax *string `type:"string" json:",omitempty"`
 
@@ -750,6 +758,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedPaidAmount(v
 // SetDailyAmortizedPayableAmount sets the DailyAmortizedPayableAmount field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedPayableAmount(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.DailyAmortizedPayableAmount = &v
+	return s
+}
+
+// SetDailyAmortizedPointDeductAmount sets the DailyAmortizedPointDeductAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedPointDeductAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.DailyAmortizedPointDeductAmount = &v
 	return s
 }
 
@@ -1023,6 +1037,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetPayerUserName(v string) *L
 	return s
 }
 
+// SetPointDeductAmount sets the PointDeductAmount field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetPointDeductAmount(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.PointDeductAmount = &v
+	return s
+}
+
 // SetPosttaxAmount sets the PosttaxAmount field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetPosttaxAmount(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.PosttaxAmount = &v
@@ -1092,6 +1112,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetProject(v string) *ListFor
 // SetProjectDisplayName sets the ProjectDisplayName field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetProjectDisplayName(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.ProjectDisplayName = &v
+	return s
+}
+
+// SetProjectRemark sets the ProjectRemark field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetProjectRemark(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.ProjectRemark = &v
 	return s
 }
 
@@ -1218,6 +1244,12 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetSubjectName(v string) *Lis
 // SetTag sets the Tag field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetTag(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.Tag = &v
+	return s
+}
+
+// SetTagRemark sets the TagRemark field's value.
+func (s *ListForListAmortizedCostBillDetailOutput) SetTagRemark(v string) *ListForListAmortizedCostBillDetailOutput {
+	s.TagRemark = &v
 	return s
 }
 

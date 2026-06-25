@@ -423,6 +423,68 @@ func (s *CronSpecForCreateResourceQueueInput) SetTimeZone(v string) *CronSpecFor
 	return s
 }
 
+type DevCpuLowUsageRuleForCreateResourceQueueInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	IdleShutdownRuleTypes []*string `type:"list" json:",omitempty"`
+
+	MinutePeriod *int32 `type:"int32" json:",omitempty"`
+
+	Period *int32 `type:"int32" json:",omitempty"`
+
+	Threshold *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DevCpuLowUsageRuleForCreateResourceQueueInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DevCpuLowUsageRuleForCreateResourceQueueInput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *DevCpuLowUsageRuleForCreateResourceQueueInput) SetEnabled(v bool) *DevCpuLowUsageRuleForCreateResourceQueueInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *DevCpuLowUsageRuleForCreateResourceQueueInput) SetId(v string) *DevCpuLowUsageRuleForCreateResourceQueueInput {
+	s.Id = &v
+	return s
+}
+
+// SetIdleShutdownRuleTypes sets the IdleShutdownRuleTypes field's value.
+func (s *DevCpuLowUsageRuleForCreateResourceQueueInput) SetIdleShutdownRuleTypes(v []*string) *DevCpuLowUsageRuleForCreateResourceQueueInput {
+	s.IdleShutdownRuleTypes = v
+	return s
+}
+
+// SetMinutePeriod sets the MinutePeriod field's value.
+func (s *DevCpuLowUsageRuleForCreateResourceQueueInput) SetMinutePeriod(v int32) *DevCpuLowUsageRuleForCreateResourceQueueInput {
+	s.MinutePeriod = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *DevCpuLowUsageRuleForCreateResourceQueueInput) SetPeriod(v int32) *DevCpuLowUsageRuleForCreateResourceQueueInput {
+	s.Period = &v
+	return s
+}
+
+// SetThreshold sets the Threshold field's value.
+func (s *DevCpuLowUsageRuleForCreateResourceQueueInput) SetThreshold(v float64) *DevCpuLowUsageRuleForCreateResourceQueueInput {
+	s.Threshold = &v
+	return s
+}
+
 type GeneralIdleRuleForCreateResourceQueueInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -590,6 +652,8 @@ type RulesForCreateResourceQueueInput struct {
 
 	AutoCompactGPUResourceRule *AutoCompactGPUResourceRuleForCreateResourceQueueInput `type:"structure" json:",omitempty"`
 
+	DevCpuLowUsageRule *DevCpuLowUsageRuleForCreateResourceQueueInput `type:"structure" json:",omitempty"`
+
 	GeneralIdleRule *GeneralIdleRuleForCreateResourceQueueInput `type:"structure" json:",omitempty"`
 
 	GpuUtilizationRule *GpuUtilizationRuleForCreateResourceQueueInput `type:"structure" json:",omitempty"`
@@ -608,6 +672,12 @@ func (s RulesForCreateResourceQueueInput) GoString() string {
 // SetAutoCompactGPUResourceRule sets the AutoCompactGPUResourceRule field's value.
 func (s *RulesForCreateResourceQueueInput) SetAutoCompactGPUResourceRule(v *AutoCompactGPUResourceRuleForCreateResourceQueueInput) *RulesForCreateResourceQueueInput {
 	s.AutoCompactGPUResourceRule = v
+	return s
+}
+
+// SetDevCpuLowUsageRule sets the DevCpuLowUsageRule field's value.
+func (s *RulesForCreateResourceQueueInput) SetDevCpuLowUsageRule(v *DevCpuLowUsageRuleForCreateResourceQueueInput) *RulesForCreateResourceQueueInput {
+	s.DevCpuLowUsageRule = v
 	return s
 }
 

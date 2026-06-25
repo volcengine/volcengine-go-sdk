@@ -143,6 +143,44 @@ func (c *RDSMYSQLV2) DescribeDBInstanceParametersLogWithContext(ctx volcengine.C
 	return out, req.Send()
 }
 
+type ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	TemplateId *string `type:"string" json:",omitempty"`
+
+	TemplateName *string `type:"string" json:",omitempty"`
+
+	TemplateSource *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput) GoString() string {
+	return s.String()
+}
+
+// SetTemplateId sets the TemplateId field's value.
+func (s *ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput) SetTemplateId(v string) *ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput {
+	s.TemplateId = &v
+	return s
+}
+
+// SetTemplateName sets the TemplateName field's value.
+func (s *ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput) SetTemplateName(v string) *ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput {
+	s.TemplateName = &v
+	return s
+}
+
+// SetTemplateSource sets the TemplateSource field's value.
+func (s *ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput) SetTemplateSource(v string) *ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput {
+	s.TemplateSource = &v
+	return s
+}
+
 type DescribeDBInstanceParametersLogInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -254,6 +292,8 @@ func (s *DescribeDBInstanceParametersLogOutput) SetTotal(v int32) *DescribeDBIns
 type ParameterChangeLogForDescribeDBInstanceParametersLogOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ApplyParamTemplateInfo *ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput `type:"structure" json:",omitempty"`
+
 	CustomNodeIds []*string `type:"list" json:",omitempty"`
 
 	ModifyTime *string `type:"string" json:",omitempty"`
@@ -277,6 +317,12 @@ func (s ParameterChangeLogForDescribeDBInstanceParametersLogOutput) String() str
 // GoString returns the string representation
 func (s ParameterChangeLogForDescribeDBInstanceParametersLogOutput) GoString() string {
 	return s.String()
+}
+
+// SetApplyParamTemplateInfo sets the ApplyParamTemplateInfo field's value.
+func (s *ParameterChangeLogForDescribeDBInstanceParametersLogOutput) SetApplyParamTemplateInfo(v *ApplyParamTemplateInfoForDescribeDBInstanceParametersLogOutput) *ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
+	s.ApplyParamTemplateInfo = v
+	return s
 }
 
 // SetCustomNodeIds sets the CustomNodeIds field's value.

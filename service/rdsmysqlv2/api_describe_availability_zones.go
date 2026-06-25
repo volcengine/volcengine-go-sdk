@@ -145,6 +145,10 @@ func (c *RDSMYSQLV2) DescribeAvailabilityZonesWithContext(ctx volcengine.Context
 
 type DescribeAvailabilityZonesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	SpecFamily *string `type:"string" json:",omitempty"`
+
+	StorageType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -155,6 +159,18 @@ func (s DescribeAvailabilityZonesInput) String() string {
 // GoString returns the string representation
 func (s DescribeAvailabilityZonesInput) GoString() string {
 	return s.String()
+}
+
+// SetSpecFamily sets the SpecFamily field's value.
+func (s *DescribeAvailabilityZonesInput) SetSpecFamily(v string) *DescribeAvailabilityZonesInput {
+	s.SpecFamily = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *DescribeAvailabilityZonesInput) SetStorageType(v string) *DescribeAvailabilityZonesInput {
+	s.StorageType = &v
+	return s
 }
 
 type DescribeAvailabilityZonesOutput struct {
@@ -194,6 +210,8 @@ type ZoneForDescribeAvailabilityZonesOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	Status *string `type:"string" json:"status,omitempty"`
+
 	ZoneId *string `type:"string" json:",omitempty"`
 
 	ZoneName *string `type:"string" json:",omitempty"`
@@ -212,6 +230,12 @@ func (s ZoneForDescribeAvailabilityZonesOutput) GoString() string {
 // SetDescription sets the Description field's value.
 func (s *ZoneForDescribeAvailabilityZonesOutput) SetDescription(v string) *ZoneForDescribeAvailabilityZonesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *ZoneForDescribeAvailabilityZonesOutput) SetStatus(v string) *ZoneForDescribeAvailabilityZonesOutput {
+	s.Status = &v
 	return s
 }
 

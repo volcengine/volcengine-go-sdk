@@ -188,6 +188,8 @@ type CreateResourceGroupInput struct {
 
 	AutoRenewPeriod *int32 `min:"1" type:"int32" json:",omitempty"`
 
+	ByteKDSprofileEnabled *bool `type:"boolean" json:",omitempty"`
+
 	// ChargeType is a required field
 	ChargeType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfChargeTypeForCreateResourceGroupInput"`
 
@@ -276,6 +278,12 @@ func (s *CreateResourceGroupInput) SetAutoRenew(v bool) *CreateResourceGroupInpu
 // SetAutoRenewPeriod sets the AutoRenewPeriod field's value.
 func (s *CreateResourceGroupInput) SetAutoRenewPeriod(v int32) *CreateResourceGroupInput {
 	s.AutoRenewPeriod = &v
+	return s
+}
+
+// SetByteKDSprofileEnabled sets the ByteKDSprofileEnabled field's value.
+func (s *CreateResourceGroupInput) SetByteKDSprofileEnabled(v bool) *CreateResourceGroupInput {
+	s.ByteKDSprofileEnabled = &v
 	return s
 }
 
@@ -384,7 +392,13 @@ func (s *CreateResourceGroupOutput) SetId(v string) *CreateResourceGroupOutput {
 type EicForCreateResourceGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CacheType *string `type:"string" json:",omitempty"`
+
 	EicId *string `type:"string" json:",omitempty"`
+
+	EnableRDMA *bool `type:"boolean" json:",omitempty"`
+
+	EnableShmIpc *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -397,9 +411,27 @@ func (s EicForCreateResourceGroupInput) GoString() string {
 	return s.String()
 }
 
+// SetCacheType sets the CacheType field's value.
+func (s *EicForCreateResourceGroupInput) SetCacheType(v string) *EicForCreateResourceGroupInput {
+	s.CacheType = &v
+	return s
+}
+
 // SetEicId sets the EicId field's value.
 func (s *EicForCreateResourceGroupInput) SetEicId(v string) *EicForCreateResourceGroupInput {
 	s.EicId = &v
+	return s
+}
+
+// SetEnableRDMA sets the EnableRDMA field's value.
+func (s *EicForCreateResourceGroupInput) SetEnableRDMA(v bool) *EicForCreateResourceGroupInput {
+	s.EnableRDMA = &v
+	return s
+}
+
+// SetEnableShmIpc sets the EnableShmIpc field's value.
+func (s *EicForCreateResourceGroupInput) SetEnableShmIpc(v bool) *EicForCreateResourceGroupInput {
+	s.EnableShmIpc = &v
 	return s
 }
 

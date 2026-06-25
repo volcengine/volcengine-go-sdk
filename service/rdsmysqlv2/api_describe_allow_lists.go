@@ -162,6 +162,8 @@ type AllowListForDescribeAllowListsOutput struct {
 
 	IpList []*string `type:"list" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListsOutput `type:"list" json:",omitempty"`
 }
 
@@ -223,6 +225,12 @@ func (s *AllowListForDescribeAllowListsOutput) SetIpList(v []*string) *AllowList
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetProjectName(v string) *AllowListForDescribeAllowListsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
 func (s *AllowListForDescribeAllowListsOutput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForDescribeAllowListsOutput) *AllowListForDescribeAllowListsOutput {
 	s.SecurityGroupBindInfos = v
@@ -239,6 +247,8 @@ type DescribeAllowListsInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	QueryDefault *bool `type:"boolean" json:",omitempty"`
+
+	QueryInstance *bool `type:"boolean" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
 
@@ -276,6 +286,12 @@ func (s *DescribeAllowListsInput) SetProjectName(v string) *DescribeAllowListsIn
 // SetQueryDefault sets the QueryDefault field's value.
 func (s *DescribeAllowListsInput) SetQueryDefault(v bool) *DescribeAllowListsInput {
 	s.QueryDefault = &v
+	return s
+}
+
+// SetQueryInstance sets the QueryInstance field's value.
+func (s *DescribeAllowListsInput) SetQueryInstance(v bool) *DescribeAllowListsInput {
+	s.QueryInstance = &v
 	return s
 }
 

@@ -102,6 +102,22 @@ type MLPLATFORM20240701API interface {
 	CreateServiceWithContext(volcengine.Context, *CreateServiceInput, ...request.Option) (*CreateServiceOutput, error)
 	CreateServiceRequest(*CreateServiceInput) (*request.Request, *CreateServiceOutput)
 
+	CreateTeleOpTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTeleOpTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTeleOpTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTeleOpTask(*CreateTeleOpTaskInput) (*CreateTeleOpTaskOutput, error)
+	CreateTeleOpTaskWithContext(volcengine.Context, *CreateTeleOpTaskInput, ...request.Option) (*CreateTeleOpTaskOutput, error)
+	CreateTeleOpTaskRequest(*CreateTeleOpTaskInput) (*request.Request, *CreateTeleOpTaskOutput)
+
+	CreateVepfsFilesetPermissionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateVepfsFilesetPermissionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateVepfsFilesetPermissionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateVepfsFilesetPermission(*CreateVepfsFilesetPermissionInput) (*CreateVepfsFilesetPermissionOutput, error)
+	CreateVepfsFilesetPermissionWithContext(volcengine.Context, *CreateVepfsFilesetPermissionInput, ...request.Option) (*CreateVepfsFilesetPermissionOutput, error)
+	CreateVepfsFilesetPermissionRequest(*CreateVepfsFilesetPermissionInput) (*request.Request, *CreateVepfsFilesetPermissionOutput)
+
 	DeleteDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteDeploymentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -157,6 +173,22 @@ type MLPLATFORM20240701API interface {
 	DeleteService(*DeleteServiceInput) (*DeleteServiceOutput, error)
 	DeleteServiceWithContext(volcengine.Context, *DeleteServiceInput, ...request.Option) (*DeleteServiceOutput, error)
 	DeleteServiceRequest(*DeleteServiceInput) (*request.Request, *DeleteServiceOutput)
+
+	DeleteTeleOpTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTeleOpTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTeleOpTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTeleOpTask(*DeleteTeleOpTaskInput) (*DeleteTeleOpTaskOutput, error)
+	DeleteTeleOpTaskWithContext(volcengine.Context, *DeleteTeleOpTaskInput, ...request.Option) (*DeleteTeleOpTaskOutput, error)
+	DeleteTeleOpTaskRequest(*DeleteTeleOpTaskInput) (*request.Request, *DeleteTeleOpTaskOutput)
+
+	DeleteVepfsUserPermissionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteVepfsUserPermissionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteVepfsUserPermissionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteVepfsUserPermission(*DeleteVepfsUserPermissionInput) (*DeleteVepfsUserPermissionOutput, error)
+	DeleteVepfsUserPermissionWithContext(volcengine.Context, *DeleteVepfsUserPermissionInput, ...request.Option) (*DeleteVepfsUserPermissionOutput, error)
+	DeleteVepfsUserPermissionRequest(*DeleteVepfsUserPermissionInput) (*request.Request, *DeleteVepfsUserPermissionOutput)
 
 	GetDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -221,6 +253,14 @@ type MLPLATFORM20240701API interface {
 	GetService(*GetServiceInput) (*GetServiceOutput, error)
 	GetServiceWithContext(volcengine.Context, *GetServiceInput, ...request.Option) (*GetServiceOutput, error)
 	GetServiceRequest(*GetServiceInput) (*request.Request, *GetServiceOutput)
+
+	GetTeleOpTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTeleOpTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTeleOpTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTeleOpTask(*GetTeleOpTaskInput) (*GetTeleOpTaskOutput, error)
+	GetTeleOpTaskWithContext(volcengine.Context, *GetTeleOpTaskInput, ...request.Option) (*GetTeleOpTaskOutput, error)
+	GetTeleOpTaskRequest(*GetTeleOpTaskInput) (*request.Request, *GetTeleOpTaskOutput)
 
 	ListAvailabilityZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAvailabilityZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -342,6 +382,22 @@ type MLPLATFORM20240701API interface {
 	ListServicesWithContext(volcengine.Context, *ListServicesInput, ...request.Option) (*ListServicesOutput, error)
 	ListServicesRequest(*ListServicesInput) (*request.Request, *ListServicesOutput)
 
+	ListTeleOpTaskRobotModelsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTeleOpTaskRobotModelsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTeleOpTaskRobotModelsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTeleOpTaskRobotModels(*ListTeleOpTaskRobotModelsInput) (*ListTeleOpTaskRobotModelsOutput, error)
+	ListTeleOpTaskRobotModelsWithContext(volcengine.Context, *ListTeleOpTaskRobotModelsInput, ...request.Option) (*ListTeleOpTaskRobotModelsOutput, error)
+	ListTeleOpTaskRobotModelsRequest(*ListTeleOpTaskRobotModelsInput) (*request.Request, *ListTeleOpTaskRobotModelsOutput)
+
+	ListTeleOpTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTeleOpTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTeleOpTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTeleOpTasks(*ListTeleOpTasksInput) (*ListTeleOpTasksOutput, error)
+	ListTeleOpTasksWithContext(volcengine.Context, *ListTeleOpTasksInput, ...request.Option) (*ListTeleOpTasksOutput, error)
+	ListTeleOpTasksRequest(*ListTeleOpTasksInput) (*request.Request, *ListTeleOpTasksOutput)
+
 	ListVolumeTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListVolumeTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListVolumeTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -438,6 +494,22 @@ type MLPLATFORM20240701API interface {
 	StartServiceWithContext(volcengine.Context, *StartServiceInput, ...request.Option) (*StartServiceOutput, error)
 	StartServiceRequest(*StartServiceInput) (*request.Request, *StartServiceOutput)
 
+	StartTeleOpTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartTeleOpTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartTeleOpTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartTeleOpTask(*StartTeleOpTaskInput) (*StartTeleOpTaskOutput, error)
+	StartTeleOpTaskWithContext(volcengine.Context, *StartTeleOpTaskInput, ...request.Option) (*StartTeleOpTaskOutput, error)
+	StartTeleOpTaskRequest(*StartTeleOpTaskInput) (*request.Request, *StartTeleOpTaskOutput)
+
+	StartVRTeleOpTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartVRTeleOpTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartVRTeleOpTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartVRTeleOpTask(*StartVRTeleOpTaskInput) (*StartVRTeleOpTaskOutput, error)
+	StartVRTeleOpTaskWithContext(volcengine.Context, *StartVRTeleOpTaskInput, ...request.Option) (*StartVRTeleOpTaskOutput, error)
+	StartVRTeleOpTaskRequest(*StartVRTeleOpTaskInput) (*request.Request, *StartVRTeleOpTaskOutput)
+
 	StopDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StopDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StopDeploymentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -469,6 +541,22 @@ type MLPLATFORM20240701API interface {
 	StopService(*StopServiceInput) (*StopServiceOutput, error)
 	StopServiceWithContext(volcengine.Context, *StopServiceInput, ...request.Option) (*StopServiceOutput, error)
 	StopServiceRequest(*StopServiceInput) (*request.Request, *StopServiceOutput)
+
+	StopTeleOpTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopTeleOpTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopTeleOpTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopTeleOpTask(*StopTeleOpTaskInput) (*StopTeleOpTaskOutput, error)
+	StopTeleOpTaskWithContext(volcengine.Context, *StopTeleOpTaskInput, ...request.Option) (*StopTeleOpTaskOutput, error)
+	StopTeleOpTaskRequest(*StopTeleOpTaskInput) (*request.Request, *StopTeleOpTaskOutput)
+
+	SubmitTeleOpTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SubmitTeleOpTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SubmitTeleOpTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SubmitTeleOpTask(*SubmitTeleOpTaskInput) (*SubmitTeleOpTaskOutput, error)
+	SubmitTeleOpTaskWithContext(volcengine.Context, *SubmitTeleOpTaskInput, ...request.Option) (*SubmitTeleOpTaskOutput, error)
+	SubmitTeleOpTaskRequest(*SubmitTeleOpTaskInput) (*request.Request, *SubmitTeleOpTaskOutput)
 
 	UpdateDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -525,6 +613,14 @@ type MLPLATFORM20240701API interface {
 	UpdateService(*UpdateServiceInput) (*UpdateServiceOutput, error)
 	UpdateServiceWithContext(volcengine.Context, *UpdateServiceInput, ...request.Option) (*UpdateServiceOutput, error)
 	UpdateServiceRequest(*UpdateServiceInput) (*request.Request, *UpdateServiceOutput)
+
+	UpdateTeleOpTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateTeleOpTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateTeleOpTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateTeleOpTask(*UpdateTeleOpTaskInput) (*UpdateTeleOpTaskOutput, error)
+	UpdateTeleOpTaskWithContext(volcengine.Context, *UpdateTeleOpTaskInput, ...request.Option) (*UpdateTeleOpTaskOutput, error)
+	UpdateTeleOpTaskRequest(*UpdateTeleOpTaskInput) (*request.Request, *UpdateTeleOpTaskOutput)
 }
 
 var _ MLPLATFORM20240701API = (*MLPLATFORM20240701)(nil)

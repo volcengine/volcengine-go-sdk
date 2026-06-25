@@ -184,9 +184,15 @@ func (s *ComputeResourceForListResourceGroupsOutput) SetZoneId(v string) *Comput
 type EicForListResourceGroupsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CacheType *string `type:"string" json:",omitempty"`
+
 	EicId *string `type:"string" json:",omitempty"`
 
 	EicStatus *string `type:"string" json:",omitempty"`
+
+	EnableRDMA *bool `type:"boolean" json:",omitempty"`
+
+	EnableShmIpc *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -197,6 +203,12 @@ func (s EicForListResourceGroupsOutput) String() string {
 // GoString returns the string representation
 func (s EicForListResourceGroupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetCacheType sets the CacheType field's value.
+func (s *EicForListResourceGroupsOutput) SetCacheType(v string) *EicForListResourceGroupsOutput {
+	s.CacheType = &v
+	return s
 }
 
 // SetEicId sets the EicId field's value.
@@ -211,8 +223,22 @@ func (s *EicForListResourceGroupsOutput) SetEicStatus(v string) *EicForListResou
 	return s
 }
 
+// SetEnableRDMA sets the EnableRDMA field's value.
+func (s *EicForListResourceGroupsOutput) SetEnableRDMA(v bool) *EicForListResourceGroupsOutput {
+	s.EnableRDMA = &v
+	return s
+}
+
+// SetEnableShmIpc sets the EnableShmIpc field's value.
+func (s *EicForListResourceGroupsOutput) SetEnableShmIpc(v bool) *EicForListResourceGroupsOutput {
+	s.EnableShmIpc = &v
+	return s
+}
+
 type ItemForListResourceGroupsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	ByteKDSprofileEnabled *bool `type:"boolean" json:",omitempty"`
 
 	ChargeType *string `type:"string" json:",omitempty"`
 
@@ -253,6 +279,12 @@ func (s ItemForListResourceGroupsOutput) String() string {
 // GoString returns the string representation
 func (s ItemForListResourceGroupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetByteKDSprofileEnabled sets the ByteKDSprofileEnabled field's value.
+func (s *ItemForListResourceGroupsOutput) SetByteKDSprofileEnabled(v bool) *ItemForListResourceGroupsOutput {
+	s.ByteKDSprofileEnabled = &v
+	return s
 }
 
 // SetChargeType sets the ChargeType field's value.
