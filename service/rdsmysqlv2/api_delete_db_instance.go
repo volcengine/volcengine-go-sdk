@@ -152,6 +152,8 @@ type DeleteDBInstanceInput struct {
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
+
+	KeepCrossBackupEnableAfterReleased *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,6 +194,12 @@ func (s *DeleteDBInstanceInput) SetDataKeepPolicy(v string) *DeleteDBInstanceInp
 // SetInstanceId sets the InstanceId field's value.
 func (s *DeleteDBInstanceInput) SetInstanceId(v string) *DeleteDBInstanceInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetKeepCrossBackupEnableAfterReleased sets the KeepCrossBackupEnableAfterReleased field's value.
+func (s *DeleteDBInstanceInput) SetKeepCrossBackupEnableAfterReleased(v bool) *DeleteDBInstanceInput {
+	s.KeepCrossBackupEnableAfterReleased = &v
 	return s
 }
 

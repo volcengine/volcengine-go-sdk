@@ -151,6 +151,8 @@ type UpgradeDBInstanceEngineMinorVersionInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
+	ObservationHours *int32 `type:"int32" json:",omitempty"`
+
 	SpecifiedSwitchEndTime *string `type:"string" json:",omitempty"`
 
 	SpecifiedSwitchStartTime *string `type:"string" json:",omitempty"`
@@ -196,6 +198,12 @@ func (s *UpgradeDBInstanceEngineMinorVersionInput) SetEstimateOnly(v bool) *Upgr
 // SetInstanceId sets the InstanceId field's value.
 func (s *UpgradeDBInstanceEngineMinorVersionInput) SetInstanceId(v string) *UpgradeDBInstanceEngineMinorVersionInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetObservationHours sets the ObservationHours field's value.
+func (s *UpgradeDBInstanceEngineMinorVersionInput) SetObservationHours(v int32) *UpgradeDBInstanceEngineMinorVersionInput {
+	s.ObservationHours = &v
 	return s
 }
 
