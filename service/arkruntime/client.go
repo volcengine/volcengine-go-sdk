@@ -11,6 +11,7 @@ import (
 	"math/rand"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 	"strings"
 	"sync"
@@ -30,6 +31,7 @@ type Client struct {
 	config clientConfig
 
 	requestBuilder utils.RequestBuilder
+	defaultHeaders http.Header
 
 	arkClient               *ark.ARK
 	resourceStsTokens       sync.Map
@@ -64,9 +66,10 @@ func newClientWithConfig(config clientConfig) *Client {
 	sess, _ := session.NewSession(arkConfig)
 	arkClient = ark.New(sess)
 
-	return &Client{
+	c := &Client{
 		config:                  config,
 		requestBuilder:          utils.NewRequestBuilder(),
+		defaultHeaders:          buildTceHeadersFromEnv(),
 		arkClient:               arkClient,
 		resourceStsTokens:       sync.Map{},
 		rwLock:                  &sync.RWMutex{},
@@ -77,6 +80,7 @@ func newClientWithConfig(config clientConfig) *Client {
 		batchHTTPClient:         newBatchHTTPClient(config.batchMaxParallel),
 		modelBreakerProvider:    utils.NewModelBreakerProvider(),
 	}
+	return c
 }
 
 func (c *Client) GetEndpointStsToken(ctx context.Context, endpointId string) (string, error) {
@@ -210,6 +214,42 @@ func WithCustomHeaders(m map[string]string) RequestOption {
 	}
 }
 
+func buildTceHeadersFromEnv() http.Header {
+	// only inject headers in tce env
+	if os.Getenv("LUBAN_ICM_NAMESPACE") != "tce" {
+		return nil
+	}
+
+	h := make(http.Header)
+
+	// env var is empty -> do NOT inject corresponding header
+	if v := os.Getenv("TCE_ENV"); v != "" {
+		h.Set("Source-Env", v)
+	}
+	if v := os.Getenv("TCE_PSM"); v != "" {
+		h.Set("Source-Service", v)
+	}
+	if v := os.Getenv("TCE_CLUSTER"); v != "" {
+		h.Set("Source-Cluster", v)
+	}
+
+	// prefer v6
+	if v := os.Getenv("MY_HOST_IPV6"); v != "" {
+		h.Set("Source-Addr", v)
+	} else if v := os.Getenv("MY_HOST_IP"); v != "" {
+		h.Set("Source-Addr", v)
+	}
+
+	if v := os.Getenv("TCE_INTERNAL_IDC"); v != "" {
+		h.Set("Source-Idc", v)
+	}
+	if v := os.Getenv("MY_POD_NAME"); v != "" {
+		h.Set("Source-Instance", v)
+	}
+
+	return h
+}
+
 // WithQuery returns a RequestOption that sets the query value to the associated key. It overwrites
 // any value if there was one already present.
 func WithQuery(key, value string) RequestOption {
@@ -227,6 +267,15 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 
 	requestID := utils.GenRequestId()
 	args.header.Set(model.ClientRequestHeader, requestID)
+
+	// default inject tce related headers (built at client initialization)
+	if c.defaultHeaders != nil {
+		for k, vs := range c.defaultHeaders {
+			if len(vs) > 0 {
+				args.header.Set(k, vs[0])
+			}
+		}
+	}
 
 	// parse resource type by resourceId
 	// - endpoint: ep-*
