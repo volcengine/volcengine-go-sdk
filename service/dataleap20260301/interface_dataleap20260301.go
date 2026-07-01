@@ -54,6 +54,22 @@ type DATALEAP20260301API interface {
 	DeleteDataSourceWithContext(volcengine.Context, *DeleteDataSourceInput, ...request.Option) (*DeleteDataSourceOutput, error)
 	DeleteDataSourceRequest(*DeleteDataSourceInput) (*request.Request, *DeleteDataSourceOutput)
 
+	DeleteEmrAccountRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteEmrAccountRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteEmrAccountRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteEmrAccountRelation(*DeleteEmrAccountRelationInput) (*DeleteEmrAccountRelationOutput, error)
+	DeleteEmrAccountRelationWithContext(volcengine.Context, *DeleteEmrAccountRelationInput, ...request.Option) (*DeleteEmrAccountRelationOutput, error)
+	DeleteEmrAccountRelationRequest(*DeleteEmrAccountRelationInput) (*request.Request, *DeleteEmrAccountRelationOutput)
+
+	DeleteEntityTagCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteEntityTagCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteEntityTagCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteEntityTag(*DeleteEntityTagInput) (*DeleteEntityTagOutput, error)
+	DeleteEntityTagWithContext(volcengine.Context, *DeleteEntityTagInput, ...request.Option) (*DeleteEntityTagOutput, error)
+	DeleteEntityTagRequest(*DeleteEntityTagInput) (*request.Request, *DeleteEntityTagOutput)
+
 	DeleteSolutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteSolutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteSolutionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -69,6 +85,14 @@ type DATALEAP20260301API interface {
 	GetDataSource(*GetDataSourceInput) (*GetDataSourceOutput, error)
 	GetDataSourceWithContext(volcengine.Context, *GetDataSourceInput, ...request.Option) (*GetDataSourceOutput, error)
 	GetDataSourceRequest(*GetDataSourceInput) (*request.Request, *GetDataSourceOutput)
+
+	GetEmrAccountRelationByInternalIdCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetEmrAccountRelationByInternalIdCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetEmrAccountRelationByInternalIdCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetEmrAccountRelationByInternalId(*GetEmrAccountRelationByInternalIdInput) (*GetEmrAccountRelationByInternalIdOutput, error)
+	GetEmrAccountRelationByInternalIdWithContext(volcengine.Context, *GetEmrAccountRelationByInternalIdInput, ...request.Option) (*GetEmrAccountRelationByInternalIdOutput, error)
+	GetEmrAccountRelationByInternalIdRequest(*GetEmrAccountRelationByInternalIdInput) (*request.Request, *GetEmrAccountRelationByInternalIdOutput)
 
 	GetSolutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetSolutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -93,6 +117,14 @@ type DATALEAP20260301API interface {
 	ListDataSources(*ListDataSourcesInput) (*ListDataSourcesOutput, error)
 	ListDataSourcesWithContext(volcengine.Context, *ListDataSourcesInput, ...request.Option) (*ListDataSourcesOutput, error)
 	ListDataSourcesRequest(*ListDataSourcesInput) (*request.Request, *ListDataSourcesOutput)
+
+	ListEntityTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListEntityTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListEntityTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListEntityTags(*ListEntityTagsInput) (*ListEntityTagsOutput, error)
+	ListEntityTagsWithContext(volcengine.Context, *ListEntityTagsInput, ...request.Option) (*ListEntityTagsOutput, error)
+	ListEntityTagsRequest(*ListEntityTagsInput) (*request.Request, *ListEntityTagsOutput)
 
 	ListSolutionBatchTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSolutionBatchTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -126,6 +158,14 @@ type DATALEAP20260301API interface {
 	ListSolutionsWithContext(volcengine.Context, *ListSolutionsInput, ...request.Option) (*ListSolutionsOutput, error)
 	ListSolutionsRequest(*ListSolutionsInput) (*request.Request, *ListSolutionsOutput)
 
+	ModifyEmrAccountRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyEmrAccountRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyEmrAccountRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyEmrAccountRelation(*ModifyEmrAccountRelationInput) (*ModifyEmrAccountRelationOutput, error)
+	ModifyEmrAccountRelationWithContext(volcengine.Context, *ModifyEmrAccountRelationInput, ...request.Option) (*ModifyEmrAccountRelationOutput, error)
+	ModifyEmrAccountRelationRequest(*ModifyEmrAccountRelationInput) (*request.Request, *ModifyEmrAccountRelationOutput)
+
 	StartSolutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartSolutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StartSolutionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -157,6 +197,14 @@ type DATALEAP20260301API interface {
 	UpdateDataSource(*UpdateDataSourceInput) (*UpdateDataSourceOutput, error)
 	UpdateDataSourceWithContext(volcengine.Context, *UpdateDataSourceInput, ...request.Option) (*UpdateDataSourceOutput, error)
 	UpdateDataSourceRequest(*UpdateDataSourceInput) (*request.Request, *UpdateDataSourceOutput)
+
+	UpdateEntityTagCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateEntityTagCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateEntityTagCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateEntityTag(*UpdateEntityTagInput) (*UpdateEntityTagOutput, error)
+	UpdateEntityTagWithContext(volcengine.Context, *UpdateEntityTagInput, ...request.Option) (*UpdateEntityTagOutput, error)
+	UpdateEntityTagRequest(*UpdateEntityTagInput) (*request.Request, *UpdateEntityTagOutput)
 
 	UpdateSolutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateSolutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
