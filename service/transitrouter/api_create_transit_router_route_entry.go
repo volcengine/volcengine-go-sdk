@@ -144,8 +144,9 @@ type CreateTransitRouterRouteEntryInput struct {
 
 	Description *string `type:"string"`
 
-	// DestinationCidrBlock is a required field
-	DestinationCidrBlock *string `type:"string" required:"true"`
+	DestinationCidrBlock *string `type:"string"`
+
+	DestinationPrefixListId *string `type:"string"`
 
 	TransitRouterRouteEntryName *string `type:"string"`
 
@@ -171,9 +172,6 @@ func (s CreateTransitRouterRouteEntryInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateTransitRouterRouteEntryInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateTransitRouterRouteEntryInput"}
-	if s.DestinationCidrBlock == nil {
-		invalidParams.Add(request.NewErrParamRequired("DestinationCidrBlock"))
-	}
 	if s.TransitRouterRouteEntryNextHopType == nil {
 		invalidParams.Add(request.NewErrParamRequired("TransitRouterRouteEntryNextHopType"))
 	}
@@ -196,6 +194,12 @@ func (s *CreateTransitRouterRouteEntryInput) SetDescription(v string) *CreateTra
 // SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
 func (s *CreateTransitRouterRouteEntryInput) SetDestinationCidrBlock(v string) *CreateTransitRouterRouteEntryInput {
 	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetDestinationPrefixListId sets the DestinationPrefixListId field's value.
+func (s *CreateTransitRouterRouteEntryInput) SetDestinationPrefixListId(v string) *CreateTransitRouterRouteEntryInput {
+	s.DestinationPrefixListId = &v
 	return s
 }
 
