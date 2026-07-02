@@ -838,6 +838,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectGetToolTaskWithContext(volcengine.Context, *VideoProjectGetToolTaskInput, ...request.Option) (*VideoProjectGetToolTaskOutput, error)
 	VideoProjectGetToolTaskRequest(*VideoProjectGetToolTaskInput) (*request.Request, *VideoProjectGetToolTaskOutput)
 
+	VideoProjectGetUploadSubtitleStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectGetUploadSubtitleStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectGetUploadSubtitleStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectGetUploadSubtitleStatus(*VideoProjectGetUploadSubtitleStatusInput) (*VideoProjectGetUploadSubtitleStatusOutput, error)
+	VideoProjectGetUploadSubtitleStatusWithContext(volcengine.Context, *VideoProjectGetUploadSubtitleStatusInput, ...request.Option) (*VideoProjectGetUploadSubtitleStatusOutput, error)
+	VideoProjectGetUploadSubtitleStatusRequest(*VideoProjectGetUploadSubtitleStatusInput) (*request.Request, *VideoProjectGetUploadSubtitleStatusOutput)
+
 	VideoProjectGetVideoUploadStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectGetVideoUploadStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectGetVideoUploadStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -893,6 +901,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectSerialTaskCreate(*VideoProjectSerialTaskCreateInput) (*VideoProjectSerialTaskCreateOutput, error)
 	VideoProjectSerialTaskCreateWithContext(volcengine.Context, *VideoProjectSerialTaskCreateInput, ...request.Option) (*VideoProjectSerialTaskCreateOutput, error)
 	VideoProjectSerialTaskCreateRequest(*VideoProjectSerialTaskCreateInput) (*request.Request, *VideoProjectSerialTaskCreateOutput)
+
+	VideoProjectSubtitleUploadCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectSubtitleUploadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectSubtitleUploadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectSubtitleUpload(*VideoProjectSubtitleUploadInput) (*VideoProjectSubtitleUploadOutput, error)
+	VideoProjectSubtitleUploadWithContext(volcengine.Context, *VideoProjectSubtitleUploadInput, ...request.Option) (*VideoProjectSubtitleUploadOutput, error)
+	VideoProjectSubtitleUploadRequest(*VideoProjectSubtitleUploadInput) (*request.Request, *VideoProjectSubtitleUploadOutput)
 
 	VideoProjectSuppressionStartCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectSuppressionStartCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
