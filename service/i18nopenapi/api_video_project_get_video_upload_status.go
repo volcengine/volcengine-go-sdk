@@ -242,6 +242,8 @@ type VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput struct {
 
 	Status *int32 `type:"int32" json:"status"`
 
+	SubtitleId *string `type:"string" json:"subtitleId"`
+
 	VideoId *string `type:"string" json:"videoId"`
 
 	VideoUrl *string `type:"string" json:"videoUrl"`
@@ -272,6 +274,12 @@ func (s *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) SetProjectId(
 // SetStatus sets the Status field's value.
 func (s *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) SetStatus(v int32) *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
 	s.Status = &v
+	return s
+}
+
+// SetSubtitleId sets the SubtitleId field's value.
+func (s *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) SetSubtitleId(v string) *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
+	s.SubtitleId = &v
 	return s
 }
 
