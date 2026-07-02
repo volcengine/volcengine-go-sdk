@@ -179,6 +179,8 @@ type CreateClawInstanceInput struct {
 	// Spec is a required field
 	Spec *string `type:"string" json:",omitempty" required:"true"`
 
+	TemplateId *string `type:"string" json:",omitempty"`
+
 	UserPoolUserUid *string `type:"string" json:",omitempty"`
 }
 
@@ -298,6 +300,12 @@ func (s *CreateClawInstanceInput) SetSpaceId(v string) *CreateClawInstanceInput 
 // SetSpec sets the Spec field's value.
 func (s *CreateClawInstanceInput) SetSpec(v string) *CreateClawInstanceInput {
 	s.Spec = &v
+	return s
+}
+
+// SetTemplateId sets the TemplateId field's value.
+func (s *CreateClawInstanceInput) SetTemplateId(v string) *CreateClawInstanceInput {
+	s.TemplateId = &v
 	return s
 }
 
