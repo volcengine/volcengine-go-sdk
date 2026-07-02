@@ -146,6 +146,8 @@ type CreateTransitRouterVpnAttachmentInput struct {
 
 	Description *string `type:"string"`
 
+	SecondaryZoneId *string `type:"string"`
+
 	Tags []*TagForCreateTransitRouterVpnAttachmentInput `type:"list"`
 
 	TransitRouterAttachmentName *string `type:"string"`
@@ -200,6 +202,12 @@ func (s *CreateTransitRouterVpnAttachmentInput) SetClientToken(v string) *Create
 // SetDescription sets the Description field's value.
 func (s *CreateTransitRouterVpnAttachmentInput) SetDescription(v string) *CreateTransitRouterVpnAttachmentInput {
 	s.Description = &v
+	return s
+}
+
+// SetSecondaryZoneId sets the SecondaryZoneId field's value.
+func (s *CreateTransitRouterVpnAttachmentInput) SetSecondaryZoneId(v string) *CreateTransitRouterVpnAttachmentInput {
+	s.SecondaryZoneId = &v
 	return s
 }
 

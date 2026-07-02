@@ -182,6 +182,8 @@ type ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput struct {
 
 	Name *string `type:"string" json:"name,omitempty"`
 
+	SubtitleId *string `type:"string" json:"subtitleId,omitempty"`
+
 	SubtitleLang *int32 `type:"int32" json:"subtitleLang,omitempty"`
 
 	TargetLang *string `type:"string" json:"targetLang,omitempty"`
@@ -217,6 +219,12 @@ func (s *ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput) SetName(v
 	return s
 }
 
+// SetSubtitleId sets the SubtitleId field's value.
+func (s *ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput) SetSubtitleId(v string) *ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput {
+	s.SubtitleId = &v
+	return s
+}
+
 // SetSubtitleLang sets the SubtitleLang field's value.
 func (s *ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput) SetSubtitleLang(v int32) *ConverteffectSubtitleForVideoProjectSerialDubTaskCreateInput {
 	s.SubtitleLang = &v
@@ -243,6 +251,8 @@ type ConvertsubtitleForVideoProjectSerialDubTaskCreateInput struct {
 	FileType *int32 `type:"int32" json:"fileType,omitempty"`
 
 	Name *string `type:"string" json:"name,omitempty"`
+
+	SubtitleId *string `type:"string" json:"subtitleId,omitempty"`
 
 	SubtitleLang *int32 `type:"int32" json:"subtitleLang,omitempty"`
 
@@ -276,6 +286,12 @@ func (s *ConvertsubtitleForVideoProjectSerialDubTaskCreateInput) SetFileType(v i
 // SetName sets the Name field's value.
 func (s *ConvertsubtitleForVideoProjectSerialDubTaskCreateInput) SetName(v string) *ConvertsubtitleForVideoProjectSerialDubTaskCreateInput {
 	s.Name = &v
+	return s
+}
+
+// SetSubtitleId sets the SubtitleId field's value.
+func (s *ConvertsubtitleForVideoProjectSerialDubTaskCreateInput) SetSubtitleId(v string) *ConvertsubtitleForVideoProjectSerialDubTaskCreateInput {
+	s.SubtitleId = &v
 	return s
 }
 
@@ -352,6 +368,8 @@ type EffectSubtitleForVideoProjectSerialDubTaskCreateInput struct {
 
 	Name *string `type:"string" json:"name,omitempty"`
 
+	SubtitleId *string `type:"string" json:"subtitleId,omitempty"`
+
 	SubtitleLang *int32 `type:"int32" json:"subtitleLang,omitempty"`
 
 	Uri *string `type:"string" json:"uri,omitempty"`
@@ -382,6 +400,12 @@ func (s *EffectSubtitleForVideoProjectSerialDubTaskCreateInput) SetFileType(v in
 // SetName sets the Name field's value.
 func (s *EffectSubtitleForVideoProjectSerialDubTaskCreateInput) SetName(v string) *EffectSubtitleForVideoProjectSerialDubTaskCreateInput {
 	s.Name = &v
+	return s
+}
+
+// SetSubtitleId sets the SubtitleId field's value.
+func (s *EffectSubtitleForVideoProjectSerialDubTaskCreateInput) SetSubtitleId(v string) *EffectSubtitleForVideoProjectSerialDubTaskCreateInput {
+	s.SubtitleId = &v
 	return s
 }
 
@@ -636,6 +660,8 @@ type SubtitleForVideoProjectSerialDubTaskCreateInput struct {
 
 	Name *string `type:"string" json:"name,omitempty"`
 
+	SubtitleId *string `type:"string" json:"subtitleId,omitempty"`
+
 	SubtitleLang *int32 `type:"int32" json:"subtitleLang,omitempty"`
 
 	Uri *string `type:"string" json:"uri,omitempty"`
@@ -666,6 +692,12 @@ func (s *SubtitleForVideoProjectSerialDubTaskCreateInput) SetFileType(v int32) *
 // SetName sets the Name field's value.
 func (s *SubtitleForVideoProjectSerialDubTaskCreateInput) SetName(v string) *SubtitleForVideoProjectSerialDubTaskCreateInput {
 	s.Name = &v
+	return s
+}
+
+// SetSubtitleId sets the SubtitleId field's value.
+func (s *SubtitleForVideoProjectSerialDubTaskCreateInput) SetSubtitleId(v string) *SubtitleForVideoProjectSerialDubTaskCreateInput {
+	s.SubtitleId = &v
 	return s
 }
 

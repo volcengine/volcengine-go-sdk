@@ -194,8 +194,6 @@ type CloudMonitorForUpdateSilencePolicyInput struct {
 
 	MetaCondition *MetaConditionForUpdateSilencePolicyInput `type:"structure" json:",omitempty"`
 
-	MetricNames []*string `type:"list" json:",omitempty"`
-
 	Namespace *string `type:"string" json:",omitempty"`
 
 	RuleID *string `type:"string" json:",omitempty"`
@@ -214,12 +212,6 @@ func (s CloudMonitorForUpdateSilencePolicyInput) GoString() string {
 // SetMetaCondition sets the MetaCondition field's value.
 func (s *CloudMonitorForUpdateSilencePolicyInput) SetMetaCondition(v *MetaConditionForUpdateSilencePolicyInput) *CloudMonitorForUpdateSilencePolicyInput {
 	s.MetaCondition = v
-	return s
-}
-
-// SetMetricNames sets the MetricNames field's value.
-func (s *CloudMonitorForUpdateSilencePolicyInput) SetMetricNames(v []*string) *CloudMonitorForUpdateSilencePolicyInput {
-	s.MetricNames = v
 	return s
 }
 

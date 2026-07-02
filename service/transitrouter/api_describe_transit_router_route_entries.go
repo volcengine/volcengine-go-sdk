@@ -146,7 +146,7 @@ type DescribeTransitRouterRouteEntriesInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	Status *string `type:"string"`
 
@@ -179,6 +179,9 @@ func (s DescribeTransitRouterRouteEntriesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeTransitRouterRouteEntriesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeTransitRouterRouteEntriesInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.TransitRouterRouteTableId == nil {
 		invalidParams.Add(request.NewErrParamRequired("TransitRouterRouteTableId"))
 	}
@@ -314,6 +317,8 @@ type TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput struct {
 
 	DestinationCidrBlock *string `type:"string"`
 
+	DestinationPrefixListId *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	TransitRouterRouteEntryId *string `type:"string"`
@@ -327,6 +332,8 @@ type TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput struct {
 	TransitRouterRouteEntryNextHopResourceType *string `type:"string"`
 
 	TransitRouterRouteEntryNextHopType *string `type:"string"`
+
+	TransitRouterRouteEntryNextHopVpnTunnelId *string `type:"string"`
 
 	TransitRouterRouteEntryType *string `type:"string"`
 
@@ -364,6 +371,12 @@ func (s *TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput) SetD
 // SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
 func (s *TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput) SetDestinationCidrBlock(v string) *TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
 	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetDestinationPrefixListId sets the DestinationPrefixListId field's value.
+func (s *TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput) SetDestinationPrefixListId(v string) *TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
+	s.DestinationPrefixListId = &v
 	return s
 }
 
@@ -406,6 +419,12 @@ func (s *TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput) SetT
 // SetTransitRouterRouteEntryNextHopType sets the TransitRouterRouteEntryNextHopType field's value.
 func (s *TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput) SetTransitRouterRouteEntryNextHopType(v string) *TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
 	s.TransitRouterRouteEntryNextHopType = &v
+	return s
+}
+
+// SetTransitRouterRouteEntryNextHopVpnTunnelId sets the TransitRouterRouteEntryNextHopVpnTunnelId field's value.
+func (s *TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput) SetTransitRouterRouteEntryNextHopVpnTunnelId(v string) *TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput {
+	s.TransitRouterRouteEntryNextHopVpnTunnelId = &v
 	return s
 }
 

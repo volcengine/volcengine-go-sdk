@@ -146,7 +146,7 @@ type DescribeTransitRouterRoutePolicyEntriesInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	TransitRouterRoutePolicyEntryIds []*string `type:"list"`
 
@@ -167,6 +167,9 @@ func (s DescribeTransitRouterRoutePolicyEntriesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeTransitRouterRoutePolicyEntriesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeTransitRouterRoutePolicyEntriesInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.TransitRouterRoutePolicyTableId == nil {
 		invalidParams.Add(request.NewErrParamRequired("TransitRouterRoutePolicyTableId"))
 	}
@@ -276,6 +279,8 @@ type TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOutp
 
 	IpPrefixes []*string `type:"list"`
 
+	PrefixListId *string `type:"string"`
+
 	Priority *int32 `type:"int32"`
 
 	SourceResourceIds []*string `type:"list"`
@@ -352,6 +357,12 @@ func (s *TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntries
 // SetIpPrefixes sets the IpPrefixes field's value.
 func (s *TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOutput) SetIpPrefixes(v []*string) *TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOutput {
 	s.IpPrefixes = v
+	return s
+}
+
+// SetPrefixListId sets the PrefixListId field's value.
+func (s *TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOutput) SetPrefixListId(v string) *TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOutput {
+	s.PrefixListId = &v
 	return s
 }
 

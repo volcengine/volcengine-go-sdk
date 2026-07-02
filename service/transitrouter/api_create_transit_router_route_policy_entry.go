@@ -161,8 +161,10 @@ type CreateTransitRouterRoutePolicyEntryInput struct {
 
 	IpPrefixes []*string `type:"list"`
 
+	PrefixListId *string `type:"string"`
+
 	// Priority is a required field
-	Priority *int32 `type:"int32" required:"true"`
+	Priority *int32 `min:"1" max:"10000" type:"int32" required:"true"`
 
 	SourceResourceIds []*string `type:"list"`
 
@@ -190,6 +192,12 @@ func (s *CreateTransitRouterRoutePolicyEntryInput) Validate() error {
 	}
 	if s.Priority == nil {
 		invalidParams.Add(request.NewErrParamRequired("Priority"))
+	}
+	if s.Priority != nil && *s.Priority < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Priority", 1))
+	}
+	if s.Priority != nil && *s.Priority > 10000 {
+		invalidParams.Add(request.NewErrParamMaxValue("Priority", 10000))
 	}
 	if s.TransitRouterRoutePolicyTableId == nil {
 		invalidParams.Add(request.NewErrParamRequired("TransitRouterRoutePolicyTableId"))
@@ -252,6 +260,12 @@ func (s *CreateTransitRouterRoutePolicyEntryInput) SetIpPrefixMatchMode(v string
 // SetIpPrefixes sets the IpPrefixes field's value.
 func (s *CreateTransitRouterRoutePolicyEntryInput) SetIpPrefixes(v []*string) *CreateTransitRouterRoutePolicyEntryInput {
 	s.IpPrefixes = v
+	return s
+}
+
+// SetPrefixListId sets the PrefixListId field's value.
+func (s *CreateTransitRouterRoutePolicyEntryInput) SetPrefixListId(v string) *CreateTransitRouterRoutePolicyEntryInput {
+	s.PrefixListId = &v
 	return s
 }
 
