@@ -165,11 +165,51 @@ func (s *DataForVideoProjectVideoUploadOutput) SetBatchId(v string) *DataForVide
 	return s
 }
 
+type UploadVideoInfoForVideoProjectVideoUploadInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BindSubtitleIDs []*string `type:"list" json:"bindSubtitleIDs,omitempty"`
+
+	VideoName *string `type:"string" json:"videoName,omitempty"`
+
+	VideoURL *string `type:"string" json:"videoURL,omitempty"`
+}
+
+// String returns the string representation
+func (s UploadVideoInfoForVideoProjectVideoUploadInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UploadVideoInfoForVideoProjectVideoUploadInput) GoString() string {
+	return s.String()
+}
+
+// SetBindSubtitleIDs sets the BindSubtitleIDs field's value.
+func (s *UploadVideoInfoForVideoProjectVideoUploadInput) SetBindSubtitleIDs(v []*string) *UploadVideoInfoForVideoProjectVideoUploadInput {
+	s.BindSubtitleIDs = v
+	return s
+}
+
+// SetVideoName sets the VideoName field's value.
+func (s *UploadVideoInfoForVideoProjectVideoUploadInput) SetVideoName(v string) *UploadVideoInfoForVideoProjectVideoUploadInput {
+	s.VideoName = &v
+	return s
+}
+
+// SetVideoURL sets the VideoURL field's value.
+func (s *UploadVideoInfoForVideoProjectVideoUploadInput) SetVideoURL(v string) *UploadVideoInfoForVideoProjectVideoUploadInput {
+	s.VideoURL = &v
+	return s
+}
+
 type VideoProjectVideoUploadInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ProjectId is a required field
 	ProjectId *string `type:"string" json:"projectId,omitempty" required:"true"`
+
+	UploadVideoInfos []*UploadVideoInfoForVideoProjectVideoUploadInput `type:"list" json:"uploadVideoInfos,omitempty"`
 
 	VideoURLs []*string `type:"list" json:"videoURLs,omitempty"`
 
@@ -206,6 +246,12 @@ func (s *VideoProjectVideoUploadInput) Validate() error {
 // SetProjectId sets the ProjectId field's value.
 func (s *VideoProjectVideoUploadInput) SetProjectId(v string) *VideoProjectVideoUploadInput {
 	s.ProjectId = &v
+	return s
+}
+
+// SetUploadVideoInfos sets the UploadVideoInfos field's value.
+func (s *VideoProjectVideoUploadInput) SetUploadVideoInfos(v []*UploadVideoInfoForVideoProjectVideoUploadInput) *VideoProjectVideoUploadInput {
+	s.UploadVideoInfos = v
 	return s
 }
 

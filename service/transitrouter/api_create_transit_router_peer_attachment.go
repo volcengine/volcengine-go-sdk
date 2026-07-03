@@ -144,9 +144,13 @@ type CreateTransitRouterPeerAttachmentInput struct {
 
 	Bandwidth *int32 `type:"int32"`
 
+	BandwidthType *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	LineOperator *string `type:"string"`
 
 	// PeerTransitRouterId is a required field
 	PeerTransitRouterId *string `type:"string" required:"true"`
@@ -201,6 +205,12 @@ func (s *CreateTransitRouterPeerAttachmentInput) SetBandwidth(v int32) *CreateTr
 	return s
 }
 
+// SetBandwidthType sets the BandwidthType field's value.
+func (s *CreateTransitRouterPeerAttachmentInput) SetBandwidthType(v string) *CreateTransitRouterPeerAttachmentInput {
+	s.BandwidthType = &v
+	return s
+}
+
 // SetClientToken sets the ClientToken field's value.
 func (s *CreateTransitRouterPeerAttachmentInput) SetClientToken(v string) *CreateTransitRouterPeerAttachmentInput {
 	s.ClientToken = &v
@@ -210,6 +220,12 @@ func (s *CreateTransitRouterPeerAttachmentInput) SetClientToken(v string) *Creat
 // SetDescription sets the Description field's value.
 func (s *CreateTransitRouterPeerAttachmentInput) SetDescription(v string) *CreateTransitRouterPeerAttachmentInput {
 	s.Description = &v
+	return s
+}
+
+// SetLineOperator sets the LineOperator field's value.
+func (s *CreateTransitRouterPeerAttachmentInput) SetLineOperator(v string) *CreateTransitRouterPeerAttachmentInput {
+	s.LineOperator = &v
 	return s
 }
 

@@ -332,11 +332,15 @@ type TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput struct
 
 	Bandwidth *int32 `type:"int32"`
 
+	BandwidthType *string `type:"string"`
+
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
 
 	Ipv6Enabled *bool `type:"boolean"`
+
+	LineOperator *string `type:"string"`
 
 	PeerTransitRouterId *string `type:"string"`
 
@@ -391,6 +395,12 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) S
 	return s
 }
 
+// SetBandwidthType sets the BandwidthType field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetBandwidthType(v string) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
+	s.BandwidthType = &v
+	return s
+}
+
 // SetCreationTime sets the CreationTime field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetCreationTime(v string) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
 	s.CreationTime = &v
@@ -406,6 +416,12 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) S
 // SetIpv6Enabled sets the Ipv6Enabled field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetIpv6Enabled(v bool) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
 	s.Ipv6Enabled = &v
+	return s
+}
+
+// SetLineOperator sets the LineOperator field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetLineOperator(v string) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
+	s.LineOperator = &v
 	return s
 }
 

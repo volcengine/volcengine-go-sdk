@@ -86,6 +86,14 @@ type ARKCLAWAPI interface {
 	CreatePrivateClawOmniSpaceTemplateWithContext(volcengine.Context, *CreatePrivateClawOmniSpaceTemplateInput, ...request.Option) (*CreatePrivateClawOmniSpaceTemplateOutput, error)
 	CreatePrivateClawOmniSpaceTemplateRequest(*CreatePrivateClawOmniSpaceTemplateInput) (*request.Request, *CreatePrivateClawOmniSpaceTemplateOutput)
 
+	CreateScheduledJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateScheduledJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateScheduledJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateScheduledJob(*CreateScheduledJobInput) (*CreateScheduledJobOutput, error)
+	CreateScheduledJobWithContext(volcengine.Context, *CreateScheduledJobInput, ...request.Option) (*CreateScheduledJobOutput, error)
+	CreateScheduledJobRequest(*CreateScheduledJobInput) (*request.Request, *CreateScheduledJobOutput)
+
 	DeleteClawInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteClawInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteClawInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -109,6 +117,14 @@ type ARKCLAWAPI interface {
 	DeleteClawOmniInstance(*DeleteClawOmniInstanceInput) (*DeleteClawOmniInstanceOutput, error)
 	DeleteClawOmniInstanceWithContext(volcengine.Context, *DeleteClawOmniInstanceInput, ...request.Option) (*DeleteClawOmniInstanceOutput, error)
 	DeleteClawOmniInstanceRequest(*DeleteClawOmniInstanceInput) (*request.Request, *DeleteClawOmniInstanceOutput)
+
+	DeleteScheduledJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteScheduledJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteScheduledJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteScheduledJob(*DeleteScheduledJobInput) (*DeleteScheduledJobOutput, error)
+	DeleteScheduledJobWithContext(volcengine.Context, *DeleteScheduledJobInput, ...request.Option) (*DeleteScheduledJobOutput, error)
+	DeleteScheduledJobRequest(*DeleteScheduledJobInput) (*request.Request, *DeleteScheduledJobOutput)
 
 	ExecuteClawOmniInstanceCommandCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ExecuteClawOmniInstanceCommandCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -173,6 +189,14 @@ type ARKCLAWAPI interface {
 	GetClawOmniSpaceTemplate(*GetClawOmniSpaceTemplateInput) (*GetClawOmniSpaceTemplateOutput, error)
 	GetClawOmniSpaceTemplateWithContext(volcengine.Context, *GetClawOmniSpaceTemplateInput, ...request.Option) (*GetClawOmniSpaceTemplateOutput, error)
 	GetClawOmniSpaceTemplateRequest(*GetClawOmniSpaceTemplateInput) (*request.Request, *GetClawOmniSpaceTemplateOutput)
+
+	GetScheduledJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetScheduledJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetScheduledJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetScheduledJob(*GetScheduledJobInput) (*GetScheduledJobOutput, error)
+	GetScheduledJobWithContext(volcengine.Context, *GetScheduledJobInput, ...request.Option) (*GetScheduledJobOutput, error)
+	GetScheduledJobRequest(*GetScheduledJobInput) (*request.Request, *GetScheduledJobOutput)
 
 	InstallClawOmniInstanceSkillCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	InstallClawOmniInstanceSkillCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -253,6 +277,22 @@ type ARKCLAWAPI interface {
 	ListClawSpaceSeats(*ListClawSpaceSeatsInput) (*ListClawSpaceSeatsOutput, error)
 	ListClawSpaceSeatsWithContext(volcengine.Context, *ListClawSpaceSeatsInput, ...request.Option) (*ListClawSpaceSeatsOutput, error)
 	ListClawSpaceSeatsRequest(*ListClawSpaceSeatsInput) (*request.Request, *ListClawSpaceSeatsOutput)
+
+	ListScheduledJobRunsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListScheduledJobRunsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListScheduledJobRunsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListScheduledJobRuns(*ListScheduledJobRunsInput) (*ListScheduledJobRunsOutput, error)
+	ListScheduledJobRunsWithContext(volcengine.Context, *ListScheduledJobRunsInput, ...request.Option) (*ListScheduledJobRunsOutput, error)
+	ListScheduledJobRunsRequest(*ListScheduledJobRunsInput) (*request.Request, *ListScheduledJobRunsOutput)
+
+	ListScheduledJobsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListScheduledJobsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListScheduledJobsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListScheduledJobs(*ListScheduledJobsInput) (*ListScheduledJobsOutput, error)
+	ListScheduledJobsWithContext(volcengine.Context, *ListScheduledJobsInput, ...request.Option) (*ListScheduledJobsOutput, error)
+	ListScheduledJobsRequest(*ListScheduledJobsInput) (*request.Request, *ListScheduledJobsOutput)
 
 	ListUsersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListUsersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -341,6 +381,14 @@ type ARKCLAWAPI interface {
 	UpdatePrivateClawOmniSpaceTemplate(*UpdatePrivateClawOmniSpaceTemplateInput) (*UpdatePrivateClawOmniSpaceTemplateOutput, error)
 	UpdatePrivateClawOmniSpaceTemplateWithContext(volcengine.Context, *UpdatePrivateClawOmniSpaceTemplateInput, ...request.Option) (*UpdatePrivateClawOmniSpaceTemplateOutput, error)
 	UpdatePrivateClawOmniSpaceTemplateRequest(*UpdatePrivateClawOmniSpaceTemplateInput) (*request.Request, *UpdatePrivateClawOmniSpaceTemplateOutput)
+
+	UpdateScheduledJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateScheduledJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateScheduledJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateScheduledJob(*UpdateScheduledJobInput) (*UpdateScheduledJobOutput, error)
+	UpdateScheduledJobWithContext(volcengine.Context, *UpdateScheduledJobInput, ...request.Option) (*UpdateScheduledJobOutput, error)
+	UpdateScheduledJobRequest(*UpdateScheduledJobInput) (*request.Request, *UpdateScheduledJobOutput)
 
 	UpdateSpaceUserConfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateSpaceUserConfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
