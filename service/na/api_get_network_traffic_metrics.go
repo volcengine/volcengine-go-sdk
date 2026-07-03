@@ -320,7 +320,7 @@ type MetricForGetNetworkTrafficMetricsOutput struct {
 
 	Time *string `type:"string" json:",omitempty"`
 
-	Value *float64 `type:"float" json:",omitempty"`
+	Value *float32 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -340,7 +340,7 @@ func (s *MetricForGetNetworkTrafficMetricsOutput) SetTime(v string) *MetricForGe
 }
 
 // SetValue sets the Value field's value.
-func (s *MetricForGetNetworkTrafficMetricsOutput) SetValue(v float64) *MetricForGetNetworkTrafficMetricsOutput {
+func (s *MetricForGetNetworkTrafficMetricsOutput) SetValue(v float32) *MetricForGetNetworkTrafficMetricsOutput {
 	s.Value = &v
 	return s
 }

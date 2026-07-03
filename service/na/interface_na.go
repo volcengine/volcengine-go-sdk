@@ -86,6 +86,14 @@ type NAAPI interface {
 	DescribeHistoryDiagnosisWithContext(volcengine.Context, *DescribeHistoryDiagnosisInput, ...request.Option) (*DescribeHistoryDiagnosisOutput, error)
 	DescribeHistoryDiagnosisRequest(*DescribeHistoryDiagnosisInput) (*request.Request, *DescribeHistoryDiagnosisOutput)
 
+	DescribeInstanceTopologyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeInstanceTopologyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeInstanceTopologyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeInstanceTopology(*DescribeInstanceTopologyInput) (*DescribeInstanceTopologyOutput, error)
+	DescribeInstanceTopologyWithContext(volcengine.Context, *DescribeInstanceTopologyInput, ...request.Option) (*DescribeInstanceTopologyOutput, error)
+	DescribeInstanceTopologyRequest(*DescribeInstanceTopologyInput) (*request.Request, *DescribeInstanceTopologyOutput)
+
 	GetAnalysisPathReportCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAnalysisPathReportCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetAnalysisPathReportCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
