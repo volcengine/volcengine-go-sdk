@@ -94,6 +94,14 @@ type IAMAPI interface {
 	CreateAccessKeyWithContext(volcengine.Context, *CreateAccessKeyInput, ...request.Option) (*CreateAccessKeyOutput, error)
 	CreateAccessKeyRequest(*CreateAccessKeyInput) (*request.Request, *CreateAccessKeyOutput)
 
+	CreateApiKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateApiKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateApiKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateApiKey(*CreateApiKeyInput) (*CreateApiKeyOutput, error)
+	CreateApiKeyWithContext(volcengine.Context, *CreateApiKeyInput, ...request.Option) (*CreateApiKeyOutput, error)
+	CreateApiKeyRequest(*CreateApiKeyInput) (*request.Request, *CreateApiKeyOutput)
+
 	CreateGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -173,6 +181,14 @@ type IAMAPI interface {
 	DeleteAccessKey(*DeleteAccessKeyInput) (*DeleteAccessKeyOutput, error)
 	DeleteAccessKeyWithContext(volcengine.Context, *DeleteAccessKeyInput, ...request.Option) (*DeleteAccessKeyOutput, error)
 	DeleteAccessKeyRequest(*DeleteAccessKeyInput) (*request.Request, *DeleteAccessKeyOutput)
+
+	DeleteApiKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteApiKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteApiKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteApiKey(*DeleteApiKeyInput) (*DeleteApiKeyOutput, error)
+	DeleteApiKeyWithContext(volcengine.Context, *DeleteApiKeyInput, ...request.Option) (*DeleteApiKeyOutput, error)
+	DeleteApiKeyRequest(*DeleteApiKeyInput) (*request.Request, *DeleteApiKeyOutput)
 
 	DeleteGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -382,6 +398,14 @@ type IAMAPI interface {
 	ListAccessKeysWithContext(volcengine.Context, *ListAccessKeysInput, ...request.Option) (*ListAccessKeysOutput, error)
 	ListAccessKeysRequest(*ListAccessKeysInput) (*request.Request, *ListAccessKeysOutput)
 
+	ListApiKeysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListApiKeysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListApiKeysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListApiKeys(*ListApiKeysInput) (*ListApiKeysOutput, error)
+	ListApiKeysWithContext(volcengine.Context, *ListApiKeysInput, ...request.Option) (*ListApiKeysOutput, error)
+	ListApiKeysRequest(*ListApiKeysInput) (*request.Request, *ListApiKeysOutput)
+
 	ListAttachedRolePoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAttachedRolePoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAttachedRolePoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -573,6 +597,14 @@ type IAMAPI interface {
 	UpdateAllowedIPAddresses(*UpdateAllowedIPAddressesInput) (*UpdateAllowedIPAddressesOutput, error)
 	UpdateAllowedIPAddressesWithContext(volcengine.Context, *UpdateAllowedIPAddressesInput, ...request.Option) (*UpdateAllowedIPAddressesOutput, error)
 	UpdateAllowedIPAddressesRequest(*UpdateAllowedIPAddressesInput) (*request.Request, *UpdateAllowedIPAddressesOutput)
+
+	UpdateApiKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateApiKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateApiKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateApiKey(*UpdateApiKeyInput) (*UpdateApiKeyOutput, error)
+	UpdateApiKeyWithContext(volcengine.Context, *UpdateApiKeyInput, ...request.Option) (*UpdateApiKeyOutput, error)
+	UpdateApiKeyRequest(*UpdateApiKeyInput) (*request.Request, *UpdateApiKeyOutput)
 
 	UpdateGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
