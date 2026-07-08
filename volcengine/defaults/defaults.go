@@ -76,6 +76,7 @@ func Handlers() request.Handlers {
 	handlers.Build.PushBackNamed(corehandlers.CustomerRequestHandler)
 	handlers.Build.AfterEachFn = request.HandlerListStopOnError
 	handlers.Sign.PushBackNamed(corehandlers.BuildContentLengthHandler)
+	handlers.Sign.PushBackNamed(corehandlers.AddRetryInfoHeaderHandler)
 	handlers.Send.PushBackNamed(corehandlers.ValidateReqSigHandler)
 	handlers.Send.PushBackNamed(corehandlers.SendHandler)
 	handlers.AfterRetry.PushBackNamed(corehandlers.AfterRetryHandler)
