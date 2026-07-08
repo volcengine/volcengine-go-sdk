@@ -16,18 +16,19 @@ import (
 // VEENEDGEAPI provides an interface to enable mocking the
 // veenedge.VEENEDGE service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// VEENEDGE.
-//	func myFunc(svc VEENEDGEAPI) bool {
-//	    // Make svc.AckSecondaryInternalIpStatus request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // VEENEDGE.
+//    func myFunc(svc VEENEDGEAPI) bool {
+//        // Make svc.AckSecondaryInternalIpStatus request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := veenedge.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := veenedge.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type VEENEDGEAPI interface {
 	AckSecondaryInternalIpStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AckSecondaryInternalIpStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -597,6 +598,14 @@ type VEENEDGEAPI interface {
 	DetachLNIFromVeenWithContext(volcengine.Context, *DetachLNIFromVeenInput, ...request.Option) (*DetachLNIFromVeenOutput, error)
 	DetachLNIFromVeenRequest(*DetachLNIFromVeenInput) (*request.Request, *DetachLNIFromVeenOutput)
 
+	DetailInstanceSpecTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetailInstanceSpecTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetailInstanceSpecTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DetailInstanceSpecTemplate(*DetailInstanceSpecTemplateInput) (*DetailInstanceSpecTemplateOutput, error)
+	DetailInstanceSpecTemplateWithContext(volcengine.Context, *DetailInstanceSpecTemplateInput, ...request.Option) (*DetailInstanceSpecTemplateOutput, error)
+	DetailInstanceSpecTemplateRequest(*DetailInstanceSpecTemplateInput) (*request.Request, *DetailInstanceSpecTemplateOutput)
+
 	DisableClassicNetworkIpv6Common(*map[string]interface{}) (*map[string]interface{}, error)
 	DisableClassicNetworkIpv6CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisableClassicNetworkIpv6CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -756,6 +765,14 @@ type VEENEDGEAPI interface {
 	GetSecurityGroupQuota(*GetSecurityGroupQuotaInput) (*GetSecurityGroupQuotaOutput, error)
 	GetSecurityGroupQuotaWithContext(volcengine.Context, *GetSecurityGroupQuotaInput, ...request.Option) (*GetSecurityGroupQuotaOutput, error)
 	GetSecurityGroupQuotaRequest(*GetSecurityGroupQuotaInput) (*request.Request, *GetSecurityGroupQuotaOutput)
+
+	GetTenantRegionPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTenantRegionPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTenantRegionPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTenantRegionPolicy(*GetTenantRegionPolicyInput) (*GetTenantRegionPolicyOutput, error)
+	GetTenantRegionPolicyWithContext(volcengine.Context, *GetTenantRegionPolicyInput, ...request.Option) (*GetTenantRegionPolicyOutput, error)
+	GetTenantRegionPolicyRequest(*GetTenantRegionPolicyInput) (*request.Request, *GetTenantRegionPolicyOutput)
 
 	GetVNCUrlCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetVNCUrlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -933,6 +950,14 @@ type VEENEDGEAPI interface {
 	ListInstanceInternalIpsWithContext(volcengine.Context, *ListInstanceInternalIpsInput, ...request.Option) (*ListInstanceInternalIpsOutput, error)
 	ListInstanceInternalIpsRequest(*ListInstanceInternalIpsInput) (*request.Request, *ListInstanceInternalIpsOutput)
 
+	ListInstanceSpecInventoryStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListInstanceSpecInventoryStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListInstanceSpecInventoryStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListInstanceSpecInventoryStatus(*ListInstanceSpecInventoryStatusInput) (*ListInstanceSpecInventoryStatusOutput, error)
+	ListInstanceSpecInventoryStatusWithContext(volcengine.Context, *ListInstanceSpecInventoryStatusInput, ...request.Option) (*ListInstanceSpecInventoryStatusOutput, error)
+	ListInstanceSpecInventoryStatusRequest(*ListInstanceSpecInventoryStatusInput) (*request.Request, *ListInstanceSpecInventoryStatusOutput)
+
 	ListInstanceTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListInstanceTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListInstanceTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -980,6 +1005,14 @@ type VEENEDGEAPI interface {
 	ListLNIIps(*ListLNIIpsInput) (*ListLNIIpsOutput, error)
 	ListLNIIpsWithContext(volcengine.Context, *ListLNIIpsInput, ...request.Option) (*ListLNIIpsOutput, error)
 	ListLNIIpsRequest(*ListLNIIpsInput) (*request.Request, *ListLNIIpsOutput)
+
+	ListLocalDiskCombinationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListLocalDiskCombinationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListLocalDiskCombinationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListLocalDiskCombination(*ListLocalDiskCombinationInput) (*ListLocalDiskCombinationOutput, error)
+	ListLocalDiskCombinationWithContext(volcengine.Context, *ListLocalDiskCombinationInput, ...request.Option) (*ListLocalDiskCombinationOutput, error)
+	ListLocalDiskCombinationRequest(*ListLocalDiskCombinationInput) (*request.Request, *ListLocalDiskCombinationOutput)
 
 	ListResourceEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListResourceEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1052,6 +1085,38 @@ type VEENEDGEAPI interface {
 	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
+	ListTenantAvailableResourceInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTenantAvailableResourceInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTenantAvailableResourceInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTenantAvailableResourceInfo(*ListTenantAvailableResourceInfoInput) (*ListTenantAvailableResourceInfoOutput, error)
+	ListTenantAvailableResourceInfoWithContext(volcengine.Context, *ListTenantAvailableResourceInfoInput, ...request.Option) (*ListTenantAvailableResourceInfoOutput, error)
+	ListTenantAvailableResourceInfoRequest(*ListTenantAvailableResourceInfoInput) (*request.Request, *ListTenantAvailableResourceInfoOutput)
+
+	ListTenantInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTenantInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTenantInstanceSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTenantInstanceSpec(*ListTenantInstanceSpecInput) (*ListTenantInstanceSpecOutput, error)
+	ListTenantInstanceSpecWithContext(volcengine.Context, *ListTenantInstanceSpecInput, ...request.Option) (*ListTenantInstanceSpecOutput, error)
+	ListTenantInstanceSpecRequest(*ListTenantInstanceSpecInput) (*request.Request, *ListTenantInstanceSpecOutput)
+
+	ListTenantInstanceSpecArchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTenantInstanceSpecArchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTenantInstanceSpecArchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTenantInstanceSpecArch(*ListTenantInstanceSpecArchInput) (*ListTenantInstanceSpecArchOutput, error)
+	ListTenantInstanceSpecArchWithContext(volcengine.Context, *ListTenantInstanceSpecArchInput, ...request.Option) (*ListTenantInstanceSpecArchOutput, error)
+	ListTenantInstanceSpecArchRequest(*ListTenantInstanceSpecArchInput) (*request.Request, *ListTenantInstanceSpecArchOutput)
+
+	ListTenantRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTenantRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTenantRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTenantRegions(*ListTenantRegionsInput) (*ListTenantRegionsOutput, error)
+	ListTenantRegionsWithContext(volcengine.Context, *ListTenantRegionsInput, ...request.Option) (*ListTenantRegionsOutput, error)
+	ListTenantRegionsRequest(*ListTenantRegionsInput) (*request.Request, *ListTenantRegionsOutput)
 
 	ListVPCInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListVPCInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

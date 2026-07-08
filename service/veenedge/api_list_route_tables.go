@@ -142,28 +142,25 @@ func (c *VEENEDGE) ListRouteTablesWithContext(ctx volcengine.Context, input *Lis
 type ListRouteTablesInput struct {
 	_ struct{} `type:"structure"`
 
-	ClusterNameList *string `locationName:"cluster_name_list" type:"string"`
+	ClusterNameList *string `type:"string"`
 
 	Limit *int32 `locationName:"limit" type:"int32"`
 
-	OrderBy *int32 `locationName:"order_by" type:"int32"`
+	OrderBy *int32 `type:"int32"`
 
 	Page *int32 `locationName:"page" type:"int32"`
 
 	Projects *string `locationName:"projects" type:"string"`
 
-	// RouteTableList is a required field
-	RouteTableList *string `locationName:"route_table_list" type:"string" required:"true"`
+	RouteTableList *string `type:"string"`
 
-	// StatusList is a required field
-	StatusList *string `locationName:"status_list" type:"string" required:"true" enum:"EnumOfstatusForListRouteTablesInput"`
+	StatusList *string `type:"string" enum:"EnumOfStatusListForListRouteTablesInput"`
 
 	TagFilters []*TagFilterForListRouteTablesInput `type:"list"`
 
-	// TypeList is a required field
-	TypeList *string `locationName:"type_list" type:"string" required:"true" enum:"EnumOftypeForListRouteTablesInput"`
+	TypeList *string `type:"string" enum:"EnumOfTypeListForListRouteTablesInput"`
 
-	WithTagInfo *bool `locationName:"with_tag_info" type:"boolean"`
+	WithTagInfo *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -174,25 +171,6 @@ func (s ListRouteTablesInput) String() string {
 // GoString returns the string representation
 func (s ListRouteTablesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListRouteTablesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListRouteTablesInput"}
-	if s.RouteTableList == nil {
-		invalidParams.Add(request.NewErrParamRequired("RouteTableList"))
-	}
-	if s.StatusList == nil {
-		invalidParams.Add(request.NewErrParamRequired("StatusList"))
-	}
-	if s.TypeList == nil {
-		invalidParams.Add(request.NewErrParamRequired("TypeList"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetClusterNameList sets the ClusterNameList field's value.
@@ -458,11 +436,19 @@ func (s *TagForListRouteTablesOutput) SetValue(v string) *TagForListRouteTablesO
 }
 
 const (
-	// EnumOfstatusForListRouteTablesInputUpdating is a EnumOfstatusForListRouteTablesInput enum value
-	EnumOfstatusForListRouteTablesInputUpdating = "updating"
+	// EnumOfStatusListForListRouteTablesInputUpdating is a EnumOfStatusListForListRouteTablesInput enum value
+	EnumOfStatusListForListRouteTablesInputUpdating = "updating"
 
-	// EnumOfstatusForListRouteTablesInputRunning is a EnumOfstatusForListRouteTablesInput enum value
-	EnumOfstatusForListRouteTablesInputRunning = "running"
+	// EnumOfStatusListForListRouteTablesInputRunning is a EnumOfStatusListForListRouteTablesInput enum value
+	EnumOfStatusListForListRouteTablesInputRunning = "running"
+)
+
+const (
+	// EnumOfTypeListForListRouteTablesInputDefault is a EnumOfTypeListForListRouteTablesInput enum value
+	EnumOfTypeListForListRouteTablesInputDefault = "default"
+
+	// EnumOfTypeListForListRouteTablesInputCustom is a EnumOfTypeListForListRouteTablesInput enum value
+	EnumOfTypeListForListRouteTablesInputCustom = "custom"
 )
 
 const (
@@ -471,14 +457,6 @@ const (
 
 	// EnumOfstatusForListRouteTablesOutputRunning is a EnumOfstatusForListRouteTablesOutput enum value
 	EnumOfstatusForListRouteTablesOutputRunning = "running"
-)
-
-const (
-	// EnumOftypeForListRouteTablesInputDefault is a EnumOftypeForListRouteTablesInput enum value
-	EnumOftypeForListRouteTablesInputDefault = "default"
-
-	// EnumOftypeForListRouteTablesInputCustom is a EnumOftypeForListRouteTablesInput enum value
-	EnumOftypeForListRouteTablesInputCustom = "custom"
 )
 
 const (

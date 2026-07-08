@@ -236,8 +236,7 @@ func (s *Eip_listForListEipsOfNatGatewayOutput) SetStatus(v string) *Eip_listFor
 type ListEipsOfNatGatewayInput struct {
 	_ struct{} `type:"structure"`
 
-	// NatgwIdentity is a required field
-	NatgwIdentity *string `locationName:"natgw_identity" type:"string" required:"true"`
+	NatgwIdentity *string `type:"string"`
 }
 
 // String returns the string representation
@@ -248,19 +247,6 @@ func (s ListEipsOfNatGatewayInput) String() string {
 // GoString returns the string representation
 func (s ListEipsOfNatGatewayInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListEipsOfNatGatewayInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListEipsOfNatGatewayInput"}
-	if s.NatgwIdentity == nil {
-		invalidParams.Add(request.NewErrParamRequired("NatgwIdentity"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetNatgwIdentity sets the NatgwIdentity field's value.

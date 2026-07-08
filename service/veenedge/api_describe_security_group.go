@@ -22,13 +22,13 @@ const opDescribeSecurityGroupCommon = "DescribeSecurityGroup"
 // See DescribeSecurityGroupCommon for more information on using the DescribeSecurityGroupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSecurityGroupCommonRequest method.
-//	req, resp := client.DescribeSecurityGroupCommonRequest(params)
+//    // Example sending a request using the DescribeSecurityGroupCommonRequest method.
+//    req, resp := client.DescribeSecurityGroupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) DescribeSecurityGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroupCommon,
@@ -87,13 +87,13 @@ const opDescribeSecurityGroup = "DescribeSecurityGroup"
 // See DescribeSecurityGroup for more information on using the DescribeSecurityGroup
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSecurityGroupRequest method.
-//	req, resp := client.DescribeSecurityGroupRequest(params)
+//    // Example sending a request using the DescribeSecurityGroupRequest method.
+//    req, resp := client.DescribeSecurityGroupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) DescribeSecurityGroupRequest(input *DescribeSecurityGroupInput) (req *request.Request, output *DescribeSecurityGroupOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroup,
@@ -218,8 +218,7 @@ func (s *BindsForDescribeSecurityGroupOutput) SetTotal(v int32) *BindsForDescrib
 type DescribeSecurityGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	// GroupIdentity is a required field
-	GroupIdentity *string `locationName:"group_identity" type:"string" required:"true"`
+	GroupIdentity *string `type:"string"`
 }
 
 // String returns the string representation
@@ -230,19 +229,6 @@ func (s DescribeSecurityGroupInput) String() string {
 // GoString returns the string representation
 func (s DescribeSecurityGroupInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeSecurityGroupInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeSecurityGroupInput"}
-	if s.GroupIdentity == nil {
-		invalidParams.Add(request.NewErrParamRequired("GroupIdentity"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetGroupIdentity sets the GroupIdentity field's value.
@@ -305,7 +291,7 @@ func (s *Egress_ruleForDescribeSecurityGroupOutput) SetTotal(v int32) *Egress_ru
 	return s
 }
 
-type Igress_ruleForDescribeSecurityGroupOutput struct {
+type Ingress_ruleForDescribeSecurityGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	Rules []*RuleForDescribeSecurityGroupOutput `type:"list" json:"rules"`
@@ -314,23 +300,23 @@ type Igress_ruleForDescribeSecurityGroupOutput struct {
 }
 
 // String returns the string representation
-func (s Igress_ruleForDescribeSecurityGroupOutput) String() string {
+func (s Ingress_ruleForDescribeSecurityGroupOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s Igress_ruleForDescribeSecurityGroupOutput) GoString() string {
+func (s Ingress_ruleForDescribeSecurityGroupOutput) GoString() string {
 	return s.String()
 }
 
 // SetRules sets the Rules field's value.
-func (s *Igress_ruleForDescribeSecurityGroupOutput) SetRules(v []*RuleForDescribeSecurityGroupOutput) *Igress_ruleForDescribeSecurityGroupOutput {
+func (s *Ingress_ruleForDescribeSecurityGroupOutput) SetRules(v []*RuleForDescribeSecurityGroupOutput) *Ingress_ruleForDescribeSecurityGroupOutput {
 	s.Rules = v
 	return s
 }
 
 // SetTotal sets the Total field's value.
-func (s *Igress_ruleForDescribeSecurityGroupOutput) SetTotal(v int32) *Igress_ruleForDescribeSecurityGroupOutput {
+func (s *Ingress_ruleForDescribeSecurityGroupOutput) SetTotal(v int32) *Ingress_ruleForDescribeSecurityGroupOutput {
 	s.Total = &v
 	return s
 }
@@ -474,7 +460,7 @@ type Security_groupForDescribeSecurityGroupOutput struct {
 
 	Group_type *string `type:"string" json:"group_type" enum:"EnumOfgroup_typeForDescribeSecurityGroupOutput"`
 
-	Igress_rule *Igress_ruleForDescribeSecurityGroupOutput `type:"structure" json:"igress_rule"`
+	Ingress_rule *Ingress_ruleForDescribeSecurityGroupOutput `type:"structure" json:"ingress_rule"`
 
 	Name *string `type:"string" json:"name"`
 
@@ -561,9 +547,9 @@ func (s *Security_groupForDescribeSecurityGroupOutput) SetGroup_type(v string) *
 	return s
 }
 
-// SetIgress_rule sets the Igress_rule field's value.
-func (s *Security_groupForDescribeSecurityGroupOutput) SetIgress_rule(v *Igress_ruleForDescribeSecurityGroupOutput) *Security_groupForDescribeSecurityGroupOutput {
-	s.Igress_rule = v
+// SetIngress_rule sets the Ingress_rule field's value.
+func (s *Security_groupForDescribeSecurityGroupOutput) SetIngress_rule(v *Ingress_ruleForDescribeSecurityGroupOutput) *Security_groupForDescribeSecurityGroupOutput {
+	s.Ingress_rule = v
 	return s
 }
 

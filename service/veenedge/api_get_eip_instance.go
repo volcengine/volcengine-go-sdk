@@ -470,10 +470,9 @@ func (s *EipForGetEIPInstanceOutput) SetUser_identity(v int32) *EipForGetEIPInst
 type GetEIPInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	// EipIdentity is a required field
-	EipIdentity *string `locationName:"eip_identity" type:"string" required:"true"`
+	EipIdentity *string `type:"string"`
 
-	WithBinderInfo *bool `locationName:"with_binder_info" type:"boolean"`
+	WithBinderInfo *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -484,19 +483,6 @@ func (s GetEIPInstanceInput) String() string {
 // GoString returns the string representation
 func (s GetEIPInstanceInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetEIPInstanceInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetEIPInstanceInput"}
-	if s.EipIdentity == nil {
-		invalidParams.Add(request.NewErrParamRequired("EipIdentity"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetEipIdentity sets the EipIdentity field's value.

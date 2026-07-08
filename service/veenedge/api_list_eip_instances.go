@@ -470,13 +470,13 @@ func (s *Eip_instanceForListEIPInstancesOutput) SetUser_identity(v int32) *Eip_i
 type ListEIPInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	ClusterNames *string `locationName:"cluster_names" type:"string"`
+	ClusterNames *string `type:"string"`
 
-	EipIdentityList *string `locationName:"eip_identity_list" type:"string"`
+	EipIdentityList *string `type:"string"`
 
 	Limit *int32 `locationName:"limit" type:"int32"`
 
-	OrderBy *int32 `locationName:"order_by" type:"int32"`
+	OrderBy *int32 `type:"int32"`
 
 	Page *int32 `locationName:"page" type:"int32"`
 
@@ -484,7 +484,9 @@ type ListEIPInstancesInput struct {
 
 	TagFilters []*TagFilterForListEIPInstancesInput `type:"list"`
 
-	WithBinderInfo *bool `locationName:"with_binder_info" type:"boolean"`
+	WithBinderInfo *bool `type:"boolean"`
+
+	WithTagInfo *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -542,6 +544,12 @@ func (s *ListEIPInstancesInput) SetTagFilters(v []*TagFilterForListEIPInstancesI
 // SetWithBinderInfo sets the WithBinderInfo field's value.
 func (s *ListEIPInstancesInput) SetWithBinderInfo(v bool) *ListEIPInstancesInput {
 	s.WithBinderInfo = &v
+	return s
+}
+
+// SetWithTagInfo sets the WithTagInfo field's value.
+func (s *ListEIPInstancesInput) SetWithTagInfo(v bool) *ListEIPInstancesInput {
+	s.WithTagInfo = &v
 	return s
 }
 

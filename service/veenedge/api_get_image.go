@@ -22,13 +22,13 @@ const opGetImageCommon = "GetImage"
 // See GetImageCommon for more information on using the GetImageCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the GetImageCommonRequest method.
-//	req, resp := client.GetImageCommonRequest(params)
+//    // Example sending a request using the GetImageCommonRequest method.
+//    req, resp := client.GetImageCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) GetImageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetImageCommon,
@@ -87,13 +87,13 @@ const opGetImage = "GetImage"
 // See GetImage for more information on using the GetImage
 // API call, and error handling.
 //
-//	// Example sending a request using the GetImageRequest method.
-//	req, resp := client.GetImageRequest(params)
+//    // Example sending a request using the GetImageRequest method.
+//    req, resp := client.GetImageRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) GetImageRequest(input *GetImageInput) (req *request.Request, output *GetImageOutput) {
 	op := &request.Operation{
 		Name:       opGetImage,
@@ -142,8 +142,7 @@ func (c *VEENEDGE) GetImageWithContext(ctx volcengine.Context, input *GetImageIn
 type GetImageInput struct {
 	_ struct{} `type:"structure"`
 
-	// ImageId is a required field
-	ImageId *string `locationName:"image_id" type:"string" required:"true"`
+	ImageID *string `type:"string"`
 }
 
 // String returns the string representation
@@ -156,22 +155,9 @@ func (s GetImageInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetImageInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetImageInput"}
-	if s.ImageId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ImageId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetImageId sets the ImageId field's value.
-func (s *GetImageInput) SetImageId(v string) *GetImageInput {
-	s.ImageId = &v
+// SetImageID sets the ImageID field's value.
+func (s *GetImageInput) SetImageID(v string) *GetImageInput {
+	s.ImageID = &v
 	return s
 }
 

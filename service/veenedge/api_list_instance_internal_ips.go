@@ -220,7 +220,7 @@ func (s *Internal_ipForListInstanceInternalIpsOutput) SetStatus(v string) *Inter
 type ListInstanceInternalIpsInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceIdentity *string `locationName:"instance_identity" type:"string"`
+	InstanceIdentity *string `type:"string"`
 }
 
 // String returns the string representation

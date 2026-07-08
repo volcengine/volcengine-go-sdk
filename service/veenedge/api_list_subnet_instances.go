@@ -220,23 +220,23 @@ func (s *ClusterForListSubnetInstancesOutput) SetRegion(v string) *ClusterForLis
 type ListSubnetInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	ClusterNames *string `locationName:"cluster_names" type:"string"`
+	ClusterNames *string `type:"string"`
 
 	Limit *int32 `locationName:"limit" type:"int32"`
 
-	OrderBy *int32 `locationName:"order_by" type:"int32"`
+	OrderBy *int32 `type:"int32"`
 
 	Page *int32 `locationName:"page" type:"int32"`
 
 	Projects *string `locationName:"projects" type:"string"`
 
-	StatusList *string `locationName:"status_list" type:"string" enum:"EnumOfstatusForListSubnetInstancesInput"`
+	StatusList *string `type:"string" enum:"EnumOfStatusListForListSubnetInstancesInput"`
 
-	SubnetIdentityList *string `locationName:"subnet_identity_list" type:"string"`
+	SubnetIdentityList *string `type:"string"`
 
 	TagFilters []*TagFilterForListSubnetInstancesInput `type:"list"`
 
-	WithTagInfo *bool `locationName:"with_tag_info" type:"boolean"`
+	WithTagInfo *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -544,14 +544,14 @@ func (s *Vpc_infoForListSubnetInstancesOutput) SetVpc_name(v string) *Vpc_infoFo
 }
 
 const (
-	// EnumOfstatusForListSubnetInstancesInputAvailable is a EnumOfstatusForListSubnetInstancesInput enum value
-	EnumOfstatusForListSubnetInstancesInputAvailable = "available"
+	// EnumOfStatusListForListSubnetInstancesInputAvailable is a EnumOfStatusListForListSubnetInstancesInput enum value
+	EnumOfStatusListForListSubnetInstancesInputAvailable = "available"
 
-	// EnumOfstatusForListSubnetInstancesInputModifying is a EnumOfstatusForListSubnetInstancesInput enum value
-	EnumOfstatusForListSubnetInstancesInputModifying = "modifying"
+	// EnumOfStatusListForListSubnetInstancesInputModifying is a EnumOfStatusListForListSubnetInstancesInput enum value
+	EnumOfStatusListForListSubnetInstancesInputModifying = "modifying"
 
-	// EnumOfstatusForListSubnetInstancesInputDeleting is a EnumOfstatusForListSubnetInstancesInput enum value
-	EnumOfstatusForListSubnetInstancesInputDeleting = "deleting"
+	// EnumOfStatusListForListSubnetInstancesInputDeleting is a EnumOfStatusListForListSubnetInstancesInput enum value
+	EnumOfStatusListForListSubnetInstancesInputDeleting = "deleting"
 )
 
 const (

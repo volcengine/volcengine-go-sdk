@@ -218,6 +218,8 @@ type RuleForCreateSecurityGroupRulesInput struct {
 
 	Ip_cidr *string `type:"string" json:"ip_cidr,omitempty"`
 
+	Ip_cidrs []*string `type:"list" json:"ip_cidrs"`
+
 	Ports *string `type:"string" json:"ports,omitempty"`
 
 	Priority *int32 `type:"int32" json:"priority,omitempty"`
@@ -248,6 +250,12 @@ func (s *RuleForCreateSecurityGroupRulesInput) SetDirection(v string) *RuleForCr
 // SetIp_cidr sets the Ip_cidr field's value.
 func (s *RuleForCreateSecurityGroupRulesInput) SetIp_cidr(v string) *RuleForCreateSecurityGroupRulesInput {
 	s.Ip_cidr = &v
+	return s
+}
+
+// SetIp_cidrs sets the Ip_cidrs field's value.
+func (s *RuleForCreateSecurityGroupRulesInput) SetIp_cidrs(v []*string) *RuleForCreateSecurityGroupRulesInput {
+	s.Ip_cidrs = v
 	return s
 }
 
