@@ -126,6 +126,14 @@ type CENAPI interface {
 	DeleteCenSummaryRouteEntryWithContext(volcengine.Context, *DeleteCenSummaryRouteEntryInput, ...request.Option) (*DeleteCenSummaryRouteEntryOutput, error)
 	DeleteCenSummaryRouteEntryRequest(*DeleteCenSummaryRouteEntryInput) (*request.Request, *DeleteCenSummaryRouteEntryOutput)
 
+	Describe95TrafficCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	Describe95TrafficCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	Describe95TrafficCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	Describe95Traffic(*Describe95TrafficInput) (*Describe95TrafficOutput, error)
+	Describe95TrafficWithContext(volcengine.Context, *Describe95TrafficInput, ...request.Option) (*Describe95TrafficOutput, error)
+	Describe95TrafficRequest(*Describe95TrafficInput) (*request.Request, *Describe95TrafficOutput)
+
 	DescribeCenAttachedInstanceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCenAttachedInstanceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeCenAttachedInstanceAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
