@@ -147,6 +147,8 @@ type CreatePathAnalysisInput struct {
 	// PathName is a required field
 	PathName *string `type:"string" required:"true"`
 
+	PrivateIP *string `type:"string"`
+
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
 
@@ -218,6 +220,12 @@ func (s *CreatePathAnalysisInput) SetDescription(v string) *CreatePathAnalysisIn
 // SetPathName sets the PathName field's value.
 func (s *CreatePathAnalysisInput) SetPathName(v string) *CreatePathAnalysisInput {
 	s.PathName = &v
+	return s
+}
+
+// SetPrivateIP sets the PrivateIP field's value.
+func (s *CreatePathAnalysisInput) SetPrivateIP(v string) *CreatePathAnalysisInput {
+	s.PrivateIP = &v
 	return s
 }
 

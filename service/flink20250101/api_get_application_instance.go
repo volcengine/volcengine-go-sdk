@@ -282,15 +282,25 @@ type GetApplicationInstanceOutput struct {
 
 	Args *string `type:"string" json:",omitempty"`
 
+	Cluster *string `type:"string" json:",omitempty"`
+
 	CompleteRestUrl *string `type:"string" json:",omitempty"`
 
 	Conf *string `type:"string" json:",omitempty"`
+
+	Core *int32 `type:"int32" json:",omitempty"`
+
+	CurQueue *string `type:"string" json:",omitempty"`
+
+	CurrentEmitEventTimeLag *int32 `type:"int32" json:",omitempty"`
 
 	Dependency *DependencyForGetApplicationInstanceOutput `type:"structure" json:",omitempty"`
 
 	DeployRequest *DeployRequestForGetApplicationInstanceOutput `type:"structure" json:",omitempty"`
 
 	DeploymentId *string `type:"string" json:",omitempty"`
+
+	Duration *int32 `type:"int32" json:",omitempty"`
 
 	EndTime *string `type:"string" json:",omitempty"`
 
@@ -300,6 +310,8 @@ type GetApplicationInstanceOutput struct {
 
 	Jar *string `type:"string" json:",omitempty"`
 
+	JobEngineKey *string `type:"string" json:",omitempty"`
+
 	JobId *string `type:"string" json:",omitempty"`
 
 	JobName *string `type:"string" json:",omitempty"`
@@ -308,7 +320,15 @@ type GetApplicationInstanceOutput struct {
 
 	MainClass *string `type:"string" json:",omitempty"`
 
+	Memory *int64 `type:"int64" json:",omitempty"`
+
 	ProjectId *string `type:"string" json:",omitempty"`
+
+	ResourcePreemptionPolicy *string `type:"string" json:",omitempty"`
+
+	ResourceVersion *string `type:"string" json:",omitempty"`
+
+	RestUrl *string `type:"string" json:",omitempty"`
 
 	SqlText *string `type:"string" json:",omitempty"`
 
@@ -317,6 +337,8 @@ type GetApplicationInstanceOutput struct {
 	State *string `type:"string" json:",omitempty"`
 
 	UserId *string `type:"string" json:",omitempty"`
+
+	VersionId *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -347,6 +369,12 @@ func (s *GetApplicationInstanceOutput) SetArgs(v string) *GetApplicationInstance
 	return s
 }
 
+// SetCluster sets the Cluster field's value.
+func (s *GetApplicationInstanceOutput) SetCluster(v string) *GetApplicationInstanceOutput {
+	s.Cluster = &v
+	return s
+}
+
 // SetCompleteRestUrl sets the CompleteRestUrl field's value.
 func (s *GetApplicationInstanceOutput) SetCompleteRestUrl(v string) *GetApplicationInstanceOutput {
 	s.CompleteRestUrl = &v
@@ -356,6 +384,24 @@ func (s *GetApplicationInstanceOutput) SetCompleteRestUrl(v string) *GetApplicat
 // SetConf sets the Conf field's value.
 func (s *GetApplicationInstanceOutput) SetConf(v string) *GetApplicationInstanceOutput {
 	s.Conf = &v
+	return s
+}
+
+// SetCore sets the Core field's value.
+func (s *GetApplicationInstanceOutput) SetCore(v int32) *GetApplicationInstanceOutput {
+	s.Core = &v
+	return s
+}
+
+// SetCurQueue sets the CurQueue field's value.
+func (s *GetApplicationInstanceOutput) SetCurQueue(v string) *GetApplicationInstanceOutput {
+	s.CurQueue = &v
+	return s
+}
+
+// SetCurrentEmitEventTimeLag sets the CurrentEmitEventTimeLag field's value.
+func (s *GetApplicationInstanceOutput) SetCurrentEmitEventTimeLag(v int32) *GetApplicationInstanceOutput {
+	s.CurrentEmitEventTimeLag = &v
 	return s
 }
 
@@ -374,6 +420,12 @@ func (s *GetApplicationInstanceOutput) SetDeployRequest(v *DeployRequestForGetAp
 // SetDeploymentId sets the DeploymentId field's value.
 func (s *GetApplicationInstanceOutput) SetDeploymentId(v string) *GetApplicationInstanceOutput {
 	s.DeploymentId = &v
+	return s
+}
+
+// SetDuration sets the Duration field's value.
+func (s *GetApplicationInstanceOutput) SetDuration(v int32) *GetApplicationInstanceOutput {
+	s.Duration = &v
 	return s
 }
 
@@ -401,6 +453,12 @@ func (s *GetApplicationInstanceOutput) SetJar(v string) *GetApplicationInstanceO
 	return s
 }
 
+// SetJobEngineKey sets the JobEngineKey field's value.
+func (s *GetApplicationInstanceOutput) SetJobEngineKey(v string) *GetApplicationInstanceOutput {
+	s.JobEngineKey = &v
+	return s
+}
+
 // SetJobId sets the JobId field's value.
 func (s *GetApplicationInstanceOutput) SetJobId(v string) *GetApplicationInstanceOutput {
 	s.JobId = &v
@@ -425,9 +483,33 @@ func (s *GetApplicationInstanceOutput) SetMainClass(v string) *GetApplicationIns
 	return s
 }
 
+// SetMemory sets the Memory field's value.
+func (s *GetApplicationInstanceOutput) SetMemory(v int64) *GetApplicationInstanceOutput {
+	s.Memory = &v
+	return s
+}
+
 // SetProjectId sets the ProjectId field's value.
 func (s *GetApplicationInstanceOutput) SetProjectId(v string) *GetApplicationInstanceOutput {
 	s.ProjectId = &v
+	return s
+}
+
+// SetResourcePreemptionPolicy sets the ResourcePreemptionPolicy field's value.
+func (s *GetApplicationInstanceOutput) SetResourcePreemptionPolicy(v string) *GetApplicationInstanceOutput {
+	s.ResourcePreemptionPolicy = &v
+	return s
+}
+
+// SetResourceVersion sets the ResourceVersion field's value.
+func (s *GetApplicationInstanceOutput) SetResourceVersion(v string) *GetApplicationInstanceOutput {
+	s.ResourceVersion = &v
+	return s
+}
+
+// SetRestUrl sets the RestUrl field's value.
+func (s *GetApplicationInstanceOutput) SetRestUrl(v string) *GetApplicationInstanceOutput {
+	s.RestUrl = &v
 	return s
 }
 
@@ -452,6 +534,12 @@ func (s *GetApplicationInstanceOutput) SetState(v string) *GetApplicationInstanc
 // SetUserId sets the UserId field's value.
 func (s *GetApplicationInstanceOutput) SetUserId(v string) *GetApplicationInstanceOutput {
 	s.UserId = &v
+	return s
+}
+
+// SetVersionId sets the VersionId field's value.
+func (s *GetApplicationInstanceOutput) SetVersionId(v int64) *GetApplicationInstanceOutput {
+	s.VersionId = &v
 	return s
 }
 

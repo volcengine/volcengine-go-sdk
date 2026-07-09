@@ -220,17 +220,17 @@ func (s *ClusterForListVPCInstancesOutput) SetRegion(v string) *ClusterForListVP
 type ListVPCInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	ClusterNames *string `locationName:"cluster_names" type:"string"`
+	ClusterNames *string `type:"string"`
 
-	IsVlanVpc *bool `locationName:"is_vlan_vpc" type:"boolean"`
+	IsCustomVpc *bool `type:"boolean"`
 
-	IsDefaultVpc *bool `locationName:"is_default_vpc" type:"boolean"`
+	IsDefaultVpc *bool `type:"boolean"`
 
-	IsCustomVpc *bool `locationName:"is_custom_vpc" type:"boolean"`
+	IsVlanVpc *bool `type:"boolean"`
 
 	Limit *int32 `locationName:"limit" type:"int32"`
 
-	OrderBy *int32 `locationName:"order_by" type:"int32"`
+	OrderBy *int32 `type:"int32"`
 
 	Page *int32 `locationName:"page" type:"int32"`
 
@@ -238,11 +238,11 @@ type ListVPCInstancesInput struct {
 
 	TagFilters []*TagFilterForListVPCInstancesInput `type:"list"`
 
-	VpcIdentityList *string `locationName:"vpc_identity_list" type:"string"`
+	VpcIdentityList *string `type:"string"`
 
-	WithTagInfo *bool `locationName:"with_tag_info" type:"boolean"`
+	WithResourceStatistic *bool `type:"boolean"`
 
-	WithResourceStatistic *bool `locationName:"with_resource_statistic" type:"boolean"`
+	WithTagInfo *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -261,9 +261,9 @@ func (s *ListVPCInstancesInput) SetClusterNames(v string) *ListVPCInstancesInput
 	return s
 }
 
-// SetIsVlanVpc sets the IsVlanVpc field's value.
-func (s *ListVPCInstancesInput) SetIsVlanVpc(v bool) *ListVPCInstancesInput {
-	s.IsVlanVpc = &v
+// SetIsCustomVpc sets the IsCustomVpc field's value.
+func (s *ListVPCInstancesInput) SetIsCustomVpc(v bool) *ListVPCInstancesInput {
+	s.IsCustomVpc = &v
 	return s
 }
 
@@ -273,9 +273,9 @@ func (s *ListVPCInstancesInput) SetIsDefaultVpc(v bool) *ListVPCInstancesInput {
 	return s
 }
 
-// SetIsCustomVpc sets the IsCustomVpc field's value.
-func (s *ListVPCInstancesInput) SetIsCustomVpc(v bool) *ListVPCInstancesInput {
-	s.IsCustomVpc = &v
+// SetIsVlanVpc sets the IsVlanVpc field's value.
+func (s *ListVPCInstancesInput) SetIsVlanVpc(v bool) *ListVPCInstancesInput {
+	s.IsVlanVpc = &v
 	return s
 }
 
@@ -312,6 +312,12 @@ func (s *ListVPCInstancesInput) SetTagFilters(v []*TagFilterForListVPCInstancesI
 // SetVpcIdentityList sets the VpcIdentityList field's value.
 func (s *ListVPCInstancesInput) SetVpcIdentityList(v string) *ListVPCInstancesInput {
 	s.VpcIdentityList = &v
+	return s
+}
+
+// SetWithResourceStatistic sets the WithResourceStatistic field's value.
+func (s *ListVPCInstancesInput) SetWithResourceStatistic(v bool) *ListVPCInstancesInput {
+	s.WithResourceStatistic = &v
 	return s
 }
 

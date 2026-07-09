@@ -1,5 +1,5 @@
 {
-  "description": "VEENEDGE: 新增 ListAccountTagsV2, TagResourcesV2, UntagResourcesV2, ListTagsForResources",
+  "description": "VEENEDGE: 修改 GetEIPInstance, ListInstances, UpdateCloudServer, GetImage, ListAvailableResourceInfo, ListEIPInstances, DescribeSecurityGroups, ListRouteEntries, GetInstance, ListRouteTables, GetCloudServer, GetInstancesIPv6UpgradeStatus, ListSubnetInstances, ModifySecurityGroupRule, CreateSecurityGroupRules, GetInstanceCloudDiskInfo, ListEipsOfNatGateway, ListImages, ListVPCInstances, DescribeSecurityGroup, DescribeSecurityGroupRules, GetRouteTable, ListInstanceInternalIps, ListSSHKey, ModifySecurityGroupAttribute, CopySecurityGroup, CreateSecurityGroup, DescribeSecurityGroupAssociationInstances, ListCloudServers",
   "modules": "service/veenedge",
   "type": "breaking-change"
 }

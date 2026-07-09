@@ -430,6 +430,14 @@ type TRANSITROUTERAPI interface {
 	DeleteTransitRouterVpnAttachmentWithContext(volcengine.Context, *DeleteTransitRouterVpnAttachmentInput, ...request.Option) (*DeleteTransitRouterVpnAttachmentOutput, error)
 	DeleteTransitRouterVpnAttachmentRequest(*DeleteTransitRouterVpnAttachmentInput) (*request.Request, *DeleteTransitRouterVpnAttachmentOutput)
 
+	Describe95TrafficCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	Describe95TrafficCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	Describe95TrafficCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	Describe95Traffic(*Describe95TrafficInput) (*Describe95TrafficOutput, error)
+	Describe95TrafficWithContext(volcengine.Context, *Describe95TrafficInput, ...request.Option) (*Describe95TrafficOutput, error)
+	Describe95TrafficRequest(*Describe95TrafficInput) (*request.Request, *Describe95TrafficOutput)
+
 	DescribeTransitRouterAttachmentsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeTransitRouterAttachmentsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeTransitRouterAttachmentsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

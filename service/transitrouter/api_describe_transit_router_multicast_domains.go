@@ -226,7 +226,7 @@ type DescribeTransitRouterMulticastDomainsOutput struct {
 
 	TotalCount *int32 `type:"int32"`
 
-	TransitRouterMulticastDomains *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput `type:"structure"`
+	TransitRouterMulticastDomains []*TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -258,7 +258,7 @@ func (s *DescribeTransitRouterMulticastDomainsOutput) SetTotalCount(v int32) *De
 }
 
 // SetTransitRouterMulticastDomains sets the TransitRouterMulticastDomains field's value.
-func (s *DescribeTransitRouterMulticastDomainsOutput) SetTransitRouterMulticastDomains(v *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput) *DescribeTransitRouterMulticastDomainsOutput {
+func (s *DescribeTransitRouterMulticastDomainsOutput) SetTransitRouterMulticastDomains(v []*TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput) *DescribeTransitRouterMulticastDomainsOutput {
 	s.TransitRouterMulticastDomains = v
 	return s
 }
@@ -323,7 +323,7 @@ func (s *TagForDescribeTransitRouterMulticastDomainsOutput) SetValue(v string) *
 	return s
 }
 
-type TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput struct {
+type TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput struct {
 	_ struct{} `type:"structure"`
 
 	CreationTime *string `type:"string"`
@@ -342,53 +342,53 @@ type TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput
 }
 
 // String returns the string representation
-func (s TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput) String() string {
+func (s TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput) GoString() string {
+func (s TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput) GoString() string {
 	return s.String()
 }
 
 // SetCreationTime sets the CreationTime field's value.
-func (s *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput) SetCreationTime(v string) *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput {
+func (s *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput) SetCreationTime(v string) *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput {
 	s.CreationTime = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput) SetDescription(v string) *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput {
+func (s *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput) SetDescription(v string) *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput {
 	s.Description = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput) SetStatus(v string) *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput {
+func (s *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput) SetStatus(v string) *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput {
 	s.Status = &v
 	return s
 }
 
 // SetTags sets the Tags field's value.
-func (s *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput) SetTags(v []*TagForDescribeTransitRouterMulticastDomainsOutput) *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput {
+func (s *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput) SetTags(v []*TagForDescribeTransitRouterMulticastDomainsOutput) *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput {
 	s.Tags = v
 	return s
 }
 
 // SetTransitRouterMulticastDomainId sets the TransitRouterMulticastDomainId field's value.
-func (s *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput) SetTransitRouterMulticastDomainId(v string) *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput {
+func (s *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput) SetTransitRouterMulticastDomainId(v string) *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput {
 	s.TransitRouterMulticastDomainId = &v
 	return s
 }
 
 // SetTransitRouterMulticastDomainName sets the TransitRouterMulticastDomainName field's value.
-func (s *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput) SetTransitRouterMulticastDomainName(v string) *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput {
+func (s *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput) SetTransitRouterMulticastDomainName(v string) *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput {
 	s.TransitRouterMulticastDomainName = &v
 	return s
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput) SetUpdateTime(v string) *TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput {
+func (s *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput) SetUpdateTime(v string) *TransitRouterMulticastDomainForDescribeTransitRouterMulticastDomainsOutput {
 	s.UpdateTime = &v
 	return s
 }

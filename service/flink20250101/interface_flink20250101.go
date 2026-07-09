@@ -38,6 +38,46 @@ type FLINK20250101API interface {
 	CancelApplicationInstanceWithContext(volcengine.Context, *CancelApplicationInstanceInput, ...request.Option) (*CancelApplicationInstanceOutput, error)
 	CancelApplicationInstanceRequest(*CancelApplicationInstanceInput) (*request.Request, *CancelApplicationInstanceOutput)
 
+	CreateGMCSResourcePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateGMCSResourcePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateGMCSResourcePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateGMCSResourcePool(*CreateGMCSResourcePoolInput) (*CreateGMCSResourcePoolOutput, error)
+	CreateGMCSResourcePoolWithContext(volcengine.Context, *CreateGMCSResourcePoolInput, ...request.Option) (*CreateGMCSResourcePoolOutput, error)
+	CreateGMCSResourcePoolRequest(*CreateGMCSResourcePoolInput) (*request.Request, *CreateGMCSResourcePoolOutput)
+
+	CreateGWSApplicationDraftCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateGWSApplicationDraftCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateGWSApplicationDraftCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateGWSApplicationDraft(*CreateGWSApplicationDraftInput) (*CreateGWSApplicationDraftOutput, error)
+	CreateGWSApplicationDraftWithContext(volcengine.Context, *CreateGWSApplicationDraftInput, ...request.Option) (*CreateGWSApplicationDraftOutput, error)
+	CreateGWSApplicationDraftRequest(*CreateGWSApplicationDraftInput) (*request.Request, *CreateGWSApplicationDraftOutput)
+
+	CreateGWSSavepointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateGWSSavepointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateGWSSavepointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateGWSSavepoint(*CreateGWSSavepointInput) (*CreateGWSSavepointOutput, error)
+	CreateGWSSavepointWithContext(volcengine.Context, *CreateGWSSavepointInput, ...request.Option) (*CreateGWSSavepointOutput, error)
+	CreateGWSSavepointRequest(*CreateGWSSavepointInput) (*request.Request, *CreateGWSSavepointOutput)
+
+	DeleteGMCSResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteGMCSResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteGMCSResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteGMCSResource(*DeleteGMCSResourceInput) (*DeleteGMCSResourceOutput, error)
+	DeleteGMCSResourceWithContext(volcengine.Context, *DeleteGMCSResourceInput, ...request.Option) (*DeleteGMCSResourceOutput, error)
+	DeleteGMCSResourceRequest(*DeleteGMCSResourceInput) (*request.Request, *DeleteGMCSResourceOutput)
+
+	DeployGWSApplicationDraftCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeployGWSApplicationDraftCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeployGWSApplicationDraftCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeployGWSApplicationDraft(*DeployGWSApplicationDraftInput) (*DeployGWSApplicationDraftOutput, error)
+	DeployGWSApplicationDraftWithContext(volcengine.Context, *DeployGWSApplicationDraftInput, ...request.Option) (*DeployGWSApplicationDraftOutput, error)
+	DeployGWSApplicationDraftRequest(*DeployGWSApplicationDraftInput) (*request.Request, *DeployGWSApplicationDraftOutput)
+
 	GetApplicationInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetApplicationInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetApplicationInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -46,6 +86,22 @@ type FLINK20250101API interface {
 	GetApplicationInstanceWithContext(volcengine.Context, *GetApplicationInstanceInput, ...request.Option) (*GetApplicationInstanceOutput, error)
 	GetApplicationInstanceRequest(*GetApplicationInstanceInput) (*request.Request, *GetApplicationInstanceOutput)
 
+	GetGMCSResourcePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetGMCSResourcePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetGMCSResourcePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetGMCSResourcePool(*GetGMCSResourcePoolInput) (*GetGMCSResourcePoolOutput, error)
+	GetGMCSResourcePoolWithContext(volcengine.Context, *GetGMCSResourcePoolInput, ...request.Option) (*GetGMCSResourcePoolOutput, error)
+	GetGMCSResourcePoolRequest(*GetGMCSResourcePoolInput) (*request.Request, *GetGMCSResourcePoolOutput)
+
+	GetGWSStartMethodCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetGWSStartMethodCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetGWSStartMethodCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetGWSStartMethod(*GetGWSStartMethodInput) (*GetGWSStartMethodOutput, error)
+	GetGWSStartMethodWithContext(volcengine.Context, *GetGWSStartMethodInput, ...request.Option) (*GetGWSStartMethodOutput, error)
+	GetGWSStartMethodRequest(*GetGWSStartMethodInput) (*request.Request, *GetGWSStartMethodOutput)
+
 	ListApplicationInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListApplicationInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListApplicationInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +109,30 @@ type FLINK20250101API interface {
 	ListApplicationInstance(*ListApplicationInstanceInput) (*ListApplicationInstanceOutput, error)
 	ListApplicationInstanceWithContext(volcengine.Context, *ListApplicationInstanceInput, ...request.Option) (*ListApplicationInstanceOutput, error)
 	ListApplicationInstanceRequest(*ListApplicationInstanceInput) (*request.Request, *ListApplicationInstanceOutput)
+
+	ListGMCSResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListGMCSResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListGMCSResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListGMCSResources(*ListGMCSResourcesInput) (*ListGMCSResourcesOutput, error)
+	ListGMCSResourcesWithContext(volcengine.Context, *ListGMCSResourcesInput, ...request.Option) (*ListGMCSResourcesOutput, error)
+	ListGMCSResourcesRequest(*ListGMCSResourcesInput) (*request.Request, *ListGMCSResourcesOutput)
+
+	ListGWSApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListGWSApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListGWSApplicationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListGWSApplication(*ListGWSApplicationInput) (*ListGWSApplicationOutput, error)
+	ListGWSApplicationWithContext(volcengine.Context, *ListGWSApplicationInput, ...request.Option) (*ListGWSApplicationOutput, error)
+	ListGWSApplicationRequest(*ListGWSApplicationInput) (*request.Request, *ListGWSApplicationOutput)
+
+	ListGWSSavepointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListGWSSavepointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListGWSSavepointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListGWSSavepoint(*ListGWSSavepointInput) (*ListGWSSavepointOutput, error)
+	ListGWSSavepointWithContext(volcengine.Context, *ListGWSSavepointInput, ...request.Option) (*ListGWSSavepointOutput, error)
+	ListGWSSavepointRequest(*ListGWSSavepointInput) (*request.Request, *ListGWSSavepointOutput)
 
 	RestartGWSApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestartGWSApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -69,6 +149,22 @@ type FLINK20250101API interface {
 	StartApplicationInstance(*StartApplicationInstanceInput) (*StartApplicationInstanceOutput, error)
 	StartApplicationInstanceWithContext(volcengine.Context, *StartApplicationInstanceInput, ...request.Option) (*StartApplicationInstanceOutput, error)
 	StartApplicationInstanceRequest(*StartApplicationInstanceInput) (*request.Request, *StartApplicationInstanceOutput)
+
+	UpdateGMCSResourcePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateGMCSResourcePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateGMCSResourcePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateGMCSResourcePool(*UpdateGMCSResourcePoolInput) (*UpdateGMCSResourcePoolOutput, error)
+	UpdateGMCSResourcePoolWithContext(volcengine.Context, *UpdateGMCSResourcePoolInput, ...request.Option) (*UpdateGMCSResourcePoolOutput, error)
+	UpdateGMCSResourcePoolRequest(*UpdateGMCSResourcePoolInput) (*request.Request, *UpdateGMCSResourcePoolOutput)
+
+	UpdateGWSApplicationDraftCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateGWSApplicationDraftCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateGWSApplicationDraftCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateGWSApplicationDraft(*UpdateGWSApplicationDraftInput) (*UpdateGWSApplicationDraftOutput, error)
+	UpdateGWSApplicationDraftWithContext(volcengine.Context, *UpdateGWSApplicationDraftInput, ...request.Option) (*UpdateGWSApplicationDraftOutput, error)
+	UpdateGWSApplicationDraftRequest(*UpdateGWSApplicationDraftInput) (*request.Request, *UpdateGWSApplicationDraftOutput)
 }
 
 var _ FLINK20250101API = (*FLINK20250101)(nil)

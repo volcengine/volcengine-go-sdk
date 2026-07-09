@@ -670,8 +670,7 @@ func (s *Data_local_diskForGetCloudServerOutput) SetNum(v int32) *Data_local_dis
 type GetCloudServerInput struct {
 	_ struct{} `type:"structure"`
 
-	// CloudServerId is a required field
-	CloudServerId *string `locationName:"cloud_server_id" type:"string" required:"true"`
+	CloudServerID *string `type:"string"`
 }
 
 // String returns the string representation
@@ -684,22 +683,9 @@ func (s GetCloudServerInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetCloudServerInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetCloudServerInput"}
-	if s.CloudServerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("CloudServerId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetCloudServerId sets the CloudServerId field's value.
-func (s *GetCloudServerInput) SetCloudServerId(v string) *GetCloudServerInput {
-	s.CloudServerId = &v
+// SetCloudServerID sets the CloudServerID field's value.
+func (s *GetCloudServerInput) SetCloudServerID(v string) *GetCloudServerInput {
+	s.CloudServerID = &v
 	return s
 }
 
