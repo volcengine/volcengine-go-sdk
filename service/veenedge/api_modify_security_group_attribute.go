@@ -249,7 +249,7 @@ func (s *Egress_ruleForModifySecurityGroupAttributeOutput) SetTotal(v int32) *Eg
 	return s
 }
 
-type Igress_ruleForModifySecurityGroupAttributeOutput struct {
+type Ingress_ruleForModifySecurityGroupAttributeOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Rules []*RuleForModifySecurityGroupAttributeOutput `type:"list" json:"rules"`
@@ -258,23 +258,23 @@ type Igress_ruleForModifySecurityGroupAttributeOutput struct {
 }
 
 // String returns the string representation
-func (s Igress_ruleForModifySecurityGroupAttributeOutput) String() string {
+func (s Ingress_ruleForModifySecurityGroupAttributeOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s Igress_ruleForModifySecurityGroupAttributeOutput) GoString() string {
+func (s Ingress_ruleForModifySecurityGroupAttributeOutput) GoString() string {
 	return s.String()
 }
 
 // SetRules sets the Rules field's value.
-func (s *Igress_ruleForModifySecurityGroupAttributeOutput) SetRules(v []*RuleForModifySecurityGroupAttributeOutput) *Igress_ruleForModifySecurityGroupAttributeOutput {
+func (s *Ingress_ruleForModifySecurityGroupAttributeOutput) SetRules(v []*RuleForModifySecurityGroupAttributeOutput) *Ingress_ruleForModifySecurityGroupAttributeOutput {
 	s.Rules = v
 	return s
 }
 
 // SetTotal sets the Total field's value.
-func (s *Igress_ruleForModifySecurityGroupAttributeOutput) SetTotal(v int32) *Igress_ruleForModifySecurityGroupAttributeOutput {
+func (s *Ingress_ruleForModifySecurityGroupAttributeOutput) SetTotal(v int32) *Ingress_ruleForModifySecurityGroupAttributeOutput {
 	s.Total = &v
 	return s
 }
@@ -498,7 +498,7 @@ type Security_groupForModifySecurityGroupAttributeOutput struct {
 
 	Group_type *string `type:"string" json:"group_type,omitempty" enum:"EnumOfgroup_typeForModifySecurityGroupAttributeOutput"`
 
-	Igress_rule *Igress_ruleForModifySecurityGroupAttributeOutput `type:"structure" json:"igress_rule,omitempty"`
+	Ingress_rule *Ingress_ruleForModifySecurityGroupAttributeOutput `type:"structure" json:"ingress_rule,omitempty"`
 
 	Name *string `type:"string" json:"name,omitempty"`
 
@@ -585,9 +585,9 @@ func (s *Security_groupForModifySecurityGroupAttributeOutput) SetGroup_type(v st
 	return s
 }
 
-// SetIgress_rule sets the Igress_rule field's value.
-func (s *Security_groupForModifySecurityGroupAttributeOutput) SetIgress_rule(v *Igress_ruleForModifySecurityGroupAttributeOutput) *Security_groupForModifySecurityGroupAttributeOutput {
-	s.Igress_rule = v
+// SetIngress_rule sets the Ingress_rule field's value.
+func (s *Security_groupForModifySecurityGroupAttributeOutput) SetIngress_rule(v *Ingress_ruleForModifySecurityGroupAttributeOutput) *Security_groupForModifySecurityGroupAttributeOutput {
+	s.Ingress_rule = v
 	return s
 }
 

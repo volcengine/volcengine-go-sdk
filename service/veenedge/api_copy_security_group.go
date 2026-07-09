@@ -337,7 +337,7 @@ func (s *Egress_ruleForCopySecurityGroupOutput) SetTotal(v int32) *Egress_ruleFo
 	return s
 }
 
-type Igress_ruleForCopySecurityGroupOutput struct {
+type Ingress_ruleForCopySecurityGroupOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Rules []*RuleForCopySecurityGroupOutput `type:"list" json:"rules"`
@@ -346,23 +346,23 @@ type Igress_ruleForCopySecurityGroupOutput struct {
 }
 
 // String returns the string representation
-func (s Igress_ruleForCopySecurityGroupOutput) String() string {
+func (s Ingress_ruleForCopySecurityGroupOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s Igress_ruleForCopySecurityGroupOutput) GoString() string {
+func (s Ingress_ruleForCopySecurityGroupOutput) GoString() string {
 	return s.String()
 }
 
 // SetRules sets the Rules field's value.
-func (s *Igress_ruleForCopySecurityGroupOutput) SetRules(v []*RuleForCopySecurityGroupOutput) *Igress_ruleForCopySecurityGroupOutput {
+func (s *Ingress_ruleForCopySecurityGroupOutput) SetRules(v []*RuleForCopySecurityGroupOutput) *Ingress_ruleForCopySecurityGroupOutput {
 	s.Rules = v
 	return s
 }
 
 // SetTotal sets the Total field's value.
-func (s *Igress_ruleForCopySecurityGroupOutput) SetTotal(v int32) *Igress_ruleForCopySecurityGroupOutput {
+func (s *Ingress_ruleForCopySecurityGroupOutput) SetTotal(v int32) *Ingress_ruleForCopySecurityGroupOutput {
 	s.Total = &v
 	return s
 }
@@ -506,7 +506,7 @@ type Source_groupForCopySecurityGroupOutput struct {
 
 	Group_type *string `type:"string" json:"group_type,omitempty" enum:"EnumOfgroup_typeForCopySecurityGroupOutput"`
 
-	Igress_rule *Igress_ruleForCopySecurityGroupOutput `type:"structure" json:"igress_rule,omitempty"`
+	Ingress_rule *Ingress_ruleForCopySecurityGroupOutput `type:"structure" json:"ingress_rule,omitempty"`
 
 	Name *string `type:"string" json:"name,omitempty"`
 
@@ -593,9 +593,9 @@ func (s *Source_groupForCopySecurityGroupOutput) SetGroup_type(v string) *Source
 	return s
 }
 
-// SetIgress_rule sets the Igress_rule field's value.
-func (s *Source_groupForCopySecurityGroupOutput) SetIgress_rule(v *Igress_ruleForCopySecurityGroupOutput) *Source_groupForCopySecurityGroupOutput {
-	s.Igress_rule = v
+// SetIngress_rule sets the Ingress_rule field's value.
+func (s *Source_groupForCopySecurityGroupOutput) SetIngress_rule(v *Ingress_ruleForCopySecurityGroupOutput) *Source_groupForCopySecurityGroupOutput {
+	s.Ingress_rule = v
 	return s
 }
 

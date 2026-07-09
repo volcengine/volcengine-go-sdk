@@ -22,13 +22,13 @@ const opDescribeSecurityGroupsCommon = "DescribeSecurityGroups"
 // See DescribeSecurityGroupsCommon for more information on using the DescribeSecurityGroupsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSecurityGroupsCommonRequest method.
-//	req, resp := client.DescribeSecurityGroupsCommonRequest(params)
+//    // Example sending a request using the DescribeSecurityGroupsCommonRequest method.
+//    req, resp := client.DescribeSecurityGroupsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) DescribeSecurityGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroupsCommon,
@@ -87,13 +87,13 @@ const opDescribeSecurityGroups = "DescribeSecurityGroups"
 // See DescribeSecurityGroups for more information on using the DescribeSecurityGroups
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSecurityGroupsRequest method.
-//	req, resp := client.DescribeSecurityGroupsRequest(params)
+//    // Example sending a request using the DescribeSecurityGroupsRequest method.
+//    req, resp := client.DescribeSecurityGroupsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) DescribeSecurityGroupsRequest(input *DescribeSecurityGroupsInput) (req *request.Request, output *DescribeSecurityGroupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroups,
@@ -218,9 +218,11 @@ func (s *BindsForDescribeSecurityGroupsOutput) SetTotal(v int32) *BindsForDescri
 type DescribeSecurityGroupsInput struct {
 	_ struct{} `type:"structure"`
 
+	BindIdentities *string `type:"string"`
+
 	Limit *int32 `locationName:"limit" type:"int32"`
 
-	OrderBy *int32 `locationName:"order_by" type:"int32"`
+	OrderBy *int32 `type:"int32"`
 
 	Page *int32 `locationName:"page" type:"int32"`
 
@@ -228,7 +230,7 @@ type DescribeSecurityGroupsInput struct {
 
 	TagFilters []*TagFilterForDescribeSecurityGroupsInput `type:"list"`
 
-	WithTagInfo *bool `locationName:"with_tag_info" type:"boolean"`
+	WithTagInfo *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -239,6 +241,12 @@ func (s DescribeSecurityGroupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeSecurityGroupsInput) GoString() string {
 	return s.String()
+}
+
+// SetBindIdentities sets the BindIdentities field's value.
+func (s *DescribeSecurityGroupsInput) SetBindIdentities(v string) *DescribeSecurityGroupsInput {
+	s.BindIdentities = &v
+	return s
 }
 
 // SetLimit sets the Limit field's value.
@@ -339,7 +347,7 @@ func (s *Egress_ruleForDescribeSecurityGroupsOutput) SetTotal(v int32) *Egress_r
 	return s
 }
 
-type Igress_ruleForDescribeSecurityGroupsOutput struct {
+type Ingress_ruleForDescribeSecurityGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	Rules []*RuleForDescribeSecurityGroupsOutput `type:"list" json:"rules"`
@@ -348,23 +356,23 @@ type Igress_ruleForDescribeSecurityGroupsOutput struct {
 }
 
 // String returns the string representation
-func (s Igress_ruleForDescribeSecurityGroupsOutput) String() string {
+func (s Ingress_ruleForDescribeSecurityGroupsOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s Igress_ruleForDescribeSecurityGroupsOutput) GoString() string {
+func (s Ingress_ruleForDescribeSecurityGroupsOutput) GoString() string {
 	return s.String()
 }
 
 // SetRules sets the Rules field's value.
-func (s *Igress_ruleForDescribeSecurityGroupsOutput) SetRules(v []*RuleForDescribeSecurityGroupsOutput) *Igress_ruleForDescribeSecurityGroupsOutput {
+func (s *Ingress_ruleForDescribeSecurityGroupsOutput) SetRules(v []*RuleForDescribeSecurityGroupsOutput) *Ingress_ruleForDescribeSecurityGroupsOutput {
 	s.Rules = v
 	return s
 }
 
 // SetTotal sets the Total field's value.
-func (s *Igress_ruleForDescribeSecurityGroupsOutput) SetTotal(v int32) *Igress_ruleForDescribeSecurityGroupsOutput {
+func (s *Ingress_ruleForDescribeSecurityGroupsOutput) SetTotal(v int32) *Ingress_ruleForDescribeSecurityGroupsOutput {
 	s.Total = &v
 	return s
 }
@@ -508,7 +516,7 @@ type Security_groupForDescribeSecurityGroupsOutput struct {
 
 	Group_type *string `type:"string" json:"group_type" enum:"EnumOfgroup_typeForDescribeSecurityGroupsOutput"`
 
-	Igress_rule *Igress_ruleForDescribeSecurityGroupsOutput `type:"structure" json:"igress_rule"`
+	Ingress_rule *Ingress_ruleForDescribeSecurityGroupsOutput `type:"structure" json:"ingress_rule"`
 
 	Name *string `type:"string" json:"name"`
 
@@ -595,9 +603,9 @@ func (s *Security_groupForDescribeSecurityGroupsOutput) SetGroup_type(v string) 
 	return s
 }
 
-// SetIgress_rule sets the Igress_rule field's value.
-func (s *Security_groupForDescribeSecurityGroupsOutput) SetIgress_rule(v *Igress_ruleForDescribeSecurityGroupsOutput) *Security_groupForDescribeSecurityGroupsOutput {
-	s.Igress_rule = v
+// SetIngress_rule sets the Ingress_rule field's value.
+func (s *Security_groupForDescribeSecurityGroupsOutput) SetIngress_rule(v *Ingress_ruleForDescribeSecurityGroupsOutput) *Security_groupForDescribeSecurityGroupsOutput {
+	s.Ingress_rule = v
 	return s
 }
 

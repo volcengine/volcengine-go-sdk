@@ -984,7 +984,7 @@ type ListCloudServersInput struct {
 
 	Limit *int32 `locationName:"limit" type:"int32"`
 
-	OrderBy *int32 `locationName:"order_by" type:"int32"`
+	OrderBy *int32 `type:"int32"`
 
 	Page *int32 `locationName:"page" type:"int32"`
 
@@ -992,7 +992,7 @@ type ListCloudServersInput struct {
 
 	TagFilters []*TagFilterForListCloudServersInput `type:"list"`
 
-	WithTagInfo *bool `locationName:"with_tag_info" type:"boolean"`
+	WithTagInfo *bool `type:"boolean"`
 }
 
 // String returns the string representation

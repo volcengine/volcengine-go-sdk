@@ -220,7 +220,7 @@ type ListSSHKeyInput struct {
 
 	TagFilters []*TagFilterForListSSHKeyInput `type:"list"`
 
-	WithTagInfo *bool `locationName:"with_tag_info" type:"boolean"`
+	WithTagInfo *bool `type:"boolean"`
 }
 
 // String returns the string representation
