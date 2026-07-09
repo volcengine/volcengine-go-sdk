@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // ACEP.
 //    func myFunc(svc ACEPAPI) bool {
-//        // Make svc.AddCustomRoute request
+//        // Make svc.AddAdbKey request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type ACEPAPI interface {
+	AddAdbKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddAdbKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddAdbKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddAdbKey(*AddAdbKeyInput) (*AddAdbKeyOutput, error)
+	AddAdbKeyWithContext(volcengine.Context, *AddAdbKeyInput, ...request.Option) (*AddAdbKeyOutput, error)
+	AddAdbKeyRequest(*AddAdbKeyInput) (*request.Request, *AddAdbKeyOutput)
+
 	AddCustomRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddCustomRouteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddCustomRouteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +101,14 @@ type ACEPAPI interface {
 	BatchScreenShot(*BatchScreenShotInput) (*BatchScreenShotOutput, error)
 	BatchScreenShotWithContext(volcengine.Context, *BatchScreenShotInput, ...request.Option) (*BatchScreenShotOutput, error)
 	BatchScreenShotRequest(*BatchScreenShotInput) (*request.Request, *BatchScreenShotOutput)
+
+	BindAdbKeyPodsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BindAdbKeyPodsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BindAdbKeyPodsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BindAdbKeyPods(*BindAdbKeyPodsInput) (*BindAdbKeyPodsOutput, error)
+	BindAdbKeyPodsWithContext(volcengine.Context, *BindAdbKeyPodsInput, ...request.Option) (*BindAdbKeyPodsOutput, error)
+	BindAdbKeyPodsRequest(*BindAdbKeyPodsInput) (*request.Request, *BindAdbKeyPodsOutput)
 
 	BindPortMappingRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BindPortMappingRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -197,6 +213,14 @@ type ACEPAPI interface {
 	DeleteAOSPImage(*DeleteAOSPImageInput) (*DeleteAOSPImageOutput, error)
 	DeleteAOSPImageWithContext(volcengine.Context, *DeleteAOSPImageInput, ...request.Option) (*DeleteAOSPImageOutput, error)
 	DeleteAOSPImageRequest(*DeleteAOSPImageInput) (*request.Request, *DeleteAOSPImageOutput)
+
+	DeleteAdbKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAdbKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAdbKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAdbKey(*DeleteAdbKeyInput) (*DeleteAdbKeyOutput, error)
+	DeleteAdbKeyWithContext(volcengine.Context, *DeleteAdbKeyInput, ...request.Option) (*DeleteAdbKeyOutput, error)
+	DeleteAdbKeyRequest(*DeleteAdbKeyInput) (*request.Request, *DeleteAdbKeyOutput)
 
 	DeleteAppCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAppCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -429,6 +453,22 @@ type ACEPAPI interface {
 	ListAOSPImage(*ListAOSPImageInput) (*ListAOSPImageOutput, error)
 	ListAOSPImageWithContext(volcengine.Context, *ListAOSPImageInput, ...request.Option) (*ListAOSPImageOutput, error)
 	ListAOSPImageRequest(*ListAOSPImageInput) (*request.Request, *ListAOSPImageOutput)
+
+	ListAdbKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAdbKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAdbKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAdbKey(*ListAdbKeyInput) (*ListAdbKeyOutput, error)
+	ListAdbKeyWithContext(volcengine.Context, *ListAdbKeyInput, ...request.Option) (*ListAdbKeyOutput, error)
+	ListAdbKeyRequest(*ListAdbKeyInput) (*request.Request, *ListAdbKeyOutput)
+
+	ListAdbKeyPodBindingsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAdbKeyPodBindingsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAdbKeyPodBindingsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAdbKeyPodBindings(*ListAdbKeyPodBindingsInput) (*ListAdbKeyPodBindingsOutput, error)
+	ListAdbKeyPodBindingsWithContext(volcengine.Context, *ListAdbKeyPodBindingsInput, ...request.Option) (*ListAdbKeyPodBindingsOutput, error)
+	ListAdbKeyPodBindingsRequest(*ListAdbKeyPodBindingsInput) (*request.Request, *ListAdbKeyPodBindingsOutput)
 
 	ListAppCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAppCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -774,6 +814,14 @@ type ACEPAPI interface {
 	SubscribeResourceAutoWithContext(volcengine.Context, *SubscribeResourceAutoInput, ...request.Option) (*SubscribeResourceAutoOutput, error)
 	SubscribeResourceAutoRequest(*SubscribeResourceAutoInput) (*request.Request, *SubscribeResourceAutoOutput)
 
+	UnbindAdbKeyPodsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnbindAdbKeyPodsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnbindAdbKeyPodsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnbindAdbKeyPods(*UnbindAdbKeyPodsInput) (*UnbindAdbKeyPodsOutput, error)
+	UnbindAdbKeyPodsWithContext(volcengine.Context, *UnbindAdbKeyPodsInput, ...request.Option) (*UnbindAdbKeyPodsOutput, error)
+	UnbindAdbKeyPodsRequest(*UnbindAdbKeyPodsInput) (*request.Request, *UnbindAdbKeyPodsOutput)
+
 	UnbindPortMappingRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UnbindPortMappingRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UnbindPortMappingRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -805,6 +853,14 @@ type ACEPAPI interface {
 	UpdateAOSPImage(*UpdateAOSPImageInput) (*UpdateAOSPImageOutput, error)
 	UpdateAOSPImageWithContext(volcengine.Context, *UpdateAOSPImageInput, ...request.Option) (*UpdateAOSPImageOutput, error)
 	UpdateAOSPImageRequest(*UpdateAOSPImageInput) (*request.Request, *UpdateAOSPImageOutput)
+
+	UpdateAdbKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAdbKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAdbKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAdbKey(*UpdateAdbKeyInput) (*UpdateAdbKeyOutput, error)
+	UpdateAdbKeyWithContext(volcengine.Context, *UpdateAdbKeyInput, ...request.Option) (*UpdateAdbKeyOutput, error)
+	UpdateAdbKeyRequest(*UpdateAdbKeyInput) (*request.Request, *UpdateAdbKeyOutput)
 
 	UpdateAppCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateAppCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
