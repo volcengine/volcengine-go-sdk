@@ -202,6 +202,8 @@ type ItemForListScalingPoliciesOutput struct {
 
 	Id *string `type:"string" json:",omitempty"`
 
+	Name *string `type:"string" json:",omitempty"`
+
 	NodePoolId *string `type:"string" json:",omitempty"`
 
 	ScheduledInstancePolicy *ScheduledInstancePolicyForListScalingPoliciesOutput `type:"structure" json:",omitempty"`
@@ -250,6 +252,12 @@ func (s *ItemForListScalingPoliciesOutput) SetEnabled(v bool) *ItemForListScalin
 // SetId sets the Id field's value.
 func (s *ItemForListScalingPoliciesOutput) SetId(v string) *ItemForListScalingPoliciesOutput {
 	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ItemForListScalingPoliciesOutput) SetName(v string) *ItemForListScalingPoliciesOutput {
+	s.Name = &v
 	return s
 }
 
