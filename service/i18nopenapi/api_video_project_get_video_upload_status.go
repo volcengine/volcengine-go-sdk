@@ -238,6 +238,8 @@ type VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput struct {
 
 	BatchId *string `type:"string" json:"batchId"`
 
+	BindSubtitleIDs []*string `type:"list" json:"bindSubtitleIDs"`
+
 	ProjectId *string `type:"string" json:"projectId"`
 
 	Status *int32 `type:"int32" json:"status"`
@@ -245,6 +247,8 @@ type VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput struct {
 	SubtitleId *string `type:"string" json:"subtitleId"`
 
 	VideoId *string `type:"string" json:"videoId"`
+
+	VideoName *string `type:"string" json:"videoName"`
 
 	VideoUrl *string `type:"string" json:"videoUrl"`
 }
@@ -262,6 +266,12 @@ func (s VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) GoString() str
 // SetBatchId sets the BatchId field's value.
 func (s *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) SetBatchId(v string) *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
 	s.BatchId = &v
+	return s
+}
+
+// SetBindSubtitleIDs sets the BindSubtitleIDs field's value.
+func (s *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) SetBindSubtitleIDs(v []*string) *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
+	s.BindSubtitleIDs = v
 	return s
 }
 
@@ -286,6 +296,12 @@ func (s *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) SetSubtitleId
 // SetVideoId sets the VideoId field's value.
 func (s *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) SetVideoId(v string) *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
 	s.VideoId = &v
+	return s
+}
+
+// SetVideoName sets the VideoName field's value.
+func (s *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput) SetVideoName(v string) *VideoUploadTaskForVideoProjectGetVideoUploadStatusOutput {
+	s.VideoName = &v
 	return s
 }
 

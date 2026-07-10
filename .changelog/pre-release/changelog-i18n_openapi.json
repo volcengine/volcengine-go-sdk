@@ -1,5 +1,5 @@
 {
-  "description": "I18N_OPENAPI: 新增 VideoProjectGetUploadSubtitleStatus, VideoProjectSubtitleUpload；修改 VideoProjectSerialTaskCreate, VideoProjectVideoUpload, VideoProjectGetVideoUploadStatus, VideoProjectSerialDubTaskCreate",
+  "description": "I18N_OPENAPI: 新增 VideoProjectGetTaskProduct；修改 VideoProjectGetUploadSubtitleStatus, VideoProjectSubtitleUpload, VideoProjectGetVideoUploadStatus",
   "modules": "service/i18n_openapi",
-  "type": "feature"
+  "type": "breaking-change"
 }
