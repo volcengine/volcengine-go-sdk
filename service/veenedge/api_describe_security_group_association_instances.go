@@ -252,8 +252,7 @@ func (s *Bind_instanceForDescribeSecurityGroupAssociationInstancesOutput) SetVpc
 type DescribeSecurityGroupAssociationInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	// GroupIdentity is a required field
-	GroupIdentity *string `locationName:"group_identity" type:"string" required:"true"`
+	GroupIdentity *string `type:"string"`
 }
 
 // String returns the string representation
@@ -264,19 +263,6 @@ func (s DescribeSecurityGroupAssociationInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeSecurityGroupAssociationInstancesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeSecurityGroupAssociationInstancesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeSecurityGroupAssociationInstancesInput"}
-	if s.GroupIdentity == nil {
-		invalidParams.Add(request.NewErrParamRequired("GroupIdentity"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetGroupIdentity sets the GroupIdentity field's value.

@@ -353,7 +353,7 @@ func (s *Egress_ruleForCreateSecurityGroupOutput) SetTotal(v int32) *Egress_rule
 	return s
 }
 
-type Igress_ruleForCreateSecurityGroupOutput struct {
+type Ingress_ruleForCreateSecurityGroupOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Rules []*RuleForCreateSecurityGroupOutput `type:"list" json:"rules"`
@@ -362,23 +362,23 @@ type Igress_ruleForCreateSecurityGroupOutput struct {
 }
 
 // String returns the string representation
-func (s Igress_ruleForCreateSecurityGroupOutput) String() string {
+func (s Ingress_ruleForCreateSecurityGroupOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s Igress_ruleForCreateSecurityGroupOutput) GoString() string {
+func (s Ingress_ruleForCreateSecurityGroupOutput) GoString() string {
 	return s.String()
 }
 
 // SetRules sets the Rules field's value.
-func (s *Igress_ruleForCreateSecurityGroupOutput) SetRules(v []*RuleForCreateSecurityGroupOutput) *Igress_ruleForCreateSecurityGroupOutput {
+func (s *Ingress_ruleForCreateSecurityGroupOutput) SetRules(v []*RuleForCreateSecurityGroupOutput) *Ingress_ruleForCreateSecurityGroupOutput {
 	s.Rules = v
 	return s
 }
 
 // SetTotal sets the Total field's value.
-func (s *Igress_ruleForCreateSecurityGroupOutput) SetTotal(v int32) *Igress_ruleForCreateSecurityGroupOutput {
+func (s *Ingress_ruleForCreateSecurityGroupOutput) SetTotal(v int32) *Ingress_ruleForCreateSecurityGroupOutput {
 	s.Total = &v
 	return s
 }
@@ -522,7 +522,7 @@ type Security_groupForCreateSecurityGroupOutput struct {
 
 	Group_type *string `type:"string" json:"group_type,omitempty" enum:"EnumOfgroup_typeForCreateSecurityGroupOutput"`
 
-	Igress_rule *Igress_ruleForCreateSecurityGroupOutput `type:"structure" json:"igress_rule,omitempty"`
+	Ingress_rule *Ingress_ruleForCreateSecurityGroupOutput `type:"structure" json:"ingress_rule,omitempty"`
 
 	Name *string `type:"string" json:"name,omitempty"`
 
@@ -609,9 +609,9 @@ func (s *Security_groupForCreateSecurityGroupOutput) SetGroup_type(v string) *Se
 	return s
 }
 
-// SetIgress_rule sets the Igress_rule field's value.
-func (s *Security_groupForCreateSecurityGroupOutput) SetIgress_rule(v *Igress_ruleForCreateSecurityGroupOutput) *Security_groupForCreateSecurityGroupOutput {
-	s.Igress_rule = v
+// SetIngress_rule sets the Ingress_rule field's value.
+func (s *Security_groupForCreateSecurityGroupOutput) SetIngress_rule(v *Ingress_ruleForCreateSecurityGroupOutput) *Security_groupForCreateSecurityGroupOutput {
+	s.Ingress_rule = v
 	return s
 }
 

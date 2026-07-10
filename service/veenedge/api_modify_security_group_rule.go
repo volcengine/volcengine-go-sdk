@@ -230,6 +230,8 @@ type PolicyForModifySecurityGroupRuleInput struct {
 
 	Ip_cidr *string `type:"string" json:"ip_cidr,omitempty"`
 
+	Ip_cidrs []*string `type:"list" json:"ip_cidrs"`
+
 	Ports *string `type:"string" json:"ports,omitempty"`
 
 	Priority *int32 `type:"int32" json:"priority,omitempty"`
@@ -260,6 +262,12 @@ func (s *PolicyForModifySecurityGroupRuleInput) SetDirection(v string) *PolicyFo
 // SetIp_cidr sets the Ip_cidr field's value.
 func (s *PolicyForModifySecurityGroupRuleInput) SetIp_cidr(v string) *PolicyForModifySecurityGroupRuleInput {
 	s.Ip_cidr = &v
+	return s
+}
+
+// SetIp_cidrs sets the Ip_cidrs field's value.
+func (s *PolicyForModifySecurityGroupRuleInput) SetIp_cidrs(v []*string) *PolicyForModifySecurityGroupRuleInput {
+	s.Ip_cidrs = v
 	return s
 }
 

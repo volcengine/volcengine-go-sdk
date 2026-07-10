@@ -1154,17 +1154,17 @@ type ListInstancesInput struct {
 
 	Cities *string `locationName:"cities" type:"string"`
 
-	CloudServerIdentities *string `locationName:"cloud_server_identities" type:"string"`
+	CloudServerIdentities *string `type:"string"`
 
-	ClusterNames *string `locationName:"cluster_names" type:"string"`
+	ClusterNames *string `type:"string"`
 
 	Countries *string `locationName:"countries" type:"string"`
 
-	InstanceIdentities *string `locationName:"instance_identities" type:"string"`
+	InstanceIdentities *string `type:"string"`
 
-	InstanceUuids *string `locationName:"instance_uuids" type:"string"`
+	InstanceNames *string `type:"string"`
 
-	InstanceNames *string `locationName:"instance_names" type:"string"`
+	InstanceUuids *string `type:"string"`
 
 	Ips *string `locationName:"ips" type:"string"`
 
@@ -1172,7 +1172,7 @@ type ListInstancesInput struct {
 
 	Limit *int32 `locationName:"limit" type:"int32"`
 
-	OrderBy *int32 `locationName:"order_by" type:"int32"`
+	OrderBy *int32 `type:"int32"`
 
 	Page *int32 `locationName:"page" type:"int32"`
 
@@ -1180,15 +1180,15 @@ type ListInstancesInput struct {
 
 	Regions *string `locationName:"regions" type:"string"`
 
-	SpecNames *string `locationName:"spec_names" type:"string"`
+	SpecNames *string `type:"string"`
 
 	Status *string `locationName:"status" type:"string"`
 
 	TagFilters []*TagFilterForListInstancesInput `type:"list"`
 
-	VpcIdentities *string `locationName:"vpc_identities" type:"string"`
+	VPCIdentities *string `type:"string"`
 
-	WithTagInfo *bool `locationName:"with_tag_info" type:"boolean"`
+	WithTagInfo *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -1237,15 +1237,15 @@ func (s *ListInstancesInput) SetInstanceIdentities(v string) *ListInstancesInput
 	return s
 }
 
-// SetInstanceUuids sets the InstanceUuids field's value.
-func (s *ListInstancesInput) SetInstanceUuids(v string) *ListInstancesInput {
-	s.InstanceUuids = &v
-	return s
-}
-
 // SetInstanceNames sets the InstanceNames field's value.
 func (s *ListInstancesInput) SetInstanceNames(v string) *ListInstancesInput {
 	s.InstanceNames = &v
+	return s
+}
+
+// SetInstanceUuids sets the InstanceUuids field's value.
+func (s *ListInstancesInput) SetInstanceUuids(v string) *ListInstancesInput {
+	s.InstanceUuids = &v
 	return s
 }
 
@@ -1309,9 +1309,9 @@ func (s *ListInstancesInput) SetTagFilters(v []*TagFilterForListInstancesInput) 
 	return s
 }
 
-// SetVpcIdentities sets the VpcIdentities field's value.
-func (s *ListInstancesInput) SetVpcIdentities(v string) *ListInstancesInput {
-	s.VpcIdentities = &v
+// SetVPCIdentities sets the VPCIdentities field's value.
+func (s *ListInstancesInput) SetVPCIdentities(v string) *ListInstancesInput {
+	s.VPCIdentities = &v
 	return s
 }
 

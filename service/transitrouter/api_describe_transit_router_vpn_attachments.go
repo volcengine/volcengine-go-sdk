@@ -144,7 +144,7 @@ type DescribeTransitRouterVpnAttachmentsInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	TagFilters []*TagFilterForDescribeTransitRouterVpnAttachmentsInput `type:"list"`
 
@@ -169,6 +169,9 @@ func (s DescribeTransitRouterVpnAttachmentsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeTransitRouterVpnAttachmentsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeTransitRouterVpnAttachmentsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.TransitRouterId == nil {
 		invalidParams.Add(request.NewErrParamRequired("TransitRouterId"))
 	}
@@ -336,6 +339,8 @@ type TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput struct 
 
 	Ipv6Enabled *bool `type:"boolean"`
 
+	SecondaryZoneId *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeTransitRouterVpnAttachmentsOutput `type:"list"`
@@ -390,6 +395,12 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput) Se
 // SetIpv6Enabled sets the Ipv6Enabled field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput) SetIpv6Enabled(v bool) *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput {
 	s.Ipv6Enabled = &v
+	return s
+}
+
+// SetSecondaryZoneId sets the SecondaryZoneId field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput) SetSecondaryZoneId(v string) *TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput {
+	s.SecondaryZoneId = &v
 	return s
 }
 

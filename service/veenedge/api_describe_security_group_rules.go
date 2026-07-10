@@ -142,15 +142,13 @@ func (c *VEENEDGE) DescribeSecurityGroupRulesWithContext(ctx volcengine.Context,
 type DescribeSecurityGroupRulesInput struct {
 	_ struct{} `type:"structure"`
 
-	// Direction is a required field
-	Direction *string `locationName:"direction" type:"string" required:"true" enum:"EnumOfdirectionForDescribeSecurityGroupRulesInput"`
+	Direction *string `locationName:"direction" type:"string" enum:"EnumOfdirectionForDescribeSecurityGroupRulesInput"`
 
-	// GroupIdentity is a required field
-	GroupIdentity *string `locationName:"group_identity" type:"string" required:"true"`
+	GroupIdentity *string `type:"string"`
 
 	Limit *int32 `locationName:"limit" type:"int32"`
 
-	OrderBy *int32 `locationName:"order_by" type:"int32"`
+	OrderBy *int32 `type:"int32"`
 
 	Page *int32 `locationName:"page" type:"int32"`
 }
@@ -163,22 +161,6 @@ func (s DescribeSecurityGroupRulesInput) String() string {
 // GoString returns the string representation
 func (s DescribeSecurityGroupRulesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeSecurityGroupRulesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeSecurityGroupRulesInput"}
-	if s.Direction == nil {
-		invalidParams.Add(request.NewErrParamRequired("Direction"))
-	}
-	if s.GroupIdentity == nil {
-		invalidParams.Add(request.NewErrParamRequired("GroupIdentity"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetDirection sets the Direction field's value.

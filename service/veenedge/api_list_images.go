@@ -22,13 +22,13 @@ const opListImagesCommon = "ListImages"
 // See ListImagesCommon for more information on using the ListImagesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListImagesCommonRequest method.
-//	req, resp := client.ListImagesCommonRequest(params)
+//    // Example sending a request using the ListImagesCommonRequest method.
+//    req, resp := client.ListImagesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) ListImagesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListImagesCommon,
@@ -87,13 +87,13 @@ const opListImages = "ListImages"
 // See ListImages for more information on using the ListImages
 // API call, and error handling.
 //
-//	// Example sending a request using the ListImagesRequest method.
-//	req, resp := client.ListImagesRequest(params)
+//    // Example sending a request using the ListImagesRequest method.
+//    req, resp := client.ListImagesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) ListImagesRequest(input *ListImagesInput) (req *request.Request, output *ListImagesOutput) {
 	op := &request.Operation{
 		Name:       opListImages,
@@ -268,10 +268,9 @@ func (s *ImageForListImagesOutput) SetUpdate_time(v string) *ImageForListImagesO
 type ListImagesInput struct {
 	_ struct{} `type:"structure"`
 
-	DiskSize *int32 `locationName:"disk_size" type:"int32"`
+	DiskSize *int32 `type:"int32"`
 
-	// InstanceType is a required field
-	InstanceType *string `locationName:"instance_type" type:"string" required:"true"`
+	InstanceType *string `type:"string"`
 
 	Label *string `locationName:"label" type:"string"`
 
@@ -279,13 +278,13 @@ type ListImagesInput struct {
 
 	Property *string `locationName:"property" type:"string"`
 
-	SystemArch *string `locationName:"system_arch" type:"string"`
+	SystemArch *string `type:"string"`
 
-	SystemBit *string `locationName:"system_bit" type:"string"`
+	SystemBit *string `type:"string"`
 
-	SystemType *string `locationName:"system_type" type:"string"`
+	SystemType *string `type:"string"`
 
-	SystemVersion *string `locationName:"system_version" type:"string"`
+	SystemVersion *string `type:"string"`
 }
 
 // String returns the string representation
@@ -296,19 +295,6 @@ func (s ListImagesInput) String() string {
 // GoString returns the string representation
 func (s ListImagesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListImagesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListImagesInput"}
-	if s.InstanceType == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetDiskSize sets the DiskSize field's value.

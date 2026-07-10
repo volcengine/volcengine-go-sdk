@@ -342,6 +342,14 @@ type VKEAPI interface {
 	RevokePermissionWithContext(volcengine.Context, *RevokePermissionInput, ...request.Option) (*RevokePermissionOutput, error)
 	RevokePermissionRequest(*RevokePermissionInput) (*request.Request, *RevokePermissionOutput)
 
+	ScaleNodePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ScaleNodePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ScaleNodePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ScaleNodePool(*ScaleNodePoolInput) (*ScaleNodePoolOutput, error)
+	ScaleNodePoolWithContext(volcengine.Context, *ScaleNodePoolInput, ...request.Option) (*ScaleNodePoolOutput, error)
+	ScaleNodePoolRequest(*ScaleNodePoolInput) (*request.Request, *ScaleNodePoolOutput)
+
 	SetGlobalDefaultDeleteOptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetGlobalDefaultDeleteOptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	SetGlobalDefaultDeleteOptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

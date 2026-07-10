@@ -142,8 +142,7 @@ func (c *VEENEDGE) GetInstancesIPv6UpgradeStatusWithContext(ctx volcengine.Conte
 type GetInstancesIPv6UpgradeStatusInput struct {
 	_ struct{} `type:"structure"`
 
-	// InstanceIdentities is a required field
-	InstanceIdentities *string `locationName:"instance_identities" type:"string" required:"true"`
+	InstanceIdentities *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s GetInstancesIPv6UpgradeStatusInput) String() string {
 // GoString returns the string representation
 func (s GetInstancesIPv6UpgradeStatusInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetInstancesIPv6UpgradeStatusInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetInstancesIPv6UpgradeStatusInput"}
-	if s.InstanceIdentities == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceIdentities"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetInstanceIdentities sets the InstanceIdentities field's value.

@@ -180,8 +180,7 @@ func (s *Data_cloud_disk_info_listForGetInstanceCloudDiskInfoOutput) SetStorage_
 type GetInstanceCloudDiskInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	// InstanceIdentity is a required field
-	InstanceIdentity *string `locationName:"instance_identity" type:"string" required:"true"`
+	InstanceIdentity *string `type:"string"`
 }
 
 // String returns the string representation
@@ -192,19 +191,6 @@ func (s GetInstanceCloudDiskInfoInput) String() string {
 // GoString returns the string representation
 func (s GetInstanceCloudDiskInfoInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetInstanceCloudDiskInfoInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetInstanceCloudDiskInfoInput"}
-	if s.InstanceIdentity == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceIdentity"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetInstanceIdentity sets the InstanceIdentity field's value.

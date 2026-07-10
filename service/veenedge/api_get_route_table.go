@@ -142,8 +142,7 @@ func (c *VEENEDGE) GetRouteTableWithContext(ctx volcengine.Context, input *GetRo
 type GetRouteTableInput struct {
 	_ struct{} `type:"structure"`
 
-	// RouteTableIdentity is a required field
-	RouteTableIdentity *string `locationName:"route_table_identity" type:"string" required:"true"`
+	RouteTableIdentity *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s GetRouteTableInput) String() string {
 // GoString returns the string representation
 func (s GetRouteTableInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetRouteTableInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetRouteTableInput"}
-	if s.RouteTableIdentity == nil {
-		invalidParams.Add(request.NewErrParamRequired("RouteTableIdentity"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetRouteTableIdentity sets the RouteTableIdentity field's value.

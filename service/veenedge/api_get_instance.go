@@ -526,8 +526,13 @@ func (s *External_interfaceForGetInstanceOutput) SetMask6(v string) *External_in
 type GetInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	// InstanceIdentity is a required field
-	InstanceIdentity *string `locationName:"instance_identity" type:"string" required:"true"`
+	InstanceIdentity *string `type:"string"`
+
+	WithAllNics *bool `type:"boolean"`
+
+	WithCustomData *bool `type:"boolean"`
+
+	WithEipInfo *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -540,22 +545,27 @@ func (s GetInstanceInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetInstanceInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetInstanceInput"}
-	if s.InstanceIdentity == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceIdentity"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetInstanceIdentity sets the InstanceIdentity field's value.
 func (s *GetInstanceInput) SetInstanceIdentity(v string) *GetInstanceInput {
 	s.InstanceIdentity = &v
+	return s
+}
+
+// SetWithAllNics sets the WithAllNics field's value.
+func (s *GetInstanceInput) SetWithAllNics(v bool) *GetInstanceInput {
+	s.WithAllNics = &v
+	return s
+}
+
+// SetWithCustomData sets the WithCustomData field's value.
+func (s *GetInstanceInput) SetWithCustomData(v bool) *GetInstanceInput {
+	s.WithCustomData = &v
+	return s
+}
+
+// SetWithEipInfo sets the WithEipInfo field's value.
+func (s *GetInstanceInput) SetWithEipInfo(v bool) *GetInstanceInput {
+	s.WithEipInfo = &v
 	return s
 }
 

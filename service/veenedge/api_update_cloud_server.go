@@ -22,13 +22,13 @@ const opUpdateCloudServerCommon = "UpdateCloudServer"
 // See UpdateCloudServerCommon for more information on using the UpdateCloudServerCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateCloudServerCommonRequest method.
-//	req, resp := client.UpdateCloudServerCommonRequest(params)
+//    // Example sending a request using the UpdateCloudServerCommonRequest method.
+//    req, resp := client.UpdateCloudServerCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) UpdateCloudServerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateCloudServerCommon,
@@ -89,13 +89,13 @@ const opUpdateCloudServer = "UpdateCloudServer"
 // See UpdateCloudServer for more information on using the UpdateCloudServer
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateCloudServerRequest method.
-//	req, resp := client.UpdateCloudServerRequest(params)
+//    // Example sending a request using the UpdateCloudServerRequest method.
+//    req, resp := client.UpdateCloudServerRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VEENEDGE) UpdateCloudServerRequest(input *UpdateCloudServerInput) (req *request.Request, output *UpdateCloudServerOutput) {
 	op := &request.Operation{
 		Name:       opUpdateCloudServer,

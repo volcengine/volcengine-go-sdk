@@ -146,7 +146,7 @@ func (c *CLAWSENTRY) CreateClawWithContext(ctx volcengine.Context, input *Create
 type BaseForCreateClawInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceID *string `type:"string" json:",omitempty"`
+	InstanceID *string `min:"1" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -157,6 +157,19 @@ func (s BaseForCreateClawInput) String() string {
 // GoString returns the string representation
 func (s BaseForCreateClawInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BaseForCreateClawInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BaseForCreateClawInput"}
+	if s.InstanceID != nil && len(*s.InstanceID) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("InstanceID", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceID sets the InstanceID field's value.
@@ -170,10 +183,18 @@ type CreateClawInput struct {
 
 	Base *BaseForCreateClawInput `type:"structure" json:",omitempty"`
 
+	ClawType *string `type:"string" json:",omitempty" enum:"EnumOfClawTypeForCreateClawInput"`
+
 	// ExternalClawID is a required field
 	ExternalClawID *string `min:"1" max:"256" type:"string" json:",omitempty" required:"true"`
 
 	Name *string `max:"100" type:"string" json:",omitempty"`
+
+	PersonalClaw *PersonalClawForCreateClawInput `type:"structure" json:",omitempty"`
+
+	Source *string `type:"string" json:",omitempty" enum:"EnumOfSourceForCreateClawInput"`
+
+	Tags []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -201,6 +222,16 @@ func (s *CreateClawInput) Validate() error {
 	if s.Name != nil && len(*s.Name) > 100 {
 		invalidParams.Add(request.NewErrParamMaxLen("Name", 100, *s.Name))
 	}
+	if s.Base != nil {
+		if err := s.Base.Validate(); err != nil {
+			invalidParams.AddNested("Base", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.PersonalClaw != nil {
+		if err := s.PersonalClaw.Validate(); err != nil {
+			invalidParams.AddNested("PersonalClaw", err.(request.ErrInvalidParams))
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -214,6 +245,12 @@ func (s *CreateClawInput) SetBase(v *BaseForCreateClawInput) *CreateClawInput {
 	return s
 }
 
+// SetClawType sets the ClawType field's value.
+func (s *CreateClawInput) SetClawType(v string) *CreateClawInput {
+	s.ClawType = &v
+	return s
+}
+
 // SetExternalClawID sets the ExternalClawID field's value.
 func (s *CreateClawInput) SetExternalClawID(v string) *CreateClawInput {
 	s.ExternalClawID = &v
@@ -223,6 +260,24 @@ func (s *CreateClawInput) SetExternalClawID(v string) *CreateClawInput {
 // SetName sets the Name field's value.
 func (s *CreateClawInput) SetName(v string) *CreateClawInput {
 	s.Name = &v
+	return s
+}
+
+// SetPersonalClaw sets the PersonalClaw field's value.
+func (s *CreateClawInput) SetPersonalClaw(v *PersonalClawForCreateClawInput) *CreateClawInput {
+	s.PersonalClaw = v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *CreateClawInput) SetSource(v string) *CreateClawInput {
+	s.Source = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateClawInput) SetTags(v []*string) *CreateClawInput {
+	s.Tags = v
 	return s
 }
 
@@ -239,7 +294,11 @@ type CreateClawOutput struct {
 
 	ConfVersion *string `type:"string" json:",omitempty"`
 
+	GatewayEndpoint *string `type:"string" json:",omitempty"`
+
 	LumenEndpoint *string `type:"string" json:",omitempty"`
+
+	Scheme *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -276,8 +335,98 @@ func (s *CreateClawOutput) SetConfVersion(v string) *CreateClawOutput {
 	return s
 }
 
+// SetGatewayEndpoint sets the GatewayEndpoint field's value.
+func (s *CreateClawOutput) SetGatewayEndpoint(v string) *CreateClawOutput {
+	s.GatewayEndpoint = &v
+	return s
+}
+
 // SetLumenEndpoint sets the LumenEndpoint field's value.
 func (s *CreateClawOutput) SetLumenEndpoint(v string) *CreateClawOutput {
 	s.LumenEndpoint = &v
 	return s
 }
+
+// SetScheme sets the Scheme field's value.
+func (s *CreateClawOutput) SetScheme(v string) *CreateClawOutput {
+	s.Scheme = &v
+	return s
+}
+
+type PersonalClawForCreateClawInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Token *string `min:"1" max:"100" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PersonalClawForCreateClawInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PersonalClawForCreateClawInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *PersonalClawForCreateClawInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "PersonalClawForCreateClawInput"}
+	if s.Token != nil && len(*s.Token) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Token", 1))
+	}
+	if s.Token != nil && len(*s.Token) > 100 {
+		invalidParams.Add(request.NewErrParamMaxLen("Token", 100, *s.Token))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetToken sets the Token field's value.
+func (s *PersonalClawForCreateClawInput) SetToken(v string) *PersonalClawForCreateClawInput {
+	s.Token = &v
+	return s
+}
+
+const (
+	// EnumOfClawTypeForCreateClawInputArkclaw is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputArkclaw = "arkclaw"
+
+	// EnumOfClawTypeForCreateClawInputOpenclaw is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputOpenclaw = "openclaw"
+
+	// EnumOfClawTypeForCreateClawInputHermes is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputHermes = "hermes"
+
+	// EnumOfClawTypeForCreateClawInputHibot is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputHibot = "hibot"
+
+	// EnumOfClawTypeForCreateClawInputDoubao is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputDoubao = "doubao"
+
+	// EnumOfClawTypeForCreateClawInputOpencode is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputOpencode = "opencode"
+
+	// EnumOfClawTypeForCreateClawInputCodex is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputCodex = "codex"
+
+	// EnumOfClawTypeForCreateClawInputCoco is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputCoco = "coco"
+
+	// EnumOfClawTypeForCreateClawInputTrae is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputTrae = "trae"
+)
+
+const (
+	// EnumOfSourceForCreateClawInputArkclaw is a EnumOfSourceForCreateClawInput enum value
+	EnumOfSourceForCreateClawInputArkclaw = "arkclaw"
+
+	// EnumOfSourceForCreateClawInputThirdParty is a EnumOfSourceForCreateClawInput enum value
+	EnumOfSourceForCreateClawInputThirdParty = "third_party"
+
+	// EnumOfSourceForCreateClawInputHibot is a EnumOfSourceForCreateClawInput enum value
+	EnumOfSourceForCreateClawInputHibot = "hibot"
+)

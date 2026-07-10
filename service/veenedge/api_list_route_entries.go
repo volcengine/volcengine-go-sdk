@@ -144,15 +144,15 @@ type ListRouteEntriesInput struct {
 
 	Limit *int32 `locationName:"limit" type:"int32"`
 
-	OrderBy *int32 `locationName:"order_by" type:"int32"`
+	OrderBy *int32 `type:"int32"`
 
 	Page *int32 `locationName:"page" type:"int32"`
 
-	RouteTableIdentity *string `locationName:"route_table_identity" type:"string"`
+	RouteEntryNextHopList *string `type:"string"`
 
-	RouteEntryTypeList *string `locationName:"route_entry_type_list" type:"string"`
+	RouteEntryTypeList *string `type:"string" enum:"EnumOfRouteEntryTypeListForListRouteEntriesInput"`
 
-	RouteEntryNextHopList *string `locationName:"route_entry_next_hop_list" type:"string"`
+	RouteTableIdentity *string `type:"string"`
 }
 
 // String returns the string representation
@@ -183,9 +183,9 @@ func (s *ListRouteEntriesInput) SetPage(v int32) *ListRouteEntriesInput {
 	return s
 }
 
-// SetRouteTableIdentity sets the RouteTableIdentity field's value.
-func (s *ListRouteEntriesInput) SetRouteTableIdentity(v string) *ListRouteEntriesInput {
-	s.RouteTableIdentity = &v
+// SetRouteEntryNextHopList sets the RouteEntryNextHopList field's value.
+func (s *ListRouteEntriesInput) SetRouteEntryNextHopList(v string) *ListRouteEntriesInput {
+	s.RouteEntryNextHopList = &v
 	return s
 }
 
@@ -195,9 +195,9 @@ func (s *ListRouteEntriesInput) SetRouteEntryTypeList(v string) *ListRouteEntrie
 	return s
 }
 
-// SetRouteEntryNextHopList sets the RouteEntryNextHopList field's value.
-func (s *ListRouteEntriesInput) SetRouteEntryNextHopList(v string) *ListRouteEntriesInput {
-	s.RouteEntryNextHopList = &v
+// SetRouteTableIdentity sets the RouteTableIdentity field's value.
+func (s *ListRouteEntriesInput) SetRouteTableIdentity(v string) *ListRouteEntriesInput {
+	s.RouteTableIdentity = &v
 	return s
 }
 
@@ -334,6 +334,14 @@ func (s *Route_entry_instanceForListRouteEntriesOutput) SetUpdate_time(v int32) 
 	s.Update_time = &v
 	return s
 }
+
+const (
+	// EnumOfRouteEntryTypeListForListRouteEntriesInputSystem is a EnumOfRouteEntryTypeListForListRouteEntriesInput enum value
+	EnumOfRouteEntryTypeListForListRouteEntriesInputSystem = "system"
+
+	// EnumOfRouteEntryTypeListForListRouteEntriesInputCustom is a EnumOfRouteEntryTypeListForListRouteEntriesInput enum value
+	EnumOfRouteEntryTypeListForListRouteEntriesInputCustom = "custom"
+)
 
 const (
 	// EnumOfnext_hop_typeForListRouteEntriesOutputVeen is a EnumOfnext_hop_typeForListRouteEntriesOutput enum value

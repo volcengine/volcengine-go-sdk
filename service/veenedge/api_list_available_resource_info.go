@@ -332,11 +332,9 @@ func (s *IspForListAvailableResourceInfoOutput) SetName(v string) *IspForListAva
 type ListAvailableResourceInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	// CloudDiskType is a required field
-	CloudDiskType *string `locationName:"cloud_disk_type" type:"string" required:"true" enum:"EnumOfcloudForListAvailableResourceInfoInput"`
+	CloudDiskType *string `type:"string" enum:"EnumOfCloudDiskTypeForListAvailableResourceInfoInput"`
 
-	// InstanceType is a required field
-	InstanceType *string `locationName:"instance_type" type:"string" required:"true"`
+	InstanceType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -347,22 +345,6 @@ func (s ListAvailableResourceInfoInput) String() string {
 // GoString returns the string representation
 func (s ListAvailableResourceInfoInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListAvailableResourceInfoInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListAvailableResourceInfoInput"}
-	if s.CloudDiskType == nil {
-		invalidParams.Add(request.NewErrParamRequired("CloudDiskType"))
-	}
-	if s.InstanceType == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetCloudDiskType sets the CloudDiskType field's value.
@@ -464,9 +446,9 @@ func (s *RegionForListAvailableResourceInfoOutput) SetIsp(v *IspForListAvailable
 }
 
 const (
-	// EnumOfcloudForListAvailableResourceInfoInputCloudSsd is a EnumOfcloudForListAvailableResourceInfoInput enum value
-	EnumOfcloudForListAvailableResourceInfoInputCloudSsd = "CloudSSD"
+	// EnumOfCloudDiskTypeForListAvailableResourceInfoInputCloudSsd is a EnumOfCloudDiskTypeForListAvailableResourceInfoInput enum value
+	EnumOfCloudDiskTypeForListAvailableResourceInfoInputCloudSsd = "CloudSSD"
 
-	// EnumOfcloudForListAvailableResourceInfoInputCloudHdd is a EnumOfcloudForListAvailableResourceInfoInput enum value
-	EnumOfcloudForListAvailableResourceInfoInputCloudHdd = "CloudHDD"
+	// EnumOfCloudDiskTypeForListAvailableResourceInfoInputCloudHdd is a EnumOfCloudDiskTypeForListAvailableResourceInfoInput enum value
+	EnumOfCloudDiskTypeForListAvailableResourceInfoInputCloudHdd = "CloudHDD"
 )
