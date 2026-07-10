@@ -4038,7 +4038,7 @@ type ContentItemAudio struct {
 	Type             ContentItemType_Enum   `protobuf:"varint,1,opt,name=type,proto3,enum=responses.ContentItemType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "input_audio"}, "cardinality": "required"}
 	ChunkingStrategy *AudioChunkingStrategy `protobuf:"bytes,2,opt,name=chunking_strategy,json=chunkingStrategy,proto3,oneof" json:"chunking_strategy,omitempty"`
 	AudioUrl         string                 `protobuf:"bytes,3,opt,name=audio_url,json=audioUrl,proto3" json:"audio_url,omitempty"` // sdk: {"cardinality": "required"}
-	FileId           *string                `protobuf:"bytes,4,opt,name=file_id,json=fileId,proto3,oneof" json:"-"`                 // sdk: {"skip": ["go", "python_input", "python_output", "java"]} // @inject_tag: json:"-"  sdk: {"skip": ["go", "python_input", "python_output", "java"]} // sdk: {"skip": ["go", "python_input", "python_output", "java"]}
+	FileId           *string                `protobuf:"bytes,4,opt,name=file_id,json=fileId,proto3,oneof" json:"file_id,omitempty"` // sdk: {"skip": ["go", "python_input", "python_output", "java"]} //  sdk: {"skip": ["go", "python_input", "python_output", "java"]} // sdk: {"skip": ["go", "python_input", "python_output", "java"]}
 }
 
 func (x *ContentItemAudio) Reset() {
