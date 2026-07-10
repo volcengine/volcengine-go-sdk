@@ -830,6 +830,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectDeleteVideoDramaWithContext(volcengine.Context, *VideoProjectDeleteVideoDramaInput, ...request.Option) (*VideoProjectDeleteVideoDramaOutput, error)
 	VideoProjectDeleteVideoDramaRequest(*VideoProjectDeleteVideoDramaInput) (*request.Request, *VideoProjectDeleteVideoDramaOutput)
 
+	VideoProjectGetTaskProductCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectGetTaskProductCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectGetTaskProductCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectGetTaskProduct(*VideoProjectGetTaskProductInput) (*VideoProjectGetTaskProductOutput, error)
+	VideoProjectGetTaskProductWithContext(volcengine.Context, *VideoProjectGetTaskProductInput, ...request.Option) (*VideoProjectGetTaskProductOutput, error)
+	VideoProjectGetTaskProductRequest(*VideoProjectGetTaskProductInput) (*request.Request, *VideoProjectGetTaskProductOutput)
+
 	VideoProjectGetToolTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectGetToolTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectGetToolTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

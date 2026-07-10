@@ -268,8 +268,6 @@ type VideoProjectSubtitleUploadOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BatchId *string `type:"string" json:"batchId,omitempty"`
-
 	Data *DataForVideoProjectSubtitleUploadOutput `type:"structure" json:"data,omitempty"`
 }
 
@@ -281,12 +279,6 @@ func (s VideoProjectSubtitleUploadOutput) String() string {
 // GoString returns the string representation
 func (s VideoProjectSubtitleUploadOutput) GoString() string {
 	return s.String()
-}
-
-// SetBatchId sets the BatchId field's value.
-func (s *VideoProjectSubtitleUploadOutput) SetBatchId(v string) *VideoProjectSubtitleUploadOutput {
-	s.BatchId = &v
-	return s
 }
 
 // SetData sets the Data field's value.

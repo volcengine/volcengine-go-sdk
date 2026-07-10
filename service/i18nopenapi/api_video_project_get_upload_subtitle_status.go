@@ -308,11 +308,7 @@ type VideoProjectGetUploadSubtitleStatusOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BatchId *string `type:"string" json:"batchId"`
-
 	Data *DataForVideoProjectGetUploadSubtitleStatusOutput `type:"structure" json:"data"`
-
-	UploadSubtitleInfos []*UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput `type:"list" json:"uploadSubtitleInfos"`
 }
 
 // String returns the string representation
@@ -325,20 +321,8 @@ func (s VideoProjectGetUploadSubtitleStatusOutput) GoString() string {
 	return s.String()
 }
 
-// SetBatchId sets the BatchId field's value.
-func (s *VideoProjectGetUploadSubtitleStatusOutput) SetBatchId(v string) *VideoProjectGetUploadSubtitleStatusOutput {
-	s.BatchId = &v
-	return s
-}
-
 // SetData sets the Data field's value.
 func (s *VideoProjectGetUploadSubtitleStatusOutput) SetData(v *DataForVideoProjectGetUploadSubtitleStatusOutput) *VideoProjectGetUploadSubtitleStatusOutput {
 	s.Data = v
-	return s
-}
-
-// SetUploadSubtitleInfos sets the UploadSubtitleInfos field's value.
-func (s *VideoProjectGetUploadSubtitleStatusOutput) SetUploadSubtitleInfos(v []*UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput) *VideoProjectGetUploadSubtitleStatusOutput {
-	s.UploadSubtitleInfos = v
 	return s
 }
