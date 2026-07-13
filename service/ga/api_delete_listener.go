@@ -146,6 +146,9 @@ func (c *GA) DeleteListenerWithContext(ctx volcengine.Context, input *DeleteList
 type DeleteListenerInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	// AcceleratorId is a required field
+	AcceleratorId *string `type:"string" json:",omitempty" required:"true"`
+
 	// ListenerId is a required field
 	ListenerId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -163,6 +166,9 @@ func (s DeleteListenerInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DeleteListenerInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteListenerInput"}
+	if s.AcceleratorId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AcceleratorId"))
+	}
 	if s.ListenerId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ListenerId"))
 	}
@@ -171,6 +177,12 @@ func (s *DeleteListenerInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAcceleratorId sets the AcceleratorId field's value.
+func (s *DeleteListenerInput) SetAcceleratorId(v string) *DeleteListenerInput {
+	s.AcceleratorId = &v
+	return s
 }
 
 // SetListenerId sets the ListenerId field's value.

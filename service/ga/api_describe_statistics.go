@@ -308,7 +308,7 @@ type DetailInfoForDescribeStatisticsOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	Value *float64 `type:"float" json:",omitempty"`
+	Value *float32 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -328,7 +328,7 @@ func (s *DetailInfoForDescribeStatisticsOutput) SetName(v string) *DetailInfoFor
 }
 
 // SetValue sets the Value field's value.
-func (s *DetailInfoForDescribeStatisticsOutput) SetValue(v float64) *DetailInfoForDescribeStatisticsOutput {
+func (s *DetailInfoForDescribeStatisticsOutput) SetValue(v float32) *DetailInfoForDescribeStatisticsOutput {
 	s.Value = &v
 	return s
 }
@@ -424,15 +424,15 @@ type TotalStatisticResultForDescribeStatisticsOutput struct {
 
 	ListenerId *string `type:"string" json:",omitempty"`
 
-	MaxBandwidth *float64 `type:"float" json:",omitempty"`
+	MaxBandwidth *float32 `type:"float" json:",omitempty"`
 
-	MaxBandwidth95 *float64 `type:"float" json:",omitempty"`
+	MaxBandwidth95 *float32 `type:"float" json:",omitempty"`
 
-	MaxConnectionNum *float64 `type:"float" json:",omitempty"`
+	MaxConnectionNum *float32 `type:"float" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
 
-	TotalTraffic *float64 `type:"float" json:",omitempty"`
+	TotalTraffic *float32 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -458,19 +458,19 @@ func (s *TotalStatisticResultForDescribeStatisticsOutput) SetListenerId(v string
 }
 
 // SetMaxBandwidth sets the MaxBandwidth field's value.
-func (s *TotalStatisticResultForDescribeStatisticsOutput) SetMaxBandwidth(v float64) *TotalStatisticResultForDescribeStatisticsOutput {
+func (s *TotalStatisticResultForDescribeStatisticsOutput) SetMaxBandwidth(v float32) *TotalStatisticResultForDescribeStatisticsOutput {
 	s.MaxBandwidth = &v
 	return s
 }
 
 // SetMaxBandwidth95 sets the MaxBandwidth95 field's value.
-func (s *TotalStatisticResultForDescribeStatisticsOutput) SetMaxBandwidth95(v float64) *TotalStatisticResultForDescribeStatisticsOutput {
+func (s *TotalStatisticResultForDescribeStatisticsOutput) SetMaxBandwidth95(v float32) *TotalStatisticResultForDescribeStatisticsOutput {
 	s.MaxBandwidth95 = &v
 	return s
 }
 
 // SetMaxConnectionNum sets the MaxConnectionNum field's value.
-func (s *TotalStatisticResultForDescribeStatisticsOutput) SetMaxConnectionNum(v float64) *TotalStatisticResultForDescribeStatisticsOutput {
+func (s *TotalStatisticResultForDescribeStatisticsOutput) SetMaxConnectionNum(v float32) *TotalStatisticResultForDescribeStatisticsOutput {
 	s.MaxConnectionNum = &v
 	return s
 }
@@ -482,7 +482,7 @@ func (s *TotalStatisticResultForDescribeStatisticsOutput) SetRegion(v string) *T
 }
 
 // SetTotalTraffic sets the TotalTraffic field's value.
-func (s *TotalStatisticResultForDescribeStatisticsOutput) SetTotalTraffic(v float64) *TotalStatisticResultForDescribeStatisticsOutput {
+func (s *TotalStatisticResultForDescribeStatisticsOutput) SetTotalTraffic(v float32) *TotalStatisticResultForDescribeStatisticsOutput {
 	s.TotalTraffic = &v
 	return s
 }

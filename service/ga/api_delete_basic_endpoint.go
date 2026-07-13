@@ -146,6 +146,9 @@ func (c *GA) DeleteBasicEndpointWithContext(ctx volcengine.Context, input *Delet
 type DeleteBasicEndpointInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	// AcceleratorId is a required field
+	AcceleratorId *string `type:"string" json:",omitempty" required:"true"`
+
 	// EndpointId is a required field
 	EndpointId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -163,6 +166,9 @@ func (s DeleteBasicEndpointInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DeleteBasicEndpointInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteBasicEndpointInput"}
+	if s.AcceleratorId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AcceleratorId"))
+	}
 	if s.EndpointId == nil {
 		invalidParams.Add(request.NewErrParamRequired("EndpointId"))
 	}
@@ -171,6 +177,12 @@ func (s *DeleteBasicEndpointInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAcceleratorId sets the AcceleratorId field's value.
+func (s *DeleteBasicEndpointInput) SetAcceleratorId(v string) *DeleteBasicEndpointInput {
+	s.AcceleratorId = &v
+	return s
 }
 
 // SetEndpointId sets the EndpointId field's value.

@@ -146,11 +146,7 @@ func (c *GA) UpdateBasicAccelerateIPEndpointRelationWithContext(ctx volcengine.C
 type EndpointForUpdateBasicAccelerateIPEndpointRelationInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndpointAddress *string `type:"string" json:"endpointAddress,omitempty"`
-
-	EndpointID *string `type:"string" json:"endpointID,omitempty"`
-
-	Type *string `type:"string" json:"type,omitempty"`
+	EndpointId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -163,21 +159,9 @@ func (s EndpointForUpdateBasicAccelerateIPEndpointRelationInput) GoString() stri
 	return s.String()
 }
 
-// SetEndpointAddress sets the EndpointAddress field's value.
-func (s *EndpointForUpdateBasicAccelerateIPEndpointRelationInput) SetEndpointAddress(v string) *EndpointForUpdateBasicAccelerateIPEndpointRelationInput {
-	s.EndpointAddress = &v
-	return s
-}
-
-// SetEndpointID sets the EndpointID field's value.
-func (s *EndpointForUpdateBasicAccelerateIPEndpointRelationInput) SetEndpointID(v string) *EndpointForUpdateBasicAccelerateIPEndpointRelationInput {
-	s.EndpointID = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *EndpointForUpdateBasicAccelerateIPEndpointRelationInput) SetType(v string) *EndpointForUpdateBasicAccelerateIPEndpointRelationInput {
-	s.Type = &v
+// SetEndpointId sets the EndpointId field's value.
+func (s *EndpointForUpdateBasicAccelerateIPEndpointRelationInput) SetEndpointId(v string) *EndpointForUpdateBasicAccelerateIPEndpointRelationInput {
+	s.EndpointId = &v
 	return s
 }
 
@@ -185,9 +169,12 @@ type UpdateBasicAccelerateIPEndpointRelationInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccelerateIPId is a required field
-	AccelerateIPId *string `type:"string" json:"accelerateIPId,omitempty" required:"true"`
+	AccelerateIPId *string `type:"string" json:",omitempty" required:"true"`
 
-	Endpoints []*EndpointForUpdateBasicAccelerateIPEndpointRelationInput `type:"list" json:"endpoints,omitempty"`
+	// AcceleratorId is a required field
+	AcceleratorId *string `type:"string" json:",omitempty" required:"true"`
+
+	Endpoints []*EndpointForUpdateBasicAccelerateIPEndpointRelationInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,6 +193,9 @@ func (s *UpdateBasicAccelerateIPEndpointRelationInput) Validate() error {
 	if s.AccelerateIPId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AccelerateIPId"))
 	}
+	if s.AcceleratorId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AcceleratorId"))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -216,6 +206,12 @@ func (s *UpdateBasicAccelerateIPEndpointRelationInput) Validate() error {
 // SetAccelerateIPId sets the AccelerateIPId field's value.
 func (s *UpdateBasicAccelerateIPEndpointRelationInput) SetAccelerateIPId(v string) *UpdateBasicAccelerateIPEndpointRelationInput {
 	s.AccelerateIPId = &v
+	return s
+}
+
+// SetAcceleratorId sets the AcceleratorId field's value.
+func (s *UpdateBasicAccelerateIPEndpointRelationInput) SetAcceleratorId(v string) *UpdateBasicAccelerateIPEndpointRelationInput {
+	s.AcceleratorId = &v
 	return s
 }
 

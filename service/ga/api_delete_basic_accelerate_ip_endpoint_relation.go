@@ -152,8 +152,6 @@ type DeleteBasicAccelerateIPEndpointRelationInput struct {
 	// AcceleratorId is a required field
 	AcceleratorId *string `type:"string" json:",omitempty" required:"true"`
 
-	EndpointIds []*string `type:"list" json:",omitempty"`
-
 	// IPSetId is a required field
 	IPSetId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -196,12 +194,6 @@ func (s *DeleteBasicAccelerateIPEndpointRelationInput) SetAccelerateIPId(v strin
 // SetAcceleratorId sets the AcceleratorId field's value.
 func (s *DeleteBasicAccelerateIPEndpointRelationInput) SetAcceleratorId(v string) *DeleteBasicAccelerateIPEndpointRelationInput {
 	s.AcceleratorId = &v
-	return s
-}
-
-// SetEndpointIds sets the EndpointIds field's value.
-func (s *DeleteBasicAccelerateIPEndpointRelationInput) SetEndpointIds(v []*string) *DeleteBasicAccelerateIPEndpointRelationInput {
-	s.EndpointIds = v
 	return s
 }
 

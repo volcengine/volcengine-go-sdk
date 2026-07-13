@@ -143,6 +143,36 @@ func (c *GA) ListIPSetsWithContext(ctx volcengine.Context, input *ListIPSetsInpu
 	return out, req.Send()
 }
 
+type IPAddressListForListIPSetsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IPV4s []*IPV4ForListIPSetsOutput `type:"list" json:",omitempty"`
+
+	IPV6s []*IPV6ForListIPSetsOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPAddressListForListIPSetsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPAddressListForListIPSetsOutput) GoString() string {
+	return s.String()
+}
+
+// SetIPV4s sets the IPV4s field's value.
+func (s *IPAddressListForListIPSetsOutput) SetIPV4s(v []*IPV4ForListIPSetsOutput) *IPAddressListForListIPSetsOutput {
+	s.IPV4s = v
+	return s
+}
+
+// SetIPV6s sets the IPV6s field's value.
+func (s *IPAddressListForListIPSetsOutput) SetIPV6s(v []*IPV6ForListIPSetsOutput) *IPAddressListForListIPSetsOutput {
+	s.IPV6s = v
+	return s
+}
+
 type IPSetForListIPSetsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -150,9 +180,13 @@ type IPSetForListIPSetsOutput struct {
 
 	AcceleratorId *string `type:"string" json:",omitempty"`
 
+	IPAddressList *IPAddressListForListIPSetsOutput `type:"structure" json:",omitempty"`
+
 	IPSetId *string `type:"string" json:",omitempty"`
 
 	IPVersion *string `type:"string" json:",omitempty"`
+
+	IspType *string `type:"string" json:",omitempty" enum:"EnumOfIspTypeForListIPSetsOutput"`
 
 	State *string `type:"string" json:",omitempty"`
 }
@@ -179,6 +213,12 @@ func (s *IPSetForListIPSetsOutput) SetAcceleratorId(v string) *IPSetForListIPSet
 	return s
 }
 
+// SetIPAddressList sets the IPAddressList field's value.
+func (s *IPSetForListIPSetsOutput) SetIPAddressList(v *IPAddressListForListIPSetsOutput) *IPSetForListIPSetsOutput {
+	s.IPAddressList = v
+	return s
+}
+
 // SetIPSetId sets the IPSetId field's value.
 func (s *IPSetForListIPSetsOutput) SetIPSetId(v string) *IPSetForListIPSetsOutput {
 	s.IPSetId = &v
@@ -191,9 +231,91 @@ func (s *IPSetForListIPSetsOutput) SetIPVersion(v string) *IPSetForListIPSetsOut
 	return s
 }
 
+// SetIspType sets the IspType field's value.
+func (s *IPSetForListIPSetsOutput) SetIspType(v string) *IPSetForListIPSetsOutput {
+	s.IspType = &v
+	return s
+}
+
 // SetState sets the State field's value.
 func (s *IPSetForListIPSetsOutput) SetState(v string) *IPSetForListIPSetsOutput {
 	s.State = &v
+	return s
+}
+
+type IPV4ForListIPSetsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	ISP *string `type:"string" json:",omitempty"`
+
+	ISPName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPV4ForListIPSetsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPV4ForListIPSetsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *IPV4ForListIPSetsOutput) SetAddr(v string) *IPV4ForListIPSetsOutput {
+	s.Addr = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *IPV4ForListIPSetsOutput) SetISP(v string) *IPV4ForListIPSetsOutput {
+	s.ISP = &v
+	return s
+}
+
+// SetISPName sets the ISPName field's value.
+func (s *IPV4ForListIPSetsOutput) SetISPName(v string) *IPV4ForListIPSetsOutput {
+	s.ISPName = &v
+	return s
+}
+
+type IPV6ForListIPSetsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	ISP *string `type:"string" json:",omitempty"`
+
+	ISPName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPV6ForListIPSetsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPV6ForListIPSetsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *IPV6ForListIPSetsOutput) SetAddr(v string) *IPV6ForListIPSetsOutput {
+	s.Addr = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *IPV6ForListIPSetsOutput) SetISP(v string) *IPV6ForListIPSetsOutput {
+	s.ISP = &v
+	return s
+}
+
+// SetISPName sets the ISPName field's value.
+func (s *IPV6ForListIPSetsOutput) SetISPName(v string) *IPV6ForListIPSetsOutput {
+	s.ISPName = &v
 	return s
 }
 
@@ -296,3 +418,8 @@ func (s *ListIPSetsOutput) SetTotalCount(v int32) *ListIPSetsOutput {
 	s.TotalCount = &v
 	return s
 }
+
+const (
+	// EnumOfIspTypeForListIPSetsOutputAdvanced is a EnumOfIspTypeForListIPSetsOutput enum value
+	EnumOfIspTypeForListIPSetsOutputAdvanced = "Advanced"
+)

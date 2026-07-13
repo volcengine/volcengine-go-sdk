@@ -236,7 +236,8 @@ func (s *PortRangeForUpdateListenerInput) SetToPort(v int32) *PortRangeForUpdate
 type UpdateListenerInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AcceleratorId *string `type:"string" json:",omitempty"`
+	// AcceleratorId is a required field
+	AcceleratorId *string `type:"string" json:",omitempty" required:"true"`
 
 	DisableIsolateTCPNullConn *bool `type:"boolean" json:",omitempty"`
 
@@ -272,6 +273,9 @@ func (s UpdateListenerInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UpdateListenerInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateListenerInput"}
+	if s.AcceleratorId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AcceleratorId"))
+	}
 	if s.EnableAffinity == nil {
 		invalidParams.Add(request.NewErrParamRequired("EnableAffinity"))
 	}

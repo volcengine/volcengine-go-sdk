@@ -184,7 +184,7 @@ func (s *EdgeNodeForListBasicIPSetsOutput) SetName(v string) *EdgeNodeForListBas
 type IPSetForListBasicIPSetsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccelerateIPs []*string `type:"list" json:"accelerateIPs,omitempty"`
+	AccelerateIPs []*string `type:"list" json:",omitempty"`
 
 	AcceleratorId *string `type:"string" json:",omitempty"`
 
