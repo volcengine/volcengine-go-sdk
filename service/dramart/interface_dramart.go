@@ -46,6 +46,22 @@ type DRAMARTAPI interface {
 	BatchCreateUserWithContext(volcengine.Context, *BatchCreateUserInput, ...request.Option) (*BatchCreateUserOutput, error)
 	BatchCreateUserRequest(*BatchCreateUserInput) (*request.Request, *BatchCreateUserOutput)
 
+	BatchDeleteUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchDeleteUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchDeleteUserCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchDeleteUser(*BatchDeleteUserInput) (*BatchDeleteUserOutput, error)
+	BatchDeleteUserWithContext(volcengine.Context, *BatchDeleteUserInput, ...request.Option) (*BatchDeleteUserOutput, error)
+	BatchDeleteUserRequest(*BatchDeleteUserInput) (*request.Request, *BatchDeleteUserOutput)
+
+	ListAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAccount(*ListAccountInput) (*ListAccountOutput, error)
+	ListAccountWithContext(volcengine.Context, *ListAccountInput, ...request.Option) (*ListAccountOutput, error)
+	ListAccountRequest(*ListAccountInput) (*request.Request, *ListAccountOutput)
+
 	ListEnterpriseQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListEnterpriseQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListEnterpriseQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +69,14 @@ type DRAMARTAPI interface {
 	ListEnterpriseQuota(*ListEnterpriseQuotaInput) (*ListEnterpriseQuotaOutput, error)
 	ListEnterpriseQuotaWithContext(volcengine.Context, *ListEnterpriseQuotaInput, ...request.Option) (*ListEnterpriseQuotaOutput, error)
 	ListEnterpriseQuotaRequest(*ListEnterpriseQuotaInput) (*request.Request, *ListEnterpriseQuotaOutput)
+
+	ListMemberCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListMemberCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListMemberCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListMember(*ListMemberInput) (*ListMemberOutput, error)
+	ListMemberWithContext(volcengine.Context, *ListMemberInput, ...request.Option) (*ListMemberOutput, error)
+	ListMemberRequest(*ListMemberInput) (*request.Request, *ListMemberOutput)
 
 	ListPointConsumptionDetailsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListPointConsumptionDetailsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -70,6 +94,14 @@ type DRAMARTAPI interface {
 	ListProjectsWithContext(volcengine.Context, *ListProjectsInput, ...request.Option) (*ListProjectsOutput, error)
 	ListProjectsRequest(*ListProjectsInput) (*request.Request, *ListProjectsOutput)
 
+	ListTeamCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTeamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTeamCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTeam(*ListTeamInput) (*ListTeamOutput, error)
+	ListTeamWithContext(volcengine.Context, *ListTeamInput, ...request.Option) (*ListTeamOutput, error)
+	ListTeamRequest(*ListTeamInput) (*request.Request, *ListTeamOutput)
+
 	ManageEnterpriseQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ManageEnterpriseQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ManageEnterpriseQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,6 +117,22 @@ type DRAMARTAPI interface {
 	RedirectToDramart(*RedirectToDramartInput) (*RedirectToDramartOutput, error)
 	RedirectToDramartWithContext(volcengine.Context, *RedirectToDramartInput, ...request.Option) (*RedirectToDramartOutput, error)
 	RedirectToDramartRequest(*RedirectToDramartInput) (*request.Request, *RedirectToDramartOutput)
+
+	RegisterEnterpriseCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RegisterEnterpriseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RegisterEnterpriseCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RegisterEnterprise(*RegisterEnterpriseInput) (*RegisterEnterpriseOutput, error)
+	RegisterEnterpriseWithContext(volcengine.Context, *RegisterEnterpriseInput, ...request.Option) (*RegisterEnterpriseOutput, error)
+	RegisterEnterpriseRequest(*RegisterEnterpriseInput) (*request.Request, *RegisterEnterpriseOutput)
+
+	UpdateAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAccount(*UpdateAccountInput) (*UpdateAccountOutput, error)
+	UpdateAccountWithContext(volcengine.Context, *UpdateAccountInput, ...request.Option) (*UpdateAccountOutput, error)
+	UpdateAccountRequest(*UpdateAccountInput) (*request.Request, *UpdateAccountOutput)
 }
 
 var _ DRAMARTAPI = (*DRAMART)(nil)
