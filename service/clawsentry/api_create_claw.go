@@ -190,11 +190,7 @@ type CreateClawInput struct {
 
 	Name *string `max:"100" type:"string" json:",omitempty"`
 
-	PersonalClaw *PersonalClawForCreateClawInput `type:"structure" json:",omitempty"`
-
 	Source *string `type:"string" json:",omitempty" enum:"EnumOfSourceForCreateClawInput"`
-
-	Tags []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -225,11 +221,6 @@ func (s *CreateClawInput) Validate() error {
 	if s.Base != nil {
 		if err := s.Base.Validate(); err != nil {
 			invalidParams.AddNested("Base", err.(request.ErrInvalidParams))
-		}
-	}
-	if s.PersonalClaw != nil {
-		if err := s.PersonalClaw.Validate(); err != nil {
-			invalidParams.AddNested("PersonalClaw", err.(request.ErrInvalidParams))
 		}
 	}
 
@@ -263,21 +254,9 @@ func (s *CreateClawInput) SetName(v string) *CreateClawInput {
 	return s
 }
 
-// SetPersonalClaw sets the PersonalClaw field's value.
-func (s *CreateClawInput) SetPersonalClaw(v *PersonalClawForCreateClawInput) *CreateClawInput {
-	s.PersonalClaw = v
-	return s
-}
-
 // SetSource sets the Source field's value.
 func (s *CreateClawInput) SetSource(v string) *CreateClawInput {
 	s.Source = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *CreateClawInput) SetTags(v []*string) *CreateClawInput {
-	s.Tags = v
 	return s
 }
 
@@ -350,44 +329,6 @@ func (s *CreateClawOutput) SetLumenEndpoint(v string) *CreateClawOutput {
 // SetScheme sets the Scheme field's value.
 func (s *CreateClawOutput) SetScheme(v string) *CreateClawOutput {
 	s.Scheme = &v
-	return s
-}
-
-type PersonalClawForCreateClawInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Token *string `min:"1" max:"100" type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s PersonalClawForCreateClawInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s PersonalClawForCreateClawInput) GoString() string {
-	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *PersonalClawForCreateClawInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "PersonalClawForCreateClawInput"}
-	if s.Token != nil && len(*s.Token) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Token", 1))
-	}
-	if s.Token != nil && len(*s.Token) > 100 {
-		invalidParams.Add(request.NewErrParamMaxLen("Token", 100, *s.Token))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetToken sets the Token field's value.
-func (s *PersonalClawForCreateClawInput) SetToken(v string) *PersonalClawForCreateClawInput {
-	s.Token = &v
 	return s
 }
 
