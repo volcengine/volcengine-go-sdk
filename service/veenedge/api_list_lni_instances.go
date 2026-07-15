@@ -388,7 +388,7 @@ type Lni_instanceForListLNIInstancesOutput struct {
 
 	Create_time *int32 `type:"int32" json:"create_time,omitempty"`
 
-	Delete_on_release *string `type:"string" json:"delete_on_release,omitempty"`
+	Delete_on_release *bool `type:"boolean" json:"delete_on_release,omitempty"`
 
 	Desc *string `type:"string" json:"desc,omitempty"`
 
@@ -460,7 +460,7 @@ func (s *Lni_instanceForListLNIInstancesOutput) SetCreate_time(v int32) *Lni_ins
 }
 
 // SetDelete_on_release sets the Delete_on_release field's value.
-func (s *Lni_instanceForListLNIInstancesOutput) SetDelete_on_release(v string) *Lni_instanceForListLNIInstancesOutput {
+func (s *Lni_instanceForListLNIInstancesOutput) SetDelete_on_release(v bool) *Lni_instanceForListLNIInstancesOutput {
 	s.Delete_on_release = &v
 	return s
 }
