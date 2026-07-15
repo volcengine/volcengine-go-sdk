@@ -141,6 +141,28 @@ func (c *ECS) RunInstancesWithContext(ctx volcengine.Context, input *RunInstance
 	return out, req.Send()
 }
 
+type CpuOptionsForRunInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	TopologyType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CpuOptionsForRunInstancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CpuOptionsForRunInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetTopologyType sets the TopologyType field's value.
+func (s *CpuOptionsForRunInstancesInput) SetTopologyType(v string) *CpuOptionsForRunInstancesInput {
+	s.TopologyType = &v
+	return s
+}
+
 type EipAddressForRunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -366,6 +388,8 @@ type RunInstancesInput struct {
 
 	CpuMaxFrequency *float64 `type:"float"`
 
+	CpuOptions *CpuOptionsForRunInstancesInput `type:"structure"`
+
 	CreditSpecification *string `type:"string"`
 
 	DeletionProtection *bool `type:"boolean"`
@@ -379,6 +403,8 @@ type RunInstancesInput struct {
 	DryRun *bool `type:"boolean"`
 
 	EipAddress *EipAddressForRunInstancesInput `type:"structure"`
+
+	EnablePrimaryInterfaceHighBandwidthType *bool `type:"boolean"`
 
 	HostName *string `type:"string"`
 
@@ -529,6 +555,12 @@ func (s *RunInstancesInput) SetCpuMaxFrequency(v float64) *RunInstancesInput {
 	return s
 }
 
+// SetCpuOptions sets the CpuOptions field's value.
+func (s *RunInstancesInput) SetCpuOptions(v *CpuOptionsForRunInstancesInput) *RunInstancesInput {
+	s.CpuOptions = v
+	return s
+}
+
 // SetCreditSpecification sets the CreditSpecification field's value.
 func (s *RunInstancesInput) SetCreditSpecification(v string) *RunInstancesInput {
 	s.CreditSpecification = &v
@@ -568,6 +600,12 @@ func (s *RunInstancesInput) SetDryRun(v bool) *RunInstancesInput {
 // SetEipAddress sets the EipAddress field's value.
 func (s *RunInstancesInput) SetEipAddress(v *EipAddressForRunInstancesInput) *RunInstancesInput {
 	s.EipAddress = v
+	return s
+}
+
+// SetEnablePrimaryInterfaceHighBandwidthType sets the EnablePrimaryInterfaceHighBandwidthType field's value.
+func (s *RunInstancesInput) SetEnablePrimaryInterfaceHighBandwidthType(v bool) *RunInstancesInput {
+	s.EnablePrimaryInterfaceHighBandwidthType = &v
 	return s
 }
 
