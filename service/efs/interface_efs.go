@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // EFS.
 //    func myFunc(svc EFSAPI) bool {
-//        // Make svc.CheckDir request
+//        // Make svc.CancelDataFlowTask request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type EFSAPI interface {
+	CancelDataFlowTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelDataFlowTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelDataFlowTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelDataFlowTask(*CancelDataFlowTaskInput) (*CancelDataFlowTaskOutput, error)
+	CancelDataFlowTaskWithContext(volcengine.Context, *CancelDataFlowTaskInput, ...request.Option) (*CancelDataFlowTaskOutput, error)
+	CancelDataFlowTaskRequest(*CancelDataFlowTaskInput) (*request.Request, *CancelDataFlowTaskOutput)
+
 	CheckDirCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CheckDirCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CheckDirCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -46,6 +54,22 @@ type EFSAPI interface {
 	CreateAccessPointWithContext(volcengine.Context, *CreateAccessPointInput, ...request.Option) (*CreateAccessPointOutput, error)
 	CreateAccessPointRequest(*CreateAccessPointInput) (*request.Request, *CreateAccessPointOutput)
 
+	CreateDataFlowPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDataFlowPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDataFlowPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDataFlowPolicy(*CreateDataFlowPolicyInput) (*CreateDataFlowPolicyOutput, error)
+	CreateDataFlowPolicyWithContext(volcengine.Context, *CreateDataFlowPolicyInput, ...request.Option) (*CreateDataFlowPolicyOutput, error)
+	CreateDataFlowPolicyRequest(*CreateDataFlowPolicyInput) (*request.Request, *CreateDataFlowPolicyOutput)
+
+	CreateDataFlowTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDataFlowTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDataFlowTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDataFlowTask(*CreateDataFlowTaskInput) (*CreateDataFlowTaskOutput, error)
+	CreateDataFlowTaskWithContext(volcengine.Context, *CreateDataFlowTaskInput, ...request.Option) (*CreateDataFlowTaskOutput, error)
+	CreateDataFlowTaskRequest(*CreateDataFlowTaskInput) (*request.Request, *CreateDataFlowTaskOutput)
+
 	CreateDirCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDirCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDirCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +77,14 @@ type EFSAPI interface {
 	CreateDir(*CreateDirInput) (*CreateDirOutput, error)
 	CreateDirWithContext(volcengine.Context, *CreateDirInput, ...request.Option) (*CreateDirOutput, error)
 	CreateDirRequest(*CreateDirInput) (*request.Request, *CreateDirOutput)
+
+	CreateFilePreSignedUrlCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateFilePreSignedUrlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateFilePreSignedUrlCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateFilePreSignedUrl(*CreateFilePreSignedUrlInput) (*CreateFilePreSignedUrlOutput, error)
+	CreateFilePreSignedUrlWithContext(volcengine.Context, *CreateFilePreSignedUrlInput, ...request.Option) (*CreateFilePreSignedUrlOutput, error)
+	CreateFilePreSignedUrlRequest(*CreateFilePreSignedUrlInput) (*request.Request, *CreateFilePreSignedUrlOutput)
 
 	CreateFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -102,6 +134,22 @@ type EFSAPI interface {
 	DeleteAccessPointWithContext(volcengine.Context, *DeleteAccessPointInput, ...request.Option) (*DeleteAccessPointOutput, error)
 	DeleteAccessPointRequest(*DeleteAccessPointInput) (*request.Request, *DeleteAccessPointOutput)
 
+	DeleteDataFlowPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDataFlowPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDataFlowPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDataFlowPolicy(*DeleteDataFlowPolicyInput) (*DeleteDataFlowPolicyOutput, error)
+	DeleteDataFlowPolicyWithContext(volcengine.Context, *DeleteDataFlowPolicyInput, ...request.Option) (*DeleteDataFlowPolicyOutput, error)
+	DeleteDataFlowPolicyRequest(*DeleteDataFlowPolicyInput) (*request.Request, *DeleteDataFlowPolicyOutput)
+
+	DeleteDataFlowTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDataFlowTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDataFlowTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDataFlowTask(*DeleteDataFlowTaskInput) (*DeleteDataFlowTaskOutput, error)
+	DeleteDataFlowTaskWithContext(volcengine.Context, *DeleteDataFlowTaskInput, ...request.Option) (*DeleteDataFlowTaskOutput, error)
+	DeleteDataFlowTaskRequest(*DeleteDataFlowTaskInput) (*request.Request, *DeleteDataFlowTaskOutput)
+
 	DeleteFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteFileSystemCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -149,6 +197,22 @@ type EFSAPI interface {
 	DescribeAccessPoints(*DescribeAccessPointsInput) (*DescribeAccessPointsOutput, error)
 	DescribeAccessPointsWithContext(volcengine.Context, *DescribeAccessPointsInput, ...request.Option) (*DescribeAccessPointsOutput, error)
 	DescribeAccessPointsRequest(*DescribeAccessPointsInput) (*request.Request, *DescribeAccessPointsOutput)
+
+	DescribeDataFlowPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDataFlowPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDataFlowPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDataFlowPolicies(*DescribeDataFlowPoliciesInput) (*DescribeDataFlowPoliciesOutput, error)
+	DescribeDataFlowPoliciesWithContext(volcengine.Context, *DescribeDataFlowPoliciesInput, ...request.Option) (*DescribeDataFlowPoliciesOutput, error)
+	DescribeDataFlowPoliciesRequest(*DescribeDataFlowPoliciesInput) (*request.Request, *DescribeDataFlowPoliciesOutput)
+
+	DescribeDataFlowTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDataFlowTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDataFlowTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDataFlowTasks(*DescribeDataFlowTasksInput) (*DescribeDataFlowTasksOutput, error)
+	DescribeDataFlowTasksWithContext(volcengine.Context, *DescribeDataFlowTasksInput, ...request.Option) (*DescribeDataFlowTasksOutput, error)
+	DescribeDataFlowTasksRequest(*DescribeDataFlowTasksInput) (*request.Request, *DescribeDataFlowTasksOutput)
 
 	DescribeFileSystemsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeFileSystemsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -214,6 +278,22 @@ type EFSAPI interface {
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
 
+	StartDataFlowPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartDataFlowPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartDataFlowPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartDataFlowPolicy(*StartDataFlowPolicyInput) (*StartDataFlowPolicyOutput, error)
+	StartDataFlowPolicyWithContext(volcengine.Context, *StartDataFlowPolicyInput, ...request.Option) (*StartDataFlowPolicyOutput, error)
+	StartDataFlowPolicyRequest(*StartDataFlowPolicyInput) (*request.Request, *StartDataFlowPolicyOutput)
+
+	StopDataFlowPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopDataFlowPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopDataFlowPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopDataFlowPolicy(*StopDataFlowPolicyInput) (*StopDataFlowPolicyOutput, error)
+	StopDataFlowPolicyWithContext(volcengine.Context, *StopDataFlowPolicyInput, ...request.Option) (*StopDataFlowPolicyOutput, error)
+	StopDataFlowPolicyRequest(*StopDataFlowPolicyInput) (*request.Request, *StopDataFlowPolicyOutput)
+
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -237,6 +317,14 @@ type EFSAPI interface {
 	UpdateAccessPoint(*UpdateAccessPointInput) (*UpdateAccessPointOutput, error)
 	UpdateAccessPointWithContext(volcengine.Context, *UpdateAccessPointInput, ...request.Option) (*UpdateAccessPointOutput, error)
 	UpdateAccessPointRequest(*UpdateAccessPointInput) (*request.Request, *UpdateAccessPointOutput)
+
+	UpdateDataFlowPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateDataFlowPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateDataFlowPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateDataFlowPolicy(*UpdateDataFlowPolicyInput) (*UpdateDataFlowPolicyOutput, error)
+	UpdateDataFlowPolicyWithContext(volcengine.Context, *UpdateDataFlowPolicyInput, ...request.Option) (*UpdateDataFlowPolicyOutput, error)
+	UpdateDataFlowPolicyRequest(*UpdateDataFlowPolicyInput) (*request.Request, *UpdateDataFlowPolicyOutput)
 
 	UpdateFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

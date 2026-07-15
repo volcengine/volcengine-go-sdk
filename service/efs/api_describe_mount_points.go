@@ -394,9 +394,6 @@ const (
 )
 
 const (
-	// EnumOfStatusForDescribeMountPointsOutputUnknown is a EnumOfStatusForDescribeMountPointsOutput enum value
-	EnumOfStatusForDescribeMountPointsOutputUnknown = "Unknown"
-
 	// EnumOfStatusForDescribeMountPointsOutputCreating is a EnumOfStatusForDescribeMountPointsOutput enum value
 	EnumOfStatusForDescribeMountPointsOutputCreating = "Creating"
 

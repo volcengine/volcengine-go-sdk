@@ -232,9 +232,6 @@ func (s UpdatePermissionRuleOutput) GoString() string {
 }
 
 const (
-	// EnumOfRwModeForUpdatePermissionRuleInputUnknown is a EnumOfRwModeForUpdatePermissionRuleInput enum value
-	EnumOfRwModeForUpdatePermissionRuleInputUnknown = "Unknown"
-
 	// EnumOfRwModeForUpdatePermissionRuleInputRw is a EnumOfRwModeForUpdatePermissionRuleInput enum value
 	EnumOfRwModeForUpdatePermissionRuleInputRw = "RW"
 
@@ -243,9 +240,6 @@ const (
 )
 
 const (
-	// EnumOfUserModeForUpdatePermissionRuleInputUnknown is a EnumOfUserModeForUpdatePermissionRuleInput enum value
-	EnumOfUserModeForUpdatePermissionRuleInputUnknown = "Unknown"
-
 	// EnumOfUserModeForUpdatePermissionRuleInputRootSquash is a EnumOfUserModeForUpdatePermissionRuleInput enum value
 	EnumOfUserModeForUpdatePermissionRuleInputRootSquash = "Root_squash"
 
