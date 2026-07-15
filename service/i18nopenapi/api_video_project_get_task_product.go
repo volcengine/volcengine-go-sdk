@@ -483,6 +483,8 @@ type VideoProjectGetTaskProductInput struct {
 	// ProjectId is a required field
 	ProjectId *string `type:"string" json:"projectId,omitempty" required:"true"`
 
+	SubtaskIds []*string `type:"list" json:"subtaskIds,omitempty"`
+
 	SubtitleExportConfig *SubtitleExportConfigForVideoProjectGetTaskProductInput `type:"structure" json:"subtitleExportConfig,omitempty"`
 
 	// TaskId is a required field
@@ -520,6 +522,12 @@ func (s *VideoProjectGetTaskProductInput) Validate() error {
 // SetProjectId sets the ProjectId field's value.
 func (s *VideoProjectGetTaskProductInput) SetProjectId(v string) *VideoProjectGetTaskProductInput {
 	s.ProjectId = &v
+	return s
+}
+
+// SetSubtaskIds sets the SubtaskIds field's value.
+func (s *VideoProjectGetTaskProductInput) SetSubtaskIds(v []*string) *VideoProjectGetTaskProductInput {
+	s.SubtaskIds = v
 	return s
 }
 
