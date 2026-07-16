@@ -145,6 +145,8 @@ type CpuOptionsForDescribeInstancesOutput struct {
 	CoreCount *int32 `type:"int32"`
 
 	ThreadsPerCore *int32 `type:"int32"`
+
+	TopologyType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -166,6 +168,12 @@ func (s *CpuOptionsForDescribeInstancesOutput) SetCoreCount(v int32) *CpuOptions
 // SetThreadsPerCore sets the ThreadsPerCore field's value.
 func (s *CpuOptionsForDescribeInstancesOutput) SetThreadsPerCore(v int32) *CpuOptionsForDescribeInstancesOutput {
 	s.ThreadsPerCore = &v
+	return s
+}
+
+// SetTopologyType sets the TopologyType field's value.
+func (s *CpuOptionsForDescribeInstancesOutput) SetTopologyType(v string) *CpuOptionsForDescribeInstancesOutput {
+	s.TopologyType = &v
 	return s
 }
 
