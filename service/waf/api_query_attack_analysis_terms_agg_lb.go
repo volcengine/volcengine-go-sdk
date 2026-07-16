@@ -148,7 +148,7 @@ type ItemForQueryAttackAnalysisTermsAggLbOutput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Value *float64 `type:"float" json:",omitempty"`
+	Value *float32 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -168,7 +168,7 @@ func (s *ItemForQueryAttackAnalysisTermsAggLbOutput) SetKey(v string) *ItemForQu
 }
 
 // SetValue sets the Value field's value.
-func (s *ItemForQueryAttackAnalysisTermsAggLbOutput) SetValue(v float64) *ItemForQueryAttackAnalysisTermsAggLbOutput {
+func (s *ItemForQueryAttackAnalysisTermsAggLbOutput) SetValue(v float32) *ItemForQueryAttackAnalysisTermsAggLbOutput {
 	s.Value = &v
 	return s
 }
@@ -264,7 +264,7 @@ type QueryAttackAnalysisTermsAggLbOutput struct {
 
 	Items []*ItemForQueryAttackAnalysisTermsAggLbOutput `type:"list" json:",omitempty"`
 
-	Total *float64 `type:"float" json:",omitempty"`
+	Total *float32 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -284,7 +284,7 @@ func (s *QueryAttackAnalysisTermsAggLbOutput) SetItems(v []*ItemForQueryAttackAn
 }
 
 // SetTotal sets the Total field's value.
-func (s *QueryAttackAnalysisTermsAggLbOutput) SetTotal(v float64) *QueryAttackAnalysisTermsAggLbOutput {
+func (s *QueryAttackAnalysisTermsAggLbOutput) SetTotal(v float32) *QueryAttackAnalysisTermsAggLbOutput {
 	s.Total = &v
 	return s
 }

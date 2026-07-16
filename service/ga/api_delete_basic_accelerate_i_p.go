@@ -147,13 +147,13 @@ type DeleteBasicAccelerateIPInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccelerateIPId is a required field
-	AccelerateIPId *string `type:"string" json:"accelerateIPId,omitempty" required:"true"`
+	AccelerateIPId *string `type:"string" json:",omitempty" required:"true"`
 
 	// AcceleratorId is a required field
-	AcceleratorId *string `type:"string" json:"acceleratorId,omitempty" required:"true"`
+	AcceleratorId *string `type:"string" json:",omitempty" required:"true"`
 
-	// IpsetId is a required field
-	IpsetId *string `type:"string" json:"ipsetId,omitempty" required:"true"`
+	// IPSetId is a required field
+	IPSetId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -175,8 +175,8 @@ func (s *DeleteBasicAccelerateIPInput) Validate() error {
 	if s.AcceleratorId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AcceleratorId"))
 	}
-	if s.IpsetId == nil {
-		invalidParams.Add(request.NewErrParamRequired("IpsetId"))
+	if s.IPSetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("IPSetId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -197,9 +197,9 @@ func (s *DeleteBasicAccelerateIPInput) SetAcceleratorId(v string) *DeleteBasicAc
 	return s
 }
 
-// SetIpsetId sets the IpsetId field's value.
-func (s *DeleteBasicAccelerateIPInput) SetIpsetId(v string) *DeleteBasicAccelerateIPInput {
-	s.IpsetId = &v
+// SetIPSetId sets the IPSetId field's value.
+func (s *DeleteBasicAccelerateIPInput) SetIPSetId(v string) *DeleteBasicAccelerateIPInput {
+	s.IPSetId = &v
 	return s
 }
 

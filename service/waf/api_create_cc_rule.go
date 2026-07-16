@@ -146,7 +146,11 @@ func (c *WAF) CreateCCRuleWithContext(ctx volcengine.Context, input *CreateCCRul
 type AccurateGroupForCreateCCRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccurateGroupPriority *int32 `type:"int32" json:",omitempty"`
+
 	AccurateRules []*AccurateRuleForCreateCCRuleInput `type:"list" json:",omitempty"`
+
+	Id *int32 `type:"int32" json:",omitempty"`
 
 	Logic *int32 `type:"int32" json:",omitempty"`
 }
@@ -161,9 +165,21 @@ func (s AccurateGroupForCreateCCRuleInput) GoString() string {
 	return s.String()
 }
 
+// SetAccurateGroupPriority sets the AccurateGroupPriority field's value.
+func (s *AccurateGroupForCreateCCRuleInput) SetAccurateGroupPriority(v int32) *AccurateGroupForCreateCCRuleInput {
+	s.AccurateGroupPriority = &v
+	return s
+}
+
 // SetAccurateRules sets the AccurateRules field's value.
 func (s *AccurateGroupForCreateCCRuleInput) SetAccurateRules(v []*AccurateRuleForCreateCCRuleInput) *AccurateGroupForCreateCCRuleInput {
 	s.AccurateRules = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *AccurateGroupForCreateCCRuleInput) SetId(v int32) *AccurateGroupForCreateCCRuleInput {
+	s.Id = &v
 	return s
 }
 
@@ -232,6 +248,8 @@ type CreateCCRuleInput struct {
 
 	AccurateGroup *AccurateGroupForCreateCCRuleInput `type:"structure" json:",omitempty"`
 
+	AccurateGroupPriority *int32 `type:"int32" json:",omitempty"`
+
 	CCType *int32 `type:"int32" json:",omitempty"`
 
 	CountTime *int32 `type:"int32" json:",omitempty"`
@@ -239,6 +257,8 @@ type CreateCCRuleInput struct {
 	CronConfs []*CronConfForCreateCCRuleInput `type:"list" json:",omitempty"`
 
 	CronEnable *int32 `type:"int32" json:",omitempty"`
+
+	CustomResponsePageID *string `type:"string" json:",omitempty"`
 
 	// EffectTime is a required field
 	EffectTime *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -270,6 +290,14 @@ type CreateCCRuleInput struct {
 
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
+
+	WSCdnByteThreshold *int32 `type:"int32" json:",omitempty"`
+
+	WSCdnEnable *int32 `type:"int32" json:",omitempty"`
+
+	WSCdnFrameThreshold *int32 `type:"int32" json:",omitempty"`
+
+	WSCdnUnit *string `type:"string" json:",omitempty" enum:"EnumOfWSCdnUnitForCreateCCRuleInput"`
 }
 
 // String returns the string representation
@@ -319,6 +347,12 @@ func (s *CreateCCRuleInput) SetAccurateGroup(v *AccurateGroupForCreateCCRuleInpu
 	return s
 }
 
+// SetAccurateGroupPriority sets the AccurateGroupPriority field's value.
+func (s *CreateCCRuleInput) SetAccurateGroupPriority(v int32) *CreateCCRuleInput {
+	s.AccurateGroupPriority = &v
+	return s
+}
+
 // SetCCType sets the CCType field's value.
 func (s *CreateCCRuleInput) SetCCType(v int32) *CreateCCRuleInput {
 	s.CCType = &v
@@ -340,6 +374,12 @@ func (s *CreateCCRuleInput) SetCronConfs(v []*CronConfForCreateCCRuleInput) *Cre
 // SetCronEnable sets the CronEnable field's value.
 func (s *CreateCCRuleInput) SetCronEnable(v int32) *CreateCCRuleInput {
 	s.CronEnable = &v
+	return s
+}
+
+// SetCustomResponsePageID sets the CustomResponsePageID field's value.
+func (s *CreateCCRuleInput) SetCustomResponsePageID(v string) *CreateCCRuleInput {
+	s.CustomResponsePageID = &v
 	return s
 }
 
@@ -415,6 +455,30 @@ func (s *CreateCCRuleInput) SetUrl(v string) *CreateCCRuleInput {
 	return s
 }
 
+// SetWSCdnByteThreshold sets the WSCdnByteThreshold field's value.
+func (s *CreateCCRuleInput) SetWSCdnByteThreshold(v int32) *CreateCCRuleInput {
+	s.WSCdnByteThreshold = &v
+	return s
+}
+
+// SetWSCdnEnable sets the WSCdnEnable field's value.
+func (s *CreateCCRuleInput) SetWSCdnEnable(v int32) *CreateCCRuleInput {
+	s.WSCdnEnable = &v
+	return s
+}
+
+// SetWSCdnFrameThreshold sets the WSCdnFrameThreshold field's value.
+func (s *CreateCCRuleInput) SetWSCdnFrameThreshold(v int32) *CreateCCRuleInput {
+	s.WSCdnFrameThreshold = &v
+	return s
+}
+
+// SetWSCdnUnit sets the WSCdnUnit field's value.
+func (s *CreateCCRuleInput) SetWSCdnUnit(v string) *CreateCCRuleInput {
+	s.WSCdnUnit = &v
+	return s
+}
+
 type CreateCCRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -476,3 +540,14 @@ func (s *CronConfForCreateCCRuleInput) SetSingleThreshold(v int32) *CronConfForC
 	s.SingleThreshold = &v
 	return s
 }
+
+const (
+	// EnumOfWSCdnUnitForCreateCCRuleInputKb is a EnumOfWSCdnUnitForCreateCCRuleInput enum value
+	EnumOfWSCdnUnitForCreateCCRuleInputKb = "KB"
+
+	// EnumOfWSCdnUnitForCreateCCRuleInputMb is a EnumOfWSCdnUnitForCreateCCRuleInput enum value
+	EnumOfWSCdnUnitForCreateCCRuleInputMb = "MB"
+
+	// EnumOfWSCdnUnitForCreateCCRuleInputGb is a EnumOfWSCdnUnitForCreateCCRuleInput enum value
+	EnumOfWSCdnUnitForCreateCCRuleInputGb = "GB"
+)

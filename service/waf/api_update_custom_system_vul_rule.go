@@ -176,8 +176,11 @@ func (s *SystemRuleSwitchForUpdateCustomSystemVulRuleInput) SetRuleID(v int32) *
 type UpdateCustomSystemVulRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Host is a required field
-	Host *string `type:"string" json:",omitempty" required:"true"`
+	Host *string `type:"string" json:",omitempty"`
+
+	HostAddType *int32 `type:"int32" json:",omitempty"`
+
+	HostList []*string `type:"list" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -194,22 +197,21 @@ func (s UpdateCustomSystemVulRuleInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *UpdateCustomSystemVulRuleInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "UpdateCustomSystemVulRuleInput"}
-	if s.Host == nil {
-		invalidParams.Add(request.NewErrParamRequired("Host"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetHost sets the Host field's value.
 func (s *UpdateCustomSystemVulRuleInput) SetHost(v string) *UpdateCustomSystemVulRuleInput {
 	s.Host = &v
+	return s
+}
+
+// SetHostAddType sets the HostAddType field's value.
+func (s *UpdateCustomSystemVulRuleInput) SetHostAddType(v int32) *UpdateCustomSystemVulRuleInput {
+	s.HostAddType = &v
+	return s
+}
+
+// SetHostList sets the HostList field's value.
+func (s *UpdateCustomSystemVulRuleInput) SetHostList(v []*string) *UpdateCustomSystemVulRuleInput {
+	s.HostList = v
 	return s
 }
 

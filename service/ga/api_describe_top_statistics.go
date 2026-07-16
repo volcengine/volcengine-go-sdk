@@ -149,7 +149,7 @@ type DescribeTopStatisticsInput struct {
 	// EndTime is a required field
 	EndTime *string `type:"string" json:",omitempty" required:"true"`
 
-	InputId []*string `type:"list" json:"inputId,omitempty"`
+	InputId []*string `type:"list" json:",omitempty"`
 
 	// InputIdType is a required field
 	InputIdType *string `type:"string" json:",omitempty" required:"true"`
@@ -256,17 +256,17 @@ type TopStatisticForDescribeTopStatisticsOutput struct {
 
 	ID *string `type:"string" json:",omitempty"`
 
-	MaxBandwidth *float64 `type:"float" json:",omitempty"`
+	MaxBandwidth *float32 `type:"float" json:",omitempty"`
 
-	MaxBandwidth95 *float64 `type:"float" json:",omitempty"`
+	MaxBandwidth95 *float32 `type:"float" json:",omitempty"`
 
-	MaxConnectionNum *float64 `type:"float" json:",omitempty"`
+	MaxConnectionNum *float32 `type:"float" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
 	Rank *int32 `type:"int32" json:",omitempty"`
 
-	TotalTraffic *float64 `type:"float" json:",omitempty"`
+	TotalTraffic *float32 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -286,19 +286,19 @@ func (s *TopStatisticForDescribeTopStatisticsOutput) SetID(v string) *TopStatist
 }
 
 // SetMaxBandwidth sets the MaxBandwidth field's value.
-func (s *TopStatisticForDescribeTopStatisticsOutput) SetMaxBandwidth(v float64) *TopStatisticForDescribeTopStatisticsOutput {
+func (s *TopStatisticForDescribeTopStatisticsOutput) SetMaxBandwidth(v float32) *TopStatisticForDescribeTopStatisticsOutput {
 	s.MaxBandwidth = &v
 	return s
 }
 
 // SetMaxBandwidth95 sets the MaxBandwidth95 field's value.
-func (s *TopStatisticForDescribeTopStatisticsOutput) SetMaxBandwidth95(v float64) *TopStatisticForDescribeTopStatisticsOutput {
+func (s *TopStatisticForDescribeTopStatisticsOutput) SetMaxBandwidth95(v float32) *TopStatisticForDescribeTopStatisticsOutput {
 	s.MaxBandwidth95 = &v
 	return s
 }
 
 // SetMaxConnectionNum sets the MaxConnectionNum field's value.
-func (s *TopStatisticForDescribeTopStatisticsOutput) SetMaxConnectionNum(v float64) *TopStatisticForDescribeTopStatisticsOutput {
+func (s *TopStatisticForDescribeTopStatisticsOutput) SetMaxConnectionNum(v float32) *TopStatisticForDescribeTopStatisticsOutput {
 	s.MaxConnectionNum = &v
 	return s
 }
@@ -316,7 +316,7 @@ func (s *TopStatisticForDescribeTopStatisticsOutput) SetRank(v int32) *TopStatis
 }
 
 // SetTotalTraffic sets the TotalTraffic field's value.
-func (s *TopStatisticForDescribeTopStatisticsOutput) SetTotalTraffic(v float64) *TopStatisticForDescribeTopStatisticsOutput {
+func (s *TopStatisticForDescribeTopStatisticsOutput) SetTotalTraffic(v float32) *TopStatisticForDescribeTopStatisticsOutput {
 	s.TotalTraffic = &v
 	return s
 }

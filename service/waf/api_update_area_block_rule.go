@@ -143,16 +143,140 @@ func (c *WAF) UpdateAreaBlockRuleWithContext(ctx volcengine.Context, input *Upda
 	return out, req.Send()
 }
 
+type ErrorForUpdateAreaBlockRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErrorForUpdateAreaBlockRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorForUpdateAreaBlockRuleOutput) GoString() string {
+	return s.String()
+}
+
+type PageInfoForUpdateAreaBlockRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PageInfoForUpdateAreaBlockRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PageInfoForUpdateAreaBlockRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *PageInfoForUpdateAreaBlockRuleOutput) SetCount(v int32) *PageInfoForUpdateAreaBlockRuleOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *PageInfoForUpdateAreaBlockRuleOutput) SetCurrentPage(v int32) *PageInfoForUpdateAreaBlockRuleOutput {
+	s.CurrentPage = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *PageInfoForUpdateAreaBlockRuleOutput) SetPageSize(v int32) *PageInfoForUpdateAreaBlockRuleOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *PageInfoForUpdateAreaBlockRuleOutput) SetTotalCount(v int32) *PageInfoForUpdateAreaBlockRuleOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type ResponseMetadataForUpdateAreaBlockRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Error *ErrorForUpdateAreaBlockRuleOutput `type:"structure" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	RequestId *string `type:"string" json:",omitempty"`
+
+	Service *string `type:"string" json:",omitempty"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResponseMetadataForUpdateAreaBlockRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResponseMetadataForUpdateAreaBlockRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *ResponseMetadataForUpdateAreaBlockRuleOutput) SetAction(v string) *ResponseMetadataForUpdateAreaBlockRuleOutput {
+	s.Action = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *ResponseMetadataForUpdateAreaBlockRuleOutput) SetError(v *ErrorForUpdateAreaBlockRuleOutput) *ResponseMetadataForUpdateAreaBlockRuleOutput {
+	s.Error = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ResponseMetadataForUpdateAreaBlockRuleOutput) SetRegion(v string) *ResponseMetadataForUpdateAreaBlockRuleOutput {
+	s.Region = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ResponseMetadataForUpdateAreaBlockRuleOutput) SetRequestId(v string) *ResponseMetadataForUpdateAreaBlockRuleOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetService sets the Service field's value.
+func (s *ResponseMetadataForUpdateAreaBlockRuleOutput) SetService(v string) *ResponseMetadataForUpdateAreaBlockRuleOutput {
+	s.Service = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *ResponseMetadataForUpdateAreaBlockRuleOutput) SetVersion(v string) *ResponseMetadataForUpdateAreaBlockRuleOutput {
+	s.Version = &v
+	return s
+}
+
 type UpdateAreaBlockRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Action is a required field
-	Action *string `type:"string" json:",omitempty" required:"true"`
+	Action *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfActionForUpdateAreaBlockRuleInput"`
 
 	Country []*string `type:"list" json:",omitempty"`
 
 	// Host is a required field
 	Host *string `type:"string" json:",omitempty" required:"true"`
+
+	Location []*string `type:"list" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -203,6 +327,12 @@ func (s *UpdateAreaBlockRuleInput) SetHost(v string) *UpdateAreaBlockRuleInput {
 	return s
 }
 
+// SetLocation sets the Location field's value.
+func (s *UpdateAreaBlockRuleInput) SetLocation(v []*string) *UpdateAreaBlockRuleInput {
+	s.Location = v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *UpdateAreaBlockRuleInput) SetProjectName(v string) *UpdateAreaBlockRuleInput {
 	s.ProjectName = &v
@@ -219,6 +349,10 @@ type UpdateAreaBlockRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	PageInfo *PageInfoForUpdateAreaBlockRuleOutput `type:"structure" json:",omitempty"`
+
+	ResponseMetadata *ResponseMetadataForUpdateAreaBlockRuleOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -230,3 +364,23 @@ func (s UpdateAreaBlockRuleOutput) String() string {
 func (s UpdateAreaBlockRuleOutput) GoString() string {
 	return s.String()
 }
+
+// SetPageInfo sets the PageInfo field's value.
+func (s *UpdateAreaBlockRuleOutput) SetPageInfo(v *PageInfoForUpdateAreaBlockRuleOutput) *UpdateAreaBlockRuleOutput {
+	s.PageInfo = v
+	return s
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *UpdateAreaBlockRuleOutput) SetResponseMetadata(v *ResponseMetadataForUpdateAreaBlockRuleOutput) *UpdateAreaBlockRuleOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
+const (
+	// EnumOfActionForUpdateAreaBlockRuleInputObserve is a EnumOfActionForUpdateAreaBlockRuleInput enum value
+	EnumOfActionForUpdateAreaBlockRuleInputObserve = "observe"
+
+	// EnumOfActionForUpdateAreaBlockRuleInputBlock is a EnumOfActionForUpdateAreaBlockRuleInput enum value
+	EnumOfActionForUpdateAreaBlockRuleInputBlock = "block"
+)

@@ -314,9 +314,6 @@ func (s *PermissionRuleForDescribePermissionRulesOutput) SetUserMode(v string) *
 }
 
 const (
-	// EnumOfRwModeForDescribePermissionRulesInputUnknown is a EnumOfRwModeForDescribePermissionRulesInput enum value
-	EnumOfRwModeForDescribePermissionRulesInputUnknown = "Unknown"
-
 	// EnumOfRwModeForDescribePermissionRulesInputRw is a EnumOfRwModeForDescribePermissionRulesInput enum value
 	EnumOfRwModeForDescribePermissionRulesInputRw = "RW"
 
@@ -325,9 +322,6 @@ const (
 )
 
 const (
-	// EnumOfRwModeForDescribePermissionRulesOutputUnknown is a EnumOfRwModeForDescribePermissionRulesOutput enum value
-	EnumOfRwModeForDescribePermissionRulesOutputUnknown = "Unknown"
-
 	// EnumOfRwModeForDescribePermissionRulesOutputRw is a EnumOfRwModeForDescribePermissionRulesOutput enum value
 	EnumOfRwModeForDescribePermissionRulesOutputRw = "RW"
 
@@ -336,9 +330,6 @@ const (
 )
 
 const (
-	// EnumOfUserModeForDescribePermissionRulesInputUnknown is a EnumOfUserModeForDescribePermissionRulesInput enum value
-	EnumOfUserModeForDescribePermissionRulesInputUnknown = "Unknown"
-
 	// EnumOfUserModeForDescribePermissionRulesInputRootSquash is a EnumOfUserModeForDescribePermissionRulesInput enum value
 	EnumOfUserModeForDescribePermissionRulesInputRootSquash = "Root_squash"
 
@@ -350,9 +341,6 @@ const (
 )
 
 const (
-	// EnumOfUserModeForDescribePermissionRulesOutputUnknown is a EnumOfUserModeForDescribePermissionRulesOutput enum value
-	EnumOfUserModeForDescribePermissionRulesOutputUnknown = "Unknown"
-
 	// EnumOfUserModeForDescribePermissionRulesOutputRootSquash is a EnumOfUserModeForDescribePermissionRulesOutput enum value
 	EnumOfUserModeForDescribePermissionRulesOutputRootSquash = "Root_squash"
 

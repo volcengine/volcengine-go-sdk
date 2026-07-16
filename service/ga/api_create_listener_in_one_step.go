@@ -241,8 +241,12 @@ type CreateListenerInOneStepInput struct {
 
 	DisablePreConnect *bool `type:"boolean" json:",omitempty"`
 
+	DomainName *string `type:"string" json:",omitempty"`
+
 	// EnableAffinity is a required field
 	EnableAffinity *bool `type:"boolean" json:",omitempty" required:"true"`
+
+	EndPointGroupStrategy *EndPointGroupStrategyForCreateListenerInOneStepInput `type:"structure" json:",omitempty"`
 
 	EndpointGroups []*EndpointGroupForCreateListenerInOneStepInput `type:"list" json:",omitempty"`
 
@@ -250,12 +254,20 @@ type CreateListenerInOneStepInput struct {
 
 	IPAccess *IPAccessForCreateListenerInOneStepInput `type:"structure" json:",omitempty"`
 
+	ListenerDomainName *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	PortRanges []*PortRangeForCreateListenerInOneStepInput `type:"list" json:",omitempty"`
 
 	// Protocol is a required field
 	Protocol *string `type:"string" json:",omitempty" required:"true"`
+
+	ProtocolPortRanges *ProtocolPortRangesForCreateListenerInOneStepInput `type:"structure" json:",omitempty"`
+
+	RouteRetry *bool `type:"boolean" json:",omitempty"`
+
+	RouteRetryMax *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -311,9 +323,21 @@ func (s *CreateListenerInOneStepInput) SetDisablePreConnect(v bool) *CreateListe
 	return s
 }
 
+// SetDomainName sets the DomainName field's value.
+func (s *CreateListenerInOneStepInput) SetDomainName(v string) *CreateListenerInOneStepInput {
+	s.DomainName = &v
+	return s
+}
+
 // SetEnableAffinity sets the EnableAffinity field's value.
 func (s *CreateListenerInOneStepInput) SetEnableAffinity(v bool) *CreateListenerInOneStepInput {
 	s.EnableAffinity = &v
+	return s
+}
+
+// SetEndPointGroupStrategy sets the EndPointGroupStrategy field's value.
+func (s *CreateListenerInOneStepInput) SetEndPointGroupStrategy(v *EndPointGroupStrategyForCreateListenerInOneStepInput) *CreateListenerInOneStepInput {
+	s.EndPointGroupStrategy = v
 	return s
 }
 
@@ -335,6 +359,12 @@ func (s *CreateListenerInOneStepInput) SetIPAccess(v *IPAccessForCreateListenerI
 	return s
 }
 
+// SetListenerDomainName sets the ListenerDomainName field's value.
+func (s *CreateListenerInOneStepInput) SetListenerDomainName(v string) *CreateListenerInOneStepInput {
+	s.ListenerDomainName = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CreateListenerInOneStepInput) SetName(v string) *CreateListenerInOneStepInput {
 	s.Name = &v
@@ -350,6 +380,24 @@ func (s *CreateListenerInOneStepInput) SetPortRanges(v []*PortRangeForCreateList
 // SetProtocol sets the Protocol field's value.
 func (s *CreateListenerInOneStepInput) SetProtocol(v string) *CreateListenerInOneStepInput {
 	s.Protocol = &v
+	return s
+}
+
+// SetProtocolPortRanges sets the ProtocolPortRanges field's value.
+func (s *CreateListenerInOneStepInput) SetProtocolPortRanges(v *ProtocolPortRangesForCreateListenerInOneStepInput) *CreateListenerInOneStepInput {
+	s.ProtocolPortRanges = v
+	return s
+}
+
+// SetRouteRetry sets the RouteRetry field's value.
+func (s *CreateListenerInOneStepInput) SetRouteRetry(v bool) *CreateListenerInOneStepInput {
+	s.RouteRetry = &v
+	return s
+}
+
+// SetRouteRetryMax sets the RouteRetryMax field's value.
+func (s *CreateListenerInOneStepInput) SetRouteRetryMax(v int64) *CreateListenerInOneStepInput {
+	s.RouteRetryMax = &v
 	return s
 }
 
@@ -390,6 +438,52 @@ func (s *CreateListenerInOneStepOutput) SetEndpointGroupIds(v []*string) *Create
 // SetListenerId sets the ListenerId field's value.
 func (s *CreateListenerInOneStepOutput) SetListenerId(v string) *CreateListenerInOneStepOutput {
 	s.ListenerId = &v
+	return s
+}
+
+type EndPointGroupStrategyForCreateListenerInOneStepInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FallbackEndPointGroupIdx []*int64 `type:"list" json:",omitempty"`
+
+	FallbackStrategy *string `type:"string" json:",omitempty"`
+
+	OriginSteeringPolicy *string `type:"string" json:",omitempty"`
+
+	WeightConfs []*WeightConfForCreateListenerInOneStepInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EndPointGroupStrategyForCreateListenerInOneStepInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EndPointGroupStrategyForCreateListenerInOneStepInput) GoString() string {
+	return s.String()
+}
+
+// SetFallbackEndPointGroupIdx sets the FallbackEndPointGroupIdx field's value.
+func (s *EndPointGroupStrategyForCreateListenerInOneStepInput) SetFallbackEndPointGroupIdx(v []*int64) *EndPointGroupStrategyForCreateListenerInOneStepInput {
+	s.FallbackEndPointGroupIdx = v
+	return s
+}
+
+// SetFallbackStrategy sets the FallbackStrategy field's value.
+func (s *EndPointGroupStrategyForCreateListenerInOneStepInput) SetFallbackStrategy(v string) *EndPointGroupStrategyForCreateListenerInOneStepInput {
+	s.FallbackStrategy = &v
+	return s
+}
+
+// SetOriginSteeringPolicy sets the OriginSteeringPolicy field's value.
+func (s *EndPointGroupStrategyForCreateListenerInOneStepInput) SetOriginSteeringPolicy(v string) *EndPointGroupStrategyForCreateListenerInOneStepInput {
+	s.OriginSteeringPolicy = &v
+	return s
+}
+
+// SetWeightConfs sets the WeightConfs field's value.
+func (s *EndPointGroupStrategyForCreateListenerInOneStepInput) SetWeightConfs(v []*WeightConfForCreateListenerInOneStepInput) *EndPointGroupStrategyForCreateListenerInOneStepInput {
+	s.WeightConfs = v
 	return s
 }
 
@@ -547,6 +641,66 @@ func (s *FixedSourceReturnForCreateListenerInOneStepInput) SetEnable(v bool) *Fi
 	return s
 }
 
+type HTTPPortRangeForCreateListenerInOneStepInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FromPort *int32 `type:"int32" json:",omitempty"`
+
+	ToPort *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HTTPPortRangeForCreateListenerInOneStepInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HTTPPortRangeForCreateListenerInOneStepInput) GoString() string {
+	return s.String()
+}
+
+// SetFromPort sets the FromPort field's value.
+func (s *HTTPPortRangeForCreateListenerInOneStepInput) SetFromPort(v int32) *HTTPPortRangeForCreateListenerInOneStepInput {
+	s.FromPort = &v
+	return s
+}
+
+// SetToPort sets the ToPort field's value.
+func (s *HTTPPortRangeForCreateListenerInOneStepInput) SetToPort(v int32) *HTTPPortRangeForCreateListenerInOneStepInput {
+	s.ToPort = &v
+	return s
+}
+
+type HTTPSPortRangeForCreateListenerInOneStepInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FromPort *int32 `type:"int32" json:",omitempty"`
+
+	ToPort *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HTTPSPortRangeForCreateListenerInOneStepInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HTTPSPortRangeForCreateListenerInOneStepInput) GoString() string {
+	return s.String()
+}
+
+// SetFromPort sets the FromPort field's value.
+func (s *HTTPSPortRangeForCreateListenerInOneStepInput) SetFromPort(v int32) *HTTPSPortRangeForCreateListenerInOneStepInput {
+	s.FromPort = &v
+	return s
+}
+
+// SetToPort sets the ToPort field's value.
+func (s *HTTPSPortRangeForCreateListenerInOneStepInput) SetToPort(v int32) *HTTPSPortRangeForCreateListenerInOneStepInput {
+	s.ToPort = &v
+	return s
+}
+
 type HealthyConfigForCreateListenerInOneStepInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -677,6 +831,36 @@ func (s *PortRangeForCreateListenerInOneStepInput) SetToPort(v int32) *PortRange
 	return s
 }
 
+type ProtocolPortRangesForCreateListenerInOneStepInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HTTPPortRanges []*HTTPPortRangeForCreateListenerInOneStepInput `type:"list" json:",omitempty"`
+
+	HTTPSPortRanges []*HTTPSPortRangeForCreateListenerInOneStepInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ProtocolPortRangesForCreateListenerInOneStepInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProtocolPortRangesForCreateListenerInOneStepInput) GoString() string {
+	return s.String()
+}
+
+// SetHTTPPortRanges sets the HTTPPortRanges field's value.
+func (s *ProtocolPortRangesForCreateListenerInOneStepInput) SetHTTPPortRanges(v []*HTTPPortRangeForCreateListenerInOneStepInput) *ProtocolPortRangesForCreateListenerInOneStepInput {
+	s.HTTPPortRanges = v
+	return s
+}
+
+// SetHTTPSPortRanges sets the HTTPSPortRanges field's value.
+func (s *ProtocolPortRangesForCreateListenerInOneStepInput) SetHTTPSPortRanges(v []*HTTPSPortRangeForCreateListenerInOneStepInput) *ProtocolPortRangesForCreateListenerInOneStepInput {
+	s.HTTPSPortRanges = v
+	return s
+}
+
 type SourceIPForCreateListenerInOneStepInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -704,5 +888,35 @@ func (s *SourceIPForCreateListenerInOneStepInput) SetIPRange(v string) *SourceIP
 // SetIPRangeId sets the IPRangeId field's value.
 func (s *SourceIPForCreateListenerInOneStepInput) SetIPRangeId(v string) *SourceIPForCreateListenerInOneStepInput {
 	s.IPRangeId = &v
+	return s
+}
+
+type WeightConfForCreateListenerInOneStepInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EndPointGroupIdx *int64 `type:"int64" json:",omitempty"`
+
+	Weight *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s WeightConfForCreateListenerInOneStepInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s WeightConfForCreateListenerInOneStepInput) GoString() string {
+	return s.String()
+}
+
+// SetEndPointGroupIdx sets the EndPointGroupIdx field's value.
+func (s *WeightConfForCreateListenerInOneStepInput) SetEndPointGroupIdx(v int64) *WeightConfForCreateListenerInOneStepInput {
+	s.EndPointGroupIdx = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *WeightConfForCreateListenerInOneStepInput) SetWeight(v int64) *WeightConfForCreateListenerInOneStepInput {
+	s.Weight = &v
 	return s
 }

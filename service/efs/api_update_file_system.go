@@ -244,9 +244,6 @@ func (s *UpdateFileSystemOutput) SetOrderNo(v string) *UpdateFileSystemOutput {
 }
 
 const (
-	// EnumOfBandwidthModeForUpdateFileSystemInputUnknown is a EnumOfBandwidthModeForUpdateFileSystemInput enum value
-	EnumOfBandwidthModeForUpdateFileSystemInputUnknown = "Unknown"
-
 	// EnumOfBandwidthModeForUpdateFileSystemInputBaseline is a EnumOfBandwidthModeForUpdateFileSystemInput enum value
 	EnumOfBandwidthModeForUpdateFileSystemInputBaseline = "Baseline"
 

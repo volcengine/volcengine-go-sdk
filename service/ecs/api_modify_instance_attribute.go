@@ -139,10 +139,34 @@ func (c *ECS) ModifyInstanceAttributeWithContext(ctx volcengine.Context, input *
 	return out, req.Send()
 }
 
+type CpuOptionsForModifyInstanceAttributeInput struct {
+	_ struct{} `type:"structure"`
+
+	TopologyType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CpuOptionsForModifyInstanceAttributeInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CpuOptionsForModifyInstanceAttributeInput) GoString() string {
+	return s.String()
+}
+
+// SetTopologyType sets the TopologyType field's value.
+func (s *CpuOptionsForModifyInstanceAttributeInput) SetTopologyType(v string) *CpuOptionsForModifyInstanceAttributeInput {
+	s.TopologyType = &v
+	return s
+}
+
 type ModifyInstanceAttributeInput struct {
 	_ struct{} `type:"structure"`
 
 	ClientToken *string `type:"string"`
+
+	CpuOptions *CpuOptionsForModifyInstanceAttributeInput `type:"structure"`
 
 	DeletionProtection *bool `type:"boolean"`
 
@@ -188,6 +212,12 @@ func (s *ModifyInstanceAttributeInput) Validate() error {
 // SetClientToken sets the ClientToken field's value.
 func (s *ModifyInstanceAttributeInput) SetClientToken(v string) *ModifyInstanceAttributeInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetCpuOptions sets the CpuOptions field's value.
+func (s *ModifyInstanceAttributeInput) SetCpuOptions(v *CpuOptionsForModifyInstanceAttributeInput) *ModifyInstanceAttributeInput {
+	s.CpuOptions = v
 	return s
 }
 

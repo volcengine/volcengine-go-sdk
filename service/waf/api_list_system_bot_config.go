@@ -154,7 +154,15 @@ type DataForListSystemBotConfigOutput struct {
 
 	Enable *int32 `type:"int32" json:",omitempty"`
 
+	IPMatch *bool `type:"boolean" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
 	RuleTag *string `type:"string" json:",omitempty"`
+
+	SubRules []*SubRuleForListSystemBotConfigOutput `type:"list" json:",omitempty"`
+
+	VerificationExemptionTime *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -191,19 +199,84 @@ func (s *DataForListSystemBotConfigOutput) SetEnable(v int32) *DataForListSystem
 	return s
 }
 
+// SetIPMatch sets the IPMatch field's value.
+func (s *DataForListSystemBotConfigOutput) SetIPMatch(v bool) *DataForListSystemBotConfigOutput {
+	s.IPMatch = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DataForListSystemBotConfigOutput) SetName(v string) *DataForListSystemBotConfigOutput {
+	s.Name = &v
+	return s
+}
+
 // SetRuleTag sets the RuleTag field's value.
 func (s *DataForListSystemBotConfigOutput) SetRuleTag(v string) *DataForListSystemBotConfigOutput {
 	s.RuleTag = &v
 	return s
 }
 
+// SetSubRules sets the SubRules field's value.
+func (s *DataForListSystemBotConfigOutput) SetSubRules(v []*SubRuleForListSystemBotConfigOutput) *DataForListSystemBotConfigOutput {
+	s.SubRules = v
+	return s
+}
+
+// SetVerificationExemptionTime sets the VerificationExemptionTime field's value.
+func (s *DataForListSystemBotConfigOutput) SetVerificationExemptionTime(v int32) *DataForListSystemBotConfigOutput {
+	s.VerificationExemptionTime = &v
+	return s
+}
+
+type FilerByRuleMatchForListSystemBotConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IP *string `type:"string" json:",omitempty"`
+
+	UserAgent *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilerByRuleMatchForListSystemBotConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilerByRuleMatchForListSystemBotConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetIP sets the IP field's value.
+func (s *FilerByRuleMatchForListSystemBotConfigInput) SetIP(v string) *FilerByRuleMatchForListSystemBotConfigInput {
+	s.IP = &v
+	return s
+}
+
+// SetUserAgent sets the UserAgent field's value.
+func (s *FilerByRuleMatchForListSystemBotConfigInput) SetUserAgent(v string) *FilerByRuleMatchForListSystemBotConfigInput {
+	s.UserAgent = &v
+	return s
+}
+
 type ListSystemBotConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Host is a required field
-	Host *string `type:"string" json:",omitempty" required:"true"`
+	FilerByRuleMatch *FilerByRuleMatchForListSystemBotConfigInput `type:"structure" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
+
+	IPMatch *bool `type:"boolean" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Page *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	RuleTag *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,22 +289,39 @@ func (s ListSystemBotConfigInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListSystemBotConfigInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListSystemBotConfigInput"}
-	if s.Host == nil {
-		invalidParams.Add(request.NewErrParamRequired("Host"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetFilerByRuleMatch sets the FilerByRuleMatch field's value.
+func (s *ListSystemBotConfigInput) SetFilerByRuleMatch(v *FilerByRuleMatchForListSystemBotConfigInput) *ListSystemBotConfigInput {
+	s.FilerByRuleMatch = v
+	return s
 }
 
 // SetHost sets the Host field's value.
 func (s *ListSystemBotConfigInput) SetHost(v string) *ListSystemBotConfigInput {
 	s.Host = &v
+	return s
+}
+
+// SetIPMatch sets the IPMatch field's value.
+func (s *ListSystemBotConfigInput) SetIPMatch(v bool) *ListSystemBotConfigInput {
+	s.IPMatch = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ListSystemBotConfigInput) SetName(v string) *ListSystemBotConfigInput {
+	s.Name = &v
+	return s
+}
+
+// SetPage sets the Page field's value.
+func (s *ListSystemBotConfigInput) SetPage(v int32) *ListSystemBotConfigInput {
+	s.Page = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListSystemBotConfigInput) SetPageSize(v int32) *ListSystemBotConfigInput {
+	s.PageSize = &v
 	return s
 }
 
@@ -241,12 +331,28 @@ func (s *ListSystemBotConfigInput) SetProjectName(v string) *ListSystemBotConfig
 	return s
 }
 
+// SetRuleTag sets the RuleTag field's value.
+func (s *ListSystemBotConfigInput) SetRuleTag(v string) *ListSystemBotConfigInput {
+	s.RuleTag = &v
+	return s
+}
+
 type ListSystemBotConfigOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
 	Data []*DataForListSystemBotConfigOutput `type:"list" json:",omitempty"`
+
+	LastUpdateTime *string `type:"string" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -259,8 +365,116 @@ func (s ListSystemBotConfigOutput) GoString() string {
 	return s.String()
 }
 
+// SetCount sets the Count field's value.
+func (s *ListSystemBotConfigOutput) SetCount(v int32) *ListSystemBotConfigOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListSystemBotConfigOutput) SetCurrentPage(v int32) *ListSystemBotConfigOutput {
+	s.CurrentPage = &v
+	return s
+}
+
 // SetData sets the Data field's value.
 func (s *ListSystemBotConfigOutput) SetData(v []*DataForListSystemBotConfigOutput) *ListSystemBotConfigOutput {
 	s.Data = v
+	return s
+}
+
+// SetLastUpdateTime sets the LastUpdateTime field's value.
+func (s *ListSystemBotConfigOutput) SetLastUpdateTime(v string) *ListSystemBotConfigOutput {
+	s.LastUpdateTime = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListSystemBotConfigOutput) SetPageSize(v int32) *ListSystemBotConfigOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ListSystemBotConfigOutput) SetTotalCount(v int32) *ListSystemBotConfigOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type SubRuleForListSystemBotConfigOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	BotType *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	Enable *int32 `type:"int32" json:",omitempty"`
+
+	IPMatch *bool `type:"boolean" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	RuleTag *string `type:"string" json:",omitempty"`
+
+	VerificationExemptionTime *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SubRuleForListSystemBotConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SubRuleForListSystemBotConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *SubRuleForListSystemBotConfigOutput) SetAction(v string) *SubRuleForListSystemBotConfigOutput {
+	s.Action = &v
+	return s
+}
+
+// SetBotType sets the BotType field's value.
+func (s *SubRuleForListSystemBotConfigOutput) SetBotType(v string) *SubRuleForListSystemBotConfigOutput {
+	s.BotType = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SubRuleForListSystemBotConfigOutput) SetDescription(v string) *SubRuleForListSystemBotConfigOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEnable sets the Enable field's value.
+func (s *SubRuleForListSystemBotConfigOutput) SetEnable(v int32) *SubRuleForListSystemBotConfigOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetIPMatch sets the IPMatch field's value.
+func (s *SubRuleForListSystemBotConfigOutput) SetIPMatch(v bool) *SubRuleForListSystemBotConfigOutput {
+	s.IPMatch = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *SubRuleForListSystemBotConfigOutput) SetName(v string) *SubRuleForListSystemBotConfigOutput {
+	s.Name = &v
+	return s
+}
+
+// SetRuleTag sets the RuleTag field's value.
+func (s *SubRuleForListSystemBotConfigOutput) SetRuleTag(v string) *SubRuleForListSystemBotConfigOutput {
+	s.RuleTag = &v
+	return s
+}
+
+// SetVerificationExemptionTime sets the VerificationExemptionTime field's value.
+func (s *SubRuleForListSystemBotConfigOutput) SetVerificationExemptionTime(v int32) *SubRuleForListSystemBotConfigOutput {
+	s.VerificationExemptionTime = &v
 	return s
 }

@@ -143,11 +143,113 @@ func (c *WAF) ListBotAnalyseProtectRulePriorityAvailableWithContext(ctx volcengi
 	return out, req.Send()
 }
 
+type AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccurateGroupPriority *int32 `type:"int32" json:",omitempty"`
+
+	AccurateRules []*AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput `type:"list" json:",omitempty"`
+
+	Id *int32 `type:"int32" json:",omitempty"`
+
+	Logic *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput) GoString() string {
+	return s.String()
+}
+
+// SetAccurateGroupPriority sets the AccurateGroupPriority field's value.
+func (s *AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput) SetAccurateGroupPriority(v int32) *AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput {
+	s.AccurateGroupPriority = &v
+	return s
+}
+
+// SetAccurateRules sets the AccurateRules field's value.
+func (s *AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput) SetAccurateRules(v []*AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput) *AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput {
+	s.AccurateRules = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput) SetId(v int32) *AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput {
+	s.Id = &v
+	return s
+}
+
+// SetLogic sets the Logic field's value.
+func (s *AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput) SetLogic(v int32) *AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput {
+	s.Logic = &v
+	return s
+}
+
+type AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HttpObj *string `type:"string" json:",omitempty"`
+
+	ObjType *int32 `type:"int32" json:",omitempty"`
+
+	Opretar *int32 `type:"int32" json:",omitempty"`
+
+	Property *int32 `type:"int32" json:",omitempty"`
+
+	ValueString *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput) GoString() string {
+	return s.String()
+}
+
+// SetHttpObj sets the HttpObj field's value.
+func (s *AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput) SetHttpObj(v string) *AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput {
+	s.HttpObj = &v
+	return s
+}
+
+// SetObjType sets the ObjType field's value.
+func (s *AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput) SetObjType(v int32) *AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput {
+	s.ObjType = &v
+	return s
+}
+
+// SetOpretar sets the Opretar field's value.
+func (s *AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput) SetOpretar(v int32) *AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput {
+	s.Opretar = &v
+	return s
+}
+
+// SetProperty sets the Property field's value.
+func (s *AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput) SetProperty(v int32) *AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput {
+	s.Property = &v
+	return s
+}
+
+// SetValueString sets the ValueString field's value.
+func (s *AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput) SetValueString(v string) *AccurateRuleForListBotAnalyseProtectRulePriorityAvailableInput {
+	s.ValueString = &v
+	return s
+}
+
 type ListBotAnalyseProtectRulePriorityAvailableInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccurateGroup *AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput `type:"structure" json:",omitempty"`
+
 	// BotSpace is a required field
-	BotSpace *string `type:"string" json:",omitempty" required:"true"`
+	BotSpace *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfBotSpaceForListBotAnalyseProtectRulePriorityAvailableInput"`
 
 	// Host is a required field
 	Host *string `type:"string" json:",omitempty" required:"true"`
@@ -191,6 +293,12 @@ func (s *ListBotAnalyseProtectRulePriorityAvailableInput) Validate() error {
 	return nil
 }
 
+// SetAccurateGroup sets the AccurateGroup field's value.
+func (s *ListBotAnalyseProtectRulePriorityAvailableInput) SetAccurateGroup(v *AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput) *ListBotAnalyseProtectRulePriorityAvailableInput {
+	s.AccurateGroup = v
+	return s
+}
+
 // SetBotSpace sets the BotSpace field's value.
 func (s *ListBotAnalyseProtectRulePriorityAvailableInput) SetBotSpace(v string) *ListBotAnalyseProtectRulePriorityAvailableInput {
 	s.BotSpace = &v
@@ -232,7 +340,15 @@ type ListBotAnalyseProtectRulePriorityAvailableOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
 	RulePriority []*int32 `type:"list" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -245,8 +361,40 @@ func (s ListBotAnalyseProtectRulePriorityAvailableOutput) GoString() string {
 	return s.String()
 }
 
+// SetCount sets the Count field's value.
+func (s *ListBotAnalyseProtectRulePriorityAvailableOutput) SetCount(v int32) *ListBotAnalyseProtectRulePriorityAvailableOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListBotAnalyseProtectRulePriorityAvailableOutput) SetCurrentPage(v int32) *ListBotAnalyseProtectRulePriorityAvailableOutput {
+	s.CurrentPage = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListBotAnalyseProtectRulePriorityAvailableOutput) SetPageSize(v int32) *ListBotAnalyseProtectRulePriorityAvailableOutput {
+	s.PageSize = &v
+	return s
+}
+
 // SetRulePriority sets the RulePriority field's value.
 func (s *ListBotAnalyseProtectRulePriorityAvailableOutput) SetRulePriority(v []*int32) *ListBotAnalyseProtectRulePriorityAvailableOutput {
 	s.RulePriority = v
 	return s
 }
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ListBotAnalyseProtectRulePriorityAvailableOutput) SetTotalCount(v int32) *ListBotAnalyseProtectRulePriorityAvailableOutput {
+	s.TotalCount = &v
+	return s
+}
+
+const (
+	// EnumOfBotSpaceForListBotAnalyseProtectRulePriorityAvailableInputBotFrequency is a EnumOfBotSpaceForListBotAnalyseProtectRulePriorityAvailableInput enum value
+	EnumOfBotSpaceForListBotAnalyseProtectRulePriorityAvailableInputBotFrequency = "BotFrequency"
+
+	// EnumOfBotSpaceForListBotAnalyseProtectRulePriorityAvailableInputBotRepeat is a EnumOfBotSpaceForListBotAnalyseProtectRulePriorityAvailableInput enum value
+	EnumOfBotSpaceForListBotAnalyseProtectRulePriorityAvailableInputBotRepeat = "BotRepeat"
+)

@@ -292,8 +292,9 @@ func (s *GroupForListBotAnalyseProtectRuleOutput) SetLogic(v int32) *GroupForLis
 type ListBotAnalyseProtectRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// BotSpace is a required field
-	BotSpace *string `type:"string" json:",omitempty" required:"true"`
+	ActionTypeKey []*int32 `type:"list" json:",omitempty"`
+
+	BotSpace *string `type:"string" json:",omitempty" enum:"EnumOfBotSpaceForListBotAnalyseProtectRuleInput"`
 
 	// Host is a required field
 	Host *string `type:"string" json:",omitempty" required:"true"`
@@ -327,9 +328,6 @@ func (s ListBotAnalyseProtectRuleInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListBotAnalyseProtectRuleInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListBotAnalyseProtectRuleInput"}
-	if s.BotSpace == nil {
-		invalidParams.Add(request.NewErrParamRequired("BotSpace"))
-	}
 	if s.Host == nil {
 		invalidParams.Add(request.NewErrParamRequired("Host"))
 	}
@@ -341,6 +339,12 @@ func (s *ListBotAnalyseProtectRuleInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetActionTypeKey sets the ActionTypeKey field's value.
+func (s *ListBotAnalyseProtectRuleInput) SetActionTypeKey(v []*int32) *ListBotAnalyseProtectRuleInput {
+	s.ActionTypeKey = v
+	return s
 }
 
 // SetBotSpace sets the BotSpace field's value.
@@ -486,7 +490,7 @@ type RuleForListBotAnalyseProtectRuleOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	PassRatio *float64 `type:"float" json:",omitempty"`
+	PassRatio *float64 `type:"double" json:",omitempty"`
 
 	Path *string `type:"string" json:",omitempty"`
 
@@ -496,7 +500,7 @@ type RuleForListBotAnalyseProtectRuleOutput struct {
 
 	RuleTag *string `type:"string" json:",omitempty"`
 
-	SingleProportion *float64 `type:"float" json:",omitempty"`
+	SingleProportion *float32 `type:"float" json:",omitempty"`
 
 	SingleThreshold *int32 `type:"int32" json:",omitempty"`
 
@@ -614,7 +618,7 @@ func (s *RuleForListBotAnalyseProtectRuleOutput) SetRuleTag(v string) *RuleForLi
 }
 
 // SetSingleProportion sets the SingleProportion field's value.
-func (s *RuleForListBotAnalyseProtectRuleOutput) SetSingleProportion(v float64) *RuleForListBotAnalyseProtectRuleOutput {
+func (s *RuleForListBotAnalyseProtectRuleOutput) SetSingleProportion(v float32) *RuleForListBotAnalyseProtectRuleOutput {
 	s.SingleProportion = &v
 	return s
 }
@@ -672,3 +676,11 @@ func (s *RuleGroupForListBotAnalyseProtectRuleOutput) SetRules(v []*RuleForListB
 	s.Rules = v
 	return s
 }
+
+const (
+	// EnumOfBotSpaceForListBotAnalyseProtectRuleInputBotFrequency is a EnumOfBotSpaceForListBotAnalyseProtectRuleInput enum value
+	EnumOfBotSpaceForListBotAnalyseProtectRuleInputBotFrequency = "BotFrequency"
+
+	// EnumOfBotSpaceForListBotAnalyseProtectRuleInputBotRepeat is a EnumOfBotSpaceForListBotAnalyseProtectRuleInput enum value
+	EnumOfBotSpaceForListBotAnalyseProtectRuleInputBotRepeat = "BotRepeat"
+)

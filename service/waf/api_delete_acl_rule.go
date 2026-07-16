@@ -147,7 +147,7 @@ type DeleteAclRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AclType is a required field
-	AclType *string `type:"string" json:",omitempty" required:"true"`
+	AclType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfAclTypeForDeleteAclRuleInput"`
 
 	// ID is a required field
 	ID *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -203,6 +203,10 @@ type DeleteAclRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	PageInfo *PageInfoForDeleteAclRuleOutput `type:"structure" json:",omitempty"`
+
+	ResponseMetadata *ResponseMetadataForDeleteAclRuleOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -214,3 +218,145 @@ func (s DeleteAclRuleOutput) String() string {
 func (s DeleteAclRuleOutput) GoString() string {
 	return s.String()
 }
+
+// SetPageInfo sets the PageInfo field's value.
+func (s *DeleteAclRuleOutput) SetPageInfo(v *PageInfoForDeleteAclRuleOutput) *DeleteAclRuleOutput {
+	s.PageInfo = v
+	return s
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *DeleteAclRuleOutput) SetResponseMetadata(v *ResponseMetadataForDeleteAclRuleOutput) *DeleteAclRuleOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
+type ErrorForDeleteAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErrorForDeleteAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorForDeleteAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+type PageInfoForDeleteAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PageInfoForDeleteAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PageInfoForDeleteAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *PageInfoForDeleteAclRuleOutput) SetCount(v int32) *PageInfoForDeleteAclRuleOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *PageInfoForDeleteAclRuleOutput) SetCurrentPage(v int32) *PageInfoForDeleteAclRuleOutput {
+	s.CurrentPage = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *PageInfoForDeleteAclRuleOutput) SetPageSize(v int32) *PageInfoForDeleteAclRuleOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *PageInfoForDeleteAclRuleOutput) SetTotalCount(v int32) *PageInfoForDeleteAclRuleOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type ResponseMetadataForDeleteAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Error *ErrorForDeleteAclRuleOutput `type:"structure" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	RequestId *string `type:"string" json:",omitempty"`
+
+	Service *string `type:"string" json:",omitempty"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResponseMetadataForDeleteAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResponseMetadataForDeleteAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *ResponseMetadataForDeleteAclRuleOutput) SetAction(v string) *ResponseMetadataForDeleteAclRuleOutput {
+	s.Action = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *ResponseMetadataForDeleteAclRuleOutput) SetError(v *ErrorForDeleteAclRuleOutput) *ResponseMetadataForDeleteAclRuleOutput {
+	s.Error = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ResponseMetadataForDeleteAclRuleOutput) SetRegion(v string) *ResponseMetadataForDeleteAclRuleOutput {
+	s.Region = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ResponseMetadataForDeleteAclRuleOutput) SetRequestId(v string) *ResponseMetadataForDeleteAclRuleOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetService sets the Service field's value.
+func (s *ResponseMetadataForDeleteAclRuleOutput) SetService(v string) *ResponseMetadataForDeleteAclRuleOutput {
+	s.Service = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *ResponseMetadataForDeleteAclRuleOutput) SetVersion(v string) *ResponseMetadataForDeleteAclRuleOutput {
+	s.Version = &v
+	return s
+}
+
+const (
+	// EnumOfAclTypeForDeleteAclRuleInputAllow is a EnumOfAclTypeForDeleteAclRuleInput enum value
+	EnumOfAclTypeForDeleteAclRuleInputAllow = "Allow"
+
+	// EnumOfAclTypeForDeleteAclRuleInputBlock is a EnumOfAclTypeForDeleteAclRuleInput enum value
+	EnumOfAclTypeForDeleteAclRuleInputBlock = "Block"
+)

@@ -161,8 +161,6 @@ type ListPublicBandwidthPackagesInput struct {
 	ResourceTagFilter *ResourceTagFilterForListPublicBandwidthPackagesInput `type:"structure" json:",omitempty"`
 
 	State *string `type:"string" json:",omitempty"`
-
-	Tags []*TagForListPublicBandwidthPackagesInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,12 +218,6 @@ func (s *ListPublicBandwidthPackagesInput) SetResourceTagFilter(v *ResourceTagFi
 // SetState sets the State field's value.
 func (s *ListPublicBandwidthPackagesInput) SetState(v string) *ListPublicBandwidthPackagesInput {
 	s.State = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *ListPublicBandwidthPackagesInput) SetTags(v []*TagForListPublicBandwidthPackagesInput) *ListPublicBandwidthPackagesInput {
-	s.Tags = v
 	return s
 }
 
@@ -506,35 +498,5 @@ func (s *ResourceTagForListPublicBandwidthPackagesOutput) SetKey(v string) *Reso
 // SetValue sets the Value field's value.
 func (s *ResourceTagForListPublicBandwidthPackagesOutput) SetValue(v string) *ResourceTagForListPublicBandwidthPackagesOutput {
 	s.Value = &v
-	return s
-}
-
-type TagForListPublicBandwidthPackagesInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Values []*string `type:"list" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TagForListPublicBandwidthPackagesInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagForListPublicBandwidthPackagesInput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagForListPublicBandwidthPackagesInput) SetKey(v string) *TagForListPublicBandwidthPackagesInput {
-	s.Key = &v
-	return s
-}
-
-// SetValues sets the Values field's value.
-func (s *TagForListPublicBandwidthPackagesInput) SetValues(v []*string) *TagForListPublicBandwidthPackagesInput {
-	s.Values = v
 	return s
 }

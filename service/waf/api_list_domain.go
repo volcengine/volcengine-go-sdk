@@ -240,8 +240,6 @@ type CloudAccessConfigForListDomainOutput struct {
 
 	ListenerID *string `type:"string" json:",omitempty"`
 
-	LostAssociationFromALB *int32 `type:"int32" json:",omitempty"`
-
 	Port *string `type:"string" json:",omitempty"`
 
 	Protocol *string `type:"string" json:",omitempty"`
@@ -284,12 +282,6 @@ func (s *CloudAccessConfigForListDomainOutput) SetInstanceName(v string) *CloudA
 // SetListenerID sets the ListenerID field's value.
 func (s *CloudAccessConfigForListDomainOutput) SetListenerID(v string) *CloudAccessConfigForListDomainOutput {
 	s.ListenerID = &v
-	return s
-}
-
-// SetLostAssociationFromALB sets the LostAssociationFromALB field's value.
-func (s *CloudAccessConfigForListDomainOutput) SetLostAssociationFromALB(v int32) *CloudAccessConfigForListDomainOutput {
-	s.LostAssociationFromALB = &v
 	return s
 }
 
@@ -455,6 +447,8 @@ type DataForListDomainOutput struct {
 	WhiteEnable *int32 `type:"int32" json:",omitempty"`
 
 	WhiteFieldEnable *int32 `type:"int32" json:",omitempty"`
+
+	XFFReset *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -911,6 +905,12 @@ func (s *DataForListDomainOutput) SetWhiteFieldEnable(v int32) *DataForListDomai
 	return s
 }
 
+// SetXFFReset sets the XFFReset field's value.
+func (s *DataForListDomainOutput) SetXFFReset(v int32) *DataForListDomainOutput {
+	s.XFFReset = &v
+	return s
+}
+
 type HeadersConfigForListDomainOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1290,8 +1290,6 @@ type TCPListenerConfigForListDomainOutput struct {
 
 	ListenerID *string `type:"string" json:",omitempty"`
 
-	LostAssociationFromALB *int32 `type:"int32" json:",omitempty"`
-
 	Port *string `type:"string" json:",omitempty"`
 
 	Protocol *string `type:"string" json:",omitempty"`
@@ -1334,12 +1332,6 @@ func (s *TCPListenerConfigForListDomainOutput) SetInstanceName(v string) *TCPLis
 // SetListenerID sets the ListenerID field's value.
 func (s *TCPListenerConfigForListDomainOutput) SetListenerID(v string) *TCPListenerConfigForListDomainOutput {
 	s.ListenerID = &v
-	return s
-}
-
-// SetLostAssociationFromALB sets the LostAssociationFromALB field's value.
-func (s *TCPListenerConfigForListDomainOutput) SetLostAssociationFromALB(v int32) *TCPListenerConfigForListDomainOutput {
-	s.LostAssociationFromALB = &v
 	return s
 }
 
