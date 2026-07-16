@@ -146,7 +146,7 @@ func (c *WAF) QueryAttackAnalysisWithRuleAggLbWithContext(ctx volcengine.Context
 type ItemForQueryAttackAnalysisWithRuleAggLbOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Count *float64 `type:"float" json:",omitempty"`
+	Count *float32 `type:"float" json:",omitempty"`
 
 	Key *string `type:"string" json:",omitempty"`
 
@@ -164,7 +164,7 @@ func (s ItemForQueryAttackAnalysisWithRuleAggLbOutput) GoString() string {
 }
 
 // SetCount sets the Count field's value.
-func (s *ItemForQueryAttackAnalysisWithRuleAggLbOutput) SetCount(v float64) *ItemForQueryAttackAnalysisWithRuleAggLbOutput {
+func (s *ItemForQueryAttackAnalysisWithRuleAggLbOutput) SetCount(v float32) *ItemForQueryAttackAnalysisWithRuleAggLbOutput {
 	s.Count = &v
 	return s
 }
@@ -260,7 +260,7 @@ type QueryAttackAnalysisWithRuleAggLbOutput struct {
 
 	Items []*ItemForQueryAttackAnalysisWithRuleAggLbOutput `type:"list" json:",omitempty"`
 
-	Total *float64 `type:"float" json:",omitempty"`
+	Total *float32 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -280,7 +280,7 @@ func (s *QueryAttackAnalysisWithRuleAggLbOutput) SetItems(v []*ItemForQueryAttac
 }
 
 // SetTotal sets the Total field's value.
-func (s *QueryAttackAnalysisWithRuleAggLbOutput) SetTotal(v float64) *QueryAttackAnalysisWithRuleAggLbOutput {
+func (s *QueryAttackAnalysisWithRuleAggLbOutput) SetTotal(v float32) *QueryAttackAnalysisWithRuleAggLbOutput {
 	s.Total = &v
 	return s
 }

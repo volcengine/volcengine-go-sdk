@@ -146,7 +146,11 @@ func (c *WAF) UpdateCCRuleWithContext(ctx volcengine.Context, input *UpdateCCRul
 type AccurateGroupForUpdateCCRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccurateGroupPriority *int32 `type:"int32" json:",omitempty"`
+
 	AccurateRules []*AccurateRuleForUpdateCCRuleInput `type:"list" json:",omitempty"`
+
+	Id *int32 `type:"int32" json:",omitempty"`
 
 	Logic *int32 `type:"int32" json:",omitempty"`
 }
@@ -161,9 +165,21 @@ func (s AccurateGroupForUpdateCCRuleInput) GoString() string {
 	return s.String()
 }
 
+// SetAccurateGroupPriority sets the AccurateGroupPriority field's value.
+func (s *AccurateGroupForUpdateCCRuleInput) SetAccurateGroupPriority(v int32) *AccurateGroupForUpdateCCRuleInput {
+	s.AccurateGroupPriority = &v
+	return s
+}
+
 // SetAccurateRules sets the AccurateRules field's value.
 func (s *AccurateGroupForUpdateCCRuleInput) SetAccurateRules(v []*AccurateRuleForUpdateCCRuleInput) *AccurateGroupForUpdateCCRuleInput {
 	s.AccurateRules = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *AccurateGroupForUpdateCCRuleInput) SetId(v int32) *AccurateGroupForUpdateCCRuleInput {
+	s.Id = &v
 	return s
 }
 
@@ -280,6 +296,8 @@ type UpdateCCRuleInput struct {
 
 	CronEnable *int32 `type:"int32" json:",omitempty"`
 
+	CustomResponsePageID *string `type:"string" json:",omitempty"`
+
 	// EffectTime is a required field
 	EffectTime *int32 `type:"int32" json:",omitempty" required:"true"`
 
@@ -311,8 +329,18 @@ type UpdateCCRuleInput struct {
 
 	SingleThreshold *int32 `type:"int32" json:",omitempty"`
 
+	UpdateTime *string `type:"string" json:",omitempty"`
+
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
+
+	WSCdnByteThreshold *int32 `type:"int32" json:",omitempty"`
+
+	WSCdnEnable *int32 `type:"int32" json:",omitempty"`
+
+	WSCdnFrameThreshold *int32 `type:"int32" json:",omitempty"`
+
+	WSCdnUnit *string `type:"string" json:",omitempty" enum:"EnumOfWSCdnUnitForUpdateCCRuleInput"`
 }
 
 // String returns the string representation
@@ -395,6 +423,12 @@ func (s *UpdateCCRuleInput) SetCronEnable(v int32) *UpdateCCRuleInput {
 	return s
 }
 
+// SetCustomResponsePageID sets the CustomResponsePageID field's value.
+func (s *UpdateCCRuleInput) SetCustomResponsePageID(v string) *UpdateCCRuleInput {
+	s.CustomResponsePageID = &v
+	return s
+}
+
 // SetEffectTime sets the EffectTime field's value.
 func (s *UpdateCCRuleInput) SetEffectTime(v int32) *UpdateCCRuleInput {
 	s.EffectTime = &v
@@ -467,9 +501,39 @@ func (s *UpdateCCRuleInput) SetSingleThreshold(v int32) *UpdateCCRuleInput {
 	return s
 }
 
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *UpdateCCRuleInput) SetUpdateTime(v string) *UpdateCCRuleInput {
+	s.UpdateTime = &v
+	return s
+}
+
 // SetUrl sets the Url field's value.
 func (s *UpdateCCRuleInput) SetUrl(v string) *UpdateCCRuleInput {
 	s.Url = &v
+	return s
+}
+
+// SetWSCdnByteThreshold sets the WSCdnByteThreshold field's value.
+func (s *UpdateCCRuleInput) SetWSCdnByteThreshold(v int32) *UpdateCCRuleInput {
+	s.WSCdnByteThreshold = &v
+	return s
+}
+
+// SetWSCdnEnable sets the WSCdnEnable field's value.
+func (s *UpdateCCRuleInput) SetWSCdnEnable(v int32) *UpdateCCRuleInput {
+	s.WSCdnEnable = &v
+	return s
+}
+
+// SetWSCdnFrameThreshold sets the WSCdnFrameThreshold field's value.
+func (s *UpdateCCRuleInput) SetWSCdnFrameThreshold(v int32) *UpdateCCRuleInput {
+	s.WSCdnFrameThreshold = &v
+	return s
+}
+
+// SetWSCdnUnit sets the WSCdnUnit field's value.
+func (s *UpdateCCRuleInput) SetWSCdnUnit(v string) *UpdateCCRuleInput {
+	s.WSCdnUnit = &v
 	return s
 }
 
@@ -496,3 +560,14 @@ func (s *UpdateCCRuleOutput) SetId(v int32) *UpdateCCRuleOutput {
 	s.Id = &v
 	return s
 }
+
+const (
+	// EnumOfWSCdnUnitForUpdateCCRuleInputKb is a EnumOfWSCdnUnitForUpdateCCRuleInput enum value
+	EnumOfWSCdnUnitForUpdateCCRuleInputKb = "KB"
+
+	// EnumOfWSCdnUnitForUpdateCCRuleInputMb is a EnumOfWSCdnUnitForUpdateCCRuleInput enum value
+	EnumOfWSCdnUnitForUpdateCCRuleInputMb = "MB"
+
+	// EnumOfWSCdnUnitForUpdateCCRuleInputGb is a EnumOfWSCdnUnitForUpdateCCRuleInput enum value
+	EnumOfWSCdnUnitForUpdateCCRuleInputGb = "GB"
+)

@@ -146,7 +146,11 @@ func (c *WAF) CreateBotAnalyseProtectRuleWithContext(ctx volcengine.Context, inp
 type AccurateGroupForCreateBotAnalyseProtectRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccurateGroupPriority *int32 `type:"int32" json:",omitempty"`
+
 	AccurateRules []*AccurateRuleForCreateBotAnalyseProtectRuleInput `type:"list" json:",omitempty"`
+
+	Id *int32 `type:"int32" json:",omitempty"`
 
 	Logic *int32 `type:"int32" json:",omitempty"`
 }
@@ -161,9 +165,21 @@ func (s AccurateGroupForCreateBotAnalyseProtectRuleInput) GoString() string {
 	return s.String()
 }
 
+// SetAccurateGroupPriority sets the AccurateGroupPriority field's value.
+func (s *AccurateGroupForCreateBotAnalyseProtectRuleInput) SetAccurateGroupPriority(v int32) *AccurateGroupForCreateBotAnalyseProtectRuleInput {
+	s.AccurateGroupPriority = &v
+	return s
+}
+
 // SetAccurateRules sets the AccurateRules field's value.
 func (s *AccurateGroupForCreateBotAnalyseProtectRuleInput) SetAccurateRules(v []*AccurateRuleForCreateBotAnalyseProtectRuleInput) *AccurateGroupForCreateBotAnalyseProtectRuleInput {
 	s.AccurateRules = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *AccurateGroupForCreateBotAnalyseProtectRuleInput) SetId(v int32) *AccurateGroupForCreateBotAnalyseProtectRuleInput {
+	s.Id = &v
 	return s
 }
 
@@ -230,15 +246,14 @@ func (s *AccurateRuleForCreateBotAnalyseProtectRuleInput) SetValueString(v strin
 type CreateBotAnalyseProtectRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccurateGroup []*AccurateGroupForCreateBotAnalyseProtectRuleInput `type:"list" json:",omitempty"`
+	AccurateGroup *AccurateGroupForCreateBotAnalyseProtectRuleInput `type:"structure" json:",omitempty"`
 
-	ActionAfterVerification *int32 `type:"int32" json:",omitempty"`
+	AccurateGroupPriority *int32 `type:"int32" json:",omitempty"`
 
 	// ActionType is a required field
 	ActionType *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	// EffectTime is a required field
-	EffectTime *int32 `type:"int32" json:",omitempty" required:"true"`
+	EffectTime *int32 `type:"int32" json:",omitempty"`
 
 	// Enable is a required field
 	Enable *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -264,10 +279,9 @@ type CreateBotAnalyseProtectRuleInput struct {
 	// RulePriority is a required field
 	RulePriority *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	SingleProportion *float64 `type:"float" json:",omitempty"`
+	SingleProportion *float32 `type:"float" json:",omitempty"`
 
-	// SingleThreshold is a required field
-	SingleThreshold *int32 `type:"int32" json:",omitempty" required:"true"`
+	SingleThreshold *int32 `type:"int32" json:",omitempty"`
 
 	// StatisticalDuration is a required field
 	StatisticalDuration *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -292,9 +306,6 @@ func (s *CreateBotAnalyseProtectRuleInput) Validate() error {
 	if s.ActionType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ActionType"))
 	}
-	if s.EffectTime == nil {
-		invalidParams.Add(request.NewErrParamRequired("EffectTime"))
-	}
 	if s.Enable == nil {
 		invalidParams.Add(request.NewErrParamRequired("Enable"))
 	}
@@ -313,9 +324,6 @@ func (s *CreateBotAnalyseProtectRuleInput) Validate() error {
 	if s.RulePriority == nil {
 		invalidParams.Add(request.NewErrParamRequired("RulePriority"))
 	}
-	if s.SingleThreshold == nil {
-		invalidParams.Add(request.NewErrParamRequired("SingleThreshold"))
-	}
 	if s.StatisticalDuration == nil {
 		invalidParams.Add(request.NewErrParamRequired("StatisticalDuration"))
 	}
@@ -330,14 +338,14 @@ func (s *CreateBotAnalyseProtectRuleInput) Validate() error {
 }
 
 // SetAccurateGroup sets the AccurateGroup field's value.
-func (s *CreateBotAnalyseProtectRuleInput) SetAccurateGroup(v []*AccurateGroupForCreateBotAnalyseProtectRuleInput) *CreateBotAnalyseProtectRuleInput {
+func (s *CreateBotAnalyseProtectRuleInput) SetAccurateGroup(v *AccurateGroupForCreateBotAnalyseProtectRuleInput) *CreateBotAnalyseProtectRuleInput {
 	s.AccurateGroup = v
 	return s
 }
 
-// SetActionAfterVerification sets the ActionAfterVerification field's value.
-func (s *CreateBotAnalyseProtectRuleInput) SetActionAfterVerification(v int32) *CreateBotAnalyseProtectRuleInput {
-	s.ActionAfterVerification = &v
+// SetAccurateGroupPriority sets the AccurateGroupPriority field's value.
+func (s *CreateBotAnalyseProtectRuleInput) SetAccurateGroupPriority(v int32) *CreateBotAnalyseProtectRuleInput {
+	s.AccurateGroupPriority = &v
 	return s
 }
 
@@ -408,7 +416,7 @@ func (s *CreateBotAnalyseProtectRuleInput) SetRulePriority(v int32) *CreateBotAn
 }
 
 // SetSingleProportion sets the SingleProportion field's value.
-func (s *CreateBotAnalyseProtectRuleInput) SetSingleProportion(v float64) *CreateBotAnalyseProtectRuleInput {
+func (s *CreateBotAnalyseProtectRuleInput) SetSingleProportion(v float32) *CreateBotAnalyseProtectRuleInput {
 	s.SingleProportion = &v
 	return s
 }

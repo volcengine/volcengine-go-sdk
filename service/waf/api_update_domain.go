@@ -240,8 +240,6 @@ type CloudAccessConfigForUpdateDomainInput struct {
 
 	ListenerID *string `type:"string" json:",omitempty"`
 
-	LostAssociationFromALB *int32 `type:"int32" json:",omitempty"`
-
 	Port *string `type:"string" json:",omitempty"`
 
 	Protocol *string `type:"string" json:",omitempty"`
@@ -284,12 +282,6 @@ func (s *CloudAccessConfigForUpdateDomainInput) SetInstanceName(v string) *Cloud
 // SetListenerID sets the ListenerID field's value.
 func (s *CloudAccessConfigForUpdateDomainInput) SetListenerID(v string) *CloudAccessConfigForUpdateDomainInput {
 	s.ListenerID = &v
-	return s
-}
-
-// SetLostAssociationFromALB sets the LostAssociationFromALB field's value.
-func (s *CloudAccessConfigForUpdateDomainInput) SetLostAssociationFromALB(v int32) *CloudAccessConfigForUpdateDomainInput {
-	s.LostAssociationFromALB = &v
 	return s
 }
 

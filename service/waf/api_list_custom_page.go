@@ -401,11 +401,24 @@ func (s *DataForListCustomPageOutput) SetUrl(v string) *DataForListCustomPageOut
 	return s
 }
 
+type ErrorForListCustomPageOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErrorForListCustomPageOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorForListCustomPageOutput) GoString() string {
+	return s.String()
+}
+
 type ListCustomPageInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Host is a required field
-	Host *string `type:"string" json:",omitempty" required:"true"`
+	Host *string `type:"string" json:",omitempty"`
 
 	Page *int32 `type:"int32" json:",omitempty"`
 
@@ -424,19 +437,6 @@ func (s ListCustomPageInput) String() string {
 // GoString returns the string representation
 func (s ListCustomPageInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListCustomPageInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListCustomPageInput"}
-	if s.Host == nil {
-		invalidParams.Add(request.NewErrParamRequired("Host"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetHost sets the Host field's value.
@@ -478,9 +478,15 @@ type ListCustomPageOutput struct {
 
 	Data []*DataForListCustomPageOutput `type:"list" json:",omitempty"`
 
+	PageInfo *PageInfoForListCustomPageOutput `type:"structure" json:",omitempty"`
+
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	ResponseMetadata *ResponseMetadataForListCustomPageOutput `type:"structure" json:",omitempty"`
+
+	Result []*ResultForListCustomPageOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -505,6 +511,12 @@ func (s *ListCustomPageOutput) SetData(v []*DataForListCustomPageOutput) *ListCu
 	return s
 }
 
+// SetPageInfo sets the PageInfo field's value.
+func (s *ListCustomPageOutput) SetPageInfo(v *PageInfoForListCustomPageOutput) *ListCustomPageOutput {
+	s.PageInfo = v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *ListCustomPageOutput) SetPageNumber(v int32) *ListCustomPageOutput {
 	s.PageNumber = &v
@@ -514,5 +526,283 @@ func (s *ListCustomPageOutput) SetPageNumber(v int32) *ListCustomPageOutput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListCustomPageOutput) SetPageSize(v int32) *ListCustomPageOutput {
 	s.PageSize = &v
+	return s
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *ListCustomPageOutput) SetResponseMetadata(v *ResponseMetadataForListCustomPageOutput) *ListCustomPageOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
+// SetResult sets the Result field's value.
+func (s *ListCustomPageOutput) SetResult(v []*ResultForListCustomPageOutput) *ListCustomPageOutput {
+	s.Result = v
+	return s
+}
+
+type PageInfoForListCustomPageOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PageInfoForListCustomPageOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PageInfoForListCustomPageOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *PageInfoForListCustomPageOutput) SetCount(v int32) *PageInfoForListCustomPageOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *PageInfoForListCustomPageOutput) SetCurrentPage(v int32) *PageInfoForListCustomPageOutput {
+	s.CurrentPage = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *PageInfoForListCustomPageOutput) SetPageSize(v int32) *PageInfoForListCustomPageOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *PageInfoForListCustomPageOutput) SetTotalCount(v int32) *PageInfoForListCustomPageOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type ResponseMetadataForListCustomPageOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Error *ErrorForListCustomPageOutput `type:"structure" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	RequestId *string `type:"string" json:",omitempty"`
+
+	Service *string `type:"string" json:",omitempty"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResponseMetadataForListCustomPageOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResponseMetadataForListCustomPageOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *ResponseMetadataForListCustomPageOutput) SetAction(v string) *ResponseMetadataForListCustomPageOutput {
+	s.Action = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *ResponseMetadataForListCustomPageOutput) SetError(v *ErrorForListCustomPageOutput) *ResponseMetadataForListCustomPageOutput {
+	s.Error = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ResponseMetadataForListCustomPageOutput) SetRegion(v string) *ResponseMetadataForListCustomPageOutput {
+	s.Region = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ResponseMetadataForListCustomPageOutput) SetRequestId(v string) *ResponseMetadataForListCustomPageOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetService sets the Service field's value.
+func (s *ResponseMetadataForListCustomPageOutput) SetService(v string) *ResponseMetadataForListCustomPageOutput {
+	s.Service = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *ResponseMetadataForListCustomPageOutput) SetVersion(v string) *ResponseMetadataForListCustomPageOutput {
+	s.Version = &v
+	return s
+}
+
+type ResultForListCustomPageOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Accurate *AccurateForListCustomPageOutput `type:"structure" json:",omitempty"`
+
+	Advanced *int32 `type:"int32" json:",omitempty"`
+
+	Body *string `type:"string" json:",omitempty"`
+
+	ClientIp *string `type:"string" json:",omitempty"`
+
+	Code *string `type:"string" json:",omitempty"`
+
+	ContentType *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	Enable *int32 `type:"int32" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
+
+	Id *int32 `type:"int32" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	PageMode *int32 `type:"int32" json:",omitempty"`
+
+	Policy *int32 `type:"int32" json:",omitempty"`
+
+	PrefixSwitch *int32 `type:"int32" json:",omitempty"`
+
+	RedirectUrl *string `type:"string" json:",omitempty"`
+
+	RuleTag *string `type:"string" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResultForListCustomPageOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResultForListCustomPageOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccurate sets the Accurate field's value.
+func (s *ResultForListCustomPageOutput) SetAccurate(v *AccurateForListCustomPageOutput) *ResultForListCustomPageOutput {
+	s.Accurate = v
+	return s
+}
+
+// SetAdvanced sets the Advanced field's value.
+func (s *ResultForListCustomPageOutput) SetAdvanced(v int32) *ResultForListCustomPageOutput {
+	s.Advanced = &v
+	return s
+}
+
+// SetBody sets the Body field's value.
+func (s *ResultForListCustomPageOutput) SetBody(v string) *ResultForListCustomPageOutput {
+	s.Body = &v
+	return s
+}
+
+// SetClientIp sets the ClientIp field's value.
+func (s *ResultForListCustomPageOutput) SetClientIp(v string) *ResultForListCustomPageOutput {
+	s.ClientIp = &v
+	return s
+}
+
+// SetCode sets the Code field's value.
+func (s *ResultForListCustomPageOutput) SetCode(v string) *ResultForListCustomPageOutput {
+	s.Code = &v
+	return s
+}
+
+// SetContentType sets the ContentType field's value.
+func (s *ResultForListCustomPageOutput) SetContentType(v string) *ResultForListCustomPageOutput {
+	s.ContentType = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ResultForListCustomPageOutput) SetDescription(v string) *ResultForListCustomPageOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEnable sets the Enable field's value.
+func (s *ResultForListCustomPageOutput) SetEnable(v int32) *ResultForListCustomPageOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *ResultForListCustomPageOutput) SetHost(v string) *ResultForListCustomPageOutput {
+	s.Host = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ResultForListCustomPageOutput) SetId(v int32) *ResultForListCustomPageOutput {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ResultForListCustomPageOutput) SetName(v string) *ResultForListCustomPageOutput {
+	s.Name = &v
+	return s
+}
+
+// SetPageMode sets the PageMode field's value.
+func (s *ResultForListCustomPageOutput) SetPageMode(v int32) *ResultForListCustomPageOutput {
+	s.PageMode = &v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *ResultForListCustomPageOutput) SetPolicy(v int32) *ResultForListCustomPageOutput {
+	s.Policy = &v
+	return s
+}
+
+// SetPrefixSwitch sets the PrefixSwitch field's value.
+func (s *ResultForListCustomPageOutput) SetPrefixSwitch(v int32) *ResultForListCustomPageOutput {
+	s.PrefixSwitch = &v
+	return s
+}
+
+// SetRedirectUrl sets the RedirectUrl field's value.
+func (s *ResultForListCustomPageOutput) SetRedirectUrl(v string) *ResultForListCustomPageOutput {
+	s.RedirectUrl = &v
+	return s
+}
+
+// SetRuleTag sets the RuleTag field's value.
+func (s *ResultForListCustomPageOutput) SetRuleTag(v string) *ResultForListCustomPageOutput {
+	s.RuleTag = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ResultForListCustomPageOutput) SetUpdateTime(v string) *ResultForListCustomPageOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *ResultForListCustomPageOutput) SetUrl(v string) *ResultForListCustomPageOutput {
+	s.Url = &v
 	return s
 }

@@ -146,7 +146,11 @@ func (c *WAF) CreateAclRuleWithContext(ctx volcengine.Context, input *CreateAclR
 type AccurateGroupForCreateAclRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccurateGroupPriority *int32 `type:"int32" json:",omitempty"`
+
 	AccurateRules []*AccurateRuleForCreateAclRuleInput `type:"list" json:",omitempty"`
+
+	Id *int32 `type:"int32" json:",omitempty"`
 
 	Logic *int32 `type:"int32" json:",omitempty"`
 }
@@ -161,9 +165,21 @@ func (s AccurateGroupForCreateAclRuleInput) GoString() string {
 	return s.String()
 }
 
+// SetAccurateGroupPriority sets the AccurateGroupPriority field's value.
+func (s *AccurateGroupForCreateAclRuleInput) SetAccurateGroupPriority(v int32) *AccurateGroupForCreateAclRuleInput {
+	s.AccurateGroupPriority = &v
+	return s
+}
+
 // SetAccurateRules sets the AccurateRules field's value.
 func (s *AccurateGroupForCreateAclRuleInput) SetAccurateRules(v []*AccurateRuleForCreateAclRuleInput) *AccurateGroupForCreateAclRuleInput {
 	s.AccurateRules = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *AccurateGroupForCreateAclRuleInput) SetId(v int32) *AccurateGroupForCreateAclRuleInput {
+	s.Id = &v
 	return s
 }
 
@@ -233,9 +249,9 @@ type CreateAclRuleInput struct {
 	AccurateGroup *AccurateGroupForCreateAclRuleInput `type:"structure" json:",omitempty"`
 
 	// AclType is a required field
-	AclType *string `type:"string" json:",omitempty" required:"true"`
+	AclType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfAclTypeForCreateAclRuleInput"`
 
-	Action *string `type:"string" json:",omitempty"`
+	Action *string `type:"string" json:",omitempty" enum:"EnumOfActionForCreateAclRuleInput"`
 
 	Advanced *int32 `type:"int32" json:",omitempty"`
 
@@ -264,6 +280,8 @@ type CreateAclRuleInput struct {
 
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
+
+	PermitFeature []*string `type:"list" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -399,6 +417,12 @@ func (s *CreateAclRuleInput) SetName(v string) *CreateAclRuleInput {
 	return s
 }
 
+// SetPermitFeature sets the PermitFeature field's value.
+func (s *CreateAclRuleInput) SetPermitFeature(v []*string) *CreateAclRuleInput {
+	s.PermitFeature = v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateAclRuleInput) SetProjectName(v string) *CreateAclRuleInput {
 	s.ProjectName = &v
@@ -417,6 +441,12 @@ type CreateAclRuleOutput struct {
 	Metadata *response.ResponseMetadata
 
 	Id *int32 `type:"int32" json:",omitempty"`
+
+	PageInfo *PageInfoForCreateAclRuleOutput `type:"structure" json:",omitempty"`
+
+	ResponseMetadata *ResponseMetadataForCreateAclRuleOutput `type:"structure" json:",omitempty"`
+
+	Result *ResultForCreateAclRuleOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -434,3 +464,234 @@ func (s *CreateAclRuleOutput) SetId(v int32) *CreateAclRuleOutput {
 	s.Id = &v
 	return s
 }
+
+// SetPageInfo sets the PageInfo field's value.
+func (s *CreateAclRuleOutput) SetPageInfo(v *PageInfoForCreateAclRuleOutput) *CreateAclRuleOutput {
+	s.PageInfo = v
+	return s
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *CreateAclRuleOutput) SetResponseMetadata(v *ResponseMetadataForCreateAclRuleOutput) *CreateAclRuleOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
+// SetResult sets the Result field's value.
+func (s *CreateAclRuleOutput) SetResult(v *ResultForCreateAclRuleOutput) *CreateAclRuleOutput {
+	s.Result = v
+	return s
+}
+
+type ErrorForCreateAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErrorForCreateAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorForCreateAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+type PageInfoForCreateAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PageInfoForCreateAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PageInfoForCreateAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *PageInfoForCreateAclRuleOutput) SetCount(v int32) *PageInfoForCreateAclRuleOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *PageInfoForCreateAclRuleOutput) SetCurrentPage(v int32) *PageInfoForCreateAclRuleOutput {
+	s.CurrentPage = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *PageInfoForCreateAclRuleOutput) SetPageSize(v int32) *PageInfoForCreateAclRuleOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *PageInfoForCreateAclRuleOutput) SetTotalCount(v int32) *PageInfoForCreateAclRuleOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type ResponseMetadataForCreateAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Error *ErrorForCreateAclRuleOutput `type:"structure" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	RequestId *string `type:"string" json:",omitempty"`
+
+	Service *string `type:"string" json:",omitempty"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResponseMetadataForCreateAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResponseMetadataForCreateAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *ResponseMetadataForCreateAclRuleOutput) SetAction(v string) *ResponseMetadataForCreateAclRuleOutput {
+	s.Action = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *ResponseMetadataForCreateAclRuleOutput) SetError(v *ErrorForCreateAclRuleOutput) *ResponseMetadataForCreateAclRuleOutput {
+	s.Error = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ResponseMetadataForCreateAclRuleOutput) SetRegion(v string) *ResponseMetadataForCreateAclRuleOutput {
+	s.Region = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ResponseMetadataForCreateAclRuleOutput) SetRequestId(v string) *ResponseMetadataForCreateAclRuleOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetService sets the Service field's value.
+func (s *ResponseMetadataForCreateAclRuleOutput) SetService(v string) *ResponseMetadataForCreateAclRuleOutput {
+	s.Service = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *ResponseMetadataForCreateAclRuleOutput) SetVersion(v string) *ResponseMetadataForCreateAclRuleOutput {
+	s.Version = &v
+	return s
+}
+
+type ResultForCreateAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Id *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResultForCreateAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResultForCreateAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *ResultForCreateAclRuleOutput) SetId(v int32) *ResultForCreateAclRuleOutput {
+	s.Id = &v
+	return s
+}
+
+const (
+	// EnumOfAclTypeForCreateAclRuleInputAllow is a EnumOfAclTypeForCreateAclRuleInput enum value
+	EnumOfAclTypeForCreateAclRuleInputAllow = "Allow"
+
+	// EnumOfAclTypeForCreateAclRuleInputBlock is a EnumOfAclTypeForCreateAclRuleInput enum value
+	EnumOfAclTypeForCreateAclRuleInputBlock = "Block"
+)
+
+const (
+	// EnumOfActionForCreateAclRuleInputBlock is a EnumOfActionForCreateAclRuleInput enum value
+	EnumOfActionForCreateAclRuleInputBlock = "block"
+
+	// EnumOfActionForCreateAclRuleInputObserve is a EnumOfActionForCreateAclRuleInput enum value
+	EnumOfActionForCreateAclRuleInputObserve = "observe"
+)
+
+const (
+	// EnumOfPermitFeatureListForCreateAclRuleInputAllowlist is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputAllowlist = "allowlist"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputBlocklist is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputBlocklist = "blocklist"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputGeoBlack is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputGeoBlack = "geo_black"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputApiRoute is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputApiRoute = "api_route"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputApiSchema is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputApiSchema = "api_schema"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputApiSensitive is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputApiSensitive = "api_sensitive"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputBotDytoken is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputBotDytoken = "bot_dytoken"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputBotFrequency is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputBotFrequency = "bot_frequency"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputBotRepeat is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputBotRepeat = "bot_repeat"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputBotSequence is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputBotSequence = "bot_sequence"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputUserUaBot is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputUserUaBot = "user_ua_bot"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputBotUaSystem is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputBotUaSystem = "bot_ua_system"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputHttpflood is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputHttpflood = "httpflood"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputVulnSignature is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputVulnSignature = "vuln_signature"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputScanFreqvuln is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputScanFreqvuln = "scan_freqvuln"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputScanDirenum is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputScanDirenum = "scan_direnum"
+
+	// EnumOfPermitFeatureListForCreateAclRuleInputBotSessionProtection is a EnumOfPermitFeatureListForCreateAclRuleInput enum value
+	EnumOfPermitFeatureListForCreateAclRuleInputBotSessionProtection = "bot_session_protection"
+)

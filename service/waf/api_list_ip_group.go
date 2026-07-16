@@ -151,7 +151,7 @@ type ListIpGroupInput struct {
 	// IpGroupId is a required field
 	IpGroupId *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	ListAll *string `type:"string" json:",omitempty"`
+	ListAll *bool `type:"boolean" json:",omitempty"`
 
 	// Page is a required field
 	Page *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -204,7 +204,7 @@ func (s *ListIpGroupInput) SetIpGroupId(v int32) *ListIpGroupInput {
 }
 
 // SetListAll sets the ListAll field's value.
-func (s *ListIpGroupInput) SetListAll(v string) *ListIpGroupInput {
+func (s *ListIpGroupInput) SetListAll(v bool) *ListIpGroupInput {
 	s.ListAll = &v
 	return s
 }
