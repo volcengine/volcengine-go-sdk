@@ -199,6 +199,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	"dramart":                     {Service: "dramart", IsGlobal: true},
 	"partner":                     {Service: "partner", IsGlobal: true},
 	"clawsentry":                  {Service: "clawsentry", IsGlobal: false},
+	"efs":                         {Service: "efs", IsGlobal: false},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {

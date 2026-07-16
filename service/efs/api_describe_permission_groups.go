@@ -432,9 +432,6 @@ func (s *PermissionGroupForDescribePermissionGroupsOutput) SetUpdateTime(v strin
 }
 
 const (
-	// EnumOfStatusForDescribePermissionGroupsOutputUnknown is a EnumOfStatusForDescribePermissionGroupsOutput enum value
-	EnumOfStatusForDescribePermissionGroupsOutputUnknown = "Unknown"
-
 	// EnumOfStatusForDescribePermissionGroupsOutputCreating is a EnumOfStatusForDescribePermissionGroupsOutput enum value
 	EnumOfStatusForDescribePermissionGroupsOutputCreating = "Creating"
 
