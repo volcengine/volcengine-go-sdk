@@ -158,7 +158,7 @@ type CreateBasicAcceleratorInput struct {
 
 	ChargeType *string `type:"string" json:",omitempty"`
 
-	Duration *string `type:"string" json:",omitempty"`
+	Duration *int32 `type:"int32" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -220,7 +220,7 @@ func (s *CreateBasicAcceleratorInput) SetChargeType(v string) *CreateBasicAccele
 }
 
 // SetDuration sets the Duration field's value.
-func (s *CreateBasicAcceleratorInput) SetDuration(v string) *CreateBasicAcceleratorInput {
+func (s *CreateBasicAcceleratorInput) SetDuration(v int32) *CreateBasicAcceleratorInput {
 	s.Duration = &v
 	return s
 }

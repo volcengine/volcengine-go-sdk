@@ -148,6 +148,8 @@ type DeleteAcceleratorInput struct {
 
 	// AcceleratorId is a required field
 	AcceleratorId *string `type:"string" json:",omitempty" required:"true"`
+
+	DeleteIPSets *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -176,6 +178,12 @@ func (s *DeleteAcceleratorInput) Validate() error {
 // SetAcceleratorId sets the AcceleratorId field's value.
 func (s *DeleteAcceleratorInput) SetAcceleratorId(v string) *DeleteAcceleratorInput {
 	s.AcceleratorId = &v
+	return s
+}
+
+// SetDeleteIPSets sets the DeleteIPSets field's value.
+func (s *DeleteAcceleratorInput) SetDeleteIPSets(v bool) *DeleteAcceleratorInput {
+	s.DeleteIPSets = &v
 	return s
 }
 

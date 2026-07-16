@@ -151,6 +151,8 @@ type RenewBasicAcceleratorInput struct {
 
 	// Duration is a required field
 	Duration *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	RenewType *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -188,6 +190,12 @@ func (s *RenewBasicAcceleratorInput) SetAcceleratorId(v string) *RenewBasicAccel
 // SetDuration sets the Duration field's value.
 func (s *RenewBasicAcceleratorInput) SetDuration(v int32) *RenewBasicAcceleratorInput {
 	s.Duration = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *RenewBasicAcceleratorInput) SetRenewType(v int32) *RenewBasicAcceleratorInput {
+	s.RenewType = &v
 	return s
 }
 

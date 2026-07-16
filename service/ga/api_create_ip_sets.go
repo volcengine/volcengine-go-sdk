@@ -208,13 +208,9 @@ type IPSetForCreateIPSetsInput struct {
 
 	AccelerateRegion *string `type:"string" json:",omitempty"`
 
-	AcceleratorId *string `type:"string" json:",omitempty"`
-
-	IPSetId *string `type:"string" json:",omitempty"`
-
 	IPVersion *string `type:"string" json:",omitempty"`
 
-	State *string `type:"string" json:",omitempty"`
+	IspType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -233,26 +229,14 @@ func (s *IPSetForCreateIPSetsInput) SetAccelerateRegion(v string) *IPSetForCreat
 	return s
 }
 
-// SetAcceleratorId sets the AcceleratorId field's value.
-func (s *IPSetForCreateIPSetsInput) SetAcceleratorId(v string) *IPSetForCreateIPSetsInput {
-	s.AcceleratorId = &v
-	return s
-}
-
-// SetIPSetId sets the IPSetId field's value.
-func (s *IPSetForCreateIPSetsInput) SetIPSetId(v string) *IPSetForCreateIPSetsInput {
-	s.IPSetId = &v
-	return s
-}
-
 // SetIPVersion sets the IPVersion field's value.
 func (s *IPSetForCreateIPSetsInput) SetIPVersion(v string) *IPSetForCreateIPSetsInput {
 	s.IPVersion = &v
 	return s
 }
 
-// SetState sets the State field's value.
-func (s *IPSetForCreateIPSetsInput) SetState(v string) *IPSetForCreateIPSetsInput {
-	s.State = &v
+// SetIspType sets the IspType field's value.
+func (s *IPSetForCreateIPSetsInput) SetIspType(v string) *IPSetForCreateIPSetsInput {
+	s.IspType = &v
 	return s
 }
