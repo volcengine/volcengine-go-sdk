@@ -204,15 +204,15 @@ type QueryFlowOverviewLbOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BackSourceCountPeak *float64 `type:"float" json:",omitempty"`
+	BackSourceCountPeak *float32 `type:"float" json:",omitempty"`
 
-	BackSourceQPSPeak *float64 `type:"float" json:",omitempty"`
+	BackSourceQPSPeak *float32 `type:"float" json:",omitempty"`
 
-	ReqBandwidthPeak *float64 `type:"float" json:",omitempty"`
+	ReqBandwidthPeak *float32 `type:"float" json:",omitempty"`
 
-	ReqCountPeak *float64 `type:"float" json:",omitempty"`
+	ReqCountPeak *float32 `type:"float" json:",omitempty"`
 
-	ReqQPSPeak *float64 `type:"float" json:",omitempty"`
+	ReqQPSPeak *float32 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -226,31 +226,31 @@ func (s QueryFlowOverviewLbOutput) GoString() string {
 }
 
 // SetBackSourceCountPeak sets the BackSourceCountPeak field's value.
-func (s *QueryFlowOverviewLbOutput) SetBackSourceCountPeak(v float64) *QueryFlowOverviewLbOutput {
+func (s *QueryFlowOverviewLbOutput) SetBackSourceCountPeak(v float32) *QueryFlowOverviewLbOutput {
 	s.BackSourceCountPeak = &v
 	return s
 }
 
 // SetBackSourceQPSPeak sets the BackSourceQPSPeak field's value.
-func (s *QueryFlowOverviewLbOutput) SetBackSourceQPSPeak(v float64) *QueryFlowOverviewLbOutput {
+func (s *QueryFlowOverviewLbOutput) SetBackSourceQPSPeak(v float32) *QueryFlowOverviewLbOutput {
 	s.BackSourceQPSPeak = &v
 	return s
 }
 
 // SetReqBandwidthPeak sets the ReqBandwidthPeak field's value.
-func (s *QueryFlowOverviewLbOutput) SetReqBandwidthPeak(v float64) *QueryFlowOverviewLbOutput {
+func (s *QueryFlowOverviewLbOutput) SetReqBandwidthPeak(v float32) *QueryFlowOverviewLbOutput {
 	s.ReqBandwidthPeak = &v
 	return s
 }
 
 // SetReqCountPeak sets the ReqCountPeak field's value.
-func (s *QueryFlowOverviewLbOutput) SetReqCountPeak(v float64) *QueryFlowOverviewLbOutput {
+func (s *QueryFlowOverviewLbOutput) SetReqCountPeak(v float32) *QueryFlowOverviewLbOutput {
 	s.ReqCountPeak = &v
 	return s
 }
 
 // SetReqQPSPeak sets the ReqQPSPeak field's value.
-func (s *QueryFlowOverviewLbOutput) SetReqQPSPeak(v float64) *QueryFlowOverviewLbOutput {
+func (s *QueryFlowOverviewLbOutput) SetReqQPSPeak(v float32) *QueryFlowOverviewLbOutput {
 	s.ReqQPSPeak = &v
 	return s
 }

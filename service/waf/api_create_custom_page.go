@@ -239,15 +239,14 @@ type CreateCustomPageInput struct {
 	// ClientIp is a required field
 	ClientIp *string `type:"string" json:",omitempty" required:"true"`
 
-	// Code is a required field
-	Code *int32 `type:"int32" json:",omitempty" required:"true"`
+	Code *string `type:"string" json:",omitempty"`
 
 	ContentType *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string" json:",omitempty"`
+	// Description is a required field
+	Description *string `type:"string" json:",omitempty" required:"true"`
 
-	// Enable is a required field
-	Enable *int32 `type:"int32" json:",omitempty" required:"true"`
+	Enable *int32 `type:"int32" json:",omitempty"`
 
 	// Host is a required field
 	Host *string `type:"string" json:",omitempty" required:"true"`
@@ -260,6 +259,8 @@ type CreateCustomPageInput struct {
 
 	// Policy is a required field
 	Policy *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	PrefixSwitch *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -285,11 +286,8 @@ func (s *CreateCustomPageInput) Validate() error {
 	if s.ClientIp == nil {
 		invalidParams.Add(request.NewErrParamRequired("ClientIp"))
 	}
-	if s.Code == nil {
-		invalidParams.Add(request.NewErrParamRequired("Code"))
-	}
-	if s.Enable == nil {
-		invalidParams.Add(request.NewErrParamRequired("Enable"))
+	if s.Description == nil {
+		invalidParams.Add(request.NewErrParamRequired("Description"))
 	}
 	if s.Host == nil {
 		invalidParams.Add(request.NewErrParamRequired("Host"))
@@ -338,7 +336,7 @@ func (s *CreateCustomPageInput) SetClientIp(v string) *CreateCustomPageInput {
 }
 
 // SetCode sets the Code field's value.
-func (s *CreateCustomPageInput) SetCode(v int32) *CreateCustomPageInput {
+func (s *CreateCustomPageInput) SetCode(v string) *CreateCustomPageInput {
 	s.Code = &v
 	return s
 }
@@ -385,6 +383,12 @@ func (s *CreateCustomPageInput) SetPolicy(v int32) *CreateCustomPageInput {
 	return s
 }
 
+// SetPrefixSwitch sets the PrefixSwitch field's value.
+func (s *CreateCustomPageInput) SetPrefixSwitch(v int32) *CreateCustomPageInput {
+	s.PrefixSwitch = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateCustomPageInput) SetProjectName(v string) *CreateCustomPageInput {
 	s.ProjectName = &v
@@ -409,6 +413,10 @@ type CreateCustomPageOutput struct {
 	Metadata *response.ResponseMetadata
 
 	Id *int32 `type:"int32" json:",omitempty"`
+
+	ResponseMetadata *ResponseMetadataForCreateCustomPageOutput `type:"structure" json:",omitempty"`
+
+	Result *ResultForCreateCustomPageOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -423,6 +431,116 @@ func (s CreateCustomPageOutput) GoString() string {
 
 // SetId sets the Id field's value.
 func (s *CreateCustomPageOutput) SetId(v int32) *CreateCustomPageOutput {
+	s.Id = &v
+	return s
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *CreateCustomPageOutput) SetResponseMetadata(v *ResponseMetadataForCreateCustomPageOutput) *CreateCustomPageOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
+// SetResult sets the Result field's value.
+func (s *CreateCustomPageOutput) SetResult(v *ResultForCreateCustomPageOutput) *CreateCustomPageOutput {
+	s.Result = v
+	return s
+}
+
+type ErrorForCreateCustomPageOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErrorForCreateCustomPageOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorForCreateCustomPageOutput) GoString() string {
+	return s.String()
+}
+
+type ResponseMetadataForCreateCustomPageOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Error *ErrorForCreateCustomPageOutput `type:"structure" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	RequestId *string `type:"string" json:",omitempty"`
+
+	Service *string `type:"string" json:",omitempty"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResponseMetadataForCreateCustomPageOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResponseMetadataForCreateCustomPageOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *ResponseMetadataForCreateCustomPageOutput) SetAction(v string) *ResponseMetadataForCreateCustomPageOutput {
+	s.Action = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *ResponseMetadataForCreateCustomPageOutput) SetError(v *ErrorForCreateCustomPageOutput) *ResponseMetadataForCreateCustomPageOutput {
+	s.Error = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ResponseMetadataForCreateCustomPageOutput) SetRegion(v string) *ResponseMetadataForCreateCustomPageOutput {
+	s.Region = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ResponseMetadataForCreateCustomPageOutput) SetRequestId(v string) *ResponseMetadataForCreateCustomPageOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetService sets the Service field's value.
+func (s *ResponseMetadataForCreateCustomPageOutput) SetService(v string) *ResponseMetadataForCreateCustomPageOutput {
+	s.Service = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *ResponseMetadataForCreateCustomPageOutput) SetVersion(v string) *ResponseMetadataForCreateCustomPageOutput {
+	s.Version = &v
+	return s
+}
+
+type ResultForCreateCustomPageOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Id *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResultForCreateCustomPageOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResultForCreateCustomPageOutput) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *ResultForCreateCustomPageOutput) SetId(v int32) *ResultForCreateCustomPageOutput {
 	s.Id = &v
 	return s
 }
