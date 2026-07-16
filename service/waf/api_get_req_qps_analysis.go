@@ -200,9 +200,9 @@ type GetReqQPSAnalysisOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AverageQPS *float64 `type:"float" json:",omitempty"`
+	AverageQPS *float32 `type:"float" json:",omitempty"`
 
-	PeakQPS *float64 `type:"float" json:",omitempty"`
+	PeakQPS *float32 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,13 +216,13 @@ func (s GetReqQPSAnalysisOutput) GoString() string {
 }
 
 // SetAverageQPS sets the AverageQPS field's value.
-func (s *GetReqQPSAnalysisOutput) SetAverageQPS(v float64) *GetReqQPSAnalysisOutput {
+func (s *GetReqQPSAnalysisOutput) SetAverageQPS(v float32) *GetReqQPSAnalysisOutput {
 	s.AverageQPS = &v
 	return s
 }
 
 // SetPeakQPS sets the PeakQPS field's value.
-func (s *GetReqQPSAnalysisOutput) SetPeakQPS(v float64) *GetReqQPSAnalysisOutput {
+func (s *GetReqQPSAnalysisOutput) SetPeakQPS(v float32) *GetReqQPSAnalysisOutput {
 	s.PeakQPS = &v
 	return s
 }

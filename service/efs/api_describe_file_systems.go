@@ -738,9 +738,6 @@ func (s *TagForDescribeFileSystemsOutput) SetValue(v string) *TagForDescribeFile
 }
 
 const (
-	// EnumOfBandwidthModeForDescribeFileSystemsInputUnknown is a EnumOfBandwidthModeForDescribeFileSystemsInput enum value
-	EnumOfBandwidthModeForDescribeFileSystemsInputUnknown = "Unknown"
-
 	// EnumOfBandwidthModeForDescribeFileSystemsInputBaseline is a EnumOfBandwidthModeForDescribeFileSystemsInput enum value
 	EnumOfBandwidthModeForDescribeFileSystemsInputBaseline = "Baseline"
 
@@ -749,9 +746,6 @@ const (
 )
 
 const (
-	// EnumOfBandwidthModeForDescribeFileSystemsOutputUnknown is a EnumOfBandwidthModeForDescribeFileSystemsOutput enum value
-	EnumOfBandwidthModeForDescribeFileSystemsOutputUnknown = "Unknown"
-
 	// EnumOfBandwidthModeForDescribeFileSystemsOutputBaseline is a EnumOfBandwidthModeForDescribeFileSystemsOutput enum value
 	EnumOfBandwidthModeForDescribeFileSystemsOutputBaseline = "Baseline"
 
@@ -760,9 +754,6 @@ const (
 )
 
 const (
-	// EnumOfChargeStatusForDescribeFileSystemsOutputUnknown is a EnumOfChargeStatusForDescribeFileSystemsOutput enum value
-	EnumOfChargeStatusForDescribeFileSystemsOutputUnknown = "Unknown"
-
 	// EnumOfChargeStatusForDescribeFileSystemsOutputWaitingPaid is a EnumOfChargeStatusForDescribeFileSystemsOutput enum value
 	EnumOfChargeStatusForDescribeFileSystemsOutputWaitingPaid = "WaitingPaid"
 
@@ -808,9 +799,6 @@ const (
 )
 
 const (
-	// EnumOfInstanceTypeForDescribeFileSystemsInputUnknown is a EnumOfInstanceTypeForDescribeFileSystemsInput enum value
-	EnumOfInstanceTypeForDescribeFileSystemsInputUnknown = "Unknown"
-
 	// EnumOfInstanceTypeForDescribeFileSystemsInputBasic is a EnumOfInstanceTypeForDescribeFileSystemsInput enum value
 	EnumOfInstanceTypeForDescribeFileSystemsInputBasic = "Basic"
 
@@ -838,9 +826,6 @@ const (
 )
 
 const (
-	// EnumOfPerformanceDensityForDescribeFileSystemsInputUnknown is a EnumOfPerformanceDensityForDescribeFileSystemsInput enum value
-	EnumOfPerformanceDensityForDescribeFileSystemsInputUnknown = "Unknown"
-
 	// EnumOfPerformanceDensityForDescribeFileSystemsInputBasic50 is a EnumOfPerformanceDensityForDescribeFileSystemsInput enum value
 	EnumOfPerformanceDensityForDescribeFileSystemsInputBasic50 = "Basic_50"
 
@@ -879,9 +864,6 @@ const (
 )
 
 const (
-	// EnumOfStatusListForDescribeFileSystemsInputUnknown is a EnumOfStatusListForDescribeFileSystemsInput enum value
-	EnumOfStatusListForDescribeFileSystemsInputUnknown = "Unknown"
-
 	// EnumOfStatusListForDescribeFileSystemsInputCreating is a EnumOfStatusListForDescribeFileSystemsInput enum value
 	EnumOfStatusListForDescribeFileSystemsInputCreating = "Creating"
 

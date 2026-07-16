@@ -147,10 +147,10 @@ type DeleteBasicEndpointGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AcceleratorId is a required field
-	AcceleratorId *string `type:"string" json:"acceleratorId,omitempty" required:"true"`
+	AcceleratorId *string `type:"string" json:",omitempty" required:"true"`
 
 	// EndpointGroupId is a required field
-	EndpointGroupId *string `type:"string" json:"endpointGroupId,omitempty" required:"true"`
+	EndpointGroupId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation

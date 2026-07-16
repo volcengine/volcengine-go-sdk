@@ -200,9 +200,13 @@ type DescribeIPSetOutput struct {
 
 	AcceleratorId *string `type:"string" json:",omitempty"`
 
+	IPAddressList *IPAddressListForDescribeIPSetOutput `type:"structure" json:",omitempty"`
+
 	IPSetId *string `type:"string" json:",omitempty"`
 
 	IPVersion *string `type:"string" json:",omitempty"`
+
+	IspType *string `type:"string" json:",omitempty"`
 
 	State *string `type:"string" json:",omitempty"`
 }
@@ -229,6 +233,12 @@ func (s *DescribeIPSetOutput) SetAcceleratorId(v string) *DescribeIPSetOutput {
 	return s
 }
 
+// SetIPAddressList sets the IPAddressList field's value.
+func (s *DescribeIPSetOutput) SetIPAddressList(v *IPAddressListForDescribeIPSetOutput) *DescribeIPSetOutput {
+	s.IPAddressList = v
+	return s
+}
+
 // SetIPSetId sets the IPSetId field's value.
 func (s *DescribeIPSetOutput) SetIPSetId(v string) *DescribeIPSetOutput {
 	s.IPSetId = &v
@@ -241,8 +251,120 @@ func (s *DescribeIPSetOutput) SetIPVersion(v string) *DescribeIPSetOutput {
 	return s
 }
 
+// SetIspType sets the IspType field's value.
+func (s *DescribeIPSetOutput) SetIspType(v string) *DescribeIPSetOutput {
+	s.IspType = &v
+	return s
+}
+
 // SetState sets the State field's value.
 func (s *DescribeIPSetOutput) SetState(v string) *DescribeIPSetOutput {
 	s.State = &v
+	return s
+}
+
+type IPAddressListForDescribeIPSetOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IPV4s []*IPV4ForDescribeIPSetOutput `type:"list" json:",omitempty"`
+
+	IPV6s []*IPV6ForDescribeIPSetOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPAddressListForDescribeIPSetOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPAddressListForDescribeIPSetOutput) GoString() string {
+	return s.String()
+}
+
+// SetIPV4s sets the IPV4s field's value.
+func (s *IPAddressListForDescribeIPSetOutput) SetIPV4s(v []*IPV4ForDescribeIPSetOutput) *IPAddressListForDescribeIPSetOutput {
+	s.IPV4s = v
+	return s
+}
+
+// SetIPV6s sets the IPV6s field's value.
+func (s *IPAddressListForDescribeIPSetOutput) SetIPV6s(v []*IPV6ForDescribeIPSetOutput) *IPAddressListForDescribeIPSetOutput {
+	s.IPV6s = v
+	return s
+}
+
+type IPV4ForDescribeIPSetOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	ISP *string `type:"string" json:",omitempty"`
+
+	ISPName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPV4ForDescribeIPSetOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPV4ForDescribeIPSetOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *IPV4ForDescribeIPSetOutput) SetAddr(v string) *IPV4ForDescribeIPSetOutput {
+	s.Addr = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *IPV4ForDescribeIPSetOutput) SetISP(v string) *IPV4ForDescribeIPSetOutput {
+	s.ISP = &v
+	return s
+}
+
+// SetISPName sets the ISPName field's value.
+func (s *IPV4ForDescribeIPSetOutput) SetISPName(v string) *IPV4ForDescribeIPSetOutput {
+	s.ISPName = &v
+	return s
+}
+
+type IPV6ForDescribeIPSetOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	ISP *string `type:"string" json:",omitempty"`
+
+	ISPName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPV6ForDescribeIPSetOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPV6ForDescribeIPSetOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *IPV6ForDescribeIPSetOutput) SetAddr(v string) *IPV6ForDescribeIPSetOutput {
+	s.Addr = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *IPV6ForDescribeIPSetOutput) SetISP(v string) *IPV6ForDescribeIPSetOutput {
+	s.ISP = &v
+	return s
+}
+
+// SetISPName sets the ISPName field's value.
+func (s *IPV6ForDescribeIPSetOutput) SetISPName(v string) *IPV6ForDescribeIPSetOutput {
+	s.ISPName = &v
 	return s
 }

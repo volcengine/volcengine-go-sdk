@@ -240,9 +240,6 @@ func (s *CreatePermissionRuleOutput) SetPermissionRuleId(v string) *CreatePermis
 }
 
 const (
-	// EnumOfRwModeForCreatePermissionRuleInputUnknown is a EnumOfRwModeForCreatePermissionRuleInput enum value
-	EnumOfRwModeForCreatePermissionRuleInputUnknown = "Unknown"
-
 	// EnumOfRwModeForCreatePermissionRuleInputRw is a EnumOfRwModeForCreatePermissionRuleInput enum value
 	EnumOfRwModeForCreatePermissionRuleInputRw = "RW"
 
@@ -251,9 +248,6 @@ const (
 )
 
 const (
-	// EnumOfUserModeForCreatePermissionRuleInputUnknown is a EnumOfUserModeForCreatePermissionRuleInput enum value
-	EnumOfUserModeForCreatePermissionRuleInputUnknown = "Unknown"
-
 	// EnumOfUserModeForCreatePermissionRuleInputRootSquash is a EnumOfUserModeForCreatePermissionRuleInput enum value
 	EnumOfUserModeForCreatePermissionRuleInputRootSquash = "Root_squash"
 

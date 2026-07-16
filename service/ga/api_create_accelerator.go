@@ -146,6 +146,8 @@ func (c *GA) CreateAcceleratorWithContext(ctx volcengine.Context, input *CreateA
 type CreateAcceleratorInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccelerateType *string `type:"string" json:",omitempty"`
+
 	BillingPeriod *int32 `type:"int32" json:",omitempty"`
 
 	// BillingSpec is a required field
@@ -157,6 +159,8 @@ type CreateAcceleratorInput struct {
 	ChargeType *string `type:"string" json:",omitempty" required:"true"`
 
 	Duration *int32 `type:"int32" json:",omitempty"`
+
+	FullPortSwitch *bool `type:"boolean" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -193,6 +197,12 @@ func (s *CreateAcceleratorInput) Validate() error {
 	return nil
 }
 
+// SetAccelerateType sets the AccelerateType field's value.
+func (s *CreateAcceleratorInput) SetAccelerateType(v string) *CreateAcceleratorInput {
+	s.AccelerateType = &v
+	return s
+}
+
 // SetBillingPeriod sets the BillingPeriod field's value.
 func (s *CreateAcceleratorInput) SetBillingPeriod(v int32) *CreateAcceleratorInput {
 	s.BillingPeriod = &v
@@ -220,6 +230,12 @@ func (s *CreateAcceleratorInput) SetChargeType(v string) *CreateAcceleratorInput
 // SetDuration sets the Duration field's value.
 func (s *CreateAcceleratorInput) SetDuration(v int32) *CreateAcceleratorInput {
 	s.Duration = &v
+	return s
+}
+
+// SetFullPortSwitch sets the FullPortSwitch field's value.
+func (s *CreateAcceleratorInput) SetFullPortSwitch(v bool) *CreateAcceleratorInput {
+	s.FullPortSwitch = &v
 	return s
 }
 

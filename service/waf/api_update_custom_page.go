@@ -227,6 +227,82 @@ func (s *AccurateRuleForUpdateCustomPageInput) SetValueString(v string) *Accurat
 	return s
 }
 
+type ErrorForUpdateCustomPageOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErrorForUpdateCustomPageOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorForUpdateCustomPageOutput) GoString() string {
+	return s.String()
+}
+
+type ResponseMetadataForUpdateCustomPageOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Error *ErrorForUpdateCustomPageOutput `type:"structure" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	RequestId *string `type:"string" json:",omitempty"`
+
+	Service *string `type:"string" json:",omitempty"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResponseMetadataForUpdateCustomPageOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResponseMetadataForUpdateCustomPageOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *ResponseMetadataForUpdateCustomPageOutput) SetAction(v string) *ResponseMetadataForUpdateCustomPageOutput {
+	s.Action = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *ResponseMetadataForUpdateCustomPageOutput) SetError(v *ErrorForUpdateCustomPageOutput) *ResponseMetadataForUpdateCustomPageOutput {
+	s.Error = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ResponseMetadataForUpdateCustomPageOutput) SetRegion(v string) *ResponseMetadataForUpdateCustomPageOutput {
+	s.Region = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ResponseMetadataForUpdateCustomPageOutput) SetRequestId(v string) *ResponseMetadataForUpdateCustomPageOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetService sets the Service field's value.
+func (s *ResponseMetadataForUpdateCustomPageOutput) SetService(v string) *ResponseMetadataForUpdateCustomPageOutput {
+	s.Service = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *ResponseMetadataForUpdateCustomPageOutput) SetVersion(v string) *ResponseMetadataForUpdateCustomPageOutput {
+	s.Version = &v
+	return s
+}
+
 type UpdateCustomPageInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -239,15 +315,14 @@ type UpdateCustomPageInput struct {
 	// ClientIp is a required field
 	ClientIp *string `type:"string" json:",omitempty" required:"true"`
 
-	// Code is a required field
-	Code *int32 `type:"int32" json:",omitempty" required:"true"`
+	Code *string `type:"string" json:",omitempty"`
 
 	ContentType *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string" json:",omitempty"`
+	// Description is a required field
+	Description *string `type:"string" json:",omitempty" required:"true"`
 
-	// Enable is a required field
-	Enable *int32 `type:"int32" json:",omitempty" required:"true"`
+	Enable *int32 `type:"int32" json:",omitempty"`
 
 	GroupId *int32 `type:"int32" json:",omitempty"`
 
@@ -265,6 +340,8 @@ type UpdateCustomPageInput struct {
 
 	// Policy is a required field
 	Policy *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	PrefixSwitch *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -290,11 +367,8 @@ func (s *UpdateCustomPageInput) Validate() error {
 	if s.ClientIp == nil {
 		invalidParams.Add(request.NewErrParamRequired("ClientIp"))
 	}
-	if s.Code == nil {
-		invalidParams.Add(request.NewErrParamRequired("Code"))
-	}
-	if s.Enable == nil {
-		invalidParams.Add(request.NewErrParamRequired("Enable"))
+	if s.Description == nil {
+		invalidParams.Add(request.NewErrParamRequired("Description"))
 	}
 	if s.Host == nil {
 		invalidParams.Add(request.NewErrParamRequired("Host"))
@@ -346,7 +420,7 @@ func (s *UpdateCustomPageInput) SetClientIp(v string) *UpdateCustomPageInput {
 }
 
 // SetCode sets the Code field's value.
-func (s *UpdateCustomPageInput) SetCode(v int32) *UpdateCustomPageInput {
+func (s *UpdateCustomPageInput) SetCode(v string) *UpdateCustomPageInput {
 	s.Code = &v
 	return s
 }
@@ -405,6 +479,12 @@ func (s *UpdateCustomPageInput) SetPolicy(v int32) *UpdateCustomPageInput {
 	return s
 }
 
+// SetPrefixSwitch sets the PrefixSwitch field's value.
+func (s *UpdateCustomPageInput) SetPrefixSwitch(v int32) *UpdateCustomPageInput {
+	s.PrefixSwitch = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *UpdateCustomPageInput) SetProjectName(v string) *UpdateCustomPageInput {
 	s.ProjectName = &v
@@ -427,6 +507,8 @@ type UpdateCustomPageOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	ResponseMetadata *ResponseMetadataForUpdateCustomPageOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -437,4 +519,10 @@ func (s UpdateCustomPageOutput) String() string {
 // GoString returns the string representation
 func (s UpdateCustomPageOutput) GoString() string {
 	return s.String()
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *UpdateCustomPageOutput) SetResponseMetadata(v *ResponseMetadataForUpdateCustomPageOutput) *UpdateCustomPageOutput {
+	s.ResponseMetadata = v
+	return s
 }

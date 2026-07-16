@@ -346,9 +346,6 @@ func (s *TagForCreateFileSystemInput) SetValue(v string) *TagForCreateFileSystem
 }
 
 const (
-	// EnumOfBandwidthModeForCreateFileSystemInputUnknown is a EnumOfBandwidthModeForCreateFileSystemInput enum value
-	EnumOfBandwidthModeForCreateFileSystemInputUnknown = "Unknown"
-
 	// EnumOfBandwidthModeForCreateFileSystemInputBaseline is a EnumOfBandwidthModeForCreateFileSystemInput enum value
 	EnumOfBandwidthModeForCreateFileSystemInputBaseline = "Baseline"
 

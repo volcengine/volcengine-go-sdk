@@ -148,6 +148,8 @@ type AccurateGroupForListAclRuleOutput struct {
 
 	AccurateRules []*AccurateRuleForListAclRuleOutput `type:"list" json:",omitempty"`
 
+	Id *int32 `type:"int32" json:",omitempty"`
+
 	Logic *int32 `type:"int32" json:",omitempty"`
 }
 
@@ -164,6 +166,12 @@ func (s AccurateGroupForListAclRuleOutput) GoString() string {
 // SetAccurateRules sets the AccurateRules field's value.
 func (s *AccurateGroupForListAclRuleOutput) SetAccurateRules(v []*AccurateRuleForListAclRuleOutput) *AccurateGroupForListAclRuleOutput {
 	s.AccurateRules = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *AccurateGroupForListAclRuleOutput) SetId(v int32) *AccurateGroupForListAclRuleOutput {
+	s.Id = &v
 	return s
 }
 
@@ -225,6 +233,232 @@ func (s *AccurateRuleForListAclRuleOutput) SetProperty(v int32) *AccurateRuleFor
 func (s *AccurateRuleForListAclRuleOutput) SetValueString(v string) *AccurateRuleForListAclRuleOutput {
 	s.ValueString = &v
 	return s
+}
+
+type ConvertAccurateGroupForListAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccurateRules []*AccurateRuleForListAclRuleOutput `type:"list" json:",omitempty"`
+
+	Logic *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertAccurateGroupForListAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertAccurateGroupForListAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccurateRules sets the AccurateRules field's value.
+func (s *ConvertAccurateGroupForListAclRuleOutput) SetAccurateRules(v []*AccurateRuleForListAclRuleOutput) *ConvertAccurateGroupForListAclRuleOutput {
+	s.AccurateRules = v
+	return s
+}
+
+// SetLogic sets the Logic field's value.
+func (s *ConvertAccurateGroupForListAclRuleOutput) SetLogic(v int32) *ConvertAccurateGroupForListAclRuleOutput {
+	s.Logic = &v
+	return s
+}
+
+type ConvertRuleForListAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccurateGroup *ConvertAccurateGroupForListAclRuleOutput `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Advanced *int32 `type:"int32" json:",omitempty"`
+
+	ClientIp *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	Enable *int32 `type:"int32" json:",omitempty"`
+
+	HostAddType *int32 `type:"int32" json:",omitempty"`
+
+	HostGroupId []*int32 `type:"list" json:",omitempty"`
+
+	HostGroups []*HostGroupForListAclRuleOutput `type:"list" json:",omitempty"`
+
+	HostList []*string `type:"list" json:",omitempty"`
+
+	ID *int32 `type:"int32" json:",omitempty"`
+
+	IpAddType *int32 `type:"int32" json:",omitempty"`
+
+	IpGroupId []*int32 `type:"list" json:",omitempty"`
+
+	IpGroups []*IpGroupForListAclRuleOutput `type:"list" json:",omitempty"`
+
+	IpList []*string `type:"list" json:",omitempty"`
+
+	IpLocationCountry []*string `type:"list" json:",omitempty"`
+
+	IpLocationSubregion []*string `type:"list" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	RuleTag *string `type:"string" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertRuleForListAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertRuleForListAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccurateGroup sets the AccurateGroup field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetAccurateGroup(v *ConvertAccurateGroupForListAclRuleOutput) *ConvertRuleForListAclRuleOutput {
+	s.AccurateGroup = v
+	return s
+}
+
+// SetAction sets the Action field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetAction(v string) *ConvertRuleForListAclRuleOutput {
+	s.Action = &v
+	return s
+}
+
+// SetAdvanced sets the Advanced field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetAdvanced(v int32) *ConvertRuleForListAclRuleOutput {
+	s.Advanced = &v
+	return s
+}
+
+// SetClientIp sets the ClientIp field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetClientIp(v string) *ConvertRuleForListAclRuleOutput {
+	s.ClientIp = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetDescription(v string) *ConvertRuleForListAclRuleOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEnable sets the Enable field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetEnable(v int32) *ConvertRuleForListAclRuleOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetHostAddType sets the HostAddType field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetHostAddType(v int32) *ConvertRuleForListAclRuleOutput {
+	s.HostAddType = &v
+	return s
+}
+
+// SetHostGroupId sets the HostGroupId field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetHostGroupId(v []*int32) *ConvertRuleForListAclRuleOutput {
+	s.HostGroupId = v
+	return s
+}
+
+// SetHostGroups sets the HostGroups field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetHostGroups(v []*HostGroupForListAclRuleOutput) *ConvertRuleForListAclRuleOutput {
+	s.HostGroups = v
+	return s
+}
+
+// SetHostList sets the HostList field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetHostList(v []*string) *ConvertRuleForListAclRuleOutput {
+	s.HostList = v
+	return s
+}
+
+// SetID sets the ID field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetID(v int32) *ConvertRuleForListAclRuleOutput {
+	s.ID = &v
+	return s
+}
+
+// SetIpAddType sets the IpAddType field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetIpAddType(v int32) *ConvertRuleForListAclRuleOutput {
+	s.IpAddType = &v
+	return s
+}
+
+// SetIpGroupId sets the IpGroupId field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetIpGroupId(v []*int32) *ConvertRuleForListAclRuleOutput {
+	s.IpGroupId = v
+	return s
+}
+
+// SetIpGroups sets the IpGroups field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetIpGroups(v []*IpGroupForListAclRuleOutput) *ConvertRuleForListAclRuleOutput {
+	s.IpGroups = v
+	return s
+}
+
+// SetIpList sets the IpList field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetIpList(v []*string) *ConvertRuleForListAclRuleOutput {
+	s.IpList = v
+	return s
+}
+
+// SetIpLocationCountry sets the IpLocationCountry field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetIpLocationCountry(v []*string) *ConvertRuleForListAclRuleOutput {
+	s.IpLocationCountry = v
+	return s
+}
+
+// SetIpLocationSubregion sets the IpLocationSubregion field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetIpLocationSubregion(v []*string) *ConvertRuleForListAclRuleOutput {
+	s.IpLocationSubregion = v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetName(v string) *ConvertRuleForListAclRuleOutput {
+	s.Name = &v
+	return s
+}
+
+// SetRuleTag sets the RuleTag field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetRuleTag(v string) *ConvertRuleForListAclRuleOutput {
+	s.RuleTag = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetUpdateTime(v string) *ConvertRuleForListAclRuleOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *ConvertRuleForListAclRuleOutput) SetUrl(v string) *ConvertRuleForListAclRuleOutput {
+	s.Url = &v
+	return s
+}
+
+type ErrorForListAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErrorForListAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorForListAclRuleOutput) GoString() string {
+	return s.String()
 }
 
 type HostGroupForListAclRuleOutput struct {
@@ -291,7 +525,7 @@ type ListAclRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AclType is a required field
-	AclType *string `type:"string" json:",omitempty" required:"true"`
+	AclType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfAclTypeForListAclRuleInput"`
 
 	Action []*string `type:"list" json:",omitempty"`
 
@@ -309,7 +543,7 @@ type ListAclRuleInput struct {
 
 	RuleTag *string `type:"string" json:",omitempty"`
 
-	TimeOrderBy *string `type:"string" json:",omitempty"`
+	TimeOrderBy *string `type:"string" json:",omitempty" enum:"EnumOfTimeOrderByForListAclRuleInput"`
 }
 
 // String returns the string representation
@@ -404,9 +638,15 @@ type ListAclRuleOutput struct {
 
 	CurrentPage *int32 `type:"int32" json:",omitempty"`
 
+	PageInfo *PageInfoForListAclRuleOutput `type:"structure" json:",omitempty"`
+
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	Rules []*RuleForListAclRuleOutput `type:"list" json:",omitempty"`
+	ResponseMetadata *ResponseMetadataForListAclRuleOutput `type:"structure" json:",omitempty"`
+
+	Result *ResultForListAclRuleOutput `type:"structure" json:",omitempty"`
+
+	Rules []*ConvertRuleForListAclRuleOutput `type:"list" json:",omitempty"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
@@ -433,14 +673,32 @@ func (s *ListAclRuleOutput) SetCurrentPage(v int32) *ListAclRuleOutput {
 	return s
 }
 
+// SetPageInfo sets the PageInfo field's value.
+func (s *ListAclRuleOutput) SetPageInfo(v *PageInfoForListAclRuleOutput) *ListAclRuleOutput {
+	s.PageInfo = v
+	return s
+}
+
 // SetPageSize sets the PageSize field's value.
 func (s *ListAclRuleOutput) SetPageSize(v int32) *ListAclRuleOutput {
 	s.PageSize = &v
 	return s
 }
 
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *ListAclRuleOutput) SetResponseMetadata(v *ResponseMetadataForListAclRuleOutput) *ListAclRuleOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
+// SetResult sets the Result field's value.
+func (s *ListAclRuleOutput) SetResult(v *ResultForListAclRuleOutput) *ListAclRuleOutput {
+	s.Result = v
+	return s
+}
+
 // SetRules sets the Rules field's value.
-func (s *ListAclRuleOutput) SetRules(v []*RuleForListAclRuleOutput) *ListAclRuleOutput {
+func (s *ListAclRuleOutput) SetRules(v []*ConvertRuleForListAclRuleOutput) *ListAclRuleOutput {
 	s.Rules = v
 	return s
 }
@@ -451,12 +709,176 @@ func (s *ListAclRuleOutput) SetTotalCount(v int32) *ListAclRuleOutput {
 	return s
 }
 
+type PageInfoForListAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PageInfoForListAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PageInfoForListAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *PageInfoForListAclRuleOutput) SetCount(v int32) *PageInfoForListAclRuleOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *PageInfoForListAclRuleOutput) SetCurrentPage(v int32) *PageInfoForListAclRuleOutput {
+	s.CurrentPage = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *PageInfoForListAclRuleOutput) SetPageSize(v int32) *PageInfoForListAclRuleOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *PageInfoForListAclRuleOutput) SetTotalCount(v int32) *PageInfoForListAclRuleOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type ResponseMetadataForListAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Error *ErrorForListAclRuleOutput `type:"structure" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	RequestId *string `type:"string" json:",omitempty"`
+
+	Service *string `type:"string" json:",omitempty"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResponseMetadataForListAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResponseMetadataForListAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *ResponseMetadataForListAclRuleOutput) SetAction(v string) *ResponseMetadataForListAclRuleOutput {
+	s.Action = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *ResponseMetadataForListAclRuleOutput) SetError(v *ErrorForListAclRuleOutput) *ResponseMetadataForListAclRuleOutput {
+	s.Error = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ResponseMetadataForListAclRuleOutput) SetRegion(v string) *ResponseMetadataForListAclRuleOutput {
+	s.Region = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ResponseMetadataForListAclRuleOutput) SetRequestId(v string) *ResponseMetadataForListAclRuleOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetService sets the Service field's value.
+func (s *ResponseMetadataForListAclRuleOutput) SetService(v string) *ResponseMetadataForListAclRuleOutput {
+	s.Service = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *ResponseMetadataForListAclRuleOutput) SetVersion(v string) *ResponseMetadataForListAclRuleOutput {
+	s.Version = &v
+	return s
+}
+
+type ResultForListAclRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	Rules []*RuleForListAclRuleOutput `type:"list" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResultForListAclRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResultForListAclRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *ResultForListAclRuleOutput) SetCount(v int32) *ResultForListAclRuleOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ResultForListAclRuleOutput) SetCurrentPage(v int32) *ResultForListAclRuleOutput {
+	s.CurrentPage = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ResultForListAclRuleOutput) SetPageSize(v int32) *ResultForListAclRuleOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRules sets the Rules field's value.
+func (s *ResultForListAclRuleOutput) SetRules(v []*RuleForListAclRuleOutput) *ResultForListAclRuleOutput {
+	s.Rules = v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *ResultForListAclRuleOutput) SetTotalCount(v int32) *ResultForListAclRuleOutput {
+	s.TotalCount = &v
+	return s
+}
+
 type RuleForListAclRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AccurateGroup *AccurateGroupForListAclRuleOutput `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string" json:",omitempty"`
+	Action *string `type:"string" json:",omitempty" enum:"EnumOfActionForListAclRuleOutput"`
+
+	AddSrc *int32 `type:"int32" json:",omitempty"`
 
 	Advanced *int32 `type:"int32" json:",omitempty"`
 
@@ -465,6 +887,8 @@ type RuleForListAclRuleOutput struct {
 	Description *string `type:"string" json:",omitempty"`
 
 	Enable *int32 `type:"int32" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
 
 	HostAddType *int32 `type:"int32" json:",omitempty"`
 
@@ -489,6 +913,10 @@ type RuleForListAclRuleOutput struct {
 	IpLocationSubregion []*string `type:"list" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	PermitFeature []*string `type:"list" json:",omitempty"`
+
+	PrefixSwitch *int32 `type:"int32" json:",omitempty"`
 
 	RuleTag *string `type:"string" json:",omitempty"`
 
@@ -519,6 +947,12 @@ func (s *RuleForListAclRuleOutput) SetAction(v string) *RuleForListAclRuleOutput
 	return s
 }
 
+// SetAddSrc sets the AddSrc field's value.
+func (s *RuleForListAclRuleOutput) SetAddSrc(v int32) *RuleForListAclRuleOutput {
+	s.AddSrc = &v
+	return s
+}
+
 // SetAdvanced sets the Advanced field's value.
 func (s *RuleForListAclRuleOutput) SetAdvanced(v int32) *RuleForListAclRuleOutput {
 	s.Advanced = &v
@@ -540,6 +974,12 @@ func (s *RuleForListAclRuleOutput) SetDescription(v string) *RuleForListAclRuleO
 // SetEnable sets the Enable field's value.
 func (s *RuleForListAclRuleOutput) SetEnable(v int32) *RuleForListAclRuleOutput {
 	s.Enable = &v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *RuleForListAclRuleOutput) SetHost(v string) *RuleForListAclRuleOutput {
+	s.Host = &v
 	return s
 }
 
@@ -615,6 +1055,18 @@ func (s *RuleForListAclRuleOutput) SetName(v string) *RuleForListAclRuleOutput {
 	return s
 }
 
+// SetPermitFeature sets the PermitFeature field's value.
+func (s *RuleForListAclRuleOutput) SetPermitFeature(v []*string) *RuleForListAclRuleOutput {
+	s.PermitFeature = v
+	return s
+}
+
+// SetPrefixSwitch sets the PrefixSwitch field's value.
+func (s *RuleForListAclRuleOutput) SetPrefixSwitch(v int32) *RuleForListAclRuleOutput {
+	s.PrefixSwitch = &v
+	return s
+}
+
 // SetRuleTag sets the RuleTag field's value.
 func (s *RuleForListAclRuleOutput) SetRuleTag(v string) *RuleForListAclRuleOutput {
 	s.RuleTag = &v
@@ -632,3 +1084,88 @@ func (s *RuleForListAclRuleOutput) SetUrl(v string) *RuleForListAclRuleOutput {
 	s.Url = &v
 	return s
 }
+
+const (
+	// EnumOfAclTypeForListAclRuleInputAllow is a EnumOfAclTypeForListAclRuleInput enum value
+	EnumOfAclTypeForListAclRuleInputAllow = "Allow"
+
+	// EnumOfAclTypeForListAclRuleInputBlock is a EnumOfAclTypeForListAclRuleInput enum value
+	EnumOfAclTypeForListAclRuleInputBlock = "Block"
+)
+
+const (
+	// EnumOfActionForListAclRuleOutputBlock is a EnumOfActionForListAclRuleOutput enum value
+	EnumOfActionForListAclRuleOutputBlock = "block"
+
+	// EnumOfActionForListAclRuleOutputObserve is a EnumOfActionForListAclRuleOutput enum value
+	EnumOfActionForListAclRuleOutputObserve = "observe"
+)
+
+const (
+	// EnumOfActionListForListAclRuleInputBlock is a EnumOfActionListForListAclRuleInput enum value
+	EnumOfActionListForListAclRuleInputBlock = "block"
+
+	// EnumOfActionListForListAclRuleInputObserve is a EnumOfActionListForListAclRuleInput enum value
+	EnumOfActionListForListAclRuleInputObserve = "observe"
+)
+
+const (
+	// EnumOfPermitFeatureListForListAclRuleOutputAllowlist is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputAllowlist = "allowlist"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputBlocklist is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputBlocklist = "blocklist"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputGeoBlack is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputGeoBlack = "geo_black"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputApiRoute is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputApiRoute = "api_route"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputApiSchema is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputApiSchema = "api_schema"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputApiSensitive is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputApiSensitive = "api_sensitive"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputBotDytoken is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputBotDytoken = "bot_dytoken"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputBotFrequency is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputBotFrequency = "bot_frequency"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputBotRepeat is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputBotRepeat = "bot_repeat"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputBotSequence is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputBotSequence = "bot_sequence"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputUserUaBot is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputUserUaBot = "user_ua_bot"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputBotUaSystem is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputBotUaSystem = "bot_ua_system"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputHttpflood is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputHttpflood = "httpflood"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputVulnSignature is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputVulnSignature = "vuln_signature"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputScanFreqvuln is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputScanFreqvuln = "scan_freqvuln"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputScanDirenum is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputScanDirenum = "scan_direnum"
+
+	// EnumOfPermitFeatureListForListAclRuleOutputBotSessionProtection is a EnumOfPermitFeatureListForListAclRuleOutput enum value
+	EnumOfPermitFeatureListForListAclRuleOutputBotSessionProtection = "bot_session_protection"
+)
+
+const (
+	// EnumOfTimeOrderByForListAclRuleInputAsc is a EnumOfTimeOrderByForListAclRuleInput enum value
+	EnumOfTimeOrderByForListAclRuleInputAsc = "ASC"
+
+	// EnumOfTimeOrderByForListAclRuleInputDesc is a EnumOfTimeOrderByForListAclRuleInput enum value
+	EnumOfTimeOrderByForListAclRuleInputDesc = "DESC"
+)

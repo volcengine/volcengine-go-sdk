@@ -143,11 +143,24 @@ func (c *WAF) ListAreaBlockRuleWithContext(ctx volcengine.Context, input *ListAr
 	return out, req.Send()
 }
 
+type ErrorForListAreaBlockRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErrorForListAreaBlockRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorForListAreaBlockRuleOutput) GoString() string {
+	return s.String()
+}
+
 type ListAreaBlockRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Host is a required field
-	Host *string `type:"string" json:",omitempty" required:"true"`
+	Host *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -160,19 +173,6 @@ func (s ListAreaBlockRuleInput) String() string {
 // GoString returns the string representation
 func (s ListAreaBlockRuleInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListAreaBlockRuleInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListAreaBlockRuleInput"}
-	if s.Host == nil {
-		invalidParams.Add(request.NewErrParamRequired("Host"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetHost sets the Host field's value.
@@ -195,6 +195,12 @@ type ListAreaBlockRuleOutput struct {
 	Action *string `type:"string" json:",omitempty"`
 
 	Country []*string `type:"list" json:",omitempty"`
+
+	PageInfo *PageInfoForListAreaBlockRuleOutput `type:"structure" json:",omitempty"`
+
+	ResponseMetadata *ResponseMetadataForListAreaBlockRuleOutput `type:"structure" json:",omitempty"`
+
+	Result *ResultForListAreaBlockRuleOutput `type:"structure" json:",omitempty"`
 
 	RuleTag *string `type:"string" json:",omitempty"`
 
@@ -223,6 +229,24 @@ func (s *ListAreaBlockRuleOutput) SetCountry(v []*string) *ListAreaBlockRuleOutp
 	return s
 }
 
+// SetPageInfo sets the PageInfo field's value.
+func (s *ListAreaBlockRuleOutput) SetPageInfo(v *PageInfoForListAreaBlockRuleOutput) *ListAreaBlockRuleOutput {
+	s.PageInfo = v
+	return s
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *ListAreaBlockRuleOutput) SetResponseMetadata(v *ResponseMetadataForListAreaBlockRuleOutput) *ListAreaBlockRuleOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
+// SetResult sets the Result field's value.
+func (s *ListAreaBlockRuleOutput) SetResult(v *ResultForListAreaBlockRuleOutput) *ListAreaBlockRuleOutput {
+	s.Result = v
+	return s
+}
+
 // SetRuleTag sets the RuleTag field's value.
 func (s *ListAreaBlockRuleOutput) SetRuleTag(v string) *ListAreaBlockRuleOutput {
 	s.RuleTag = &v
@@ -234,3 +258,181 @@ func (s *ListAreaBlockRuleOutput) SetSubRegion(v []*string) *ListAreaBlockRuleOu
 	s.SubRegion = v
 	return s
 }
+
+type PageInfoForListAreaBlockRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Count *int32 `type:"int32" json:",omitempty"`
+
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PageInfoForListAreaBlockRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PageInfoForListAreaBlockRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *PageInfoForListAreaBlockRuleOutput) SetCount(v int32) *PageInfoForListAreaBlockRuleOutput {
+	s.Count = &v
+	return s
+}
+
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *PageInfoForListAreaBlockRuleOutput) SetCurrentPage(v int32) *PageInfoForListAreaBlockRuleOutput {
+	s.CurrentPage = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *PageInfoForListAreaBlockRuleOutput) SetPageSize(v int32) *PageInfoForListAreaBlockRuleOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *PageInfoForListAreaBlockRuleOutput) SetTotalCount(v int32) *PageInfoForListAreaBlockRuleOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type ResponseMetadataForListAreaBlockRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Error *ErrorForListAreaBlockRuleOutput `type:"structure" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	RequestId *string `type:"string" json:",omitempty"`
+
+	Service *string `type:"string" json:",omitempty"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResponseMetadataForListAreaBlockRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResponseMetadataForListAreaBlockRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *ResponseMetadataForListAreaBlockRuleOutput) SetAction(v string) *ResponseMetadataForListAreaBlockRuleOutput {
+	s.Action = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *ResponseMetadataForListAreaBlockRuleOutput) SetError(v *ErrorForListAreaBlockRuleOutput) *ResponseMetadataForListAreaBlockRuleOutput {
+	s.Error = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ResponseMetadataForListAreaBlockRuleOutput) SetRegion(v string) *ResponseMetadataForListAreaBlockRuleOutput {
+	s.Region = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ResponseMetadataForListAreaBlockRuleOutput) SetRequestId(v string) *ResponseMetadataForListAreaBlockRuleOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetService sets the Service field's value.
+func (s *ResponseMetadataForListAreaBlockRuleOutput) SetService(v string) *ResponseMetadataForListAreaBlockRuleOutput {
+	s.Service = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *ResponseMetadataForListAreaBlockRuleOutput) SetVersion(v string) *ResponseMetadataForListAreaBlockRuleOutput {
+	s.Version = &v
+	return s
+}
+
+type ResultForListAreaBlockRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty" enum:"EnumOfActionForListAreaBlockRuleOutput"`
+
+	Country []*string `type:"list" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
+
+	Location []*string `type:"list" json:",omitempty"`
+
+	RuleTag *string `type:"string" json:",omitempty"`
+
+	SubRegion []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResultForListAreaBlockRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResultForListAreaBlockRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *ResultForListAreaBlockRuleOutput) SetAction(v string) *ResultForListAreaBlockRuleOutput {
+	s.Action = &v
+	return s
+}
+
+// SetCountry sets the Country field's value.
+func (s *ResultForListAreaBlockRuleOutput) SetCountry(v []*string) *ResultForListAreaBlockRuleOutput {
+	s.Country = v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *ResultForListAreaBlockRuleOutput) SetHost(v string) *ResultForListAreaBlockRuleOutput {
+	s.Host = &v
+	return s
+}
+
+// SetLocation sets the Location field's value.
+func (s *ResultForListAreaBlockRuleOutput) SetLocation(v []*string) *ResultForListAreaBlockRuleOutput {
+	s.Location = v
+	return s
+}
+
+// SetRuleTag sets the RuleTag field's value.
+func (s *ResultForListAreaBlockRuleOutput) SetRuleTag(v string) *ResultForListAreaBlockRuleOutput {
+	s.RuleTag = &v
+	return s
+}
+
+// SetSubRegion sets the SubRegion field's value.
+func (s *ResultForListAreaBlockRuleOutput) SetSubRegion(v []*string) *ResultForListAreaBlockRuleOutput {
+	s.SubRegion = v
+	return s
+}
+
+const (
+	// EnumOfActionForListAreaBlockRuleOutputObserve is a EnumOfActionForListAreaBlockRuleOutput enum value
+	EnumOfActionForListAreaBlockRuleOutputObserve = "observe"
+
+	// EnumOfActionForListAreaBlockRuleOutputBlock is a EnumOfActionForListAreaBlockRuleOutput enum value
+	EnumOfActionForListAreaBlockRuleOutputBlock = "block"
+)

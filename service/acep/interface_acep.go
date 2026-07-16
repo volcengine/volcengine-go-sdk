@@ -726,6 +726,14 @@ type ACEPAPI interface {
 	ResetPodWithContext(volcengine.Context, *ResetPodInput, ...request.Option) (*ResetPodOutput, error)
 	ResetPodRequest(*ResetPodInput) (*request.Request, *ResetPodOutput)
 
+	ResetPodPhoneTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResetPodPhoneTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResetPodPhoneTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResetPodPhoneTemplate(*ResetPodPhoneTemplateInput) (*ResetPodPhoneTemplateOutput, error)
+	ResetPodPhoneTemplateWithContext(volcengine.Context, *ResetPodPhoneTemplateInput, ...request.Option) (*ResetPodPhoneTemplateOutput, error)
+	ResetPodPhoneTemplateRequest(*ResetPodPhoneTemplateInput) (*request.Request, *ResetPodPhoneTemplateOutput)
+
 	RestoreDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestoreDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RestoreDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

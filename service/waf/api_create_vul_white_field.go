@@ -146,17 +146,18 @@ func (c *WAF) CreateVulWhiteFieldWithContext(ctx volcengine.Context, input *Crea
 type CreateVulWhiteFieldInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Enable is a required field
-	Enable *int32 `type:"int32" json:",omitempty" required:"true"`
+	Enable *int32 `type:"int32" json:",omitempty"`
 
 	// FieldArea is a required field
 	FieldArea *string `type:"string" json:",omitempty" required:"true"`
 
-	// FieldList is a required field
-	FieldList *string `type:"string" json:",omitempty" required:"true"`
+	FieldList *string `type:"string" json:",omitempty"`
 
-	// Host is a required field
-	Host *string `type:"string" json:",omitempty" required:"true"`
+	Host *string `type:"string" json:",omitempty"`
+
+	HostAddType *int32 `type:"int32" json:",omitempty"`
+
+	HostList []*string `type:"list" json:",omitempty"`
 
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
@@ -177,17 +178,8 @@ func (s CreateVulWhiteFieldInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateVulWhiteFieldInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateVulWhiteFieldInput"}
-	if s.Enable == nil {
-		invalidParams.Add(request.NewErrParamRequired("Enable"))
-	}
 	if s.FieldArea == nil {
 		invalidParams.Add(request.NewErrParamRequired("FieldArea"))
-	}
-	if s.FieldList == nil {
-		invalidParams.Add(request.NewErrParamRequired("FieldList"))
-	}
-	if s.Host == nil {
-		invalidParams.Add(request.NewErrParamRequired("Host"))
 	}
 	if s.Name == nil {
 		invalidParams.Add(request.NewErrParamRequired("Name"))
@@ -220,6 +212,18 @@ func (s *CreateVulWhiteFieldInput) SetFieldList(v string) *CreateVulWhiteFieldIn
 // SetHost sets the Host field's value.
 func (s *CreateVulWhiteFieldInput) SetHost(v string) *CreateVulWhiteFieldInput {
 	s.Host = &v
+	return s
+}
+
+// SetHostAddType sets the HostAddType field's value.
+func (s *CreateVulWhiteFieldInput) SetHostAddType(v int32) *CreateVulWhiteFieldInput {
+	s.HostAddType = &v
+	return s
+}
+
+// SetHostList sets the HostList field's value.
+func (s *CreateVulWhiteFieldInput) SetHostList(v []*string) *CreateVulWhiteFieldInput {
+	s.HostList = v
 	return s
 }
 

@@ -203,6 +203,8 @@ type DeleteCustomPageOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	ResponseMetadata *ResponseMetadataForDeleteCustomPageOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -213,4 +215,86 @@ func (s DeleteCustomPageOutput) String() string {
 // GoString returns the string representation
 func (s DeleteCustomPageOutput) GoString() string {
 	return s.String()
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *DeleteCustomPageOutput) SetResponseMetadata(v *ResponseMetadataForDeleteCustomPageOutput) *DeleteCustomPageOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
+type ErrorForDeleteCustomPageOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ErrorForDeleteCustomPageOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorForDeleteCustomPageOutput) GoString() string {
+	return s.String()
+}
+
+type ResponseMetadataForDeleteCustomPageOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Error *ErrorForDeleteCustomPageOutput `type:"structure" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	RequestId *string `type:"string" json:",omitempty"`
+
+	Service *string `type:"string" json:",omitempty"`
+
+	Version *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResponseMetadataForDeleteCustomPageOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResponseMetadataForDeleteCustomPageOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *ResponseMetadataForDeleteCustomPageOutput) SetAction(v string) *ResponseMetadataForDeleteCustomPageOutput {
+	s.Action = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *ResponseMetadataForDeleteCustomPageOutput) SetError(v *ErrorForDeleteCustomPageOutput) *ResponseMetadataForDeleteCustomPageOutput {
+	s.Error = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ResponseMetadataForDeleteCustomPageOutput) SetRegion(v string) *ResponseMetadataForDeleteCustomPageOutput {
+	s.Region = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ResponseMetadataForDeleteCustomPageOutput) SetRequestId(v string) *ResponseMetadataForDeleteCustomPageOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetService sets the Service field's value.
+func (s *ResponseMetadataForDeleteCustomPageOutput) SetService(v string) *ResponseMetadataForDeleteCustomPageOutput {
+	s.Service = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *ResponseMetadataForDeleteCustomPageOutput) SetVersion(v string) *ResponseMetadataForDeleteCustomPageOutput {
+	s.Version = &v
+	return s
 }

@@ -404,8 +404,6 @@ type ListBasicAcceleratorsInput struct {
 
 	State *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForListBasicAcceleratorsInput `type:"list" json:",omitempty"`
-
 	WithBandwidthPackage *bool `type:"boolean" json:",omitempty"`
 }
 
@@ -498,12 +496,6 @@ func (s *ListBasicAcceleratorsInput) SetResourceTagFilter(v *ResourceTagFilterFo
 // SetState sets the State field's value.
 func (s *ListBasicAcceleratorsInput) SetState(v string) *ListBasicAcceleratorsInput {
 	s.State = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *ListBasicAcceleratorsInput) SetTags(v []*TagForListBasicAcceleratorsInput) *ListBasicAcceleratorsInput {
-	s.Tags = v
 	return s
 }
 
@@ -648,35 +640,5 @@ func (s *ResourceTagForListBasicAcceleratorsOutput) SetKey(v string) *ResourceTa
 // SetValue sets the Value field's value.
 func (s *ResourceTagForListBasicAcceleratorsOutput) SetValue(v string) *ResourceTagForListBasicAcceleratorsOutput {
 	s.Value = &v
-	return s
-}
-
-type TagForListBasicAcceleratorsInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Values []*string `type:"list" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TagForListBasicAcceleratorsInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagForListBasicAcceleratorsInput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagForListBasicAcceleratorsInput) SetKey(v string) *TagForListBasicAcceleratorsInput {
-	s.Key = &v
-	return s
-}
-
-// SetValues sets the Values field's value.
-func (s *TagForListBasicAcceleratorsInput) SetValues(v []*string) *TagForListBasicAcceleratorsInput {
-	s.Values = v
 	return s
 }

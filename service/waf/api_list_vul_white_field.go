@@ -154,6 +154,10 @@ type DataForListVulWhiteFieldOutput struct {
 
 	Host *string `type:"string" json:",omitempty"`
 
+	HostAddType *int32 `type:"int32" json:",omitempty"`
+
+	HostList []*string `type:"list" json:",omitempty"`
+
 	ID *int32 `type:"int32" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
@@ -197,6 +201,18 @@ func (s *DataForListVulWhiteFieldOutput) SetHost(v string) *DataForListVulWhiteF
 	return s
 }
 
+// SetHostAddType sets the HostAddType field's value.
+func (s *DataForListVulWhiteFieldOutput) SetHostAddType(v int32) *DataForListVulWhiteFieldOutput {
+	s.HostAddType = &v
+	return s
+}
+
+// SetHostList sets the HostList field's value.
+func (s *DataForListVulWhiteFieldOutput) SetHostList(v []*string) *DataForListVulWhiteFieldOutput {
+	s.HostList = v
+	return s
+}
+
 // SetID sets the ID field's value.
 func (s *DataForListVulWhiteFieldOutput) SetID(v int32) *DataForListVulWhiteFieldOutput {
 	s.ID = &v
@@ -224,13 +240,15 @@ func (s *DataForListVulWhiteFieldOutput) SetUpdateTime(v string) *DataForListVul
 type ListVulWhiteFieldInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Host is a required field
-	Host *string `type:"string" json:",omitempty" required:"true"`
+	Host *string `type:"string" json:",omitempty"`
+
+	HostAddType *int32 `type:"int32" json:",omitempty"`
+
+	HostList []*string `type:"list" json:",omitempty"`
 
 	Page *int32 `type:"int32" json:",omitempty"`
 
-	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -247,25 +265,21 @@ func (s ListVulWhiteFieldInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListVulWhiteFieldInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListVulWhiteFieldInput"}
-	if s.Host == nil {
-		invalidParams.Add(request.NewErrParamRequired("Host"))
-	}
-	if s.PageSize == nil {
-		invalidParams.Add(request.NewErrParamRequired("PageSize"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetHost sets the Host field's value.
 func (s *ListVulWhiteFieldInput) SetHost(v string) *ListVulWhiteFieldInput {
 	s.Host = &v
+	return s
+}
+
+// SetHostAddType sets the HostAddType field's value.
+func (s *ListVulWhiteFieldInput) SetHostAddType(v int32) *ListVulWhiteFieldInput {
+	s.HostAddType = &v
+	return s
+}
+
+// SetHostList sets the HostList field's value.
+func (s *ListVulWhiteFieldInput) SetHostList(v []*string) *ListVulWhiteFieldInput {
+	s.HostList = v
 	return s
 }
 

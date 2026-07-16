@@ -62,6 +62,22 @@ type WAFAPI interface {
 	AddProhibitionWhiteWithContext(volcengine.Context, *AddProhibitionWhiteInput, ...request.Option) (*AddProhibitionWhiteOutput, error)
 	AddProhibitionWhiteRequest(*AddProhibitionWhiteInput) (*request.Request, *AddProhibitionWhiteOutput)
 
+	BatchCopySystemBotConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchCopySystemBotConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchCopySystemBotConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchCopySystemBotConfig(*BatchCopySystemBotConfigInput) (*BatchCopySystemBotConfigOutput, error)
+	BatchCopySystemBotConfigWithContext(volcengine.Context, *BatchCopySystemBotConfigInput, ...request.Option) (*BatchCopySystemBotConfigOutput, error)
+	BatchCopySystemBotConfigRequest(*BatchCopySystemBotConfigInput) (*request.Request, *BatchCopySystemBotConfigOutput)
+
+	BatchDeleteGlobalBanItemsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchDeleteGlobalBanItemsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchDeleteGlobalBanItemsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchDeleteGlobalBanItems(*BatchDeleteGlobalBanItemsInput) (*BatchDeleteGlobalBanItemsOutput, error)
+	BatchDeleteGlobalBanItemsWithContext(volcengine.Context, *BatchDeleteGlobalBanItemsInput, ...request.Option) (*BatchDeleteGlobalBanItemsOutput, error)
+	BatchDeleteGlobalBanItemsRequest(*BatchDeleteGlobalBanItemsInput) (*request.Request, *BatchDeleteGlobalBanItemsOutput)
+
 	BatchUpdateTLSFieldsConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BatchUpdateTLSFieldsConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	BatchUpdateTLSFieldsConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -157,6 +173,14 @@ type WAFAPI interface {
 	CreateTamperProof(*CreateTamperProofInput) (*CreateTamperProofOutput, error)
 	CreateTamperProofWithContext(volcengine.Context, *CreateTamperProofInput, ...request.Option) (*CreateTamperProofOutput, error)
 	CreateTamperProofRequest(*CreateTamperProofInput) (*request.Request, *CreateTamperProofOutput)
+
+	CreateVolcWafServicesByBytePlusCDNCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateVolcWafServicesByBytePlusCDNCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateVolcWafServicesByBytePlusCDNCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateVolcWafServicesByBytePlusCDN(*CreateVolcWafServicesByBytePlusCDNInput) (*CreateVolcWafServicesByBytePlusCDNOutput, error)
+	CreateVolcWafServicesByBytePlusCDNWithContext(volcengine.Context, *CreateVolcWafServicesByBytePlusCDNInput, ...request.Option) (*CreateVolcWafServicesByBytePlusCDNOutput, error)
+	CreateVolcWafServicesByBytePlusCDNRequest(*CreateVolcWafServicesByBytePlusCDNInput) (*request.Request, *CreateVolcWafServicesByBytePlusCDNOutput)
 
 	CreateVulWhiteFieldCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateVulWhiteFieldCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -269,6 +293,14 @@ type WAFAPI interface {
 	DeleteTamperProof(*DeleteTamperProofInput) (*DeleteTamperProofOutput, error)
 	DeleteTamperProofWithContext(volcengine.Context, *DeleteTamperProofInput, ...request.Option) (*DeleteTamperProofOutput, error)
 	DeleteTamperProofRequest(*DeleteTamperProofInput) (*request.Request, *DeleteTamperProofOutput)
+
+	DeleteVolcWafServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteVolcWafServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteVolcWafServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteVolcWafService(*DeleteVolcWafServiceInput) (*DeleteVolcWafServiceOutput, error)
+	DeleteVolcWafServiceWithContext(volcengine.Context, *DeleteVolcWafServiceInput, ...request.Option) (*DeleteVolcWafServiceOutput, error)
+	DeleteVolcWafServiceRequest(*DeleteVolcWafServiceInput) (*request.Request, *DeleteVolcWafServiceOutput)
 
 	DeleteVulWhiteFieldCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVulWhiteFieldCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -421,6 +453,14 @@ type WAFAPI interface {
 	ListDomain(*ListDomainInput) (*ListDomainOutput, error)
 	ListDomainWithContext(volcengine.Context, *ListDomainInput, ...request.Option) (*ListDomainOutput, error)
 	ListDomainRequest(*ListDomainInput) (*request.Request, *ListDomainOutput)
+
+	ListGlobalBanItemsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListGlobalBanItemsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListGlobalBanItemsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListGlobalBanItems(*ListGlobalBanItemsInput) (*ListGlobalBanItemsOutput, error)
+	ListGlobalBanItemsWithContext(volcengine.Context, *ListGlobalBanItemsInput, ...request.Option) (*ListGlobalBanItemsOutput, error)
+	ListGlobalBanItemsRequest(*ListGlobalBanItemsInput) (*request.Request, *ListGlobalBanItemsOutput)
 
 	ListHostGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListHostGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

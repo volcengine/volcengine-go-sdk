@@ -910,6 +910,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectSerialTaskCreateWithContext(volcengine.Context, *VideoProjectSerialTaskCreateInput, ...request.Option) (*VideoProjectSerialTaskCreateOutput, error)
 	VideoProjectSerialTaskCreateRequest(*VideoProjectSerialTaskCreateInput) (*request.Request, *VideoProjectSerialTaskCreateOutput)
 
+	VideoProjectSubmitTermValidationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectSubmitTermValidationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectSubmitTermValidationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectSubmitTermValidation(*VideoProjectSubmitTermValidationInput) (*VideoProjectSubmitTermValidationOutput, error)
+	VideoProjectSubmitTermValidationWithContext(volcengine.Context, *VideoProjectSubmitTermValidationInput, ...request.Option) (*VideoProjectSubmitTermValidationOutput, error)
+	VideoProjectSubmitTermValidationRequest(*VideoProjectSubmitTermValidationInput) (*request.Request, *VideoProjectSubmitTermValidationOutput)
+
 	VideoProjectSubtitleUploadCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectSubtitleUploadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectSubtitleUploadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

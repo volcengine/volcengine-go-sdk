@@ -143,19 +143,87 @@ func (c *GA) DeleteIPSetWithContext(ctx volcengine.Context, input *DeleteIPSetIn
 	return out, req.Send()
 }
 
+type DeleteIPSetForDeleteIPSetInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccelerateRegion *string `type:"string" json:",omitempty"`
+
+	AcceleratorId *string `type:"string" json:",omitempty"`
+
+	IPAddressList *IPAddressListForDeleteIPSetInput `type:"structure" json:",omitempty"`
+
+	IPSetId *string `type:"string" json:",omitempty"`
+
+	IPVersion *string `type:"string" json:",omitempty"`
+
+	IspType *string `type:"string" json:",omitempty" enum:"EnumOfIspTypeForDeleteIPSetInput"`
+
+	State *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DeleteIPSetForDeleteIPSetInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteIPSetForDeleteIPSetInput) GoString() string {
+	return s.String()
+}
+
+// SetAccelerateRegion sets the AccelerateRegion field's value.
+func (s *DeleteIPSetForDeleteIPSetInput) SetAccelerateRegion(v string) *DeleteIPSetForDeleteIPSetInput {
+	s.AccelerateRegion = &v
+	return s
+}
+
+// SetAcceleratorId sets the AcceleratorId field's value.
+func (s *DeleteIPSetForDeleteIPSetInput) SetAcceleratorId(v string) *DeleteIPSetForDeleteIPSetInput {
+	s.AcceleratorId = &v
+	return s
+}
+
+// SetIPAddressList sets the IPAddressList field's value.
+func (s *DeleteIPSetForDeleteIPSetInput) SetIPAddressList(v *IPAddressListForDeleteIPSetInput) *DeleteIPSetForDeleteIPSetInput {
+	s.IPAddressList = v
+	return s
+}
+
+// SetIPSetId sets the IPSetId field's value.
+func (s *DeleteIPSetForDeleteIPSetInput) SetIPSetId(v string) *DeleteIPSetForDeleteIPSetInput {
+	s.IPSetId = &v
+	return s
+}
+
+// SetIPVersion sets the IPVersion field's value.
+func (s *DeleteIPSetForDeleteIPSetInput) SetIPVersion(v string) *DeleteIPSetForDeleteIPSetInput {
+	s.IPVersion = &v
+	return s
+}
+
+// SetIspType sets the IspType field's value.
+func (s *DeleteIPSetForDeleteIPSetInput) SetIspType(v string) *DeleteIPSetForDeleteIPSetInput {
+	s.IspType = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *DeleteIPSetForDeleteIPSetInput) SetState(v string) *DeleteIPSetForDeleteIPSetInput {
+	s.State = &v
+	return s
+}
+
 type DeleteIPSetInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AcceleratorId is a required field
 	AcceleratorId *string `type:"string" json:",omitempty" required:"true"`
 
-	DeleteIPSets []*string `type:"list" json:",omitempty"`
+	DeleteIPSets []*DeleteIPSetForDeleteIPSetInput `type:"list" json:",omitempty"`
 
-	// IPSetId is a required field
-	IPSetId *string `type:"string" json:",omitempty" required:"true"`
+	IPSetId *string `type:"string" json:",omitempty"`
 
-	// IPVersion is a required field
-	IPVersion *string `type:"string" json:",omitempty" required:"true"`
+	IPVersion *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,12 +242,6 @@ func (s *DeleteIPSetInput) Validate() error {
 	if s.AcceleratorId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AcceleratorId"))
 	}
-	if s.IPSetId == nil {
-		invalidParams.Add(request.NewErrParamRequired("IPSetId"))
-	}
-	if s.IPVersion == nil {
-		invalidParams.Add(request.NewErrParamRequired("IPVersion"))
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -194,7 +256,7 @@ func (s *DeleteIPSetInput) SetAcceleratorId(v string) *DeleteIPSetInput {
 }
 
 // SetDeleteIPSets sets the DeleteIPSets field's value.
-func (s *DeleteIPSetInput) SetDeleteIPSets(v []*string) *DeleteIPSetInput {
+func (s *DeleteIPSetInput) SetDeleteIPSets(v []*DeleteIPSetForDeleteIPSetInput) *DeleteIPSetInput {
 	s.DeleteIPSets = v
 	return s
 }
@@ -226,3 +288,114 @@ func (s DeleteIPSetOutput) String() string {
 func (s DeleteIPSetOutput) GoString() string {
 	return s.String()
 }
+
+type IPAddressListForDeleteIPSetInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IPV4s []*IPV4ForDeleteIPSetInput `type:"list" json:",omitempty"`
+
+	IPV6s []*IPV6ForDeleteIPSetInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPAddressListForDeleteIPSetInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPAddressListForDeleteIPSetInput) GoString() string {
+	return s.String()
+}
+
+// SetIPV4s sets the IPV4s field's value.
+func (s *IPAddressListForDeleteIPSetInput) SetIPV4s(v []*IPV4ForDeleteIPSetInput) *IPAddressListForDeleteIPSetInput {
+	s.IPV4s = v
+	return s
+}
+
+// SetIPV6s sets the IPV6s field's value.
+func (s *IPAddressListForDeleteIPSetInput) SetIPV6s(v []*IPV6ForDeleteIPSetInput) *IPAddressListForDeleteIPSetInput {
+	s.IPV6s = v
+	return s
+}
+
+type IPV4ForDeleteIPSetInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	ISP *string `type:"string" json:",omitempty"`
+
+	ISPName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPV4ForDeleteIPSetInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPV4ForDeleteIPSetInput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *IPV4ForDeleteIPSetInput) SetAddr(v string) *IPV4ForDeleteIPSetInput {
+	s.Addr = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *IPV4ForDeleteIPSetInput) SetISP(v string) *IPV4ForDeleteIPSetInput {
+	s.ISP = &v
+	return s
+}
+
+// SetISPName sets the ISPName field's value.
+func (s *IPV4ForDeleteIPSetInput) SetISPName(v string) *IPV4ForDeleteIPSetInput {
+	s.ISPName = &v
+	return s
+}
+
+type IPV6ForDeleteIPSetInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	ISP *string `type:"string" json:",omitempty"`
+
+	ISPName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPV6ForDeleteIPSetInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPV6ForDeleteIPSetInput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *IPV6ForDeleteIPSetInput) SetAddr(v string) *IPV6ForDeleteIPSetInput {
+	s.Addr = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *IPV6ForDeleteIPSetInput) SetISP(v string) *IPV6ForDeleteIPSetInput {
+	s.ISP = &v
+	return s
+}
+
+// SetISPName sets the ISPName field's value.
+func (s *IPV6ForDeleteIPSetInput) SetISPName(v string) *IPV6ForDeleteIPSetInput {
+	s.ISPName = &v
+	return s
+}
+
+const (
+	// EnumOfIspTypeForDeleteIPSetInputAdvanced is a EnumOfIspTypeForDeleteIPSetInput enum value
+	EnumOfIspTypeForDeleteIPSetInputAdvanced = "Advanced"
+)

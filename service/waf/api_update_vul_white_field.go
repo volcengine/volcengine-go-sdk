@@ -152,11 +152,13 @@ type UpdateVulWhiteFieldInput struct {
 	// FieldArea is a required field
 	FieldArea *string `type:"string" json:",omitempty" required:"true"`
 
-	// FieldList is a required field
-	FieldList *string `type:"string" json:",omitempty" required:"true"`
+	FieldList *string `type:"string" json:",omitempty"`
 
-	// Host is a required field
-	Host *string `type:"string" json:",omitempty" required:"true"`
+	Host *string `type:"string" json:",omitempty"`
+
+	HostAddType *int32 `type:"int32" json:",omitempty"`
+
+	HostList []*string `type:"list" json:",omitempty"`
 
 	// ID is a required field
 	ID *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -185,12 +187,6 @@ func (s *UpdateVulWhiteFieldInput) Validate() error {
 	}
 	if s.FieldArea == nil {
 		invalidParams.Add(request.NewErrParamRequired("FieldArea"))
-	}
-	if s.FieldList == nil {
-		invalidParams.Add(request.NewErrParamRequired("FieldList"))
-	}
-	if s.Host == nil {
-		invalidParams.Add(request.NewErrParamRequired("Host"))
 	}
 	if s.ID == nil {
 		invalidParams.Add(request.NewErrParamRequired("ID"))
@@ -226,6 +222,18 @@ func (s *UpdateVulWhiteFieldInput) SetFieldList(v string) *UpdateVulWhiteFieldIn
 // SetHost sets the Host field's value.
 func (s *UpdateVulWhiteFieldInput) SetHost(v string) *UpdateVulWhiteFieldInput {
 	s.Host = &v
+	return s
+}
+
+// SetHostAddType sets the HostAddType field's value.
+func (s *UpdateVulWhiteFieldInput) SetHostAddType(v int32) *UpdateVulWhiteFieldInput {
+	s.HostAddType = &v
+	return s
+}
+
+// SetHostList sets the HostList field's value.
+func (s *UpdateVulWhiteFieldInput) SetHostList(v []*string) *UpdateVulWhiteFieldInput {
+	s.HostList = v
 	return s
 }
 

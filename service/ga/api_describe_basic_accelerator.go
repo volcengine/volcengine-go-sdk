@@ -186,6 +186,10 @@ type DescribeBasicAcceleratorOutput struct {
 
 	AcceleratorId *string `type:"string" json:",omitempty"`
 
+	AccountID *string `type:"string" json:",omitempty"`
+
+	AccountName *string `type:"string" json:",omitempty"`
+
 	BandwidthPackageIds []*string `type:"list" json:",omitempty"`
 
 	BandwidthPackageVolume *int32 `type:"int32" json:",omitempty"`
@@ -232,6 +236,18 @@ func (s DescribeBasicAcceleratorOutput) GoString() string {
 // SetAcceleratorId sets the AcceleratorId field's value.
 func (s *DescribeBasicAcceleratorOutput) SetAcceleratorId(v string) *DescribeBasicAcceleratorOutput {
 	s.AcceleratorId = &v
+	return s
+}
+
+// SetAccountID sets the AccountID field's value.
+func (s *DescribeBasicAcceleratorOutput) SetAccountID(v string) *DescribeBasicAcceleratorOutput {
+	s.AccountID = &v
+	return s
+}
+
+// SetAccountName sets the AccountName field's value.
+func (s *DescribeBasicAcceleratorOutput) SetAccountName(v string) *DescribeBasicAcceleratorOutput {
+	s.AccountName = &v
 	return s
 }
 

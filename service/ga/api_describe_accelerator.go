@@ -184,11 +184,17 @@ type DescribeAcceleratorOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AccelerateType *string `type:"string" json:",omitempty"`
+
 	AcceleratorId *string `type:"string" json:",omitempty"`
 
 	AccountID *string `type:"string" json:",omitempty"`
 
+	Bandwidth *int64 `type:"int64" json:",omitempty"`
+
 	BandwidthPackageIds []*string `type:"list" json:",omitempty"`
+
+	BeginTime *int64 `type:"int64" json:",omitempty"`
 
 	BillingSpec *string `type:"string" json:",omitempty"`
 
@@ -200,7 +206,11 @@ type DescribeAcceleratorOutput struct {
 
 	ChargeType *string `type:"string" json:",omitempty"`
 
+	ConnectionNum *int64 `type:"int64" json:",omitempty"`
+
 	CreateTime *int32 `type:"int32" json:",omitempty"`
+
+	CreateTimeStr *string `type:"string" json:",omitempty"`
 
 	CrossDomainBandwidthIds []*string `type:"list" json:",omitempty"`
 
@@ -208,7 +218,11 @@ type DescribeAcceleratorOutput struct {
 
 	FullPortSwitch *bool `type:"boolean" json:",omitempty"`
 
+	IPSets []*IPSetForDescribeAcceleratorOutput `type:"list" json:",omitempty"`
+
 	ListenerCount *int32 `type:"int32" json:",omitempty"`
+
+	ListenerIds []*string `type:"list" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -216,11 +230,15 @@ type DescribeAcceleratorOutput struct {
 
 	RegionCount *int32 `type:"int32" json:",omitempty"`
 
+	RegionNum *int64 `type:"int64" json:",omitempty"`
+
 	RenewType *int32 `type:"int32" json:",omitempty"`
 
-	ResourceTags *ResourceTagsForDescribeAcceleratorOutput `type:"structure" json:",omitempty"`
+	ResourceTags []*ResourceTagForDescribeAcceleratorOutput `type:"list" json:",omitempty"`
 
 	State *string `type:"string" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -231,6 +249,12 @@ func (s DescribeAcceleratorOutput) String() string {
 // GoString returns the string representation
 func (s DescribeAcceleratorOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccelerateType sets the AccelerateType field's value.
+func (s *DescribeAcceleratorOutput) SetAccelerateType(v string) *DescribeAcceleratorOutput {
+	s.AccelerateType = &v
+	return s
 }
 
 // SetAcceleratorId sets the AcceleratorId field's value.
@@ -245,9 +269,21 @@ func (s *DescribeAcceleratorOutput) SetAccountID(v string) *DescribeAcceleratorO
 	return s
 }
 
+// SetBandwidth sets the Bandwidth field's value.
+func (s *DescribeAcceleratorOutput) SetBandwidth(v int64) *DescribeAcceleratorOutput {
+	s.Bandwidth = &v
+	return s
+}
+
 // SetBandwidthPackageIds sets the BandwidthPackageIds field's value.
 func (s *DescribeAcceleratorOutput) SetBandwidthPackageIds(v []*string) *DescribeAcceleratorOutput {
 	s.BandwidthPackageIds = v
+	return s
+}
+
+// SetBeginTime sets the BeginTime field's value.
+func (s *DescribeAcceleratorOutput) SetBeginTime(v int64) *DescribeAcceleratorOutput {
+	s.BeginTime = &v
 	return s
 }
 
@@ -281,9 +317,21 @@ func (s *DescribeAcceleratorOutput) SetChargeType(v string) *DescribeAccelerator
 	return s
 }
 
+// SetConnectionNum sets the ConnectionNum field's value.
+func (s *DescribeAcceleratorOutput) SetConnectionNum(v int64) *DescribeAcceleratorOutput {
+	s.ConnectionNum = &v
+	return s
+}
+
 // SetCreateTime sets the CreateTime field's value.
 func (s *DescribeAcceleratorOutput) SetCreateTime(v int32) *DescribeAcceleratorOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetCreateTimeStr sets the CreateTimeStr field's value.
+func (s *DescribeAcceleratorOutput) SetCreateTimeStr(v string) *DescribeAcceleratorOutput {
+	s.CreateTimeStr = &v
 	return s
 }
 
@@ -305,9 +353,21 @@ func (s *DescribeAcceleratorOutput) SetFullPortSwitch(v bool) *DescribeAccelerat
 	return s
 }
 
+// SetIPSets sets the IPSets field's value.
+func (s *DescribeAcceleratorOutput) SetIPSets(v []*IPSetForDescribeAcceleratorOutput) *DescribeAcceleratorOutput {
+	s.IPSets = v
+	return s
+}
+
 // SetListenerCount sets the ListenerCount field's value.
 func (s *DescribeAcceleratorOutput) SetListenerCount(v int32) *DescribeAcceleratorOutput {
 	s.ListenerCount = &v
+	return s
+}
+
+// SetListenerIds sets the ListenerIds field's value.
+func (s *DescribeAcceleratorOutput) SetListenerIds(v []*string) *DescribeAcceleratorOutput {
+	s.ListenerIds = v
 	return s
 }
 
@@ -329,6 +389,12 @@ func (s *DescribeAcceleratorOutput) SetRegionCount(v int32) *DescribeAccelerator
 	return s
 }
 
+// SetRegionNum sets the RegionNum field's value.
+func (s *DescribeAcceleratorOutput) SetRegionNum(v int64) *DescribeAcceleratorOutput {
+	s.RegionNum = &v
+	return s
+}
+
 // SetRenewType sets the RenewType field's value.
 func (s *DescribeAcceleratorOutput) SetRenewType(v int32) *DescribeAcceleratorOutput {
 	s.RenewType = &v
@@ -336,7 +402,7 @@ func (s *DescribeAcceleratorOutput) SetRenewType(v int32) *DescribeAcceleratorOu
 }
 
 // SetResourceTags sets the ResourceTags field's value.
-func (s *DescribeAcceleratorOutput) SetResourceTags(v *ResourceTagsForDescribeAcceleratorOutput) *DescribeAcceleratorOutput {
+func (s *DescribeAcceleratorOutput) SetResourceTags(v []*ResourceTagForDescribeAcceleratorOutput) *DescribeAcceleratorOutput {
 	s.ResourceTags = v
 	return s
 }
@@ -347,7 +413,189 @@ func (s *DescribeAcceleratorOutput) SetState(v string) *DescribeAcceleratorOutpu
 	return s
 }
 
-type ResourceTagsForDescribeAcceleratorOutput struct {
+// SetType sets the Type field's value.
+func (s *DescribeAcceleratorOutput) SetType(v string) *DescribeAcceleratorOutput {
+	s.Type = &v
+	return s
+}
+
+type IPAddressListForDescribeAcceleratorOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IPV4s []*IPV4ForDescribeAcceleratorOutput `type:"list" json:",omitempty"`
+
+	IPV6s []*IPV6ForDescribeAcceleratorOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPAddressListForDescribeAcceleratorOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPAddressListForDescribeAcceleratorOutput) GoString() string {
+	return s.String()
+}
+
+// SetIPV4s sets the IPV4s field's value.
+func (s *IPAddressListForDescribeAcceleratorOutput) SetIPV4s(v []*IPV4ForDescribeAcceleratorOutput) *IPAddressListForDescribeAcceleratorOutput {
+	s.IPV4s = v
+	return s
+}
+
+// SetIPV6s sets the IPV6s field's value.
+func (s *IPAddressListForDescribeAcceleratorOutput) SetIPV6s(v []*IPV6ForDescribeAcceleratorOutput) *IPAddressListForDescribeAcceleratorOutput {
+	s.IPV6s = v
+	return s
+}
+
+type IPSetForDescribeAcceleratorOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccelerateRegion *string `type:"string" json:",omitempty"`
+
+	AcceleratorId *string `type:"string" json:",omitempty"`
+
+	IPAddressList *IPAddressListForDescribeAcceleratorOutput `type:"structure" json:",omitempty"`
+
+	IPSetId *string `type:"string" json:",omitempty"`
+
+	IPVersion *string `type:"string" json:",omitempty"`
+
+	IspType *string `type:"string" json:",omitempty" enum:"EnumOfIspTypeForDescribeAcceleratorOutput"`
+
+	State *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPSetForDescribeAcceleratorOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPSetForDescribeAcceleratorOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccelerateRegion sets the AccelerateRegion field's value.
+func (s *IPSetForDescribeAcceleratorOutput) SetAccelerateRegion(v string) *IPSetForDescribeAcceleratorOutput {
+	s.AccelerateRegion = &v
+	return s
+}
+
+// SetAcceleratorId sets the AcceleratorId field's value.
+func (s *IPSetForDescribeAcceleratorOutput) SetAcceleratorId(v string) *IPSetForDescribeAcceleratorOutput {
+	s.AcceleratorId = &v
+	return s
+}
+
+// SetIPAddressList sets the IPAddressList field's value.
+func (s *IPSetForDescribeAcceleratorOutput) SetIPAddressList(v *IPAddressListForDescribeAcceleratorOutput) *IPSetForDescribeAcceleratorOutput {
+	s.IPAddressList = v
+	return s
+}
+
+// SetIPSetId sets the IPSetId field's value.
+func (s *IPSetForDescribeAcceleratorOutput) SetIPSetId(v string) *IPSetForDescribeAcceleratorOutput {
+	s.IPSetId = &v
+	return s
+}
+
+// SetIPVersion sets the IPVersion field's value.
+func (s *IPSetForDescribeAcceleratorOutput) SetIPVersion(v string) *IPSetForDescribeAcceleratorOutput {
+	s.IPVersion = &v
+	return s
+}
+
+// SetIspType sets the IspType field's value.
+func (s *IPSetForDescribeAcceleratorOutput) SetIspType(v string) *IPSetForDescribeAcceleratorOutput {
+	s.IspType = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *IPSetForDescribeAcceleratorOutput) SetState(v string) *IPSetForDescribeAcceleratorOutput {
+	s.State = &v
+	return s
+}
+
+type IPV4ForDescribeAcceleratorOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	ISP *string `type:"string" json:",omitempty"`
+
+	ISPName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPV4ForDescribeAcceleratorOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPV4ForDescribeAcceleratorOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *IPV4ForDescribeAcceleratorOutput) SetAddr(v string) *IPV4ForDescribeAcceleratorOutput {
+	s.Addr = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *IPV4ForDescribeAcceleratorOutput) SetISP(v string) *IPV4ForDescribeAcceleratorOutput {
+	s.ISP = &v
+	return s
+}
+
+// SetISPName sets the ISPName field's value.
+func (s *IPV4ForDescribeAcceleratorOutput) SetISPName(v string) *IPV4ForDescribeAcceleratorOutput {
+	s.ISPName = &v
+	return s
+}
+
+type IPV6ForDescribeAcceleratorOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Addr *string `type:"string" json:",omitempty"`
+
+	ISP *string `type:"string" json:",omitempty"`
+
+	ISPName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IPV6ForDescribeAcceleratorOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IPV6ForDescribeAcceleratorOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddr sets the Addr field's value.
+func (s *IPV6ForDescribeAcceleratorOutput) SetAddr(v string) *IPV6ForDescribeAcceleratorOutput {
+	s.Addr = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *IPV6ForDescribeAcceleratorOutput) SetISP(v string) *IPV6ForDescribeAcceleratorOutput {
+	s.ISP = &v
+	return s
+}
+
+// SetISPName sets the ISPName field's value.
+func (s *IPV6ForDescribeAcceleratorOutput) SetISPName(v string) *IPV6ForDescribeAcceleratorOutput {
+	s.ISPName = &v
+	return s
+}
+
+type ResourceTagForDescribeAcceleratorOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Key *string `type:"string" json:",omitempty"`
@@ -356,23 +604,28 @@ type ResourceTagsForDescribeAcceleratorOutput struct {
 }
 
 // String returns the string representation
-func (s ResourceTagsForDescribeAcceleratorOutput) String() string {
+func (s ResourceTagForDescribeAcceleratorOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ResourceTagsForDescribeAcceleratorOutput) GoString() string {
+func (s ResourceTagForDescribeAcceleratorOutput) GoString() string {
 	return s.String()
 }
 
 // SetKey sets the Key field's value.
-func (s *ResourceTagsForDescribeAcceleratorOutput) SetKey(v string) *ResourceTagsForDescribeAcceleratorOutput {
+func (s *ResourceTagForDescribeAcceleratorOutput) SetKey(v string) *ResourceTagForDescribeAcceleratorOutput {
 	s.Key = &v
 	return s
 }
 
 // SetValue sets the Value field's value.
-func (s *ResourceTagsForDescribeAcceleratorOutput) SetValue(v string) *ResourceTagsForDescribeAcceleratorOutput {
+func (s *ResourceTagForDescribeAcceleratorOutput) SetValue(v string) *ResourceTagForDescribeAcceleratorOutput {
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfIspTypeForDescribeAcceleratorOutputAdvanced is a EnumOfIspTypeForDescribeAcceleratorOutput enum value
+	EnumOfIspTypeForDescribeAcceleratorOutputAdvanced = "Advanced"
+)

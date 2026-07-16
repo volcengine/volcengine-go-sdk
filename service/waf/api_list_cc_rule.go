@@ -197,6 +197,232 @@ func (s *AccurateRuleForListCCRuleOutput) SetValueString(v string) *AccurateRule
 	return s
 }
 
+type ConvertGroupForListCCRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccurateRules []*AccurateRuleForListCCRuleOutput `type:"list" json:",omitempty"`
+
+	Logic *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertGroupForListCCRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertGroupForListCCRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccurateRules sets the AccurateRules field's value.
+func (s *ConvertGroupForListCCRuleOutput) SetAccurateRules(v []*AccurateRuleForListCCRuleOutput) *ConvertGroupForListCCRuleOutput {
+	s.AccurateRules = v
+	return s
+}
+
+// SetLogic sets the Logic field's value.
+func (s *ConvertGroupForListCCRuleOutput) SetLogic(v int32) *ConvertGroupForListCCRuleOutput {
+	s.Logic = &v
+	return s
+}
+
+type ConvertRuleForListCCRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccurateGroup *ConvertGroupForListCCRuleOutput `type:"structure" json:",omitempty"`
+
+	AccurateGroupPriority *int32 `type:"int32" json:",omitempty"`
+
+	CCType *int32 `type:"int32" json:",omitempty"`
+
+	CountTime *int32 `type:"int32" json:",omitempty"`
+
+	CronConfs []*CronConfForListCCRuleOutput `type:"list" json:",omitempty"`
+
+	CronEnable *int32 `type:"int32" json:",omitempty"`
+
+	EffectTime *int32 `type:"int32" json:",omitempty"`
+
+	Enable *int32 `type:"int32" json:",omitempty"`
+
+	ExemptionTime *int32 `type:"int32" json:",omitempty"`
+
+	Field *string `type:"string" json:",omitempty"`
+
+	Host *string `type:"string" json:",omitempty"`
+
+	Id *int32 `type:"int32" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	PathThreshold *int32 `type:"int32" json:",omitempty"`
+
+	RulePriority *int32 `type:"int32" json:",omitempty"`
+
+	RuleTag *string `type:"string" json:",omitempty"`
+
+	SingleThreshold *int32 `type:"int32" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertRuleForListCCRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertRuleForListCCRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccurateGroup sets the AccurateGroup field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetAccurateGroup(v *ConvertGroupForListCCRuleOutput) *ConvertRuleForListCCRuleOutput {
+	s.AccurateGroup = v
+	return s
+}
+
+// SetAccurateGroupPriority sets the AccurateGroupPriority field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetAccurateGroupPriority(v int32) *ConvertRuleForListCCRuleOutput {
+	s.AccurateGroupPriority = &v
+	return s
+}
+
+// SetCCType sets the CCType field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetCCType(v int32) *ConvertRuleForListCCRuleOutput {
+	s.CCType = &v
+	return s
+}
+
+// SetCountTime sets the CountTime field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetCountTime(v int32) *ConvertRuleForListCCRuleOutput {
+	s.CountTime = &v
+	return s
+}
+
+// SetCronConfs sets the CronConfs field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetCronConfs(v []*CronConfForListCCRuleOutput) *ConvertRuleForListCCRuleOutput {
+	s.CronConfs = v
+	return s
+}
+
+// SetCronEnable sets the CronEnable field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetCronEnable(v int32) *ConvertRuleForListCCRuleOutput {
+	s.CronEnable = &v
+	return s
+}
+
+// SetEffectTime sets the EffectTime field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetEffectTime(v int32) *ConvertRuleForListCCRuleOutput {
+	s.EffectTime = &v
+	return s
+}
+
+// SetEnable sets the Enable field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetEnable(v int32) *ConvertRuleForListCCRuleOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetExemptionTime sets the ExemptionTime field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetExemptionTime(v int32) *ConvertRuleForListCCRuleOutput {
+	s.ExemptionTime = &v
+	return s
+}
+
+// SetField sets the Field field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetField(v string) *ConvertRuleForListCCRuleOutput {
+	s.Field = &v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetHost(v string) *ConvertRuleForListCCRuleOutput {
+	s.Host = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetId(v int32) *ConvertRuleForListCCRuleOutput {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetName(v string) *ConvertRuleForListCCRuleOutput {
+	s.Name = &v
+	return s
+}
+
+// SetPathThreshold sets the PathThreshold field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetPathThreshold(v int32) *ConvertRuleForListCCRuleOutput {
+	s.PathThreshold = &v
+	return s
+}
+
+// SetRulePriority sets the RulePriority field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetRulePriority(v int32) *ConvertRuleForListCCRuleOutput {
+	s.RulePriority = &v
+	return s
+}
+
+// SetRuleTag sets the RuleTag field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetRuleTag(v string) *ConvertRuleForListCCRuleOutput {
+	s.RuleTag = &v
+	return s
+}
+
+// SetSingleThreshold sets the SingleThreshold field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetSingleThreshold(v int32) *ConvertRuleForListCCRuleOutput {
+	s.SingleThreshold = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetUpdateTime(v string) *ConvertRuleForListCCRuleOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *ConvertRuleForListCCRuleOutput) SetUrl(v string) *ConvertRuleForListCCRuleOutput {
+	s.Url = &v
+	return s
+}
+
+type ConvertRuleGroupForListCCRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Group *ConvertGroupForListCCRuleOutput `type:"structure" json:",omitempty"`
+
+	Rules []*ConvertRuleForListCCRuleOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertRuleGroupForListCCRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertRuleGroupForListCCRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetGroup sets the Group field's value.
+func (s *ConvertRuleGroupForListCCRuleOutput) SetGroup(v *ConvertGroupForListCCRuleOutput) *ConvertRuleGroupForListCCRuleOutput {
+	s.Group = v
+	return s
+}
+
+// SetRules sets the Rules field's value.
+func (s *ConvertRuleGroupForListCCRuleOutput) SetRules(v []*ConvertRuleForListCCRuleOutput) *ConvertRuleGroupForListCCRuleOutput {
+	s.Rules = v
+	return s
+}
+
 type CronConfForListCCRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -235,10 +461,68 @@ func (s *CronConfForListCCRuleOutput) SetSingleThreshold(v int32) *CronConfForLi
 	return s
 }
 
+type DataForListCCRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableCount *int32 `type:"int32" json:",omitempty"`
+
+	InsertTime *string `type:"string" json:",omitempty"`
+
+	RuleGroup []*RuleGroupForListCCRuleOutput `type:"list" json:",omitempty"`
+
+	TotalCount *int32 `type:"int32" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DataForListCCRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForListCCRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnableCount sets the EnableCount field's value.
+func (s *DataForListCCRuleOutput) SetEnableCount(v int32) *DataForListCCRuleOutput {
+	s.EnableCount = &v
+	return s
+}
+
+// SetInsertTime sets the InsertTime field's value.
+func (s *DataForListCCRuleOutput) SetInsertTime(v string) *DataForListCCRuleOutput {
+	s.InsertTime = &v
+	return s
+}
+
+// SetRuleGroup sets the RuleGroup field's value.
+func (s *DataForListCCRuleOutput) SetRuleGroup(v []*RuleGroupForListCCRuleOutput) *DataForListCCRuleOutput {
+	s.RuleGroup = v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DataForListCCRuleOutput) SetTotalCount(v int32) *DataForListCCRuleOutput {
+	s.TotalCount = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *DataForListCCRuleOutput) SetUrl(v string) *DataForListCCRuleOutput {
+	s.Url = &v
+	return s
+}
+
 type GroupForListCCRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccurateGroupPriority *int32 `type:"int32" json:",omitempty"`
+
 	AccurateRules []*AccurateRuleForListCCRuleOutput `type:"list" json:",omitempty"`
+
+	Id *int32 `type:"int32" json:",omitempty"`
 
 	Logic *int32 `type:"int32" json:",omitempty"`
 }
@@ -253,9 +537,21 @@ func (s GroupForListCCRuleOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccurateGroupPriority sets the AccurateGroupPriority field's value.
+func (s *GroupForListCCRuleOutput) SetAccurateGroupPriority(v int32) *GroupForListCCRuleOutput {
+	s.AccurateGroupPriority = &v
+	return s
+}
+
 // SetAccurateRules sets the AccurateRules field's value.
 func (s *GroupForListCCRuleOutput) SetAccurateRules(v []*AccurateRuleForListCCRuleOutput) *GroupForListCCRuleOutput {
 	s.AccurateRules = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *GroupForListCCRuleOutput) SetId(v int32) *GroupForListCCRuleOutput {
+	s.Id = &v
 	return s
 }
 
@@ -277,7 +573,7 @@ type ListCCRuleInput struct {
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	PathOrderBy *string `type:"string" json:",omitempty"`
+	PathOrderBy *string `type:"string" json:",omitempty" enum:"EnumOfPathOrderByForListCCRuleInput"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -374,13 +670,15 @@ type ListCCRuleOutput struct {
 
 	CurrentPage *int32 `type:"int32" json:",omitempty"`
 
+	Data []*DataForListCCRuleOutput `type:"list" json:",omitempty"`
+
 	EnableCount *int32 `type:"int32" json:",omitempty"`
 
 	InsertTime *string `type:"string" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	RuleGroup []*RuleGroupForListCCRuleOutput `type:"list" json:",omitempty"`
+	RuleGroup []*ConvertRuleGroupForListCCRuleOutput `type:"list" json:",omitempty"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 
@@ -409,6 +707,12 @@ func (s *ListCCRuleOutput) SetCurrentPage(v int32) *ListCCRuleOutput {
 	return s
 }
 
+// SetData sets the Data field's value.
+func (s *ListCCRuleOutput) SetData(v []*DataForListCCRuleOutput) *ListCCRuleOutput {
+	s.Data = v
+	return s
+}
+
 // SetEnableCount sets the EnableCount field's value.
 func (s *ListCCRuleOutput) SetEnableCount(v int32) *ListCCRuleOutput {
 	s.EnableCount = &v
@@ -428,7 +732,7 @@ func (s *ListCCRuleOutput) SetPageSize(v int32) *ListCCRuleOutput {
 }
 
 // SetRuleGroup sets the RuleGroup field's value.
-func (s *ListCCRuleOutput) SetRuleGroup(v []*RuleGroupForListCCRuleOutput) *ListCCRuleOutput {
+func (s *ListCCRuleOutput) SetRuleGroup(v []*ConvertRuleGroupForListCCRuleOutput) *ListCCRuleOutput {
 	s.RuleGroup = v
 	return s
 }
@@ -460,6 +764,8 @@ type RuleForListCCRuleOutput struct {
 
 	CronEnable *int32 `type:"int32" json:",omitempty"`
 
+	CustomResponsePageID *string `type:"string" json:",omitempty"`
+
 	EffectTime *int32 `type:"int32" json:",omitempty"`
 
 	Enable *int32 `type:"int32" json:",omitempty"`
@@ -485,6 +791,14 @@ type RuleForListCCRuleOutput struct {
 	UpdateTime *string `type:"string" json:",omitempty"`
 
 	Url *string `type:"string" json:",omitempty"`
+
+	WSCdnByteThreshold *int32 `type:"int32" json:",omitempty"`
+
+	WSCdnEnable *int32 `type:"int32" json:",omitempty"`
+
+	WSCdnFrameThreshold *int32 `type:"int32" json:",omitempty"`
+
+	WSCdnUnit *string `type:"string" json:",omitempty" enum:"EnumOfWSCdnUnitForListCCRuleOutput"`
 }
 
 // String returns the string representation
@@ -530,6 +844,12 @@ func (s *RuleForListCCRuleOutput) SetCronConfs(v []*CronConfForListCCRuleOutput)
 // SetCronEnable sets the CronEnable field's value.
 func (s *RuleForListCCRuleOutput) SetCronEnable(v int32) *RuleForListCCRuleOutput {
 	s.CronEnable = &v
+	return s
+}
+
+// SetCustomResponsePageID sets the CustomResponsePageID field's value.
+func (s *RuleForListCCRuleOutput) SetCustomResponsePageID(v string) *RuleForListCCRuleOutput {
+	s.CustomResponsePageID = &v
 	return s
 }
 
@@ -611,6 +931,30 @@ func (s *RuleForListCCRuleOutput) SetUrl(v string) *RuleForListCCRuleOutput {
 	return s
 }
 
+// SetWSCdnByteThreshold sets the WSCdnByteThreshold field's value.
+func (s *RuleForListCCRuleOutput) SetWSCdnByteThreshold(v int32) *RuleForListCCRuleOutput {
+	s.WSCdnByteThreshold = &v
+	return s
+}
+
+// SetWSCdnEnable sets the WSCdnEnable field's value.
+func (s *RuleForListCCRuleOutput) SetWSCdnEnable(v int32) *RuleForListCCRuleOutput {
+	s.WSCdnEnable = &v
+	return s
+}
+
+// SetWSCdnFrameThreshold sets the WSCdnFrameThreshold field's value.
+func (s *RuleForListCCRuleOutput) SetWSCdnFrameThreshold(v int32) *RuleForListCCRuleOutput {
+	s.WSCdnFrameThreshold = &v
+	return s
+}
+
+// SetWSCdnUnit sets the WSCdnUnit field's value.
+func (s *RuleForListCCRuleOutput) SetWSCdnUnit(v string) *RuleForListCCRuleOutput {
+	s.WSCdnUnit = &v
+	return s
+}
+
 type RuleGroupForListCCRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -640,3 +984,22 @@ func (s *RuleGroupForListCCRuleOutput) SetRules(v []*RuleForListCCRuleOutput) *R
 	s.Rules = v
 	return s
 }
+
+const (
+	// EnumOfPathOrderByForListCCRuleInputAsc is a EnumOfPathOrderByForListCCRuleInput enum value
+	EnumOfPathOrderByForListCCRuleInputAsc = "ASC"
+
+	// EnumOfPathOrderByForListCCRuleInputDesc is a EnumOfPathOrderByForListCCRuleInput enum value
+	EnumOfPathOrderByForListCCRuleInputDesc = "DESC"
+)
+
+const (
+	// EnumOfWSCdnUnitForListCCRuleOutputKb is a EnumOfWSCdnUnitForListCCRuleOutput enum value
+	EnumOfWSCdnUnitForListCCRuleOutputKb = "KB"
+
+	// EnumOfWSCdnUnitForListCCRuleOutputMb is a EnumOfWSCdnUnitForListCCRuleOutput enum value
+	EnumOfWSCdnUnitForListCCRuleOutputMb = "MB"
+
+	// EnumOfWSCdnUnitForListCCRuleOutputGb is a EnumOfWSCdnUnitForListCCRuleOutput enum value
+	EnumOfWSCdnUnitForListCCRuleOutputGb = "GB"
+)

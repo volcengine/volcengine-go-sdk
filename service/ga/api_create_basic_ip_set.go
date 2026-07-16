@@ -146,13 +146,15 @@ func (c *GA) CreateBasicIPSetWithContext(ctx volcengine.Context, input *CreateBa
 type CreateBasicIPSetInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccelerateNode []*string `type:"list" json:"accelerateNode,omitempty"`
+	AccelerateNode []*string `type:"list" json:",omitempty"`
 
-	AccelerateRegion *string `type:"string" json:",omitempty"`
-
-	AcceleratorId *string `type:"string" json:",omitempty"`
+	// AcceleratorId is a required field
+	AcceleratorId *string `type:"string" json:",omitempty" required:"true"`
 
 	IPVersion *string `type:"string" json:",omitempty"`
+
+	// Region is a required field
+	Region *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -165,15 +167,25 @@ func (s CreateBasicIPSetInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateBasicIPSetInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateBasicIPSetInput"}
+	if s.AcceleratorId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AcceleratorId"))
+	}
+	if s.Region == nil {
+		invalidParams.Add(request.NewErrParamRequired("Region"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetAccelerateNode sets the AccelerateNode field's value.
 func (s *CreateBasicIPSetInput) SetAccelerateNode(v []*string) *CreateBasicIPSetInput {
 	s.AccelerateNode = v
-	return s
-}
-
-// SetAccelerateRegion sets the AccelerateRegion field's value.
-func (s *CreateBasicIPSetInput) SetAccelerateRegion(v string) *CreateBasicIPSetInput {
-	s.AccelerateRegion = &v
 	return s
 }
 
@@ -186,6 +198,12 @@ func (s *CreateBasicIPSetInput) SetAcceleratorId(v string) *CreateBasicIPSetInpu
 // SetIPVersion sets the IPVersion field's value.
 func (s *CreateBasicIPSetInput) SetIPVersion(v string) *CreateBasicIPSetInput {
 	s.IPVersion = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *CreateBasicIPSetInput) SetRegion(v string) *CreateBasicIPSetInput {
+	s.Region = &v
 	return s
 }
 
