@@ -179,6 +179,8 @@ type CreateSandboxInput struct {
 
 	Sidecars []*SidecarForCreateSandboxInput `type:"list" json:",omitempty"`
 
+	SnapshotId *string `type:"string" json:",omitempty"`
+
 	Timeout *int32 `type:"int32" json:",omitempty"`
 
 	TimeoutUnit *string `type:"string" json:",omitempty"`
@@ -300,6 +302,12 @@ func (s *CreateSandboxInput) SetSessionId(v string) *CreateSandboxInput {
 // SetSidecars sets the Sidecars field's value.
 func (s *CreateSandboxInput) SetSidecars(v []*SidecarForCreateSandboxInput) *CreateSandboxInput {
 	s.Sidecars = v
+	return s
+}
+
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *CreateSandboxInput) SetSnapshotId(v string) *CreateSandboxInput {
+	s.SnapshotId = &v
 	return s
 }
 
