@@ -59,7 +59,8 @@ func newClientWithConfig(config clientConfig) *Client {
 	var arkClient *ark.ARK
 	arkConfig := volcengine.NewConfig().
 		WithCredentials(credentials.NewStaticCredentials(config.ak, config.sk, "")).
-		WithRegion(config.region)
+		WithRegion(config.region).
+		WithHTTPClient(config.HTTPClient)
 
 	sess, _ := session.NewSession(arkConfig)
 	arkClient = ark.New(sess)
