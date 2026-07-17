@@ -266,6 +266,8 @@ type ExpertInvokeAPIOutput struct {
 
 	Asr *string `type:"string" json:",omitempty"`
 
+	ConcernedDepartments []*string `type:"list" json:",omitempty"`
+
 	Content *string `type:"string" json:",omitempty"`
 
 	DomainLevel *int32 `type:"int32" json:",omitempty"`
@@ -308,6 +310,12 @@ func (s ExpertInvokeAPIOutput) GoString() string {
 // SetAsr sets the Asr field's value.
 func (s *ExpertInvokeAPIOutput) SetAsr(v string) *ExpertInvokeAPIOutput {
 	s.Asr = &v
+	return s
+}
+
+// SetConcernedDepartments sets the ConcernedDepartments field's value.
+func (s *ExpertInvokeAPIOutput) SetConcernedDepartments(v []*string) *ExpertInvokeAPIOutput {
+	s.ConcernedDepartments = v
 	return s
 }
 
