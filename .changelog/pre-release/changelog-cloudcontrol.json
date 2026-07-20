@@ -1,0 +1,16 @@
+{
+  "actions": [
+    "DeleteResource",
+    "GetTask",
+    "ListResources",
+    "CreateResource",
+    "GetResource",
+    "UpdateResource",
+    "ListTasks",
+    "DescribeResourceType",
+    "ListResourceTypes"
+  ],
+  "description": "CLOUDCONTROL: 新增 DescribeResourceType, GetResource, ListResourceTypes, ListTasks, UpdateResource, DeleteResource, GetTask, ListResources, CreateResource",
+  "modules": "service/cloudcontrol",
+  "type": "feature"
+}
