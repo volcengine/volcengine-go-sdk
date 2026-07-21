@@ -150,6 +150,8 @@ type UpdateVikingdbIndexInput struct {
 
 	CpuQuota *int32 `min:"1" type:"int32" json:",omitempty"`
 
+	DelProtection *bool `type:"boolean" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	// IndexName is a required field
@@ -201,6 +203,12 @@ func (s *UpdateVikingdbIndexInput) SetCollectionName(v string) *UpdateVikingdbIn
 // SetCpuQuota sets the CpuQuota field's value.
 func (s *UpdateVikingdbIndexInput) SetCpuQuota(v int32) *UpdateVikingdbIndexInput {
 	s.CpuQuota = &v
+	return s
+}
+
+// SetDelProtection sets the DelProtection field's value.
+func (s *UpdateVikingdbIndexInput) SetDelProtection(v bool) *UpdateVikingdbIndexInput {
+	s.DelProtection = &v
 	return s
 }
 

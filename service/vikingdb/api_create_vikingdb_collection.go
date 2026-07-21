@@ -189,6 +189,8 @@ type CreateVikingdbCollectionInput struct {
 	// CollectionName is a required field
 	CollectionName *string `min:"1" max:"128" type:"string" json:",omitempty" required:"true"`
 
+	DelProtection *bool `type:"boolean" json:",omitempty"`
+
 	Description *string `max:"65535" type:"string" json:",omitempty"`
 
 	Fields []*FieldForCreateVikingdbCollectionInput `type:"list" json:",omitempty"`
@@ -260,6 +262,12 @@ func (s *CreateVikingdbCollectionInput) Validate() error {
 // SetCollectionName sets the CollectionName field's value.
 func (s *CreateVikingdbCollectionInput) SetCollectionName(v string) *CreateVikingdbCollectionInput {
 	s.CollectionName = &v
+	return s
+}
+
+// SetDelProtection sets the DelProtection field's value.
+func (s *CreateVikingdbCollectionInput) SetDelProtection(v bool) *CreateVikingdbCollectionInput {
+	s.DelProtection = &v
 	return s
 }
 
@@ -863,6 +871,9 @@ const (
 
 	// EnumOfFieldTypeForCreateVikingdbCollectionInputGeoPoint is a EnumOfFieldTypeForCreateVikingdbCollectionInput enum value
 	EnumOfFieldTypeForCreateVikingdbCollectionInputGeoPoint = "geo_point"
+
+	// EnumOfFieldTypeForCreateVikingdbCollectionInputListgeoPoint is a EnumOfFieldTypeForCreateVikingdbCollectionInput enum value
+	EnumOfFieldTypeForCreateVikingdbCollectionInputListgeoPoint = "list<geo_point>"
 )
 
 const (

@@ -301,8 +301,6 @@ type TaskConfigForListVikingdbTaskOutput struct {
 	TosPath *string `type:"string" json:",omitempty"`
 
 	UpdateFields interface{} `type:"interface" json:",omitempty"`
-
-	UsePublic *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -378,12 +376,6 @@ func (s *TaskConfigForListVikingdbTaskOutput) SetTosPath(v string) *TaskConfigFo
 // SetUpdateFields sets the UpdateFields field's value.
 func (s *TaskConfigForListVikingdbTaskOutput) SetUpdateFields(v interface{}) *TaskConfigForListVikingdbTaskOutput {
 	s.UpdateFields = &v
-	return s
-}
-
-// SetUsePublic sets the UsePublic field's value.
-func (s *TaskConfigForListVikingdbTaskOutput) SetUsePublic(v bool) *TaskConfigForListVikingdbTaskOutput {
-	s.UsePublic = &v
 	return s
 }
 

@@ -185,6 +185,8 @@ type MemoryCollectionDeleteOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	Result *ResultForMemoryCollectionDeleteOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -194,5 +196,25 @@ func (s MemoryCollectionDeleteOutput) String() string {
 
 // GoString returns the string representation
 func (s MemoryCollectionDeleteOutput) GoString() string {
+	return s.String()
+}
+
+// SetResult sets the Result field's value.
+func (s *MemoryCollectionDeleteOutput) SetResult(v *ResultForMemoryCollectionDeleteOutput) *MemoryCollectionDeleteOutput {
+	s.Result = v
+	return s
+}
+
+type ResultForMemoryCollectionDeleteOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResultForMemoryCollectionDeleteOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResultForMemoryCollectionDeleteOutput) GoString() string {
 	return s.String()
 }
