@@ -1,5 +1,12 @@
 {
-  "description": "VEENEDGE: 修改 GetLNIInstance, ListLNIInstances",
+  "actions": [
+    "StartCloudServer",
+    "GetBandwidthUsage",
+    "GetBillingUsageDetail",
+    "GetVEENInstanceUsage",
+    "GetVEEWInstanceUsage"
+  ],
+  "description": "VEENEDGE: 新增 StartCloudServer, GetBandwidthUsage, GetBillingUsageDetail, GetVEENInstanceUsage, GetVEEWInstanceUsage",
   "modules": "service/veenedge",
-  "type": "breaking-change"
+  "type": "feature"
 }
