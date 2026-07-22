@@ -32,7 +32,7 @@ const opVideoEditorDeleteSubtitleCommon = "VideoEditorDeleteSubtitle"
 func (c *I18NOPENAPI) VideoEditorDeleteSubtitleCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opVideoEditorDeleteSubtitleCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *I18NOPENAPI) VideoEditorDeleteSubtitleCommonRequest(input *map[string]i
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opVideoEditorDeleteSubtitle = "VideoEditorDeleteSubtitle"
 func (c *I18NOPENAPI) VideoEditorDeleteSubtitleRequest(input *VideoEditorDeleteSubtitleInput) (req *request.Request, output *VideoEditorDeleteSubtitleOutput) {
 	op := &request.Operation{
 		Name:       opVideoEditorDeleteSubtitle,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *I18NOPENAPI) VideoEditorDeleteSubtitleRequest(input *VideoEditorDeleteS
 
 	output = &VideoEditorDeleteSubtitleOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,10 +144,12 @@ func (c *I18NOPENAPI) VideoEditorDeleteSubtitleWithContext(ctx volcengine.Contex
 }
 
 type VideoEditorDeleteSubtitleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	// SegmentIds is a required field
-	SegmentIds *string `locationName:"segmentIds" type:"string" required:"true"`
+	SegmentIds []*string `type:"list" json:"segmentIds,omitempty"`
+
+	// SubtaskId is a required field
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -159,8 +165,8 @@ func (s VideoEditorDeleteSubtitleInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *VideoEditorDeleteSubtitleInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "VideoEditorDeleteSubtitleInput"}
-	if s.SegmentIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("SegmentIds"))
+	if s.SubtaskId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubtaskId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -170,13 +176,19 @@ func (s *VideoEditorDeleteSubtitleInput) Validate() error {
 }
 
 // SetSegmentIds sets the SegmentIds field's value.
-func (s *VideoEditorDeleteSubtitleInput) SetSegmentIds(v string) *VideoEditorDeleteSubtitleInput {
-	s.SegmentIds = &v
+func (s *VideoEditorDeleteSubtitleInput) SetSegmentIds(v []*string) *VideoEditorDeleteSubtitleInput {
+	s.SegmentIds = v
+	return s
+}
+
+// SetSubtaskId sets the SubtaskId field's value.
+func (s *VideoEditorDeleteSubtitleInput) SetSubtaskId(v string) *VideoEditorDeleteSubtitleInput {
+	s.SubtaskId = &v
 	return s
 }
 
 type VideoEditorDeleteSubtitleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

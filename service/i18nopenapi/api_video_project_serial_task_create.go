@@ -1334,6 +1334,10 @@ type TaskInfoForVideoProjectSerialTaskCreateInput struct {
 
 	LlmVideoUnderstandingType *int32 `type:"int32" json:"llmVideoUnderstandingType,omitempty"`
 
+	MaxTargetSubtitleLines *int32 `type:"int32" json:"maxTargetSubtitleLines,omitempty"`
+
+	NeedTermValidation *bool `type:"boolean" json:"needTermValidation,omitempty"`
+
 	NeedTranslateCover *bool `type:"boolean" json:"needTranslateCover,omitempty"`
 
 	NeedTranslateDesc *bool `type:"boolean" json:"needTranslateDesc,omitempty"`
@@ -1462,6 +1466,18 @@ func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetIsDub(v bool) *TaskInf
 // SetLlmVideoUnderstandingType sets the LlmVideoUnderstandingType field's value.
 func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetLlmVideoUnderstandingType(v int32) *TaskInfoForVideoProjectSerialTaskCreateInput {
 	s.LlmVideoUnderstandingType = &v
+	return s
+}
+
+// SetMaxTargetSubtitleLines sets the MaxTargetSubtitleLines field's value.
+func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetMaxTargetSubtitleLines(v int32) *TaskInfoForVideoProjectSerialTaskCreateInput {
+	s.MaxTargetSubtitleLines = &v
+	return s
+}
+
+// SetNeedTermValidation sets the NeedTermValidation field's value.
+func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetNeedTermValidation(v bool) *TaskInfoForVideoProjectSerialTaskCreateInput {
+	s.NeedTermValidation = &v
 	return s
 }
 

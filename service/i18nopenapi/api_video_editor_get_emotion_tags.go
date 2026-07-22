@@ -313,7 +313,7 @@ type VideoEditorGetEmotionTagsInput struct {
 	_ struct{} `type:"structure"`
 
 	// SubtaskId is a required field
-	SubtaskId *int32 `locationName:"subtaskId" type:"int32" required:"true"`
+	SubtaskId *string `locationName:"subtaskId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -340,7 +340,7 @@ func (s *VideoEditorGetEmotionTagsInput) Validate() error {
 }
 
 // SetSubtaskId sets the SubtaskId field's value.
-func (s *VideoEditorGetEmotionTagsInput) SetSubtaskId(v int32) *VideoEditorGetEmotionTagsInput {
+func (s *VideoEditorGetEmotionTagsInput) SetSubtaskId(v string) *VideoEditorGetEmotionTagsInput {
 	s.SubtaskId = &v
 	return s
 }

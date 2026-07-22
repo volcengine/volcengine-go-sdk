@@ -918,6 +918,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectSubmitTermValidationWithContext(volcengine.Context, *VideoProjectSubmitTermValidationInput, ...request.Option) (*VideoProjectSubmitTermValidationOutput, error)
 	VideoProjectSubmitTermValidationRequest(*VideoProjectSubmitTermValidationInput) (*request.Request, *VideoProjectSubmitTermValidationOutput)
 
+	VideoProjectSubtitleDeleteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectSubtitleDeleteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectSubtitleDeleteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectSubtitleDelete(*VideoProjectSubtitleDeleteInput) (*VideoProjectSubtitleDeleteOutput, error)
+	VideoProjectSubtitleDeleteWithContext(volcengine.Context, *VideoProjectSubtitleDeleteInput, ...request.Option) (*VideoProjectSubtitleDeleteOutput, error)
+	VideoProjectSubtitleDeleteRequest(*VideoProjectSubtitleDeleteInput) (*request.Request, *VideoProjectSubtitleDeleteOutput)
+
 	VideoProjectSubtitleUploadCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectSubtitleUploadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectSubtitleUploadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -957,6 +965,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectTaskList(*VideoProjectTaskListInput) (*VideoProjectTaskListOutput, error)
 	VideoProjectTaskListWithContext(volcengine.Context, *VideoProjectTaskListInput, ...request.Option) (*VideoProjectTaskListOutput, error)
 	VideoProjectTaskListRequest(*VideoProjectTaskListInput) (*request.Request, *VideoProjectTaskListOutput)
+
+	VideoProjectVideoDeleteCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectVideoDeleteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectVideoDeleteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectVideoDelete(*VideoProjectVideoDeleteInput) (*VideoProjectVideoDeleteOutput, error)
+	VideoProjectVideoDeleteWithContext(volcengine.Context, *VideoProjectVideoDeleteInput, ...request.Option) (*VideoProjectVideoDeleteOutput, error)
+	VideoProjectVideoDeleteRequest(*VideoProjectVideoDeleteInput) (*request.Request, *VideoProjectVideoDeleteOutput)
 
 	VideoProjectVideoUploadCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectVideoUploadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
