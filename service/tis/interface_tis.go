@@ -126,6 +126,14 @@ type TISAPI interface {
 	GetSpeakerListWithContext(volcengine.Context, *GetSpeakerListInput, ...request.Option) (*GetSpeakerListOutput, error)
 	GetSpeakerListRequest(*GetSpeakerListInput) (*request.Request, *GetSpeakerListOutput)
 
+	MigrateDeviceWithoutApprovalCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	MigrateDeviceWithoutApprovalCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	MigrateDeviceWithoutApprovalCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	MigrateDeviceWithoutApproval(*MigrateDeviceWithoutApprovalInput) (*MigrateDeviceWithoutApprovalOutput, error)
+	MigrateDeviceWithoutApprovalWithContext(volcengine.Context, *MigrateDeviceWithoutApprovalInput, ...request.Option) (*MigrateDeviceWithoutApprovalOutput, error)
+	MigrateDeviceWithoutApprovalRequest(*MigrateDeviceWithoutApprovalInput) (*request.Request, *MigrateDeviceWithoutApprovalOutput)
+
 	PushMsgToDeviceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	PushMsgToDeviceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	PushMsgToDeviceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
