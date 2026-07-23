@@ -173,6 +173,10 @@ type ListAmortizedCostBillMonthlyInput struct {
 	PayerID []*int64 `type:"list" json:",omitempty"`
 
 	Product []*string `type:"list" json:",omitempty"`
+
+	TagKV []*TagKVForListAmortizedCostBillMonthlyInput `type:"list" json:",omitempty"`
+
+	TagKVFilterMode *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -279,6 +283,18 @@ func (s *ListAmortizedCostBillMonthlyInput) SetProduct(v []*string) *ListAmortiz
 	return s
 }
 
+// SetTagKV sets the TagKV field's value.
+func (s *ListAmortizedCostBillMonthlyInput) SetTagKV(v []*TagKVForListAmortizedCostBillMonthlyInput) *ListAmortizedCostBillMonthlyInput {
+	s.TagKV = v
+	return s
+}
+
+// SetTagKVFilterMode sets the TagKVFilterMode field's value.
+func (s *ListAmortizedCostBillMonthlyInput) SetTagKVFilterMode(v int32) *ListAmortizedCostBillMonthlyInput {
+	s.TagKVFilterMode = &v
+	return s
+}
+
 type ListAmortizedCostBillMonthlyOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -291,6 +307,8 @@ type ListAmortizedCostBillMonthlyOutput struct {
 	Offset *int32 `type:"int32" json:",omitempty"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
+
+	Warning *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -324,6 +342,12 @@ func (s *ListAmortizedCostBillMonthlyOutput) SetOffset(v int32) *ListAmortizedCo
 // SetTotal sets the Total field's value.
 func (s *ListAmortizedCostBillMonthlyOutput) SetTotal(v int32) *ListAmortizedCostBillMonthlyOutput {
 	s.Total = &v
+	return s
+}
+
+// SetWarning sets the Warning field's value.
+func (s *ListAmortizedCostBillMonthlyOutput) SetWarning(v string) *ListAmortizedCostBillMonthlyOutput {
+	s.Warning = &v
 	return s
 }
 
@@ -1722,5 +1746,35 @@ func (s *ListForListAmortizedCostBillMonthlyOutput) SetUseDurationUnit(v string)
 // SetZone sets the Zone field's value.
 func (s *ListForListAmortizedCostBillMonthlyOutput) SetZone(v string) *ListForListAmortizedCostBillMonthlyOutput {
 	s.Zone = &v
+	return s
+}
+
+type TagKVForListAmortizedCostBillMonthlyInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagKVForListAmortizedCostBillMonthlyInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagKVForListAmortizedCostBillMonthlyInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagKVForListAmortizedCostBillMonthlyInput) SetKey(v string) *TagKVForListAmortizedCostBillMonthlyInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagKVForListAmortizedCostBillMonthlyInput) SetValue(v string) *TagKVForListAmortizedCostBillMonthlyInput {
+	s.Value = &v
 	return s
 }
