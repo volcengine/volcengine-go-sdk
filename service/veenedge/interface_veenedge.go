@@ -678,6 +678,22 @@ type VEENEDGEAPI interface {
 	GenerateSSHKeyWithContext(volcengine.Context, *GenerateSSHKeyInput, ...request.Option) (*GenerateSSHKeyOutput, error)
 	GenerateSSHKeyRequest(*GenerateSSHKeyInput) (*request.Request, *GenerateSSHKeyOutput)
 
+	GetBandwidthUsageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetBandwidthUsageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetBandwidthUsageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetBandwidthUsage(*GetBandwidthUsageInput) (*GetBandwidthUsageOutput, error)
+	GetBandwidthUsageWithContext(volcengine.Context, *GetBandwidthUsageInput, ...request.Option) (*GetBandwidthUsageOutput, error)
+	GetBandwidthUsageRequest(*GetBandwidthUsageInput) (*request.Request, *GetBandwidthUsageOutput)
+
+	GetBillingUsageDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetBillingUsageDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetBillingUsageDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetBillingUsageDetail(*GetBillingUsageDetailInput) (*GetBillingUsageDetailOutput, error)
+	GetBillingUsageDetailWithContext(volcengine.Context, *GetBillingUsageDetailInput, ...request.Option) (*GetBillingUsageDetailOutput, error)
+	GetBillingUsageDetailRequest(*GetBillingUsageDetailInput) (*request.Request, *GetBillingUsageDetailOutput)
+
 	GetCloudServerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetCloudServerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetCloudServerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -773,6 +789,22 @@ type VEENEDGEAPI interface {
 	GetTenantRegionPolicy(*GetTenantRegionPolicyInput) (*GetTenantRegionPolicyOutput, error)
 	GetTenantRegionPolicyWithContext(volcengine.Context, *GetTenantRegionPolicyInput, ...request.Option) (*GetTenantRegionPolicyOutput, error)
 	GetTenantRegionPolicyRequest(*GetTenantRegionPolicyInput) (*request.Request, *GetTenantRegionPolicyOutput)
+
+	GetVEENInstanceUsageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVEENInstanceUsageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVEENInstanceUsageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVEENInstanceUsage(*GetVEENInstanceUsageInput) (*GetVEENInstanceUsageOutput, error)
+	GetVEENInstanceUsageWithContext(volcengine.Context, *GetVEENInstanceUsageInput, ...request.Option) (*GetVEENInstanceUsageOutput, error)
+	GetVEENInstanceUsageRequest(*GetVEENInstanceUsageInput) (*request.Request, *GetVEENInstanceUsageOutput)
+
+	GetVEEWInstanceUsageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVEEWInstanceUsageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVEEWInstanceUsageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVEEWInstanceUsage(*GetVEEWInstanceUsageInput) (*GetVEEWInstanceUsageOutput, error)
+	GetVEEWInstanceUsageWithContext(volcengine.Context, *GetVEEWInstanceUsageInput, ...request.Option) (*GetVEEWInstanceUsageOutput, error)
+	GetVEEWInstanceUsageRequest(*GetVEEWInstanceUsageInput) (*request.Request, *GetVEEWInstanceUsageOutput)
 
 	GetVNCUrlCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetVNCUrlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1333,6 +1365,14 @@ type VEENEDGEAPI interface {
 	SetVPCInstanceName(*SetVPCInstanceNameInput) (*SetVPCInstanceNameOutput, error)
 	SetVPCInstanceNameWithContext(volcengine.Context, *SetVPCInstanceNameInput, ...request.Option) (*SetVPCInstanceNameOutput, error)
 	SetVPCInstanceNameRequest(*SetVPCInstanceNameInput) (*request.Request, *SetVPCInstanceNameOutput)
+
+	StartCloudServerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartCloudServerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartCloudServerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartCloudServer(*StartCloudServerInput) (*StartCloudServerOutput, error)
+	StartCloudServerWithContext(volcengine.Context, *StartCloudServerInput, ...request.Option) (*StartCloudServerOutput, error)
+	StartCloudServerRequest(*StartCloudServerInput) (*request.Request, *StartCloudServerOutput)
 
 	StartInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
