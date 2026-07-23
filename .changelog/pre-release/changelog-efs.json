@@ -1,5 +1,0 @@
-{
-  "description": "EFS: 新增 DeleteDataFlowPolicy, DeleteDataFlowTask, DescribeDataFlowPolicies, StopDataFlowPolicy, UpdateDataFlowPolicy, CancelDataFlowTask, CreateDataFlowTask, DescribeDataFlowTasks, StartDataFlowPolicy, CreateDataFlowPolicy, CreateFilePreSignedUrl；修改 DescribeMountPoints, DescribePermissionGroups, CreateFileSystem, CreatePermissionRule, DescribeFileSystems, DescribePermissionRules, UpdateFileSystem, UpdatePermissionRule",
-  "modules": "service/efs",
-  "type": "breaking-change"
-}

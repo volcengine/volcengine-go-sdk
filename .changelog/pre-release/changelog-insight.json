@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "PullPost",
-    "ExpertInvokeAPI"
-  ],
-  "description": "INSIGHT: 修改 PullPost, ExpertInvokeAPI",
-  "modules": "service/insight",
-  "type": "feature"
-}

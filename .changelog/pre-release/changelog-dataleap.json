@@ -1,5 +1,0 @@
-{
-  "description": "DATALEAP: 新增 UpdateEntityTag, DeleteEmrAccountRelation, DeleteEntityTag, GetEmrAccountRelationByInternalId, ListEntityTags, ModifyEmrAccountRelation",
-  "modules": "service/dataleap",
-  "type": "feature"
-}
