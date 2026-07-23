@@ -150,6 +150,8 @@ type CreateVikingdbIndexInput struct {
 
 	CpuQuota *int32 `min:"1" type:"int32" json:",omitempty"`
 
+	DelProtection *bool `type:"boolean" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	// IndexName is a required field
@@ -203,6 +205,12 @@ func (s *CreateVikingdbIndexInput) SetCollectionName(v string) *CreateVikingdbIn
 // SetCpuQuota sets the CpuQuota field's value.
 func (s *CreateVikingdbIndexInput) SetCpuQuota(v int32) *CreateVikingdbIndexInput {
 	s.CpuQuota = &v
+	return s
+}
+
+// SetDelProtection sets the DelProtection field's value.
+func (s *CreateVikingdbIndexInput) SetDelProtection(v bool) *CreateVikingdbIndexInput {
+	s.DelProtection = &v
 	return s
 }
 
@@ -281,7 +289,7 @@ func (s *CreateVikingdbIndexOutput) SetMessage(v string) *CreateVikingdbIndexOut
 type VectorIndexForCreateVikingdbIndexInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheRatio *float64 `type:"float" json:",omitempty"`
+	CacheRatio *float32 `type:"float" json:",omitempty"`
 
 	DiskannCef *int32 `type:"int32" json:",omitempty"`
 
@@ -297,7 +305,7 @@ type VectorIndexForCreateVikingdbIndexInput struct {
 
 	IndexType *string `type:"string" json:",omitempty" enum:"EnumOfIndexTypeForCreateVikingdbIndexInput"`
 
-	PqCodeRatio *float64 `type:"float" json:",omitempty"`
+	PqCodeRatio *float32 `type:"float" json:",omitempty"`
 
 	Quant *string `type:"string" json:",omitempty" enum:"EnumOfQuantForCreateVikingdbIndexInput"`
 }
@@ -313,7 +321,7 @@ func (s VectorIndexForCreateVikingdbIndexInput) GoString() string {
 }
 
 // SetCacheRatio sets the CacheRatio field's value.
-func (s *VectorIndexForCreateVikingdbIndexInput) SetCacheRatio(v float64) *VectorIndexForCreateVikingdbIndexInput {
+func (s *VectorIndexForCreateVikingdbIndexInput) SetCacheRatio(v float32) *VectorIndexForCreateVikingdbIndexInput {
 	s.CacheRatio = &v
 	return s
 }
@@ -361,7 +369,7 @@ func (s *VectorIndexForCreateVikingdbIndexInput) SetIndexType(v string) *VectorI
 }
 
 // SetPqCodeRatio sets the PqCodeRatio field's value.
-func (s *VectorIndexForCreateVikingdbIndexInput) SetPqCodeRatio(v float64) *VectorIndexForCreateVikingdbIndexInput {
+func (s *VectorIndexForCreateVikingdbIndexInput) SetPqCodeRatio(v float32) *VectorIndexForCreateVikingdbIndexInput {
 	s.PqCodeRatio = &v
 	return s
 }

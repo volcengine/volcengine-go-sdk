@@ -980,6 +980,9 @@ const (
 
 	// EnumOfFieldTypeForListVikingdbCollectionOutputGeoPoint is a EnumOfFieldTypeForListVikingdbCollectionOutput enum value
 	EnumOfFieldTypeForListVikingdbCollectionOutputGeoPoint = "geo_point"
+
+	// EnumOfFieldTypeForListVikingdbCollectionOutputListgeoPoint is a EnumOfFieldTypeForListVikingdbCollectionOutput enum value
+	EnumOfFieldTypeForListVikingdbCollectionOutputListgeoPoint = "list<geo_point>"
 )
 
 const (
