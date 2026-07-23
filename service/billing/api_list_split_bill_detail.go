@@ -1025,6 +1025,10 @@ type ListSplitBillDetailInput struct {
 	SplitDimension *string `type:"string" json:",omitempty"`
 
 	SplitItemID *string `type:"string" json:",omitempty"`
+
+	TagKV []*TagKVForListSplitBillDetailInput `type:"list" json:",omitempty"`
+
+	TagKVFilterMode *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1149,6 +1153,18 @@ func (s *ListSplitBillDetailInput) SetSplitItemID(v string) *ListSplitBillDetail
 	return s
 }
 
+// SetTagKV sets the TagKV field's value.
+func (s *ListSplitBillDetailInput) SetTagKV(v []*TagKVForListSplitBillDetailInput) *ListSplitBillDetailInput {
+	s.TagKV = v
+	return s
+}
+
+// SetTagKVFilterMode sets the TagKVFilterMode field's value.
+func (s *ListSplitBillDetailInput) SetTagKVFilterMode(v int32) *ListSplitBillDetailInput {
+	s.TagKVFilterMode = &v
+	return s
+}
+
 type ListSplitBillDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1161,6 +1177,8 @@ type ListSplitBillDetailOutput struct {
 	Offset *int32 `type:"int32" json:",omitempty"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
+
+	Warning *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1194,5 +1212,41 @@ func (s *ListSplitBillDetailOutput) SetOffset(v int32) *ListSplitBillDetailOutpu
 // SetTotal sets the Total field's value.
 func (s *ListSplitBillDetailOutput) SetTotal(v int32) *ListSplitBillDetailOutput {
 	s.Total = &v
+	return s
+}
+
+// SetWarning sets the Warning field's value.
+func (s *ListSplitBillDetailOutput) SetWarning(v string) *ListSplitBillDetailOutput {
+	s.Warning = &v
+	return s
+}
+
+type TagKVForListSplitBillDetailInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagKVForListSplitBillDetailInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagKVForListSplitBillDetailInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagKVForListSplitBillDetailInput) SetKey(v string) *TagKVForListSplitBillDetailInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagKVForListSplitBillDetailInput) SetValue(v string) *TagKVForListSplitBillDetailInput {
+	s.Value = &v
 	return s
 }

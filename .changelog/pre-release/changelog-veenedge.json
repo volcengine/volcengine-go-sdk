@@ -1,5 +1,0 @@
-{
-  "description": "VEENEDGE: 修改 GetLNIInstance, ListLNIInstances",
-  "modules": "service/veenedge",
-  "type": "breaking-change"
-}

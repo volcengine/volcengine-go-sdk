@@ -168,6 +168,8 @@ type ItemDocForPullPostOutput struct {
 
 	MediaName *string `type:"string" json:",omitempty"`
 
+	MediaUid *string `type:"string" json:",omitempty"`
+
 	Ocr *string `type:"string" json:",omitempty"`
 
 	OcrHigh *string `type:"string" json:",omitempty"`
@@ -260,6 +262,12 @@ func (s *ItemDocForPullPostOutput) SetMainDomain(v string) *ItemDocForPullPostOu
 // SetMediaName sets the MediaName field's value.
 func (s *ItemDocForPullPostOutput) SetMediaName(v string) *ItemDocForPullPostOutput {
 	s.MediaName = &v
+	return s
+}
+
+// SetMediaUid sets the MediaUid field's value.
+func (s *ItemDocForPullPostOutput) SetMediaUid(v string) *ItemDocForPullPostOutput {
+	s.MediaUid = &v
 	return s
 }
 

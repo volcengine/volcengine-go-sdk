@@ -458,7 +458,7 @@ func (s *ScalarIndexForListVikingdbIndexOutput) SetIsPrimaryKey(v bool) *ScalarI
 type VectorIndexForListVikingdbIndexOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CacheRatio *float64 `type:"float" json:",omitempty"`
+	CacheRatio *float32 `type:"float" json:",omitempty"`
 
 	DiskannCef *int32 `type:"int32" json:",omitempty"`
 
@@ -474,7 +474,7 @@ type VectorIndexForListVikingdbIndexOutput struct {
 
 	IndexType *string `type:"string" json:",omitempty" enum:"EnumOfIndexTypeForListVikingdbIndexOutput"`
 
-	PqCodeRatio *float64 `type:"float" json:",omitempty"`
+	PqCodeRatio *float32 `type:"float" json:",omitempty"`
 
 	Quant *string `type:"string" json:",omitempty" enum:"EnumOfQuantForListVikingdbIndexOutput"`
 }
@@ -490,7 +490,7 @@ func (s VectorIndexForListVikingdbIndexOutput) GoString() string {
 }
 
 // SetCacheRatio sets the CacheRatio field's value.
-func (s *VectorIndexForListVikingdbIndexOutput) SetCacheRatio(v float64) *VectorIndexForListVikingdbIndexOutput {
+func (s *VectorIndexForListVikingdbIndexOutput) SetCacheRatio(v float32) *VectorIndexForListVikingdbIndexOutput {
 	s.CacheRatio = &v
 	return s
 }
@@ -538,7 +538,7 @@ func (s *VectorIndexForListVikingdbIndexOutput) SetIndexType(v string) *VectorIn
 }
 
 // SetPqCodeRatio sets the PqCodeRatio field's value.
-func (s *VectorIndexForListVikingdbIndexOutput) SetPqCodeRatio(v float64) *VectorIndexForListVikingdbIndexOutput {
+func (s *VectorIndexForListVikingdbIndexOutput) SetPqCodeRatio(v float32) *VectorIndexForListVikingdbIndexOutput {
 	s.PqCodeRatio = &v
 	return s
 }
@@ -599,6 +599,9 @@ const (
 
 	// EnumOfFieldTypeForListVikingdbIndexOutputGeoPoint is a EnumOfFieldTypeForListVikingdbIndexOutput enum value
 	EnumOfFieldTypeForListVikingdbIndexOutputGeoPoint = "geo_point"
+
+	// EnumOfFieldTypeForListVikingdbIndexOutputListgeoPoint is a EnumOfFieldTypeForListVikingdbIndexOutput enum value
+	EnumOfFieldTypeForListVikingdbIndexOutputListgeoPoint = "list<geo_point>"
 )
 
 const (

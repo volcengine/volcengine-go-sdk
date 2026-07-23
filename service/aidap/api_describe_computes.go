@@ -390,6 +390,9 @@ const (
 
 	// EnumOfComputeRoleForDescribeComputesOutputReadOnly is a EnumOfComputeRoleForDescribeComputesOutput enum value
 	EnumOfComputeRoleForDescribeComputesOutputReadOnly = "ReadOnly"
+
+	// EnumOfComputeRoleForDescribeComputesOutputAnalytic is a EnumOfComputeRoleForDescribeComputesOutput enum value
+	EnumOfComputeRoleForDescribeComputesOutputAnalytic = "Analytic"
 )
 
 const (

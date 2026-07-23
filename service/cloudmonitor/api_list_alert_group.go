@@ -174,6 +174,8 @@ type DataForListAlertGroupOutput struct {
 
 	RuleName *string `type:"string" json:",omitempty"`
 
+	RuleTriggerCondition *string `type:"string" json:",omitempty"`
+
 	StartAt *string `type:"string" json:",omitempty"`
 
 	SubNamespace *string `type:"string" json:",omitempty"`
@@ -270,6 +272,12 @@ func (s *DataForListAlertGroupOutput) SetRuleId(v string) *DataForListAlertGroup
 // SetRuleName sets the RuleName field's value.
 func (s *DataForListAlertGroupOutput) SetRuleName(v string) *DataForListAlertGroupOutput {
 	s.RuleName = &v
+	return s
+}
+
+// SetRuleTriggerCondition sets the RuleTriggerCondition field's value.
+func (s *DataForListAlertGroupOutput) SetRuleTriggerCondition(v string) *DataForListAlertGroupOutput {
+	s.RuleTriggerCondition = &v
 	return s
 }
 

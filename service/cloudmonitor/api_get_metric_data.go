@@ -338,6 +338,8 @@ type GetMetricDataInput struct {
 
 	StartTime *int32 `type:"int32" json:",omitempty"`
 
+	StatisticsMethods []*string `type:"list" json:",omitempty"`
+
 	// SubNamespace is a required field
 	SubNamespace *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -413,6 +415,12 @@ func (s *GetMetricDataInput) SetStartTime(v int32) *GetMetricDataInput {
 	return s
 }
 
+// SetStatisticsMethods sets the StatisticsMethods field's value.
+func (s *GetMetricDataInput) SetStatisticsMethods(v []*string) *GetMetricDataInput {
+	s.StatisticsMethods = v
+	return s
+}
+
 // SetSubNamespace sets the SubNamespace field's value.
 func (s *GetMetricDataInput) SetSubNamespace(v string) *GetMetricDataInput {
 	s.SubNamespace = &v
@@ -473,6 +481,8 @@ type MetricDataResultForGetMetricDataOutput struct {
 	Dimensions []*DimensionForGetMetricDataOutput `type:"list" json:",omitempty"`
 
 	Legend *string `type:"string" json:",omitempty"`
+
+	StatisticsMethods *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -500,5 +510,11 @@ func (s *MetricDataResultForGetMetricDataOutput) SetDimensions(v []*DimensionFor
 // SetLegend sets the Legend field's value.
 func (s *MetricDataResultForGetMetricDataOutput) SetLegend(v string) *MetricDataResultForGetMetricDataOutput {
 	s.Legend = &v
+	return s
+}
+
+// SetStatisticsMethods sets the StatisticsMethods field's value.
+func (s *MetricDataResultForGetMetricDataOutput) SetStatisticsMethods(v string) *MetricDataResultForGetMetricDataOutput {
+	s.StatisticsMethods = &v
 	return s
 }

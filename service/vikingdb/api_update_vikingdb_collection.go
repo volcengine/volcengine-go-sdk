@@ -220,6 +220,8 @@ type UpdateVikingdbCollectionInput struct {
 
 	CollectionName *string `type:"string" json:",omitempty"`
 
+	DelProtection *bool `type:"boolean" json:",omitempty"`
+
 	Description *string `type:"string" json:",omitempty"`
 
 	Fields []*FieldForUpdateVikingdbCollectionInput `type:"list" json:",omitempty"`
@@ -262,6 +264,12 @@ func (s *UpdateVikingdbCollectionInput) Validate() error {
 // SetCollectionName sets the CollectionName field's value.
 func (s *UpdateVikingdbCollectionInput) SetCollectionName(v string) *UpdateVikingdbCollectionInput {
 	s.CollectionName = &v
+	return s
+}
+
+// SetDelProtection sets the DelProtection field's value.
+func (s *UpdateVikingdbCollectionInput) SetDelProtection(v bool) *UpdateVikingdbCollectionInput {
+	s.DelProtection = &v
 	return s
 }
 
@@ -352,4 +360,7 @@ const (
 
 	// EnumOfFieldTypeForUpdateVikingdbCollectionInputGeoPoint is a EnumOfFieldTypeForUpdateVikingdbCollectionInput enum value
 	EnumOfFieldTypeForUpdateVikingdbCollectionInputGeoPoint = "geo_point"
+
+	// EnumOfFieldTypeForUpdateVikingdbCollectionInputListgeoPoint is a EnumOfFieldTypeForUpdateVikingdbCollectionInput enum value
+	EnumOfFieldTypeForUpdateVikingdbCollectionInputListgeoPoint = "list<geo_point>"
 )

@@ -1,5 +1,0 @@
-{
-  "description": "VMP: 修改 GetWorkspace, ListWorkspaceInstanceTypes, ListWorkspaces, UpdateWorkspace, CreateWorkspace, GetAggregateWorkspace, GetAlertingRule",
-  "modules": "service/vmp",
-  "type": "feature"
-}

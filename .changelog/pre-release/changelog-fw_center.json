@@ -1,5 +1,0 @@
-{
-  "description": "FW_CENTER: 修改 DescribeControlPolicyByRuleId, DescribeControlPolicy",
-  "modules": "service/fw_center",
-  "type": "breaking-change"
-}

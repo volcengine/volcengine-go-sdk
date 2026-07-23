@@ -62,6 +62,14 @@ type AIDAPAPI interface {
 	BranchRestoreWithContext(volcengine.Context, *BranchRestoreInput, ...request.Option) (*BranchRestoreOutput, error)
 	BranchRestoreRequest(*BranchRestoreInput) (*request.Request, *BranchRestoreOutput)
 
+	CheckDataLakeSecretConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckDataLakeSecretConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckDataLakeSecretConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckDataLakeSecretConnection(*CheckDataLakeSecretConnectionInput) (*CheckDataLakeSecretConnectionOutput, error)
+	CheckDataLakeSecretConnectionWithContext(volcengine.Context, *CheckDataLakeSecretConnectionInput, ...request.Option) (*CheckDataLakeSecretConnectionOutput, error)
+	CheckDataLakeSecretConnectionRequest(*CheckDataLakeSecretConnectionInput) (*request.Request, *CheckDataLakeSecretConnectionOutput)
+
 	CreateAccessControlListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAccessControlListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAccessControlListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +101,14 @@ type AIDAPAPI interface {
 	CreateDBAccount(*CreateDBAccountInput) (*CreateDBAccountOutput, error)
 	CreateDBAccountWithContext(volcengine.Context, *CreateDBAccountInput, ...request.Option) (*CreateDBAccountOutput, error)
 	CreateDBAccountRequest(*CreateDBAccountInput) (*request.Request, *CreateDBAccountOutput)
+
+	CreateDataLakeSecretConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDataLakeSecretConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDataLakeSecretConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDataLakeSecretConnection(*CreateDataLakeSecretConnectionInput) (*CreateDataLakeSecretConnectionOutput, error)
+	CreateDataLakeSecretConnectionWithContext(volcengine.Context, *CreateDataLakeSecretConnectionInput, ...request.Option) (*CreateDataLakeSecretConnectionOutput, error)
+	CreateDataLakeSecretConnectionRequest(*CreateDataLakeSecretConnectionInput) (*request.Request, *CreateDataLakeSecretConnectionOutput)
 
 	CreateDatabaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDatabaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -158,6 +174,14 @@ type AIDAPAPI interface {
 	DeleteDBAccountWithContext(volcengine.Context, *DeleteDBAccountInput, ...request.Option) (*DeleteDBAccountOutput, error)
 	DeleteDBAccountRequest(*DeleteDBAccountInput) (*request.Request, *DeleteDBAccountOutput)
 
+	DeleteDataLakeSecretConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDataLakeSecretConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDataLakeSecretConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDataLakeSecretConnection(*DeleteDataLakeSecretConnectionInput) (*DeleteDataLakeSecretConnectionOutput, error)
+	DeleteDataLakeSecretConnectionWithContext(volcengine.Context, *DeleteDataLakeSecretConnectionInput, ...request.Option) (*DeleteDataLakeSecretConnectionOutput, error)
+	DeleteDataLakeSecretConnectionRequest(*DeleteDataLakeSecretConnectionInput) (*request.Request, *DeleteDataLakeSecretConnectionOutput)
+
 	DeleteEndpointPublicAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteEndpointPublicAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteEndpointPublicAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -189,6 +213,30 @@ type AIDAPAPI interface {
 	DescribeAccessControlList(*DescribeAccessControlListInput) (*DescribeAccessControlListOutput, error)
 	DescribeAccessControlListWithContext(volcengine.Context, *DescribeAccessControlListInput, ...request.Option) (*DescribeAccessControlListOutput, error)
 	DescribeAccessControlListRequest(*DescribeAccessControlListInput) (*request.Request, *DescribeAccessControlListOutput)
+
+	DescribeBaasAIGlobalQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBaasAIGlobalQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBaasAIGlobalQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBaasAIGlobalQuota(*DescribeBaasAIGlobalQuotaInput) (*DescribeBaasAIGlobalQuotaOutput, error)
+	DescribeBaasAIGlobalQuotaWithContext(volcengine.Context, *DescribeBaasAIGlobalQuotaInput, ...request.Option) (*DescribeBaasAIGlobalQuotaOutput, error)
+	DescribeBaasAIGlobalQuotaRequest(*DescribeBaasAIGlobalQuotaInput) (*request.Request, *DescribeBaasAIGlobalQuotaOutput)
+
+	DescribeBaasAIModelsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBaasAIModelsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBaasAIModelsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBaasAIModels(*DescribeBaasAIModelsInput) (*DescribeBaasAIModelsOutput, error)
+	DescribeBaasAIModelsWithContext(volcengine.Context, *DescribeBaasAIModelsInput, ...request.Option) (*DescribeBaasAIModelsOutput, error)
+	DescribeBaasAIModelsRequest(*DescribeBaasAIModelsInput) (*request.Request, *DescribeBaasAIModelsOutput)
+
+	DescribeBaasAIUserSummariesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBaasAIUserSummariesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBaasAIUserSummariesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBaasAIUserSummaries(*DescribeBaasAIUserSummariesInput) (*DescribeBaasAIUserSummariesOutput, error)
+	DescribeBaasAIUserSummariesWithContext(volcengine.Context, *DescribeBaasAIUserSummariesInput, ...request.Option) (*DescribeBaasAIUserSummariesOutput, error)
+	DescribeBaasAIUserSummariesRequest(*DescribeBaasAIUserSummariesInput) (*request.Request, *DescribeBaasAIUserSummariesOutput)
 
 	DescribeBranchDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeBranchDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -269,6 +317,14 @@ type AIDAPAPI interface {
 	DescribeDBAccounts(*DescribeDBAccountsInput) (*DescribeDBAccountsOutput, error)
 	DescribeDBAccountsWithContext(volcengine.Context, *DescribeDBAccountsInput, ...request.Option) (*DescribeDBAccountsOutput, error)
 	DescribeDBAccountsRequest(*DescribeDBAccountsInput) (*request.Request, *DescribeDBAccountsOutput)
+
+	DescribeDataLakeSecretConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDataLakeSecretConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDataLakeSecretConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDataLakeSecretConnection(*DescribeDataLakeSecretConnectionInput) (*DescribeDataLakeSecretConnectionOutput, error)
+	DescribeDataLakeSecretConnectionWithContext(volcengine.Context, *DescribeDataLakeSecretConnectionInput, ...request.Option) (*DescribeDataLakeSecretConnectionOutput, error)
+	DescribeDataLakeSecretConnectionRequest(*DescribeDataLakeSecretConnectionInput) (*request.Request, *DescribeDataLakeSecretConnectionOutput)
 
 	DescribeDatabasesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDatabasesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -430,6 +486,14 @@ type AIDAPAPI interface {
 	GetSchemaDiffResultDownloadLinkWithContext(volcengine.Context, *GetSchemaDiffResultDownloadLinkInput, ...request.Option) (*GetSchemaDiffResultDownloadLinkOutput, error)
 	GetSchemaDiffResultDownloadLinkRequest(*GetSchemaDiffResultDownloadLinkInput) (*request.Request, *GetSchemaDiffResultDownloadLinkOutput)
 
+	ListDatabasesDataLakeSecretConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDatabasesDataLakeSecretConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDatabasesDataLakeSecretConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDatabasesDataLakeSecretConnection(*ListDatabasesDataLakeSecretConnectionInput) (*ListDatabasesDataLakeSecretConnectionOutput, error)
+	ListDatabasesDataLakeSecretConnectionWithContext(volcengine.Context, *ListDatabasesDataLakeSecretConnectionInput, ...request.Option) (*ListDatabasesDataLakeSecretConnectionOutput, error)
+	ListDatabasesDataLakeSecretConnectionRequest(*ListDatabasesDataLakeSecretConnectionInput) (*request.Request, *ListDatabasesDataLakeSecretConnectionOutput)
+
 	ListPagesProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListPagesProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListPagesProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -453,6 +517,22 @@ type AIDAPAPI interface {
 	ModifyAccessControlList(*ModifyAccessControlListInput) (*ModifyAccessControlListOutput, error)
 	ModifyAccessControlListWithContext(volcengine.Context, *ModifyAccessControlListInput, ...request.Option) (*ModifyAccessControlListOutput, error)
 	ModifyAccessControlListRequest(*ModifyAccessControlListInput) (*request.Request, *ModifyAccessControlListOutput)
+
+	ModifyBaasAIGlobalQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyBaasAIGlobalQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyBaasAIGlobalQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyBaasAIGlobalQuota(*ModifyBaasAIGlobalQuotaInput) (*ModifyBaasAIGlobalQuotaOutput, error)
+	ModifyBaasAIGlobalQuotaWithContext(volcengine.Context, *ModifyBaasAIGlobalQuotaInput, ...request.Option) (*ModifyBaasAIGlobalQuotaOutput, error)
+	ModifyBaasAIGlobalQuotaRequest(*ModifyBaasAIGlobalQuotaInput) (*request.Request, *ModifyBaasAIGlobalQuotaOutput)
+
+	ModifyBaasAIUserQuotasCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyBaasAIUserQuotasCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyBaasAIUserQuotasCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyBaasAIUserQuotas(*ModifyBaasAIUserQuotasInput) (*ModifyBaasAIUserQuotasOutput, error)
+	ModifyBaasAIUserQuotasWithContext(volcengine.Context, *ModifyBaasAIUserQuotasInput, ...request.Option) (*ModifyBaasAIUserQuotasOutput, error)
+	ModifyBaasAIUserQuotasRequest(*ModifyBaasAIUserQuotasInput) (*request.Request, *ModifyBaasAIUserQuotasOutput)
 
 	ModifyComputeAnalyticPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyComputeAnalyticPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

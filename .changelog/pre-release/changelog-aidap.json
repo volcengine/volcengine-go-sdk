@@ -1,5 +1,0 @@
-{
-  "description": "AIDAP: 新增 BindPagesProject, DescribePagesBinding, ListPagesProject, SyncPagesDeployEnvVars, UnbindPagesProject；修改 DescribeWorkspaceDetailList, ModifyWorkspaceName, DescribeDBAccountConnection, CreateWorkspace, DescribeWorkspaceDetail, DescribeWorkspaces, ModifyComputeSettings, ModifyWorkspaceSettings, CreateBranch",
-  "modules": "service/aidap",
-  "type": "breaking-change"
-}

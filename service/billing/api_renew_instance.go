@@ -146,6 +146,8 @@ func (c *BILLING) RenewInstanceWithContext(ctx volcengine.Context, input *RenewI
 type RenewInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AutoUseCoupon *bool `type:"boolean" json:",omitempty"`
+
 	ClientToken *string `type:"string" json:",omitempty"`
 
 	// InstanceID is a required field
@@ -191,6 +193,12 @@ func (s *RenewInstanceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAutoUseCoupon sets the AutoUseCoupon field's value.
+func (s *RenewInstanceInput) SetAutoUseCoupon(v bool) *RenewInstanceInput {
+	s.AutoUseCoupon = &v
+	return s
 }
 
 // SetClientToken sets the ClientToken field's value.
