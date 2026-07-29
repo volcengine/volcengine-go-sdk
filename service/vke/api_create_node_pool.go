@@ -388,6 +388,8 @@ func (s *CreateNodePoolOutput) SetId(v string) *CreateNodePoolOutput {
 type DataVolumeForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BurstEnabled *bool `type:"boolean" json:",omitempty"`
+
 	ExtraPerformanceIops *int32 `type:"int32" json:",omitempty"`
 
 	ExtraPerformanceThroughputMb *int32 `type:"int32" json:",omitempty"`
@@ -417,6 +419,12 @@ func (s DataVolumeForCreateNodePoolInput) String() string {
 // GoString returns the string representation
 func (s DataVolumeForCreateNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// SetBurstEnabled sets the BurstEnabled field's value.
+func (s *DataVolumeForCreateNodePoolInput) SetBurstEnabled(v bool) *DataVolumeForCreateNodePoolInput {
+	s.BurstEnabled = &v
+	return s
 }
 
 // SetExtraPerformanceIops sets the ExtraPerformanceIops field's value.
@@ -539,6 +547,36 @@ func (s *FeatureGatesForCreateNodePoolInput) SetQoSResourceManager(v bool) *Feat
 	return s
 }
 
+type GpuDriverConfigForCreateNodePoolInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	GpuDriverVersion *string `type:"string" json:",omitempty"`
+
+	InstallGpuDriver *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s GpuDriverConfigForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GpuDriverConfigForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetGpuDriverVersion sets the GpuDriverVersion field's value.
+func (s *GpuDriverConfigForCreateNodePoolInput) SetGpuDriverVersion(v string) *GpuDriverConfigForCreateNodePoolInput {
+	s.GpuDriverVersion = &v
+	return s
+}
+
+// SetInstallGpuDriver sets the InstallGpuDriver field's value.
+func (s *GpuDriverConfigForCreateNodePoolInput) SetInstallGpuDriver(v bool) *GpuDriverConfigForCreateNodePoolInput {
+	s.InstallGpuDriver = &v
+	return s
+}
+
 type InstancesDistributionForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -618,6 +656,8 @@ func (s *KubeReservedForCreateNodePoolInput) SetQuantity(v string) *KubeReserved
 type KubeletConfigForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CpuCfsQuota *bool `type:"boolean" json:",omitempty"`
+
 	CpuManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfCpuManagerPolicyForCreateNodePoolInput"`
 
 	EvictionHard []*EvictionHardForCreateNodePoolInput `type:"list" json:",omitempty"`
@@ -653,6 +693,12 @@ func (s KubeletConfigForCreateNodePoolInput) String() string {
 // GoString returns the string representation
 func (s KubeletConfigForCreateNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// SetCpuCfsQuota sets the CpuCfsQuota field's value.
+func (s *KubeletConfigForCreateNodePoolInput) SetCpuCfsQuota(v bool) *KubeletConfigForCreateNodePoolInput {
+	s.CpuCfsQuota = &v
+	return s
 }
 
 // SetCpuManagerPolicy sets the CpuManagerPolicy field's value.
@@ -934,6 +980,8 @@ type NodeConfigForCreateNodePoolInput struct {
 
 	DeploymentSetId *string `type:"string" json:",omitempty"`
 
+	GpuDriverConfig *GpuDriverConfigForCreateNodePoolInput `type:"structure" json:",omitempty"`
+
 	GpuDriverVersion *string `type:"string" json:",omitempty"`
 
 	Hostname *string `type:"string" json:",omitempty"`
@@ -1026,6 +1074,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetDeploymentSetGroupNumber(v int32) 
 // SetDeploymentSetId sets the DeploymentSetId field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetDeploymentSetId(v string) *NodeConfigForCreateNodePoolInput {
 	s.DeploymentSetId = &v
+	return s
+}
+
+// SetGpuDriverConfig sets the GpuDriverConfig field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetGpuDriverConfig(v *GpuDriverConfigForCreateNodePoolInput) *NodeConfigForCreateNodePoolInput {
+	s.GpuDriverConfig = v
 	return s
 }
 
@@ -1160,6 +1214,8 @@ type PublicAccessConfigForCreateNodePoolInput struct {
 
 	Bandwidth *int32 `type:"int32" json:",omitempty"`
 
+	BandwidthPackageId *string `type:"string" json:",omitempty"`
+
 	BillingType *int32 `type:"int32" json:",omitempty"`
 
 	Isp *string `type:"string" json:",omitempty" enum:"EnumOfIspForCreateNodePoolInput"`
@@ -1178,6 +1234,12 @@ func (s PublicAccessConfigForCreateNodePoolInput) GoString() string {
 // SetBandwidth sets the Bandwidth field's value.
 func (s *PublicAccessConfigForCreateNodePoolInput) SetBandwidth(v int32) *PublicAccessConfigForCreateNodePoolInput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *PublicAccessConfigForCreateNodePoolInput) SetBandwidthPackageId(v string) *PublicAccessConfigForCreateNodePoolInput {
+	s.BandwidthPackageId = &v
 	return s
 }
 
@@ -1354,6 +1416,8 @@ func (s *SystemReservedForCreateNodePoolInput) SetQuantity(v string) *SystemRese
 type SystemVolumeForCreateNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BurstEnabled *bool `type:"boolean" json:",omitempty"`
+
 	PlacementGroupId *string `type:"string" json:",omitempty"`
 
 	Size *int32 `type:"int32" json:",omitempty"`
@@ -1371,6 +1435,12 @@ func (s SystemVolumeForCreateNodePoolInput) String() string {
 // GoString returns the string representation
 func (s SystemVolumeForCreateNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// SetBurstEnabled sets the BurstEnabled field's value.
+func (s *SystemVolumeForCreateNodePoolInput) SetBurstEnabled(v bool) *SystemVolumeForCreateNodePoolInput {
+	s.BurstEnabled = &v
+	return s
 }
 
 // SetPlacementGroupId sets the PlacementGroupId field's value.
