@@ -591,6 +591,8 @@ type ImageInfoForDescribeSandboxOutput struct {
 	Image *string `type:"string" json:",omitempty"`
 
 	Port *int32 `type:"int32" json:",omitempty"`
+
+	SourceImageUrl *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -624,6 +626,12 @@ func (s *ImageInfoForDescribeSandboxOutput) SetImage(v string) *ImageInfoForDesc
 // SetPort sets the Port field's value.
 func (s *ImageInfoForDescribeSandboxOutput) SetPort(v int32) *ImageInfoForDescribeSandboxOutput {
 	s.Port = &v
+	return s
+}
+
+// SetSourceImageUrl sets the SourceImageUrl field's value.
+func (s *ImageInfoForDescribeSandboxOutput) SetSourceImageUrl(v string) *ImageInfoForDescribeSandboxOutput {
+	s.SourceImageUrl = &v
 	return s
 }
 

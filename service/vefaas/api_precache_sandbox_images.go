@@ -147,6 +147,8 @@ type PrecacheSandboxImagesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	ImageUrls []*string `type:"list" json:",omitempty"`
+
+	RegistryId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -162,6 +164,12 @@ func (s PrecacheSandboxImagesInput) GoString() string {
 // SetImageUrls sets the ImageUrls field's value.
 func (s *PrecacheSandboxImagesInput) SetImageUrls(v []*string) *PrecacheSandboxImagesInput {
 	s.ImageUrls = v
+	return s
+}
+
+// SetRegistryId sets the RegistryId field's value.
+func (s *PrecacheSandboxImagesInput) SetRegistryId(v string) *PrecacheSandboxImagesInput {
+	s.RegistryId = &v
 	return s
 }
 
