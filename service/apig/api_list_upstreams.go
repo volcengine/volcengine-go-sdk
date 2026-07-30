@@ -146,6 +146,8 @@ func (c *APIG) ListUpstreamsWithContext(ctx volcengine.Context, input *ListUpstr
 type AIProviderForListUpstreamsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ApiProtocol *string `type:"string" json:",omitempty"`
+
 	BaseUrl *string `type:"string" json:",omitempty"`
 
 	CustomBodyParams *CustomBodyParamsForListUpstreamsOutput `type:"structure" json:",omitempty"`
@@ -154,9 +156,13 @@ type AIProviderForListUpstreamsOutput struct {
 
 	CustomModelService *CustomModelServiceForListUpstreamsOutput `type:"structure" json:",omitempty"`
 
+	MaxRetries *int64 `type:"int64" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Token *string `type:"string" json:",omitempty"`
+
+	TokenPool []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -167,6 +173,12 @@ func (s AIProviderForListUpstreamsOutput) String() string {
 // GoString returns the string representation
 func (s AIProviderForListUpstreamsOutput) GoString() string {
 	return s.String()
+}
+
+// SetApiProtocol sets the ApiProtocol field's value.
+func (s *AIProviderForListUpstreamsOutput) SetApiProtocol(v string) *AIProviderForListUpstreamsOutput {
+	s.ApiProtocol = &v
+	return s
 }
 
 // SetBaseUrl sets the BaseUrl field's value.
@@ -193,6 +205,12 @@ func (s *AIProviderForListUpstreamsOutput) SetCustomModelService(v *CustomModelS
 	return s
 }
 
+// SetMaxRetries sets the MaxRetries field's value.
+func (s *AIProviderForListUpstreamsOutput) SetMaxRetries(v int64) *AIProviderForListUpstreamsOutput {
+	s.MaxRetries = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *AIProviderForListUpstreamsOutput) SetName(v string) *AIProviderForListUpstreamsOutput {
 	s.Name = &v
@@ -205,41 +223,9 @@ func (s *AIProviderForListUpstreamsOutput) SetToken(v string) *AIProviderForList
 	return s
 }
 
-type BackendTargetListForListUpstreamsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	HealthStatus *string `type:"string" json:",omitempty"`
-
-	IP *string `type:"string" json:",omitempty"`
-
-	Port *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s BackendTargetListForListUpstreamsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s BackendTargetListForListUpstreamsOutput) GoString() string {
-	return s.String()
-}
-
-// SetHealthStatus sets the HealthStatus field's value.
-func (s *BackendTargetListForListUpstreamsOutput) SetHealthStatus(v string) *BackendTargetListForListUpstreamsOutput {
-	s.HealthStatus = &v
-	return s
-}
-
-// SetIP sets the IP field's value.
-func (s *BackendTargetListForListUpstreamsOutput) SetIP(v string) *BackendTargetListForListUpstreamsOutput {
-	s.IP = &v
-	return s
-}
-
-// SetPort sets the Port field's value.
-func (s *BackendTargetListForListUpstreamsOutput) SetPort(v int32) *BackendTargetListForListUpstreamsOutput {
-	s.Port = &v
+// SetTokenPool sets the TokenPool field's value.
+func (s *AIProviderForListUpstreamsOutput) SetTokenPool(v []*string) *AIProviderForListUpstreamsOutput {
+	s.TokenPool = v
 	return s
 }
 
@@ -599,6 +585,36 @@ func (s *FilterForListUpstreamsInput) SetName(v string) *FilterForListUpstreamsI
 	return s
 }
 
+type FixedIPListForListUpstreamsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IP *string `type:"string" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FixedIPListForListUpstreamsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FixedIPListForListUpstreamsOutput) GoString() string {
+	return s.String()
+}
+
+// SetIP sets the IP field's value.
+func (s *FixedIPListForListUpstreamsOutput) SetIP(v string) *FixedIPListForListUpstreamsOutput {
+	s.IP = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *FixedIPListForListUpstreamsOutput) SetPort(v int32) *FixedIPListForListUpstreamsOutput {
+	s.Port = &v
+	return s
+}
+
 type HTTPCookieForListUpstreamsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -640,8 +656,6 @@ func (s *HTTPCookieForListUpstreamsOutput) SetTtl(v int64) *HTTPCookieForListUps
 type ItemForListUpstreamsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackendTargetList []*BackendTargetListForListUpstreamsOutput `type:"list" json:",omitempty"`
-
 	CircuitBreakingSettings *CircuitBreakingSettingsForListUpstreamsOutput `type:"structure" json:",omitempty"`
 
 	Comments *string `type:"string" json:",omitempty"`
@@ -679,12 +693,6 @@ func (s ItemForListUpstreamsOutput) String() string {
 // GoString returns the string representation
 func (s ItemForListUpstreamsOutput) GoString() string {
 	return s.String()
-}
-
-// SetBackendTargetList sets the BackendTargetList field's value.
-func (s *ItemForListUpstreamsOutput) SetBackendTargetList(v []*BackendTargetListForListUpstreamsOutput) *ItemForListUpstreamsOutput {
-	s.BackendTargetList = v
-	return s
 }
 
 // SetCircuitBreakingSettings sets the CircuitBreakingSettings field's value.
@@ -1064,6 +1072,8 @@ type UpstreamSpecForListUpstreamsOutput struct {
 
 	EcsList []*EcsListForListUpstreamsOutput `type:"list" json:",omitempty"`
 
+	FixedIPList []*FixedIPListForListUpstreamsOutput `type:"list" json:",omitempty"`
+
 	K8SService *K8SServiceForListUpstreamsOutput `type:"structure" json:",omitempty"`
 
 	NacosService *NacosServiceForListUpstreamsOutput `type:"structure" json:",omitempty"`
@@ -1096,6 +1106,12 @@ func (s *UpstreamSpecForListUpstreamsOutput) SetDomain(v *DomainForListUpstreams
 // SetEcsList sets the EcsList field's value.
 func (s *UpstreamSpecForListUpstreamsOutput) SetEcsList(v []*EcsListForListUpstreamsOutput) *UpstreamSpecForListUpstreamsOutput {
 	s.EcsList = v
+	return s
+}
+
+// SetFixedIPList sets the FixedIPList field's value.
+func (s *UpstreamSpecForListUpstreamsOutput) SetFixedIPList(v []*FixedIPListForListUpstreamsOutput) *UpstreamSpecForListUpstreamsOutput {
+	s.FixedIPList = v
 	return s
 }
 
