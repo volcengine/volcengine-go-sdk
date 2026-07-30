@@ -250,6 +250,8 @@ func (s *DomainSpecForListGatewayServicesOutput) SetEnablePublicResolution(v boo
 type FilterForListGatewayServicesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	GatewayType *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	ServiceType *string `type:"string" json:",omitempty"`
@@ -265,6 +267,12 @@ func (s FilterForListGatewayServicesInput) String() string {
 // GoString returns the string representation
 func (s FilterForListGatewayServicesInput) GoString() string {
 	return s.String()
+}
+
+// SetGatewayType sets the GatewayType field's value.
+func (s *FilterForListGatewayServicesInput) SetGatewayType(v string) *FilterForListGatewayServicesInput {
+	s.GatewayType = &v
+	return s
 }
 
 // SetName sets the Name field's value.

@@ -358,6 +358,8 @@ func (s *KubeReservedForCreateDefaultNodePoolInput) SetQuantity(v string) *KubeR
 type KubeletConfigForCreateDefaultNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CpuCfsQuota *bool `type:"boolean" json:",omitempty"`
+
 	CpuManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfCpuManagerPolicyForCreateDefaultNodePoolInput"`
 
 	EvictionHard []*EvictionHardForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
@@ -393,6 +395,12 @@ func (s KubeletConfigForCreateDefaultNodePoolInput) String() string {
 // GoString returns the string representation
 func (s KubeletConfigForCreateDefaultNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// SetCpuCfsQuota sets the CpuCfsQuota field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetCpuCfsQuota(v bool) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.CpuCfsQuota = &v
+	return s
 }
 
 // SetCpuManagerPolicy sets the CpuManagerPolicy field's value.

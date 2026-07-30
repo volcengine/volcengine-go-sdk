@@ -153,6 +153,8 @@ type ReleaseInput struct {
 
 	MaxInstance *int32 `type:"int32" json:",omitempty"`
 
+	MinInstance *int32 `type:"int32" json:",omitempty"`
+
 	// RevisionNumber is a required field
 	RevisionNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
@@ -202,6 +204,12 @@ func (s *ReleaseInput) SetFunctionId(v string) *ReleaseInput {
 // SetMaxInstance sets the MaxInstance field's value.
 func (s *ReleaseInput) SetMaxInstance(v int32) *ReleaseInput {
 	s.MaxInstance = &v
+	return s
+}
+
+// SetMinInstance sets the MinInstance field's value.
+func (s *ReleaseInput) SetMinInstance(v int32) *ReleaseInput {
+	s.MinInstance = &v
 	return s
 }
 

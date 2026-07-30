@@ -198,6 +198,8 @@ func (s *BasicForListUpstreamSourcesOutput) SetUsername(v string) *BasicForListU
 type FilterForListUpstreamSourcesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ClusterId *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:"name,omitempty"`
 
 	SourceType *string `type:"string" json:",omitempty"`
@@ -213,6 +215,12 @@ func (s FilterForListUpstreamSourcesInput) String() string {
 // GoString returns the string representation
 func (s FilterForListUpstreamSourcesInput) GoString() string {
 	return s.String()
+}
+
+// SetClusterId sets the ClusterId field's value.
+func (s *FilterForListUpstreamSourcesInput) SetClusterId(v string) *FilterForListUpstreamSourcesInput {
+	s.ClusterId = &v
+	return s
 }
 
 // SetName sets the Name field's value.

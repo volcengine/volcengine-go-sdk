@@ -148,6 +148,8 @@ type AIProviderSettingsForCreateRouteInput struct {
 
 	Model *string `type:"string" json:",omitempty"`
 
+	PrefixPath *string `type:"string" json:",omitempty"`
+
 	TargetPath *string `type:"string" json:",omitempty"`
 }
 
@@ -164,6 +166,12 @@ func (s AIProviderSettingsForCreateRouteInput) GoString() string {
 // SetModel sets the Model field's value.
 func (s *AIProviderSettingsForCreateRouteInput) SetModel(v string) *AIProviderSettingsForCreateRouteInput {
 	s.Model = &v
+	return s
+}
+
+// SetPrefixPath sets the PrefixPath field's value.
+func (s *AIProviderSettingsForCreateRouteInput) SetPrefixPath(v string) *AIProviderSettingsForCreateRouteInput {
+	s.PrefixPath = &v
 	return s
 }
 
@@ -185,6 +193,8 @@ type AdvancedSettingForCreateRouteInput struct {
 	RetryPolicySetting *RetryPolicySettingForCreateRouteInput `type:"structure" json:",omitempty"`
 
 	TimeoutSetting *TimeoutSettingForCreateRouteInput `type:"structure" json:",omitempty"`
+
+	TokenExtractors []*TokenExtractorForCreateRouteInput `type:"list" json:",omitempty"`
 
 	URLRewriteSetting *URLRewriteSettingForCreateRouteInput `type:"structure" json:",omitempty"`
 }
@@ -226,6 +236,12 @@ func (s *AdvancedSettingForCreateRouteInput) SetRetryPolicySetting(v *RetryPolic
 // SetTimeoutSetting sets the TimeoutSetting field's value.
 func (s *AdvancedSettingForCreateRouteInput) SetTimeoutSetting(v *TimeoutSettingForCreateRouteInput) *AdvancedSettingForCreateRouteInput {
 	s.TimeoutSetting = v
+	return s
+}
+
+// SetTokenExtractors sets the TokenExtractors field's value.
+func (s *AdvancedSettingForCreateRouteInput) SetTokenExtractors(v []*TokenExtractorForCreateRouteInput) *AdvancedSettingForCreateRouteInput {
+	s.TokenExtractors = v
 	return s
 }
 
@@ -838,6 +854,36 @@ func (s *TimeoutSettingForCreateRouteInput) SetEnable(v bool) *TimeoutSettingFor
 // SetTimeout sets the Timeout field's value.
 func (s *TimeoutSettingForCreateRouteInput) SetTimeout(v int64) *TimeoutSettingForCreateRouteInput {
 	s.Timeout = &v
+	return s
+}
+
+type TokenExtractorForCreateRouteInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	JsonPointers []*string `type:"list" json:",omitempty"`
+
+	TokenType *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TokenExtractorForCreateRouteInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TokenExtractorForCreateRouteInput) GoString() string {
+	return s.String()
+}
+
+// SetJsonPointers sets the JsonPointers field's value.
+func (s *TokenExtractorForCreateRouteInput) SetJsonPointers(v []*string) *TokenExtractorForCreateRouteInput {
+	s.JsonPointers = v
+	return s
+}
+
+// SetTokenType sets the TokenType field's value.
+func (s *TokenExtractorForCreateRouteInput) SetTokenType(v string) *TokenExtractorForCreateRouteInput {
+	s.TokenType = &v
 	return s
 }
 

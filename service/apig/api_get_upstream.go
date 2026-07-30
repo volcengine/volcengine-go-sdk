@@ -146,6 +146,8 @@ func (c *APIG) GetUpstreamWithContext(ctx volcengine.Context, input *GetUpstream
 type AIProviderForGetUpstreamOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ApiProtocol *string `type:"string" json:",omitempty"`
+
 	BaseUrl *string `type:"string" json:",omitempty"`
 
 	CustomBodyParams *CustomBodyParamsForGetUpstreamOutput `type:"structure" json:",omitempty"`
@@ -154,9 +156,13 @@ type AIProviderForGetUpstreamOutput struct {
 
 	CustomModelService *CustomModelServiceForGetUpstreamOutput `type:"structure" json:",omitempty"`
 
+	MaxRetries *int64 `type:"int64" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Token *string `type:"string" json:",omitempty"`
+
+	TokenPool []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -167,6 +173,12 @@ func (s AIProviderForGetUpstreamOutput) String() string {
 // GoString returns the string representation
 func (s AIProviderForGetUpstreamOutput) GoString() string {
 	return s.String()
+}
+
+// SetApiProtocol sets the ApiProtocol field's value.
+func (s *AIProviderForGetUpstreamOutput) SetApiProtocol(v string) *AIProviderForGetUpstreamOutput {
+	s.ApiProtocol = &v
+	return s
 }
 
 // SetBaseUrl sets the BaseUrl field's value.
@@ -193,6 +205,12 @@ func (s *AIProviderForGetUpstreamOutput) SetCustomModelService(v *CustomModelSer
 	return s
 }
 
+// SetMaxRetries sets the MaxRetries field's value.
+func (s *AIProviderForGetUpstreamOutput) SetMaxRetries(v int64) *AIProviderForGetUpstreamOutput {
+	s.MaxRetries = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *AIProviderForGetUpstreamOutput) SetName(v string) *AIProviderForGetUpstreamOutput {
 	s.Name = &v
@@ -205,41 +223,9 @@ func (s *AIProviderForGetUpstreamOutput) SetToken(v string) *AIProviderForGetUps
 	return s
 }
 
-type BackendTargetListForGetUpstreamOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	HealthStatus *string `type:"string" json:",omitempty"`
-
-	IP *string `type:"string" json:",omitempty"`
-
-	Port *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s BackendTargetListForGetUpstreamOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s BackendTargetListForGetUpstreamOutput) GoString() string {
-	return s.String()
-}
-
-// SetHealthStatus sets the HealthStatus field's value.
-func (s *BackendTargetListForGetUpstreamOutput) SetHealthStatus(v string) *BackendTargetListForGetUpstreamOutput {
-	s.HealthStatus = &v
-	return s
-}
-
-// SetIP sets the IP field's value.
-func (s *BackendTargetListForGetUpstreamOutput) SetIP(v string) *BackendTargetListForGetUpstreamOutput {
-	s.IP = &v
-	return s
-}
-
-// SetPort sets the Port field's value.
-func (s *BackendTargetListForGetUpstreamOutput) SetPort(v int32) *BackendTargetListForGetUpstreamOutput {
-	s.Port = &v
+// SetTokenPool sets the TokenPool field's value.
+func (s *AIProviderForGetUpstreamOutput) SetTokenPool(v []*string) *AIProviderForGetUpstreamOutput {
+	s.TokenPool = v
 	return s
 }
 
@@ -569,6 +555,36 @@ func (s *EcsListForGetUpstreamOutput) SetPort(v int32) *EcsListForGetUpstreamOut
 	return s
 }
 
+type FixedIPListForGetUpstreamOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	IP *string `type:"string" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FixedIPListForGetUpstreamOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FixedIPListForGetUpstreamOutput) GoString() string {
+	return s.String()
+}
+
+// SetIP sets the IP field's value.
+func (s *FixedIPListForGetUpstreamOutput) SetIP(v string) *FixedIPListForGetUpstreamOutput {
+	s.IP = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *FixedIPListForGetUpstreamOutput) SetPort(v int32) *FixedIPListForGetUpstreamOutput {
+	s.Port = &v
+	return s
+}
+
 type GetUpstreamInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -868,8 +884,6 @@ func (s *TlsSettingsForGetUpstreamOutput) SetTlsMode(v string) *TlsSettingsForGe
 type UpstreamForGetUpstreamOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackendTargetList []*BackendTargetListForGetUpstreamOutput `type:"list" json:",omitempty"`
-
 	CircuitBreakingSettings *CircuitBreakingSettingsForGetUpstreamOutput `type:"structure" json:",omitempty"`
 
 	Comments *string `type:"string" json:",omitempty"`
@@ -907,12 +921,6 @@ func (s UpstreamForGetUpstreamOutput) String() string {
 // GoString returns the string representation
 func (s UpstreamForGetUpstreamOutput) GoString() string {
 	return s.String()
-}
-
-// SetBackendTargetList sets the BackendTargetList field's value.
-func (s *UpstreamForGetUpstreamOutput) SetBackendTargetList(v []*BackendTargetListForGetUpstreamOutput) *UpstreamForGetUpstreamOutput {
-	s.BackendTargetList = v
-	return s
 }
 
 // SetCircuitBreakingSettings sets the CircuitBreakingSettings field's value.
@@ -1008,6 +1016,8 @@ type UpstreamSpecForGetUpstreamOutput struct {
 
 	EcsList []*EcsListForGetUpstreamOutput `type:"list" json:",omitempty"`
 
+	FixedIPList []*FixedIPListForGetUpstreamOutput `type:"list" json:",omitempty"`
+
 	K8SService *K8SServiceForGetUpstreamOutput `type:"structure" json:",omitempty"`
 
 	NacosService *NacosServiceForGetUpstreamOutput `type:"structure" json:",omitempty"`
@@ -1040,6 +1050,12 @@ func (s *UpstreamSpecForGetUpstreamOutput) SetDomain(v *DomainForGetUpstreamOutp
 // SetEcsList sets the EcsList field's value.
 func (s *UpstreamSpecForGetUpstreamOutput) SetEcsList(v []*EcsListForGetUpstreamOutput) *UpstreamSpecForGetUpstreamOutput {
 	s.EcsList = v
+	return s
+}
+
+// SetFixedIPList sets the FixedIPList field's value.
+func (s *UpstreamSpecForGetUpstreamOutput) SetFixedIPList(v []*FixedIPListForGetUpstreamOutput) *UpstreamSpecForGetUpstreamOutput {
+	s.FixedIPList = v
 	return s
 }
 

@@ -148,6 +148,8 @@ type AIProviderSettingsForGetRouteOutput struct {
 
 	Model *string `type:"string" json:",omitempty"`
 
+	PrefixPath *string `type:"string" json:",omitempty"`
+
 	TargetPath *string `type:"string" json:",omitempty"`
 }
 
@@ -164,6 +166,12 @@ func (s AIProviderSettingsForGetRouteOutput) GoString() string {
 // SetModel sets the Model field's value.
 func (s *AIProviderSettingsForGetRouteOutput) SetModel(v string) *AIProviderSettingsForGetRouteOutput {
 	s.Model = &v
+	return s
+}
+
+// SetPrefixPath sets the PrefixPath field's value.
+func (s *AIProviderSettingsForGetRouteOutput) SetPrefixPath(v string) *AIProviderSettingsForGetRouteOutput {
+	s.PrefixPath = &v
 	return s
 }
 
@@ -185,6 +193,8 @@ type AdvancedSettingForGetRouteOutput struct {
 	RetryPolicySetting *RetryPolicySettingForGetRouteOutput `type:"structure" json:",omitempty"`
 
 	TimeoutSetting *TimeoutSettingForGetRouteOutput `type:"structure" json:",omitempty"`
+
+	TokenExtractors []*TokenExtractorForGetRouteOutput `type:"list" json:",omitempty"`
 
 	URLRewriteSetting *URLRewriteSettingForGetRouteOutput `type:"structure" json:",omitempty"`
 }
@@ -226,6 +236,12 @@ func (s *AdvancedSettingForGetRouteOutput) SetRetryPolicySetting(v *RetryPolicyS
 // SetTimeoutSetting sets the TimeoutSetting field's value.
 func (s *AdvancedSettingForGetRouteOutput) SetTimeoutSetting(v *TimeoutSettingForGetRouteOutput) *AdvancedSettingForGetRouteOutput {
 	s.TimeoutSetting = v
+	return s
+}
+
+// SetTokenExtractors sets the TokenExtractors field's value.
+func (s *AdvancedSettingForGetRouteOutput) SetTokenExtractors(v []*TokenExtractorForGetRouteOutput) *AdvancedSettingForGetRouteOutput {
+	s.TokenExtractors = v
 	return s
 }
 
@@ -683,6 +699,36 @@ func (s *MirrorPolicyForGetRouteOutput) SetUpstream(v *UpstreamForGetRouteOutput
 	return s
 }
 
+type MockSettingForGetRouteOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ResponseBody *string `type:"string" json:",omitempty"`
+
+	Status *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MockSettingForGetRouteOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MockSettingForGetRouteOutput) GoString() string {
+	return s.String()
+}
+
+// SetResponseBody sets the ResponseBody field's value.
+func (s *MockSettingForGetRouteOutput) SetResponseBody(v string) *MockSettingForGetRouteOutput {
+	s.ResponseBody = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *MockSettingForGetRouteOutput) SetStatus(v int64) *MockSettingForGetRouteOutput {
+	s.Status = &v
+	return s
+}
+
 type PathForGetRouteOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -765,6 +811,44 @@ func (s *QueryStringForGetRouteOutput) SetValue(v *PathForGetRouteOutput) *Query
 	return s
 }
 
+type RedirectSettingForGetRouteOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Authority *string `type:"string" json:",omitempty"`
+
+	Path *string `type:"string" json:",omitempty"`
+
+	Status *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RedirectSettingForGetRouteOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RedirectSettingForGetRouteOutput) GoString() string {
+	return s.String()
+}
+
+// SetAuthority sets the Authority field's value.
+func (s *RedirectSettingForGetRouteOutput) SetAuthority(v string) *RedirectSettingForGetRouteOutput {
+	s.Authority = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *RedirectSettingForGetRouteOutput) SetPath(v string) *RedirectSettingForGetRouteOutput {
+	s.Path = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *RedirectSettingForGetRouteOutput) SetStatus(v int64) *RedirectSettingForGetRouteOutput {
+	s.Status = &v
+	return s
+}
+
 type RetryPolicySettingForGetRouteOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -830,11 +914,17 @@ type RouteForGetRouteOutput struct {
 
 	MatchRule *MatchRuleForGetRouteOutput `type:"structure" json:",omitempty"`
 
+	MockSetting *MockSettingForGetRouteOutput `type:"structure" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Priority *int64 `type:"int64" json:",omitempty"`
 
 	Reason *string `type:"string" json:",omitempty"`
+
+	RedirectSetting *RedirectSettingForGetRouteOutput `type:"structure" json:",omitempty"`
+
+	Scene *string `type:"string" json:",omitempty"`
 
 	ServiceId *string `type:"string" json:",omitempty"`
 
@@ -905,6 +995,12 @@ func (s *RouteForGetRouteOutput) SetMatchRule(v *MatchRuleForGetRouteOutput) *Ro
 	return s
 }
 
+// SetMockSetting sets the MockSetting field's value.
+func (s *RouteForGetRouteOutput) SetMockSetting(v *MockSettingForGetRouteOutput) *RouteForGetRouteOutput {
+	s.MockSetting = v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *RouteForGetRouteOutput) SetName(v string) *RouteForGetRouteOutput {
 	s.Name = &v
@@ -920,6 +1016,18 @@ func (s *RouteForGetRouteOutput) SetPriority(v int64) *RouteForGetRouteOutput {
 // SetReason sets the Reason field's value.
 func (s *RouteForGetRouteOutput) SetReason(v string) *RouteForGetRouteOutput {
 	s.Reason = &v
+	return s
+}
+
+// SetRedirectSetting sets the RedirectSetting field's value.
+func (s *RouteForGetRouteOutput) SetRedirectSetting(v *RedirectSettingForGetRouteOutput) *RouteForGetRouteOutput {
+	s.RedirectSetting = v
+	return s
+}
+
+// SetScene sets the Scene field's value.
+func (s *RouteForGetRouteOutput) SetScene(v string) *RouteForGetRouteOutput {
+	s.Scene = &v
 	return s
 }
 
@@ -980,6 +1088,36 @@ func (s *TimeoutSettingForGetRouteOutput) SetEnable(v bool) *TimeoutSettingForGe
 // SetTimeout sets the Timeout field's value.
 func (s *TimeoutSettingForGetRouteOutput) SetTimeout(v int64) *TimeoutSettingForGetRouteOutput {
 	s.Timeout = &v
+	return s
+}
+
+type TokenExtractorForGetRouteOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	JsonPointers []*string `type:"list" json:",omitempty"`
+
+	TokenType *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TokenExtractorForGetRouteOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TokenExtractorForGetRouteOutput) GoString() string {
+	return s.String()
+}
+
+// SetJsonPointers sets the JsonPointers field's value.
+func (s *TokenExtractorForGetRouteOutput) SetJsonPointers(v []*string) *TokenExtractorForGetRouteOutput {
+	s.JsonPointers = v
+	return s
+}
+
+// SetTokenType sets the TokenType field's value.
+func (s *TokenExtractorForGetRouteOutput) SetTokenType(v string) *TokenExtractorForGetRouteOutput {
+	s.TokenType = &v
 	return s
 }
 

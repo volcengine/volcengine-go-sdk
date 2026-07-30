@@ -336,6 +336,8 @@ func (s *ConvertTagForListNodePoolsOutput) SetValue(v string) *ConvertTagForList
 type DataVolumeForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BurstEnabled *bool `type:"boolean" json:",omitempty"`
+
 	ExtraPerformanceIops *int32 `type:"int32" json:",omitempty"`
 
 	ExtraPerformanceThroughputMb *int32 `type:"int32" json:",omitempty"`
@@ -365,6 +367,12 @@ func (s DataVolumeForListNodePoolsOutput) String() string {
 // GoString returns the string representation
 func (s DataVolumeForListNodePoolsOutput) GoString() string {
 	return s.String()
+}
+
+// SetBurstEnabled sets the BurstEnabled field's value.
+func (s *DataVolumeForListNodePoolsOutput) SetBurstEnabled(v bool) *DataVolumeForListNodePoolsOutput {
+	s.BurstEnabled = &v
+	return s
 }
 
 // SetExtraPerformanceIops sets the ExtraPerformanceIops field's value.
@@ -762,6 +770,8 @@ func (s *KubeReservedForListNodePoolsOutput) SetQuantity(v string) *KubeReserved
 type KubeletConfigForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CpuCfsQuota *bool `type:"boolean" json:",omitempty"`
+
 	CpuManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfCpuManagerPolicyForListNodePoolsOutput"`
 
 	EvictionHard []*EvictionHardForListNodePoolsOutput `type:"list" json:",omitempty"`
@@ -797,6 +807,12 @@ func (s KubeletConfigForListNodePoolsOutput) String() string {
 // GoString returns the string representation
 func (s KubeletConfigForListNodePoolsOutput) GoString() string {
 	return s.String()
+}
+
+// SetCpuCfsQuota sets the CpuCfsQuota field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetCpuCfsQuota(v bool) *KubeletConfigForListNodePoolsOutput {
+	s.CpuCfsQuota = &v
+	return s
 }
 
 // SetCpuManagerPolicy sets the CpuManagerPolicy field's value.
@@ -1460,6 +1476,8 @@ type PublicAccessConfigForListNodePoolsOutput struct {
 
 	Bandwidth *int32 `type:"int32" json:",omitempty"`
 
+	BandwidthPackageId *string `type:"string" json:",omitempty"`
+
 	BillingType *int32 `type:"int32" json:",omitempty"`
 
 	Isp *string `type:"string" json:",omitempty" enum:"EnumOfIspForListNodePoolsOutput"`
@@ -1478,6 +1496,12 @@ func (s PublicAccessConfigForListNodePoolsOutput) GoString() string {
 // SetBandwidth sets the Bandwidth field's value.
 func (s *PublicAccessConfigForListNodePoolsOutput) SetBandwidth(v int32) *PublicAccessConfigForListNodePoolsOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *PublicAccessConfigForListNodePoolsOutput) SetBandwidthPackageId(v string) *PublicAccessConfigForListNodePoolsOutput {
+	s.BandwidthPackageId = &v
 	return s
 }
 
@@ -1722,6 +1746,8 @@ func (s *SystemReservedForListNodePoolsOutput) SetQuantity(v string) *SystemRese
 type SystemVolumeForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BurstEnabled *bool `type:"boolean" json:",omitempty"`
+
 	PlacementGroupId *string `type:"string" json:",omitempty"`
 
 	Size *int32 `type:"int32" json:",omitempty"`
@@ -1739,6 +1765,12 @@ func (s SystemVolumeForListNodePoolsOutput) String() string {
 // GoString returns the string representation
 func (s SystemVolumeForListNodePoolsOutput) GoString() string {
 	return s.String()
+}
+
+// SetBurstEnabled sets the BurstEnabled field's value.
+func (s *SystemVolumeForListNodePoolsOutput) SetBurstEnabled(v bool) *SystemVolumeForListNodePoolsOutput {
+	s.BurstEnabled = &v
+	return s
 }
 
 // SetPlacementGroupId sets the PlacementGroupId field's value.
@@ -1771,6 +1803,8 @@ type TagForListNodePoolsInput struct {
 	Key *string `type:"string" json:",omitempty"`
 
 	Value *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1792,6 +1826,12 @@ func (s *TagForListNodePoolsInput) SetKey(v string) *TagForListNodePoolsInput {
 // SetValue sets the Value field's value.
 func (s *TagForListNodePoolsInput) SetValue(v string) *TagForListNodePoolsInput {
 	s.Value = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagForListNodePoolsInput) SetValues(v []*string) *TagForListNodePoolsInput {
+	s.Values = v
 	return s
 }
 

@@ -363,6 +363,8 @@ type ServiceNetworkSpecForCreateGatewayServiceInput struct {
 	EnablePublicNetwork *bool `type:"boolean" json:",omitempty"`
 
 	PrivateNetworkIP []*string `type:"list" json:",omitempty"`
+
+	PublicNetworkIP []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -390,6 +392,12 @@ func (s *ServiceNetworkSpecForCreateGatewayServiceInput) SetEnablePublicNetwork(
 // SetPrivateNetworkIP sets the PrivateNetworkIP field's value.
 func (s *ServiceNetworkSpecForCreateGatewayServiceInput) SetPrivateNetworkIP(v []*string) *ServiceNetworkSpecForCreateGatewayServiceInput {
 	s.PrivateNetworkIP = v
+	return s
+}
+
+// SetPublicNetworkIP sets the PublicNetworkIP field's value.
+func (s *ServiceNetworkSpecForCreateGatewayServiceInput) SetPublicNetworkIP(v []*string) *ServiceNetworkSpecForCreateGatewayServiceInput {
+	s.PublicNetworkIP = v
 	return s
 }
 

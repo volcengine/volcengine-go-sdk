@@ -268,6 +268,8 @@ func (s *ContainerdConfigForUpdateNodePoolConfigInput) SetRegistryProxyConfigs(v
 type DataVolumeForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BurstEnabled *bool `type:"boolean" json:",omitempty"`
+
 	ExtraPerformanceIops *int32 `type:"int32" json:",omitempty"`
 
 	ExtraPerformanceThroughputMb *int32 `type:"int32" json:",omitempty"`
@@ -297,6 +299,12 @@ func (s DataVolumeForUpdateNodePoolConfigInput) String() string {
 // GoString returns the string representation
 func (s DataVolumeForUpdateNodePoolConfigInput) GoString() string {
 	return s.String()
+}
+
+// SetBurstEnabled sets the BurstEnabled field's value.
+func (s *DataVolumeForUpdateNodePoolConfigInput) SetBurstEnabled(v bool) *DataVolumeForUpdateNodePoolConfigInput {
+	s.BurstEnabled = &v
+	return s
 }
 
 // SetExtraPerformanceIops sets the ExtraPerformanceIops field's value.
@@ -419,6 +427,36 @@ func (s *FeatureGatesForUpdateNodePoolConfigInput) SetQoSResourceManager(v bool)
 	return s
 }
 
+type GpuDriverConfigForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	GpuDriverVersion *string `type:"string" json:",omitempty"`
+
+	InstallGpuDriver *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s GpuDriverConfigForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GpuDriverConfigForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetGpuDriverVersion sets the GpuDriverVersion field's value.
+func (s *GpuDriverConfigForUpdateNodePoolConfigInput) SetGpuDriverVersion(v string) *GpuDriverConfigForUpdateNodePoolConfigInput {
+	s.GpuDriverVersion = &v
+	return s
+}
+
+// SetInstallGpuDriver sets the InstallGpuDriver field's value.
+func (s *GpuDriverConfigForUpdateNodePoolConfigInput) SetInstallGpuDriver(v bool) *GpuDriverConfigForUpdateNodePoolConfigInput {
+	s.InstallGpuDriver = &v
+	return s
+}
+
 type InstancesDistributionForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -498,6 +536,8 @@ func (s *KubeReservedForUpdateNodePoolConfigInput) SetQuantity(v string) *KubeRe
 type KubeletConfigForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CpuCfsQuota *bool `type:"boolean" json:",omitempty"`
+
 	CpuManagerPolicy *string `type:"string" json:",omitempty" enum:"EnumOfCpuManagerPolicyForUpdateNodePoolConfigInput"`
 
 	EvictionHard []*EvictionHardForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
@@ -533,6 +573,12 @@ func (s KubeletConfigForUpdateNodePoolConfigInput) String() string {
 // GoString returns the string representation
 func (s KubeletConfigForUpdateNodePoolConfigInput) GoString() string {
 	return s.String()
+}
+
+// SetCpuCfsQuota sets the CpuCfsQuota field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetCpuCfsQuota(v bool) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.CpuCfsQuota = &v
+	return s
 }
 
 // SetCpuManagerPolicy sets the CpuManagerPolicy field's value.
@@ -808,7 +854,11 @@ type NodeConfigForUpdateNodePoolConfigInput struct {
 
 	AutoRenewPeriod *int32 `type:"int32" json:",omitempty"`
 
+	CpuMaxFrequency *float64 `type:"double" json:",omitempty"`
+
 	DataVolumes []*DataVolumeForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
+
+	GpuDriverConfig *GpuDriverConfigForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
 
 	GpuDriverVersion *string `type:"string" json:",omitempty"`
 
@@ -885,9 +935,21 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetAutoRenewPeriod(v int32) *No
 	return s
 }
 
+// SetCpuMaxFrequency sets the CpuMaxFrequency field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetCpuMaxFrequency(v float64) *NodeConfigForUpdateNodePoolConfigInput {
+	s.CpuMaxFrequency = &v
+	return s
+}
+
 // SetDataVolumes sets the DataVolumes field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetDataVolumes(v []*DataVolumeForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
 	s.DataVolumes = v
+	return s
+}
+
+// SetGpuDriverConfig sets the GpuDriverConfig field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetGpuDriverConfig(v *GpuDriverConfigForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
+	s.GpuDriverConfig = v
 	return s
 }
 
@@ -1016,6 +1078,8 @@ type PublicAccessConfigForUpdateNodePoolConfigInput struct {
 
 	Bandwidth *int32 `type:"int32" json:",omitempty"`
 
+	BandwidthPackageId *string `type:"string" json:",omitempty"`
+
 	BillingType *int32 `type:"int32" json:",omitempty"`
 
 	Isp *string `type:"string" json:",omitempty" enum:"EnumOfIspForUpdateNodePoolConfigInput"`
@@ -1034,6 +1098,12 @@ func (s PublicAccessConfigForUpdateNodePoolConfigInput) GoString() string {
 // SetBandwidth sets the Bandwidth field's value.
 func (s *PublicAccessConfigForUpdateNodePoolConfigInput) SetBandwidth(v int32) *PublicAccessConfigForUpdateNodePoolConfigInput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *PublicAccessConfigForUpdateNodePoolConfigInput) SetBandwidthPackageId(v string) *PublicAccessConfigForUpdateNodePoolConfigInput {
+	s.BandwidthPackageId = &v
 	return s
 }
 
@@ -1210,6 +1280,8 @@ func (s *SystemReservedForUpdateNodePoolConfigInput) SetQuantity(v string) *Syst
 type SystemVolumeForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BurstEnabled *bool `type:"boolean" json:",omitempty"`
+
 	PlacementGroupId *string `type:"string" json:",omitempty"`
 
 	Size *int32 `type:"int32" json:",omitempty"`
@@ -1227,6 +1299,12 @@ func (s SystemVolumeForUpdateNodePoolConfigInput) String() string {
 // GoString returns the string representation
 func (s SystemVolumeForUpdateNodePoolConfigInput) GoString() string {
 	return s.String()
+}
+
+// SetBurstEnabled sets the BurstEnabled field's value.
+func (s *SystemVolumeForUpdateNodePoolConfigInput) SetBurstEnabled(v bool) *SystemVolumeForUpdateNodePoolConfigInput {
+	s.BurstEnabled = &v
+	return s
 }
 
 // SetPlacementGroupId sets the PlacementGroupId field's value.
