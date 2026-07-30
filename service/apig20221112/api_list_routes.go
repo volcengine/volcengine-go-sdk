@@ -148,6 +148,8 @@ type AIProviderSettingsForListRoutesOutput struct {
 
 	Model *string `type:"string" json:",omitempty"`
 
+	PrefixPath *string `type:"string" json:",omitempty"`
+
 	TargetPath *string `type:"string" json:",omitempty"`
 }
 
@@ -164,6 +166,12 @@ func (s AIProviderSettingsForListRoutesOutput) GoString() string {
 // SetModel sets the Model field's value.
 func (s *AIProviderSettingsForListRoutesOutput) SetModel(v string) *AIProviderSettingsForListRoutesOutput {
 	s.Model = &v
+	return s
+}
+
+// SetPrefixPath sets the PrefixPath field's value.
+func (s *AIProviderSettingsForListRoutesOutput) SetPrefixPath(v string) *AIProviderSettingsForListRoutesOutput {
+	s.PrefixPath = &v
 	return s
 }
 
@@ -185,6 +193,8 @@ type AdvancedSettingForListRoutesOutput struct {
 	RetryPolicySetting *RetryPolicySettingForListRoutesOutput `type:"structure" json:",omitempty"`
 
 	TimeoutSetting *TimeoutSettingForListRoutesOutput `type:"structure" json:",omitempty"`
+
+	TokenExtractors []*TokenExtractorForListRoutesOutput `type:"list" json:",omitempty"`
 
 	URLRewriteSetting *URLRewriteSettingForListRoutesOutput `type:"structure" json:",omitempty"`
 }
@@ -226,6 +236,12 @@ func (s *AdvancedSettingForListRoutesOutput) SetRetryPolicySetting(v *RetryPolic
 // SetTimeoutSetting sets the TimeoutSetting field's value.
 func (s *AdvancedSettingForListRoutesOutput) SetTimeoutSetting(v *TimeoutSettingForListRoutesOutput) *AdvancedSettingForListRoutesOutput {
 	s.TimeoutSetting = v
+	return s
+}
+
+// SetTokenExtractors sets the TokenExtractors field's value.
+func (s *AdvancedSettingForListRoutesOutput) SetTokenExtractors(v []*TokenExtractorForListRoutesOutput) *AdvancedSettingForListRoutesOutput {
+	s.TokenExtractors = v
 	return s
 }
 
@@ -604,11 +620,17 @@ type ItemForListRoutesOutput struct {
 
 	MatchRule *MatchRuleForListRoutesOutput `type:"structure" json:",omitempty"`
 
+	MockSetting *MockSettingForListRoutesOutput `type:"structure" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Priority *int64 `type:"int64" json:",omitempty"`
 
 	Reason *string `type:"string" json:",omitempty"`
+
+	RedirectSetting *RedirectSettingForListRoutesOutput `type:"structure" json:",omitempty"`
+
+	Scene *string `type:"string" json:",omitempty"`
 
 	ServiceId *string `type:"string" json:",omitempty"`
 
@@ -679,6 +701,12 @@ func (s *ItemForListRoutesOutput) SetMatchRule(v *MatchRuleForListRoutesOutput) 
 	return s
 }
 
+// SetMockSetting sets the MockSetting field's value.
+func (s *ItemForListRoutesOutput) SetMockSetting(v *MockSettingForListRoutesOutput) *ItemForListRoutesOutput {
+	s.MockSetting = v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *ItemForListRoutesOutput) SetName(v string) *ItemForListRoutesOutput {
 	s.Name = &v
@@ -694,6 +722,18 @@ func (s *ItemForListRoutesOutput) SetPriority(v int64) *ItemForListRoutesOutput 
 // SetReason sets the Reason field's value.
 func (s *ItemForListRoutesOutput) SetReason(v string) *ItemForListRoutesOutput {
 	s.Reason = &v
+	return s
+}
+
+// SetRedirectSetting sets the RedirectSetting field's value.
+func (s *ItemForListRoutesOutput) SetRedirectSetting(v *RedirectSettingForListRoutesOutput) *ItemForListRoutesOutput {
+	s.RedirectSetting = v
+	return s
+}
+
+// SetScene sets the Scene field's value.
+func (s *ItemForListRoutesOutput) SetScene(v string) *ItemForListRoutesOutput {
+	s.Scene = &v
 	return s
 }
 
@@ -905,6 +945,36 @@ func (s *MirrorPolicyForListRoutesOutput) SetUpstream(v *UpstreamForListRoutesOu
 	return s
 }
 
+type MockSettingForListRoutesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ResponseBody *string `type:"string" json:",omitempty"`
+
+	Status *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MockSettingForListRoutesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MockSettingForListRoutesOutput) GoString() string {
+	return s.String()
+}
+
+// SetResponseBody sets the ResponseBody field's value.
+func (s *MockSettingForListRoutesOutput) SetResponseBody(v string) *MockSettingForListRoutesOutput {
+	s.ResponseBody = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *MockSettingForListRoutesOutput) SetStatus(v int64) *MockSettingForListRoutesOutput {
+	s.Status = &v
+	return s
+}
+
 type PathForListRoutesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -987,6 +1057,44 @@ func (s *QueryStringForListRoutesOutput) SetValue(v *PathForListRoutesOutput) *Q
 	return s
 }
 
+type RedirectSettingForListRoutesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Authority *string `type:"string" json:",omitempty"`
+
+	Path *string `type:"string" json:",omitempty"`
+
+	Status *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RedirectSettingForListRoutesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RedirectSettingForListRoutesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAuthority sets the Authority field's value.
+func (s *RedirectSettingForListRoutesOutput) SetAuthority(v string) *RedirectSettingForListRoutesOutput {
+	s.Authority = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *RedirectSettingForListRoutesOutput) SetPath(v string) *RedirectSettingForListRoutesOutput {
+	s.Path = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *RedirectSettingForListRoutesOutput) SetStatus(v int64) *RedirectSettingForListRoutesOutput {
+	s.Status = &v
+	return s
+}
+
 type RetryPolicySettingForListRoutesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1060,6 +1168,36 @@ func (s *TimeoutSettingForListRoutesOutput) SetEnable(v bool) *TimeoutSettingFor
 // SetTimeout sets the Timeout field's value.
 func (s *TimeoutSettingForListRoutesOutput) SetTimeout(v int64) *TimeoutSettingForListRoutesOutput {
 	s.Timeout = &v
+	return s
+}
+
+type TokenExtractorForListRoutesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	JsonPointers []*string `type:"list" json:",omitempty"`
+
+	TokenType *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TokenExtractorForListRoutesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TokenExtractorForListRoutesOutput) GoString() string {
+	return s.String()
+}
+
+// SetJsonPointers sets the JsonPointers field's value.
+func (s *TokenExtractorForListRoutesOutput) SetJsonPointers(v []*string) *TokenExtractorForListRoutesOutput {
+	s.JsonPointers = v
+	return s
+}
+
+// SetTokenType sets the TokenType field's value.
+func (s *TokenExtractorForListRoutesOutput) SetTokenType(v string) *TokenExtractorForListRoutesOutput {
+	s.TokenType = &v
 	return s
 }
 
