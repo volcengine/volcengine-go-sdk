@@ -155,6 +155,8 @@ type CreateNodesInput struct {
 
 	ContainerStoragePath *string `type:"string" json:",omitempty"`
 
+	GpuDriverConfig *GpuDriverConfigForCreateNodesInput `type:"structure" json:",omitempty"`
+
 	GpuDriverVersion *string `type:"string" json:",omitempty"`
 
 	ImageId *string `type:"string" json:",omitempty"`
@@ -218,6 +220,12 @@ func (s *CreateNodesInput) SetClusterId(v string) *CreateNodesInput {
 // SetContainerStoragePath sets the ContainerStoragePath field's value.
 func (s *CreateNodesInput) SetContainerStoragePath(v string) *CreateNodesInput {
 	s.ContainerStoragePath = &v
+	return s
+}
+
+// SetGpuDriverConfig sets the GpuDriverConfig field's value.
+func (s *CreateNodesInput) SetGpuDriverConfig(v *GpuDriverConfigForCreateNodesInput) *CreateNodesInput {
+	s.GpuDriverConfig = v
 	return s
 }
 
@@ -296,6 +304,36 @@ func (s CreateNodesOutput) GoString() string {
 // SetIds sets the Ids field's value.
 func (s *CreateNodesOutput) SetIds(v []*string) *CreateNodesOutput {
 	s.Ids = v
+	return s
+}
+
+type GpuDriverConfigForCreateNodesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	GpuDriverVersion *string `type:"string" json:",omitempty"`
+
+	InstallGpuDriver *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s GpuDriverConfigForCreateNodesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GpuDriverConfigForCreateNodesInput) GoString() string {
+	return s.String()
+}
+
+// SetGpuDriverVersion sets the GpuDriverVersion field's value.
+func (s *GpuDriverConfigForCreateNodesInput) SetGpuDriverVersion(v string) *GpuDriverConfigForCreateNodesInput {
+	s.GpuDriverVersion = &v
+	return s
+}
+
+// SetInstallGpuDriver sets the InstallGpuDriver field's value.
+func (s *GpuDriverConfigForCreateNodesInput) SetInstallGpuDriver(v bool) *GpuDriverConfigForCreateNodesInput {
+	s.InstallGpuDriver = &v
 	return s
 }
 

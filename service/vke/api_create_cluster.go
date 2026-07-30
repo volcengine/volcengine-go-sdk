@@ -143,6 +143,66 @@ func (c *VKE) CreateClusterWithContext(ctx volcengine.Context, input *CreateClus
 	return out, req.Send()
 }
 
+type AdmissionPluginsForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AlwaysPullImages *bool `type:"boolean" json:",omitempty"`
+
+	PodNodeSelector *bool `type:"boolean" json:",omitempty"`
+
+	PodTolerationRestriction *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AdmissionPluginsForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AdmissionPluginsForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetAlwaysPullImages sets the AlwaysPullImages field's value.
+func (s *AdmissionPluginsForCreateClusterInput) SetAlwaysPullImages(v bool) *AdmissionPluginsForCreateClusterInput {
+	s.AlwaysPullImages = &v
+	return s
+}
+
+// SetPodNodeSelector sets the PodNodeSelector field's value.
+func (s *AdmissionPluginsForCreateClusterInput) SetPodNodeSelector(v bool) *AdmissionPluginsForCreateClusterInput {
+	s.PodNodeSelector = &v
+	return s
+}
+
+// SetPodTolerationRestriction sets the PodTolerationRestriction field's value.
+func (s *AdmissionPluginsForCreateClusterInput) SetPodTolerationRestriction(v bool) *AdmissionPluginsForCreateClusterInput {
+	s.PodTolerationRestriction = &v
+	return s
+}
+
+type AdvancedConfigForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InternalDnsEnabled *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AdvancedConfigForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AdvancedConfigForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetInternalDnsEnabled sets the InternalDnsEnabled field's value.
+func (s *AdvancedConfigForCreateClusterInput) SetInternalDnsEnabled(v bool) *AdvancedConfigForCreateClusterInput {
+	s.InternalDnsEnabled = &v
+	return s
+}
+
 type ApiServerPublicAccessConfigForCreateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -172,6 +232,8 @@ type ClusterConfigForCreateClusterInput struct {
 
 	ApiServerPublicAccessEnabled *bool `type:"boolean" json:",omitempty"`
 
+	IpFamily *string `type:"string" json:",omitempty" enum:"EnumOfIpFamilyForCreateClusterInput"`
+
 	ResourcePublicAccessDefaultEnabled *bool `type:"boolean" json:",omitempty"`
 
 	SubnetIds []*string `type:"list" json:",omitempty"`
@@ -199,6 +261,12 @@ func (s *ClusterConfigForCreateClusterInput) SetApiServerPublicAccessEnabled(v b
 	return s
 }
 
+// SetIpFamily sets the IpFamily field's value.
+func (s *ClusterConfigForCreateClusterInput) SetIpFamily(v string) *ClusterConfigForCreateClusterInput {
+	s.IpFamily = &v
+	return s
+}
+
 // SetResourcePublicAccessDefaultEnabled sets the ResourcePublicAccessDefaultEnabled field's value.
 func (s *ClusterConfigForCreateClusterInput) SetResourcePublicAccessDefaultEnabled(v bool) *ClusterConfigForCreateClusterInput {
 	s.ResourcePublicAccessDefaultEnabled = &v
@@ -208,6 +276,142 @@ func (s *ClusterConfigForCreateClusterInput) SetResourcePublicAccessDefaultEnabl
 // SetSubnetIds sets the SubnetIds field's value.
 func (s *ClusterConfigForCreateClusterInput) SetSubnetIds(v []*string) *ClusterConfigForCreateClusterInput {
 	s.SubnetIds = v
+	return s
+}
+
+type ComponentConfigForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty" enum:"EnumOfNameForCreateClusterInput"`
+}
+
+// String returns the string representation
+func (s ComponentConfigForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ComponentConfigForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ComponentConfigForCreateClusterInput) SetEnabled(v bool) *ComponentConfigForCreateClusterInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ComponentConfigForCreateClusterInput) SetName(v string) *ComponentConfigForCreateClusterInput {
+	s.Name = &v
+	return s
+}
+
+type ControlPlaneConfigForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	KubeApiServerConfig *KubeApiServerConfigForCreateClusterInput `type:"structure" json:",omitempty"`
+
+	KubeControllerManagerConfig *KubeControllerManagerConfigForCreateClusterInput `type:"structure" json:",omitempty"`
+
+	KubeSchedulerConfig *KubeSchedulerConfigForCreateClusterInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ControlPlaneConfigForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ControlPlaneConfigForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetKubeApiServerConfig sets the KubeApiServerConfig field's value.
+func (s *ControlPlaneConfigForCreateClusterInput) SetKubeApiServerConfig(v *KubeApiServerConfigForCreateClusterInput) *ControlPlaneConfigForCreateClusterInput {
+	s.KubeApiServerConfig = v
+	return s
+}
+
+// SetKubeControllerManagerConfig sets the KubeControllerManagerConfig field's value.
+func (s *ControlPlaneConfigForCreateClusterInput) SetKubeControllerManagerConfig(v *KubeControllerManagerConfigForCreateClusterInput) *ControlPlaneConfigForCreateClusterInput {
+	s.KubeControllerManagerConfig = v
+	return s
+}
+
+// SetKubeSchedulerConfig sets the KubeSchedulerConfig field's value.
+func (s *ControlPlaneConfigForCreateClusterInput) SetKubeSchedulerConfig(v *KubeSchedulerConfigForCreateClusterInput) *ControlPlaneConfigForCreateClusterInput {
+	s.KubeSchedulerConfig = v
+	return s
+}
+
+type ConvertConvertFeatureGatesForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InPlacePodVerticalScaling *bool `type:"boolean" json:",omitempty"`
+
+	SidecarContainers *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertConvertFeatureGatesForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertFeatureGatesForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetInPlacePodVerticalScaling sets the InPlacePodVerticalScaling field's value.
+func (s *ConvertConvertFeatureGatesForCreateClusterInput) SetInPlacePodVerticalScaling(v bool) *ConvertConvertFeatureGatesForCreateClusterInput {
+	s.InPlacePodVerticalScaling = &v
+	return s
+}
+
+// SetSidecarContainers sets the SidecarContainers field's value.
+func (s *ConvertConvertFeatureGatesForCreateClusterInput) SetSidecarContainers(v bool) *ConvertConvertFeatureGatesForCreateClusterInput {
+	s.SidecarContainers = &v
+	return s
+}
+
+type ConvertFeatureGatesForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InPlacePodVerticalScaling *bool `type:"boolean" json:",omitempty"`
+
+	MaxUnavailableStatefulSet *bool `type:"boolean" json:",omitempty"`
+
+	StatefulSetAutoDeletePVC *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertFeatureGatesForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertFeatureGatesForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetInPlacePodVerticalScaling sets the InPlacePodVerticalScaling field's value.
+func (s *ConvertFeatureGatesForCreateClusterInput) SetInPlacePodVerticalScaling(v bool) *ConvertFeatureGatesForCreateClusterInput {
+	s.InPlacePodVerticalScaling = &v
+	return s
+}
+
+// SetMaxUnavailableStatefulSet sets the MaxUnavailableStatefulSet field's value.
+func (s *ConvertFeatureGatesForCreateClusterInput) SetMaxUnavailableStatefulSet(v bool) *ConvertFeatureGatesForCreateClusterInput {
+	s.MaxUnavailableStatefulSet = &v
+	return s
+}
+
+// SetStatefulSetAutoDeletePVC sets the StatefulSetAutoDeletePVC field's value.
+func (s *ConvertFeatureGatesForCreateClusterInput) SetStatefulSetAutoDeletePVC(v bool) *ConvertFeatureGatesForCreateClusterInput {
+	s.StatefulSetAutoDeletePVC = &v
 	return s
 }
 
@@ -222,9 +426,13 @@ type CreateClusterInput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	KubernetesConfig *KubernetesConfigForCreateClusterInput `type:"structure" json:",omitempty"`
+
 	KubernetesVersion *string `type:"string" json:",omitempty"`
 
 	LoggingConfig *LoggingConfigForCreateClusterInput `type:"structure" json:",omitempty"`
+
+	MonitoringConfig *MonitoringConfigForCreateClusterInput `type:"structure" json:",omitempty"`
 
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
@@ -285,6 +493,12 @@ func (s *CreateClusterInput) SetDescription(v string) *CreateClusterInput {
 	return s
 }
 
+// SetKubernetesConfig sets the KubernetesConfig field's value.
+func (s *CreateClusterInput) SetKubernetesConfig(v *KubernetesConfigForCreateClusterInput) *CreateClusterInput {
+	s.KubernetesConfig = v
+	return s
+}
+
 // SetKubernetesVersion sets the KubernetesVersion field's value.
 func (s *CreateClusterInput) SetKubernetesVersion(v string) *CreateClusterInput {
 	s.KubernetesVersion = &v
@@ -294,6 +508,12 @@ func (s *CreateClusterInput) SetKubernetesVersion(v string) *CreateClusterInput 
 // SetLoggingConfig sets the LoggingConfig field's value.
 func (s *CreateClusterInput) SetLoggingConfig(v *LoggingConfigForCreateClusterInput) *CreateClusterInput {
 	s.LoggingConfig = v
+	return s
+}
+
+// SetMonitoringConfig sets the MonitoringConfig field's value.
+func (s *CreateClusterInput) SetMonitoringConfig(v *MonitoringConfigForCreateClusterInput) *CreateClusterInput {
+	s.MonitoringConfig = v
 	return s
 }
 
@@ -351,12 +571,60 @@ func (s *CreateClusterOutput) SetId(v string) *CreateClusterOutput {
 	return s
 }
 
+type FeatureGatesForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InPlacePodVerticalScaling *bool `type:"boolean" json:",omitempty"`
+
+	MaxUnavailableStatefulSet *bool `type:"boolean" json:",omitempty"`
+
+	SidecarContainers *bool `type:"boolean" json:",omitempty"`
+
+	StatefulSetAutoDeletePVC *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FeatureGatesForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FeatureGatesForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetInPlacePodVerticalScaling sets the InPlacePodVerticalScaling field's value.
+func (s *FeatureGatesForCreateClusterInput) SetInPlacePodVerticalScaling(v bool) *FeatureGatesForCreateClusterInput {
+	s.InPlacePodVerticalScaling = &v
+	return s
+}
+
+// SetMaxUnavailableStatefulSet sets the MaxUnavailableStatefulSet field's value.
+func (s *FeatureGatesForCreateClusterInput) SetMaxUnavailableStatefulSet(v bool) *FeatureGatesForCreateClusterInput {
+	s.MaxUnavailableStatefulSet = &v
+	return s
+}
+
+// SetSidecarContainers sets the SidecarContainers field's value.
+func (s *FeatureGatesForCreateClusterInput) SetSidecarContainers(v bool) *FeatureGatesForCreateClusterInput {
+	s.SidecarContainers = &v
+	return s
+}
+
+// SetStatefulSetAutoDeletePVC sets the StatefulSetAutoDeletePVC field's value.
+func (s *FeatureGatesForCreateClusterInput) SetStatefulSetAutoDeletePVC(v bool) *FeatureGatesForCreateClusterInput {
+	s.StatefulSetAutoDeletePVC = &v
+	return s
+}
+
 type FlannelConfigForCreateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	MaxPodsPerNode *int32 `type:"int32" json:",omitempty"`
 
 	PodCidrs []*string `type:"list" json:",omitempty"`
+
+	SubnetIds []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -378,6 +646,300 @@ func (s *FlannelConfigForCreateClusterInput) SetMaxPodsPerNode(v int32) *Flannel
 // SetPodCidrs sets the PodCidrs field's value.
 func (s *FlannelConfigForCreateClusterInput) SetPodCidrs(v []*string) *FlannelConfigForCreateClusterInput {
 	s.PodCidrs = v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *FlannelConfigForCreateClusterInput) SetSubnetIds(v []*string) *FlannelConfigForCreateClusterInput {
+	s.SubnetIds = v
+	return s
+}
+
+type KubeApiServerConfigForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdmissionPlugins *AdmissionPluginsForCreateClusterInput `type:"structure" json:",omitempty"`
+
+	DefaultNotReadyTolerationSeconds *int32 `type:"int32" json:",omitempty"`
+
+	DefaultUnreachableTolerationSeconds *int32 `type:"int32" json:",omitempty"`
+
+	FeatureGates *FeatureGatesForCreateClusterInput `type:"structure" json:",omitempty"`
+
+	RequestTimeout *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KubeApiServerConfigForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeApiServerConfigForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetAdmissionPlugins sets the AdmissionPlugins field's value.
+func (s *KubeApiServerConfigForCreateClusterInput) SetAdmissionPlugins(v *AdmissionPluginsForCreateClusterInput) *KubeApiServerConfigForCreateClusterInput {
+	s.AdmissionPlugins = v
+	return s
+}
+
+// SetDefaultNotReadyTolerationSeconds sets the DefaultNotReadyTolerationSeconds field's value.
+func (s *KubeApiServerConfigForCreateClusterInput) SetDefaultNotReadyTolerationSeconds(v int32) *KubeApiServerConfigForCreateClusterInput {
+	s.DefaultNotReadyTolerationSeconds = &v
+	return s
+}
+
+// SetDefaultUnreachableTolerationSeconds sets the DefaultUnreachableTolerationSeconds field's value.
+func (s *KubeApiServerConfigForCreateClusterInput) SetDefaultUnreachableTolerationSeconds(v int32) *KubeApiServerConfigForCreateClusterInput {
+	s.DefaultUnreachableTolerationSeconds = &v
+	return s
+}
+
+// SetFeatureGates sets the FeatureGates field's value.
+func (s *KubeApiServerConfigForCreateClusterInput) SetFeatureGates(v *FeatureGatesForCreateClusterInput) *KubeApiServerConfigForCreateClusterInput {
+	s.FeatureGates = v
+	return s
+}
+
+// SetRequestTimeout sets the RequestTimeout field's value.
+func (s *KubeApiServerConfigForCreateClusterInput) SetRequestTimeout(v string) *KubeApiServerConfigForCreateClusterInput {
+	s.RequestTimeout = &v
+	return s
+}
+
+type KubeControllerManagerConfigForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ConcurrentHorizontalPodAutoscalerSyncs *int32 `type:"int32" json:",omitempty"`
+
+	ConcurrentTTLAfterFinishedSyncs *int32 `type:"int32" json:",omitempty"`
+
+	FeatureGates *ConvertFeatureGatesForCreateClusterInput `type:"structure" json:",omitempty"`
+
+	HorizontalPodAutoscalerSyncPeriod *string `type:"string" json:",omitempty"`
+
+	HorizontalPodAutoscalerTolerance *float64 `type:"double" json:",omitempty"`
+
+	KubeApiBurst *int32 `type:"int32" json:",omitempty"`
+
+	KubeApiQps *int32 `type:"int32" json:",omitempty"`
+
+	LargeClusterSizeThreshold *int32 `type:"int32" json:",omitempty"`
+
+	NodeEvictionRate *float64 `type:"double" json:",omitempty"`
+
+	NodeMonitorGracePeriod *int32 `type:"int32" json:",omitempty"`
+
+	SecondaryNodeEvictionRate *float64 `type:"double" json:",omitempty"`
+
+	TerminatedPodGCThreshold *int32 `type:"int32" json:",omitempty"`
+
+	UnhealthyZoneThreshold *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KubeControllerManagerConfigForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeControllerManagerConfigForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetConcurrentHorizontalPodAutoscalerSyncs sets the ConcurrentHorizontalPodAutoscalerSyncs field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetConcurrentHorizontalPodAutoscalerSyncs(v int32) *KubeControllerManagerConfigForCreateClusterInput {
+	s.ConcurrentHorizontalPodAutoscalerSyncs = &v
+	return s
+}
+
+// SetConcurrentTTLAfterFinishedSyncs sets the ConcurrentTTLAfterFinishedSyncs field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetConcurrentTTLAfterFinishedSyncs(v int32) *KubeControllerManagerConfigForCreateClusterInput {
+	s.ConcurrentTTLAfterFinishedSyncs = &v
+	return s
+}
+
+// SetFeatureGates sets the FeatureGates field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetFeatureGates(v *ConvertFeatureGatesForCreateClusterInput) *KubeControllerManagerConfigForCreateClusterInput {
+	s.FeatureGates = v
+	return s
+}
+
+// SetHorizontalPodAutoscalerSyncPeriod sets the HorizontalPodAutoscalerSyncPeriod field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetHorizontalPodAutoscalerSyncPeriod(v string) *KubeControllerManagerConfigForCreateClusterInput {
+	s.HorizontalPodAutoscalerSyncPeriod = &v
+	return s
+}
+
+// SetHorizontalPodAutoscalerTolerance sets the HorizontalPodAutoscalerTolerance field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetHorizontalPodAutoscalerTolerance(v float64) *KubeControllerManagerConfigForCreateClusterInput {
+	s.HorizontalPodAutoscalerTolerance = &v
+	return s
+}
+
+// SetKubeApiBurst sets the KubeApiBurst field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetKubeApiBurst(v int32) *KubeControllerManagerConfigForCreateClusterInput {
+	s.KubeApiBurst = &v
+	return s
+}
+
+// SetKubeApiQps sets the KubeApiQps field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetKubeApiQps(v int32) *KubeControllerManagerConfigForCreateClusterInput {
+	s.KubeApiQps = &v
+	return s
+}
+
+// SetLargeClusterSizeThreshold sets the LargeClusterSizeThreshold field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetLargeClusterSizeThreshold(v int32) *KubeControllerManagerConfigForCreateClusterInput {
+	s.LargeClusterSizeThreshold = &v
+	return s
+}
+
+// SetNodeEvictionRate sets the NodeEvictionRate field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetNodeEvictionRate(v float64) *KubeControllerManagerConfigForCreateClusterInput {
+	s.NodeEvictionRate = &v
+	return s
+}
+
+// SetNodeMonitorGracePeriod sets the NodeMonitorGracePeriod field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetNodeMonitorGracePeriod(v int32) *KubeControllerManagerConfigForCreateClusterInput {
+	s.NodeMonitorGracePeriod = &v
+	return s
+}
+
+// SetSecondaryNodeEvictionRate sets the SecondaryNodeEvictionRate field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetSecondaryNodeEvictionRate(v float64) *KubeControllerManagerConfigForCreateClusterInput {
+	s.SecondaryNodeEvictionRate = &v
+	return s
+}
+
+// SetTerminatedPodGCThreshold sets the TerminatedPodGCThreshold field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetTerminatedPodGCThreshold(v int32) *KubeControllerManagerConfigForCreateClusterInput {
+	s.TerminatedPodGCThreshold = &v
+	return s
+}
+
+// SetUnhealthyZoneThreshold sets the UnhealthyZoneThreshold field's value.
+func (s *KubeControllerManagerConfigForCreateClusterInput) SetUnhealthyZoneThreshold(v float64) *KubeControllerManagerConfigForCreateClusterInput {
+	s.UnhealthyZoneThreshold = &v
+	return s
+}
+
+type KubeSchedulerConfigForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FeatureGates *ConvertConvertFeatureGatesForCreateClusterInput `type:"structure" json:",omitempty"`
+
+	KubeApiBurst *int32 `type:"int32" json:",omitempty"`
+
+	KubeApiQps *int32 `type:"int32" json:",omitempty"`
+
+	Parallelism *int32 `type:"int32" json:",omitempty"`
+
+	PercentageOfNodesToScore *int32 `type:"int32" json:",omitempty"`
+
+	PodInitialBackoffSeconds *int32 `type:"int32" json:",omitempty"`
+
+	PodMaxBackoffSeconds *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KubeSchedulerConfigForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeSchedulerConfigForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetFeatureGates sets the FeatureGates field's value.
+func (s *KubeSchedulerConfigForCreateClusterInput) SetFeatureGates(v *ConvertConvertFeatureGatesForCreateClusterInput) *KubeSchedulerConfigForCreateClusterInput {
+	s.FeatureGates = v
+	return s
+}
+
+// SetKubeApiBurst sets the KubeApiBurst field's value.
+func (s *KubeSchedulerConfigForCreateClusterInput) SetKubeApiBurst(v int32) *KubeSchedulerConfigForCreateClusterInput {
+	s.KubeApiBurst = &v
+	return s
+}
+
+// SetKubeApiQps sets the KubeApiQps field's value.
+func (s *KubeSchedulerConfigForCreateClusterInput) SetKubeApiQps(v int32) *KubeSchedulerConfigForCreateClusterInput {
+	s.KubeApiQps = &v
+	return s
+}
+
+// SetParallelism sets the Parallelism field's value.
+func (s *KubeSchedulerConfigForCreateClusterInput) SetParallelism(v int32) *KubeSchedulerConfigForCreateClusterInput {
+	s.Parallelism = &v
+	return s
+}
+
+// SetPercentageOfNodesToScore sets the PercentageOfNodesToScore field's value.
+func (s *KubeSchedulerConfigForCreateClusterInput) SetPercentageOfNodesToScore(v int32) *KubeSchedulerConfigForCreateClusterInput {
+	s.PercentageOfNodesToScore = &v
+	return s
+}
+
+// SetPodInitialBackoffSeconds sets the PodInitialBackoffSeconds field's value.
+func (s *KubeSchedulerConfigForCreateClusterInput) SetPodInitialBackoffSeconds(v int32) *KubeSchedulerConfigForCreateClusterInput {
+	s.PodInitialBackoffSeconds = &v
+	return s
+}
+
+// SetPodMaxBackoffSeconds sets the PodMaxBackoffSeconds field's value.
+func (s *KubeSchedulerConfigForCreateClusterInput) SetPodMaxBackoffSeconds(v int32) *KubeSchedulerConfigForCreateClusterInput {
+	s.PodMaxBackoffSeconds = &v
+	return s
+}
+
+type KubernetesConfigForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdvancedConfig *AdvancedConfigForCreateClusterInput `type:"structure" json:",omitempty"`
+
+	ClusterDomain *string `type:"string" json:",omitempty"`
+
+	ControlPlaneConfig *ControlPlaneConfigForCreateClusterInput `type:"structure" json:",omitempty"`
+
+	CustomSans []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KubernetesConfigForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubernetesConfigForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetAdvancedConfig sets the AdvancedConfig field's value.
+func (s *KubernetesConfigForCreateClusterInput) SetAdvancedConfig(v *AdvancedConfigForCreateClusterInput) *KubernetesConfigForCreateClusterInput {
+	s.AdvancedConfig = v
+	return s
+}
+
+// SetClusterDomain sets the ClusterDomain field's value.
+func (s *KubernetesConfigForCreateClusterInput) SetClusterDomain(v string) *KubernetesConfigForCreateClusterInput {
+	s.ClusterDomain = &v
+	return s
+}
+
+// SetControlPlaneConfig sets the ControlPlaneConfig field's value.
+func (s *KubernetesConfigForCreateClusterInput) SetControlPlaneConfig(v *ControlPlaneConfigForCreateClusterInput) *KubernetesConfigForCreateClusterInput {
+	s.ControlPlaneConfig = v
+	return s
+}
+
+// SetCustomSans sets the CustomSans field's value.
+func (s *KubernetesConfigForCreateClusterInput) SetCustomSans(v []*string) *KubernetesConfigForCreateClusterInput {
+	s.CustomSans = v
 	return s
 }
 
@@ -449,12 +1011,42 @@ func (s *LoggingConfigForCreateClusterInput) SetLogSetups(v []*LogSetupForCreate
 	return s
 }
 
+type MonitoringConfigForCreateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ComponentConfigs []*ComponentConfigForCreateClusterInput `type:"list" json:",omitempty"`
+
+	WorkspaceId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MonitoringConfigForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MonitoringConfigForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetComponentConfigs sets the ComponentConfigs field's value.
+func (s *MonitoringConfigForCreateClusterInput) SetComponentConfigs(v []*ComponentConfigForCreateClusterInput) *MonitoringConfigForCreateClusterInput {
+	s.ComponentConfigs = v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *MonitoringConfigForCreateClusterInput) SetWorkspaceId(v string) *MonitoringConfigForCreateClusterInput {
+	s.WorkspaceId = &v
+	return s
+}
+
 type PodsConfigForCreateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	FlannelConfig *FlannelConfigForCreateClusterInput `type:"structure" json:",omitempty"`
 
-	PodNetworkMode *string `type:"string" json:",omitempty" enum:"EnumOfPodNetworkModeForCreateClusterInput"`
+	PodNetworkMode *string `type:"string" json:",omitempty"`
 
 	VpcCniConfig *VpcCniConfigForCreateClusterInput `type:"structure" json:",omitempty"`
 }
@@ -492,6 +1084,8 @@ type PublicAccessNetworkConfigForCreateClusterInput struct {
 
 	Bandwidth *int32 `type:"int32" json:",omitempty"`
 
+	BandwidthPackageId *string `type:"string" json:",omitempty"`
+
 	BillingType *int32 `type:"int32" json:",omitempty"`
 
 	Isp *string `type:"string" json:",omitempty" enum:"EnumOfIspForCreateClusterInput"`
@@ -510,6 +1104,12 @@ func (s PublicAccessNetworkConfigForCreateClusterInput) GoString() string {
 // SetBandwidth sets the Bandwidth field's value.
 func (s *PublicAccessNetworkConfigForCreateClusterInput) SetBandwidth(v int32) *PublicAccessNetworkConfigForCreateClusterInput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *PublicAccessNetworkConfigForCreateClusterInput) SetBandwidthPackageId(v string) *PublicAccessNetworkConfigForCreateClusterInput {
+	s.BandwidthPackageId = &v
 	return s
 }
 
@@ -608,6 +1208,17 @@ func (s *VpcCniConfigForCreateClusterInput) SetTrunkEniEnabled(v bool) *VpcCniCo
 }
 
 const (
+	// EnumOfIpFamilyForCreateClusterInputIpv4 is a EnumOfIpFamilyForCreateClusterInput enum value
+	EnumOfIpFamilyForCreateClusterInputIpv4 = "Ipv4"
+
+	// EnumOfIpFamilyForCreateClusterInputIpv6 is a EnumOfIpFamilyForCreateClusterInput enum value
+	EnumOfIpFamilyForCreateClusterInputIpv6 = "Ipv6"
+
+	// EnumOfIpFamilyForCreateClusterInputDualStack is a EnumOfIpFamilyForCreateClusterInput enum value
+	EnumOfIpFamilyForCreateClusterInputDualStack = "DualStack"
+)
+
+const (
 	// EnumOfIspForCreateClusterInputBgp is a EnumOfIspForCreateClusterInput enum value
 	EnumOfIspForCreateClusterInputBgp = "BGP"
 
@@ -663,12 +1274,36 @@ const (
 )
 
 const (
-	// EnumOfPodNetworkModeForCreateClusterInputFlannel is a EnumOfPodNetworkModeForCreateClusterInput enum value
-	EnumOfPodNetworkModeForCreateClusterInputFlannel = "Flannel"
+	// EnumOfNameForCreateClusterInputKubelet is a EnumOfNameForCreateClusterInput enum value
+	EnumOfNameForCreateClusterInputKubelet = "Kubelet"
 
-	// EnumOfPodNetworkModeForCreateClusterInputVpcCniShared is a EnumOfPodNetworkModeForCreateClusterInput enum value
-	EnumOfPodNetworkModeForCreateClusterInputVpcCniShared = "VpcCniShared"
+	// EnumOfNameForCreateClusterInputKubeApiServer is a EnumOfNameForCreateClusterInput enum value
+	EnumOfNameForCreateClusterInputKubeApiServer = "KubeApiServer"
 
-	// EnumOfPodNetworkModeForCreateClusterInputVpcCniDedicated is a EnumOfPodNetworkModeForCreateClusterInput enum value
-	EnumOfPodNetworkModeForCreateClusterInputVpcCniDedicated = "VpcCniDedicated"
+	// EnumOfNameForCreateClusterInputKubeControllerManager is a EnumOfNameForCreateClusterInput enum value
+	EnumOfNameForCreateClusterInputKubeControllerManager = "KubeControllerManager"
+
+	// EnumOfNameForCreateClusterInputKubeScheduler is a EnumOfNameForCreateClusterInput enum value
+	EnumOfNameForCreateClusterInputKubeScheduler = "KubeScheduler"
+
+	// EnumOfNameForCreateClusterInputEtcd is a EnumOfNameForCreateClusterInput enum value
+	EnumOfNameForCreateClusterInputEtcd = "Etcd"
+
+	// EnumOfNameForCreateClusterInputClusterAutoscaler is a EnumOfNameForCreateClusterInput enum value
+	EnumOfNameForCreateClusterInputClusterAutoscaler = "ClusterAutoscaler"
+
+	// EnumOfNameForCreateClusterInputKubeInsights is a EnumOfNameForCreateClusterInput enum value
+	EnumOfNameForCreateClusterInputKubeInsights = "KubeInsights"
+
+	// EnumOfNameForCreateClusterInputKubeBrain is a EnumOfNameForCreateClusterInput enum value
+	EnumOfNameForCreateClusterInputKubeBrain = "KubeBrain"
+
+	// EnumOfNameForCreateClusterInputGodelScheduler is a EnumOfNameForCreateClusterInput enum value
+	EnumOfNameForCreateClusterInputGodelScheduler = "GodelScheduler"
+
+	// EnumOfNameForCreateClusterInputGodelDispatcher is a EnumOfNameForCreateClusterInput enum value
+	EnumOfNameForCreateClusterInputGodelDispatcher = "GodelDispatcher"
+
+	// EnumOfNameForCreateClusterInputGodelBinder is a EnumOfNameForCreateClusterInput enum value
+	EnumOfNameForCreateClusterInputGodelBinder = "GodelBinder"
 )

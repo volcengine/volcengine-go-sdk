@@ -143,6 +143,66 @@ func (c *VKE) ListClustersWithContext(ctx volcengine.Context, input *ListCluster
 	return out, req.Send()
 }
 
+type AdmissionPluginsForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AlwaysPullImages *bool `type:"boolean" json:",omitempty"`
+
+	PodNodeSelector *bool `type:"boolean" json:",omitempty"`
+
+	PodTolerationRestriction *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AdmissionPluginsForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AdmissionPluginsForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetAlwaysPullImages sets the AlwaysPullImages field's value.
+func (s *AdmissionPluginsForListClustersOutput) SetAlwaysPullImages(v bool) *AdmissionPluginsForListClustersOutput {
+	s.AlwaysPullImages = &v
+	return s
+}
+
+// SetPodNodeSelector sets the PodNodeSelector field's value.
+func (s *AdmissionPluginsForListClustersOutput) SetPodNodeSelector(v bool) *AdmissionPluginsForListClustersOutput {
+	s.PodNodeSelector = &v
+	return s
+}
+
+// SetPodTolerationRestriction sets the PodTolerationRestriction field's value.
+func (s *AdmissionPluginsForListClustersOutput) SetPodTolerationRestriction(v bool) *AdmissionPluginsForListClustersOutput {
+	s.PodTolerationRestriction = &v
+	return s
+}
+
+type AdvancedConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InternalDnsEnabled *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AdvancedConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AdvancedConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetInternalDnsEnabled sets the InternalDnsEnabled field's value.
+func (s *AdvancedConfigForListClustersOutput) SetInternalDnsEnabled(v bool) *AdvancedConfigForListClustersOutput {
+	s.InternalDnsEnabled = &v
+	return s
+}
+
 type ApiServerEndpointsForListClustersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -371,6 +431,158 @@ func (s *ConnectorConfigForListClustersOutput) SetType(v string) *ConnectorConfi
 	return s
 }
 
+type ControlPlaneConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	KubeApiServerConfig *KubeApiServerConfigForListClustersOutput `type:"structure" json:",omitempty"`
+
+	KubeControllerManagerConfig *KubeControllerManagerConfigForListClustersOutput `type:"structure" json:",omitempty"`
+
+	KubeSchedulerConfig *KubeSchedulerConfigForListClustersOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ControlPlaneConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ControlPlaneConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetKubeApiServerConfig sets the KubeApiServerConfig field's value.
+func (s *ControlPlaneConfigForListClustersOutput) SetKubeApiServerConfig(v *KubeApiServerConfigForListClustersOutput) *ControlPlaneConfigForListClustersOutput {
+	s.KubeApiServerConfig = v
+	return s
+}
+
+// SetKubeControllerManagerConfig sets the KubeControllerManagerConfig field's value.
+func (s *ControlPlaneConfigForListClustersOutput) SetKubeControllerManagerConfig(v *KubeControllerManagerConfigForListClustersOutput) *ControlPlaneConfigForListClustersOutput {
+	s.KubeControllerManagerConfig = v
+	return s
+}
+
+// SetKubeSchedulerConfig sets the KubeSchedulerConfig field's value.
+func (s *ControlPlaneConfigForListClustersOutput) SetKubeSchedulerConfig(v *KubeSchedulerConfigForListClustersOutput) *ControlPlaneConfigForListClustersOutput {
+	s.KubeSchedulerConfig = v
+	return s
+}
+
+type ConvertConvertFeatureGatesForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InPlacePodVerticalScaling *bool `type:"boolean" json:",omitempty"`
+
+	SidecarContainers *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertConvertFeatureGatesForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertFeatureGatesForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetInPlacePodVerticalScaling sets the InPlacePodVerticalScaling field's value.
+func (s *ConvertConvertFeatureGatesForListClustersOutput) SetInPlacePodVerticalScaling(v bool) *ConvertConvertFeatureGatesForListClustersOutput {
+	s.InPlacePodVerticalScaling = &v
+	return s
+}
+
+// SetSidecarContainers sets the SidecarContainers field's value.
+func (s *ConvertConvertFeatureGatesForListClustersOutput) SetSidecarContainers(v bool) *ConvertConvertFeatureGatesForListClustersOutput {
+	s.SidecarContainers = &v
+	return s
+}
+
+type ConvertFeatureGatesForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InPlacePodVerticalScaling *bool `type:"boolean" json:",omitempty"`
+
+	MaxUnavailableStatefulSet *bool `type:"boolean" json:",omitempty"`
+
+	StatefulSetAutoDeletePVC *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertFeatureGatesForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertFeatureGatesForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetInPlacePodVerticalScaling sets the InPlacePodVerticalScaling field's value.
+func (s *ConvertFeatureGatesForListClustersOutput) SetInPlacePodVerticalScaling(v bool) *ConvertFeatureGatesForListClustersOutput {
+	s.InPlacePodVerticalScaling = &v
+	return s
+}
+
+// SetMaxUnavailableStatefulSet sets the MaxUnavailableStatefulSet field's value.
+func (s *ConvertFeatureGatesForListClustersOutput) SetMaxUnavailableStatefulSet(v bool) *ConvertFeatureGatesForListClustersOutput {
+	s.MaxUnavailableStatefulSet = &v
+	return s
+}
+
+// SetStatefulSetAutoDeletePVC sets the StatefulSetAutoDeletePVC field's value.
+func (s *ConvertFeatureGatesForListClustersOutput) SetStatefulSetAutoDeletePVC(v bool) *ConvertFeatureGatesForListClustersOutput {
+	s.StatefulSetAutoDeletePVC = &v
+	return s
+}
+
+type FeatureGatesForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InPlacePodVerticalScaling *bool `type:"boolean" json:",omitempty"`
+
+	MaxUnavailableStatefulSet *bool `type:"boolean" json:",omitempty"`
+
+	SidecarContainers *bool `type:"boolean" json:",omitempty"`
+
+	StatefulSetAutoDeletePVC *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FeatureGatesForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FeatureGatesForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetInPlacePodVerticalScaling sets the InPlacePodVerticalScaling field's value.
+func (s *FeatureGatesForListClustersOutput) SetInPlacePodVerticalScaling(v bool) *FeatureGatesForListClustersOutput {
+	s.InPlacePodVerticalScaling = &v
+	return s
+}
+
+// SetMaxUnavailableStatefulSet sets the MaxUnavailableStatefulSet field's value.
+func (s *FeatureGatesForListClustersOutput) SetMaxUnavailableStatefulSet(v bool) *FeatureGatesForListClustersOutput {
+	s.MaxUnavailableStatefulSet = &v
+	return s
+}
+
+// SetSidecarContainers sets the SidecarContainers field's value.
+func (s *FeatureGatesForListClustersOutput) SetSidecarContainers(v bool) *FeatureGatesForListClustersOutput {
+	s.SidecarContainers = &v
+	return s
+}
+
+// SetStatefulSetAutoDeletePVC sets the StatefulSetAutoDeletePVC field's value.
+func (s *FeatureGatesForListClustersOutput) SetStatefulSetAutoDeletePVC(v bool) *FeatureGatesForListClustersOutput {
+	s.StatefulSetAutoDeletePVC = &v
+	return s
+}
+
 type FilterForListClustersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -568,9 +780,13 @@ type ItemForListClustersOutput struct {
 
 	IrsaConfig *IrsaConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
+	KubernetesConfig *KubernetesConfigForListClustersOutput `type:"structure" json:",omitempty"`
+
 	KubernetesVersion *string `type:"string" json:",omitempty"`
 
 	LoggingConfig *LoggingConfigForListClustersOutput `type:"structure" json:",omitempty"`
+
+	MaintenanceWindowConfig *MaintenanceWindowConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
 	Message *string `type:"string" json:",omitempty"`
 
@@ -657,6 +873,12 @@ func (s *ItemForListClustersOutput) SetIrsaConfig(v *IrsaConfigForListClustersOu
 	return s
 }
 
+// SetKubernetesConfig sets the KubernetesConfig field's value.
+func (s *ItemForListClustersOutput) SetKubernetesConfig(v *KubernetesConfigForListClustersOutput) *ItemForListClustersOutput {
+	s.KubernetesConfig = v
+	return s
+}
+
 // SetKubernetesVersion sets the KubernetesVersion field's value.
 func (s *ItemForListClustersOutput) SetKubernetesVersion(v string) *ItemForListClustersOutput {
 	s.KubernetesVersion = &v
@@ -666,6 +888,12 @@ func (s *ItemForListClustersOutput) SetKubernetesVersion(v string) *ItemForListC
 // SetLoggingConfig sets the LoggingConfig field's value.
 func (s *ItemForListClustersOutput) SetLoggingConfig(v *LoggingConfigForListClustersOutput) *ItemForListClustersOutput {
 	s.LoggingConfig = v
+	return s
+}
+
+// SetMaintenanceWindowConfig sets the MaintenanceWindowConfig field's value.
+func (s *ItemForListClustersOutput) SetMaintenanceWindowConfig(v *MaintenanceWindowConfigForListClustersOutput) *ItemForListClustersOutput {
+	s.MaintenanceWindowConfig = v
 	return s
 }
 
@@ -744,6 +972,294 @@ func (s *ItemForListClustersOutput) SetUpdateClientToken(v string) *ItemForListC
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ItemForListClustersOutput) SetUpdateTime(v string) *ItemForListClustersOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type KubeApiServerConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdmissionPlugins *AdmissionPluginsForListClustersOutput `type:"structure" json:",omitempty"`
+
+	DefaultNotReadyTolerationSeconds *int32 `type:"int32" json:",omitempty"`
+
+	DefaultUnreachableTolerationSeconds *int32 `type:"int32" json:",omitempty"`
+
+	FeatureGates *FeatureGatesForListClustersOutput `type:"structure" json:",omitempty"`
+
+	RequestTimeout *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KubeApiServerConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeApiServerConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdmissionPlugins sets the AdmissionPlugins field's value.
+func (s *KubeApiServerConfigForListClustersOutput) SetAdmissionPlugins(v *AdmissionPluginsForListClustersOutput) *KubeApiServerConfigForListClustersOutput {
+	s.AdmissionPlugins = v
+	return s
+}
+
+// SetDefaultNotReadyTolerationSeconds sets the DefaultNotReadyTolerationSeconds field's value.
+func (s *KubeApiServerConfigForListClustersOutput) SetDefaultNotReadyTolerationSeconds(v int32) *KubeApiServerConfigForListClustersOutput {
+	s.DefaultNotReadyTolerationSeconds = &v
+	return s
+}
+
+// SetDefaultUnreachableTolerationSeconds sets the DefaultUnreachableTolerationSeconds field's value.
+func (s *KubeApiServerConfigForListClustersOutput) SetDefaultUnreachableTolerationSeconds(v int32) *KubeApiServerConfigForListClustersOutput {
+	s.DefaultUnreachableTolerationSeconds = &v
+	return s
+}
+
+// SetFeatureGates sets the FeatureGates field's value.
+func (s *KubeApiServerConfigForListClustersOutput) SetFeatureGates(v *FeatureGatesForListClustersOutput) *KubeApiServerConfigForListClustersOutput {
+	s.FeatureGates = v
+	return s
+}
+
+// SetRequestTimeout sets the RequestTimeout field's value.
+func (s *KubeApiServerConfigForListClustersOutput) SetRequestTimeout(v string) *KubeApiServerConfigForListClustersOutput {
+	s.RequestTimeout = &v
+	return s
+}
+
+type KubeControllerManagerConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ConcurrentHorizontalPodAutoscalerSyncs *int32 `type:"int32" json:",omitempty"`
+
+	ConcurrentTTLAfterFinishedSyncs *int32 `type:"int32" json:",omitempty"`
+
+	FeatureGates *ConvertFeatureGatesForListClustersOutput `type:"structure" json:",omitempty"`
+
+	HorizontalPodAutoscalerSyncPeriod *string `type:"string" json:",omitempty"`
+
+	HorizontalPodAutoscalerTolerance *float64 `type:"double" json:",omitempty"`
+
+	KubeApiBurst *int32 `type:"int32" json:",omitempty"`
+
+	KubeApiQps *int32 `type:"int32" json:",omitempty"`
+
+	LargeClusterSizeThreshold *int32 `type:"int32" json:",omitempty"`
+
+	NodeEvictionRate *float64 `type:"double" json:",omitempty"`
+
+	NodeMonitorGracePeriod *int32 `type:"int32" json:",omitempty"`
+
+	SecondaryNodeEvictionRate *float64 `type:"double" json:",omitempty"`
+
+	TerminatedPodGCThreshold *int32 `type:"int32" json:",omitempty"`
+
+	UnhealthyZoneThreshold *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KubeControllerManagerConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeControllerManagerConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetConcurrentHorizontalPodAutoscalerSyncs sets the ConcurrentHorizontalPodAutoscalerSyncs field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetConcurrentHorizontalPodAutoscalerSyncs(v int32) *KubeControllerManagerConfigForListClustersOutput {
+	s.ConcurrentHorizontalPodAutoscalerSyncs = &v
+	return s
+}
+
+// SetConcurrentTTLAfterFinishedSyncs sets the ConcurrentTTLAfterFinishedSyncs field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetConcurrentTTLAfterFinishedSyncs(v int32) *KubeControllerManagerConfigForListClustersOutput {
+	s.ConcurrentTTLAfterFinishedSyncs = &v
+	return s
+}
+
+// SetFeatureGates sets the FeatureGates field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetFeatureGates(v *ConvertFeatureGatesForListClustersOutput) *KubeControllerManagerConfigForListClustersOutput {
+	s.FeatureGates = v
+	return s
+}
+
+// SetHorizontalPodAutoscalerSyncPeriod sets the HorizontalPodAutoscalerSyncPeriod field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetHorizontalPodAutoscalerSyncPeriod(v string) *KubeControllerManagerConfigForListClustersOutput {
+	s.HorizontalPodAutoscalerSyncPeriod = &v
+	return s
+}
+
+// SetHorizontalPodAutoscalerTolerance sets the HorizontalPodAutoscalerTolerance field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetHorizontalPodAutoscalerTolerance(v float64) *KubeControllerManagerConfigForListClustersOutput {
+	s.HorizontalPodAutoscalerTolerance = &v
+	return s
+}
+
+// SetKubeApiBurst sets the KubeApiBurst field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetKubeApiBurst(v int32) *KubeControllerManagerConfigForListClustersOutput {
+	s.KubeApiBurst = &v
+	return s
+}
+
+// SetKubeApiQps sets the KubeApiQps field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetKubeApiQps(v int32) *KubeControllerManagerConfigForListClustersOutput {
+	s.KubeApiQps = &v
+	return s
+}
+
+// SetLargeClusterSizeThreshold sets the LargeClusterSizeThreshold field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetLargeClusterSizeThreshold(v int32) *KubeControllerManagerConfigForListClustersOutput {
+	s.LargeClusterSizeThreshold = &v
+	return s
+}
+
+// SetNodeEvictionRate sets the NodeEvictionRate field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetNodeEvictionRate(v float64) *KubeControllerManagerConfigForListClustersOutput {
+	s.NodeEvictionRate = &v
+	return s
+}
+
+// SetNodeMonitorGracePeriod sets the NodeMonitorGracePeriod field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetNodeMonitorGracePeriod(v int32) *KubeControllerManagerConfigForListClustersOutput {
+	s.NodeMonitorGracePeriod = &v
+	return s
+}
+
+// SetSecondaryNodeEvictionRate sets the SecondaryNodeEvictionRate field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetSecondaryNodeEvictionRate(v float64) *KubeControllerManagerConfigForListClustersOutput {
+	s.SecondaryNodeEvictionRate = &v
+	return s
+}
+
+// SetTerminatedPodGCThreshold sets the TerminatedPodGCThreshold field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetTerminatedPodGCThreshold(v int32) *KubeControllerManagerConfigForListClustersOutput {
+	s.TerminatedPodGCThreshold = &v
+	return s
+}
+
+// SetUnhealthyZoneThreshold sets the UnhealthyZoneThreshold field's value.
+func (s *KubeControllerManagerConfigForListClustersOutput) SetUnhealthyZoneThreshold(v float64) *KubeControllerManagerConfigForListClustersOutput {
+	s.UnhealthyZoneThreshold = &v
+	return s
+}
+
+type KubeSchedulerConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FeatureGates *ConvertConvertFeatureGatesForListClustersOutput `type:"structure" json:",omitempty"`
+
+	KubeApiBurst *int32 `type:"int32" json:",omitempty"`
+
+	KubeApiQps *int32 `type:"int32" json:",omitempty"`
+
+	Parallelism *int32 `type:"int32" json:",omitempty"`
+
+	PercentageOfNodesToScore *int32 `type:"int32" json:",omitempty"`
+
+	PodInitialBackoffSeconds *int32 `type:"int32" json:",omitempty"`
+
+	PodMaxBackoffSeconds *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KubeSchedulerConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubeSchedulerConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetFeatureGates sets the FeatureGates field's value.
+func (s *KubeSchedulerConfigForListClustersOutput) SetFeatureGates(v *ConvertConvertFeatureGatesForListClustersOutput) *KubeSchedulerConfigForListClustersOutput {
+	s.FeatureGates = v
+	return s
+}
+
+// SetKubeApiBurst sets the KubeApiBurst field's value.
+func (s *KubeSchedulerConfigForListClustersOutput) SetKubeApiBurst(v int32) *KubeSchedulerConfigForListClustersOutput {
+	s.KubeApiBurst = &v
+	return s
+}
+
+// SetKubeApiQps sets the KubeApiQps field's value.
+func (s *KubeSchedulerConfigForListClustersOutput) SetKubeApiQps(v int32) *KubeSchedulerConfigForListClustersOutput {
+	s.KubeApiQps = &v
+	return s
+}
+
+// SetParallelism sets the Parallelism field's value.
+func (s *KubeSchedulerConfigForListClustersOutput) SetParallelism(v int32) *KubeSchedulerConfigForListClustersOutput {
+	s.Parallelism = &v
+	return s
+}
+
+// SetPercentageOfNodesToScore sets the PercentageOfNodesToScore field's value.
+func (s *KubeSchedulerConfigForListClustersOutput) SetPercentageOfNodesToScore(v int32) *KubeSchedulerConfigForListClustersOutput {
+	s.PercentageOfNodesToScore = &v
+	return s
+}
+
+// SetPodInitialBackoffSeconds sets the PodInitialBackoffSeconds field's value.
+func (s *KubeSchedulerConfigForListClustersOutput) SetPodInitialBackoffSeconds(v int32) *KubeSchedulerConfigForListClustersOutput {
+	s.PodInitialBackoffSeconds = &v
+	return s
+}
+
+// SetPodMaxBackoffSeconds sets the PodMaxBackoffSeconds field's value.
+func (s *KubeSchedulerConfigForListClustersOutput) SetPodMaxBackoffSeconds(v int32) *KubeSchedulerConfigForListClustersOutput {
+	s.PodMaxBackoffSeconds = &v
+	return s
+}
+
+type KubernetesConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdvancedConfig *AdvancedConfigForListClustersOutput `type:"structure" json:",omitempty"`
+
+	ClusterDomain *string `type:"string" json:",omitempty"`
+
+	ControlPlaneConfig *ControlPlaneConfigForListClustersOutput `type:"structure" json:",omitempty"`
+
+	CustomSans []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KubernetesConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubernetesConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdvancedConfig sets the AdvancedConfig field's value.
+func (s *KubernetesConfigForListClustersOutput) SetAdvancedConfig(v *AdvancedConfigForListClustersOutput) *KubernetesConfigForListClustersOutput {
+	s.AdvancedConfig = v
+	return s
+}
+
+// SetClusterDomain sets the ClusterDomain field's value.
+func (s *KubernetesConfigForListClustersOutput) SetClusterDomain(v string) *KubernetesConfigForListClustersOutput {
+	s.ClusterDomain = &v
+	return s
+}
+
+// SetControlPlaneConfig sets the ControlPlaneConfig field's value.
+func (s *KubernetesConfigForListClustersOutput) SetControlPlaneConfig(v *ControlPlaneConfigForListClustersOutput) *KubernetesConfigForListClustersOutput {
+	s.ControlPlaneConfig = v
+	return s
+}
+
+// SetCustomSans sets the CustomSans field's value.
+func (s *KubernetesConfigForListClustersOutput) SetCustomSans(v []*string) *KubernetesConfigForListClustersOutput {
+	s.CustomSans = v
 	return s
 }
 
@@ -922,6 +1438,60 @@ func (s *LoggingConfigForListClustersOutput) SetLogProjectId(v string) *LoggingC
 // SetLogSetups sets the LogSetups field's value.
 func (s *LoggingConfigForListClustersOutput) SetLogSetups(v []*LogSetupForListClustersOutput) *LoggingConfigForListClustersOutput {
 	s.LogSetups = v
+	return s
+}
+
+type MaintenanceWindowConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Duration *int32 `type:"int32" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	StartTime *string `type:"string" json:",omitempty"`
+
+	TaskConfigs []*TaskConfigForListClustersOutput `type:"list" json:",omitempty"`
+
+	WeeklyCycle []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MaintenanceWindowConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaintenanceWindowConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetDuration sets the Duration field's value.
+func (s *MaintenanceWindowConfigForListClustersOutput) SetDuration(v int32) *MaintenanceWindowConfigForListClustersOutput {
+	s.Duration = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *MaintenanceWindowConfigForListClustersOutput) SetEnabled(v bool) *MaintenanceWindowConfigForListClustersOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *MaintenanceWindowConfigForListClustersOutput) SetStartTime(v string) *MaintenanceWindowConfigForListClustersOutput {
+	s.StartTime = &v
+	return s
+}
+
+// SetTaskConfigs sets the TaskConfigs field's value.
+func (s *MaintenanceWindowConfigForListClustersOutput) SetTaskConfigs(v []*TaskConfigForListClustersOutput) *MaintenanceWindowConfigForListClustersOutput {
+	s.TaskConfigs = v
+	return s
+}
+
+// SetWeeklyCycle sets the WeeklyCycle field's value.
+func (s *MaintenanceWindowConfigForListClustersOutput) SetWeeklyCycle(v []*string) *MaintenanceWindowConfigForListClustersOutput {
+	s.WeeklyCycle = v
 	return s
 }
 
@@ -1160,6 +1730,8 @@ type PublicAccessNetworkConfigForListClustersOutput struct {
 
 	Bandwidth *int32 `type:"int32" json:",omitempty"`
 
+	BandwidthPackageId *string `type:"string" json:",omitempty"`
+
 	BillingType *int32 `type:"int32" json:",omitempty"`
 
 	Isp *string `type:"string" json:",omitempty" enum:"EnumOfIspForListClustersOutput"`
@@ -1178,6 +1750,12 @@ func (s PublicAccessNetworkConfigForListClustersOutput) GoString() string {
 // SetBandwidth sets the Bandwidth field's value.
 func (s *PublicAccessNetworkConfigForListClustersOutput) SetBandwidth(v int32) *PublicAccessNetworkConfigForListClustersOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *PublicAccessNetworkConfigForListClustersOutput) SetBandwidthPackageId(v string) *PublicAccessNetworkConfigForListClustersOutput {
+	s.BandwidthPackageId = &v
 	return s
 }
 
@@ -1341,6 +1919,8 @@ type TagForListClustersInput struct {
 	Key *string `type:"string" json:",omitempty"`
 
 	Value *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1362,6 +1942,12 @@ func (s *TagForListClustersInput) SetKey(v string) *TagForListClustersInput {
 // SetValue sets the Value field's value.
 func (s *TagForListClustersInput) SetValue(v string) *TagForListClustersInput {
 	s.Value = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagForListClustersInput) SetValues(v []*string) *TagForListClustersInput {
+	s.Values = v
 	return s
 }
 
@@ -1400,6 +1986,44 @@ func (s *TagForListClustersOutput) SetType(v string) *TagForListClustersOutput {
 // SetValue sets the Value field's value.
 func (s *TagForListClustersOutput) SetValue(v string) *TagForListClustersOutput {
 	s.Value = &v
+	return s
+}
+
+type TaskConfigForListClustersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty" enum:"EnumOfActionForListClustersOutput"`
+
+	Group *string `type:"string" json:",omitempty" enum:"EnumOfGroupForListClustersOutput"`
+
+	Targets []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TaskConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TaskConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *TaskConfigForListClustersOutput) SetAction(v string) *TaskConfigForListClustersOutput {
+	s.Action = &v
+	return s
+}
+
+// SetGroup sets the Group field's value.
+func (s *TaskConfigForListClustersOutput) SetGroup(v string) *TaskConfigForListClustersOutput {
+	s.Group = &v
+	return s
+}
+
+// SetTargets sets the Targets field's value.
+func (s *TaskConfigForListClustersOutput) SetTargets(v []*string) *TaskConfigForListClustersOutput {
+	s.Targets = v
 	return s
 }
 
@@ -1526,6 +2150,17 @@ const (
 )
 
 const (
+	// EnumOfActionForListClustersOutputAutoUpgradeAddonVersion is a EnumOfActionForListClustersOutput enum value
+	EnumOfActionForListClustersOutputAutoUpgradeAddonVersion = "AutoUpgradeAddonVersion"
+
+	// EnumOfActionForListClustersOutputDryRunTest is a EnumOfActionForListClustersOutput enum value
+	EnumOfActionForListClustersOutputDryRunTest = "DryRunTest"
+
+	// EnumOfActionForListClustersOutputFixClusterApiserverTls4sweet32 is a EnumOfActionForListClustersOutput enum value
+	EnumOfActionForListClustersOutputFixClusterApiserverTls4sweet32 = "FixClusterAPIServerTLS4Sweet32"
+)
+
+const (
 	// EnumOfConditionsTypeForListClustersInputOk is a EnumOfConditionsTypeForListClustersInput enum value
 	EnumOfConditionsTypeForListClustersInputOk = "Ok"
 
@@ -1585,6 +2220,17 @@ const (
 
 	// EnumOfConditionsTypeForListClustersInputSyncingNodePool is a EnumOfConditionsTypeForListClustersInput enum value
 	EnumOfConditionsTypeForListClustersInputSyncingNodePool = "SyncingNodePool"
+)
+
+const (
+	// EnumOfGroupForListClustersOutputCluster is a EnumOfGroupForListClustersOutput enum value
+	EnumOfGroupForListClustersOutputCluster = "Cluster"
+
+	// EnumOfGroupForListClustersOutputAddon is a EnumOfGroupForListClustersOutput enum value
+	EnumOfGroupForListClustersOutputAddon = "Addon"
+
+	// EnumOfGroupForListClustersOutputNodePool is a EnumOfGroupForListClustersOutput enum value
+	EnumOfGroupForListClustersOutputNodePool = "NodePool"
 )
 
 const (
@@ -1648,6 +2294,9 @@ const (
 
 	// EnumOfNameForListClustersOutputClusterAutoscaler is a EnumOfNameForListClustersOutput enum value
 	EnumOfNameForListClustersOutputClusterAutoscaler = "ClusterAutoscaler"
+
+	// EnumOfNameForListClustersOutputKubeInsights is a EnumOfNameForListClustersOutput enum value
+	EnumOfNameForListClustersOutputKubeInsights = "KubeInsights"
 
 	// EnumOfNameForListClustersOutputKubeBrain is a EnumOfNameForListClustersOutput enum value
 	EnumOfNameForListClustersOutputKubeBrain = "KubeBrain"
@@ -1824,4 +2473,27 @@ const (
 
 	// EnumOfTypeListForListClustersInputOnPremise is a EnumOfTypeListForListClustersInput enum value
 	EnumOfTypeListForListClustersInputOnPremise = "OnPremise"
+)
+
+const (
+	// EnumOfWeeklyCycleListForListClustersOutputMonday is a EnumOfWeeklyCycleListForListClustersOutput enum value
+	EnumOfWeeklyCycleListForListClustersOutputMonday = "Monday"
+
+	// EnumOfWeeklyCycleListForListClustersOutputTuesday is a EnumOfWeeklyCycleListForListClustersOutput enum value
+	EnumOfWeeklyCycleListForListClustersOutputTuesday = "Tuesday"
+
+	// EnumOfWeeklyCycleListForListClustersOutputWednesday is a EnumOfWeeklyCycleListForListClustersOutput enum value
+	EnumOfWeeklyCycleListForListClustersOutputWednesday = "Wednesday"
+
+	// EnumOfWeeklyCycleListForListClustersOutputThursday is a EnumOfWeeklyCycleListForListClustersOutput enum value
+	EnumOfWeeklyCycleListForListClustersOutputThursday = "Thursday"
+
+	// EnumOfWeeklyCycleListForListClustersOutputFriday is a EnumOfWeeklyCycleListForListClustersOutput enum value
+	EnumOfWeeklyCycleListForListClustersOutputFriday = "Friday"
+
+	// EnumOfWeeklyCycleListForListClustersOutputSaturday is a EnumOfWeeklyCycleListForListClustersOutput enum value
+	EnumOfWeeklyCycleListForListClustersOutputSaturday = "Saturday"
+
+	// EnumOfWeeklyCycleListForListClustersOutputSunday is a EnumOfWeeklyCycleListForListClustersOutput enum value
+	EnumOfWeeklyCycleListForListClustersOutputSunday = "Sunday"
 )
