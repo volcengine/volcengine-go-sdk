@@ -142,16 +142,12 @@ func (c *VPC) ModifyIpamResourceDiscoveryWithContext(ctx volcengine.Context, inp
 type ModifyIpamResourceDiscoveryInput struct {
 	_ struct{} `type:"structure"`
 
-	AddOperatingRegions []*string `type:"list"`
-
 	Description *string `min:"1" max:"255" type:"string"`
 
 	// IpamResourceDiscoveryId is a required field
 	IpamResourceDiscoveryId *string `type:"string" required:"true"`
 
 	IpamResourceDiscoveryName *string `type:"string"`
-
-	RemoveOperatingRegions []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -183,12 +179,6 @@ func (s *ModifyIpamResourceDiscoveryInput) Validate() error {
 	return nil
 }
 
-// SetAddOperatingRegions sets the AddOperatingRegions field's value.
-func (s *ModifyIpamResourceDiscoveryInput) SetAddOperatingRegions(v []*string) *ModifyIpamResourceDiscoveryInput {
-	s.AddOperatingRegions = v
-	return s
-}
-
 // SetDescription sets the Description field's value.
 func (s *ModifyIpamResourceDiscoveryInput) SetDescription(v string) *ModifyIpamResourceDiscoveryInput {
 	s.Description = &v
@@ -204,12 +194,6 @@ func (s *ModifyIpamResourceDiscoveryInput) SetIpamResourceDiscoveryId(v string) 
 // SetIpamResourceDiscoveryName sets the IpamResourceDiscoveryName field's value.
 func (s *ModifyIpamResourceDiscoveryInput) SetIpamResourceDiscoveryName(v string) *ModifyIpamResourceDiscoveryInput {
 	s.IpamResourceDiscoveryName = &v
-	return s
-}
-
-// SetRemoveOperatingRegions sets the RemoveOperatingRegions field's value.
-func (s *ModifyIpamResourceDiscoveryInput) SetRemoveOperatingRegions(v []*string) *ModifyIpamResourceDiscoveryInput {
-	s.RemoveOperatingRegions = v
 	return s
 }
 

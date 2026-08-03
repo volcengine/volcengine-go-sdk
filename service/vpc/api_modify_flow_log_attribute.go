@@ -153,7 +153,7 @@ type ModifyFlowLogAttributeInput struct {
 
 	FlowLogName *string `min:"1" max:"128" type:"string"`
 
-	TrafficPath []*int64 `type:"list"`
+	TrafficPath []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -219,7 +219,7 @@ func (s *ModifyFlowLogAttributeInput) SetFlowLogName(v string) *ModifyFlowLogAtt
 }
 
 // SetTrafficPath sets the TrafficPath field's value.
-func (s *ModifyFlowLogAttributeInput) SetTrafficPath(v []*int64) *ModifyFlowLogAttributeInput {
+func (s *ModifyFlowLogAttributeInput) SetTrafficPath(v []*string) *ModifyFlowLogAttributeInput {
 	s.TrafficPath = v
 	return s
 }

@@ -196,6 +196,8 @@ type DescribeIpv6AddressBandwidthAttributesOutput struct {
 
 	ISP *string `type:"string"`
 
+	IndependentLimited *bool `type:"boolean"`
+
 	InstanceId *string `type:"string"`
 
 	InstanceType *string `type:"string"`
@@ -213,6 +215,8 @@ type DescribeIpv6AddressBandwidthAttributesOutput struct {
 	ProjectName *string `type:"string"`
 
 	RequestId *string `type:"string"`
+
+	ReservationBandwidth *int64 `type:"integer"`
 
 	ServiceManaged *bool `type:"boolean"`
 
@@ -283,6 +287,12 @@ func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetISP(v string) *Describ
 	return s
 }
 
+// SetIndependentLimited sets the IndependentLimited field's value.
+func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetIndependentLimited(v bool) *DescribeIpv6AddressBandwidthAttributesOutput {
+	s.IndependentLimited = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetInstanceId(v string) *DescribeIpv6AddressBandwidthAttributesOutput {
 	s.InstanceId = &v
@@ -334,6 +344,12 @@ func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetProjectName(v string) 
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetRequestId(v string) *DescribeIpv6AddressBandwidthAttributesOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetReservationBandwidth sets the ReservationBandwidth field's value.
+func (s *DescribeIpv6AddressBandwidthAttributesOutput) SetReservationBandwidth(v int64) *DescribeIpv6AddressBandwidthAttributesOutput {
+	s.ReservationBandwidth = &v
 	return s
 }
 

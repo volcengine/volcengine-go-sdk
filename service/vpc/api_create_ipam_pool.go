@@ -283,6 +283,8 @@ type CreateIpamPoolOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	IpamPoolId *string `type:"string"`
 
 	RequestId *string `type:"string"`
@@ -296,6 +298,12 @@ func (s CreateIpamPoolOutput) String() string {
 // GoString returns the string representation
 func (s CreateIpamPoolOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateIpamPoolOutput) SetAsyncTaskId(v string) *CreateIpamPoolOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetIpamPoolId sets the IpamPoolId field's value.

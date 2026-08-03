@@ -346,7 +346,7 @@ type FlowLogForDescribeFlowLogsOutput struct {
 
 	Tags []*TagForDescribeFlowLogsOutput `type:"list"`
 
-	TrafficPath []*int64 `type:"list"`
+	TrafficPath []*string `type:"list"`
 
 	TrafficType *string `type:"string" enum:"TrafficTypeForDescribeFlowLogsOutput"`
 
@@ -458,7 +458,7 @@ func (s *FlowLogForDescribeFlowLogsOutput) SetTags(v []*TagForDescribeFlowLogsOu
 }
 
 // SetTrafficPath sets the TrafficPath field's value.
-func (s *FlowLogForDescribeFlowLogsOutput) SetTrafficPath(v []*int64) *FlowLogForDescribeFlowLogsOutput {
+func (s *FlowLogForDescribeFlowLogsOutput) SetTrafficPath(v []*string) *FlowLogForDescribeFlowLogsOutput {
 	s.TrafficPath = v
 	return s
 }
@@ -546,6 +546,41 @@ func (s *TagForDescribeFlowLogsOutput) SetValue(v string) *TagForDescribeFlowLog
 	s.Value = &v
 	return s
 }
+
+const (
+	// TrafficPathListForDescribeFlowLogsOutputAll is a TrafficPathListForDescribeFlowLogsOutput enum value
+	TrafficPathListForDescribeFlowLogsOutputAll = "All"
+
+	// TrafficPathListForDescribeFlowLogsOutputNatGw is a TrafficPathListForDescribeFlowLogsOutput enum value
+	TrafficPathListForDescribeFlowLogsOutputNatGw = "NatGW"
+
+	// TrafficPathListForDescribeFlowLogsOutputIpv4gw is a TrafficPathListForDescribeFlowLogsOutput enum value
+	TrafficPathListForDescribeFlowLogsOutputIpv4gw = "Ipv4GW"
+
+	// TrafficPathListForDescribeFlowLogsOutputIpv6gw is a TrafficPathListForDescribeFlowLogsOutput enum value
+	TrafficPathListForDescribeFlowLogsOutputIpv6gw = "Ipv6GW"
+
+	// TrafficPathListForDescribeFlowLogsOutputVpnGw is a TrafficPathListForDescribeFlowLogsOutput enum value
+	TrafficPathListForDescribeFlowLogsOutputVpnGw = "VpnGW"
+
+	// TrafficPathListForDescribeFlowLogsOutputGwlbendpoint is a TrafficPathListForDescribeFlowLogsOutput enum value
+	TrafficPathListForDescribeFlowLogsOutputGwlbendpoint = "GWLBEndpoint"
+
+	// TrafficPathListForDescribeFlowLogsOutputTransitRouter is a TrafficPathListForDescribeFlowLogsOutput enum value
+	TrafficPathListForDescribeFlowLogsOutputTransitRouter = "TransitRouter"
+
+	// TrafficPathListForDescribeFlowLogsOutputCen is a TrafficPathListForDescribeFlowLogsOutput enum value
+	TrafficPathListForDescribeFlowLogsOutputCen = "CEN"
+
+	// TrafficPathListForDescribeFlowLogsOutputIntraRegionVpcPeeringConnection is a TrafficPathListForDescribeFlowLogsOutput enum value
+	TrafficPathListForDescribeFlowLogsOutputIntraRegionVpcPeeringConnection = "IntraRegionVpcPeeringConnection"
+
+	// TrafficPathListForDescribeFlowLogsOutputInterRegionVpcPeeringConnection is a TrafficPathListForDescribeFlowLogsOutput enum value
+	TrafficPathListForDescribeFlowLogsOutputInterRegionVpcPeeringConnection = "InterRegionVpcPeeringConnection"
+
+	// TrafficPathListForDescribeFlowLogsOutputDirectExchangeGateway is a TrafficPathListForDescribeFlowLogsOutput enum value
+	TrafficPathListForDescribeFlowLogsOutputDirectExchangeGateway = "DirectExchangeGateway"
+)
 
 const (
 	// TrafficTypeForDescribeFlowLogsOutputAll is a TrafficTypeForDescribeFlowLogsOutput enum value

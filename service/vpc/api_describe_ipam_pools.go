@@ -148,6 +148,8 @@ type DescribeIpamPoolsInput struct {
 
 	IpamPoolName *string `type:"string"`
 
+	IpamPoolOwnerId *string `type:"string"`
+
 	IpamScopeId *string `type:"string"`
 
 	MaxResults *int64 `type:"integer"`
@@ -188,6 +190,12 @@ func (s *DescribeIpamPoolsInput) SetIpamPoolIds(v []*string) *DescribeIpamPoolsI
 // SetIpamPoolName sets the IpamPoolName field's value.
 func (s *DescribeIpamPoolsInput) SetIpamPoolName(v string) *DescribeIpamPoolsInput {
 	s.IpamPoolName = &v
+	return s
+}
+
+// SetIpamPoolOwnerId sets the IpamPoolOwnerId field's value.
+func (s *DescribeIpamPoolsInput) SetIpamPoolOwnerId(v string) *DescribeIpamPoolsInput {
+	s.IpamPoolOwnerId = &v
 	return s
 }
 
