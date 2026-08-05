@@ -1,0 +1,10 @@
+{
+  "actions": [
+    "ListClusters",
+    "UpdateClusterConfig",
+    "CreateCluster"
+  ],
+  "description": "VKE: 修改 ListClusters, UpdateClusterConfig, CreateCluster",
+  "modules": "service/vke",
+  "type": "breaking-change"
+}
