@@ -143,6 +143,60 @@ func (c *MLPLATFORM20240701) ListResourceQueuesWithContext(ctx volcengine.Contex
 	return out, req.Send()
 }
 
+type AbnormalNodeWarningForListResourceQueuesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AbnormalNodeCount *int32 `type:"int32" json:",omitempty"`
+
+	LostCpuCount *float64 `type:"double" json:",omitempty"`
+
+	LostGpuCount *float64 `type:"double" json:",omitempty"`
+
+	LostMemoryGiB *float64 `type:"double" json:",omitempty"`
+
+	Message *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AbnormalNodeWarningForListResourceQueuesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AbnormalNodeWarningForListResourceQueuesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAbnormalNodeCount sets the AbnormalNodeCount field's value.
+func (s *AbnormalNodeWarningForListResourceQueuesOutput) SetAbnormalNodeCount(v int32) *AbnormalNodeWarningForListResourceQueuesOutput {
+	s.AbnormalNodeCount = &v
+	return s
+}
+
+// SetLostCpuCount sets the LostCpuCount field's value.
+func (s *AbnormalNodeWarningForListResourceQueuesOutput) SetLostCpuCount(v float64) *AbnormalNodeWarningForListResourceQueuesOutput {
+	s.LostCpuCount = &v
+	return s
+}
+
+// SetLostGpuCount sets the LostGpuCount field's value.
+func (s *AbnormalNodeWarningForListResourceQueuesOutput) SetLostGpuCount(v float64) *AbnormalNodeWarningForListResourceQueuesOutput {
+	s.LostGpuCount = &v
+	return s
+}
+
+// SetLostMemoryGiB sets the LostMemoryGiB field's value.
+func (s *AbnormalNodeWarningForListResourceQueuesOutput) SetLostMemoryGiB(v float64) *AbnormalNodeWarningForListResourceQueuesOutput {
+	s.LostMemoryGiB = &v
+	return s
+}
+
+// SetMessage sets the Message field's value.
+func (s *AbnormalNodeWarningForListResourceQueuesOutput) SetMessage(v string) *AbnormalNodeWarningForListResourceQueuesOutput {
+	s.Message = &v
+	return s
+}
+
 type AutoCompactGPUResourceRuleForListResourceQueuesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -233,6 +287,108 @@ func (s *AutoCompactGPUResourceRuleForListResourceQueuesOutput) SetUpdateTime(v 
 
 // SetUpdatorTrn sets the UpdatorTrn field's value.
 func (s *AutoCompactGPUResourceRuleForListResourceQueuesOutput) SetUpdatorTrn(v string) *AutoCompactGPUResourceRuleForListResourceQueuesOutput {
+	s.UpdatorTrn = &v
+	return s
+}
+
+type CommandHookRuleForListResourceQueuesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	CreatorTrn *string `type:"string" json:",omitempty"`
+
+	EnablePostCommand *bool `type:"boolean" json:",omitempty"`
+
+	EnablePreCommand *bool `type:"boolean" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	PostCommand *string `type:"string" json:",omitempty"`
+
+	PreCommand *string `type:"string" json:",omitempty"`
+
+	TriggeredTimes *int32 `type:"int32" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
+
+	UpdatorTrn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CommandHookRuleForListResourceQueuesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CommandHookRuleForListResourceQueuesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *CommandHookRuleForListResourceQueuesOutput) SetCreateTime(v string) *CommandHookRuleForListResourceQueuesOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatorTrn sets the CreatorTrn field's value.
+func (s *CommandHookRuleForListResourceQueuesOutput) SetCreatorTrn(v string) *CommandHookRuleForListResourceQueuesOutput {
+	s.CreatorTrn = &v
+	return s
+}
+
+// SetEnablePostCommand sets the EnablePostCommand field's value.
+func (s *CommandHookRuleForListResourceQueuesOutput) SetEnablePostCommand(v bool) *CommandHookRuleForListResourceQueuesOutput {
+	s.EnablePostCommand = &v
+	return s
+}
+
+// SetEnablePreCommand sets the EnablePreCommand field's value.
+func (s *CommandHookRuleForListResourceQueuesOutput) SetEnablePreCommand(v bool) *CommandHookRuleForListResourceQueuesOutput {
+	s.EnablePreCommand = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *CommandHookRuleForListResourceQueuesOutput) SetEnabled(v bool) *CommandHookRuleForListResourceQueuesOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *CommandHookRuleForListResourceQueuesOutput) SetId(v string) *CommandHookRuleForListResourceQueuesOutput {
+	s.Id = &v
+	return s
+}
+
+// SetPostCommand sets the PostCommand field's value.
+func (s *CommandHookRuleForListResourceQueuesOutput) SetPostCommand(v string) *CommandHookRuleForListResourceQueuesOutput {
+	s.PostCommand = &v
+	return s
+}
+
+// SetPreCommand sets the PreCommand field's value.
+func (s *CommandHookRuleForListResourceQueuesOutput) SetPreCommand(v string) *CommandHookRuleForListResourceQueuesOutput {
+	s.PreCommand = &v
+	return s
+}
+
+// SetTriggeredTimes sets the TriggeredTimes field's value.
+func (s *CommandHookRuleForListResourceQueuesOutput) SetTriggeredTimes(v int32) *CommandHookRuleForListResourceQueuesOutput {
+	s.TriggeredTimes = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *CommandHookRuleForListResourceQueuesOutput) SetUpdateTime(v string) *CommandHookRuleForListResourceQueuesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatorTrn sets the UpdatorTrn field's value.
+func (s *CommandHookRuleForListResourceQueuesOutput) SetUpdatorTrn(v string) *CommandHookRuleForListResourceQueuesOutput {
 	s.UpdatorTrn = &v
 	return s
 }
@@ -623,6 +779,36 @@ func (s *GpuCountInfoForListResourceQueuesOutput) SetGpuType(v string) *GpuCount
 	return s
 }
 
+type GpuFragmentRateForListResourceQueuesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	GpuType *string `type:"string" json:",omitempty"`
+
+	Rate *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s GpuFragmentRateForListResourceQueuesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GpuFragmentRateForListResourceQueuesOutput) GoString() string {
+	return s.String()
+}
+
+// SetGpuType sets the GpuType field's value.
+func (s *GpuFragmentRateForListResourceQueuesOutput) SetGpuType(v string) *GpuFragmentRateForListResourceQueuesOutput {
+	s.GpuType = &v
+	return s
+}
+
+// SetRate sets the Rate field's value.
+func (s *GpuFragmentRateForListResourceQueuesOutput) SetRate(v float64) *GpuFragmentRateForListResourceQueuesOutput {
+	s.Rate = &v
+	return s
+}
+
 type GpuMemoryInfoForListResourceQueuesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -785,6 +971,44 @@ func (s *GpuUtilizationRuleForListResourceQueuesOutput) SetUpdatorTrn(v string) 
 	return s
 }
 
+type IdleWholeGpuMachineForListResourceQueuesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	GpuCapacity *int64 `type:"int64" json:",omitempty"`
+
+	GpuType *string `type:"string" json:",omitempty"`
+
+	MachineCount *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IdleWholeGpuMachineForListResourceQueuesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IdleWholeGpuMachineForListResourceQueuesOutput) GoString() string {
+	return s.String()
+}
+
+// SetGpuCapacity sets the GpuCapacity field's value.
+func (s *IdleWholeGpuMachineForListResourceQueuesOutput) SetGpuCapacity(v int64) *IdleWholeGpuMachineForListResourceQueuesOutput {
+	s.GpuCapacity = &v
+	return s
+}
+
+// SetGpuType sets the GpuType field's value.
+func (s *IdleWholeGpuMachineForListResourceQueuesOutput) SetGpuType(v string) *IdleWholeGpuMachineForListResourceQueuesOutput {
+	s.GpuType = &v
+	return s
+}
+
+// SetMachineCount sets the MachineCount field's value.
+func (s *IdleWholeGpuMachineForListResourceQueuesOutput) SetMachineCount(v int64) *IdleWholeGpuMachineForListResourceQueuesOutput {
+	s.MachineCount = &v
+	return s
+}
+
 type ItemForListResourceQueuesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -798,7 +1022,11 @@ type ItemForListResourceQueuesOutput struct {
 
 	FlavorOutgoing []*FlavorOutgoingForListResourceQueuesOutput `type:"list" json:",omitempty"`
 
+	GpuFragmentRates []*GpuFragmentRateForListResourceQueuesOutput `type:"list" json:",omitempty"`
+
 	Id *string `type:"string" json:",omitempty"`
+
+	IdleWholeGpuMachines []*IdleWholeGpuMachineForListResourceQueuesOutput `type:"list" json:",omitempty"`
 
 	IsOverQuota *bool `type:"boolean" json:",omitempty"`
 
@@ -810,7 +1038,11 @@ type ItemForListResourceQueuesOutput struct {
 
 	QuotaCapability *QuotaCapabilityForListResourceQueuesOutput `type:"structure" json:",omitempty"`
 
+	QuotaIdle *QuotaIdleForListResourceQueuesOutput `type:"structure" json:",omitempty"`
+
 	ResourceGroupId *string `type:"string" json:",omitempty"`
+
+	ResourceWarning *ResourceWarningForListResourceQueuesOutput `type:"structure" json:",omitempty"`
 
 	Rules *RulesForListResourceQueuesOutput `type:"structure" json:",omitempty"`
 
@@ -869,9 +1101,21 @@ func (s *ItemForListResourceQueuesOutput) SetFlavorOutgoing(v []*FlavorOutgoingF
 	return s
 }
 
+// SetGpuFragmentRates sets the GpuFragmentRates field's value.
+func (s *ItemForListResourceQueuesOutput) SetGpuFragmentRates(v []*GpuFragmentRateForListResourceQueuesOutput) *ItemForListResourceQueuesOutput {
+	s.GpuFragmentRates = v
+	return s
+}
+
 // SetId sets the Id field's value.
 func (s *ItemForListResourceQueuesOutput) SetId(v string) *ItemForListResourceQueuesOutput {
 	s.Id = &v
+	return s
+}
+
+// SetIdleWholeGpuMachines sets the IdleWholeGpuMachines field's value.
+func (s *ItemForListResourceQueuesOutput) SetIdleWholeGpuMachines(v []*IdleWholeGpuMachineForListResourceQueuesOutput) *ItemForListResourceQueuesOutput {
+	s.IdleWholeGpuMachines = v
 	return s
 }
 
@@ -905,9 +1149,21 @@ func (s *ItemForListResourceQueuesOutput) SetQuotaCapability(v *QuotaCapabilityF
 	return s
 }
 
+// SetQuotaIdle sets the QuotaIdle field's value.
+func (s *ItemForListResourceQueuesOutput) SetQuotaIdle(v *QuotaIdleForListResourceQueuesOutput) *ItemForListResourceQueuesOutput {
+	s.QuotaIdle = v
+	return s
+}
+
 // SetResourceGroupId sets the ResourceGroupId field's value.
 func (s *ItemForListResourceQueuesOutput) SetResourceGroupId(v string) *ItemForListResourceQueuesOutput {
 	s.ResourceGroupId = &v
+	return s
+}
+
+// SetResourceWarning sets the ResourceWarning field's value.
+func (s *ItemForListResourceQueuesOutput) SetResourceWarning(v *ResourceWarningForListResourceQueuesOutput) *ItemForListResourceQueuesOutput {
+	s.ResourceWarning = v
 	return s
 }
 
@@ -1303,10 +1559,120 @@ func (s *QuotaCapabilityForListResourceQueuesOutput) SetVolumeSizeInfos(v []*Vol
 	return s
 }
 
+type QuotaIdleForListResourceQueuesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Cpu *float64 `type:"double" json:",omitempty"`
+
+	GpuCount *float64 `type:"double" json:",omitempty"`
+
+	GpuCountInfos []*GpuCountInfoForListResourceQueuesOutput `type:"list" json:",omitempty"`
+
+	GpuMemoryInfos []*GpuMemoryInfoForListResourceQueuesOutput `type:"list" json:",omitempty"`
+
+	GpuRdmaInfos []*GpuRdmaInfoForListResourceQueuesOutput `type:"list" json:",omitempty"`
+
+	MemoryGiB *float64 `type:"double" json:",omitempty"`
+
+	VolumeSizeGiB *float64 `type:"double" json:",omitempty"`
+
+	VolumeSizeInfos []*VolumeSizeInfoForListResourceQueuesOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s QuotaIdleForListResourceQueuesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s QuotaIdleForListResourceQueuesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCpu sets the Cpu field's value.
+func (s *QuotaIdleForListResourceQueuesOutput) SetCpu(v float64) *QuotaIdleForListResourceQueuesOutput {
+	s.Cpu = &v
+	return s
+}
+
+// SetGpuCount sets the GpuCount field's value.
+func (s *QuotaIdleForListResourceQueuesOutput) SetGpuCount(v float64) *QuotaIdleForListResourceQueuesOutput {
+	s.GpuCount = &v
+	return s
+}
+
+// SetGpuCountInfos sets the GpuCountInfos field's value.
+func (s *QuotaIdleForListResourceQueuesOutput) SetGpuCountInfos(v []*GpuCountInfoForListResourceQueuesOutput) *QuotaIdleForListResourceQueuesOutput {
+	s.GpuCountInfos = v
+	return s
+}
+
+// SetGpuMemoryInfos sets the GpuMemoryInfos field's value.
+func (s *QuotaIdleForListResourceQueuesOutput) SetGpuMemoryInfos(v []*GpuMemoryInfoForListResourceQueuesOutput) *QuotaIdleForListResourceQueuesOutput {
+	s.GpuMemoryInfos = v
+	return s
+}
+
+// SetGpuRdmaInfos sets the GpuRdmaInfos field's value.
+func (s *QuotaIdleForListResourceQueuesOutput) SetGpuRdmaInfos(v []*GpuRdmaInfoForListResourceQueuesOutput) *QuotaIdleForListResourceQueuesOutput {
+	s.GpuRdmaInfos = v
+	return s
+}
+
+// SetMemoryGiB sets the MemoryGiB field's value.
+func (s *QuotaIdleForListResourceQueuesOutput) SetMemoryGiB(v float64) *QuotaIdleForListResourceQueuesOutput {
+	s.MemoryGiB = &v
+	return s
+}
+
+// SetVolumeSizeGiB sets the VolumeSizeGiB field's value.
+func (s *QuotaIdleForListResourceQueuesOutput) SetVolumeSizeGiB(v float64) *QuotaIdleForListResourceQueuesOutput {
+	s.VolumeSizeGiB = &v
+	return s
+}
+
+// SetVolumeSizeInfos sets the VolumeSizeInfos field's value.
+func (s *QuotaIdleForListResourceQueuesOutput) SetVolumeSizeInfos(v []*VolumeSizeInfoForListResourceQueuesOutput) *QuotaIdleForListResourceQueuesOutput {
+	s.VolumeSizeInfos = v
+	return s
+}
+
+type ResourceWarningForListResourceQueuesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AbnormalNodeWarning *AbnormalNodeWarningForListResourceQueuesOutput `type:"structure" json:",omitempty"`
+
+	VolumeRemainingWarning *VolumeRemainingWarningForListResourceQueuesOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResourceWarningForListResourceQueuesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResourceWarningForListResourceQueuesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAbnormalNodeWarning sets the AbnormalNodeWarning field's value.
+func (s *ResourceWarningForListResourceQueuesOutput) SetAbnormalNodeWarning(v *AbnormalNodeWarningForListResourceQueuesOutput) *ResourceWarningForListResourceQueuesOutput {
+	s.AbnormalNodeWarning = v
+	return s
+}
+
+// SetVolumeRemainingWarning sets the VolumeRemainingWarning field's value.
+func (s *ResourceWarningForListResourceQueuesOutput) SetVolumeRemainingWarning(v *VolumeRemainingWarningForListResourceQueuesOutput) *ResourceWarningForListResourceQueuesOutput {
+	s.VolumeRemainingWarning = v
+	return s
+}
+
 type RulesForListResourceQueuesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AutoCompactGPUResourceRule *AutoCompactGPUResourceRuleForListResourceQueuesOutput `type:"structure" json:",omitempty"`
+
+	CommandHookRule *CommandHookRuleForListResourceQueuesOutput `type:"structure" json:",omitempty"`
 
 	DevCpuLowUsageRule *DevCpuLowUsageRuleForListResourceQueuesOutput `type:"structure" json:",omitempty"`
 
@@ -1328,6 +1694,12 @@ func (s RulesForListResourceQueuesOutput) GoString() string {
 // SetAutoCompactGPUResourceRule sets the AutoCompactGPUResourceRule field's value.
 func (s *RulesForListResourceQueuesOutput) SetAutoCompactGPUResourceRule(v *AutoCompactGPUResourceRuleForListResourceQueuesOutput) *RulesForListResourceQueuesOutput {
 	s.AutoCompactGPUResourceRule = v
+	return s
+}
+
+// SetCommandHookRule sets the CommandHookRule field's value.
+func (s *RulesForListResourceQueuesOutput) SetCommandHookRule(v *CommandHookRuleForListResourceQueuesOutput) *RulesForListResourceQueuesOutput {
+	s.CommandHookRule = v
 	return s
 }
 
@@ -1540,6 +1912,28 @@ func (s *SystemQuotaAllocatedForListResourceQueuesOutput) SetVolumeSizeGiB(v flo
 // SetVolumeSizeInfos sets the VolumeSizeInfos field's value.
 func (s *SystemQuotaAllocatedForListResourceQueuesOutput) SetVolumeSizeInfos(v []*VolumeSizeInfoForListResourceQueuesOutput) *SystemQuotaAllocatedForListResourceQueuesOutput {
 	s.VolumeSizeInfos = v
+	return s
+}
+
+type VolumeRemainingWarningForListResourceQueuesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	RemainingGiB *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s VolumeRemainingWarningForListResourceQueuesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VolumeRemainingWarningForListResourceQueuesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRemainingGiB sets the RemainingGiB field's value.
+func (s *VolumeRemainingWarningForListResourceQueuesOutput) SetRemainingGiB(v float64) *VolumeRemainingWarningForListResourceQueuesOutput {
+	s.RemainingGiB = &v
 	return s
 }
 
