@@ -5493,6 +5493,7 @@ type ItemReasoning struct {
 	Type             ItemType_Enum           `protobuf:"varint,2,opt,name=type,proto3,enum=responses.ItemType_Enum" json:"type,omitempty"` // sdk:  {"enum": {"const": "reasoning"}}
 	Summary          []*ReasoningSummaryPart `protobuf:"bytes,3,rep,name=summary,proto3" json:"summary,omitempty"`
 	Status           ItemStatus_Enum         `protobuf:"varint,4,opt,name=status,proto3,enum=responses.ItemStatus_Enum" json:"status,omitempty"` // sdk: {"skip": ["go", "python_input", "python_output", "java"]}
+	Content          []*OutputContentItem    `protobuf:"bytes,5,rep,name=content,proto3" json:"content,omitempty"`
 	EncryptedContent *string                 `protobuf:"bytes,6,opt,name=encrypted_content,json=encryptedContent,proto3,oneof" json:"encrypted_content,omitempty"`
 }
 
@@ -5554,6 +5555,13 @@ func (x *ItemReasoning) GetStatus() ItemStatus_Enum {
 		return x.Status
 	}
 	return ItemStatus_unspecified
+}
+
+func (x *ItemReasoning) GetContent() []*OutputContentItem {
+	if x != nil {
+		return x.Content
+	}
+	return nil
 }
 
 func (x *ItemReasoning) GetEncryptedContent() string {
@@ -17597,7 +17605,7 @@ var file_responsesapi_proto_rawDesc = []byte{
 	0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x2e, 0x49, 0x74, 0x65, 0x6d, 0x53, 0x74,
 	0x61, 0x74, 0x75, 0x73, 0x2e, 0x45, 0x6e, 0x75, 0x6d, 0x48, 0x01, 0x52, 0x06, 0x73, 0x74, 0x61,
 	0x74, 0x75, 0x73, 0x88, 0x01, 0x01, 0x42, 0x05, 0x0a, 0x03, 0x5f, 0x69, 0x64, 0x42, 0x09, 0x0a,
-	0x07, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x90, 0x02, 0x0a, 0x0d, 0x49, 0x74, 0x65,
+	0x07, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0xc8, 0x02, 0x0a, 0x0d, 0x49, 0x74, 0x65,
 	0x6d, 0x52, 0x65, 0x61, 0x73, 0x6f, 0x6e, 0x69, 0x6e, 0x67, 0x12, 0x13, 0x0a, 0x02, 0x69, 0x64,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x48, 0x00, 0x52, 0x02, 0x69, 0x64, 0x88, 0x01, 0x01, 0x12,
 	0x2c, 0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x18, 0x2e,
@@ -17609,7 +17617,11 @@ var file_responsesapi_proto_rawDesc = []byte{
 	0x07, 0x73, 0x75, 0x6d, 0x6d, 0x61, 0x72, 0x79, 0x12, 0x32, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74,
 	0x75, 0x73, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1a, 0x2e, 0x72, 0x65, 0x73, 0x70, 0x6f,
 	0x6e, 0x73, 0x65, 0x73, 0x2e, 0x49, 0x74, 0x65, 0x6d, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x2e,
-	0x45, 0x6e, 0x75, 0x6d, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x30, 0x0a, 0x11,
+	0x45, 0x6e, 0x75, 0x6d, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x36, 0x0a, 0x07,
+	0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x18, 0x05, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1c, 0x2e,
+	0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x2e, 0x4f, 0x75, 0x74, 0x70, 0x75, 0x74,
+	0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x49, 0x74, 0x65, 0x6d, 0x52, 0x07, 0x63, 0x6f, 0x6e,
+	0x74, 0x65, 0x6e, 0x74, 0x12, 0x30, 0x0a, 0x11,
 	0x65, 0x6e, 0x63, 0x72, 0x79, 0x70, 0x74, 0x65, 0x64, 0x5f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
 	0x74, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x48, 0x01, 0x52, 0x10, 0x65, 0x6e, 0x63, 0x72, 0x79,
 	0x70, 0x74, 0x65, 0x64, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x88, 0x01, 0x01, 0x42, 0x05,
@@ -20269,285 +20281,286 @@ var file_responsesapi_proto_depIdxs = []int32{
 	5,   // 84: responses.ItemReasoning.type:type_name -> responses.ItemType.Enum
 	179, // 85: responses.ItemReasoning.summary:type_name -> responses.ReasoningSummaryPart
 	10,  // 86: responses.ItemReasoning.status:type_name -> responses.ItemStatus.Enum
-	5,   // 87: responses.ItemTranscription.type:type_name -> responses.ItemType.Enum
-	86,  // 88: responses.ItemTranscription.transcription:type_name -> responses.TranscriptionPart
-	10,  // 89: responses.ItemTranscription.status:type_name -> responses.ItemStatus.Enum
-	9,   // 90: responses.TranscriptionPart.type:type_name -> responses.ContentItemType.Enum
-	213, // 91: responses.TranscriptionPart.chunks:type_name -> responses.AudioChunk
-	5,   // 92: responses.ItemReference.type:type_name -> responses.ItemType.Enum
-	6,   // 93: responses.DoubaoAppCallBlockOutputText.type:type_name -> responses.DoubaoAppBlockType.Enum
-	10,  // 94: responses.DoubaoAppCallBlockOutputText.status:type_name -> responses.ItemStatus.Enum
-	6,   // 95: responses.DoubaoAppCallBlockReasoningText.type:type_name -> responses.DoubaoAppBlockType.Enum
-	10,  // 96: responses.DoubaoAppCallBlockReasoningText.status:type_name -> responses.ItemStatus.Enum
-	90,  // 97: responses.DoubaoAppSearchResult.text_card:type_name -> responses.DoubaoAppSearchTextItem
-	6,   // 98: responses.DoubaoAppCallBlockSearch.type:type_name -> responses.DoubaoAppBlockType.Enum
-	91,  // 99: responses.DoubaoAppCallBlockSearch.results:type_name -> responses.DoubaoAppSearchResult
-	10,  // 100: responses.DoubaoAppCallBlockSearch.status:type_name -> responses.ItemStatus.Enum
-	6,   // 101: responses.DoubaoAppCallBlockReasoningSearch.type:type_name -> responses.DoubaoAppBlockType.Enum
-	91,  // 102: responses.DoubaoAppCallBlockReasoningSearch.results:type_name -> responses.DoubaoAppSearchResult
-	10,  // 103: responses.DoubaoAppCallBlockReasoningSearch.status:type_name -> responses.ItemStatus.Enum
-	88,  // 104: responses.DoubaoAppCallBlock.output_text:type_name -> responses.DoubaoAppCallBlockOutputText
-	89,  // 105: responses.DoubaoAppCallBlock.reasoning_text:type_name -> responses.DoubaoAppCallBlockReasoningText
-	92,  // 106: responses.DoubaoAppCallBlock.search:type_name -> responses.DoubaoAppCallBlockSearch
-	93,  // 107: responses.DoubaoAppCallBlock.reasoning_search:type_name -> responses.DoubaoAppCallBlockReasoningSearch
-	5,   // 108: responses.ItemDoubaoAppCall.type:type_name -> responses.ItemType.Enum
-	94,  // 109: responses.ItemDoubaoAppCall.blocks:type_name -> responses.DoubaoAppCallBlock
-	10,  // 110: responses.ItemDoubaoAppCall.status:type_name -> responses.ItemStatus.Enum
-	5,   // 111: responses.ItemAgentToolCall.type:type_name -> responses.ItemType.Enum
-	10,  // 112: responses.ItemAgentToolCall.status:type_name -> responses.ItemStatus.Enum
-	12,  // 113: responses.ResponsesThinking.type:type_name -> responses.ThinkingType.Enum
-	14,  // 114: responses.ResponsesToolChoice.mode:type_name -> responses.ToolChoiceMode.Enum
-	102, // 115: responses.ResponsesToolChoice.function_tool_choice:type_name -> responses.FunctionToolChoice
-	99,  // 116: responses.ResponsesToolChoice.mcp_tool_choice:type_name -> responses.McpToolChoice
-	100, // 117: responses.ResponsesToolChoice.web_search_tool_choice:type_name -> responses.WebSearchToolChoice
-	101, // 118: responses.ResponsesToolChoice.knowledge_search_tool_choice:type_name -> responses.KnowledgeSearchToolChoice
-	15,  // 119: responses.McpToolChoice.type:type_name -> responses.ToolType.Enum
-	15,  // 120: responses.WebSearchToolChoice.type:type_name -> responses.ToolType.Enum
-	15,  // 121: responses.KnowledgeSearchToolChoice.type:type_name -> responses.ToolType.Enum
-	15,  // 122: responses.FunctionToolChoice.type:type_name -> responses.ToolType.Enum
-	125, // 123: responses.ResponsesTool.tool_function:type_name -> responses.ToolFunction
-	106, // 124: responses.ResponsesTool.tool_web_search:type_name -> responses.ToolWebSearch
-	111, // 125: responses.ResponsesTool.tool_image_process:type_name -> responses.ToolImageProcess
-	120, // 126: responses.ResponsesTool.tool_mcp:type_name -> responses.ToolMcp
-	121, // 127: responses.ResponsesTool.tool_knowledge_search:type_name -> responses.ToolKnowledgeSearch
-	124, // 128: responses.ResponsesTool.tool_doubao_app:type_name -> responses.ToolDoubaoApp
-	16,  // 129: responses.UserLocation.type:type_name -> responses.UserLocationType.Enum
-	15,  // 130: responses.ToolWebSearch.type:type_name -> responses.ToolType.Enum
-	105, // 131: responses.ToolWebSearch.user_location:type_name -> responses.UserLocation
-	24,  // 132: responses.ToolWebSearch.sources:type_name -> responses.SourceType.Enum
-	15,  // 133: responses.ToolImageProcess.type:type_name -> responses.ToolType.Enum
-	107, // 134: responses.ToolImageProcess.point:type_name -> responses.ImageProcessPointOptions
-	108, // 135: responses.ToolImageProcess.grounding:type_name -> responses.ImageProcessGroundingOptions
-	109, // 136: responses.ToolImageProcess.zoom:type_name -> responses.ImageProcessZoomOptions
-	110, // 137: responses.ToolImageProcess.rotate:type_name -> responses.ImageProcessRotateOptions
-	112, // 138: responses.McpAllowedTools.list:type_name -> responses.McpAllowedToolsList
-	113, // 139: responses.McpAllowedTools.filter:type_name -> responses.McpAllowedToolsFilter
-	25,  // 140: responses.McpRequireApproval.mode:type_name -> responses.ApprovalMode.Enum
-	117, // 141: responses.McpRequireApproval.filter:type_name -> responses.McpToolApprovalFilter
-	118, // 142: responses.McpToolApprovalFilter.always:type_name -> responses.McpToolApprovalFilterAlways
-	119, // 143: responses.McpToolApprovalFilter.never:type_name -> responses.McpToolApprovalFilterNever
-	15,  // 144: responses.ToolMcp.type:type_name -> responses.ToolType.Enum
-	114, // 145: responses.ToolMcp.allowed_tools:type_name -> responses.McpAllowedTools
-	219, // 146: responses.ToolMcp.headers:type_name -> responses.ToolMcp.HeadersEntry
-	115, // 147: responses.ToolMcp.require_approval:type_name -> responses.McpRequireApproval
-	15,  // 148: responses.ToolKnowledgeSearch.type:type_name -> responses.ToolType.Enum
-	224, // 149: responses.ToolKnowledgeSearch.doc_filter:type_name -> google.protobuf.Struct
-	224, // 150: responses.ToolKnowledgeSearch.ranking_options:type_name -> google.protobuf.Struct
-	123, // 151: responses.DoubaoAppFeature.chat:type_name -> responses.DoubaoAppFeatureItem
-	123, // 152: responses.DoubaoAppFeature.deep_chat:type_name -> responses.DoubaoAppFeatureItem
-	123, // 153: responses.DoubaoAppFeature.ai_search:type_name -> responses.DoubaoAppFeatureItem
-	123, // 154: responses.DoubaoAppFeature.reasoning_search:type_name -> responses.DoubaoAppFeatureItem
-	4,   // 155: responses.DoubaoAppFeatureItem.type:type_name -> responses.ResponseDoubaoAppFeatureType.Enum
-	15,  // 156: responses.ToolDoubaoApp.type:type_name -> responses.ToolType.Enum
-	122, // 157: responses.ToolDoubaoApp.feature:type_name -> responses.DoubaoAppFeature
-	105, // 158: responses.ToolDoubaoApp.user_location:type_name -> responses.UserLocation
-	15,  // 159: responses.ToolFunction.type:type_name -> responses.ToolType.Enum
-	126, // 160: responses.ToolFunction.parameters:type_name -> responses.Bytes
-	129, // 161: responses.ResponseObject.error:type_name -> responses.Error
-	130, // 162: responses.ResponseObject.incomplete_details:type_name -> responses.IncompleteDetails
-	17,  // 163: responses.ResponseObject.object:type_name -> responses.ObjectType.Enum
-	128, // 164: responses.ResponseObject.output:type_name -> responses.OutputItem
-	97,  // 165: responses.ResponseObject.thinking:type_name -> responses.ResponsesThinking
-	0,   // 166: responses.ResponseObject.service_tier:type_name -> responses.ResponsesServiceTier.Enum
-	11,  // 167: responses.ResponseObject.status:type_name -> responses.ResponseStatus.Enum
-	103, // 168: responses.ResponseObject.tools:type_name -> responses.ResponsesTool
-	132, // 169: responses.ResponseObject.usage:type_name -> responses.Usage
-	205, // 170: responses.ResponseObject.caching:type_name -> responses.ResponsesCaching
-	206, // 171: responses.ResponseObject.text:type_name -> responses.ResponsesText
-	98,  // 172: responses.ResponseObject.tool_choice:type_name -> responses.ResponsesToolChoice
-	53,  // 173: responses.ResponseObject.reasoning:type_name -> responses.ResponsesReasoning
-	226, // 174: responses.ResponseObject.context_management:type_name -> contextmanagement.ContextManagementResponse
-	214, // 175: responses.ResponseObject.session:type_name -> responses.Session
-	218, // 176: responses.ResponseObject.service_status:type_name -> responses.ServiceStatus
-	70,  // 177: responses.OutputItem.output_message:type_name -> responses.ItemOutputMessage
-	82,  // 178: responses.OutputItem.function_tool_call:type_name -> responses.ItemFunctionToolCall
-	84,  // 179: responses.OutputItem.reasoning:type_name -> responses.ItemReasoning
-	85,  // 180: responses.OutputItem.transcription:type_name -> responses.ItemTranscription
-	71,  // 181: responses.OutputItem.function_web_search:type_name -> responses.ItemFunctionWebSearch
-	72,  // 182: responses.OutputItem.function_image_process:type_name -> responses.ItemFunctionImageProcess
-	73,  // 183: responses.OutputItem.function_mcp_approval_request:type_name -> responses.ItemFunctionMcpApprovalRequest
-	76,  // 184: responses.OutputItem.function_mcp_list_tools:type_name -> responses.ItemFunctionMcpListTools
-	77,  // 185: responses.OutputItem.function_mcp_call:type_name -> responses.ItemFunctionMcpCall
-	78,  // 186: responses.OutputItem.function_knowledge_search:type_name -> responses.ItemFunctionKnowledgeSearch
-	95,  // 187: responses.OutputItem.function_doubao_app_call:type_name -> responses.ItemDoubaoAppCall
-	96,  // 188: responses.OutputItem.function_agent_tool_call:type_name -> responses.ItemAgentToolCall
-	131, // 189: responses.IncompleteDetails.content_filter:type_name -> responses.ContentFilter
-	135, // 190: responses.Usage.input_tokens_details:type_name -> responses.InputTokensDetails
-	136, // 191: responses.Usage.output_tokens_details:type_name -> responses.OutputTokensDetails
-	133, // 192: responses.Usage.tool_usage:type_name -> responses.ToolUsage
-	134, // 193: responses.Usage.tool_usage_details:type_name -> responses.ToolUsageDetail
-	220, // 194: responses.ToolUsageDetail.web_search:type_name -> responses.ToolUsageDetail.WebSearchEntry
-	221, // 195: responses.ToolUsageDetail.mcp:type_name -> responses.ToolUsageDetail.McpEntry
-	222, // 196: responses.ToolUsageDetail.knowledge_search:type_name -> responses.ToolUsageDetail.KnowledgeSearchEntry
-	223, // 197: responses.ToolUsageDetail.doubao_app:type_name -> responses.ToolUsageDetail.DoubaoAppEntry
-	163, // 198: responses.Event.response:type_name -> responses.ResponseEvent
-	168, // 199: responses.Event.item:type_name -> responses.ItemEvent
-	170, // 200: responses.Event.content_part:type_name -> responses.ContentPartEvent
-	172, // 201: responses.Event.text:type_name -> responses.OutputTextEvent
-	177, // 202: responses.Event.reasoning_part:type_name -> responses.ReasoningSummaryPartEvent
-	181, // 203: responses.Event.reasoning_text:type_name -> responses.ReasoningSummaryTextEvent
-	183, // 204: responses.Event.function_call_arguments:type_name -> responses.FunctionCallArgumentsEvent
-	189, // 205: responses.Event.error:type_name -> responses.ErrorEvent
-	185, // 206: responses.Event.transcription_part:type_name -> responses.TranscriptionPartEvent
-	187, // 207: responses.Event.transcription_text:type_name -> responses.TranscriptionTextEvent
-	139, // 208: responses.Event.response_web_search_call_in_progress:type_name -> responses.ResponseWebSearchCallInProgressEvent
-	140, // 209: responses.Event.response_web_search_call_searching:type_name -> responses.ResponseWebSearchCallSearchingEvent
-	141, // 210: responses.Event.response_web_search_call_completed:type_name -> responses.ResponseWebSearchCallCompletedEvent
-	174, // 211: responses.Event.response_annotation_added:type_name -> responses.ResponseAnnotationAddedEvent
-	149, // 212: responses.Event.response_image_process_call_in_progress:type_name -> responses.ResponseImageProcessCallInProgressEvent
-	150, // 213: responses.Event.response_image_process_call_processing:type_name -> responses.ResponseImageProcessCallProcessingEvent
-	151, // 214: responses.Event.response_image_process_call_completed:type_name -> responses.ResponseImageProcessCallCompletedEvent
-	152, // 215: responses.Event.response_mcp_list_tools_in_progress:type_name -> responses.ResponseMcpListToolsInProgressEvent
-	153, // 216: responses.Event.response_mcp_list_tools_completed:type_name -> responses.ResponseMcpListToolsCompletedEvent
-	154, // 217: responses.Event.response_mcp_call_in_progress:type_name -> responses.ResponseMcpCallInProgressEvent
-	155, // 218: responses.Event.response_mcp_call_arguments_delta:type_name -> responses.ResponseMcpCallArgumentsDeltaEvent
-	156, // 219: responses.Event.response_mcp_call_arguments_done:type_name -> responses.ResponseMcpCallArgumentsDoneEvent
-	157, // 220: responses.Event.response_mcp_call_completed:type_name -> responses.ResponseMcpCallCompletedEvent
-	158, // 221: responses.Event.response_mcp_call_failed:type_name -> responses.ResponseMcpCallFailedEvent
-	138, // 222: responses.Event.response_mcp_approval_request:type_name -> responses.ResponseMcpApprovalRequestEvent
-	159, // 223: responses.Event.response_knowledge_search_call_in_progress:type_name -> responses.ResponseKnowledgeSearchCallInProgressEvent
-	160, // 224: responses.Event.response_knowledge_search_call_searching:type_name -> responses.ResponseKnowledgeSearchCallSearchingEvent
-	161, // 225: responses.Event.response_knowledge_search_call_completed:type_name -> responses.ResponseKnowledgeSearchCallCompletedEvent
-	162, // 226: responses.Event.response_knowledge_search_call_failed:type_name -> responses.ResponseKnowledgeSearchCallFailedEvent
-	164, // 227: responses.Event.response_in_progress:type_name -> responses.ResponseInProgressEvent
-	165, // 228: responses.Event.response_completed:type_name -> responses.ResponseCompletedEvent
-	166, // 229: responses.Event.response_failed:type_name -> responses.ResponseFailedEvent
-	167, // 230: responses.Event.response_incomplete:type_name -> responses.ResponseIncompleteEvent
-	169, // 231: responses.Event.item_done:type_name -> responses.ItemDoneEvent
-	171, // 232: responses.Event.content_part_done:type_name -> responses.ContentPartDoneEvent
-	173, // 233: responses.Event.text_done:type_name -> responses.OutputTextDoneEvent
-	178, // 234: responses.Event.reasoning_part_done:type_name -> responses.ReasoningSummaryPartDoneEvent
-	182, // 235: responses.Event.reasoning_text_done:type_name -> responses.ReasoningSummaryTextDoneEvent
-	184, // 236: responses.Event.function_call_arguments_done:type_name -> responses.FunctionCallArgumentsDoneEvent
-	186, // 237: responses.Event.transcription_part_done:type_name -> responses.TranscriptionPartDoneEvent
-	188, // 238: responses.Event.transcription_text_done:type_name -> responses.TranscriptionTextDoneEvent
-	175, // 239: responses.Event.reasoning_raw_text_delta:type_name -> responses.ReasoningTextDeltaEvent
-	176, // 240: responses.Event.reasoning_raw_text_done:type_name -> responses.ReasoningTextDoneEvent
-	190, // 241: responses.Event.response_doubao_app_call_in_progress:type_name -> responses.ResponseDoubaoAppCallInProgressEvent
-	192, // 242: responses.Event.response_doubao_app_call_completed:type_name -> responses.ResponseDoubaoAppCallCompletedEvent
-	191, // 243: responses.Event.response_doubao_app_call_failed:type_name -> responses.ResponseDoubaoAppCallFailedEvent
-	197, // 244: responses.Event.response_doubao_app_call_output_text_delta:type_name -> responses.ResponseDoubaoAppCallOutputTextDeltaEvent
-	198, // 245: responses.Event.response_doubao_app_call_output_text_done:type_name -> responses.ResponseDoubaoAppCallOutputTextDoneEvent
-	202, // 246: responses.Event.response_doubao_app_call_search_in_progress:type_name -> responses.ResponseDoubaoAppCallSearchInProgressEvent
-	203, // 247: responses.Event.response_doubao_app_call_search_searching:type_name -> responses.ResponseDoubaoAppCallSearchSearchingEvent
-	204, // 248: responses.Event.response_doubao_app_call_search_completed:type_name -> responses.ResponseDoubaoAppCallSearchCompletedEvent
-	195, // 249: responses.Event.response_doubao_app_call_reasoning_text_delta:type_name -> responses.ResponseDoubaoAppCallReasoningTextDeltaEvent
-	196, // 250: responses.Event.response_doubao_app_call_reasoning_text_done:type_name -> responses.ResponseDoubaoAppCallReasoningTextDoneEvent
-	199, // 251: responses.Event.response_doubao_app_call_reasoning_search_in_progress:type_name -> responses.ResponseDoubaoAppCallReasoningSearchInProgressEvent
-	200, // 252: responses.Event.response_doubao_app_call_reasoning_search_searching:type_name -> responses.ResponseDoubaoAppCallReasoningSearchSearchingEvent
-	201, // 253: responses.Event.response_doubao_app_call_reasoning_search_completed:type_name -> responses.ResponseDoubaoAppCallReasoningSearchCompletedEvent
-	193, // 254: responses.Event.response_doubao_app_call_block_added:type_name -> responses.ResponseDoubaoAppCallBlockAddedEvent
-	194, // 255: responses.Event.response_doubao_app_call_block_done:type_name -> responses.ResponseDoubaoAppCallBlockDoneEvent
-	215, // 256: responses.Event.response_agent_tool_call_in_progress:type_name -> responses.ResponseAgentToolCallInProgressEvent
-	216, // 257: responses.Event.response_agent_tool_call_completed:type_name -> responses.ResponseAgentToolCallCompletedEvent
-	19,  // 258: responses.ResponseMcpApprovalRequestEvent.type:type_name -> responses.EventType.Enum
-	73,  // 259: responses.ResponseMcpApprovalRequestEvent.function_mcp_approval_request:type_name -> responses.ItemFunctionMcpApprovalRequest
-	19,  // 260: responses.ResponseWebSearchCallInProgressEvent.type:type_name -> responses.EventType.Enum
-	19,  // 261: responses.ResponseWebSearchCallSearchingEvent.type:type_name -> responses.EventType.Enum
-	19,  // 262: responses.ResponseWebSearchCallCompletedEvent.type:type_name -> responses.EventType.Enum
-	143, // 263: responses.ResponseImageProcessArgs.point_args:type_name -> responses.ResponseImageProcessPointArgs
-	145, // 264: responses.ResponseImageProcessArgs.grounding_args:type_name -> responses.ResponseImageProcessGroundingArgs
-	146, // 265: responses.ResponseImageProcessArgs.rotate_args:type_name -> responses.ResponseImageProcessRotateArgs
-	147, // 266: responses.ResponseImageProcessArgs.zoom_args:type_name -> responses.ResponseImageProcessZoomArgs
-	19,  // 267: responses.ResponseImageProcessCallInProgressEvent.type:type_name -> responses.EventType.Enum
-	19,  // 268: responses.ResponseImageProcessCallProcessingEvent.type:type_name -> responses.EventType.Enum
-	142, // 269: responses.ResponseImageProcessCallProcessingEvent.action:type_name -> responses.ResponseImageProcessAction
-	148, // 270: responses.ResponseImageProcessCallProcessingEvent.arguments:type_name -> responses.ResponseImageProcessArgs
-	19,  // 271: responses.ResponseImageProcessCallCompletedEvent.type:type_name -> responses.EventType.Enum
-	142, // 272: responses.ResponseImageProcessCallCompletedEvent.action:type_name -> responses.ResponseImageProcessAction
-	148, // 273: responses.ResponseImageProcessCallCompletedEvent.arguments:type_name -> responses.ResponseImageProcessArgs
-	144, // 274: responses.ResponseImageProcessCallCompletedEvent.error:type_name -> responses.ResponseImageProcessError
-	19,  // 275: responses.ResponseMcpListToolsInProgressEvent.type:type_name -> responses.EventType.Enum
-	19,  // 276: responses.ResponseMcpListToolsCompletedEvent.type:type_name -> responses.EventType.Enum
-	19,  // 277: responses.ResponseMcpCallInProgressEvent.type:type_name -> responses.EventType.Enum
-	19,  // 278: responses.ResponseMcpCallArgumentsDeltaEvent.type:type_name -> responses.EventType.Enum
-	19,  // 279: responses.ResponseMcpCallArgumentsDoneEvent.type:type_name -> responses.EventType.Enum
-	19,  // 280: responses.ResponseMcpCallCompletedEvent.type:type_name -> responses.EventType.Enum
-	19,  // 281: responses.ResponseMcpCallFailedEvent.type:type_name -> responses.EventType.Enum
-	19,  // 282: responses.ResponseKnowledgeSearchCallInProgressEvent.type:type_name -> responses.EventType.Enum
-	19,  // 283: responses.ResponseKnowledgeSearchCallSearchingEvent.type:type_name -> responses.EventType.Enum
-	19,  // 284: responses.ResponseKnowledgeSearchCallCompletedEvent.type:type_name -> responses.EventType.Enum
-	19,  // 285: responses.ResponseKnowledgeSearchCallFailedEvent.type:type_name -> responses.EventType.Enum
-	19,  // 286: responses.ResponseEvent.type:type_name -> responses.EventType.Enum
-	127, // 287: responses.ResponseEvent.response:type_name -> responses.ResponseObject
-	19,  // 288: responses.ResponseInProgressEvent.type:type_name -> responses.EventType.Enum
-	127, // 289: responses.ResponseInProgressEvent.response:type_name -> responses.ResponseObject
-	19,  // 290: responses.ResponseCompletedEvent.type:type_name -> responses.EventType.Enum
-	127, // 291: responses.ResponseCompletedEvent.response:type_name -> responses.ResponseObject
-	19,  // 292: responses.ResponseFailedEvent.type:type_name -> responses.EventType.Enum
-	127, // 293: responses.ResponseFailedEvent.response:type_name -> responses.ResponseObject
-	19,  // 294: responses.ResponseIncompleteEvent.type:type_name -> responses.EventType.Enum
-	127, // 295: responses.ResponseIncompleteEvent.response:type_name -> responses.ResponseObject
-	19,  // 296: responses.ItemEvent.type:type_name -> responses.EventType.Enum
-	128, // 297: responses.ItemEvent.item:type_name -> responses.OutputItem
-	19,  // 298: responses.ItemDoneEvent.type:type_name -> responses.EventType.Enum
-	128, // 299: responses.ItemDoneEvent.item:type_name -> responses.OutputItem
-	19,  // 300: responses.ContentPartEvent.type:type_name -> responses.EventType.Enum
-	60,  // 301: responses.ContentPartEvent.part:type_name -> responses.OutputContentItem
-	19,  // 302: responses.ContentPartDoneEvent.type:type_name -> responses.EventType.Enum
-	60,  // 303: responses.ContentPartDoneEvent.part:type_name -> responses.OutputContentItem
-	19,  // 304: responses.OutputTextEvent.type:type_name -> responses.EventType.Enum
-	19,  // 305: responses.OutputTextDoneEvent.type:type_name -> responses.EventType.Enum
-	19,  // 306: responses.ResponseAnnotationAddedEvent.type:type_name -> responses.EventType.Enum
-	32,  // 307: responses.ResponseAnnotationAddedEvent.annotation:type_name -> responses.Annotation
-	19,  // 308: responses.ReasoningTextDeltaEvent.type:type_name -> responses.EventType.Enum
-	19,  // 309: responses.ReasoningTextDoneEvent.type:type_name -> responses.EventType.Enum
-	19,  // 310: responses.ReasoningSummaryPartEvent.type:type_name -> responses.EventType.Enum
-	179, // 311: responses.ReasoningSummaryPartEvent.part:type_name -> responses.ReasoningSummaryPart
-	19,  // 312: responses.ReasoningSummaryPartDoneEvent.type:type_name -> responses.EventType.Enum
-	179, // 313: responses.ReasoningSummaryPartDoneEvent.part:type_name -> responses.ReasoningSummaryPart
-	9,   // 314: responses.ReasoningSummaryPart.type:type_name -> responses.ContentItemType.Enum
-	9,   // 315: responses.ReasoningSummaryPartDone.type:type_name -> responses.ContentItemType.Enum
-	19,  // 316: responses.ReasoningSummaryTextEvent.type:type_name -> responses.EventType.Enum
-	19,  // 317: responses.ReasoningSummaryTextDoneEvent.type:type_name -> responses.EventType.Enum
-	19,  // 318: responses.FunctionCallArgumentsEvent.type:type_name -> responses.EventType.Enum
-	19,  // 319: responses.FunctionCallArgumentsDoneEvent.type:type_name -> responses.EventType.Enum
-	19,  // 320: responses.TranscriptionPartEvent.type:type_name -> responses.EventType.Enum
-	86,  // 321: responses.TranscriptionPartEvent.part:type_name -> responses.TranscriptionPart
-	19,  // 322: responses.TranscriptionPartDoneEvent.type:type_name -> responses.EventType.Enum
-	86,  // 323: responses.TranscriptionPartDoneEvent.part:type_name -> responses.TranscriptionPart
-	19,  // 324: responses.TranscriptionTextEvent.type:type_name -> responses.EventType.Enum
-	213, // 325: responses.TranscriptionTextEvent.chunks:type_name -> responses.AudioChunk
-	19,  // 326: responses.TranscriptionTextDoneEvent.type:type_name -> responses.EventType.Enum
-	213, // 327: responses.TranscriptionTextDoneEvent.chunks:type_name -> responses.AudioChunk
-	19,  // 328: responses.ErrorEvent.type:type_name -> responses.EventType.Enum
-	19,  // 329: responses.ResponseDoubaoAppCallInProgressEvent.type:type_name -> responses.EventType.Enum
-	19,  // 330: responses.ResponseDoubaoAppCallFailedEvent.type:type_name -> responses.EventType.Enum
-	19,  // 331: responses.ResponseDoubaoAppCallCompletedEvent.type:type_name -> responses.EventType.Enum
-	94,  // 332: responses.ResponseDoubaoAppCallCompletedEvent.blocks:type_name -> responses.DoubaoAppCallBlock
-	19,  // 333: responses.ResponseDoubaoAppCallBlockAddedEvent.type:type_name -> responses.EventType.Enum
-	94,  // 334: responses.ResponseDoubaoAppCallBlockAddedEvent.block:type_name -> responses.DoubaoAppCallBlock
-	19,  // 335: responses.ResponseDoubaoAppCallBlockDoneEvent.type:type_name -> responses.EventType.Enum
-	94,  // 336: responses.ResponseDoubaoAppCallBlockDoneEvent.block:type_name -> responses.DoubaoAppCallBlock
-	19,  // 337: responses.ResponseDoubaoAppCallReasoningTextDeltaEvent.type:type_name -> responses.EventType.Enum
-	19,  // 338: responses.ResponseDoubaoAppCallReasoningTextDoneEvent.type:type_name -> responses.EventType.Enum
-	19,  // 339: responses.ResponseDoubaoAppCallOutputTextDeltaEvent.type:type_name -> responses.EventType.Enum
-	19,  // 340: responses.ResponseDoubaoAppCallOutputTextDoneEvent.type:type_name -> responses.EventType.Enum
-	19,  // 341: responses.ResponseDoubaoAppCallReasoningSearchInProgressEvent.type:type_name -> responses.EventType.Enum
-	19,  // 342: responses.ResponseDoubaoAppCallReasoningSearchSearchingEvent.type:type_name -> responses.EventType.Enum
-	19,  // 343: responses.ResponseDoubaoAppCallReasoningSearchCompletedEvent.type:type_name -> responses.EventType.Enum
-	91,  // 344: responses.ResponseDoubaoAppCallReasoningSearchCompletedEvent.results:type_name -> responses.DoubaoAppSearchResult
-	19,  // 345: responses.ResponseDoubaoAppCallSearchInProgressEvent.type:type_name -> responses.EventType.Enum
-	19,  // 346: responses.ResponseDoubaoAppCallSearchSearchingEvent.type:type_name -> responses.EventType.Enum
-	19,  // 347: responses.ResponseDoubaoAppCallSearchCompletedEvent.type:type_name -> responses.EventType.Enum
-	91,  // 348: responses.ResponseDoubaoAppCallSearchCompletedEvent.results:type_name -> responses.DoubaoAppSearchResult
-	21,  // 349: responses.ResponsesCaching.type:type_name -> responses.CacheType.Enum
-	207, // 350: responses.ResponsesText.format:type_name -> responses.TextFormat
-	13,  // 351: responses.TextFormat.type:type_name -> responses.TextType.Enum
-	126, // 352: responses.TextFormat.schema:type_name -> responses.Bytes
-	17,  // 353: responses.DeleteResponseResponse.object:type_name -> responses.ObjectType.Enum
-	20,  // 354: responses.GetResponseRequest.include:type_name -> responses.IncludeType.Enum
-	20,  // 355: responses.ListInputItemsRequest.include:type_name -> responses.IncludeType.Enum
-	17,  // 356: responses.ListInputItemsResponse.object:type_name -> responses.ObjectType.Enum
-	55,  // 357: responses.ListInputItemsResponse.data:type_name -> responses.InputItem
-	19,  // 358: responses.ResponseAgentToolCallInProgressEvent.type:type_name -> responses.EventType.Enum
-	19,  // 359: responses.ResponseAgentToolCallCompletedEvent.type:type_name -> responses.EventType.Enum
-	217, // 360: responses.ServiceStatus.model_fallback:type_name -> responses.ModelFallback
-	361, // [361:361] is the sub-list for method output_type
-	361, // [361:361] is the sub-list for method input_type
-	361, // [361:361] is the sub-list for extension type_name
-	361, // [361:361] is the sub-list for extension extendee
-	0,   // [0:361] is the sub-list for field type_name
+	60,  // 87: responses.ItemReasoning.content:type_name -> responses.OutputContentItem
+	5,   // 88: responses.ItemTranscription.type:type_name -> responses.ItemType.Enum
+	86,  // 89: responses.ItemTranscription.transcription:type_name -> responses.TranscriptionPart
+	10,  // 90: responses.ItemTranscription.status:type_name -> responses.ItemStatus.Enum
+	9,   // 91: responses.TranscriptionPart.type:type_name -> responses.ContentItemType.Enum
+	213, // 92: responses.TranscriptionPart.chunks:type_name -> responses.AudioChunk
+	5,   // 93: responses.ItemReference.type:type_name -> responses.ItemType.Enum
+	6,   // 94: responses.DoubaoAppCallBlockOutputText.type:type_name -> responses.DoubaoAppBlockType.Enum
+	10,  // 95: responses.DoubaoAppCallBlockOutputText.status:type_name -> responses.ItemStatus.Enum
+	6,   // 96: responses.DoubaoAppCallBlockReasoningText.type:type_name -> responses.DoubaoAppBlockType.Enum
+	10,  // 97: responses.DoubaoAppCallBlockReasoningText.status:type_name -> responses.ItemStatus.Enum
+	90,  // 98: responses.DoubaoAppSearchResult.text_card:type_name -> responses.DoubaoAppSearchTextItem
+	6,   // 99: responses.DoubaoAppCallBlockSearch.type:type_name -> responses.DoubaoAppBlockType.Enum
+	91,  // 100: responses.DoubaoAppCallBlockSearch.results:type_name -> responses.DoubaoAppSearchResult
+	10,  // 101: responses.DoubaoAppCallBlockSearch.status:type_name -> responses.ItemStatus.Enum
+	6,   // 102: responses.DoubaoAppCallBlockReasoningSearch.type:type_name -> responses.DoubaoAppBlockType.Enum
+	91,  // 103: responses.DoubaoAppCallBlockReasoningSearch.results:type_name -> responses.DoubaoAppSearchResult
+	10,  // 104: responses.DoubaoAppCallBlockReasoningSearch.status:type_name -> responses.ItemStatus.Enum
+	88,  // 105: responses.DoubaoAppCallBlock.output_text:type_name -> responses.DoubaoAppCallBlockOutputText
+	89,  // 106: responses.DoubaoAppCallBlock.reasoning_text:type_name -> responses.DoubaoAppCallBlockReasoningText
+	92,  // 107: responses.DoubaoAppCallBlock.search:type_name -> responses.DoubaoAppCallBlockSearch
+	93,  // 108: responses.DoubaoAppCallBlock.reasoning_search:type_name -> responses.DoubaoAppCallBlockReasoningSearch
+	5,   // 109: responses.ItemDoubaoAppCall.type:type_name -> responses.ItemType.Enum
+	94,  // 110: responses.ItemDoubaoAppCall.blocks:type_name -> responses.DoubaoAppCallBlock
+	10,  // 111: responses.ItemDoubaoAppCall.status:type_name -> responses.ItemStatus.Enum
+	5,   // 112: responses.ItemAgentToolCall.type:type_name -> responses.ItemType.Enum
+	10,  // 113: responses.ItemAgentToolCall.status:type_name -> responses.ItemStatus.Enum
+	12,  // 114: responses.ResponsesThinking.type:type_name -> responses.ThinkingType.Enum
+	14,  // 115: responses.ResponsesToolChoice.mode:type_name -> responses.ToolChoiceMode.Enum
+	102, // 116: responses.ResponsesToolChoice.function_tool_choice:type_name -> responses.FunctionToolChoice
+	99,  // 117: responses.ResponsesToolChoice.mcp_tool_choice:type_name -> responses.McpToolChoice
+	100, // 118: responses.ResponsesToolChoice.web_search_tool_choice:type_name -> responses.WebSearchToolChoice
+	101, // 119: responses.ResponsesToolChoice.knowledge_search_tool_choice:type_name -> responses.KnowledgeSearchToolChoice
+	15,  // 120: responses.McpToolChoice.type:type_name -> responses.ToolType.Enum
+	15,  // 121: responses.WebSearchToolChoice.type:type_name -> responses.ToolType.Enum
+	15,  // 122: responses.KnowledgeSearchToolChoice.type:type_name -> responses.ToolType.Enum
+	15,  // 123: responses.FunctionToolChoice.type:type_name -> responses.ToolType.Enum
+	125, // 124: responses.ResponsesTool.tool_function:type_name -> responses.ToolFunction
+	106, // 125: responses.ResponsesTool.tool_web_search:type_name -> responses.ToolWebSearch
+	111, // 126: responses.ResponsesTool.tool_image_process:type_name -> responses.ToolImageProcess
+	120, // 127: responses.ResponsesTool.tool_mcp:type_name -> responses.ToolMcp
+	121, // 128: responses.ResponsesTool.tool_knowledge_search:type_name -> responses.ToolKnowledgeSearch
+	124, // 129: responses.ResponsesTool.tool_doubao_app:type_name -> responses.ToolDoubaoApp
+	16,  // 130: responses.UserLocation.type:type_name -> responses.UserLocationType.Enum
+	15,  // 131: responses.ToolWebSearch.type:type_name -> responses.ToolType.Enum
+	105, // 132: responses.ToolWebSearch.user_location:type_name -> responses.UserLocation
+	24,  // 133: responses.ToolWebSearch.sources:type_name -> responses.SourceType.Enum
+	15,  // 134: responses.ToolImageProcess.type:type_name -> responses.ToolType.Enum
+	107, // 135: responses.ToolImageProcess.point:type_name -> responses.ImageProcessPointOptions
+	108, // 136: responses.ToolImageProcess.grounding:type_name -> responses.ImageProcessGroundingOptions
+	109, // 137: responses.ToolImageProcess.zoom:type_name -> responses.ImageProcessZoomOptions
+	110, // 138: responses.ToolImageProcess.rotate:type_name -> responses.ImageProcessRotateOptions
+	112, // 139: responses.McpAllowedTools.list:type_name -> responses.McpAllowedToolsList
+	113, // 140: responses.McpAllowedTools.filter:type_name -> responses.McpAllowedToolsFilter
+	25,  // 141: responses.McpRequireApproval.mode:type_name -> responses.ApprovalMode.Enum
+	117, // 142: responses.McpRequireApproval.filter:type_name -> responses.McpToolApprovalFilter
+	118, // 143: responses.McpToolApprovalFilter.always:type_name -> responses.McpToolApprovalFilterAlways
+	119, // 144: responses.McpToolApprovalFilter.never:type_name -> responses.McpToolApprovalFilterNever
+	15,  // 145: responses.ToolMcp.type:type_name -> responses.ToolType.Enum
+	114, // 146: responses.ToolMcp.allowed_tools:type_name -> responses.McpAllowedTools
+	219, // 147: responses.ToolMcp.headers:type_name -> responses.ToolMcp.HeadersEntry
+	115, // 148: responses.ToolMcp.require_approval:type_name -> responses.McpRequireApproval
+	15,  // 149: responses.ToolKnowledgeSearch.type:type_name -> responses.ToolType.Enum
+	224, // 150: responses.ToolKnowledgeSearch.doc_filter:type_name -> google.protobuf.Struct
+	224, // 151: responses.ToolKnowledgeSearch.ranking_options:type_name -> google.protobuf.Struct
+	123, // 152: responses.DoubaoAppFeature.chat:type_name -> responses.DoubaoAppFeatureItem
+	123, // 153: responses.DoubaoAppFeature.deep_chat:type_name -> responses.DoubaoAppFeatureItem
+	123, // 154: responses.DoubaoAppFeature.ai_search:type_name -> responses.DoubaoAppFeatureItem
+	123, // 155: responses.DoubaoAppFeature.reasoning_search:type_name -> responses.DoubaoAppFeatureItem
+	4,   // 156: responses.DoubaoAppFeatureItem.type:type_name -> responses.ResponseDoubaoAppFeatureType.Enum
+	15,  // 157: responses.ToolDoubaoApp.type:type_name -> responses.ToolType.Enum
+	122, // 158: responses.ToolDoubaoApp.feature:type_name -> responses.DoubaoAppFeature
+	105, // 159: responses.ToolDoubaoApp.user_location:type_name -> responses.UserLocation
+	15,  // 160: responses.ToolFunction.type:type_name -> responses.ToolType.Enum
+	126, // 161: responses.ToolFunction.parameters:type_name -> responses.Bytes
+	129, // 162: responses.ResponseObject.error:type_name -> responses.Error
+	130, // 163: responses.ResponseObject.incomplete_details:type_name -> responses.IncompleteDetails
+	17,  // 164: responses.ResponseObject.object:type_name -> responses.ObjectType.Enum
+	128, // 165: responses.ResponseObject.output:type_name -> responses.OutputItem
+	97,  // 166: responses.ResponseObject.thinking:type_name -> responses.ResponsesThinking
+	0,   // 167: responses.ResponseObject.service_tier:type_name -> responses.ResponsesServiceTier.Enum
+	11,  // 168: responses.ResponseObject.status:type_name -> responses.ResponseStatus.Enum
+	103, // 169: responses.ResponseObject.tools:type_name -> responses.ResponsesTool
+	132, // 170: responses.ResponseObject.usage:type_name -> responses.Usage
+	205, // 171: responses.ResponseObject.caching:type_name -> responses.ResponsesCaching
+	206, // 172: responses.ResponseObject.text:type_name -> responses.ResponsesText
+	98,  // 173: responses.ResponseObject.tool_choice:type_name -> responses.ResponsesToolChoice
+	53,  // 174: responses.ResponseObject.reasoning:type_name -> responses.ResponsesReasoning
+	226, // 175: responses.ResponseObject.context_management:type_name -> contextmanagement.ContextManagementResponse
+	214, // 176: responses.ResponseObject.session:type_name -> responses.Session
+	218, // 177: responses.ResponseObject.service_status:type_name -> responses.ServiceStatus
+	70,  // 178: responses.OutputItem.output_message:type_name -> responses.ItemOutputMessage
+	82,  // 179: responses.OutputItem.function_tool_call:type_name -> responses.ItemFunctionToolCall
+	84,  // 180: responses.OutputItem.reasoning:type_name -> responses.ItemReasoning
+	85,  // 181: responses.OutputItem.transcription:type_name -> responses.ItemTranscription
+	71,  // 182: responses.OutputItem.function_web_search:type_name -> responses.ItemFunctionWebSearch
+	72,  // 183: responses.OutputItem.function_image_process:type_name -> responses.ItemFunctionImageProcess
+	73,  // 184: responses.OutputItem.function_mcp_approval_request:type_name -> responses.ItemFunctionMcpApprovalRequest
+	76,  // 185: responses.OutputItem.function_mcp_list_tools:type_name -> responses.ItemFunctionMcpListTools
+	77,  // 186: responses.OutputItem.function_mcp_call:type_name -> responses.ItemFunctionMcpCall
+	78,  // 187: responses.OutputItem.function_knowledge_search:type_name -> responses.ItemFunctionKnowledgeSearch
+	95,  // 188: responses.OutputItem.function_doubao_app_call:type_name -> responses.ItemDoubaoAppCall
+	96,  // 189: responses.OutputItem.function_agent_tool_call:type_name -> responses.ItemAgentToolCall
+	131, // 190: responses.IncompleteDetails.content_filter:type_name -> responses.ContentFilter
+	135, // 191: responses.Usage.input_tokens_details:type_name -> responses.InputTokensDetails
+	136, // 192: responses.Usage.output_tokens_details:type_name -> responses.OutputTokensDetails
+	133, // 193: responses.Usage.tool_usage:type_name -> responses.ToolUsage
+	134, // 194: responses.Usage.tool_usage_details:type_name -> responses.ToolUsageDetail
+	220, // 195: responses.ToolUsageDetail.web_search:type_name -> responses.ToolUsageDetail.WebSearchEntry
+	221, // 196: responses.ToolUsageDetail.mcp:type_name -> responses.ToolUsageDetail.McpEntry
+	222, // 197: responses.ToolUsageDetail.knowledge_search:type_name -> responses.ToolUsageDetail.KnowledgeSearchEntry
+	223, // 198: responses.ToolUsageDetail.doubao_app:type_name -> responses.ToolUsageDetail.DoubaoAppEntry
+	163, // 199: responses.Event.response:type_name -> responses.ResponseEvent
+	168, // 200: responses.Event.item:type_name -> responses.ItemEvent
+	170, // 201: responses.Event.content_part:type_name -> responses.ContentPartEvent
+	172, // 202: responses.Event.text:type_name -> responses.OutputTextEvent
+	177, // 203: responses.Event.reasoning_part:type_name -> responses.ReasoningSummaryPartEvent
+	181, // 204: responses.Event.reasoning_text:type_name -> responses.ReasoningSummaryTextEvent
+	183, // 205: responses.Event.function_call_arguments:type_name -> responses.FunctionCallArgumentsEvent
+	189, // 206: responses.Event.error:type_name -> responses.ErrorEvent
+	185, // 207: responses.Event.transcription_part:type_name -> responses.TranscriptionPartEvent
+	187, // 208: responses.Event.transcription_text:type_name -> responses.TranscriptionTextEvent
+	139, // 209: responses.Event.response_web_search_call_in_progress:type_name -> responses.ResponseWebSearchCallInProgressEvent
+	140, // 210: responses.Event.response_web_search_call_searching:type_name -> responses.ResponseWebSearchCallSearchingEvent
+	141, // 211: responses.Event.response_web_search_call_completed:type_name -> responses.ResponseWebSearchCallCompletedEvent
+	174, // 212: responses.Event.response_annotation_added:type_name -> responses.ResponseAnnotationAddedEvent
+	149, // 213: responses.Event.response_image_process_call_in_progress:type_name -> responses.ResponseImageProcessCallInProgressEvent
+	150, // 214: responses.Event.response_image_process_call_processing:type_name -> responses.ResponseImageProcessCallProcessingEvent
+	151, // 215: responses.Event.response_image_process_call_completed:type_name -> responses.ResponseImageProcessCallCompletedEvent
+	152, // 216: responses.Event.response_mcp_list_tools_in_progress:type_name -> responses.ResponseMcpListToolsInProgressEvent
+	153, // 217: responses.Event.response_mcp_list_tools_completed:type_name -> responses.ResponseMcpListToolsCompletedEvent
+	154, // 218: responses.Event.response_mcp_call_in_progress:type_name -> responses.ResponseMcpCallInProgressEvent
+	155, // 219: responses.Event.response_mcp_call_arguments_delta:type_name -> responses.ResponseMcpCallArgumentsDeltaEvent
+	156, // 220: responses.Event.response_mcp_call_arguments_done:type_name -> responses.ResponseMcpCallArgumentsDoneEvent
+	157, // 221: responses.Event.response_mcp_call_completed:type_name -> responses.ResponseMcpCallCompletedEvent
+	158, // 222: responses.Event.response_mcp_call_failed:type_name -> responses.ResponseMcpCallFailedEvent
+	138, // 223: responses.Event.response_mcp_approval_request:type_name -> responses.ResponseMcpApprovalRequestEvent
+	159, // 224: responses.Event.response_knowledge_search_call_in_progress:type_name -> responses.ResponseKnowledgeSearchCallInProgressEvent
+	160, // 225: responses.Event.response_knowledge_search_call_searching:type_name -> responses.ResponseKnowledgeSearchCallSearchingEvent
+	161, // 226: responses.Event.response_knowledge_search_call_completed:type_name -> responses.ResponseKnowledgeSearchCallCompletedEvent
+	162, // 227: responses.Event.response_knowledge_search_call_failed:type_name -> responses.ResponseKnowledgeSearchCallFailedEvent
+	164, // 228: responses.Event.response_in_progress:type_name -> responses.ResponseInProgressEvent
+	165, // 229: responses.Event.response_completed:type_name -> responses.ResponseCompletedEvent
+	166, // 230: responses.Event.response_failed:type_name -> responses.ResponseFailedEvent
+	167, // 231: responses.Event.response_incomplete:type_name -> responses.ResponseIncompleteEvent
+	169, // 232: responses.Event.item_done:type_name -> responses.ItemDoneEvent
+	171, // 233: responses.Event.content_part_done:type_name -> responses.ContentPartDoneEvent
+	173, // 234: responses.Event.text_done:type_name -> responses.OutputTextDoneEvent
+	178, // 235: responses.Event.reasoning_part_done:type_name -> responses.ReasoningSummaryPartDoneEvent
+	182, // 236: responses.Event.reasoning_text_done:type_name -> responses.ReasoningSummaryTextDoneEvent
+	184, // 237: responses.Event.function_call_arguments_done:type_name -> responses.FunctionCallArgumentsDoneEvent
+	186, // 238: responses.Event.transcription_part_done:type_name -> responses.TranscriptionPartDoneEvent
+	188, // 239: responses.Event.transcription_text_done:type_name -> responses.TranscriptionTextDoneEvent
+	175, // 240: responses.Event.reasoning_raw_text_delta:type_name -> responses.ReasoningTextDeltaEvent
+	176, // 241: responses.Event.reasoning_raw_text_done:type_name -> responses.ReasoningTextDoneEvent
+	190, // 242: responses.Event.response_doubao_app_call_in_progress:type_name -> responses.ResponseDoubaoAppCallInProgressEvent
+	192, // 243: responses.Event.response_doubao_app_call_completed:type_name -> responses.ResponseDoubaoAppCallCompletedEvent
+	191, // 244: responses.Event.response_doubao_app_call_failed:type_name -> responses.ResponseDoubaoAppCallFailedEvent
+	197, // 245: responses.Event.response_doubao_app_call_output_text_delta:type_name -> responses.ResponseDoubaoAppCallOutputTextDeltaEvent
+	198, // 246: responses.Event.response_doubao_app_call_output_text_done:type_name -> responses.ResponseDoubaoAppCallOutputTextDoneEvent
+	202, // 247: responses.Event.response_doubao_app_call_search_in_progress:type_name -> responses.ResponseDoubaoAppCallSearchInProgressEvent
+	203, // 248: responses.Event.response_doubao_app_call_search_searching:type_name -> responses.ResponseDoubaoAppCallSearchSearchingEvent
+	204, // 249: responses.Event.response_doubao_app_call_search_completed:type_name -> responses.ResponseDoubaoAppCallSearchCompletedEvent
+	195, // 250: responses.Event.response_doubao_app_call_reasoning_text_delta:type_name -> responses.ResponseDoubaoAppCallReasoningTextDeltaEvent
+	196, // 251: responses.Event.response_doubao_app_call_reasoning_text_done:type_name -> responses.ResponseDoubaoAppCallReasoningTextDoneEvent
+	199, // 252: responses.Event.response_doubao_app_call_reasoning_search_in_progress:type_name -> responses.ResponseDoubaoAppCallReasoningSearchInProgressEvent
+	200, // 253: responses.Event.response_doubao_app_call_reasoning_search_searching:type_name -> responses.ResponseDoubaoAppCallReasoningSearchSearchingEvent
+	201, // 254: responses.Event.response_doubao_app_call_reasoning_search_completed:type_name -> responses.ResponseDoubaoAppCallReasoningSearchCompletedEvent
+	193, // 255: responses.Event.response_doubao_app_call_block_added:type_name -> responses.ResponseDoubaoAppCallBlockAddedEvent
+	194, // 256: responses.Event.response_doubao_app_call_block_done:type_name -> responses.ResponseDoubaoAppCallBlockDoneEvent
+	215, // 257: responses.Event.response_agent_tool_call_in_progress:type_name -> responses.ResponseAgentToolCallInProgressEvent
+	216, // 258: responses.Event.response_agent_tool_call_completed:type_name -> responses.ResponseAgentToolCallCompletedEvent
+	19,  // 259: responses.ResponseMcpApprovalRequestEvent.type:type_name -> responses.EventType.Enum
+	73,  // 260: responses.ResponseMcpApprovalRequestEvent.function_mcp_approval_request:type_name -> responses.ItemFunctionMcpApprovalRequest
+	19,  // 261: responses.ResponseWebSearchCallInProgressEvent.type:type_name -> responses.EventType.Enum
+	19,  // 262: responses.ResponseWebSearchCallSearchingEvent.type:type_name -> responses.EventType.Enum
+	19,  // 263: responses.ResponseWebSearchCallCompletedEvent.type:type_name -> responses.EventType.Enum
+	143, // 264: responses.ResponseImageProcessArgs.point_args:type_name -> responses.ResponseImageProcessPointArgs
+	145, // 265: responses.ResponseImageProcessArgs.grounding_args:type_name -> responses.ResponseImageProcessGroundingArgs
+	146, // 266: responses.ResponseImageProcessArgs.rotate_args:type_name -> responses.ResponseImageProcessRotateArgs
+	147, // 267: responses.ResponseImageProcessArgs.zoom_args:type_name -> responses.ResponseImageProcessZoomArgs
+	19,  // 268: responses.ResponseImageProcessCallInProgressEvent.type:type_name -> responses.EventType.Enum
+	19,  // 269: responses.ResponseImageProcessCallProcessingEvent.type:type_name -> responses.EventType.Enum
+	142, // 270: responses.ResponseImageProcessCallProcessingEvent.action:type_name -> responses.ResponseImageProcessAction
+	148, // 271: responses.ResponseImageProcessCallProcessingEvent.arguments:type_name -> responses.ResponseImageProcessArgs
+	19,  // 272: responses.ResponseImageProcessCallCompletedEvent.type:type_name -> responses.EventType.Enum
+	142, // 273: responses.ResponseImageProcessCallCompletedEvent.action:type_name -> responses.ResponseImageProcessAction
+	148, // 274: responses.ResponseImageProcessCallCompletedEvent.arguments:type_name -> responses.ResponseImageProcessArgs
+	144, // 275: responses.ResponseImageProcessCallCompletedEvent.error:type_name -> responses.ResponseImageProcessError
+	19,  // 276: responses.ResponseMcpListToolsInProgressEvent.type:type_name -> responses.EventType.Enum
+	19,  // 277: responses.ResponseMcpListToolsCompletedEvent.type:type_name -> responses.EventType.Enum
+	19,  // 278: responses.ResponseMcpCallInProgressEvent.type:type_name -> responses.EventType.Enum
+	19,  // 279: responses.ResponseMcpCallArgumentsDeltaEvent.type:type_name -> responses.EventType.Enum
+	19,  // 280: responses.ResponseMcpCallArgumentsDoneEvent.type:type_name -> responses.EventType.Enum
+	19,  // 281: responses.ResponseMcpCallCompletedEvent.type:type_name -> responses.EventType.Enum
+	19,  // 282: responses.ResponseMcpCallFailedEvent.type:type_name -> responses.EventType.Enum
+	19,  // 283: responses.ResponseKnowledgeSearchCallInProgressEvent.type:type_name -> responses.EventType.Enum
+	19,  // 284: responses.ResponseKnowledgeSearchCallSearchingEvent.type:type_name -> responses.EventType.Enum
+	19,  // 285: responses.ResponseKnowledgeSearchCallCompletedEvent.type:type_name -> responses.EventType.Enum
+	19,  // 286: responses.ResponseKnowledgeSearchCallFailedEvent.type:type_name -> responses.EventType.Enum
+	19,  // 287: responses.ResponseEvent.type:type_name -> responses.EventType.Enum
+	127, // 288: responses.ResponseEvent.response:type_name -> responses.ResponseObject
+	19,  // 289: responses.ResponseInProgressEvent.type:type_name -> responses.EventType.Enum
+	127, // 290: responses.ResponseInProgressEvent.response:type_name -> responses.ResponseObject
+	19,  // 291: responses.ResponseCompletedEvent.type:type_name -> responses.EventType.Enum
+	127, // 292: responses.ResponseCompletedEvent.response:type_name -> responses.ResponseObject
+	19,  // 293: responses.ResponseFailedEvent.type:type_name -> responses.EventType.Enum
+	127, // 294: responses.ResponseFailedEvent.response:type_name -> responses.ResponseObject
+	19,  // 295: responses.ResponseIncompleteEvent.type:type_name -> responses.EventType.Enum
+	127, // 296: responses.ResponseIncompleteEvent.response:type_name -> responses.ResponseObject
+	19,  // 297: responses.ItemEvent.type:type_name -> responses.EventType.Enum
+	128, // 298: responses.ItemEvent.item:type_name -> responses.OutputItem
+	19,  // 299: responses.ItemDoneEvent.type:type_name -> responses.EventType.Enum
+	128, // 300: responses.ItemDoneEvent.item:type_name -> responses.OutputItem
+	19,  // 301: responses.ContentPartEvent.type:type_name -> responses.EventType.Enum
+	60,  // 302: responses.ContentPartEvent.part:type_name -> responses.OutputContentItem
+	19,  // 303: responses.ContentPartDoneEvent.type:type_name -> responses.EventType.Enum
+	60,  // 304: responses.ContentPartDoneEvent.part:type_name -> responses.OutputContentItem
+	19,  // 305: responses.OutputTextEvent.type:type_name -> responses.EventType.Enum
+	19,  // 306: responses.OutputTextDoneEvent.type:type_name -> responses.EventType.Enum
+	19,  // 307: responses.ResponseAnnotationAddedEvent.type:type_name -> responses.EventType.Enum
+	32,  // 308: responses.ResponseAnnotationAddedEvent.annotation:type_name -> responses.Annotation
+	19,  // 309: responses.ReasoningTextDeltaEvent.type:type_name -> responses.EventType.Enum
+	19,  // 310: responses.ReasoningTextDoneEvent.type:type_name -> responses.EventType.Enum
+	19,  // 311: responses.ReasoningSummaryPartEvent.type:type_name -> responses.EventType.Enum
+	179, // 312: responses.ReasoningSummaryPartEvent.part:type_name -> responses.ReasoningSummaryPart
+	19,  // 313: responses.ReasoningSummaryPartDoneEvent.type:type_name -> responses.EventType.Enum
+	179, // 314: responses.ReasoningSummaryPartDoneEvent.part:type_name -> responses.ReasoningSummaryPart
+	9,   // 315: responses.ReasoningSummaryPart.type:type_name -> responses.ContentItemType.Enum
+	9,   // 316: responses.ReasoningSummaryPartDone.type:type_name -> responses.ContentItemType.Enum
+	19,  // 317: responses.ReasoningSummaryTextEvent.type:type_name -> responses.EventType.Enum
+	19,  // 318: responses.ReasoningSummaryTextDoneEvent.type:type_name -> responses.EventType.Enum
+	19,  // 319: responses.FunctionCallArgumentsEvent.type:type_name -> responses.EventType.Enum
+	19,  // 320: responses.FunctionCallArgumentsDoneEvent.type:type_name -> responses.EventType.Enum
+	19,  // 321: responses.TranscriptionPartEvent.type:type_name -> responses.EventType.Enum
+	86,  // 322: responses.TranscriptionPartEvent.part:type_name -> responses.TranscriptionPart
+	19,  // 323: responses.TranscriptionPartDoneEvent.type:type_name -> responses.EventType.Enum
+	86,  // 324: responses.TranscriptionPartDoneEvent.part:type_name -> responses.TranscriptionPart
+	19,  // 325: responses.TranscriptionTextEvent.type:type_name -> responses.EventType.Enum
+	213, // 326: responses.TranscriptionTextEvent.chunks:type_name -> responses.AudioChunk
+	19,  // 327: responses.TranscriptionTextDoneEvent.type:type_name -> responses.EventType.Enum
+	213, // 328: responses.TranscriptionTextDoneEvent.chunks:type_name -> responses.AudioChunk
+	19,  // 329: responses.ErrorEvent.type:type_name -> responses.EventType.Enum
+	19,  // 330: responses.ResponseDoubaoAppCallInProgressEvent.type:type_name -> responses.EventType.Enum
+	19,  // 331: responses.ResponseDoubaoAppCallFailedEvent.type:type_name -> responses.EventType.Enum
+	19,  // 332: responses.ResponseDoubaoAppCallCompletedEvent.type:type_name -> responses.EventType.Enum
+	94,  // 333: responses.ResponseDoubaoAppCallCompletedEvent.blocks:type_name -> responses.DoubaoAppCallBlock
+	19,  // 334: responses.ResponseDoubaoAppCallBlockAddedEvent.type:type_name -> responses.EventType.Enum
+	94,  // 335: responses.ResponseDoubaoAppCallBlockAddedEvent.block:type_name -> responses.DoubaoAppCallBlock
+	19,  // 336: responses.ResponseDoubaoAppCallBlockDoneEvent.type:type_name -> responses.EventType.Enum
+	94,  // 337: responses.ResponseDoubaoAppCallBlockDoneEvent.block:type_name -> responses.DoubaoAppCallBlock
+	19,  // 338: responses.ResponseDoubaoAppCallReasoningTextDeltaEvent.type:type_name -> responses.EventType.Enum
+	19,  // 339: responses.ResponseDoubaoAppCallReasoningTextDoneEvent.type:type_name -> responses.EventType.Enum
+	19,  // 340: responses.ResponseDoubaoAppCallOutputTextDeltaEvent.type:type_name -> responses.EventType.Enum
+	19,  // 341: responses.ResponseDoubaoAppCallOutputTextDoneEvent.type:type_name -> responses.EventType.Enum
+	19,  // 342: responses.ResponseDoubaoAppCallReasoningSearchInProgressEvent.type:type_name -> responses.EventType.Enum
+	19,  // 343: responses.ResponseDoubaoAppCallReasoningSearchSearchingEvent.type:type_name -> responses.EventType.Enum
+	19,  // 344: responses.ResponseDoubaoAppCallReasoningSearchCompletedEvent.type:type_name -> responses.EventType.Enum
+	91,  // 345: responses.ResponseDoubaoAppCallReasoningSearchCompletedEvent.results:type_name -> responses.DoubaoAppSearchResult
+	19,  // 346: responses.ResponseDoubaoAppCallSearchInProgressEvent.type:type_name -> responses.EventType.Enum
+	19,  // 347: responses.ResponseDoubaoAppCallSearchSearchingEvent.type:type_name -> responses.EventType.Enum
+	19,  // 348: responses.ResponseDoubaoAppCallSearchCompletedEvent.type:type_name -> responses.EventType.Enum
+	91,  // 349: responses.ResponseDoubaoAppCallSearchCompletedEvent.results:type_name -> responses.DoubaoAppSearchResult
+	21,  // 350: responses.ResponsesCaching.type:type_name -> responses.CacheType.Enum
+	207, // 351: responses.ResponsesText.format:type_name -> responses.TextFormat
+	13,  // 352: responses.TextFormat.type:type_name -> responses.TextType.Enum
+	126, // 353: responses.TextFormat.schema:type_name -> responses.Bytes
+	17,  // 354: responses.DeleteResponseResponse.object:type_name -> responses.ObjectType.Enum
+	20,  // 355: responses.GetResponseRequest.include:type_name -> responses.IncludeType.Enum
+	20,  // 356: responses.ListInputItemsRequest.include:type_name -> responses.IncludeType.Enum
+	17,  // 357: responses.ListInputItemsResponse.object:type_name -> responses.ObjectType.Enum
+	55,  // 358: responses.ListInputItemsResponse.data:type_name -> responses.InputItem
+	19,  // 359: responses.ResponseAgentToolCallInProgressEvent.type:type_name -> responses.EventType.Enum
+	19,  // 360: responses.ResponseAgentToolCallCompletedEvent.type:type_name -> responses.EventType.Enum
+	217, // 361: responses.ServiceStatus.model_fallback:type_name -> responses.ModelFallback
+	362, // [362:362] is the sub-list for method output_type
+	362, // [362:362] is the sub-list for method input_type
+	362, // [362:362] is the sub-list for extension type_name
+	362, // [362:362] is the sub-list for extension extendee
+	0,   // [0:362] is the sub-list for field type_name
 }
 
 func init() { file_responsesapi_proto_init() }
