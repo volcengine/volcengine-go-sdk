@@ -372,7 +372,7 @@ type ListTasksOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListTasksOutput `type:"list" json:",omitempty"`
+	Data []*DataForListTasksOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

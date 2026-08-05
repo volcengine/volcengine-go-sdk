@@ -196,13 +196,13 @@ type GetUserPoolClientOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AllowedCallbackUrls []*string `type:"list" json:",omitempty"`
+	AllowedCallbackUrls []*string `type:"list"`
 
-	AllowedCors []*string `type:"list" json:",omitempty"`
+	AllowedCors []*string `type:"list"`
 
-	AllowedLogoutUrls []*string `type:"list" json:",omitempty"`
+	AllowedLogoutUrls []*string `type:"list"`
 
-	AllowedWebOrigins []*string `type:"list" json:",omitempty"`
+	AllowedWebOrigins []*string `type:"list"`
 
 	ClientSecret *string `type:"string" json:",omitempty"`
 

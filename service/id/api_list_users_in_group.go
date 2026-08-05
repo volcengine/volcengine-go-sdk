@@ -143,6 +143,150 @@ func (c *ID) ListUsersInGroupWithContext(ctx volcengine.Context, input *ListUser
 	return out, req.Send()
 }
 
+type ConditionForListUsersInGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Operator *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConditionForListUsersInGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionForListUsersInGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *ConditionForListUsersInGroupInput) SetName(v string) *ConditionForListUsersInGroupInput {
+	s.Name = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ConditionForListUsersInGroupInput) SetOperator(v string) *ConditionForListUsersInGroupInput {
+	s.Operator = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ConditionForListUsersInGroupInput) SetValue(v string) *ConditionForListUsersInGroupInput {
+	s.Value = &v
+	return s
+}
+
+type ConvertGroupForListUsersInGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*ConditionForListUsersInGroupInput `type:"list"`
+
+	Groups []*GroupForListUsersInGroupInput `type:"list"`
+
+	Relation *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertGroupForListUsersInGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertGroupForListUsersInGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *ConvertGroupForListUsersInGroupInput) SetConditions(v []*ConditionForListUsersInGroupInput) *ConvertGroupForListUsersInGroupInput {
+	s.Conditions = v
+	return s
+}
+
+// SetGroups sets the Groups field's value.
+func (s *ConvertGroupForListUsersInGroupInput) SetGroups(v []*GroupForListUsersInGroupInput) *ConvertGroupForListUsersInGroupInput {
+	s.Groups = v
+	return s
+}
+
+// SetRelation sets the Relation field's value.
+func (s *ConvertGroupForListUsersInGroupInput) SetRelation(v string) *ConvertGroupForListUsersInGroupInput {
+	s.Relation = &v
+	return s
+}
+
+type CustomAttributeFilterForListUsersInGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*ConditionForListUsersInGroupInput `type:"list"`
+
+	Groups []*ConvertGroupForListUsersInGroupInput `type:"list"`
+
+	Relation *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributeFilterForListUsersInGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributeFilterForListUsersInGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *CustomAttributeFilterForListUsersInGroupInput) SetConditions(v []*ConditionForListUsersInGroupInput) *CustomAttributeFilterForListUsersInGroupInput {
+	s.Conditions = v
+	return s
+}
+
+// SetGroups sets the Groups field's value.
+func (s *CustomAttributeFilterForListUsersInGroupInput) SetGroups(v []*ConvertGroupForListUsersInGroupInput) *CustomAttributeFilterForListUsersInGroupInput {
+	s.Groups = v
+	return s
+}
+
+// SetRelation sets the Relation field's value.
+func (s *CustomAttributeFilterForListUsersInGroupInput) SetRelation(v string) *CustomAttributeFilterForListUsersInGroupInput {
+	s.Relation = &v
+	return s
+}
+
+type CustomAttributeForListUsersInGroupOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributeForListUsersInGroupOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributeForListUsersInGroupOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *CustomAttributeForListUsersInGroupOutput) SetName(v string) *CustomAttributeForListUsersInGroupOutput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomAttributeForListUsersInGroupOutput) SetValue(v string) *CustomAttributeForListUsersInGroupOutput {
+	s.Value = &v
+	return s
+}
+
 type DataForListUsersInGroupOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -152,13 +296,15 @@ type DataForListUsersInGroupOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	DepartmentUids []*string `type:"list" json:",omitempty"`
+	CustomAttributes []*CustomAttributeForListUsersInGroupOutput `type:"list"`
+
+	DepartmentUids []*string `type:"list"`
 
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
 
-	ExternalIdentities []*ExternalIdentityForListUsersInGroupOutput `type:"list" json:",omitempty"`
+	ExternalIdentities []*ExternalIdentityForListUsersInGroupOutput `type:"list"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
@@ -166,11 +312,17 @@ type DataForListUsersInGroupOutput struct {
 
 	GivenName *string `type:"string" json:",omitempty"`
 
-	GroupUids []*string `type:"list" json:",omitempty"`
+	GroupUids []*string `type:"list"`
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
 	LatestLogin *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionName *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionProvider *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionType *string `type:"string" json:",omitempty"`
 
 	LatestLoginMethod *string `type:"string" json:",omitempty"`
 
@@ -237,6 +389,12 @@ func (s *DataForListUsersInGroupOutput) SetCreateTime(v string) *DataForListUser
 	return s
 }
 
+// SetCustomAttributes sets the CustomAttributes field's value.
+func (s *DataForListUsersInGroupOutput) SetCustomAttributes(v []*CustomAttributeForListUsersInGroupOutput) *DataForListUsersInGroupOutput {
+	s.CustomAttributes = v
+	return s
+}
+
 // SetDepartmentUids sets the DepartmentUids field's value.
 func (s *DataForListUsersInGroupOutput) SetDepartmentUids(v []*string) *DataForListUsersInGroupOutput {
 	s.DepartmentUids = v
@@ -294,6 +452,24 @@ func (s *DataForListUsersInGroupOutput) SetLatestBrowser(v string) *DataForListU
 // SetLatestLogin sets the LatestLogin field's value.
 func (s *DataForListUsersInGroupOutput) SetLatestLogin(v string) *DataForListUsersInGroupOutput {
 	s.LatestLogin = &v
+	return s
+}
+
+// SetLatestLoginConnectionName sets the LatestLoginConnectionName field's value.
+func (s *DataForListUsersInGroupOutput) SetLatestLoginConnectionName(v string) *DataForListUsersInGroupOutput {
+	s.LatestLoginConnectionName = &v
+	return s
+}
+
+// SetLatestLoginConnectionProvider sets the LatestLoginConnectionProvider field's value.
+func (s *DataForListUsersInGroupOutput) SetLatestLoginConnectionProvider(v string) *DataForListUsersInGroupOutput {
+	s.LatestLoginConnectionProvider = &v
+	return s
+}
+
+// SetLatestLoginConnectionType sets the LatestLoginConnectionType field's value.
+func (s *DataForListUsersInGroupOutput) SetLatestLoginConnectionType(v string) *DataForListUsersInGroupOutput {
+	s.LatestLoginConnectionType = &v
 	return s
 }
 
@@ -416,6 +592,8 @@ type ExternalIdentityForListUsersInGroupOutput struct {
 
 	ExternalProviderUserMetadata *string `type:"string" json:",omitempty"`
 
+	LastLoginAt *string `type:"string" json:",omitempty"`
+
 	LinkSource *string `type:"string" json:",omitempty"`
 
 	Provider *string `type:"string" json:",omitempty"`
@@ -457,6 +635,12 @@ func (s *ExternalIdentityForListUsersInGroupOutput) SetExternalProviderUserMetad
 	return s
 }
 
+// SetLastLoginAt sets the LastLoginAt field's value.
+func (s *ExternalIdentityForListUsersInGroupOutput) SetLastLoginAt(v string) *ExternalIdentityForListUsersInGroupOutput {
+	s.LastLoginAt = &v
+	return s
+}
+
 // SetLinkSource sets the LinkSource field's value.
 func (s *ExternalIdentityForListUsersInGroupOutput) SetLinkSource(v string) *ExternalIdentityForListUsersInGroupOutput {
 	s.LinkSource = &v
@@ -480,13 +664,21 @@ type FilterForListUsersInGroupInput struct {
 
 	Connection *string `type:"string" json:",omitempty"`
 
+	CustomAttributeFilter *CustomAttributeFilterForListUsersInGroupInput `type:"structure" json:",omitempty"`
+
 	DepartmentUid *string `type:"string" json:",omitempty"`
 
+	DepartmentUidRecursive *bool `type:"boolean" json:",omitempty"`
+
 	Email *string `type:"string" json:",omitempty"`
+
+	EmailIsDuplicated *bool `type:"boolean" json:",omitempty"`
 
 	EmailIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
 	EmailPhoneNameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
+
+	ExternalProviderUserIdentifiersOr []*string `type:"list"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
@@ -501,6 +693,8 @@ type FilterForListUsersInGroupInput struct {
 	GivenNameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
 	GroupUid *string `type:"string" json:",omitempty"`
+
+	GroupUidsOr []*string `type:"list"`
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
@@ -520,7 +714,13 @@ type FilterForListUsersInGroupInput struct {
 
 	NicknameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
+	NotInAnyDepartment *bool `type:"boolean" json:",omitempty"`
+
+	NotInAnyGroup *bool `type:"boolean" json:",omitempty"`
+
 	PhoneNumber *string `type:"string" json:",omitempty"`
+
+	PhoneNumberIsDuplicated *bool `type:"boolean" json:",omitempty"`
 
 	PhoneNumberIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
@@ -528,7 +728,9 @@ type FilterForListUsersInGroupInput struct {
 
 	PreferredUsernameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
-	UserUidsOr []*string `type:"list" json:",omitempty"`
+	UniversalSearch []*UniversalSearchForListUsersInGroupInput `type:"list"`
+
+	UserUidsOr []*string `type:"list"`
 
 	Website *string `type:"string" json:",omitempty"`
 
@@ -551,15 +753,33 @@ func (s *FilterForListUsersInGroupInput) SetConnection(v string) *FilterForListU
 	return s
 }
 
+// SetCustomAttributeFilter sets the CustomAttributeFilter field's value.
+func (s *FilterForListUsersInGroupInput) SetCustomAttributeFilter(v *CustomAttributeFilterForListUsersInGroupInput) *FilterForListUsersInGroupInput {
+	s.CustomAttributeFilter = v
+	return s
+}
+
 // SetDepartmentUid sets the DepartmentUid field's value.
 func (s *FilterForListUsersInGroupInput) SetDepartmentUid(v string) *FilterForListUsersInGroupInput {
 	s.DepartmentUid = &v
 	return s
 }
 
+// SetDepartmentUidRecursive sets the DepartmentUidRecursive field's value.
+func (s *FilterForListUsersInGroupInput) SetDepartmentUidRecursive(v bool) *FilterForListUsersInGroupInput {
+	s.DepartmentUidRecursive = &v
+	return s
+}
+
 // SetEmail sets the Email field's value.
 func (s *FilterForListUsersInGroupInput) SetEmail(v string) *FilterForListUsersInGroupInput {
 	s.Email = &v
+	return s
+}
+
+// SetEmailIsDuplicated sets the EmailIsDuplicated field's value.
+func (s *FilterForListUsersInGroupInput) SetEmailIsDuplicated(v bool) *FilterForListUsersInGroupInput {
+	s.EmailIsDuplicated = &v
 	return s
 }
 
@@ -572,6 +792,12 @@ func (s *FilterForListUsersInGroupInput) SetEmailIsNullOrEmpty(v bool) *FilterFo
 // SetEmailPhoneNameIsNullOrEmpty sets the EmailPhoneNameIsNullOrEmpty field's value.
 func (s *FilterForListUsersInGroupInput) SetEmailPhoneNameIsNullOrEmpty(v bool) *FilterForListUsersInGroupInput {
 	s.EmailPhoneNameIsNullOrEmpty = &v
+	return s
+}
+
+// SetExternalProviderUserIdentifiersOr sets the ExternalProviderUserIdentifiersOr field's value.
+func (s *FilterForListUsersInGroupInput) SetExternalProviderUserIdentifiersOr(v []*string) *FilterForListUsersInGroupInput {
+	s.ExternalProviderUserIdentifiersOr = v
 	return s
 }
 
@@ -614,6 +840,12 @@ func (s *FilterForListUsersInGroupInput) SetGivenNameIsNullOrEmpty(v bool) *Filt
 // SetGroupUid sets the GroupUid field's value.
 func (s *FilterForListUsersInGroupInput) SetGroupUid(v string) *FilterForListUsersInGroupInput {
 	s.GroupUid = &v
+	return s
+}
+
+// SetGroupUidsOr sets the GroupUidsOr field's value.
+func (s *FilterForListUsersInGroupInput) SetGroupUidsOr(v []*string) *FilterForListUsersInGroupInput {
+	s.GroupUidsOr = v
 	return s
 }
 
@@ -671,9 +903,27 @@ func (s *FilterForListUsersInGroupInput) SetNicknameIsNullOrEmpty(v bool) *Filte
 	return s
 }
 
+// SetNotInAnyDepartment sets the NotInAnyDepartment field's value.
+func (s *FilterForListUsersInGroupInput) SetNotInAnyDepartment(v bool) *FilterForListUsersInGroupInput {
+	s.NotInAnyDepartment = &v
+	return s
+}
+
+// SetNotInAnyGroup sets the NotInAnyGroup field's value.
+func (s *FilterForListUsersInGroupInput) SetNotInAnyGroup(v bool) *FilterForListUsersInGroupInput {
+	s.NotInAnyGroup = &v
+	return s
+}
+
 // SetPhoneNumber sets the PhoneNumber field's value.
 func (s *FilterForListUsersInGroupInput) SetPhoneNumber(v string) *FilterForListUsersInGroupInput {
 	s.PhoneNumber = &v
+	return s
+}
+
+// SetPhoneNumberIsDuplicated sets the PhoneNumberIsDuplicated field's value.
+func (s *FilterForListUsersInGroupInput) SetPhoneNumberIsDuplicated(v bool) *FilterForListUsersInGroupInput {
+	s.PhoneNumberIsDuplicated = &v
 	return s
 }
 
@@ -695,6 +945,12 @@ func (s *FilterForListUsersInGroupInput) SetPreferredUsernameIsNullOrEmpty(v boo
 	return s
 }
 
+// SetUniversalSearch sets the UniversalSearch field's value.
+func (s *FilterForListUsersInGroupInput) SetUniversalSearch(v []*UniversalSearchForListUsersInGroupInput) *FilterForListUsersInGroupInput {
+	s.UniversalSearch = v
+	return s
+}
+
 // SetUserUidsOr sets the UserUidsOr field's value.
 func (s *FilterForListUsersInGroupInput) SetUserUidsOr(v []*string) *FilterForListUsersInGroupInput {
 	s.UserUidsOr = v
@@ -713,6 +969,36 @@ func (s *FilterForListUsersInGroupInput) SetWebsiteIsNullOrEmpty(v bool) *Filter
 	return s
 }
 
+type GroupForListUsersInGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*ConditionForListUsersInGroupInput `type:"list"`
+
+	Relation *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s GroupForListUsersInGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GroupForListUsersInGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *GroupForListUsersInGroupInput) SetConditions(v []*ConditionForListUsersInGroupInput) *GroupForListUsersInGroupInput {
+	s.Conditions = v
+	return s
+}
+
+// SetRelation sets the Relation field's value.
+func (s *GroupForListUsersInGroupInput) SetRelation(v string) *GroupForListUsersInGroupInput {
+	s.Relation = &v
+	return s
+}
+
 type ListUsersInGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -721,11 +1007,13 @@ type ListUsersInGroupInput struct {
 	// GroupUid is a required field
 	GroupUid *string `type:"string" json:",omitempty" required:"true"`
 
-	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
+	MaxResults *int32 `max:"100" type:"int32" json:",omitempty"`
 
-	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	NextToken *string `type:"string" json:",omitempty"`
+
+	PageNumber *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
@@ -747,11 +1035,8 @@ func (s *ListUsersInGroupInput) Validate() error {
 	if s.GroupUid == nil {
 		invalidParams.Add(request.NewErrParamRequired("GroupUid"))
 	}
-	if s.PageNumber == nil {
-		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
-	}
-	if s.PageSize == nil {
-		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
 	}
 	if s.UserPoolUid == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserPoolUid"))
@@ -772,6 +1057,18 @@ func (s *ListUsersInGroupInput) SetFilter(v *FilterForListUsersInGroupInput) *Li
 // SetGroupUid sets the GroupUid field's value.
 func (s *ListUsersInGroupInput) SetGroupUid(v string) *ListUsersInGroupInput {
 	s.GroupUid = &v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListUsersInGroupInput) SetMaxResults(v int32) *ListUsersInGroupInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListUsersInGroupInput) SetNextToken(v string) *ListUsersInGroupInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -798,7 +1095,9 @@ type ListUsersInGroupOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListUsersInGroupOutput `type:"list" json:",omitempty"`
+	Data []*DataForListUsersInGroupOutput `type:"list"`
+
+	NextToken *string `type:"string" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -823,6 +1122,12 @@ func (s *ListUsersInGroupOutput) SetData(v []*DataForListUsersInGroupOutput) *Li
 	return s
 }
 
+// SetNextToken sets the NextToken field's value.
+func (s *ListUsersInGroupOutput) SetNextToken(v string) *ListUsersInGroupOutput {
+	s.NextToken = &v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *ListUsersInGroupOutput) SetPageNumber(v int32) *ListUsersInGroupOutput {
 	s.PageNumber = &v
@@ -838,5 +1143,43 @@ func (s *ListUsersInGroupOutput) SetPageSize(v int32) *ListUsersInGroupOutput {
 // SetTotalCount sets the TotalCount field's value.
 func (s *ListUsersInGroupOutput) SetTotalCount(v int32) *ListUsersInGroupOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type UniversalSearchForListUsersInGroupInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ExactMatch *bool `type:"boolean" json:",omitempty"`
+
+	Fields []*string `type:"list"`
+
+	Search *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s UniversalSearchForListUsersInGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UniversalSearchForListUsersInGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetExactMatch sets the ExactMatch field's value.
+func (s *UniversalSearchForListUsersInGroupInput) SetExactMatch(v bool) *UniversalSearchForListUsersInGroupInput {
+	s.ExactMatch = &v
+	return s
+}
+
+// SetFields sets the Fields field's value.
+func (s *UniversalSearchForListUsersInGroupInput) SetFields(v []*string) *UniversalSearchForListUsersInGroupInput {
+	s.Fields = v
+	return s
+}
+
+// SetSearch sets the Search field's value.
+func (s *UniversalSearchForListUsersInGroupInput) SetSearch(v string) *UniversalSearchForListUsersInGroupInput {
+	s.Search = &v
 	return s
 }

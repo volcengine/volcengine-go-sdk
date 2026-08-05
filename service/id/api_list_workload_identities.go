@@ -264,7 +264,7 @@ type ListWorkloadIdentitiesOutput struct {
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 
-	WorkloadIdentities []*WorkloadIdentityForListWorkloadIdentitiesOutput `type:"list" json:",omitempty"`
+	WorkloadIdentities []*WorkloadIdentityForListWorkloadIdentitiesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -304,7 +304,7 @@ func (s *ListWorkloadIdentitiesOutput) SetWorkloadIdentities(v []*WorkloadIdenti
 type WorkloadIdentityForListWorkloadIdentitiesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowedResourceOauth2ReturnUrls []*string `type:"list" json:",omitempty"`
+	AllowedResourceOauth2ReturnUrls []*string `type:"list"`
 
 	Category *string `type:"string" json:",omitempty"`
 

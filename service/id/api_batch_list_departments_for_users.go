@@ -149,7 +149,7 @@ type BatchListDepartmentsForUsersInput struct {
 	// UserPoolUid is a required field
 	UserPoolUid *string `min:"1" max:"128" type:"string" json:",omitempty" required:"true"`
 
-	UserUids []*string `type:"list" json:",omitempty"`
+	UserUids []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -198,7 +198,7 @@ type BatchListDepartmentsForUsersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Users []*UserForBatchListDepartmentsForUsersOutput `type:"list" json:",omitempty"`
+	Users []*UserForBatchListDepartmentsForUsersOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -400,7 +400,7 @@ func (s *DepartmentForBatchListDepartmentsForUsersOutput) SetUserPoolUid(v strin
 type UserForBatchListDepartmentsForUsersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Departments []*ConvertDepartmentForBatchListDepartmentsForUsersOutput `type:"list" json:",omitempty"`
+	Departments []*ConvertDepartmentForBatchListDepartmentsForUsersOutput `type:"list"`
 
 	UserUid *string `min:"1" max:"128" type:"string" json:",omitempty"`
 }

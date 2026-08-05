@@ -184,7 +184,23 @@ type GetTrustAnchorOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	TrustAnchor *TrustAnchorForGetTrustAnchorOutput `type:"structure" json:",omitempty"`
+	AccountId *string `type:"string" json:",omitempty"`
+
+	CreatedAt *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	IdentityNameTemplate *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
+
+	TrustAnchorCfg []*TrustAnchorCfgForGetTrustAnchorOutput `type:"list"`
+
+	TrustAnchorType *string `type:"string" json:",omitempty"`
+
+	UpdatedAt *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -197,9 +213,57 @@ func (s GetTrustAnchorOutput) GoString() string {
 	return s.String()
 }
 
-// SetTrustAnchor sets the TrustAnchor field's value.
-func (s *GetTrustAnchorOutput) SetTrustAnchor(v *TrustAnchorForGetTrustAnchorOutput) *GetTrustAnchorOutput {
-	s.TrustAnchor = v
+// SetAccountId sets the AccountId field's value.
+func (s *GetTrustAnchorOutput) SetAccountId(v string) *GetTrustAnchorOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *GetTrustAnchorOutput) SetCreatedAt(v string) *GetTrustAnchorOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *GetTrustAnchorOutput) SetDescription(v string) *GetTrustAnchorOutput {
+	s.Description = &v
+	return s
+}
+
+// SetIdentityNameTemplate sets the IdentityNameTemplate field's value.
+func (s *GetTrustAnchorOutput) SetIdentityNameTemplate(v string) *GetTrustAnchorOutput {
+	s.IdentityNameTemplate = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *GetTrustAnchorOutput) SetName(v string) *GetTrustAnchorOutput {
+	s.Name = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *GetTrustAnchorOutput) SetTrn(v string) *GetTrustAnchorOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetTrustAnchorCfg sets the TrustAnchorCfg field's value.
+func (s *GetTrustAnchorOutput) SetTrustAnchorCfg(v []*TrustAnchorCfgForGetTrustAnchorOutput) *GetTrustAnchorOutput {
+	s.TrustAnchorCfg = v
+	return s
+}
+
+// SetTrustAnchorType sets the TrustAnchorType field's value.
+func (s *GetTrustAnchorOutput) SetTrustAnchorType(v string) *GetTrustAnchorOutput {
+	s.TrustAnchorType = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *GetTrustAnchorOutput) SetUpdatedAt(v string) *GetTrustAnchorOutput {
+	s.UpdatedAt = &v
 	return s
 }
 
@@ -230,83 +294,5 @@ func (s *TrustAnchorCfgForGetTrustAnchorOutput) SetKey(v string) *TrustAnchorCfg
 // SetValue sets the Value field's value.
 func (s *TrustAnchorCfgForGetTrustAnchorOutput) SetValue(v string) *TrustAnchorCfgForGetTrustAnchorOutput {
 	s.Value = &v
-	return s
-}
-
-type TrustAnchorForGetTrustAnchorOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccountId *string `type:"string" json:",omitempty"`
-
-	CreatedAt *string `type:"string" json:",omitempty"`
-
-	Description *string `type:"string" json:",omitempty"`
-
-	Name *string `type:"string" json:",omitempty"`
-
-	Trn *string `type:"string" json:",omitempty"`
-
-	TrustAnchorCfg []*TrustAnchorCfgForGetTrustAnchorOutput `type:"list" json:",omitempty"`
-
-	TrustAnchorType *string `type:"string" json:",omitempty"`
-
-	UpdatedAt *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TrustAnchorForGetTrustAnchorOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TrustAnchorForGetTrustAnchorOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *TrustAnchorForGetTrustAnchorOutput) SetAccountId(v string) *TrustAnchorForGetTrustAnchorOutput {
-	s.AccountId = &v
-	return s
-}
-
-// SetCreatedAt sets the CreatedAt field's value.
-func (s *TrustAnchorForGetTrustAnchorOutput) SetCreatedAt(v string) *TrustAnchorForGetTrustAnchorOutput {
-	s.CreatedAt = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *TrustAnchorForGetTrustAnchorOutput) SetDescription(v string) *TrustAnchorForGetTrustAnchorOutput {
-	s.Description = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *TrustAnchorForGetTrustAnchorOutput) SetName(v string) *TrustAnchorForGetTrustAnchorOutput {
-	s.Name = &v
-	return s
-}
-
-// SetTrn sets the Trn field's value.
-func (s *TrustAnchorForGetTrustAnchorOutput) SetTrn(v string) *TrustAnchorForGetTrustAnchorOutput {
-	s.Trn = &v
-	return s
-}
-
-// SetTrustAnchorCfg sets the TrustAnchorCfg field's value.
-func (s *TrustAnchorForGetTrustAnchorOutput) SetTrustAnchorCfg(v []*TrustAnchorCfgForGetTrustAnchorOutput) *TrustAnchorForGetTrustAnchorOutput {
-	s.TrustAnchorCfg = v
-	return s
-}
-
-// SetTrustAnchorType sets the TrustAnchorType field's value.
-func (s *TrustAnchorForGetTrustAnchorOutput) SetTrustAnchorType(v string) *TrustAnchorForGetTrustAnchorOutput {
-	s.TrustAnchorType = &v
-	return s
-}
-
-// SetUpdatedAt sets the UpdatedAt field's value.
-func (s *TrustAnchorForGetTrustAnchorOutput) SetUpdatedAt(v string) *TrustAnchorForGetTrustAnchorOutput {
-	s.UpdatedAt = &v
 	return s
 }

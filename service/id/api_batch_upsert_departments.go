@@ -145,10 +145,154 @@ func (c *ID) BatchUpsertDepartmentsWithContext(ctx volcengine.Context, input *Ba
 	return out, req.Send()
 }
 
+type AfterForBatchUpsertDepartmentsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CreateTime *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
+	Description *string `max:"2048" type:"string" json:",omitempty"`
+
+	DirectChildrenCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	DirectMemberCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	ExternalID *string `max:"512" type:"string" json:",omitempty"`
+
+	IamRoleTrn *string `max:"2048" type:"string" json:",omitempty"`
+
+	MemberCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	Name *string `min:"1" max:"255" type:"string" json:",omitempty"`
+
+	NamePath *string `max:"8192" type:"string" json:",omitempty"`
+
+	ParentDepartmentUid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+
+	Path *string `max:"4096" type:"string" json:",omitempty"`
+
+	Precedence *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	Source *string `max:"64" type:"string" json:",omitempty"`
+
+	Uid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+
+	UpdateTime *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
+	UserPoolUid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AfterForBatchUpsertDepartmentsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AfterForBatchUpsertDepartmentsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetCreateTime(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetDescription(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDirectChildrenCount sets the DirectChildrenCount field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetDirectChildrenCount(v int32) *AfterForBatchUpsertDepartmentsOutput {
+	s.DirectChildrenCount = &v
+	return s
+}
+
+// SetDirectMemberCount sets the DirectMemberCount field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetDirectMemberCount(v int32) *AfterForBatchUpsertDepartmentsOutput {
+	s.DirectMemberCount = &v
+	return s
+}
+
+// SetExternalID sets the ExternalID field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetExternalID(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.ExternalID = &v
+	return s
+}
+
+// SetIamRoleTrn sets the IamRoleTrn field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetIamRoleTrn(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.IamRoleTrn = &v
+	return s
+}
+
+// SetMemberCount sets the MemberCount field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetMemberCount(v int32) *AfterForBatchUpsertDepartmentsOutput {
+	s.MemberCount = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetName(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.Name = &v
+	return s
+}
+
+// SetNamePath sets the NamePath field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetNamePath(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.NamePath = &v
+	return s
+}
+
+// SetParentDepartmentUid sets the ParentDepartmentUid field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetParentDepartmentUid(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.ParentDepartmentUid = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetPath(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.Path = &v
+	return s
+}
+
+// SetPrecedence sets the Precedence field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetPrecedence(v int32) *AfterForBatchUpsertDepartmentsOutput {
+	s.Precedence = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetSource(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.Source = &v
+	return s
+}
+
+// SetUid sets the Uid field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetUid(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.Uid = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetUpdateTime(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUserPoolUid sets the UserPoolUid field's value.
+func (s *AfterForBatchUpsertDepartmentsOutput) SetUserPoolUid(v string) *AfterForBatchUpsertDepartmentsOutput {
+	s.UserPoolUid = &v
+	return s
+}
+
 type BatchUpsertDepartmentsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Departments []*DepartmentForBatchUpsertDepartmentsInput `type:"list" json:",omitempty"`
+	Departments []*DepartmentForBatchUpsertDepartmentsInput `type:"list"`
+
+	DryRun *bool `type:"boolean" json:",omitempty"`
 
 	// Source is a required field
 	Source *string `min:"1" max:"64" type:"string" json:",omitempty" required:"true"`
@@ -211,6 +355,12 @@ func (s *BatchUpsertDepartmentsInput) SetDepartments(v []*DepartmentForBatchUpse
 	return s
 }
 
+// SetDryRun sets the DryRun field's value.
+func (s *BatchUpsertDepartmentsInput) SetDryRun(v bool) *BatchUpsertDepartmentsInput {
+	s.DryRun = &v
+	return s
+}
+
 // SetSource sets the Source field's value.
 func (s *BatchUpsertDepartmentsInput) SetSource(v string) *BatchUpsertDepartmentsInput {
 	s.Source = &v
@@ -232,9 +382,9 @@ type BatchUpsertDepartmentsOutput struct {
 
 	Deleted *int32 `type:"int32" json:",omitempty"`
 
-	Errors []*string `type:"list" json:",omitempty"`
+	Errors []*string `type:"list"`
 
-	Items []*ItemForBatchUpsertDepartmentsOutput `type:"list" json:",omitempty"`
+	Items []*ItemForBatchUpsertDepartmentsOutput `type:"list"`
 
 	Skipped *int32 `type:"int32" json:",omitempty"`
 
@@ -284,6 +434,148 @@ func (s *BatchUpsertDepartmentsOutput) SetSkipped(v int32) *BatchUpsertDepartmen
 // SetUpdated sets the Updated field's value.
 func (s *BatchUpsertDepartmentsOutput) SetUpdated(v int32) *BatchUpsertDepartmentsOutput {
 	s.Updated = &v
+	return s
+}
+
+type BeforeForBatchUpsertDepartmentsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CreateTime *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
+	Description *string `max:"2048" type:"string" json:",omitempty"`
+
+	DirectChildrenCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	DirectMemberCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	ExternalID *string `max:"512" type:"string" json:",omitempty"`
+
+	IamRoleTrn *string `max:"2048" type:"string" json:",omitempty"`
+
+	MemberCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	Name *string `min:"1" max:"255" type:"string" json:",omitempty"`
+
+	NamePath *string `max:"8192" type:"string" json:",omitempty"`
+
+	ParentDepartmentUid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+
+	Path *string `max:"4096" type:"string" json:",omitempty"`
+
+	Precedence *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	Source *string `max:"64" type:"string" json:",omitempty"`
+
+	Uid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+
+	UpdateTime *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
+	UserPoolUid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BeforeForBatchUpsertDepartmentsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BeforeForBatchUpsertDepartmentsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetCreateTime(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetDescription(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDirectChildrenCount sets the DirectChildrenCount field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetDirectChildrenCount(v int32) *BeforeForBatchUpsertDepartmentsOutput {
+	s.DirectChildrenCount = &v
+	return s
+}
+
+// SetDirectMemberCount sets the DirectMemberCount field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetDirectMemberCount(v int32) *BeforeForBatchUpsertDepartmentsOutput {
+	s.DirectMemberCount = &v
+	return s
+}
+
+// SetExternalID sets the ExternalID field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetExternalID(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.ExternalID = &v
+	return s
+}
+
+// SetIamRoleTrn sets the IamRoleTrn field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetIamRoleTrn(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.IamRoleTrn = &v
+	return s
+}
+
+// SetMemberCount sets the MemberCount field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetMemberCount(v int32) *BeforeForBatchUpsertDepartmentsOutput {
+	s.MemberCount = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetName(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.Name = &v
+	return s
+}
+
+// SetNamePath sets the NamePath field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetNamePath(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.NamePath = &v
+	return s
+}
+
+// SetParentDepartmentUid sets the ParentDepartmentUid field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetParentDepartmentUid(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.ParentDepartmentUid = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetPath(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.Path = &v
+	return s
+}
+
+// SetPrecedence sets the Precedence field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetPrecedence(v int32) *BeforeForBatchUpsertDepartmentsOutput {
+	s.Precedence = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetSource(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.Source = &v
+	return s
+}
+
+// SetUid sets the Uid field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetUid(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.Uid = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetUpdateTime(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUserPoolUid sets the UserPoolUid field's value.
+func (s *BeforeForBatchUpsertDepartmentsOutput) SetUserPoolUid(v string) *BeforeForBatchUpsertDepartmentsOutput {
+	s.UserPoolUid = &v
 	return s
 }
 
@@ -389,6 +681,10 @@ func (s *DepartmentForBatchUpsertDepartmentsInput) SetPrecedence(v int32) *Depar
 type ItemForBatchUpsertDepartmentsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	After *AfterForBatchUpsertDepartmentsOutput `type:"structure" json:",omitempty"`
+
+	Before *BeforeForBatchUpsertDepartmentsOutput `type:"structure" json:",omitempty"`
+
 	DepartmentUid *string `max:"128" type:"string" json:",omitempty"`
 
 	ExternalID *string `max:"512" type:"string" json:",omitempty"`
@@ -408,6 +704,18 @@ func (s ItemForBatchUpsertDepartmentsOutput) String() string {
 // GoString returns the string representation
 func (s ItemForBatchUpsertDepartmentsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAfter sets the After field's value.
+func (s *ItemForBatchUpsertDepartmentsOutput) SetAfter(v *AfterForBatchUpsertDepartmentsOutput) *ItemForBatchUpsertDepartmentsOutput {
+	s.After = v
+	return s
+}
+
+// SetBefore sets the Before field's value.
+func (s *ItemForBatchUpsertDepartmentsOutput) SetBefore(v *BeforeForBatchUpsertDepartmentsOutput) *ItemForBatchUpsertDepartmentsOutput {
+	s.Before = v
+	return s
 }
 
 // SetDepartmentUid sets the DepartmentUid field's value.

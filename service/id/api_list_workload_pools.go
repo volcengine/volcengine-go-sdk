@@ -158,7 +158,7 @@ type ListWorkloadPoolsInput struct {
 
 	SortOrder *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForListWorkloadPoolsInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForListWorkloadPoolsInput `type:"list"`
 
 	WorkloadPoolId *string `type:"string" json:",omitempty"`
 
@@ -256,7 +256,7 @@ type ListWorkloadPoolsOutput struct {
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 
-	WorkloadPools []*WorkloadPoolForListWorkloadPoolsOutput `type:"list" json:",omitempty"`
+	WorkloadPools []*WorkloadPoolForListWorkloadPoolsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -298,7 +298,7 @@ type TagFilterForListWorkloadPoolsInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -364,7 +364,7 @@ type WorkloadPoolForListWorkloadPoolsOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForListWorkloadPoolsOutput `type:"list" json:",omitempty"`
+	Tags []*TagForListWorkloadPoolsOutput `type:"list"`
 
 	TotalCredentials *int64 `type:"int64" json:",omitempty"`
 
@@ -372,7 +372,7 @@ type WorkloadPoolForListWorkloadPoolsOutput struct {
 
 	Trn *string `type:"string" json:",omitempty"`
 
-	TrustAnchors []*string `type:"list" json:",omitempty"`
+	TrustAnchors []*string `type:"list"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
 

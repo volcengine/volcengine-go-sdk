@@ -143,6 +143,36 @@ func (c *ID) GetUserWithContext(ctx volcengine.Context, input *GetUserInput, opt
 	return out, req.Send()
 }
 
+type CustomAttributeForGetUserOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributeForGetUserOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributeForGetUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *CustomAttributeForGetUserOutput) SetName(v string) *CustomAttributeForGetUserOutput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomAttributeForGetUserOutput) SetValue(v string) *CustomAttributeForGetUserOutput {
+	s.Value = &v
+	return s
+}
+
 type ExternalIdentityForGetUserOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -153,6 +183,8 @@ type ExternalIdentityForGetUserOutput struct {
 	ExternalProviderUserIdentifier *string `type:"string" json:",omitempty"`
 
 	ExternalProviderUserMetadata *string `type:"string" json:",omitempty"`
+
+	LastLoginAt *string `type:"string" json:",omitempty"`
 
 	LinkSource *string `type:"string" json:",omitempty"`
 
@@ -195,6 +227,12 @@ func (s *ExternalIdentityForGetUserOutput) SetExternalProviderUserMetadata(v str
 	return s
 }
 
+// SetLastLoginAt sets the LastLoginAt field's value.
+func (s *ExternalIdentityForGetUserOutput) SetLastLoginAt(v string) *ExternalIdentityForGetUserOutput {
+	s.LastLoginAt = &v
+	return s
+}
+
 // SetLinkSource sets the LinkSource field's value.
 func (s *ExternalIdentityForGetUserOutput) SetLinkSource(v string) *ExternalIdentityForGetUserOutput {
 	s.LinkSource = &v
@@ -215,6 +253,8 @@ func (s *ExternalIdentityForGetUserOutput) SetUpdatedAt(v string) *ExternalIdent
 
 type GetUserInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	ResponseValueMask *ResponseValueMaskForGetUserInput `type:"structure" json:",omitempty"`
 
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
@@ -249,6 +289,12 @@ func (s *GetUserInput) Validate() error {
 	return nil
 }
 
+// SetResponseValueMask sets the ResponseValueMask field's value.
+func (s *GetUserInput) SetResponseValueMask(v *ResponseValueMaskForGetUserInput) *GetUserInput {
+	s.ResponseValueMask = v
+	return s
+}
+
 // SetUserPoolUid sets the UserPoolUid field's value.
 func (s *GetUserInput) SetUserPoolUid(v string) *GetUserInput {
 	s.UserPoolUid = &v
@@ -272,13 +318,15 @@ type GetUserOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	DepartmentUids []*string `type:"list" json:",omitempty"`
+	CustomAttributes []*CustomAttributeForGetUserOutput `type:"list"`
+
+	DepartmentUids []*string `type:"list"`
 
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
 
-	ExternalIdentities []*ExternalIdentityForGetUserOutput `type:"list" json:",omitempty"`
+	ExternalIdentities []*ExternalIdentityForGetUserOutput `type:"list"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
@@ -286,11 +334,17 @@ type GetUserOutput struct {
 
 	GivenName *string `type:"string" json:",omitempty"`
 
-	GroupUids []*string `type:"list" json:",omitempty"`
+	GroupUids []*string `type:"list"`
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
 	LatestLogin *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionName *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionProvider *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionType *string `type:"string" json:",omitempty"`
 
 	LatestLoginMethod *string `type:"string" json:",omitempty"`
 
@@ -357,6 +411,12 @@ func (s *GetUserOutput) SetCreateTime(v string) *GetUserOutput {
 	return s
 }
 
+// SetCustomAttributes sets the CustomAttributes field's value.
+func (s *GetUserOutput) SetCustomAttributes(v []*CustomAttributeForGetUserOutput) *GetUserOutput {
+	s.CustomAttributes = v
+	return s
+}
+
 // SetDepartmentUids sets the DepartmentUids field's value.
 func (s *GetUserOutput) SetDepartmentUids(v []*string) *GetUserOutput {
 	s.DepartmentUids = v
@@ -414,6 +474,24 @@ func (s *GetUserOutput) SetLatestBrowser(v string) *GetUserOutput {
 // SetLatestLogin sets the LatestLogin field's value.
 func (s *GetUserOutput) SetLatestLogin(v string) *GetUserOutput {
 	s.LatestLogin = &v
+	return s
+}
+
+// SetLatestLoginConnectionName sets the LatestLoginConnectionName field's value.
+func (s *GetUserOutput) SetLatestLoginConnectionName(v string) *GetUserOutput {
+	s.LatestLoginConnectionName = &v
+	return s
+}
+
+// SetLatestLoginConnectionProvider sets the LatestLoginConnectionProvider field's value.
+func (s *GetUserOutput) SetLatestLoginConnectionProvider(v string) *GetUserOutput {
+	s.LatestLoginConnectionProvider = &v
+	return s
+}
+
+// SetLatestLoginConnectionType sets the LatestLoginConnectionType field's value.
+func (s *GetUserOutput) SetLatestLoginConnectionType(v string) *GetUserOutput {
+	s.LatestLoginConnectionType = &v
 	return s
 }
 
@@ -522,5 +600,35 @@ func (s *GetUserOutput) SetWebsite(v string) *GetUserOutput {
 // SetZoneinfo sets the Zoneinfo field's value.
 func (s *GetUserOutput) SetZoneinfo(v string) *GetUserOutput {
 	s.Zoneinfo = &v
+	return s
+}
+
+type ResponseValueMaskForGetUserInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Email *bool `type:"boolean" json:",omitempty"`
+
+	PhoneNumber *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResponseValueMaskForGetUserInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResponseValueMaskForGetUserInput) GoString() string {
+	return s.String()
+}
+
+// SetEmail sets the Email field's value.
+func (s *ResponseValueMaskForGetUserInput) SetEmail(v bool) *ResponseValueMaskForGetUserInput {
+	s.Email = &v
+	return s
+}
+
+// SetPhoneNumber sets the PhoneNumber field's value.
+func (s *ResponseValueMaskForGetUserInput) SetPhoneNumber(v bool) *ResponseValueMaskForGetUserInput {
+	s.PhoneNumber = &v
 	return s
 }

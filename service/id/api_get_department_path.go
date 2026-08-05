@@ -350,7 +350,7 @@ type GetDepartmentPathOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Path []*ConvertPathForGetDepartmentPathOutput `type:"list" json:",omitempty"`
+	Path []*ConvertPathForGetDepartmentPathOutput `type:"list"`
 }
 
 // String returns the string representation

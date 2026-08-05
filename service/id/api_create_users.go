@@ -151,7 +151,7 @@ type CreateUsersInput struct {
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
 
-	Users []*UserForCreateUsersInput `type:"list" json:",omitempty"`
+	Users []*UserForCreateUsersInput `type:"list"`
 }
 
 // String returns the string representation
@@ -200,17 +200,17 @@ type CreateUsersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Errors []*string `type:"list" json:",omitempty"`
+	Errors []*string `type:"list"`
 
-	ErrorsStructured []*ErrorsStructuredForCreateUsersOutput `type:"list" json:",omitempty"`
+	ErrorsStructured []*ErrorsStructuredForCreateUsersOutput `type:"list"`
 
 	FailureCount *int32 `type:"int32" json:",omitempty"`
 
 	SuccessCount *int32 `type:"int32" json:",omitempty"`
 
-	SuccessfulUids []*string `type:"list" json:",omitempty"`
+	SuccessfulUids []*string `type:"list"`
 
-	SuccessfulUidsStructured []*SuccessfulUidsStructuredForCreateUsersOutput `type:"list" json:",omitempty"`
+	SuccessfulUidsStructured []*SuccessfulUidsStructuredForCreateUsersOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -259,6 +259,36 @@ func (s *CreateUsersOutput) SetSuccessfulUidsStructured(v []*SuccessfulUidsStruc
 	return s
 }
 
+type CustomAttributesToUpsertForCreateUsersInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributesToUpsertForCreateUsersInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributesToUpsertForCreateUsersInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *CustomAttributesToUpsertForCreateUsersInput) SetName(v string) *CustomAttributesToUpsertForCreateUsersInput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomAttributesToUpsertForCreateUsersInput) SetValue(v string) *CustomAttributesToUpsertForCreateUsersInput {
+	s.Value = &v
+	return s
+}
+
 type ErrorsStructuredForCreateUsersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -267,6 +297,8 @@ type ErrorsStructuredForCreateUsersOutput struct {
 	Error *string `type:"string" json:",omitempty"`
 
 	ErrorType *string `type:"string" json:",omitempty"`
+
+	ExternalProviderUserIdentifier *string `type:"string" json:",omitempty"`
 
 	Field *string `type:"string" json:",omitempty"`
 
@@ -301,6 +333,12 @@ func (s *ErrorsStructuredForCreateUsersOutput) SetErrorType(v string) *ErrorsStr
 	return s
 }
 
+// SetExternalProviderUserIdentifier sets the ExternalProviderUserIdentifier field's value.
+func (s *ErrorsStructuredForCreateUsersOutput) SetExternalProviderUserIdentifier(v string) *ErrorsStructuredForCreateUsersOutput {
+	s.ExternalProviderUserIdentifier = &v
+	return s
+}
+
 // SetField sets the Field field's value.
 func (s *ErrorsStructuredForCreateUsersOutput) SetField(v string) *ErrorsStructuredForCreateUsersOutput {
 	s.Field = &v
@@ -316,6 +354,8 @@ func (s *ErrorsStructuredForCreateUsersOutput) SetIndex(v int32) *ErrorsStructur
 type SuccessfulUidsStructuredForCreateUsersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ExternalProviderUserIdentifier *string `type:"string" json:",omitempty"`
+
 	Index *int32 `type:"int32" json:",omitempty"`
 
 	Uid *string `type:"string" json:",omitempty"`
@@ -329,6 +369,12 @@ func (s SuccessfulUidsStructuredForCreateUsersOutput) String() string {
 // GoString returns the string representation
 func (s SuccessfulUidsStructuredForCreateUsersOutput) GoString() string {
 	return s.String()
+}
+
+// SetExternalProviderUserIdentifier sets the ExternalProviderUserIdentifier field's value.
+func (s *SuccessfulUidsStructuredForCreateUsersOutput) SetExternalProviderUserIdentifier(v string) *SuccessfulUidsStructuredForCreateUsersOutput {
+	s.ExternalProviderUserIdentifier = &v
+	return s
 }
 
 // SetIndex sets the Index field's value.
@@ -347,6 +393,8 @@ type UserForCreateUsersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Birthdate *string `type:"string" json:",omitempty"`
+
+	CustomAttributesToUpsert []*CustomAttributesToUpsertForCreateUsersInput `type:"list"`
 
 	Email *string `type:"string" json:",omitempty"`
 
@@ -400,6 +448,12 @@ func (s UserForCreateUsersInput) GoString() string {
 // SetBirthdate sets the Birthdate field's value.
 func (s *UserForCreateUsersInput) SetBirthdate(v string) *UserForCreateUsersInput {
 	s.Birthdate = &v
+	return s
+}
+
+// SetCustomAttributesToUpsert sets the CustomAttributesToUpsert field's value.
+func (s *UserForCreateUsersInput) SetCustomAttributesToUpsert(v []*CustomAttributesToUpsertForCreateUsersInput) *UserForCreateUsersInput {
+	s.CustomAttributesToUpsert = v
 	return s
 }
 

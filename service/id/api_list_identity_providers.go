@@ -143,8 +143,56 @@ func (c *ID) ListIdentityProvidersWithContext(ctx volcengine.Context, input *Lis
 	return out, req.Send()
 }
 
+type AttributeMappingForListIdentityProvidersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalConfig *string `type:"string" json:",omitempty"`
+
+	MappingType *string `type:"string" json:",omitempty"`
+
+	SourceAttributeName *string `type:"string" json:",omitempty"`
+
+	TargetAttributeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AttributeMappingForListIdentityProvidersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttributeMappingForListIdentityProvidersOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalConfig sets the AdditionalConfig field's value.
+func (s *AttributeMappingForListIdentityProvidersOutput) SetAdditionalConfig(v string) *AttributeMappingForListIdentityProvidersOutput {
+	s.AdditionalConfig = &v
+	return s
+}
+
+// SetMappingType sets the MappingType field's value.
+func (s *AttributeMappingForListIdentityProvidersOutput) SetMappingType(v string) *AttributeMappingForListIdentityProvidersOutput {
+	s.MappingType = &v
+	return s
+}
+
+// SetSourceAttributeName sets the SourceAttributeName field's value.
+func (s *AttributeMappingForListIdentityProvidersOutput) SetSourceAttributeName(v string) *AttributeMappingForListIdentityProvidersOutput {
+	s.SourceAttributeName = &v
+	return s
+}
+
+// SetTargetAttributeName sets the TargetAttributeName field's value.
+func (s *AttributeMappingForListIdentityProvidersOutput) SetTargetAttributeName(v string) *AttributeMappingForListIdentityProvidersOutput {
+	s.TargetAttributeName = &v
+	return s
+}
+
 type DataForListIdentityProvidersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	AttributeMappings []*AttributeMappingForListIdentityProvidersOutput `type:"list"`
 
 	ConnectionType *string `type:"string" json:",omitempty"`
 
@@ -169,6 +217,12 @@ func (s DataForListIdentityProvidersOutput) String() string {
 // GoString returns the string representation
 func (s DataForListIdentityProvidersOutput) GoString() string {
 	return s.String()
+}
+
+// SetAttributeMappings sets the AttributeMappings field's value.
+func (s *DataForListIdentityProvidersOutput) SetAttributeMappings(v []*AttributeMappingForListIdentityProvidersOutput) *DataForListIdentityProvidersOutput {
+	s.AttributeMappings = v
+	return s
 }
 
 // SetConnectionType sets the ConnectionType field's value.
@@ -218,6 +272,10 @@ type FilterForListIdentityProvidersInput struct {
 
 	ConnectionType *string `type:"string" json:",omitempty"`
 
+	EipId *string `type:"string" json:",omitempty"`
+
+	ExcludeConnectionType *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 }
 
@@ -234,6 +292,18 @@ func (s FilterForListIdentityProvidersInput) GoString() string {
 // SetConnectionType sets the ConnectionType field's value.
 func (s *FilterForListIdentityProvidersInput) SetConnectionType(v string) *FilterForListIdentityProvidersInput {
 	s.ConnectionType = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *FilterForListIdentityProvidersInput) SetEipId(v string) *FilterForListIdentityProvidersInput {
+	s.EipId = &v
+	return s
+}
+
+// SetExcludeConnectionType sets the ExcludeConnectionType field's value.
+func (s *FilterForListIdentityProvidersInput) SetExcludeConnectionType(v string) *FilterForListIdentityProvidersInput {
+	s.ExcludeConnectionType = &v
 	return s
 }
 
@@ -316,7 +386,7 @@ type ListIdentityProvidersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListIdentityProvidersOutput `type:"list" json:",omitempty"`
+	Data []*DataForListIdentityProvidersOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

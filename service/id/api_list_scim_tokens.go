@@ -234,7 +234,7 @@ type ListSCIMTokensOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListSCIMTokensOutput `type:"list" json:",omitempty"`
+	Data []*DataForListSCIMTokensOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

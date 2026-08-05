@@ -150,13 +150,13 @@ type ApiSpecForCreateRouteInput struct {
 
 	ActionValue *string `type:"string" json:",omitempty"`
 
-	Extractors []*ExtractorForCreateRouteInput `type:"list" json:",omitempty"`
+	Extractors []*ExtractorForCreateRouteInput `type:"list"`
 
 	IdentifierType *int32 `type:"int32" json:",omitempty"`
 
 	IdentifierValue *string `type:"string" json:",omitempty"`
 
-	ResponseFilters []*ResponseFilterForCreateRouteInput `type:"list" json:",omitempty"`
+	ResponseFilters []*ResponseFilterForCreateRouteInput `type:"list"`
 }
 
 // String returns the string representation
@@ -212,13 +212,13 @@ type ApiSpecForCreateRouteOutput struct {
 
 	ActionValue *string `type:"string" json:",omitempty"`
 
-	Extractors []*ExtractorForCreateRouteOutput `type:"list" json:",omitempty"`
+	Extractors []*ExtractorForCreateRouteOutput `type:"list"`
 
 	IdentifierType *int32 `type:"int32" json:",omitempty"`
 
 	IdentifierValue *string `type:"string" json:",omitempty"`
 
-	ResponseFilters []*ResponseFilterForCreateRouteOutput `type:"list" json:",omitempty"`
+	ResponseFilters []*ResponseFilterForCreateRouteOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -594,7 +594,7 @@ func (s *ExtractorForCreateRouteOutput) SetSource(v int32) *ExtractorForCreateRo
 type ResponseFilterForCreateRouteInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Attributes []*AttributeForCreateRouteInput `type:"list" json:",omitempty"`
+	Attributes []*AttributeForCreateRouteInput `type:"list"`
 
 	FilterPath *string `type:"string" json:",omitempty"`
 
@@ -664,7 +664,7 @@ func (s *ResponseFilterForCreateRouteInput) SetResourceType(v string) *ResponseF
 type ResponseFilterForCreateRouteOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Attributes []*AttributeForCreateRouteOutput `type:"list" json:",omitempty"`
+	Attributes []*AttributeForCreateRouteOutput `type:"list"`
 
 	FilterPath *string `type:"string" json:",omitempty"`
 

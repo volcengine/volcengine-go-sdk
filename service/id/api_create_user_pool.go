@@ -206,9 +206,13 @@ func (s *BrandForCreateUserPoolOutput) SetName(v string) *BrandForCreateUserPool
 type CreateUserPoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AuthenticationMethodOrder []*string `type:"list"`
+
 	Brand *BrandForCreateUserPoolInput `type:"structure" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	EmailAnonymousSignUpEnabled *bool `type:"boolean" json:",omitempty"`
 
 	EmailPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
 
@@ -219,13 +223,15 @@ type CreateUserPoolInput struct {
 
 	ProjectName *string `max:"255" type:"string" json:",omitempty"`
 
-	RequiredSignUpAttributes []*string `type:"list" json:",omitempty"`
+	RequiredSignUpAttributes []*string `type:"list"`
 
 	SelfAccountRecoveryEnabled *bool `type:"boolean" json:",omitempty"`
 
+	SelfAccountRecoveryVerificationAttributes []*string `type:"list"`
+
 	SelfSignUpEnabled *bool `type:"boolean" json:",omitempty"`
 
-	SignInAttributes []*string `type:"list" json:",omitempty"`
+	SignInAttributes []*string `type:"list"`
 
 	SignUpAutoVerificationEnabled *bool `type:"boolean" json:",omitempty"`
 
@@ -233,7 +239,7 @@ type CreateUserPoolInput struct {
 
 	SmsPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
 
-	Tags []*TagForCreateUserPoolInput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateUserPoolInput `type:"list"`
 
 	UnconfirmedUserSignInEnabled *bool `type:"boolean" json:",omitempty"`
 }
@@ -264,6 +270,12 @@ func (s *CreateUserPoolInput) Validate() error {
 	return nil
 }
 
+// SetAuthenticationMethodOrder sets the AuthenticationMethodOrder field's value.
+func (s *CreateUserPoolInput) SetAuthenticationMethodOrder(v []*string) *CreateUserPoolInput {
+	s.AuthenticationMethodOrder = v
+	return s
+}
+
 // SetBrand sets the Brand field's value.
 func (s *CreateUserPoolInput) SetBrand(v *BrandForCreateUserPoolInput) *CreateUserPoolInput {
 	s.Brand = v
@@ -273,6 +285,12 @@ func (s *CreateUserPoolInput) SetBrand(v *BrandForCreateUserPoolInput) *CreateUs
 // SetDescription sets the Description field's value.
 func (s *CreateUserPoolInput) SetDescription(v string) *CreateUserPoolInput {
 	s.Description = &v
+	return s
+}
+
+// SetEmailAnonymousSignUpEnabled sets the EmailAnonymousSignUpEnabled field's value.
+func (s *CreateUserPoolInput) SetEmailAnonymousSignUpEnabled(v bool) *CreateUserPoolInput {
+	s.EmailAnonymousSignUpEnabled = &v
 	return s
 }
 
@@ -309,6 +327,12 @@ func (s *CreateUserPoolInput) SetRequiredSignUpAttributes(v []*string) *CreateUs
 // SetSelfAccountRecoveryEnabled sets the SelfAccountRecoveryEnabled field's value.
 func (s *CreateUserPoolInput) SetSelfAccountRecoveryEnabled(v bool) *CreateUserPoolInput {
 	s.SelfAccountRecoveryEnabled = &v
+	return s
+}
+
+// SetSelfAccountRecoveryVerificationAttributes sets the SelfAccountRecoveryVerificationAttributes field's value.
+func (s *CreateUserPoolInput) SetSelfAccountRecoveryVerificationAttributes(v []*string) *CreateUserPoolInput {
+	s.SelfAccountRecoveryVerificationAttributes = v
 	return s
 }
 
@@ -359,15 +383,23 @@ type CreateUserPoolOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AuthenticationMethodOrder []*string `type:"list"`
+
 	Brand *BrandForCreateUserPoolOutput `type:"structure" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
+
+	CustomAttributes *string `type:"string" json:",omitempty"`
+
+	CustomDomain *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
 	DiscoveryUrl *string `type:"string" json:",omitempty"`
 
 	Domain *string `type:"string" json:",omitempty"`
+
+	EmailAnonymousSignUpEnabled *bool `type:"boolean" json:",omitempty"`
 
 	EmailPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
 
@@ -389,7 +421,7 @@ type CreateUserPoolOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	RequiredSignUpAttributes []*string `type:"list" json:",omitempty"`
+	RequiredSignUpAttributes []*string `type:"list"`
 
 	SamlLoginCallbackUrl *string `type:"string" json:",omitempty"`
 
@@ -397,9 +429,11 @@ type CreateUserPoolOutput struct {
 
 	SelfAccountRecoveryEnabled *bool `type:"boolean" json:",omitempty"`
 
+	SelfAccountRecoveryVerificationAttributes []*string `type:"list"`
+
 	SelfSignUpEnabled *bool `type:"boolean" json:",omitempty"`
 
-	SignInAttributes []*string `type:"list" json:",omitempty"`
+	SignInAttributes []*string `type:"list"`
 
 	SignUpAutoVerificationEnabled *bool `type:"boolean" json:",omitempty"`
 
@@ -407,7 +441,7 @@ type CreateUserPoolOutput struct {
 
 	SmsPasswordlessSignInEnabled *bool `type:"boolean" json:",omitempty"`
 
-	Tags []*TagForCreateUserPoolOutput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateUserPoolOutput `type:"list"`
 
 	TokenSigningKeyUrl *string `type:"string" json:",omitempty"`
 
@@ -438,6 +472,12 @@ func (s CreateUserPoolOutput) GoString() string {
 	return s.String()
 }
 
+// SetAuthenticationMethodOrder sets the AuthenticationMethodOrder field's value.
+func (s *CreateUserPoolOutput) SetAuthenticationMethodOrder(v []*string) *CreateUserPoolOutput {
+	s.AuthenticationMethodOrder = v
+	return s
+}
+
 // SetBrand sets the Brand field's value.
 func (s *CreateUserPoolOutput) SetBrand(v *BrandForCreateUserPoolOutput) *CreateUserPoolOutput {
 	s.Brand = v
@@ -447,6 +487,18 @@ func (s *CreateUserPoolOutput) SetBrand(v *BrandForCreateUserPoolOutput) *Create
 // SetCreateTime sets the CreateTime field's value.
 func (s *CreateUserPoolOutput) SetCreateTime(v string) *CreateUserPoolOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetCustomAttributes sets the CustomAttributes field's value.
+func (s *CreateUserPoolOutput) SetCustomAttributes(v string) *CreateUserPoolOutput {
+	s.CustomAttributes = &v
+	return s
+}
+
+// SetCustomDomain sets the CustomDomain field's value.
+func (s *CreateUserPoolOutput) SetCustomDomain(v string) *CreateUserPoolOutput {
+	s.CustomDomain = &v
 	return s
 }
 
@@ -465,6 +517,12 @@ func (s *CreateUserPoolOutput) SetDiscoveryUrl(v string) *CreateUserPoolOutput {
 // SetDomain sets the Domain field's value.
 func (s *CreateUserPoolOutput) SetDomain(v string) *CreateUserPoolOutput {
 	s.Domain = &v
+	return s
+}
+
+// SetEmailAnonymousSignUpEnabled sets the EmailAnonymousSignUpEnabled field's value.
+func (s *CreateUserPoolOutput) SetEmailAnonymousSignUpEnabled(v bool) *CreateUserPoolOutput {
+	s.EmailAnonymousSignUpEnabled = &v
 	return s
 }
 
@@ -549,6 +607,12 @@ func (s *CreateUserPoolOutput) SetSamlSignUpCallbackUrl(v string) *CreateUserPoo
 // SetSelfAccountRecoveryEnabled sets the SelfAccountRecoveryEnabled field's value.
 func (s *CreateUserPoolOutput) SetSelfAccountRecoveryEnabled(v bool) *CreateUserPoolOutput {
 	s.SelfAccountRecoveryEnabled = &v
+	return s
+}
+
+// SetSelfAccountRecoveryVerificationAttributes sets the SelfAccountRecoveryVerificationAttributes field's value.
+func (s *CreateUserPoolOutput) SetSelfAccountRecoveryVerificationAttributes(v []*string) *CreateUserPoolOutput {
+	s.SelfAccountRecoveryVerificationAttributes = v
 	return s
 }
 

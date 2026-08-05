@@ -298,13 +298,13 @@ func (s *RefreshTokenForUpdateUserPoolClientOutput) SetRotation(v bool) *Refresh
 type UpdateUserPoolClientInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowedCallbackUrls []*string `type:"list" json:",omitempty"`
+	AllowedCallbackUrls []*string `type:"list"`
 
-	AllowedCors []*string `type:"list" json:",omitempty"`
+	AllowedCors []*string `type:"list"`
 
-	AllowedLogoutUrls []*string `type:"list" json:",omitempty"`
+	AllowedLogoutUrls []*string `type:"list"`
 
-	AllowedWebOrigins []*string `type:"list" json:",omitempty"`
+	AllowedWebOrigins []*string `type:"list"`
 
 	// ClientUid is a required field
 	ClientUid *string `type:"string" json:",omitempty" required:"true"`
@@ -444,13 +444,13 @@ type UpdateUserPoolClientOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AllowedCallbackUrls []*string `type:"list" json:",omitempty"`
+	AllowedCallbackUrls []*string `type:"list"`
 
-	AllowedCors []*string `type:"list" json:",omitempty"`
+	AllowedCors []*string `type:"list"`
 
-	AllowedLogoutUrls []*string `type:"list" json:",omitempty"`
+	AllowedLogoutUrls []*string `type:"list"`
 
-	AllowedWebOrigins []*string `type:"list" json:",omitempty"`
+	AllowedWebOrigins []*string `type:"list"`
 
 	ClientSecret *string `type:"string" json:",omitempty"`
 

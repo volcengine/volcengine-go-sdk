@@ -143,12 +143,46 @@ func (c *ID) UpdateWorkloadIdentityWithContext(ctx volcengine.Context, input *Up
 	return out, req.Send()
 }
 
+type MetaDataForUpdateWorkloadIdentityInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s MetaDataForUpdateWorkloadIdentityInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetaDataForUpdateWorkloadIdentityInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *MetaDataForUpdateWorkloadIdentityInput) SetKey(v string) *MetaDataForUpdateWorkloadIdentityInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *MetaDataForUpdateWorkloadIdentityInput) SetValues(v []*string) *MetaDataForUpdateWorkloadIdentityInput {
+	s.Values = v
+	return s
+}
+
 type UpdateWorkloadIdentityInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowedResourceOauth2ReturnUrls []*string `type:"list" json:",omitempty"`
+	AllowedResourceOauth2ReturnUrls []*string `type:"list"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	MetaData []*MetaDataForUpdateWorkloadIdentityInput `type:"list"`
+
+	MetaDataUpdateMode *string `type:"string" json:",omitempty"`
 
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
@@ -188,6 +222,18 @@ func (s *UpdateWorkloadIdentityInput) SetAllowedResourceOauth2ReturnUrls(v []*st
 // SetDescription sets the Description field's value.
 func (s *UpdateWorkloadIdentityInput) SetDescription(v string) *UpdateWorkloadIdentityInput {
 	s.Description = &v
+	return s
+}
+
+// SetMetaData sets the MetaData field's value.
+func (s *UpdateWorkloadIdentityInput) SetMetaData(v []*MetaDataForUpdateWorkloadIdentityInput) *UpdateWorkloadIdentityInput {
+	s.MetaData = v
+	return s
+}
+
+// SetMetaDataUpdateMode sets the MetaDataUpdateMode field's value.
+func (s *UpdateWorkloadIdentityInput) SetMetaDataUpdateMode(v string) *UpdateWorkloadIdentityInput {
+	s.MetaDataUpdateMode = &v
 	return s
 }
 

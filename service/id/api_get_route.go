@@ -150,13 +150,13 @@ type ApiSpecForGetRouteOutput struct {
 
 	ActionValue *string `type:"string" json:",omitempty"`
 
-	Extractors []*ExtractorForGetRouteOutput `type:"list" json:",omitempty"`
+	Extractors []*ExtractorForGetRouteOutput `type:"list"`
 
 	IdentifierType *int32 `type:"int32" json:",omitempty"`
 
 	IdentifierValue *string `type:"string" json:",omitempty"`
 
-	ResponseFilters []*ResponseFilterForGetRouteOutput `type:"list" json:",omitempty"`
+	ResponseFilters []*ResponseFilterForGetRouteOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -460,7 +460,7 @@ func (s *GetRouteOutput) SetUpdatedAt(v int64) *GetRouteOutput {
 type ResponseFilterForGetRouteOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Attributes []*AttributeForGetRouteOutput `type:"list" json:",omitempty"`
+	Attributes []*AttributeForGetRouteOutput `type:"list"`
 
 	FilterPath *string `type:"string" json:",omitempty"`
 

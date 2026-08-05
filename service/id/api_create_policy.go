@@ -155,6 +155,8 @@ type CreatePolicyInput struct {
 	Policy *string `type:"string" json:",omitempty"`
 
 	PolicyName *string `type:"string" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -194,6 +196,12 @@ func (s *CreatePolicyInput) SetPolicy(v string) *CreatePolicyInput {
 // SetPolicyName sets the PolicyName field's value.
 func (s *CreatePolicyInput) SetPolicyName(v string) *CreatePolicyInput {
 	s.PolicyName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *CreatePolicyInput) SetStatus(v string) *CreatePolicyInput {
+	s.Status = &v
 	return s
 }
 

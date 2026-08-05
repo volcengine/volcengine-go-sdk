@@ -148,7 +148,7 @@ type AdditionalMappingForListIdentityProvidersSAMLOutput struct {
 
 	ScimPath *string `type:"string" json:",omitempty"`
 
-	UserPoolPath []*string `type:"list" json:",omitempty"`
+	UserPoolPath []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -222,7 +222,7 @@ func (s *ClaimRuleForListIdentityProvidersSAMLOutput) SetTargetClaim(v string) *
 type ClaimsPropagationConfigForListIdentityProvidersSAMLOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForListIdentityProvidersSAMLOutput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForListIdentityProvidersSAMLOutput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -257,6 +257,8 @@ type DataForListIdentityProvidersSAMLOutput struct {
 	Certificate *string `type:"string" json:",omitempty"`
 
 	ClaimsPropagationConfig *ClaimsPropagationConfigForListIdentityProvidersSAMLOutput `type:"structure" json:",omitempty"`
+
+	EipRecord *EipRecordForListIdentityProvidersSAMLOutput `type:"structure" json:",omitempty"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
@@ -306,6 +308,12 @@ func (s *DataForListIdentityProvidersSAMLOutput) SetCertificate(v string) *DataF
 // SetClaimsPropagationConfig sets the ClaimsPropagationConfig field's value.
 func (s *DataForListIdentityProvidersSAMLOutput) SetClaimsPropagationConfig(v *ClaimsPropagationConfigForListIdentityProvidersSAMLOutput) *DataForListIdentityProvidersSAMLOutput {
 	s.ClaimsPropagationConfig = v
+	return s
+}
+
+// SetEipRecord sets the EipRecord field's value.
+func (s *DataForListIdentityProvidersSAMLOutput) SetEipRecord(v *EipRecordForListIdentityProvidersSAMLOutput) *DataForListIdentityProvidersSAMLOutput {
+	s.EipRecord = v
 	return s
 }
 
@@ -375,6 +383,36 @@ func (s *DataForListIdentityProvidersSAMLOutput) SetUid(v string) *DataForListId
 	return s
 }
 
+type EipRecordForListIdentityProvidersSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipRecordForListIdentityProvidersSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipRecordForListIdentityProvidersSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipRecordForListIdentityProvidersSAMLOutput) SetEipAddress(v string) *EipRecordForListIdentityProvidersSAMLOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipRecordForListIdentityProvidersSAMLOutput) SetEipId(v string) *EipRecordForListIdentityProvidersSAMLOutput {
+	s.EipId = &v
+	return s
+}
+
 type ListIdentityProvidersSAMLInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -416,7 +454,7 @@ type ListIdentityProvidersSAMLOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListIdentityProvidersSAMLOutput `type:"list" json:",omitempty"`
+	Data []*DataForListIdentityProvidersSAMLOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -524,7 +562,7 @@ func (s *ProviderOptionsForListIdentityProvidersSAMLOutput) SetUserLinkingPrompt
 type ScimProvisioningForListIdentityProvidersSAMLOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalMappings []*AdditionalMappingForListIdentityProvidersSAMLOutput `type:"list" json:",omitempty"`
+	AdditionalMappings []*AdditionalMappingForListIdentityProvidersSAMLOutput `type:"list"`
 
 	BaseUrl *string `type:"string" json:",omitempty"`
 

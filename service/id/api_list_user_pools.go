@@ -156,7 +156,7 @@ type DataForListUserPoolsOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForListUserPoolsOutput `type:"list" json:",omitempty"`
+	Tags []*TagForListUserPoolsOutput `type:"list"`
 
 	TotalClients *int32 `type:"int32" json:",omitempty"`
 
@@ -260,7 +260,7 @@ type FilterForListUserPoolsInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForListUserPoolsInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForListUserPoolsInput `type:"list"`
 
 	Trn *string `type:"string" json:",omitempty"`
 
@@ -323,6 +323,8 @@ type ListUserPoolsInput struct {
 	SortDirection *string `type:"string" json:",omitempty"`
 
 	SortField *string `type:"string" json:",omitempty"`
+
+	TagFilters []*TagFilterForListUserPoolsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -390,12 +392,18 @@ func (s *ListUserPoolsInput) SetSortField(v string) *ListUserPoolsInput {
 	return s
 }
 
+// SetTagFilters sets the TagFilters field's value.
+func (s *ListUserPoolsInput) SetTagFilters(v []*TagFilterForListUserPoolsInput) *ListUserPoolsInput {
+	s.TagFilters = v
+	return s
+}
+
 type ListUserPoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListUserPoolsOutput `type:"list" json:",omitempty"`
+	Data []*DataForListUserPoolsOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -443,7 +451,7 @@ type TagFilterForListUserPoolsInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation

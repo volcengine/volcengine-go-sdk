@@ -198,7 +198,7 @@ func (s *AllowedRoleForGetRoleCredentialProviderOutput) SetRoleName(v string) *A
 type ConfigForGetRoleCredentialProviderOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	IdentitySource *IdentitySourceForGetRoleCredentialProviderOutput `type:"structure" json:",omitempty"`
+	IdentityPool *IdentityPoolForGetRoleCredentialProviderOutput `type:"structure" json:",omitempty"`
 
 	Metadata *string `type:"string" json:",omitempty"`
 
@@ -215,9 +215,9 @@ func (s ConfigForGetRoleCredentialProviderOutput) GoString() string {
 	return s.String()
 }
 
-// SetIdentitySource sets the IdentitySource field's value.
-func (s *ConfigForGetRoleCredentialProviderOutput) SetIdentitySource(v *IdentitySourceForGetRoleCredentialProviderOutput) *ConfigForGetRoleCredentialProviderOutput {
-	s.IdentitySource = v
+// SetIdentityPool sets the IdentityPool field's value.
+func (s *ConfigForGetRoleCredentialProviderOutput) SetIdentityPool(v *IdentityPoolForGetRoleCredentialProviderOutput) *ConfigForGetRoleCredentialProviderOutput {
+	s.IdentityPool = v
 	return s
 }
 
@@ -236,7 +236,7 @@ func (s *ConfigForGetRoleCredentialProviderOutput) SetRoleMapping(v *RoleMapping
 type FromRequestForGetRoleCredentialProviderOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowedRoles []*AllowedRoleForGetRoleCredentialProviderOutput `type:"list" json:",omitempty"`
+	AllowedRoles []*AllowedRoleForGetRoleCredentialProviderOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -290,7 +290,7 @@ type FromRuleForGetRoleCredentialProviderOutput struct {
 
 	DefaultRole *string `type:"string" json:",omitempty"`
 
-	Rules []*RuleForGetRoleCredentialProviderOutput `type:"list" json:",omitempty"`
+	Rules []*RuleForGetRoleCredentialProviderOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -439,7 +439,7 @@ func (s *GetRoleCredentialProviderOutput) SetVendor(v int64) *GetRoleCredentialP
 	return s
 }
 
-type IdentitySourceForGetRoleCredentialProviderOutput struct {
+type IdentityPoolForGetRoleCredentialProviderOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AgentPool *AgentPoolForGetRoleCredentialProviderOutput `type:"structure" json:",omitempty"`
@@ -448,23 +448,23 @@ type IdentitySourceForGetRoleCredentialProviderOutput struct {
 }
 
 // String returns the string representation
-func (s IdentitySourceForGetRoleCredentialProviderOutput) String() string {
+func (s IdentityPoolForGetRoleCredentialProviderOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s IdentitySourceForGetRoleCredentialProviderOutput) GoString() string {
+func (s IdentityPoolForGetRoleCredentialProviderOutput) GoString() string {
 	return s.String()
 }
 
 // SetAgentPool sets the AgentPool field's value.
-func (s *IdentitySourceForGetRoleCredentialProviderOutput) SetAgentPool(v *AgentPoolForGetRoleCredentialProviderOutput) *IdentitySourceForGetRoleCredentialProviderOutput {
+func (s *IdentityPoolForGetRoleCredentialProviderOutput) SetAgentPool(v *AgentPoolForGetRoleCredentialProviderOutput) *IdentityPoolForGetRoleCredentialProviderOutput {
 	s.AgentPool = v
 	return s
 }
 
 // SetUserPool sets the UserPool field's value.
-func (s *IdentitySourceForGetRoleCredentialProviderOutput) SetUserPool(v *UserPoolForGetRoleCredentialProviderOutput) *IdentitySourceForGetRoleCredentialProviderOutput {
+func (s *IdentityPoolForGetRoleCredentialProviderOutput) SetUserPool(v *UserPoolForGetRoleCredentialProviderOutput) *IdentityPoolForGetRoleCredentialProviderOutput {
 	s.UserPool = v
 	return s
 }

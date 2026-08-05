@@ -148,7 +148,7 @@ type ApiKeyAuthConfigForCreateApiKeyInput struct {
 
 	ApiKey *string `type:"string" json:",omitempty"`
 
-	ApiKeyMetadata []*ApiKeyMetadataForCreateApiKeyInput `type:"list" json:",omitempty"`
+	ApiKeyMetadata []*ApiKeyMetadataForCreateApiKeyInput `type:"list"`
 
 	ApiKeyName *string `type:"string" json:",omitempty"`
 

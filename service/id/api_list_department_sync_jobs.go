@@ -317,7 +317,7 @@ type ListDepartmentSyncJobsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Jobs []*JobForListDepartmentSyncJobsOutput `type:"list" json:",omitempty"`
+	Jobs []*JobForListDepartmentSyncJobsOutput `type:"list"`
 }
 
 // String returns the string representation

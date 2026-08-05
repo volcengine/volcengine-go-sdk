@@ -146,16 +146,32 @@ func (c *ID) UpdateSmsServiceWithContext(ctx volcengine.Context, input *UpdateSm
 type UpdateSmsServiceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CnUsageEnabled *bool `type:"boolean" json:",omitempty"`
+
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	SignatureContent *string `max:"255" type:"string" json:",omitempty"`
+	LoginRowTemplateId *string `max:"255" type:"string" json:",omitempty"`
 
-	SmsAccountId *string `max:"255" type:"string" json:",omitempty"`
+	PasswordResetCnTemplateId *string `max:"255" type:"string" json:",omitempty"`
+
+	PasswordResetRowTemplateId *string `max:"255" type:"string" json:",omitempty"`
+
+	RowUsageEnabled *bool `type:"boolean" json:",omitempty"`
+
+	SenderId *string `min:"1" max:"254" type:"string" json:",omitempty"`
+
+	SignUpCnTemplateId *string `max:"255" type:"string" json:",omitempty"`
+
+	SignUpRowTemplateId *string `max:"255" type:"string" json:",omitempty"`
+
+	SignatureContent *string `min:"1" max:"254" type:"string" json:",omitempty"`
+
+	SmsAccountId *string `min:"1" max:"254" type:"string" json:",omitempty"`
 
 	TemplateId *string `max:"255" type:"string" json:",omitempty"`
 
 	// UserPoolUid is a required field
-	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
+	UserPoolUid *string `min:"1" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -171,17 +187,47 @@ func (s UpdateSmsServiceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UpdateSmsServiceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateSmsServiceInput"}
-	if s.SignatureContent != nil && len(*s.SignatureContent) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("SignatureContent", 255, *s.SignatureContent))
+	if s.LoginRowTemplateId != nil && len(*s.LoginRowTemplateId) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("LoginRowTemplateId", 255, *s.LoginRowTemplateId))
 	}
-	if s.SmsAccountId != nil && len(*s.SmsAccountId) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("SmsAccountId", 255, *s.SmsAccountId))
+	if s.PasswordResetCnTemplateId != nil && len(*s.PasswordResetCnTemplateId) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("PasswordResetCnTemplateId", 255, *s.PasswordResetCnTemplateId))
+	}
+	if s.PasswordResetRowTemplateId != nil && len(*s.PasswordResetRowTemplateId) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("PasswordResetRowTemplateId", 255, *s.PasswordResetRowTemplateId))
+	}
+	if s.SenderId != nil && len(*s.SenderId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SenderId", 1))
+	}
+	if s.SenderId != nil && len(*s.SenderId) > 254 {
+		invalidParams.Add(request.NewErrParamMaxLen("SenderId", 254, *s.SenderId))
+	}
+	if s.SignUpCnTemplateId != nil && len(*s.SignUpCnTemplateId) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("SignUpCnTemplateId", 255, *s.SignUpCnTemplateId))
+	}
+	if s.SignUpRowTemplateId != nil && len(*s.SignUpRowTemplateId) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("SignUpRowTemplateId", 255, *s.SignUpRowTemplateId))
+	}
+	if s.SignatureContent != nil && len(*s.SignatureContent) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SignatureContent", 1))
+	}
+	if s.SignatureContent != nil && len(*s.SignatureContent) > 254 {
+		invalidParams.Add(request.NewErrParamMaxLen("SignatureContent", 254, *s.SignatureContent))
+	}
+	if s.SmsAccountId != nil && len(*s.SmsAccountId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SmsAccountId", 1))
+	}
+	if s.SmsAccountId != nil && len(*s.SmsAccountId) > 254 {
+		invalidParams.Add(request.NewErrParamMaxLen("SmsAccountId", 254, *s.SmsAccountId))
 	}
 	if s.TemplateId != nil && len(*s.TemplateId) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("TemplateId", 255, *s.TemplateId))
 	}
 	if s.UserPoolUid == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserPoolUid"))
+	}
+	if s.UserPoolUid != nil && len(*s.UserPoolUid) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("UserPoolUid", 1))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -190,9 +236,57 @@ func (s *UpdateSmsServiceInput) Validate() error {
 	return nil
 }
 
+// SetCnUsageEnabled sets the CnUsageEnabled field's value.
+func (s *UpdateSmsServiceInput) SetCnUsageEnabled(v bool) *UpdateSmsServiceInput {
+	s.CnUsageEnabled = &v
+	return s
+}
+
 // SetEnabled sets the Enabled field's value.
 func (s *UpdateSmsServiceInput) SetEnabled(v bool) *UpdateSmsServiceInput {
 	s.Enabled = &v
+	return s
+}
+
+// SetLoginRowTemplateId sets the LoginRowTemplateId field's value.
+func (s *UpdateSmsServiceInput) SetLoginRowTemplateId(v string) *UpdateSmsServiceInput {
+	s.LoginRowTemplateId = &v
+	return s
+}
+
+// SetPasswordResetCnTemplateId sets the PasswordResetCnTemplateId field's value.
+func (s *UpdateSmsServiceInput) SetPasswordResetCnTemplateId(v string) *UpdateSmsServiceInput {
+	s.PasswordResetCnTemplateId = &v
+	return s
+}
+
+// SetPasswordResetRowTemplateId sets the PasswordResetRowTemplateId field's value.
+func (s *UpdateSmsServiceInput) SetPasswordResetRowTemplateId(v string) *UpdateSmsServiceInput {
+	s.PasswordResetRowTemplateId = &v
+	return s
+}
+
+// SetRowUsageEnabled sets the RowUsageEnabled field's value.
+func (s *UpdateSmsServiceInput) SetRowUsageEnabled(v bool) *UpdateSmsServiceInput {
+	s.RowUsageEnabled = &v
+	return s
+}
+
+// SetSenderId sets the SenderId field's value.
+func (s *UpdateSmsServiceInput) SetSenderId(v string) *UpdateSmsServiceInput {
+	s.SenderId = &v
+	return s
+}
+
+// SetSignUpCnTemplateId sets the SignUpCnTemplateId field's value.
+func (s *UpdateSmsServiceInput) SetSignUpCnTemplateId(v string) *UpdateSmsServiceInput {
+	s.SignUpCnTemplateId = &v
+	return s
+}
+
+// SetSignUpRowTemplateId sets the SignUpRowTemplateId field's value.
+func (s *UpdateSmsServiceInput) SetSignUpRowTemplateId(v string) *UpdateSmsServiceInput {
+	s.SignUpRowTemplateId = &v
 	return s
 }
 
@@ -225,7 +319,23 @@ type UpdateSmsServiceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	CnUsageEnabled *bool `type:"boolean" json:",omitempty"`
+
 	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	LoginRowTemplateId *string `type:"string" json:",omitempty"`
+
+	PasswordResetCnTemplateId *string `type:"string" json:",omitempty"`
+
+	PasswordResetRowTemplateId *string `type:"string" json:",omitempty"`
+
+	RowUsageEnabled *bool `type:"boolean" json:",omitempty"`
+
+	SenderId *string `type:"string" json:",omitempty"`
+
+	SignUpCnTemplateId *string `type:"string" json:",omitempty"`
+
+	SignUpRowTemplateId *string `type:"string" json:",omitempty"`
 
 	SignatureContent *string `type:"string" json:",omitempty"`
 
@@ -246,9 +356,57 @@ func (s UpdateSmsServiceOutput) GoString() string {
 	return s.String()
 }
 
+// SetCnUsageEnabled sets the CnUsageEnabled field's value.
+func (s *UpdateSmsServiceOutput) SetCnUsageEnabled(v bool) *UpdateSmsServiceOutput {
+	s.CnUsageEnabled = &v
+	return s
+}
+
 // SetEnabled sets the Enabled field's value.
 func (s *UpdateSmsServiceOutput) SetEnabled(v bool) *UpdateSmsServiceOutput {
 	s.Enabled = &v
+	return s
+}
+
+// SetLoginRowTemplateId sets the LoginRowTemplateId field's value.
+func (s *UpdateSmsServiceOutput) SetLoginRowTemplateId(v string) *UpdateSmsServiceOutput {
+	s.LoginRowTemplateId = &v
+	return s
+}
+
+// SetPasswordResetCnTemplateId sets the PasswordResetCnTemplateId field's value.
+func (s *UpdateSmsServiceOutput) SetPasswordResetCnTemplateId(v string) *UpdateSmsServiceOutput {
+	s.PasswordResetCnTemplateId = &v
+	return s
+}
+
+// SetPasswordResetRowTemplateId sets the PasswordResetRowTemplateId field's value.
+func (s *UpdateSmsServiceOutput) SetPasswordResetRowTemplateId(v string) *UpdateSmsServiceOutput {
+	s.PasswordResetRowTemplateId = &v
+	return s
+}
+
+// SetRowUsageEnabled sets the RowUsageEnabled field's value.
+func (s *UpdateSmsServiceOutput) SetRowUsageEnabled(v bool) *UpdateSmsServiceOutput {
+	s.RowUsageEnabled = &v
+	return s
+}
+
+// SetSenderId sets the SenderId field's value.
+func (s *UpdateSmsServiceOutput) SetSenderId(v string) *UpdateSmsServiceOutput {
+	s.SenderId = &v
+	return s
+}
+
+// SetSignUpCnTemplateId sets the SignUpCnTemplateId field's value.
+func (s *UpdateSmsServiceOutput) SetSignUpCnTemplateId(v string) *UpdateSmsServiceOutput {
+	s.SignUpCnTemplateId = &v
+	return s
+}
+
+// SetSignUpRowTemplateId sets the SignUpRowTemplateId field's value.
+func (s *UpdateSmsServiceOutput) SetSignUpRowTemplateId(v string) *UpdateSmsServiceOutput {
+	s.SignUpRowTemplateId = &v
 	return s
 }
 

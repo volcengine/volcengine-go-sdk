@@ -148,13 +148,13 @@ type AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput struct {
 
 	AuthorizationEndpoint *string `type:"string" json:",omitempty"`
 
-	CodeChallengeMethodsSupported []*string `type:"list" json:",omitempty"`
+	CodeChallengeMethodsSupported []*string `type:"list"`
 
 	Issuer *string `type:"string" json:",omitempty"`
 
 	RegistrationEndpoint *string `type:"string" json:",omitempty"`
 
-	ResponseTypes []*string `type:"list" json:",omitempty"`
+	ResponseTypes []*string `type:"list"`
 
 	RevocationEndpoint *string `type:"string" json:",omitempty"`
 
@@ -234,7 +234,7 @@ type ConfigForUpdateOauth2CredentialProviderInput struct {
 
 	RedirectUrl *string `type:"string" json:",omitempty"`
 
-	Scopes []*string `type:"list" json:",omitempty"`
+	Scopes []*string `type:"list"`
 
 	SecretStorage *SecretStorageForUpdateOauth2CredentialProviderInput `type:"structure" json:",omitempty"`
 }
@@ -318,7 +318,7 @@ func (s *ConfigForUpdateOauth2CredentialProviderInput) SetSecretStorage(v *Secre
 type CustomParametersForUpdateOauth2CredentialProviderInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Entries []*EntryForUpdateOauth2CredentialProviderInput `type:"list" json:",omitempty"`
+	Entries []*EntryForUpdateOauth2CredentialProviderInput `type:"list"`
 }
 
 // String returns the string representation

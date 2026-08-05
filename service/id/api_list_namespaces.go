@@ -204,7 +204,7 @@ type ListNamespacesInput struct {
 
 	SortField *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForListNamespacesInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForListNamespacesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -264,7 +264,7 @@ type ListNamespacesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Namespaces []*NamespaceForListNamespacesOutput `type:"list" json:",omitempty"`
+	Namespaces []*NamespaceForListNamespacesOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -320,7 +320,7 @@ type NamespaceForListNamespacesOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForListNamespacesOutput `type:"list" json:",omitempty"`
+	Tags []*TagForListNamespacesOutput `type:"list"`
 
 	Trn *string `type:"string" json:",omitempty"`
 
@@ -390,7 +390,7 @@ type TagFilterForListNamespacesInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation

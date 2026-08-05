@@ -146,11 +146,13 @@ func (c *ID) ListIdentityProvidersWeComWithContext(ctx volcengine.Context, input
 type ClaimRuleForListIdentityProvidersWeComOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimKey *string `type:"string" json:",omitempty"`
-
 	ClaimType *string `type:"string" json:",omitempty"`
 
-	ClaimValue *string `type:"string" json:",omitempty"`
+	Required *bool `type:"boolean" json:",omitempty"`
+
+	SourceClaimPath *string `type:"string" json:",omitempty"`
+
+	TargetClaim *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -163,28 +165,34 @@ func (s ClaimRuleForListIdentityProvidersWeComOutput) GoString() string {
 	return s.String()
 }
 
-// SetClaimKey sets the ClaimKey field's value.
-func (s *ClaimRuleForListIdentityProvidersWeComOutput) SetClaimKey(v string) *ClaimRuleForListIdentityProvidersWeComOutput {
-	s.ClaimKey = &v
-	return s
-}
-
 // SetClaimType sets the ClaimType field's value.
 func (s *ClaimRuleForListIdentityProvidersWeComOutput) SetClaimType(v string) *ClaimRuleForListIdentityProvidersWeComOutput {
 	s.ClaimType = &v
 	return s
 }
 
-// SetClaimValue sets the ClaimValue field's value.
-func (s *ClaimRuleForListIdentityProvidersWeComOutput) SetClaimValue(v string) *ClaimRuleForListIdentityProvidersWeComOutput {
-	s.ClaimValue = &v
+// SetRequired sets the Required field's value.
+func (s *ClaimRuleForListIdentityProvidersWeComOutput) SetRequired(v bool) *ClaimRuleForListIdentityProvidersWeComOutput {
+	s.Required = &v
+	return s
+}
+
+// SetSourceClaimPath sets the SourceClaimPath field's value.
+func (s *ClaimRuleForListIdentityProvidersWeComOutput) SetSourceClaimPath(v string) *ClaimRuleForListIdentityProvidersWeComOutput {
+	s.SourceClaimPath = &v
+	return s
+}
+
+// SetTargetClaim sets the TargetClaim field's value.
+func (s *ClaimRuleForListIdentityProvidersWeComOutput) SetTargetClaim(v string) *ClaimRuleForListIdentityProvidersWeComOutput {
+	s.TargetClaim = &v
 	return s
 }
 
 type ClaimsPropagationConfigForListIdentityProvidersWeComOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForListIdentityProvidersWeComOutput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForListIdentityProvidersWeComOutput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -228,11 +236,13 @@ type DataForListIdentityProvidersWeComOutput struct {
 
 	DomainVerifyFileName *string `type:"string" json:",omitempty"`
 
+	EipRecord *EipRecordForListIdentityProvidersWeComOutput `type:"structure" json:",omitempty"`
+
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
-	OutboundEgressIps []*string `type:"list" json:",omitempty"`
+	OutboundEgressIps []*string `type:"list"`
 
 	ProviderOptions *ProviderOptionsForListIdentityProvidersWeComOutput `type:"structure" json:",omitempty"`
 
@@ -299,6 +309,12 @@ func (s *DataForListIdentityProvidersWeComOutput) SetDomainVerifyFileName(v stri
 	return s
 }
 
+// SetEipRecord sets the EipRecord field's value.
+func (s *DataForListIdentityProvidersWeComOutput) SetEipRecord(v *EipRecordForListIdentityProvidersWeComOutput) *DataForListIdentityProvidersWeComOutput {
+	s.EipRecord = v
+	return s
+}
+
 // SetEnabled sets the Enabled field's value.
 func (s *DataForListIdentityProvidersWeComOutput) SetEnabled(v bool) *DataForListIdentityProvidersWeComOutput {
 	s.Enabled = &v
@@ -353,6 +369,36 @@ func (s *DataForListIdentityProvidersWeComOutput) SetUserEndpoint(v string) *Dat
 	return s
 }
 
+type EipRecordForListIdentityProvidersWeComOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipRecordForListIdentityProvidersWeComOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipRecordForListIdentityProvidersWeComOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipRecordForListIdentityProvidersWeComOutput) SetEipAddress(v string) *EipRecordForListIdentityProvidersWeComOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipRecordForListIdentityProvidersWeComOutput) SetEipId(v string) *EipRecordForListIdentityProvidersWeComOutput {
+	s.EipId = &v
+	return s
+}
+
 type ListIdentityProvidersWeComInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -394,7 +440,7 @@ type ListIdentityProvidersWeComOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListIdentityProvidersWeComOutput `type:"list" json:",omitempty"`
+	Data []*DataForListIdentityProvidersWeComOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

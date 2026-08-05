@@ -342,7 +342,7 @@ func (s *GetRoleCredentialsOutput) SetVolcEngResponse(v *VolcEngResponseForGetRo
 type OIDCTokenInfoForGetRoleCredentialsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientIds []*string `type:"list" json:",omitempty"`
+	ClientIds []*string `type:"list"`
 
 	ExpirationTime *string `type:"string" json:",omitempty"`
 

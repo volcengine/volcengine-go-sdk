@@ -150,13 +150,13 @@ type ApiSpecForDisableRouteOutput struct {
 
 	ActionValue *string `type:"string" json:",omitempty"`
 
-	Extractors []*ExtractorForDisableRouteOutput `type:"list" json:",omitempty"`
+	Extractors []*ExtractorForDisableRouteOutput `type:"list"`
 
 	IdentifierType *int32 `type:"int32" json:",omitempty"`
 
 	IdentifierValue *string `type:"string" json:",omitempty"`
 
-	ResponseFilters []*ResponseFilterForDisableRouteOutput `type:"list" json:",omitempty"`
+	ResponseFilters []*ResponseFilterForDisableRouteOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -460,7 +460,7 @@ func (s *ExtractorForDisableRouteOutput) SetSource(v int32) *ExtractorForDisable
 type ResponseFilterForDisableRouteOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Attributes []*AttributeForDisableRouteOutput `type:"list" json:",omitempty"`
+	Attributes []*AttributeForDisableRouteOutput `type:"list"`
 
 	FilterPath *string `type:"string" json:",omitempty"`
 

@@ -154,7 +154,7 @@ type MemberForUploadDepartmentSyncMembersInput struct {
 
 	Role *string `max:"64" type:"string" json:",omitempty"`
 
-	UserUids []*string `type:"list" json:",omitempty"`
+	UserUids []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -213,7 +213,7 @@ func (s *MemberForUploadDepartmentSyncMembersInput) SetUserUids(v []*string) *Me
 type UploadDepartmentSyncMembersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Members []*MemberForUploadDepartmentSyncMembersInput `type:"list" json:",omitempty"`
+	Members []*MemberForUploadDepartmentSyncMembersInput `type:"list"`
 
 	// SessionId is a required field
 	SessionId *string `min:"1" max:"128" type:"string" json:",omitempty" required:"true"`

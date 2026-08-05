@@ -178,7 +178,7 @@ type DescribeTemplateOptionsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForDescribeTemplateOptionsOutput `type:"list" json:",omitempty"`
+	Items []*ItemForDescribeTemplateOptionsOutput `type:"list"`
 }
 
 // String returns the string representation

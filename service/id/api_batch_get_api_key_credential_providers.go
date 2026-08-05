@@ -200,7 +200,7 @@ func (s *ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput) Set
 type BatchGetApiKeyCredentialProvidersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Names []*string `type:"list" json:",omitempty"`
+	Names []*string `type:"list"`
 
 	PoolName *string `type:"string" json:",omitempty"`
 }
@@ -232,7 +232,7 @@ type BatchGetApiKeyCredentialProvidersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ApiKeyCredentialProviders []*ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput `type:"list" json:",omitempty"`
+	ApiKeyCredentialProviders []*ApiKeyCredentialProviderForBatchGetApiKeyCredentialProvidersOutput `type:"list"`
 }
 
 // String returns the string representation

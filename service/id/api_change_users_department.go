@@ -155,7 +155,7 @@ type ChangeUsersDepartmentInput struct {
 	// UserPoolUid is a required field
 	UserPoolUid *string `min:"1" max:"128" type:"string" json:",omitempty" required:"true"`
 
-	UserUids []*string `type:"list" json:",omitempty"`
+	UserUids []*string `type:"list"`
 }
 
 // String returns the string representation

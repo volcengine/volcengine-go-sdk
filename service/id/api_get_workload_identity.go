@@ -192,7 +192,7 @@ type GetWorkloadIdentityOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AllowedResourceOauth2ReturnUrls []*string `type:"list" json:",omitempty"`
+	AllowedResourceOauth2ReturnUrls []*string `type:"list"`
 
 	Category *string `type:"string" json:",omitempty"`
 
@@ -200,7 +200,7 @@ type GetWorkloadIdentityOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
-	MetaData []*MetaDataForGetWorkloadIdentityOutput `type:"list" json:",omitempty"`
+	MetaData []*MetaDataForGetWorkloadIdentityOutput `type:"list"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -288,7 +288,7 @@ type MetaDataForGetWorkloadIdentityOutput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation

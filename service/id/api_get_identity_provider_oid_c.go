@@ -148,7 +148,7 @@ type AdditionalMappingForGetIdentityProviderOIDCOutput struct {
 
 	ScimPath *string `type:"string" json:",omitempty"`
 
-	UserPoolPath []*string `type:"list" json:",omitempty"`
+	UserPoolPath []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -170,6 +170,52 @@ func (s *AdditionalMappingForGetIdentityProviderOIDCOutput) SetScimPath(v string
 // SetUserPoolPath sets the UserPoolPath field's value.
 func (s *AdditionalMappingForGetIdentityProviderOIDCOutput) SetUserPoolPath(v []*string) *AdditionalMappingForGetIdentityProviderOIDCOutput {
 	s.UserPoolPath = v
+	return s
+}
+
+type AttributeMappingForGetIdentityProviderOIDCOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalConfig *string `type:"string" json:",omitempty"`
+
+	MappingType *string `type:"string" json:",omitempty"`
+
+	SourceAttributeName *string `type:"string" json:",omitempty"`
+
+	TargetAttributeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AttributeMappingForGetIdentityProviderOIDCOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttributeMappingForGetIdentityProviderOIDCOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalConfig sets the AdditionalConfig field's value.
+func (s *AttributeMappingForGetIdentityProviderOIDCOutput) SetAdditionalConfig(v string) *AttributeMappingForGetIdentityProviderOIDCOutput {
+	s.AdditionalConfig = &v
+	return s
+}
+
+// SetMappingType sets the MappingType field's value.
+func (s *AttributeMappingForGetIdentityProviderOIDCOutput) SetMappingType(v string) *AttributeMappingForGetIdentityProviderOIDCOutput {
+	s.MappingType = &v
+	return s
+}
+
+// SetSourceAttributeName sets the SourceAttributeName field's value.
+func (s *AttributeMappingForGetIdentityProviderOIDCOutput) SetSourceAttributeName(v string) *AttributeMappingForGetIdentityProviderOIDCOutput {
+	s.SourceAttributeName = &v
+	return s
+}
+
+// SetTargetAttributeName sets the TargetAttributeName field's value.
+func (s *AttributeMappingForGetIdentityProviderOIDCOutput) SetTargetAttributeName(v string) *AttributeMappingForGetIdentityProviderOIDCOutput {
+	s.TargetAttributeName = &v
 	return s
 }
 
@@ -222,7 +268,7 @@ func (s *ClaimRuleForGetIdentityProviderOIDCOutput) SetTargetClaim(v string) *Cl
 type ClaimsPropagationConfigForGetIdentityProviderOIDCOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForGetIdentityProviderOIDCOutput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForGetIdentityProviderOIDCOutput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -246,6 +292,36 @@ func (s *ClaimsPropagationConfigForGetIdentityProviderOIDCOutput) SetClaimRules(
 // SetMode sets the Mode field's value.
 func (s *ClaimsPropagationConfigForGetIdentityProviderOIDCOutput) SetMode(v string) *ClaimsPropagationConfigForGetIdentityProviderOIDCOutput {
 	s.Mode = &v
+	return s
+}
+
+type EipRecordForGetIdentityProviderOIDCOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipRecordForGetIdentityProviderOIDCOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipRecordForGetIdentityProviderOIDCOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipRecordForGetIdentityProviderOIDCOutput) SetEipAddress(v string) *EipRecordForGetIdentityProviderOIDCOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipRecordForGetIdentityProviderOIDCOutput) SetEipId(v string) *EipRecordForGetIdentityProviderOIDCOutput {
+	s.EipId = &v
 	return s
 }
 
@@ -302,11 +378,15 @@ type GetIdentityProviderOIDCOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AttributeMappings []*AttributeMappingForGetIdentityProviderOIDCOutput `type:"list"`
+
 	ClaimsPropagationConfig *ClaimsPropagationConfigForGetIdentityProviderOIDCOutput `type:"structure" json:",omitempty"`
 
 	ClientId *string `type:"string" json:",omitempty"`
 
 	ClientSecret *string `type:"string" json:",omitempty"`
+
+	EipRecord *EipRecordForGetIdentityProviderOIDCOutput `type:"structure" json:",omitempty"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
@@ -322,7 +402,7 @@ type GetIdentityProviderOIDCOutput struct {
 
 	ScimProvisioning *ScimProvisioningForGetIdentityProviderOIDCOutput `type:"structure" json:",omitempty"`
 
-	ScopesList []*string `type:"list" json:",omitempty"`
+	ScopesList []*string `type:"list"`
 
 	Uid *string `type:"string" json:",omitempty"`
 
@@ -337,6 +417,12 @@ func (s GetIdentityProviderOIDCOutput) String() string {
 // GoString returns the string representation
 func (s GetIdentityProviderOIDCOutput) GoString() string {
 	return s.String()
+}
+
+// SetAttributeMappings sets the AttributeMappings field's value.
+func (s *GetIdentityProviderOIDCOutput) SetAttributeMappings(v []*AttributeMappingForGetIdentityProviderOIDCOutput) *GetIdentityProviderOIDCOutput {
+	s.AttributeMappings = v
+	return s
 }
 
 // SetClaimsPropagationConfig sets the ClaimsPropagationConfig field's value.
@@ -354,6 +440,12 @@ func (s *GetIdentityProviderOIDCOutput) SetClientId(v string) *GetIdentityProvid
 // SetClientSecret sets the ClientSecret field's value.
 func (s *GetIdentityProviderOIDCOutput) SetClientSecret(v string) *GetIdentityProviderOIDCOutput {
 	s.ClientSecret = &v
+	return s
+}
+
+// SetEipRecord sets the EipRecord field's value.
+func (s *GetIdentityProviderOIDCOutput) SetEipRecord(v *EipRecordForGetIdentityProviderOIDCOutput) *GetIdentityProviderOIDCOutput {
+	s.EipRecord = v
 	return s
 }
 
@@ -482,7 +574,7 @@ func (s *ProviderOptionsForGetIdentityProviderOIDCOutput) SetUserLinkingPromptEn
 type ScimProvisioningForGetIdentityProviderOIDCOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalMappings []*AdditionalMappingForGetIdentityProviderOIDCOutput `type:"list" json:",omitempty"`
+	AdditionalMappings []*AdditionalMappingForGetIdentityProviderOIDCOutput `type:"list"`
 
 	BaseUrl *string `type:"string" json:",omitempty"`
 

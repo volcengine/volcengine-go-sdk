@@ -188,7 +188,7 @@ type GetIamRoleAttachmentOutput struct {
 
 	DefaultUnauthenticatedRoleTrn *string `type:"string" json:",omitempty"`
 
-	RoleMappings []*RoleMappingForGetIamRoleAttachmentOutput `type:"list" json:",omitempty"`
+	RoleMappings []*RoleMappingForGetIamRoleAttachmentOutput `type:"list"`
 
 	Uid *string `type:"string" json:",omitempty"`
 
@@ -244,7 +244,7 @@ type RoleMappingForGetIamRoleAttachmentOutput struct {
 
 	IdentityProviderType *string `type:"string" json:",omitempty"`
 
-	RulesConfiguration []*RulesConfigurationForGetIamRoleAttachmentOutput `type:"list" json:",omitempty"`
+	RulesConfiguration []*RulesConfigurationForGetIamRoleAttachmentOutput `type:"list"`
 
 	Type *string `type:"string" json:",omitempty"`
 }
