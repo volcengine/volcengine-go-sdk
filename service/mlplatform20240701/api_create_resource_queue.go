@@ -197,6 +197,68 @@ func (s *AutoCompactGPUResourceRuleForCreateResourceQueueInput) SetOnUnschedulab
 	return s
 }
 
+type CommandHookRuleForCreateResourceQueueInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnablePostCommand *bool `type:"boolean" json:",omitempty"`
+
+	EnablePreCommand *bool `type:"boolean" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	PostCommand *string `type:"string" json:",omitempty"`
+
+	PreCommand *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CommandHookRuleForCreateResourceQueueInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CommandHookRuleForCreateResourceQueueInput) GoString() string {
+	return s.String()
+}
+
+// SetEnablePostCommand sets the EnablePostCommand field's value.
+func (s *CommandHookRuleForCreateResourceQueueInput) SetEnablePostCommand(v bool) *CommandHookRuleForCreateResourceQueueInput {
+	s.EnablePostCommand = &v
+	return s
+}
+
+// SetEnablePreCommand sets the EnablePreCommand field's value.
+func (s *CommandHookRuleForCreateResourceQueueInput) SetEnablePreCommand(v bool) *CommandHookRuleForCreateResourceQueueInput {
+	s.EnablePreCommand = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *CommandHookRuleForCreateResourceQueueInput) SetEnabled(v bool) *CommandHookRuleForCreateResourceQueueInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *CommandHookRuleForCreateResourceQueueInput) SetId(v string) *CommandHookRuleForCreateResourceQueueInput {
+	s.Id = &v
+	return s
+}
+
+// SetPostCommand sets the PostCommand field's value.
+func (s *CommandHookRuleForCreateResourceQueueInput) SetPostCommand(v string) *CommandHookRuleForCreateResourceQueueInput {
+	s.PostCommand = &v
+	return s
+}
+
+// SetPreCommand sets the PreCommand field's value.
+func (s *CommandHookRuleForCreateResourceQueueInput) SetPreCommand(v string) *CommandHookRuleForCreateResourceQueueInput {
+	s.PreCommand = &v
+	return s
+}
+
 type ComputeResourceForCreateResourceQueueInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -652,6 +714,8 @@ type RulesForCreateResourceQueueInput struct {
 
 	AutoCompactGPUResourceRule *AutoCompactGPUResourceRuleForCreateResourceQueueInput `type:"structure" json:",omitempty"`
 
+	CommandHookRule *CommandHookRuleForCreateResourceQueueInput `type:"structure" json:",omitempty"`
+
 	DevCpuLowUsageRule *DevCpuLowUsageRuleForCreateResourceQueueInput `type:"structure" json:",omitempty"`
 
 	GeneralIdleRule *GeneralIdleRuleForCreateResourceQueueInput `type:"structure" json:",omitempty"`
@@ -672,6 +736,12 @@ func (s RulesForCreateResourceQueueInput) GoString() string {
 // SetAutoCompactGPUResourceRule sets the AutoCompactGPUResourceRule field's value.
 func (s *RulesForCreateResourceQueueInput) SetAutoCompactGPUResourceRule(v *AutoCompactGPUResourceRuleForCreateResourceQueueInput) *RulesForCreateResourceQueueInput {
 	s.AutoCompactGPUResourceRule = v
+	return s
+}
+
+// SetCommandHookRule sets the CommandHookRule field's value.
+func (s *RulesForCreateResourceQueueInput) SetCommandHookRule(v *CommandHookRuleForCreateResourceQueueInput) *RulesForCreateResourceQueueInput {
+	s.CommandHookRule = v
 	return s
 }
 

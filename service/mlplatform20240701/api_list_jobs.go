@@ -218,6 +218,8 @@ type ItemForListJobsOutput struct {
 
 	InitialId *string `type:"string" json:",omitempty"`
 
+	LatestRetriedId *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `min:"1" max:"64" type:"string" json:",omitempty"`
@@ -268,6 +270,12 @@ func (s *ItemForListJobsOutput) SetId(v string) *ItemForListJobsOutput {
 // SetInitialId sets the InitialId field's value.
 func (s *ItemForListJobsOutput) SetInitialId(v string) *ItemForListJobsOutput {
 	s.InitialId = &v
+	return s
+}
+
+// SetLatestRetriedId sets the LatestRetriedId field's value.
+func (s *ItemForListJobsOutput) SetLatestRetriedId(v string) *ItemForListJobsOutput {
+	s.LatestRetriedId = &v
 	return s
 }
 

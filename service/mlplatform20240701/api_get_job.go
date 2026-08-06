@@ -416,6 +416,8 @@ type DiagnoseConfigForGetJobOutput struct {
 
 	DetectionIntervalSeconds *int64 `type:"int64" json:",omitempty"`
 
+	EnableInformationCollectionOnHang *bool `type:"boolean" json:",omitempty"`
+
 	FirstDetectionWaitSeconds *int64 `type:"int64" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty" enum:"EnumOfNameForGetJobOutput"`
@@ -436,6 +438,12 @@ func (s DiagnoseConfigForGetJobOutput) GoString() string {
 // SetDetectionIntervalSeconds sets the DetectionIntervalSeconds field's value.
 func (s *DiagnoseConfigForGetJobOutput) SetDetectionIntervalSeconds(v int64) *DiagnoseConfigForGetJobOutput {
 	s.DetectionIntervalSeconds = &v
+	return s
+}
+
+// SetEnableInformationCollectionOnHang sets the EnableInformationCollectionOnHang field's value.
+func (s *DiagnoseConfigForGetJobOutput) SetEnableInformationCollectionOnHang(v bool) *DiagnoseConfigForGetJobOutput {
+	s.EnableInformationCollectionOnHang = &v
 	return s
 }
 
@@ -694,6 +702,8 @@ type GetJobOutput struct {
 
 	InitialId *string `type:"string" json:",omitempty"`
 
+	LatestRetriedId *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	ObservableConfig *ObservableConfigForGetJobOutput `type:"structure" json:",omitempty"`
@@ -760,6 +770,12 @@ func (s *GetJobOutput) SetId(v string) *GetJobOutput {
 // SetInitialId sets the InitialId field's value.
 func (s *GetJobOutput) SetInitialId(v string) *GetJobOutput {
 	s.InitialId = &v
+	return s
+}
+
+// SetLatestRetriedId sets the LatestRetriedId field's value.
+func (s *GetJobOutput) SetLatestRetriedId(v string) *GetJobOutput {
+	s.LatestRetriedId = &v
 	return s
 }
 
@@ -1344,11 +1360,17 @@ type RuntimeConfigForGetJobOutput struct {
 
 	Command *string `type:"string" json:",omitempty"`
 
+	EnablePostCommand *bool `type:"boolean" json:",omitempty"`
+
+	EnablePreCommand *bool `type:"boolean" json:",omitempty"`
+
 	Envs []*EnvForGetJobOutput `type:"list" json:",omitempty"`
 
 	Framework *string `type:"string" json:",omitempty" enum:"EnumOfFrameworkForGetJobOutput"`
 
 	Image *ImageForGetJobOutput `type:"structure" json:",omitempty"`
+
+	PreCommandFailedContinue *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1379,6 +1401,18 @@ func (s *RuntimeConfigForGetJobOutput) SetCommand(v string) *RuntimeConfigForGet
 	return s
 }
 
+// SetEnablePostCommand sets the EnablePostCommand field's value.
+func (s *RuntimeConfigForGetJobOutput) SetEnablePostCommand(v bool) *RuntimeConfigForGetJobOutput {
+	s.EnablePostCommand = &v
+	return s
+}
+
+// SetEnablePreCommand sets the EnablePreCommand field's value.
+func (s *RuntimeConfigForGetJobOutput) SetEnablePreCommand(v bool) *RuntimeConfigForGetJobOutput {
+	s.EnablePreCommand = &v
+	return s
+}
+
 // SetEnvs sets the Envs field's value.
 func (s *RuntimeConfigForGetJobOutput) SetEnvs(v []*EnvForGetJobOutput) *RuntimeConfigForGetJobOutput {
 	s.Envs = v
@@ -1394,6 +1428,12 @@ func (s *RuntimeConfigForGetJobOutput) SetFramework(v string) *RuntimeConfigForG
 // SetImage sets the Image field's value.
 func (s *RuntimeConfigForGetJobOutput) SetImage(v *ImageForGetJobOutput) *RuntimeConfigForGetJobOutput {
 	s.Image = v
+	return s
+}
+
+// SetPreCommandFailedContinue sets the PreCommandFailedContinue field's value.
+func (s *RuntimeConfigForGetJobOutput) SetPreCommandFailedContinue(v bool) *RuntimeConfigForGetJobOutput {
+	s.PreCommandFailedContinue = &v
 	return s
 }
 
