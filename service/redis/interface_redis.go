@@ -38,6 +38,14 @@ type REDISAPI interface {
 	AddTagsToResourceWithContext(volcengine.Context, *AddTagsToResourceInput, ...request.Option) (*AddTagsToResourceOutput, error)
 	AddTagsToResourceRequest(*AddTagsToResourceInput) (*request.Request, *AddTagsToResourceOutput)
 
+	ApplyParameterGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ApplyParameterGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ApplyParameterGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ApplyParameterGroup(*ApplyParameterGroupInput) (*ApplyParameterGroupOutput, error)
+	ApplyParameterGroupWithContext(volcengine.Context, *ApplyParameterGroupInput, ...request.Option) (*ApplyParameterGroupOutput, error)
+	ApplyParameterGroupRequest(*ApplyParameterGroupInput) (*request.Request, *ApplyParameterGroupOutput)
+
 	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -270,6 +278,14 @@ type REDISAPI interface {
 	DescribeBlueGreenDeploymentsWithContext(volcengine.Context, *DescribeBlueGreenDeploymentsInput, ...request.Option) (*DescribeBlueGreenDeploymentsOutput, error)
 	DescribeBlueGreenDeploymentsRequest(*DescribeBlueGreenDeploymentsInput) (*request.Request, *DescribeBlueGreenDeploymentsOutput)
 
+	DescribeClientSessionSnapshotCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeClientSessionSnapshotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeClientSessionSnapshotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeClientSessionSnapshot(*DescribeClientSessionSnapshotInput) (*DescribeClientSessionSnapshotOutput, error)
+	DescribeClientSessionSnapshotWithContext(volcengine.Context, *DescribeClientSessionSnapshotInput, ...request.Option) (*DescribeClientSessionSnapshotOutput, error)
+	DescribeClientSessionSnapshotRequest(*DescribeClientSessionSnapshotInput) (*request.Request, *DescribeClientSessionSnapshotOutput)
+
 	DescribeCrossRegionBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCrossRegionBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeCrossRegionBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -485,6 +501,14 @@ type REDISAPI interface {
 	DescribeTagsByResource(*DescribeTagsByResourceInput) (*DescribeTagsByResourceOutput, error)
 	DescribeTagsByResourceWithContext(volcengine.Context, *DescribeTagsByResourceInput, ...request.Option) (*DescribeTagsByResourceOutput, error)
 	DescribeTagsByResourceRequest(*DescribeTagsByResourceInput) (*request.Request, *DescribeTagsByResourceOutput)
+
+	DescribeTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTasks(*DescribeTasksInput) (*DescribeTasksOutput, error)
+	DescribeTasksWithContext(volcengine.Context, *DescribeTasksInput, ...request.Option) (*DescribeTasksOutput, error)
+	DescribeTasksRequest(*DescribeTasksInput) (*request.Request, *DescribeTasksOutput)
 
 	DescribeZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -813,6 +837,14 @@ type REDISAPI interface {
 	SwitchoverBlueGreenDeployment(*SwitchoverBlueGreenDeploymentInput) (*SwitchoverBlueGreenDeploymentOutput, error)
 	SwitchoverBlueGreenDeploymentWithContext(volcengine.Context, *SwitchoverBlueGreenDeploymentInput, ...request.Option) (*SwitchoverBlueGreenDeploymentOutput, error)
 	SwitchoverBlueGreenDeploymentRequest(*SwitchoverBlueGreenDeploymentInput) (*request.Request, *SwitchoverBlueGreenDeploymentOutput)
+
+	SyncAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SyncAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SyncAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SyncAllowList(*SyncAllowListInput) (*SyncAllowListOutput, error)
+	SyncAllowListWithContext(volcengine.Context, *SyncAllowListInput, ...request.Option) (*SyncAllowListOutput, error)
+	SyncAllowListRequest(*SyncAllowListInput) (*request.Request, *SyncAllowListOutput)
 
 	TestFailoverDBInstanceZoneCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TestFailoverDBInstanceZoneCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
