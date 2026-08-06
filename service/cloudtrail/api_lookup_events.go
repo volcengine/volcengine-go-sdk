@@ -146,7 +146,7 @@ func (c *CLOUDTRAIL) LookupEventsWithContext(ctx volcengine.Context, input *Look
 type LookupConditionForLookupEventsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	LookupConditionKey *string `type:"string" json:",omitempty"`
+	LookupConditionKey *string `type:"string" json:",omitempty" enum:"EnumOfLookupConditionKeyForLookupEventsInput"`
 
 	LookupConditionValue *string `type:"string" json:",omitempty"`
 }
@@ -446,3 +446,44 @@ func (s *TrailForLookupEventsOutput) SetUserName(v string) *TrailForLookupEvents
 	s.UserName = &v
 	return s
 }
+
+const (
+	// EnumOfLookupConditionKeyForLookupEventsInputEventId is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputEventId = "EventID"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputRequestId is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputRequestId = "RequestID"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputEventSource is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputEventSource = "EventSource"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputEventName is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputEventName = "EventName"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputApiVersion is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputApiVersion = "ApiVersion"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputReadOnly is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputReadOnly = "ReadOnly"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputIdentityType is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputIdentityType = "IdentityType"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputIdentityName is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputIdentityName = "IdentityName"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputAccessKeyId is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputAccessKeyId = "AccessKeyID"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputRegion is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputRegion = "Region"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputResourceType is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputResourceType = "ResourceType"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputResourceId is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputResourceId = "ResourceID"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputErrorCode is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputErrorCode = "ErrorCode"
+)
