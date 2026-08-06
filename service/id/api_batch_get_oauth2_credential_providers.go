@@ -146,7 +146,7 @@ func (c *ID) BatchGetOauth2CredentialProvidersWithContext(ctx volcengine.Context
 type BatchGetOauth2CredentialProvidersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Names []*string `type:"list" json:",omitempty"`
+	Names []*string `type:"list"`
 
 	PoolName *string `type:"string" json:",omitempty"`
 }
@@ -178,7 +178,7 @@ type BatchGetOauth2CredentialProvidersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Oauth2CredentialProviders []*Oauth2CredentialProviderForBatchGetOauth2CredentialProvidersOutput `type:"list" json:",omitempty"`
+	Oauth2CredentialProviders []*Oauth2CredentialProviderForBatchGetOauth2CredentialProvidersOutput `type:"list"`
 }
 
 // String returns the string representation

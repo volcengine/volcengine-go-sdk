@@ -147,7 +147,7 @@ type GetSmsServiceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// UserPoolUid is a required field
-	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
+	UserPoolUid *string `min:"1" type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -165,6 +165,9 @@ func (s *GetSmsServiceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetSmsServiceInput"}
 	if s.UserPoolUid == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserPoolUid"))
+	}
+	if s.UserPoolUid != nil && len(*s.UserPoolUid) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("UserPoolUid", 1))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -184,7 +187,23 @@ type GetSmsServiceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	CnUsageEnabled *bool `type:"boolean" json:",omitempty"`
+
 	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	LoginRowTemplateId *string `type:"string" json:",omitempty"`
+
+	PasswordResetCnTemplateId *string `type:"string" json:",omitempty"`
+
+	PasswordResetRowTemplateId *string `type:"string" json:",omitempty"`
+
+	RowUsageEnabled *bool `type:"boolean" json:",omitempty"`
+
+	SenderId *string `type:"string" json:",omitempty"`
+
+	SignUpCnTemplateId *string `type:"string" json:",omitempty"`
+
+	SignUpRowTemplateId *string `type:"string" json:",omitempty"`
 
 	SignatureContent *string `type:"string" json:",omitempty"`
 
@@ -205,9 +224,57 @@ func (s GetSmsServiceOutput) GoString() string {
 	return s.String()
 }
 
+// SetCnUsageEnabled sets the CnUsageEnabled field's value.
+func (s *GetSmsServiceOutput) SetCnUsageEnabled(v bool) *GetSmsServiceOutput {
+	s.CnUsageEnabled = &v
+	return s
+}
+
 // SetEnabled sets the Enabled field's value.
 func (s *GetSmsServiceOutput) SetEnabled(v bool) *GetSmsServiceOutput {
 	s.Enabled = &v
+	return s
+}
+
+// SetLoginRowTemplateId sets the LoginRowTemplateId field's value.
+func (s *GetSmsServiceOutput) SetLoginRowTemplateId(v string) *GetSmsServiceOutput {
+	s.LoginRowTemplateId = &v
+	return s
+}
+
+// SetPasswordResetCnTemplateId sets the PasswordResetCnTemplateId field's value.
+func (s *GetSmsServiceOutput) SetPasswordResetCnTemplateId(v string) *GetSmsServiceOutput {
+	s.PasswordResetCnTemplateId = &v
+	return s
+}
+
+// SetPasswordResetRowTemplateId sets the PasswordResetRowTemplateId field's value.
+func (s *GetSmsServiceOutput) SetPasswordResetRowTemplateId(v string) *GetSmsServiceOutput {
+	s.PasswordResetRowTemplateId = &v
+	return s
+}
+
+// SetRowUsageEnabled sets the RowUsageEnabled field's value.
+func (s *GetSmsServiceOutput) SetRowUsageEnabled(v bool) *GetSmsServiceOutput {
+	s.RowUsageEnabled = &v
+	return s
+}
+
+// SetSenderId sets the SenderId field's value.
+func (s *GetSmsServiceOutput) SetSenderId(v string) *GetSmsServiceOutput {
+	s.SenderId = &v
+	return s
+}
+
+// SetSignUpCnTemplateId sets the SignUpCnTemplateId field's value.
+func (s *GetSmsServiceOutput) SetSignUpCnTemplateId(v string) *GetSmsServiceOutput {
+	s.SignUpCnTemplateId = &v
+	return s
+}
+
+// SetSignUpRowTemplateId sets the SignUpRowTemplateId field's value.
+func (s *GetSmsServiceOutput) SetSignUpRowTemplateId(v string) *GetSmsServiceOutput {
+	s.SignUpRowTemplateId = &v
 	return s
 }
 

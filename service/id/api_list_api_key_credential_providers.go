@@ -258,7 +258,7 @@ type ListApiKeyCredentialProvidersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ApiKeyCredentialProviders []*ApiKeyCredentialProviderForListApiKeyCredentialProvidersOutput `type:"list" json:",omitempty"`
+	ApiKeyCredentialProviders []*ApiKeyCredentialProviderForListApiKeyCredentialProvidersOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

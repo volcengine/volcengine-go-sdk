@@ -152,6 +152,10 @@ type DescribeIpamPoolAllocationsInput struct {
 	MaxResults *int64 `type:"integer"`
 
 	NextToken *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -207,6 +211,18 @@ func (s *DescribeIpamPoolAllocationsInput) SetNextToken(v string) *DescribeIpamP
 	return s
 }
 
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeIpamPoolAllocationsInput) SetPageNumber(v int64) *DescribeIpamPoolAllocationsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeIpamPoolAllocationsInput) SetPageSize(v int64) *DescribeIpamPoolAllocationsInput {
+	s.PageSize = &v
+	return s
+}
+
 type DescribeIpamPoolAllocationsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -216,7 +232,13 @@ type DescribeIpamPoolAllocationsOutput struct {
 
 	NextToken *string `type:"string"`
 
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
 	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -241,9 +263,27 @@ func (s *DescribeIpamPoolAllocationsOutput) SetNextToken(v string) *DescribeIpam
 	return s
 }
 
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeIpamPoolAllocationsOutput) SetPageNumber(v int64) *DescribeIpamPoolAllocationsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeIpamPoolAllocationsOutput) SetPageSize(v int64) *DescribeIpamPoolAllocationsOutput {
+	s.PageSize = &v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeIpamPoolAllocationsOutput) SetRequestId(v string) *DescribeIpamPoolAllocationsOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeIpamPoolAllocationsOutput) SetTotalCount(v int64) *DescribeIpamPoolAllocationsOutput {
+	s.TotalCount = &v
 	return s
 }
 

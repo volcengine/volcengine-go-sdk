@@ -230,7 +230,7 @@ type ListFaasServicesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListFaasServicesOutput `type:"list" json:",omitempty"`
+	Data []*DataForListFaasServicesOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }

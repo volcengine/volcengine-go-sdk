@@ -304,7 +304,7 @@ type UpdateServiceOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForUpdateServiceOutput `type:"list" json:",omitempty"`
+	Tags []*TagForUpdateServiceOutput `type:"list"`
 
 	TemplateId *string `type:"string" json:",omitempty"`
 

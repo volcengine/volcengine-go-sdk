@@ -208,7 +208,11 @@ type GetIdentityProviderFeishuScopesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Scopes []*string `type:"list" json:",omitempty"`
+	Scopes []*string `type:"list"`
+
+	TenantScopes []*string `type:"list"`
+
+	UserScopes []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -224,5 +228,17 @@ func (s GetIdentityProviderFeishuScopesOutput) GoString() string {
 // SetScopes sets the Scopes field's value.
 func (s *GetIdentityProviderFeishuScopesOutput) SetScopes(v []*string) *GetIdentityProviderFeishuScopesOutput {
 	s.Scopes = v
+	return s
+}
+
+// SetTenantScopes sets the TenantScopes field's value.
+func (s *GetIdentityProviderFeishuScopesOutput) SetTenantScopes(v []*string) *GetIdentityProviderFeishuScopesOutput {
+	s.TenantScopes = v
+	return s
+}
+
+// SetUserScopes sets the UserScopes field's value.
+func (s *GetIdentityProviderFeishuScopesOutput) SetUserScopes(v []*string) *GetIdentityProviderFeishuScopesOutput {
+	s.UserScopes = v
 	return s
 }

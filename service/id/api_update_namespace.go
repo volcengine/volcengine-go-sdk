@@ -146,7 +146,7 @@ func (c *ID) UpdateNamespaceWithContext(ctx volcengine.Context, input *UpdateNam
 type UpdateNamespaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Associates []*string `type:"list" json:",omitempty"`
+	Associates []*string `type:"list"`
 
 	Description *string `type:"string" json:",omitempty"`
 

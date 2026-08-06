@@ -192,6 +192,8 @@ type ProvisionIpamPoolCidrOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -203,6 +205,12 @@ func (s ProvisionIpamPoolCidrOutput) String() string {
 // GoString returns the string representation
 func (s ProvisionIpamPoolCidrOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *ProvisionIpamPoolCidrOutput) SetAsyncTaskId(v string) *ProvisionIpamPoolCidrOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

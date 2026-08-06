@@ -148,7 +148,7 @@ type AdditionalMappingForListIdentityProvidersOIDCOutput struct {
 
 	ScimPath *string `type:"string" json:",omitempty"`
 
-	UserPoolPath []*string `type:"list" json:",omitempty"`
+	UserPoolPath []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -222,7 +222,7 @@ func (s *ClaimRuleForListIdentityProvidersOIDCOutput) SetTargetClaim(v string) *
 type ClaimsPropagationConfigForListIdentityProvidersOIDCOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForListIdentityProvidersOIDCOutput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForListIdentityProvidersOIDCOutput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -258,6 +258,8 @@ type DataForListIdentityProvidersOIDCOutput struct {
 
 	ClientSecret *string `type:"string" json:",omitempty"`
 
+	EipRecord *EipRecordForListIdentityProvidersOIDCOutput `type:"structure" json:",omitempty"`
+
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
 	IsIdTokenMapping *bool `type:"boolean" json:",omitempty"`
@@ -272,7 +274,7 @@ type DataForListIdentityProvidersOIDCOutput struct {
 
 	ScimProvisioning *ScimProvisioningForListIdentityProvidersOIDCOutput `type:"structure" json:",omitempty"`
 
-	ScopesList []*string `type:"list" json:",omitempty"`
+	ScopesList []*string `type:"list"`
 
 	Uid *string `type:"string" json:",omitempty"`
 
@@ -304,6 +306,12 @@ func (s *DataForListIdentityProvidersOIDCOutput) SetClientId(v string) *DataForL
 // SetClientSecret sets the ClientSecret field's value.
 func (s *DataForListIdentityProvidersOIDCOutput) SetClientSecret(v string) *DataForListIdentityProvidersOIDCOutput {
 	s.ClientSecret = &v
+	return s
+}
+
+// SetEipRecord sets the EipRecord field's value.
+func (s *DataForListIdentityProvidersOIDCOutput) SetEipRecord(v *EipRecordForListIdentityProvidersOIDCOutput) *DataForListIdentityProvidersOIDCOutput {
+	s.EipRecord = v
 	return s
 }
 
@@ -367,6 +375,36 @@ func (s *DataForListIdentityProvidersOIDCOutput) SetUsePkce(v bool) *DataForList
 	return s
 }
 
+type EipRecordForListIdentityProvidersOIDCOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipRecordForListIdentityProvidersOIDCOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipRecordForListIdentityProvidersOIDCOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipRecordForListIdentityProvidersOIDCOutput) SetEipAddress(v string) *EipRecordForListIdentityProvidersOIDCOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipRecordForListIdentityProvidersOIDCOutput) SetEipId(v string) *EipRecordForListIdentityProvidersOIDCOutput {
+	s.EipId = &v
+	return s
+}
+
 type ListIdentityProvidersOIDCInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -408,7 +446,7 @@ type ListIdentityProvidersOIDCOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListIdentityProvidersOIDCOutput `type:"list" json:",omitempty"`
+	Data []*DataForListIdentityProvidersOIDCOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -516,7 +554,7 @@ func (s *ProviderOptionsForListIdentityProvidersOIDCOutput) SetUserLinkingPrompt
 type ScimProvisioningForListIdentityProvidersOIDCOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalMappings []*AdditionalMappingForListIdentityProvidersOIDCOutput `type:"list" json:",omitempty"`
+	AdditionalMappings []*AdditionalMappingForListIdentityProvidersOIDCOutput `type:"list"`
 
 	BaseUrl *string `type:"string" json:",omitempty"`
 

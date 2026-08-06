@@ -148,7 +148,7 @@ type ApiKeyAuthConfigForUpdateInboundAuthConfigInput struct {
 
 	ApiKey *string `type:"string" json:",omitempty"`
 
-	ApiKeyMetadata []*ApiKeyMetadataForUpdateInboundAuthConfigInput `type:"list" json:",omitempty"`
+	ApiKeyMetadata []*ApiKeyMetadataForUpdateInboundAuthConfigInput `type:"list"`
 
 	ApiKeyName *string `type:"string" json:",omitempty"`
 
@@ -230,9 +230,9 @@ func (s *ApiKeyMetadataForUpdateInboundAuthConfigInput) SetPrefix(v string) *Api
 type JwtAuthConfigForUpdateInboundAuthConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowedAudiences []*string `type:"list" json:",omitempty"`
+	AllowedAudiences []*string `type:"list"`
 
-	AllowedClients []*string `type:"list" json:",omitempty"`
+	AllowedClients []*string `type:"list"`
 
 	DiscoveryUrl *string `type:"string" json:",omitempty"`
 }

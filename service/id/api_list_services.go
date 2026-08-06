@@ -226,7 +226,7 @@ type ItemForListServicesOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForListServicesOutput `type:"list" json:",omitempty"`
+	Tags []*TagForListServicesOutput `type:"list"`
 
 	TemplateId *string `type:"string" json:",omitempty"`
 
@@ -368,9 +368,9 @@ type ListServicesInput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	TagFilters []*TagFilterForListServicesInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForListServicesInput `type:"list"`
 
-	TagIds []*string `type:"list" json:",omitempty"`
+	TagIds []*string `type:"list"`
 
 	TemplateKeyword *string `type:"string" json:",omitempty"`
 }
@@ -462,7 +462,7 @@ type ListServicesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListServicesOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListServicesOutput `type:"list"`
 
 	PageInfo *PageInfoForListServicesOutput `type:"structure" json:",omitempty"`
 }
@@ -532,7 +532,7 @@ type TagFilterForListServicesInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation

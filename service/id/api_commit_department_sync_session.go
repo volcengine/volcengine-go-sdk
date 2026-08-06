@@ -143,6 +143,290 @@ func (c *ID) CommitDepartmentSyncSessionWithContext(ctx volcengine.Context, inpu
 	return out, req.Send()
 }
 
+type AfterForCommitDepartmentSyncSessionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CreateTime *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
+	Description *string `max:"2048" type:"string" json:",omitempty"`
+
+	DirectChildrenCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	DirectMemberCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	ExternalID *string `max:"512" type:"string" json:",omitempty"`
+
+	IamRoleTrn *string `max:"2048" type:"string" json:",omitempty"`
+
+	MemberCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	Name *string `min:"1" max:"255" type:"string" json:",omitempty"`
+
+	NamePath *string `max:"8192" type:"string" json:",omitempty"`
+
+	ParentDepartmentUid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+
+	Path *string `max:"4096" type:"string" json:",omitempty"`
+
+	Precedence *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	Source *string `max:"64" type:"string" json:",omitempty"`
+
+	Uid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+
+	UpdateTime *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
+	UserPoolUid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AfterForCommitDepartmentSyncSessionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AfterForCommitDepartmentSyncSessionOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetCreateTime(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetDescription(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDirectChildrenCount sets the DirectChildrenCount field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetDirectChildrenCount(v int32) *AfterForCommitDepartmentSyncSessionOutput {
+	s.DirectChildrenCount = &v
+	return s
+}
+
+// SetDirectMemberCount sets the DirectMemberCount field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetDirectMemberCount(v int32) *AfterForCommitDepartmentSyncSessionOutput {
+	s.DirectMemberCount = &v
+	return s
+}
+
+// SetExternalID sets the ExternalID field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetExternalID(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.ExternalID = &v
+	return s
+}
+
+// SetIamRoleTrn sets the IamRoleTrn field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetIamRoleTrn(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.IamRoleTrn = &v
+	return s
+}
+
+// SetMemberCount sets the MemberCount field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetMemberCount(v int32) *AfterForCommitDepartmentSyncSessionOutput {
+	s.MemberCount = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetName(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.Name = &v
+	return s
+}
+
+// SetNamePath sets the NamePath field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetNamePath(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.NamePath = &v
+	return s
+}
+
+// SetParentDepartmentUid sets the ParentDepartmentUid field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetParentDepartmentUid(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.ParentDepartmentUid = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetPath(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.Path = &v
+	return s
+}
+
+// SetPrecedence sets the Precedence field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetPrecedence(v int32) *AfterForCommitDepartmentSyncSessionOutput {
+	s.Precedence = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetSource(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.Source = &v
+	return s
+}
+
+// SetUid sets the Uid field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetUid(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.Uid = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetUpdateTime(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUserPoolUid sets the UserPoolUid field's value.
+func (s *AfterForCommitDepartmentSyncSessionOutput) SetUserPoolUid(v string) *AfterForCommitDepartmentSyncSessionOutput {
+	s.UserPoolUid = &v
+	return s
+}
+
+type BeforeForCommitDepartmentSyncSessionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CreateTime *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
+	Description *string `max:"2048" type:"string" json:",omitempty"`
+
+	DirectChildrenCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	DirectMemberCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	ExternalID *string `max:"512" type:"string" json:",omitempty"`
+
+	IamRoleTrn *string `max:"2048" type:"string" json:",omitempty"`
+
+	MemberCount *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	Name *string `min:"1" max:"255" type:"string" json:",omitempty"`
+
+	NamePath *string `max:"8192" type:"string" json:",omitempty"`
+
+	ParentDepartmentUid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+
+	Path *string `max:"4096" type:"string" json:",omitempty"`
+
+	Precedence *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+
+	Source *string `max:"64" type:"string" json:",omitempty"`
+
+	Uid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+
+	UpdateTime *string `min:"1" max:"64" type:"string" json:",omitempty"`
+
+	UserPoolUid *string `min:"1" max:"128" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BeforeForCommitDepartmentSyncSessionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BeforeForCommitDepartmentSyncSessionOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetCreateTime(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetDescription(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDirectChildrenCount sets the DirectChildrenCount field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetDirectChildrenCount(v int32) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.DirectChildrenCount = &v
+	return s
+}
+
+// SetDirectMemberCount sets the DirectMemberCount field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetDirectMemberCount(v int32) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.DirectMemberCount = &v
+	return s
+}
+
+// SetExternalID sets the ExternalID field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetExternalID(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.ExternalID = &v
+	return s
+}
+
+// SetIamRoleTrn sets the IamRoleTrn field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetIamRoleTrn(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.IamRoleTrn = &v
+	return s
+}
+
+// SetMemberCount sets the MemberCount field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetMemberCount(v int32) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.MemberCount = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetName(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.Name = &v
+	return s
+}
+
+// SetNamePath sets the NamePath field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetNamePath(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.NamePath = &v
+	return s
+}
+
+// SetParentDepartmentUid sets the ParentDepartmentUid field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetParentDepartmentUid(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.ParentDepartmentUid = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetPath(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.Path = &v
+	return s
+}
+
+// SetPrecedence sets the Precedence field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetPrecedence(v int32) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.Precedence = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetSource(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.Source = &v
+	return s
+}
+
+// SetUid sets the Uid field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetUid(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.Uid = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetUpdateTime(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUserPoolUid sets the UserPoolUid field's value.
+func (s *BeforeForCommitDepartmentSyncSessionOutput) SetUserPoolUid(v string) *BeforeForCommitDepartmentSyncSessionOutput {
+	s.UserPoolUid = &v
+	return s
+}
+
 type CommitDepartmentSyncSessionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -276,9 +560,9 @@ type DepartmentsForCommitDepartmentSyncSessionOutput struct {
 
 	Deleted *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
 
-	Errors []*string `type:"list" json:",omitempty"`
+	Errors []*string `type:"list"`
 
-	Items []*ItemForCommitDepartmentSyncSessionOutput `type:"list" json:",omitempty"`
+	Items []*ItemForCommitDepartmentSyncSessionOutput `type:"list"`
 
 	Skipped *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
 
@@ -334,6 +618,10 @@ func (s *DepartmentsForCommitDepartmentSyncSessionOutput) SetUpdated(v int32) *D
 type ItemForCommitDepartmentSyncSessionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	After *AfterForCommitDepartmentSyncSessionOutput `type:"structure" json:",omitempty"`
+
+	Before *BeforeForCommitDepartmentSyncSessionOutput `type:"structure" json:",omitempty"`
+
 	DepartmentUid *string `max:"128" type:"string" json:",omitempty"`
 
 	ExternalID *string `max:"512" type:"string" json:",omitempty"`
@@ -353,6 +641,18 @@ func (s ItemForCommitDepartmentSyncSessionOutput) String() string {
 // GoString returns the string representation
 func (s ItemForCommitDepartmentSyncSessionOutput) GoString() string {
 	return s.String()
+}
+
+// SetAfter sets the After field's value.
+func (s *ItemForCommitDepartmentSyncSessionOutput) SetAfter(v *AfterForCommitDepartmentSyncSessionOutput) *ItemForCommitDepartmentSyncSessionOutput {
+	s.After = v
+	return s
+}
+
+// SetBefore sets the Before field's value.
+func (s *ItemForCommitDepartmentSyncSessionOutput) SetBefore(v *BeforeForCommitDepartmentSyncSessionOutput) *ItemForCommitDepartmentSyncSessionOutput {
+	s.Before = v
+	return s
 }
 
 // SetDepartmentUid sets the DepartmentUid field's value.
@@ -392,6 +692,8 @@ type MappingResultForCommitDepartmentSyncSessionOutput struct {
 
 	ExternalDepartmentID *string `max:"512" type:"string" json:",omitempty"`
 
+	MemberDiffs []*MemberDiffForCommitDepartmentSyncSessionOutput `type:"list"`
+
 	Message *string `max:"2048" type:"string" json:",omitempty"`
 
 	Removed *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
@@ -423,6 +725,12 @@ func (s *MappingResultForCommitDepartmentSyncSessionOutput) SetExternalDepartmen
 	return s
 }
 
+// SetMemberDiffs sets the MemberDiffs field's value.
+func (s *MappingResultForCommitDepartmentSyncSessionOutput) SetMemberDiffs(v []*MemberDiffForCommitDepartmentSyncSessionOutput) *MappingResultForCommitDepartmentSyncSessionOutput {
+	s.MemberDiffs = v
+	return s
+}
+
 // SetMessage sets the Message field's value.
 func (s *MappingResultForCommitDepartmentSyncSessionOutput) SetMessage(v string) *MappingResultForCommitDepartmentSyncSessionOutput {
 	s.Message = &v
@@ -447,14 +755,76 @@ func (s *MappingResultForCommitDepartmentSyncSessionOutput) SetUnchanged(v int32
 	return s
 }
 
+type MemberDiffForCommitDepartmentSyncSessionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `max:"32" type:"string" json:",omitempty"`
+
+	AfterIsPrimary *bool `type:"boolean" json:",omitempty"`
+
+	AfterRole *string `max:"64" type:"string" json:",omitempty"`
+
+	BeforeIsPrimary *bool `type:"boolean" json:",omitempty"`
+
+	BeforeRole *string `max:"64" type:"string" json:",omitempty"`
+
+	UserUid *string `max:"128" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MemberDiffForCommitDepartmentSyncSessionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MemberDiffForCommitDepartmentSyncSessionOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *MemberDiffForCommitDepartmentSyncSessionOutput) SetAction(v string) *MemberDiffForCommitDepartmentSyncSessionOutput {
+	s.Action = &v
+	return s
+}
+
+// SetAfterIsPrimary sets the AfterIsPrimary field's value.
+func (s *MemberDiffForCommitDepartmentSyncSessionOutput) SetAfterIsPrimary(v bool) *MemberDiffForCommitDepartmentSyncSessionOutput {
+	s.AfterIsPrimary = &v
+	return s
+}
+
+// SetAfterRole sets the AfterRole field's value.
+func (s *MemberDiffForCommitDepartmentSyncSessionOutput) SetAfterRole(v string) *MemberDiffForCommitDepartmentSyncSessionOutput {
+	s.AfterRole = &v
+	return s
+}
+
+// SetBeforeIsPrimary sets the BeforeIsPrimary field's value.
+func (s *MemberDiffForCommitDepartmentSyncSessionOutput) SetBeforeIsPrimary(v bool) *MemberDiffForCommitDepartmentSyncSessionOutput {
+	s.BeforeIsPrimary = &v
+	return s
+}
+
+// SetBeforeRole sets the BeforeRole field's value.
+func (s *MemberDiffForCommitDepartmentSyncSessionOutput) SetBeforeRole(v string) *MemberDiffForCommitDepartmentSyncSessionOutput {
+	s.BeforeRole = &v
+	return s
+}
+
+// SetUserUid sets the UserUid field's value.
+func (s *MemberDiffForCommitDepartmentSyncSessionOutput) SetUserUid(v string) *MemberDiffForCommitDepartmentSyncSessionOutput {
+	s.UserUid = &v
+	return s
+}
+
 type MembersForCommitDepartmentSyncSessionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Added *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
 
-	Errors []*string `type:"list" json:",omitempty"`
+	Errors []*string `type:"list"`
 
-	MappingResults []*MappingResultForCommitDepartmentSyncSessionOutput `type:"list" json:",omitempty"`
+	MappingResults []*MappingResultForCommitDepartmentSyncSessionOutput `type:"list"`
 
 	Removed *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
 

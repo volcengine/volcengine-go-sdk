@@ -192,7 +192,7 @@ func (s *ClaimRuleForListIdentityProvidersOAuthOutput) SetTargetClaim(v string) 
 type ClaimsPropagationConfigForListIdentityProvidersOAuthOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForListIdentityProvidersOAuthOutput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForListIdentityProvidersOAuthOutput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -230,6 +230,8 @@ type DataForListIdentityProvidersOAuthOutput struct {
 
 	ClientSecret *string `type:"string" json:",omitempty"`
 
+	EipRecord *EipRecordForListIdentityProvidersOAuthOutput `type:"structure" json:",omitempty"`
+
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
 	IdAttribute *string `type:"string" json:",omitempty"`
@@ -240,7 +242,7 @@ type DataForListIdentityProvidersOAuthOutput struct {
 
 	ProviderOptions *ProviderOptionsForListIdentityProvidersOAuthOutput `type:"structure" json:",omitempty"`
 
-	ScopesList []*string `type:"list" json:",omitempty"`
+	ScopesList []*string `type:"list"`
 
 	TokenEndpoint *string `type:"string" json:",omitempty"`
 
@@ -282,6 +284,12 @@ func (s *DataForListIdentityProvidersOAuthOutput) SetClientId(v string) *DataFor
 // SetClientSecret sets the ClientSecret field's value.
 func (s *DataForListIdentityProvidersOAuthOutput) SetClientSecret(v string) *DataForListIdentityProvidersOAuthOutput {
 	s.ClientSecret = &v
+	return s
+}
+
+// SetEipRecord sets the EipRecord field's value.
+func (s *DataForListIdentityProvidersOAuthOutput) SetEipRecord(v *EipRecordForListIdentityProvidersOAuthOutput) *DataForListIdentityProvidersOAuthOutput {
+	s.EipRecord = v
 	return s
 }
 
@@ -345,6 +353,36 @@ func (s *DataForListIdentityProvidersOAuthOutput) SetUserEndpoint(v string) *Dat
 	return s
 }
 
+type EipRecordForListIdentityProvidersOAuthOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipRecordForListIdentityProvidersOAuthOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipRecordForListIdentityProvidersOAuthOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipRecordForListIdentityProvidersOAuthOutput) SetEipAddress(v string) *EipRecordForListIdentityProvidersOAuthOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipRecordForListIdentityProvidersOAuthOutput) SetEipId(v string) *EipRecordForListIdentityProvidersOAuthOutput {
+	s.EipId = &v
+	return s
+}
+
 type ListIdentityProvidersOAuthInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -386,7 +424,7 @@ type ListIdentityProvidersOAuthOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListIdentityProvidersOAuthOutput `type:"list" json:",omitempty"`
+	Data []*DataForListIdentityProvidersOAuthOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

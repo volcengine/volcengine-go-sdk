@@ -148,6 +148,8 @@ type DiagnoseConfigForUpdateJobInput struct {
 
 	DetectionIntervalSeconds *int64 `type:"int64" json:",omitempty"`
 
+	EnableInformationCollectionOnHang *bool `type:"boolean" json:",omitempty"`
+
 	FirstDetectionWaitSeconds *int64 `type:"int64" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty" enum:"EnumOfNameForUpdateJobInput"`
@@ -168,6 +170,12 @@ func (s DiagnoseConfigForUpdateJobInput) GoString() string {
 // SetDetectionIntervalSeconds sets the DetectionIntervalSeconds field's value.
 func (s *DiagnoseConfigForUpdateJobInput) SetDetectionIntervalSeconds(v int64) *DiagnoseConfigForUpdateJobInput {
 	s.DetectionIntervalSeconds = &v
+	return s
+}
+
+// SetEnableInformationCollectionOnHang sets the EnableInformationCollectionOnHang field's value.
+func (s *DiagnoseConfigForUpdateJobInput) SetEnableInformationCollectionOnHang(v bool) *DiagnoseConfigForUpdateJobInput {
+	s.EnableInformationCollectionOnHang = &v
 	return s
 }
 

@@ -143,6 +143,66 @@ func (c *ID) UpdateUserWithContext(ctx volcengine.Context, input *UpdateUserInpu
 	return out, req.Send()
 }
 
+type CustomAttributeForUpdateUserOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributeForUpdateUserOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributeForUpdateUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *CustomAttributeForUpdateUserOutput) SetName(v string) *CustomAttributeForUpdateUserOutput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomAttributeForUpdateUserOutput) SetValue(v string) *CustomAttributeForUpdateUserOutput {
+	s.Value = &v
+	return s
+}
+
+type CustomAttributesToUpsertForUpdateUserInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributesToUpsertForUpdateUserInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributesToUpsertForUpdateUserInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *CustomAttributesToUpsertForUpdateUserInput) SetName(v string) *CustomAttributesToUpsertForUpdateUserInput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomAttributesToUpsertForUpdateUserInput) SetValue(v string) *CustomAttributesToUpsertForUpdateUserInput {
+	s.Value = &v
+	return s
+}
+
 type ExternalIdentityForUpdateUserOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -153,6 +213,8 @@ type ExternalIdentityForUpdateUserOutput struct {
 	ExternalProviderUserIdentifier *string `type:"string" json:",omitempty"`
 
 	ExternalProviderUserMetadata *string `type:"string" json:",omitempty"`
+
+	LastLoginAt *string `type:"string" json:",omitempty"`
 
 	LinkSource *string `type:"string" json:",omitempty"`
 
@@ -195,6 +257,12 @@ func (s *ExternalIdentityForUpdateUserOutput) SetExternalProviderUserMetadata(v 
 	return s
 }
 
+// SetLastLoginAt sets the LastLoginAt field's value.
+func (s *ExternalIdentityForUpdateUserOutput) SetLastLoginAt(v string) *ExternalIdentityForUpdateUserOutput {
+	s.LastLoginAt = &v
+	return s
+}
+
 // SetLinkSource sets the LinkSource field's value.
 func (s *ExternalIdentityForUpdateUserOutput) SetLinkSource(v string) *ExternalIdentityForUpdateUserOutput {
 	s.LinkSource = &v
@@ -217,6 +285,8 @@ type UpdateUserInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Birthdate *string `type:"string" json:",omitempty"`
+
+	CustomAttributesToUpsert []*CustomAttributesToUpsertForUpdateUserInput `type:"list"`
 
 	Email *string `type:"string" json:",omitempty"`
 
@@ -292,6 +362,12 @@ func (s *UpdateUserInput) Validate() error {
 // SetBirthdate sets the Birthdate field's value.
 func (s *UpdateUserInput) SetBirthdate(v string) *UpdateUserInput {
 	s.Birthdate = &v
+	return s
+}
+
+// SetCustomAttributesToUpsert sets the CustomAttributesToUpsert field's value.
+func (s *UpdateUserInput) SetCustomAttributesToUpsert(v []*CustomAttributesToUpsertForUpdateUserInput) *UpdateUserInput {
+	s.CustomAttributesToUpsert = v
 	return s
 }
 
@@ -432,13 +508,15 @@ type UpdateUserOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	DepartmentUids []*string `type:"list" json:",omitempty"`
+	CustomAttributes []*CustomAttributeForUpdateUserOutput `type:"list"`
+
+	DepartmentUids []*string `type:"list"`
 
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
 
-	ExternalIdentities []*ExternalIdentityForUpdateUserOutput `type:"list" json:",omitempty"`
+	ExternalIdentities []*ExternalIdentityForUpdateUserOutput `type:"list"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
@@ -446,11 +524,17 @@ type UpdateUserOutput struct {
 
 	GivenName *string `type:"string" json:",omitempty"`
 
-	GroupUids []*string `type:"list" json:",omitempty"`
+	GroupUids []*string `type:"list"`
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
 	LatestLogin *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionName *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionProvider *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionType *string `type:"string" json:",omitempty"`
 
 	LatestLoginMethod *string `type:"string" json:",omitempty"`
 
@@ -517,6 +601,12 @@ func (s *UpdateUserOutput) SetCreateTime(v string) *UpdateUserOutput {
 	return s
 }
 
+// SetCustomAttributes sets the CustomAttributes field's value.
+func (s *UpdateUserOutput) SetCustomAttributes(v []*CustomAttributeForUpdateUserOutput) *UpdateUserOutput {
+	s.CustomAttributes = v
+	return s
+}
+
 // SetDepartmentUids sets the DepartmentUids field's value.
 func (s *UpdateUserOutput) SetDepartmentUids(v []*string) *UpdateUserOutput {
 	s.DepartmentUids = v
@@ -574,6 +664,24 @@ func (s *UpdateUserOutput) SetLatestBrowser(v string) *UpdateUserOutput {
 // SetLatestLogin sets the LatestLogin field's value.
 func (s *UpdateUserOutput) SetLatestLogin(v string) *UpdateUserOutput {
 	s.LatestLogin = &v
+	return s
+}
+
+// SetLatestLoginConnectionName sets the LatestLoginConnectionName field's value.
+func (s *UpdateUserOutput) SetLatestLoginConnectionName(v string) *UpdateUserOutput {
+	s.LatestLoginConnectionName = &v
+	return s
+}
+
+// SetLatestLoginConnectionProvider sets the LatestLoginConnectionProvider field's value.
+func (s *UpdateUserOutput) SetLatestLoginConnectionProvider(v string) *UpdateUserOutput {
+	s.LatestLoginConnectionProvider = &v
+	return s
+}
+
+// SetLatestLoginConnectionType sets the LatestLoginConnectionType field's value.
+func (s *UpdateUserOutput) SetLatestLoginConnectionType(v string) *UpdateUserOutput {
+	s.LatestLoginConnectionType = &v
 	return s
 }
 

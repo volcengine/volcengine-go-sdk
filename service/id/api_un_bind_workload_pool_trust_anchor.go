@@ -148,7 +148,7 @@ type MetaDataForUnBindWorkloadPoolTrustAnchorOutput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -226,15 +226,29 @@ type UnBindWorkloadPoolTrustAnchorOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AllowAutoCreateIdentity *bool `type:"boolean" json:",omitempty"`
+
 	BindingUID *string `type:"string" json:",omitempty"`
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 
-	MetaData []*MetaDataForUnBindWorkloadPoolTrustAnchorOutput `type:"list" json:",omitempty"`
+	Description *string `type:"string" json:",omitempty"`
+
+	DiscoveryUrl *string `type:"string" json:",omitempty"`
+
+	MetaData []*MetaDataForUnBindWorkloadPoolTrustAnchorOutput `type:"list"`
+
+	Trn *string `type:"string" json:",omitempty"`
+
+	TrustAnchors []*string `type:"list"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
 
+	Url *string `type:"string" json:",omitempty"`
+
 	WorkloadIdentity *string `type:"string" json:",omitempty"`
+
+	WorkloadPoolId *string `type:"string" json:",omitempty"`
 
 	WorkloadPoolName *string `type:"string" json:",omitempty"`
 }
@@ -249,6 +263,12 @@ func (s UnBindWorkloadPoolTrustAnchorOutput) GoString() string {
 	return s.String()
 }
 
+// SetAllowAutoCreateIdentity sets the AllowAutoCreateIdentity field's value.
+func (s *UnBindWorkloadPoolTrustAnchorOutput) SetAllowAutoCreateIdentity(v bool) *UnBindWorkloadPoolTrustAnchorOutput {
+	s.AllowAutoCreateIdentity = &v
+	return s
+}
+
 // SetBindingUID sets the BindingUID field's value.
 func (s *UnBindWorkloadPoolTrustAnchorOutput) SetBindingUID(v string) *UnBindWorkloadPoolTrustAnchorOutput {
 	s.BindingUID = &v
@@ -261,9 +281,33 @@ func (s *UnBindWorkloadPoolTrustAnchorOutput) SetCreatedAt(v string) *UnBindWork
 	return s
 }
 
+// SetDescription sets the Description field's value.
+func (s *UnBindWorkloadPoolTrustAnchorOutput) SetDescription(v string) *UnBindWorkloadPoolTrustAnchorOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDiscoveryUrl sets the DiscoveryUrl field's value.
+func (s *UnBindWorkloadPoolTrustAnchorOutput) SetDiscoveryUrl(v string) *UnBindWorkloadPoolTrustAnchorOutput {
+	s.DiscoveryUrl = &v
+	return s
+}
+
 // SetMetaData sets the MetaData field's value.
 func (s *UnBindWorkloadPoolTrustAnchorOutput) SetMetaData(v []*MetaDataForUnBindWorkloadPoolTrustAnchorOutput) *UnBindWorkloadPoolTrustAnchorOutput {
 	s.MetaData = v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *UnBindWorkloadPoolTrustAnchorOutput) SetTrn(v string) *UnBindWorkloadPoolTrustAnchorOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetTrustAnchors sets the TrustAnchors field's value.
+func (s *UnBindWorkloadPoolTrustAnchorOutput) SetTrustAnchors(v []*string) *UnBindWorkloadPoolTrustAnchorOutput {
+	s.TrustAnchors = v
 	return s
 }
 
@@ -273,9 +317,21 @@ func (s *UnBindWorkloadPoolTrustAnchorOutput) SetUpdatedAt(v string) *UnBindWork
 	return s
 }
 
+// SetUrl sets the Url field's value.
+func (s *UnBindWorkloadPoolTrustAnchorOutput) SetUrl(v string) *UnBindWorkloadPoolTrustAnchorOutput {
+	s.Url = &v
+	return s
+}
+
 // SetWorkloadIdentity sets the WorkloadIdentity field's value.
 func (s *UnBindWorkloadPoolTrustAnchorOutput) SetWorkloadIdentity(v string) *UnBindWorkloadPoolTrustAnchorOutput {
 	s.WorkloadIdentity = &v
+	return s
+}
+
+// SetWorkloadPoolId sets the WorkloadPoolId field's value.
+func (s *UnBindWorkloadPoolTrustAnchorOutput) SetWorkloadPoolId(v string) *UnBindWorkloadPoolTrustAnchorOutput {
+	s.WorkloadPoolId = &v
 	return s
 }
 

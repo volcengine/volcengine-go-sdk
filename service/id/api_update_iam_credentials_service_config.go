@@ -194,15 +194,15 @@ type UpdateIamCredentialsServiceConfigInput struct {
 
 	AllowUnauthenticatedIdentities *bool `type:"boolean" json:",omitempty"`
 
-	AllowedClientIds []*string `type:"list" json:",omitempty"`
+	AllowedClientIds []*string `type:"list"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	OAuthConnections []*string `type:"list" json:",omitempty"`
+	OAuthConnections []*string `type:"list"`
 
-	OidcConnections []*string `type:"list" json:",omitempty"`
+	OidcConnections []*string `type:"list"`
 
-	SamlConnections []*string `type:"list" json:",omitempty"`
+	SamlConnections []*string `type:"list"`
 
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
@@ -280,17 +280,17 @@ type UpdateIamCredentialsServiceConfigOutput struct {
 
 	AllowUnauthenticatedIdentities *bool `type:"boolean" json:",omitempty"`
 
-	AllowedClientIds []*string `type:"list" json:",omitempty"`
+	AllowedClientIds []*string `type:"list"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	IamOidcProviderRoleTrns []*IamOidcProviderRoleTrnForUpdateIamCredentialsServiceConfigOutput `type:"list" json:",omitempty"`
+	IamOidcProviderRoleTrns []*IamOidcProviderRoleTrnForUpdateIamCredentialsServiceConfigOutput `type:"list"`
 
-	OAuthConnections []*string `type:"list" json:",omitempty"`
+	OAuthConnections []*string `type:"list"`
 
-	OidcConnections []*string `type:"list" json:",omitempty"`
+	OidcConnections []*string `type:"list"`
 
-	SamlConnections []*string `type:"list" json:",omitempty"`
+	SamlConnections []*string `type:"list"`
 
 	UserPoolUid *string `type:"string" json:",omitempty"`
 }

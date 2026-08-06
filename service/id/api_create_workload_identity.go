@@ -146,13 +146,13 @@ func (c *ID) CreateWorkloadIdentityWithContext(ctx volcengine.Context, input *Cr
 type CreateWorkloadIdentityInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowedResourceOauth2ReturnUrls []*string `type:"list" json:",omitempty"`
+	AllowedResourceOauth2ReturnUrls []*string `type:"list"`
 
 	Category *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
-	MetaData []*MetaDataForCreateWorkloadIdentityInput `type:"list" json:",omitempty"`
+	MetaData []*MetaDataForCreateWorkloadIdentityInput `type:"list"`
 
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
@@ -224,7 +224,7 @@ type CreateWorkloadIdentityOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AllowedResourceOauth2ReturnUrls []*string `type:"list" json:",omitempty"`
+	AllowedResourceOauth2ReturnUrls []*string `type:"list"`
 
 	Category *string `type:"string" json:",omitempty"`
 
@@ -232,7 +232,7 @@ type CreateWorkloadIdentityOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
-	MetaData []*MetaDataForCreateWorkloadIdentityOutput `type:"list" json:",omitempty"`
+	MetaData []*MetaDataForCreateWorkloadIdentityOutput `type:"list"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -320,7 +320,7 @@ type MetaDataForCreateWorkloadIdentityInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -350,7 +350,7 @@ type MetaDataForCreateWorkloadIdentityOutput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation

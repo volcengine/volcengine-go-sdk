@@ -143,6 +143,98 @@ func (c *ID) UpdateIdentityProviderOAuthWithContext(ctx volcengine.Context, inpu
 	return out, req.Send()
 }
 
+type AttributeMappingForUpdateIdentityProviderOAuthInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalConfig *string `type:"string" json:",omitempty"`
+
+	MappingType *string `type:"string" json:",omitempty"`
+
+	SourceAttributeName *string `type:"string" json:",omitempty"`
+
+	TargetAttributeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AttributeMappingForUpdateIdentityProviderOAuthInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttributeMappingForUpdateIdentityProviderOAuthInput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalConfig sets the AdditionalConfig field's value.
+func (s *AttributeMappingForUpdateIdentityProviderOAuthInput) SetAdditionalConfig(v string) *AttributeMappingForUpdateIdentityProviderOAuthInput {
+	s.AdditionalConfig = &v
+	return s
+}
+
+// SetMappingType sets the MappingType field's value.
+func (s *AttributeMappingForUpdateIdentityProviderOAuthInput) SetMappingType(v string) *AttributeMappingForUpdateIdentityProviderOAuthInput {
+	s.MappingType = &v
+	return s
+}
+
+// SetSourceAttributeName sets the SourceAttributeName field's value.
+func (s *AttributeMappingForUpdateIdentityProviderOAuthInput) SetSourceAttributeName(v string) *AttributeMappingForUpdateIdentityProviderOAuthInput {
+	s.SourceAttributeName = &v
+	return s
+}
+
+// SetTargetAttributeName sets the TargetAttributeName field's value.
+func (s *AttributeMappingForUpdateIdentityProviderOAuthInput) SetTargetAttributeName(v string) *AttributeMappingForUpdateIdentityProviderOAuthInput {
+	s.TargetAttributeName = &v
+	return s
+}
+
+type AttributeMappingForUpdateIdentityProviderOAuthOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalConfig *string `type:"string" json:",omitempty"`
+
+	MappingType *string `type:"string" json:",omitempty"`
+
+	SourceAttributeName *string `type:"string" json:",omitempty"`
+
+	TargetAttributeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AttributeMappingForUpdateIdentityProviderOAuthOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttributeMappingForUpdateIdentityProviderOAuthOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalConfig sets the AdditionalConfig field's value.
+func (s *AttributeMappingForUpdateIdentityProviderOAuthOutput) SetAdditionalConfig(v string) *AttributeMappingForUpdateIdentityProviderOAuthOutput {
+	s.AdditionalConfig = &v
+	return s
+}
+
+// SetMappingType sets the MappingType field's value.
+func (s *AttributeMappingForUpdateIdentityProviderOAuthOutput) SetMappingType(v string) *AttributeMappingForUpdateIdentityProviderOAuthOutput {
+	s.MappingType = &v
+	return s
+}
+
+// SetSourceAttributeName sets the SourceAttributeName field's value.
+func (s *AttributeMappingForUpdateIdentityProviderOAuthOutput) SetSourceAttributeName(v string) *AttributeMappingForUpdateIdentityProviderOAuthOutput {
+	s.SourceAttributeName = &v
+	return s
+}
+
+// SetTargetAttributeName sets the TargetAttributeName field's value.
+func (s *AttributeMappingForUpdateIdentityProviderOAuthOutput) SetTargetAttributeName(v string) *AttributeMappingForUpdateIdentityProviderOAuthOutput {
+	s.TargetAttributeName = &v
+	return s
+}
+
 type ClaimRuleForUpdateIdentityProviderOAuthInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -238,7 +330,7 @@ func (s *ClaimRuleForUpdateIdentityProviderOAuthOutput) SetTargetClaim(v string)
 type ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForUpdateIdentityProviderOAuthInput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForUpdateIdentityProviderOAuthInput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -268,7 +360,7 @@ func (s *ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput) SetMode(v s
 type ClaimsPropagationConfigForUpdateIdentityProviderOAuthOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForUpdateIdentityProviderOAuthOutput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForUpdateIdentityProviderOAuthOutput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -292,6 +384,124 @@ func (s *ClaimsPropagationConfigForUpdateIdentityProviderOAuthOutput) SetClaimRu
 // SetMode sets the Mode field's value.
 func (s *ClaimsPropagationConfigForUpdateIdentityProviderOAuthOutput) SetMode(v string) *ClaimsPropagationConfigForUpdateIdentityProviderOAuthOutput {
 	s.Mode = &v
+	return s
+}
+
+type DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AgentId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthInput) GoString() string {
+	return s.String()
+}
+
+// SetAgentId sets the AgentId field's value.
+func (s *DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthInput) SetAgentId(v string) *DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthInput {
+	s.AgentId = &v
+	return s
+}
+
+type DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AgentId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput) GoString() string {
+	return s.String()
+}
+
+// SetAgentId sets the AgentId field's value.
+func (s *DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput) SetAgentId(v string) *DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput {
+	s.AgentId = &v
+	return s
+}
+
+type EipRecordForUpdateIdentityProviderOAuthOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipRecordForUpdateIdentityProviderOAuthOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipRecordForUpdateIdentityProviderOAuthOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipRecordForUpdateIdentityProviderOAuthOutput) SetEipAddress(v string) *EipRecordForUpdateIdentityProviderOAuthOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipRecordForUpdateIdentityProviderOAuthOutput) SetEipId(v string) *EipRecordForUpdateIdentityProviderOAuthOutput {
+	s.EipId = &v
+	return s
+}
+
+type ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DingDingExtraProviderConfiguration *DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput) GoString() string {
+	return s.String()
+}
+
+// SetDingDingExtraProviderConfiguration sets the DingDingExtraProviderConfiguration field's value.
+func (s *ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput) SetDingDingExtraProviderConfiguration(v *DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthInput) *ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput {
+	s.DingDingExtraProviderConfiguration = v
+	return s
+}
+
+type ExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DingDingExtraProviderConfiguration *DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput) GoString() string {
+	return s.String()
+}
+
+// SetDingDingExtraProviderConfiguration sets the DingDingExtraProviderConfiguration field's value.
+func (s *ExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput) SetDingDingExtraProviderConfiguration(v *DingDingExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput) *ExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput {
+	s.DingDingExtraProviderConfiguration = v
 	return s
 }
 
@@ -422,33 +632,36 @@ func (s *ProviderOptionsForUpdateIdentityProviderOAuthOutput) SetUserLinkingProm
 type UpdateIdentityProviderOAuthInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AttributeMappings []*AttributeMappingForUpdateIdentityProviderOAuthInput `type:"list"`
+
 	AuthorizationEndpoint *string `type:"string" json:",omitempty"`
 
 	ClaimsPropagationConfig *ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput `type:"structure" json:",omitempty"`
 
-	// ClientId is a required field
-	ClientId *string `type:"string" json:",omitempty" required:"true"`
+	ClientId *string `type:"string" json:",omitempty"`
 
 	ClientSecret *string `type:"string" json:",omitempty"`
 
 	// ConnectionUid is a required field
 	ConnectionUid *string `type:"string" json:",omitempty" required:"true"`
 
+	EipId *string `type:"string" json:",omitempty"`
+
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	// IdAttribute is a required field
-	IdAttribute *string `type:"string" json:",omitempty" required:"true"`
+	ExtraProviderConfiguration *ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput `type:"structure" json:",omitempty"`
+
+	IdAttribute *string `type:"string" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
 	ProviderOptions *ProviderOptionsForUpdateIdentityProviderOAuthInput `type:"structure" json:",omitempty"`
 
-	ScopesList []*string `type:"list" json:",omitempty"`
+	ScopesList []*string `type:"list"`
 
 	TokenEndpoint *string `type:"string" json:",omitempty"`
 
-	// UsePkce is a required field
-	UsePkce *bool `type:"boolean" json:",omitempty" required:"true"`
+	UsePkce *bool `type:"boolean" json:",omitempty"`
 
 	UserEndpoint *string `type:"string" json:",omitempty"`
 
@@ -469,17 +682,8 @@ func (s UpdateIdentityProviderOAuthInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UpdateIdentityProviderOAuthInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateIdentityProviderOAuthInput"}
-	if s.ClientId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClientId"))
-	}
 	if s.ConnectionUid == nil {
 		invalidParams.Add(request.NewErrParamRequired("ConnectionUid"))
-	}
-	if s.IdAttribute == nil {
-		invalidParams.Add(request.NewErrParamRequired("IdAttribute"))
-	}
-	if s.UsePkce == nil {
-		invalidParams.Add(request.NewErrParamRequired("UsePkce"))
 	}
 	if s.UserPoolUid == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserPoolUid"))
@@ -489,6 +693,12 @@ func (s *UpdateIdentityProviderOAuthInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAttributeMappings sets the AttributeMappings field's value.
+func (s *UpdateIdentityProviderOAuthInput) SetAttributeMappings(v []*AttributeMappingForUpdateIdentityProviderOAuthInput) *UpdateIdentityProviderOAuthInput {
+	s.AttributeMappings = v
+	return s
 }
 
 // SetAuthorizationEndpoint sets the AuthorizationEndpoint field's value.
@@ -521,9 +731,21 @@ func (s *UpdateIdentityProviderOAuthInput) SetConnectionUid(v string) *UpdateIde
 	return s
 }
 
+// SetEipId sets the EipId field's value.
+func (s *UpdateIdentityProviderOAuthInput) SetEipId(v string) *UpdateIdentityProviderOAuthInput {
+	s.EipId = &v
+	return s
+}
+
 // SetEnabled sets the Enabled field's value.
 func (s *UpdateIdentityProviderOAuthInput) SetEnabled(v bool) *UpdateIdentityProviderOAuthInput {
 	s.Enabled = &v
+	return s
+}
+
+// SetExtraProviderConfiguration sets the ExtraProviderConfiguration field's value.
+func (s *UpdateIdentityProviderOAuthInput) SetExtraProviderConfiguration(v *ExtraProviderConfigurationForUpdateIdentityProviderOAuthInput) *UpdateIdentityProviderOAuthInput {
+	s.ExtraProviderConfiguration = v
 	return s
 }
 
@@ -580,6 +802,8 @@ type UpdateIdentityProviderOAuthOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AttributeMappings []*AttributeMappingForUpdateIdentityProviderOAuthOutput `type:"list"`
+
 	AuthorizationEndpoint *string `type:"string" json:",omitempty"`
 
 	ClaimsPropagationConfig *ClaimsPropagationConfigForUpdateIdentityProviderOAuthOutput `type:"structure" json:",omitempty"`
@@ -588,7 +812,11 @@ type UpdateIdentityProviderOAuthOutput struct {
 
 	ClientSecret *string `type:"string" json:",omitempty"`
 
+	EipRecord *EipRecordForUpdateIdentityProviderOAuthOutput `type:"structure" json:",omitempty"`
+
 	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	ExtraProviderConfiguration *ExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput `type:"structure" json:",omitempty"`
 
 	IdAttribute *string `type:"string" json:",omitempty"`
 
@@ -598,7 +826,9 @@ type UpdateIdentityProviderOAuthOutput struct {
 
 	ProviderOptions *ProviderOptionsForUpdateIdentityProviderOAuthOutput `type:"structure" json:",omitempty"`
 
-	ScopesList []*string `type:"list" json:",omitempty"`
+	ScopesList []*string `type:"list"`
+
+	SoleProviderConnection *bool `type:"boolean" json:",omitempty"`
 
 	TokenEndpoint *string `type:"string" json:",omitempty"`
 
@@ -617,6 +847,12 @@ func (s UpdateIdentityProviderOAuthOutput) String() string {
 // GoString returns the string representation
 func (s UpdateIdentityProviderOAuthOutput) GoString() string {
 	return s.String()
+}
+
+// SetAttributeMappings sets the AttributeMappings field's value.
+func (s *UpdateIdentityProviderOAuthOutput) SetAttributeMappings(v []*AttributeMappingForUpdateIdentityProviderOAuthOutput) *UpdateIdentityProviderOAuthOutput {
+	s.AttributeMappings = v
+	return s
 }
 
 // SetAuthorizationEndpoint sets the AuthorizationEndpoint field's value.
@@ -643,9 +879,21 @@ func (s *UpdateIdentityProviderOAuthOutput) SetClientSecret(v string) *UpdateIde
 	return s
 }
 
+// SetEipRecord sets the EipRecord field's value.
+func (s *UpdateIdentityProviderOAuthOutput) SetEipRecord(v *EipRecordForUpdateIdentityProviderOAuthOutput) *UpdateIdentityProviderOAuthOutput {
+	s.EipRecord = v
+	return s
+}
+
 // SetEnabled sets the Enabled field's value.
 func (s *UpdateIdentityProviderOAuthOutput) SetEnabled(v bool) *UpdateIdentityProviderOAuthOutput {
 	s.Enabled = &v
+	return s
+}
+
+// SetExtraProviderConfiguration sets the ExtraProviderConfiguration field's value.
+func (s *UpdateIdentityProviderOAuthOutput) SetExtraProviderConfiguration(v *ExtraProviderConfigurationForUpdateIdentityProviderOAuthOutput) *UpdateIdentityProviderOAuthOutput {
+	s.ExtraProviderConfiguration = v
 	return s
 }
 
@@ -676,6 +924,12 @@ func (s *UpdateIdentityProviderOAuthOutput) SetProviderOptions(v *ProviderOption
 // SetScopesList sets the ScopesList field's value.
 func (s *UpdateIdentityProviderOAuthOutput) SetScopesList(v []*string) *UpdateIdentityProviderOAuthOutput {
 	s.ScopesList = v
+	return s
+}
+
+// SetSoleProviderConnection sets the SoleProviderConnection field's value.
+func (s *UpdateIdentityProviderOAuthOutput) SetSoleProviderConnection(v bool) *UpdateIdentityProviderOAuthOutput {
+	s.SoleProviderConnection = &v
 	return s
 }
 

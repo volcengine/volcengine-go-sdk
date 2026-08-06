@@ -186,6 +186,8 @@ type DeleteIpamScopeOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -197,6 +199,12 @@ func (s DeleteIpamScopeOutput) String() string {
 // GoString returns the string representation
 func (s DeleteIpamScopeOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *DeleteIpamScopeOutput) SetAsyncTaskId(v string) *DeleteIpamScopeOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

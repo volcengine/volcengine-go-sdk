@@ -198,7 +198,7 @@ func (s *AllowedRoleForListRoleCredentialProvidersOutput) SetRoleName(v string) 
 type ConfigForListRoleCredentialProvidersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	IdentitySource *IdentitySourceForListRoleCredentialProvidersOutput `type:"structure" json:",omitempty"`
+	IdentityPool *IdentityPoolForListRoleCredentialProvidersOutput `type:"structure" json:",omitempty"`
 
 	Metadata *string `type:"string" json:",omitempty"`
 
@@ -215,9 +215,9 @@ func (s ConfigForListRoleCredentialProvidersOutput) GoString() string {
 	return s.String()
 }
 
-// SetIdentitySource sets the IdentitySource field's value.
-func (s *ConfigForListRoleCredentialProvidersOutput) SetIdentitySource(v *IdentitySourceForListRoleCredentialProvidersOutput) *ConfigForListRoleCredentialProvidersOutput {
-	s.IdentitySource = v
+// SetIdentityPool sets the IdentityPool field's value.
+func (s *ConfigForListRoleCredentialProvidersOutput) SetIdentityPool(v *IdentityPoolForListRoleCredentialProvidersOutput) *ConfigForListRoleCredentialProvidersOutput {
+	s.IdentityPool = v
 	return s
 }
 
@@ -290,7 +290,7 @@ func (s *FilterForListRoleCredentialProvidersInput) SetVendor(v int32) *FilterFo
 type FromRequestForListRoleCredentialProvidersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowedRoles []*AllowedRoleForListRoleCredentialProvidersOutput `type:"list" json:",omitempty"`
+	AllowedRoles []*AllowedRoleForListRoleCredentialProvidersOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -344,7 +344,7 @@ type FromRuleForListRoleCredentialProvidersOutput struct {
 
 	DefaultRole *string `type:"string" json:",omitempty"`
 
-	Rules []*RuleForListRoleCredentialProvidersOutput `type:"list" json:",omitempty"`
+	Rules []*RuleForListRoleCredentialProvidersOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -369,7 +369,7 @@ func (s *FromRuleForListRoleCredentialProvidersOutput) SetRules(v []*RuleForList
 	return s
 }
 
-type IdentitySourceForListRoleCredentialProvidersOutput struct {
+type IdentityPoolForListRoleCredentialProvidersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	AgentPool *AgentPoolForListRoleCredentialProvidersOutput `type:"structure" json:",omitempty"`
@@ -378,23 +378,23 @@ type IdentitySourceForListRoleCredentialProvidersOutput struct {
 }
 
 // String returns the string representation
-func (s IdentitySourceForListRoleCredentialProvidersOutput) String() string {
+func (s IdentityPoolForListRoleCredentialProvidersOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s IdentitySourceForListRoleCredentialProvidersOutput) GoString() string {
+func (s IdentityPoolForListRoleCredentialProvidersOutput) GoString() string {
 	return s.String()
 }
 
 // SetAgentPool sets the AgentPool field's value.
-func (s *IdentitySourceForListRoleCredentialProvidersOutput) SetAgentPool(v *AgentPoolForListRoleCredentialProvidersOutput) *IdentitySourceForListRoleCredentialProvidersOutput {
+func (s *IdentityPoolForListRoleCredentialProvidersOutput) SetAgentPool(v *AgentPoolForListRoleCredentialProvidersOutput) *IdentityPoolForListRoleCredentialProvidersOutput {
 	s.AgentPool = v
 	return s
 }
 
 // SetUserPool sets the UserPool field's value.
-func (s *IdentitySourceForListRoleCredentialProvidersOutput) SetUserPool(v *UserPoolForListRoleCredentialProvidersOutput) *IdentitySourceForListRoleCredentialProvidersOutput {
+func (s *IdentityPoolForListRoleCredentialProvidersOutput) SetUserPool(v *UserPoolForListRoleCredentialProvidersOutput) *IdentityPoolForListRoleCredentialProvidersOutput {
 	s.UserPool = v
 	return s
 }
@@ -480,7 +480,7 @@ type ListRoleCredentialProvidersOutput struct {
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	RoleCredentialProviders []*RoleCredentialProviderForListRoleCredentialProvidersOutput `type:"list" json:",omitempty"`
+	RoleCredentialProviders []*RoleCredentialProviderForListRoleCredentialProvidersOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }

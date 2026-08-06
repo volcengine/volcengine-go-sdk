@@ -152,7 +152,7 @@ type CreateIamRoleAttachmentInput struct {
 	// DefaultUnauthenticatedRoleTrn is a required field
 	DefaultUnauthenticatedRoleTrn *string `type:"string" json:",omitempty" required:"true"`
 
-	RoleMappings []*RoleMappingForCreateIamRoleAttachmentInput `type:"list" json:",omitempty"`
+	RoleMappings []*RoleMappingForCreateIamRoleAttachmentInput `type:"list"`
 
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
@@ -220,7 +220,7 @@ type CreateIamRoleAttachmentOutput struct {
 
 	DefaultUnauthenticatedRoleTrn *string `type:"string" json:",omitempty"`
 
-	RoleMappings []*RoleMappingForCreateIamRoleAttachmentOutput `type:"list" json:",omitempty"`
+	RoleMappings []*RoleMappingForCreateIamRoleAttachmentOutput `type:"list"`
 
 	Uid *string `type:"string" json:",omitempty"`
 
@@ -276,7 +276,7 @@ type RoleMappingForCreateIamRoleAttachmentInput struct {
 
 	IdentityProviderType *string `type:"string" json:",omitempty"`
 
-	RulesConfiguration []*RulesConfigurationForCreateIamRoleAttachmentInput `type:"list" json:",omitempty"`
+	RulesConfiguration []*RulesConfigurationForCreateIamRoleAttachmentInput `type:"list"`
 
 	Type *string `type:"string" json:",omitempty"`
 }
@@ -330,7 +330,7 @@ type RoleMappingForCreateIamRoleAttachmentOutput struct {
 
 	IdentityProviderType *string `type:"string" json:",omitempty"`
 
-	RulesConfiguration []*RulesConfigurationForCreateIamRoleAttachmentOutput `type:"list" json:",omitempty"`
+	RulesConfiguration []*RulesConfigurationForCreateIamRoleAttachmentOutput `type:"list"`
 
 	Type *string `type:"string" json:",omitempty"`
 }

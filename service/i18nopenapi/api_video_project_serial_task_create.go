@@ -173,76 +173,6 @@ func (s *BaseRespForVideoProjectSerialTaskCreateOutput) SetStatusMessage(v strin
 	return s
 }
 
-type ConvertsubtitleForVideoProjectSerialTaskCreateInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Arrangement *int32 `type:"int32" json:"arrangement,omitempty"`
-
-	FileType *int32 `type:"int32" json:"fileType,omitempty"`
-
-	Name *string `type:"string" json:"name,omitempty"`
-
-	SubtitleId *string `type:"string" json:"subtitleId,omitempty"`
-
-	SubtitleLang *int32 `type:"int32" json:"subtitleLang,omitempty"`
-
-	TargetLang *string `type:"string" json:"targetLang,omitempty"`
-
-	Uri *string `type:"string" json:"uri,omitempty"`
-}
-
-// String returns the string representation
-func (s ConvertsubtitleForVideoProjectSerialTaskCreateInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ConvertsubtitleForVideoProjectSerialTaskCreateInput) GoString() string {
-	return s.String()
-}
-
-// SetArrangement sets the Arrangement field's value.
-func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetArrangement(v int32) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
-	s.Arrangement = &v
-	return s
-}
-
-// SetFileType sets the FileType field's value.
-func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetFileType(v int32) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
-	s.FileType = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetName(v string) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
-	s.Name = &v
-	return s
-}
-
-// SetSubtitleId sets the SubtitleId field's value.
-func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetSubtitleId(v string) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
-	s.SubtitleId = &v
-	return s
-}
-
-// SetSubtitleLang sets the SubtitleLang field's value.
-func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetSubtitleLang(v int32) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
-	s.SubtitleLang = &v
-	return s
-}
-
-// SetTargetLang sets the TargetLang field's value.
-func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetTargetLang(v string) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
-	s.TargetLang = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *ConvertsubtitleForVideoProjectSerialTaskCreateInput) SetUri(v string) *ConvertsubtitleForVideoProjectSerialTaskCreateInput {
-	s.Uri = &v
-	return s
-}
-
 type DataForVideoProjectSerialTaskCreateOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -427,44 +357,6 @@ func (s *PureVideoForVideoProjectSerialTaskCreateInput) SetVideoUrl(v string) *P
 	return s
 }
 
-type ReferenceDocForVideoProjectSerialTaskCreateInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	ReferenceDocName *string `type:"string" json:"referenceDocName,omitempty"`
-
-	ReferenceDocType *int32 `type:"int32" json:"referenceDocType,omitempty"`
-
-	ReferenceDocUrl *string `type:"string" json:"referenceDocUrl,omitempty"`
-}
-
-// String returns the string representation
-func (s ReferenceDocForVideoProjectSerialTaskCreateInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ReferenceDocForVideoProjectSerialTaskCreateInput) GoString() string {
-	return s.String()
-}
-
-// SetReferenceDocName sets the ReferenceDocName field's value.
-func (s *ReferenceDocForVideoProjectSerialTaskCreateInput) SetReferenceDocName(v string) *ReferenceDocForVideoProjectSerialTaskCreateInput {
-	s.ReferenceDocName = &v
-	return s
-}
-
-// SetReferenceDocType sets the ReferenceDocType field's value.
-func (s *ReferenceDocForVideoProjectSerialTaskCreateInput) SetReferenceDocType(v int32) *ReferenceDocForVideoProjectSerialTaskCreateInput {
-	s.ReferenceDocType = &v
-	return s
-}
-
-// SetReferenceDocUrl sets the ReferenceDocUrl field's value.
-func (s *ReferenceDocForVideoProjectSerialTaskCreateInput) SetReferenceDocUrl(v string) *ReferenceDocForVideoProjectSerialTaskCreateInput {
-	s.ReferenceDocUrl = &v
-	return s
-}
-
 type SerialInfoForVideoProjectSerialTaskCreateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -475,8 +367,6 @@ type SerialInfoForVideoProjectSerialTaskCreateInput struct {
 	PureVideo *PureVideoForVideoProjectSerialTaskCreateInput `type:"structure" json:"pureVideo,omitempty"`
 
 	Subtitle *SubtitleForVideoProjectSerialTaskCreateInput `type:"structure" json:"subtitle,omitempty"`
-
-	Subtitles []*ConvertsubtitleForVideoProjectSerialTaskCreateInput `type:"list" json:"subtitles,omitempty"`
 
 	Video *VideoForVideoProjectSerialTaskCreateInput `type:"structure" json:"video,omitempty"`
 }
@@ -512,12 +402,6 @@ func (s *SerialInfoForVideoProjectSerialTaskCreateInput) SetPureVideo(v *PureVid
 // SetSubtitle sets the Subtitle field's value.
 func (s *SerialInfoForVideoProjectSerialTaskCreateInput) SetSubtitle(v *SubtitleForVideoProjectSerialTaskCreateInput) *SerialInfoForVideoProjectSerialTaskCreateInput {
 	s.Subtitle = v
-	return s
-}
-
-// SetSubtitles sets the Subtitles field's value.
-func (s *SerialInfoForVideoProjectSerialTaskCreateInput) SetSubtitles(v []*ConvertsubtitleForVideoProjectSerialTaskCreateInput) *SerialInfoForVideoProjectSerialTaskCreateInput {
-	s.Subtitles = v
 	return s
 }
 
@@ -1316,9 +1200,7 @@ type TaskInfoForVideoProjectSerialTaskCreateInput struct {
 
 	Comment *string `type:"string" json:"comment,omitempty"`
 
-	CreatedAt *string `type:"string" json:"createdAt,omitempty"`
-
-	Deadline *string `type:"string" json:"deadline,omitempty"`
+	Deadline *int32 `type:"int32" json:"deadline,omitempty"`
 
 	DramaCoverUrl *string `type:"string" json:"dramaCoverUrl,omitempty"`
 
@@ -1348,27 +1230,15 @@ type TaskInfoForVideoProjectSerialTaskCreateInput struct {
 
 	NeedVideoSpeed *bool `type:"boolean" json:"needVideoSpeed,omitempty"`
 
-	Procedures *int32 `type:"int32" json:"procedures,omitempty"`
-
-	ReferenceDoc *ReferenceDocForVideoProjectSerialTaskCreateInput `type:"structure" json:"referenceDoc,omitempty"`
-
 	SerialNumber *int32 `type:"int32" json:"serialNumber,omitempty"`
 
 	SourceLang *string `type:"string" json:"sourceLang,omitempty"`
-
-	SourceLocale *string `type:"string" json:"sourceLocale,omitempty"`
-
-	State *int32 `type:"int32" json:"state,omitempty"`
 
 	SuppressionParams *SuppressionParamsForVideoProjectSerialTaskCreateInput `type:"structure" json:"suppressionParams,omitempty"`
 
 	TargetLangs []*string `type:"list" json:"targetLangs,omitempty"`
 
-	TargetLocale []*string `type:"list" json:"targetLocale,omitempty"`
-
 	TargetStyleMap *TargetStyleMapForVideoProjectSerialTaskCreateInput `type:"structure" json:"targetStyleMap,omitempty"`
-
-	TaskId *int32 `type:"int32" json:"taskId,omitempty"`
 
 	TaskName *string `type:"string" json:"taskName,omitempty"`
 
@@ -1415,14 +1285,8 @@ func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetComment(v string) *Tas
 	return s
 }
 
-// SetCreatedAt sets the CreatedAt field's value.
-func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetCreatedAt(v string) *TaskInfoForVideoProjectSerialTaskCreateInput {
-	s.CreatedAt = &v
-	return s
-}
-
 // SetDeadline sets the Deadline field's value.
-func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetDeadline(v string) *TaskInfoForVideoProjectSerialTaskCreateInput {
+func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetDeadline(v int32) *TaskInfoForVideoProjectSerialTaskCreateInput {
 	s.Deadline = &v
 	return s
 }
@@ -1511,18 +1375,6 @@ func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetNeedVideoSpeed(v bool)
 	return s
 }
 
-// SetProcedures sets the Procedures field's value.
-func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetProcedures(v int32) *TaskInfoForVideoProjectSerialTaskCreateInput {
-	s.Procedures = &v
-	return s
-}
-
-// SetReferenceDoc sets the ReferenceDoc field's value.
-func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetReferenceDoc(v *ReferenceDocForVideoProjectSerialTaskCreateInput) *TaskInfoForVideoProjectSerialTaskCreateInput {
-	s.ReferenceDoc = v
-	return s
-}
-
 // SetSerialNumber sets the SerialNumber field's value.
 func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetSerialNumber(v int32) *TaskInfoForVideoProjectSerialTaskCreateInput {
 	s.SerialNumber = &v
@@ -1532,18 +1384,6 @@ func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetSerialNumber(v int32) 
 // SetSourceLang sets the SourceLang field's value.
 func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetSourceLang(v string) *TaskInfoForVideoProjectSerialTaskCreateInput {
 	s.SourceLang = &v
-	return s
-}
-
-// SetSourceLocale sets the SourceLocale field's value.
-func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetSourceLocale(v string) *TaskInfoForVideoProjectSerialTaskCreateInput {
-	s.SourceLocale = &v
-	return s
-}
-
-// SetState sets the State field's value.
-func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetState(v int32) *TaskInfoForVideoProjectSerialTaskCreateInput {
-	s.State = &v
 	return s
 }
 
@@ -1559,21 +1399,9 @@ func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetTargetLangs(v []*strin
 	return s
 }
 
-// SetTargetLocale sets the TargetLocale field's value.
-func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetTargetLocale(v []*string) *TaskInfoForVideoProjectSerialTaskCreateInput {
-	s.TargetLocale = v
-	return s
-}
-
 // SetTargetStyleMap sets the TargetStyleMap field's value.
 func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetTargetStyleMap(v *TargetStyleMapForVideoProjectSerialTaskCreateInput) *TaskInfoForVideoProjectSerialTaskCreateInput {
 	s.TargetStyleMap = v
-	return s
-}
-
-// SetTaskId sets the TaskId field's value.
-func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetTaskId(v int32) *TaskInfoForVideoProjectSerialTaskCreateInput {
-	s.TaskId = &v
 	return s
 }
 

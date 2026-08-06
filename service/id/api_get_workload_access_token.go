@@ -146,7 +146,7 @@ func (c *ID) GetWorkloadAccessTokenWithContext(ctx volcengine.Context, input *Ge
 type GetWorkloadAccessTokenInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Audience []*string `type:"list" json:",omitempty"`
+	Audience []*string `type:"list"`
 
 	DurationSeconds *int64 `type:"int64" json:",omitempty"`
 

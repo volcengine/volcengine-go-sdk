@@ -150,13 +150,13 @@ type ApiSpecForListRoutesOutput struct {
 
 	ActionValue *string `type:"string" json:",omitempty"`
 
-	Extractors []*ExtractorForListRoutesOutput `type:"list" json:",omitempty"`
+	Extractors []*ExtractorForListRoutesOutput `type:"list"`
 
 	IdentifierType *int32 `type:"int32" json:",omitempty"`
 
 	IdentifierValue *string `type:"string" json:",omitempty"`
 
-	ResponseFilters []*ResponseFilterForListRoutesOutput `type:"list" json:",omitempty"`
+	ResponseFilters []*ResponseFilterForListRoutesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -504,7 +504,7 @@ type ListRoutesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListRoutesOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListRoutesOutput `type:"list"`
 
 	PageInfo *PageInfoForListRoutesOutput `type:"structure" json:",omitempty"`
 }
@@ -572,7 +572,7 @@ func (s *PageInfoForListRoutesOutput) SetTotalCount(v int64) *PageInfoForListRou
 type ResponseFilterForListRoutesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Attributes []*AttributeForListRoutesOutput `type:"list" json:",omitempty"`
+	Attributes []*AttributeForListRoutesOutput `type:"list"`
 
 	FilterPath *string `type:"string" json:",omitempty"`
 

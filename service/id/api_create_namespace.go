@@ -146,7 +146,7 @@ func (c *ID) CreateNamespaceWithContext(ctx volcengine.Context, input *CreateNam
 type CreateNamespaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Associates []*string `type:"list" json:",omitempty"`
+	Associates []*string `type:"list"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -154,7 +154,7 @@ type CreateNamespaceInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateNamespaceInput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateNamespaceInput `type:"list"`
 }
 
 // String returns the string representation
@@ -214,7 +214,7 @@ type CreateNamespaceOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateNamespaceOutput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateNamespaceOutput `type:"list"`
 
 	Trn *string `type:"string" json:",omitempty"`
 

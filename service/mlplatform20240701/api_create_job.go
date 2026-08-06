@@ -588,6 +588,8 @@ type DiagnoseConfigForCreateJobInput struct {
 
 	DetectionIntervalSeconds *int64 `type:"int64" json:",omitempty"`
 
+	EnableInformationCollectionOnHang *bool `type:"boolean" json:",omitempty"`
+
 	FirstDetectionWaitSeconds *int64 `type:"int64" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty" enum:"EnumOfNameForCreateJobInput"`
@@ -608,6 +610,12 @@ func (s DiagnoseConfigForCreateJobInput) GoString() string {
 // SetDetectionIntervalSeconds sets the DetectionIntervalSeconds field's value.
 func (s *DiagnoseConfigForCreateJobInput) SetDetectionIntervalSeconds(v int64) *DiagnoseConfigForCreateJobInput {
 	s.DetectionIntervalSeconds = &v
+	return s
+}
+
+// SetEnableInformationCollectionOnHang sets the EnableInformationCollectionOnHang field's value.
+func (s *DiagnoseConfigForCreateJobInput) SetEnableInformationCollectionOnHang(v bool) *DiagnoseConfigForCreateJobInput {
+	s.EnableInformationCollectionOnHang = &v
 	return s
 }
 
@@ -1290,11 +1298,17 @@ type RuntimeConfigForCreateJobInput struct {
 
 	Command *string `type:"string" json:",omitempty"`
 
+	EnablePostCommand *bool `type:"boolean" json:",omitempty"`
+
+	EnablePreCommand *bool `type:"boolean" json:",omitempty"`
+
 	Envs []*EnvForCreateJobInput `type:"list" json:",omitempty"`
 
 	Framework *string `type:"string" json:",omitempty" enum:"EnumOfFrameworkForCreateJobInput"`
 
 	Image *ImageForCreateJobInput `type:"structure" json:",omitempty"`
+
+	PreCommandFailedContinue *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1325,6 +1339,18 @@ func (s *RuntimeConfigForCreateJobInput) SetCommand(v string) *RuntimeConfigForC
 	return s
 }
 
+// SetEnablePostCommand sets the EnablePostCommand field's value.
+func (s *RuntimeConfigForCreateJobInput) SetEnablePostCommand(v bool) *RuntimeConfigForCreateJobInput {
+	s.EnablePostCommand = &v
+	return s
+}
+
+// SetEnablePreCommand sets the EnablePreCommand field's value.
+func (s *RuntimeConfigForCreateJobInput) SetEnablePreCommand(v bool) *RuntimeConfigForCreateJobInput {
+	s.EnablePreCommand = &v
+	return s
+}
+
 // SetEnvs sets the Envs field's value.
 func (s *RuntimeConfigForCreateJobInput) SetEnvs(v []*EnvForCreateJobInput) *RuntimeConfigForCreateJobInput {
 	s.Envs = v
@@ -1340,6 +1366,12 @@ func (s *RuntimeConfigForCreateJobInput) SetFramework(v string) *RuntimeConfigFo
 // SetImage sets the Image field's value.
 func (s *RuntimeConfigForCreateJobInput) SetImage(v *ImageForCreateJobInput) *RuntimeConfigForCreateJobInput {
 	s.Image = v
+	return s
+}
+
+// SetPreCommandFailedContinue sets the PreCommandFailedContinue field's value.
+func (s *RuntimeConfigForCreateJobInput) SetPreCommandFailedContinue(v bool) *RuntimeConfigForCreateJobInput {
+	s.PreCommandFailedContinue = &v
 	return s
 }
 

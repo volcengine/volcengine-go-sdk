@@ -164,7 +164,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	"sec_agent":                   {Service: "sec_agent", IsGlobal: true},
 	"sec_intelligent_dev":         {Service: "sec_intelligent_dev", IsGlobal: true},
 	"vegame":                      {Service: "vegame", IsGlobal: false},
-	"acep":                        {Service: "acep", IsGlobal: true},
+	"acep":                        {Service: "acep", IsGlobal: false},
 	"private_zone":                {Service: "private_zone", IsGlobal: true},
 	"sqs":                         {Service: "sqs", IsGlobal: false},
 	"resourcecenter":              {Service: "resourcecenter", IsGlobal: true},
@@ -204,6 +204,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	"cloudcontrol":                {Service: "cloudcontrol", IsGlobal: false},
 	"vikingdb":                    {Service: "vikingdb", IsGlobal: false},
 	"volcsms":                     {Service: "volcsms", IsGlobal: true},
+	"id":                          {Service: "id", IsGlobal: false},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {

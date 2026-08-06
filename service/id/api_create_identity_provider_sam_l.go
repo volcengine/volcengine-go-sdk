@@ -148,7 +148,7 @@ type AdditionalMappingForCreateIdentityProviderSAMLInput struct {
 
 	ScimPath *string `type:"string" json:",omitempty"`
 
-	UserPoolPath []*string `type:"list" json:",omitempty"`
+	UserPoolPath []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -178,7 +178,7 @@ type AdditionalMappingForCreateIdentityProviderSAMLOutput struct {
 
 	ScimPath *string `type:"string" json:",omitempty"`
 
-	UserPoolPath []*string `type:"list" json:",omitempty"`
+	UserPoolPath []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -200,6 +200,98 @@ func (s *AdditionalMappingForCreateIdentityProviderSAMLOutput) SetScimPath(v str
 // SetUserPoolPath sets the UserPoolPath field's value.
 func (s *AdditionalMappingForCreateIdentityProviderSAMLOutput) SetUserPoolPath(v []*string) *AdditionalMappingForCreateIdentityProviderSAMLOutput {
 	s.UserPoolPath = v
+	return s
+}
+
+type AttributeMappingForCreateIdentityProviderSAMLInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalConfig *string `type:"string" json:",omitempty"`
+
+	MappingType *string `type:"string" json:",omitempty"`
+
+	SourceAttributeName *string `type:"string" json:",omitempty"`
+
+	TargetAttributeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AttributeMappingForCreateIdentityProviderSAMLInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttributeMappingForCreateIdentityProviderSAMLInput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalConfig sets the AdditionalConfig field's value.
+func (s *AttributeMappingForCreateIdentityProviderSAMLInput) SetAdditionalConfig(v string) *AttributeMappingForCreateIdentityProviderSAMLInput {
+	s.AdditionalConfig = &v
+	return s
+}
+
+// SetMappingType sets the MappingType field's value.
+func (s *AttributeMappingForCreateIdentityProviderSAMLInput) SetMappingType(v string) *AttributeMappingForCreateIdentityProviderSAMLInput {
+	s.MappingType = &v
+	return s
+}
+
+// SetSourceAttributeName sets the SourceAttributeName field's value.
+func (s *AttributeMappingForCreateIdentityProviderSAMLInput) SetSourceAttributeName(v string) *AttributeMappingForCreateIdentityProviderSAMLInput {
+	s.SourceAttributeName = &v
+	return s
+}
+
+// SetTargetAttributeName sets the TargetAttributeName field's value.
+func (s *AttributeMappingForCreateIdentityProviderSAMLInput) SetTargetAttributeName(v string) *AttributeMappingForCreateIdentityProviderSAMLInput {
+	s.TargetAttributeName = &v
+	return s
+}
+
+type AttributeMappingForCreateIdentityProviderSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalConfig *string `type:"string" json:",omitempty"`
+
+	MappingType *string `type:"string" json:",omitempty"`
+
+	SourceAttributeName *string `type:"string" json:",omitempty"`
+
+	TargetAttributeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AttributeMappingForCreateIdentityProviderSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttributeMappingForCreateIdentityProviderSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalConfig sets the AdditionalConfig field's value.
+func (s *AttributeMappingForCreateIdentityProviderSAMLOutput) SetAdditionalConfig(v string) *AttributeMappingForCreateIdentityProviderSAMLOutput {
+	s.AdditionalConfig = &v
+	return s
+}
+
+// SetMappingType sets the MappingType field's value.
+func (s *AttributeMappingForCreateIdentityProviderSAMLOutput) SetMappingType(v string) *AttributeMappingForCreateIdentityProviderSAMLOutput {
+	s.MappingType = &v
+	return s
+}
+
+// SetSourceAttributeName sets the SourceAttributeName field's value.
+func (s *AttributeMappingForCreateIdentityProviderSAMLOutput) SetSourceAttributeName(v string) *AttributeMappingForCreateIdentityProviderSAMLOutput {
+	s.SourceAttributeName = &v
+	return s
+}
+
+// SetTargetAttributeName sets the TargetAttributeName field's value.
+func (s *AttributeMappingForCreateIdentityProviderSAMLOutput) SetTargetAttributeName(v string) *AttributeMappingForCreateIdentityProviderSAMLOutput {
+	s.TargetAttributeName = &v
 	return s
 }
 
@@ -298,7 +390,7 @@ func (s *ClaimRuleForCreateIdentityProviderSAMLOutput) SetTargetClaim(v string) 
 type ClaimsPropagationConfigForCreateIdentityProviderSAMLInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForCreateIdentityProviderSAMLInput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForCreateIdentityProviderSAMLInput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -328,7 +420,7 @@ func (s *ClaimsPropagationConfigForCreateIdentityProviderSAMLInput) SetMode(v st
 type ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForCreateIdentityProviderSAMLOutput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForCreateIdentityProviderSAMLOutput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -361,7 +453,11 @@ type CreateIdentityProviderSAMLInput struct {
 	// AttributeMapping is a required field
 	AttributeMapping *string `type:"string" json:",omitempty" required:"true"`
 
+	AttributeMappings []*AttributeMappingForCreateIdentityProviderSAMLInput `type:"list"`
+
 	ClaimsPropagationConfig *ClaimsPropagationConfigForCreateIdentityProviderSAMLInput `type:"structure" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
 
 	// Enabled is a required field
 	Enabled *bool `type:"boolean" json:",omitempty" required:"true"`
@@ -444,9 +540,21 @@ func (s *CreateIdentityProviderSAMLInput) SetAttributeMapping(v string) *CreateI
 	return s
 }
 
+// SetAttributeMappings sets the AttributeMappings field's value.
+func (s *CreateIdentityProviderSAMLInput) SetAttributeMappings(v []*AttributeMappingForCreateIdentityProviderSAMLInput) *CreateIdentityProviderSAMLInput {
+	s.AttributeMappings = v
+	return s
+}
+
 // SetClaimsPropagationConfig sets the ClaimsPropagationConfig field's value.
 func (s *CreateIdentityProviderSAMLInput) SetClaimsPropagationConfig(v *ClaimsPropagationConfigForCreateIdentityProviderSAMLInput) *CreateIdentityProviderSAMLInput {
 	s.ClaimsPropagationConfig = v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *CreateIdentityProviderSAMLInput) SetEipId(v string) *CreateIdentityProviderSAMLInput {
+	s.EipId = &v
 	return s
 }
 
@@ -517,9 +625,13 @@ type CreateIdentityProviderSAMLOutput struct {
 
 	AttributeMapping *string `type:"string" json:",omitempty"`
 
+	AttributeMappings []*AttributeMappingForCreateIdentityProviderSAMLOutput `type:"list"`
+
 	Certificate *string `type:"string" json:",omitempty"`
 
 	ClaimsPropagationConfig *ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
+
+	EipRecord *EipRecordForCreateIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
@@ -560,6 +672,12 @@ func (s *CreateIdentityProviderSAMLOutput) SetAttributeMapping(v string) *Create
 	return s
 }
 
+// SetAttributeMappings sets the AttributeMappings field's value.
+func (s *CreateIdentityProviderSAMLOutput) SetAttributeMappings(v []*AttributeMappingForCreateIdentityProviderSAMLOutput) *CreateIdentityProviderSAMLOutput {
+	s.AttributeMappings = v
+	return s
+}
+
 // SetCertificate sets the Certificate field's value.
 func (s *CreateIdentityProviderSAMLOutput) SetCertificate(v string) *CreateIdentityProviderSAMLOutput {
 	s.Certificate = &v
@@ -569,6 +687,12 @@ func (s *CreateIdentityProviderSAMLOutput) SetCertificate(v string) *CreateIdent
 // SetClaimsPropagationConfig sets the ClaimsPropagationConfig field's value.
 func (s *CreateIdentityProviderSAMLOutput) SetClaimsPropagationConfig(v *ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput) *CreateIdentityProviderSAMLOutput {
 	s.ClaimsPropagationConfig = v
+	return s
+}
+
+// SetEipRecord sets the EipRecord field's value.
+func (s *CreateIdentityProviderSAMLOutput) SetEipRecord(v *EipRecordForCreateIdentityProviderSAMLOutput) *CreateIdentityProviderSAMLOutput {
+	s.EipRecord = v
 	return s
 }
 
@@ -635,6 +759,36 @@ func (s *CreateIdentityProviderSAMLOutput) SetSpMetadata(v string) *CreateIdenti
 // SetUid sets the Uid field's value.
 func (s *CreateIdentityProviderSAMLOutput) SetUid(v string) *CreateIdentityProviderSAMLOutput {
 	s.Uid = &v
+	return s
+}
+
+type EipRecordForCreateIdentityProviderSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipRecordForCreateIdentityProviderSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipRecordForCreateIdentityProviderSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipRecordForCreateIdentityProviderSAMLOutput) SetEipAddress(v string) *EipRecordForCreateIdentityProviderSAMLOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipRecordForCreateIdentityProviderSAMLOutput) SetEipId(v string) *EipRecordForCreateIdentityProviderSAMLOutput {
+	s.EipId = &v
 	return s
 }
 
@@ -765,7 +919,7 @@ func (s *ProviderOptionsForCreateIdentityProviderSAMLOutput) SetUserLinkingPromp
 type ScimProvisioningForCreateIdentityProviderSAMLInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalMappings []*AdditionalMappingForCreateIdentityProviderSAMLInput `type:"list" json:",omitempty"`
+	AdditionalMappings []*AdditionalMappingForCreateIdentityProviderSAMLInput `type:"list"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
@@ -803,7 +957,7 @@ func (s *ScimProvisioningForCreateIdentityProviderSAMLInput) SetUserIdAttribute(
 type ScimProvisioningForCreateIdentityProviderSAMLOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalMappings []*AdditionalMappingForCreateIdentityProviderSAMLOutput `type:"list" json:",omitempty"`
+	AdditionalMappings []*AdditionalMappingForCreateIdentityProviderSAMLOutput `type:"list"`
 
 	BaseUrl *string `type:"string" json:",omitempty"`
 

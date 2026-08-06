@@ -146,7 +146,7 @@ func (c *ID) BatchGetDepartmentsWithContext(ctx volcengine.Context, input *Batch
 type BatchGetDepartmentsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DepartmentUids []*string `type:"list" json:",omitempty"`
+	DepartmentUids []*string `type:"list"`
 
 	// UserPoolUid is a required field
 	UserPoolUid *string `min:"1" max:"128" type:"string" json:",omitempty" required:"true"`

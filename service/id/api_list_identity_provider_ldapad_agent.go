@@ -238,7 +238,7 @@ type ListIdentityProviderLDAPADAgentOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListIdentityProviderLDAPADAgentOutput `type:"list" json:",omitempty"`
+	Data []*DataForListIdentityProviderLDAPADAgentOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

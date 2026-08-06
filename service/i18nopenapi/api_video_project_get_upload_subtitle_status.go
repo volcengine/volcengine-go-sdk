@@ -188,6 +188,8 @@ type UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput struct {
 
 	SubtitleId *string `type:"string" json:"subtitleId"`
 
+	Type *int32 `type:"int32" json:"type"`
+
 	Url *string `type:"string" json:"url"`
 }
 
@@ -246,6 +248,12 @@ func (s *UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput) SetStat
 // SetSubtitleId sets the SubtitleId field's value.
 func (s *UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput) SetSubtitleId(v string) *UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput {
 	s.SubtitleId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput) SetType(v int32) *UploadSubtitleInfoForVideoProjectGetUploadSubtitleStatusOutput {
+	s.Type = &v
 	return s
 }
 

@@ -288,6 +288,8 @@ func (s *DataForListDepartmentsOutput) SetUserPoolUid(v string) *DataForListDepa
 type FilterForListDepartmentsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	DepartmentUid *string `type:"string" json:",omitempty"`
+
 	Description *string `max:"2048" type:"string" json:",omitempty"`
 
 	ExternalID *string `max:"512" type:"string" json:",omitempty"`
@@ -331,6 +333,12 @@ func (s *FilterForListDepartmentsInput) Validate() error {
 	return nil
 }
 
+// SetDepartmentUid sets the DepartmentUid field's value.
+func (s *FilterForListDepartmentsInput) SetDepartmentUid(v string) *FilterForListDepartmentsInput {
+	s.DepartmentUid = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *FilterForListDepartmentsInput) SetDescription(v string) *FilterForListDepartmentsInput {
 	s.Description = &v
@@ -366,6 +374,10 @@ type ListDepartmentsInput struct {
 
 	Filter *FilterForListDepartmentsInput `type:"structure" json:",omitempty"`
 
+	MaxResults *int32 `max:"100" type:"int32" json:",omitempty"`
+
+	NextToken *string `type:"string" json:",omitempty"`
+
 	// PageNumber is a required field
 	PageNumber *int32 `min:"1" max:"2.147483647e+09" type:"int32" json:",omitempty" required:"true"`
 
@@ -396,6 +408,9 @@ func (s ListDepartmentsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListDepartmentsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListDepartmentsInput"}
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
 	if s.PageNumber == nil {
 		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
 	}
@@ -456,6 +471,18 @@ func (s *ListDepartmentsInput) SetFilter(v *FilterForListDepartmentsInput) *List
 	return s
 }
 
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListDepartmentsInput) SetMaxResults(v int32) *ListDepartmentsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListDepartmentsInput) SetNextToken(v string) *ListDepartmentsInput {
+	s.NextToken = &v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *ListDepartmentsInput) SetPageNumber(v int32) *ListDepartmentsInput {
 	s.PageNumber = &v
@@ -497,7 +524,9 @@ type ListDepartmentsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListDepartmentsOutput `type:"list" json:",omitempty"`
+	Data []*DataForListDepartmentsOutput `type:"list"`
+
+	NextToken *string `type:"string" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -519,6 +548,12 @@ func (s ListDepartmentsOutput) GoString() string {
 // SetData sets the Data field's value.
 func (s *ListDepartmentsOutput) SetData(v []*DataForListDepartmentsOutput) *ListDepartmentsOutput {
 	s.Data = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListDepartmentsOutput) SetNextToken(v string) *ListDepartmentsOutput {
+	s.NextToken = &v
 	return s
 }
 

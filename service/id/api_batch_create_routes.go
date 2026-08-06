@@ -150,13 +150,13 @@ type ApiSpecForBatchCreateRoutesInput struct {
 
 	ActionValue *string `type:"string" json:",omitempty"`
 
-	Extractors []*ExtractorForBatchCreateRoutesInput `type:"list" json:",omitempty"`
+	Extractors []*ExtractorForBatchCreateRoutesInput `type:"list"`
 
 	IdentifierType *int32 `type:"int32" json:",omitempty"`
 
 	IdentifierValue *string `type:"string" json:",omitempty"`
 
-	ResponseFilters []*ResponseFilterForBatchCreateRoutesInput `type:"list" json:",omitempty"`
+	ResponseFilters []*ResponseFilterForBatchCreateRoutesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -212,13 +212,13 @@ type ApiSpecForBatchCreateRoutesOutput struct {
 
 	ActionValue *string `type:"string" json:",omitempty"`
 
-	Extractors []*ExtractorForBatchCreateRoutesOutput `type:"list" json:",omitempty"`
+	Extractors []*ExtractorForBatchCreateRoutesOutput `type:"list"`
 
 	IdentifierType *int32 `type:"int32" json:",omitempty"`
 
 	IdentifierValue *string `type:"string" json:",omitempty"`
 
-	ResponseFilters []*ResponseFilterForBatchCreateRoutesOutput `type:"list" json:",omitempty"`
+	ResponseFilters []*ResponseFilterForBatchCreateRoutesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -332,7 +332,7 @@ type BatchCreateRoutesInput struct {
 
 	Mode *int32 `type:"int32" json:",omitempty"`
 
-	Routes []*RouteForBatchCreateRoutesInput `type:"list" json:",omitempty"`
+	Routes []*RouteForBatchCreateRoutesInput `type:"list"`
 
 	// ServiceName is a required field
 	ServiceName *string `type:"string" json:",omitempty" required:"true"`
@@ -384,15 +384,15 @@ type BatchCreateRoutesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Created []*CreatedForBatchCreateRoutesOutput `type:"list" json:",omitempty"`
+	Created []*CreatedForBatchCreateRoutesOutput `type:"list"`
 
-	Deleted []*string `type:"list" json:",omitempty"`
+	Deleted []*string `type:"list"`
 
-	Failed []*FailedForBatchCreateRoutesOutput `type:"list" json:",omitempty"`
+	Failed []*FailedForBatchCreateRoutesOutput `type:"list"`
 
-	Skipped []*string `type:"list" json:",omitempty"`
+	Skipped []*string `type:"list"`
 
-	Updated []*UpdatedForBatchCreateRoutesOutput `type:"list" json:",omitempty"`
+	Updated []*UpdatedForBatchCreateRoutesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -694,7 +694,7 @@ func (s *FailedForBatchCreateRoutesOutput) SetRouteName(v string) *FailedForBatc
 type ResponseFilterForBatchCreateRoutesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Attributes []*AttributeForBatchCreateRoutesInput `type:"list" json:",omitempty"`
+	Attributes []*AttributeForBatchCreateRoutesInput `type:"list"`
 
 	FilterPath *string `type:"string" json:",omitempty"`
 
@@ -764,7 +764,7 @@ func (s *ResponseFilterForBatchCreateRoutesInput) SetResourceType(v string) *Res
 type ResponseFilterForBatchCreateRoutesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Attributes []*AttributeForBatchCreateRoutesOutput `type:"list" json:",omitempty"`
+	Attributes []*AttributeForBatchCreateRoutesOutput `type:"list"`
 
 	FilterPath *string `type:"string" json:",omitempty"`
 

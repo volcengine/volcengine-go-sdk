@@ -258,7 +258,7 @@ type GetServiceOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForGetServiceOutput `type:"list" json:",omitempty"`
+	Tags []*TagForGetServiceOutput `type:"list"`
 
 	TemplateId *string `type:"string" json:",omitempty"`
 

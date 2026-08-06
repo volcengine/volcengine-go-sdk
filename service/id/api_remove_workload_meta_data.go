@@ -148,7 +148,7 @@ type MetaDataForRemoveWorkloadMetaDataInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -178,7 +178,7 @@ type MetaDataForRemoveWorkloadMetaDataOutput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -206,7 +206,7 @@ func (s *MetaDataForRemoveWorkloadMetaDataOutput) SetValues(v []*string) *MetaDa
 type RemoveWorkloadMetaDataInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MetaData []*MetaDataForRemoveWorkloadMetaDataInput `type:"list" json:",omitempty"`
+	MetaData []*MetaDataForRemoveWorkloadMetaDataInput `type:"list"`
 
 	// WorkloadIdentity is a required field
 	WorkloadIdentity *string `type:"string" json:",omitempty" required:"true"`
@@ -264,7 +264,7 @@ type RemoveWorkloadMetaDataOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	MetaData []*MetaDataForRemoveWorkloadMetaDataOutput `type:"list" json:",omitempty"`
+	MetaData []*MetaDataForRemoveWorkloadMetaDataOutput `type:"list"`
 
 	WorkloadIdentity *string `type:"string" json:",omitempty"`
 

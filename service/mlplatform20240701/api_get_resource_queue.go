@@ -237,6 +237,108 @@ func (s *AutoCompactGPUResourceRuleForGetResourceQueueOutput) SetUpdatorTrn(v st
 	return s
 }
 
+type CommandHookRuleForGetResourceQueueOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	CreatorTrn *string `type:"string" json:",omitempty"`
+
+	EnablePostCommand *bool `type:"boolean" json:",omitempty"`
+
+	EnablePreCommand *bool `type:"boolean" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	PostCommand *string `type:"string" json:",omitempty"`
+
+	PreCommand *string `type:"string" json:",omitempty"`
+
+	TriggeredTimes *int32 `type:"int32" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
+
+	UpdatorTrn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CommandHookRuleForGetResourceQueueOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CommandHookRuleForGetResourceQueueOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *CommandHookRuleForGetResourceQueueOutput) SetCreateTime(v string) *CommandHookRuleForGetResourceQueueOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetCreatorTrn sets the CreatorTrn field's value.
+func (s *CommandHookRuleForGetResourceQueueOutput) SetCreatorTrn(v string) *CommandHookRuleForGetResourceQueueOutput {
+	s.CreatorTrn = &v
+	return s
+}
+
+// SetEnablePostCommand sets the EnablePostCommand field's value.
+func (s *CommandHookRuleForGetResourceQueueOutput) SetEnablePostCommand(v bool) *CommandHookRuleForGetResourceQueueOutput {
+	s.EnablePostCommand = &v
+	return s
+}
+
+// SetEnablePreCommand sets the EnablePreCommand field's value.
+func (s *CommandHookRuleForGetResourceQueueOutput) SetEnablePreCommand(v bool) *CommandHookRuleForGetResourceQueueOutput {
+	s.EnablePreCommand = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *CommandHookRuleForGetResourceQueueOutput) SetEnabled(v bool) *CommandHookRuleForGetResourceQueueOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *CommandHookRuleForGetResourceQueueOutput) SetId(v string) *CommandHookRuleForGetResourceQueueOutput {
+	s.Id = &v
+	return s
+}
+
+// SetPostCommand sets the PostCommand field's value.
+func (s *CommandHookRuleForGetResourceQueueOutput) SetPostCommand(v string) *CommandHookRuleForGetResourceQueueOutput {
+	s.PostCommand = &v
+	return s
+}
+
+// SetPreCommand sets the PreCommand field's value.
+func (s *CommandHookRuleForGetResourceQueueOutput) SetPreCommand(v string) *CommandHookRuleForGetResourceQueueOutput {
+	s.PreCommand = &v
+	return s
+}
+
+// SetTriggeredTimes sets the TriggeredTimes field's value.
+func (s *CommandHookRuleForGetResourceQueueOutput) SetTriggeredTimes(v int32) *CommandHookRuleForGetResourceQueueOutput {
+	s.TriggeredTimes = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *CommandHookRuleForGetResourceQueueOutput) SetUpdateTime(v string) *CommandHookRuleForGetResourceQueueOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUpdatorTrn sets the UpdatorTrn field's value.
+func (s *CommandHookRuleForGetResourceQueueOutput) SetUpdatorTrn(v string) *CommandHookRuleForGetResourceQueueOutput {
+	s.UpdatorTrn = &v
+	return s
+}
+
 type ComputeResourceForGetResourceQueueOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1158,6 +1260,8 @@ type RulesForGetResourceQueueOutput struct {
 
 	AutoCompactGPUResourceRule *AutoCompactGPUResourceRuleForGetResourceQueueOutput `type:"structure" json:",omitempty"`
 
+	CommandHookRule *CommandHookRuleForGetResourceQueueOutput `type:"structure" json:",omitempty"`
+
 	DevCpuLowUsageRule *DevCpuLowUsageRuleForGetResourceQueueOutput `type:"structure" json:",omitempty"`
 
 	GeneralIdleRule *GeneralIdleRuleForGetResourceQueueOutput `type:"structure" json:",omitempty"`
@@ -1178,6 +1282,12 @@ func (s RulesForGetResourceQueueOutput) GoString() string {
 // SetAutoCompactGPUResourceRule sets the AutoCompactGPUResourceRule field's value.
 func (s *RulesForGetResourceQueueOutput) SetAutoCompactGPUResourceRule(v *AutoCompactGPUResourceRuleForGetResourceQueueOutput) *RulesForGetResourceQueueOutput {
 	s.AutoCompactGPUResourceRule = v
+	return s
+}
+
+// SetCommandHookRule sets the CommandHookRule field's value.
+func (s *RulesForGetResourceQueueOutput) SetCommandHookRule(v *CommandHookRuleForGetResourceQueueOutput) *RulesForGetResourceQueueOutput {
+	s.CommandHookRule = v
 	return s
 }
 

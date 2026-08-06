@@ -150,7 +150,7 @@ type DataForTermBaseTermGroupImportTaskOutput struct {
 
 	Status *int32 `type:"int32" json:"status"`
 
-	TermBaseld *string `type:"string" json:"termBaseld"`
+	TermBaseId *string `type:"string" json:"termBaseId"`
 
 	Total *int32 `type:"int32" json:"total"`
 
@@ -193,9 +193,9 @@ func (s *DataForTermBaseTermGroupImportTaskOutput) SetStatus(v int32) *DataForTe
 	return s
 }
 
-// SetTermBaseld sets the TermBaseld field's value.
-func (s *DataForTermBaseTermGroupImportTaskOutput) SetTermBaseld(v string) *DataForTermBaseTermGroupImportTaskOutput {
-	s.TermBaseld = &v
+// SetTermBaseId sets the TermBaseId field's value.
+func (s *DataForTermBaseTermGroupImportTaskOutput) SetTermBaseId(v string) *DataForTermBaseTermGroupImportTaskOutput {
+	s.TermBaseId = &v
 	return s
 }
 

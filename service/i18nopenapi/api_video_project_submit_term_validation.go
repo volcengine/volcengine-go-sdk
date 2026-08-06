@@ -32,7 +32,7 @@ const opVideoProjectSubmitTermValidationCommon = "VideoProjectSubmitTermValidati
 func (c *I18NOPENAPI) VideoProjectSubmitTermValidationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opVideoProjectSubmitTermValidationCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *I18NOPENAPI) VideoProjectSubmitTermValidationCommonRequest(input *map[s
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opVideoProjectSubmitTermValidation = "VideoProjectSubmitTermValidation"
 func (c *I18NOPENAPI) VideoProjectSubmitTermValidationRequest(input *VideoProjectSubmitTermValidationInput) (req *request.Request, output *VideoProjectSubmitTermValidationOutput) {
 	op := &request.Operation{
 		Name:       opVideoProjectSubmitTermValidation,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *I18NOPENAPI) VideoProjectSubmitTermValidationRequest(input *VideoProjec
 
 	output = &VideoProjectSubmitTermValidationOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,10 +144,10 @@ func (c *I18NOPENAPI) VideoProjectSubmitTermValidationWithContext(ctx volcengine
 }
 
 type VideoProjectSubmitTermValidationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// ProjectId is a required field
-	ProjectId *string `locationName:"projectId" type:"string" required:"true"`
+	ProjectId *string `type:"string" json:"projectId,omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -176,7 +180,7 @@ func (s *VideoProjectSubmitTermValidationInput) SetProjectId(v string) *VideoPro
 }
 
 type VideoProjectSubmitTermValidationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

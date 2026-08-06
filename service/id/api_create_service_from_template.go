@@ -209,12 +209,12 @@ type CreateServiceFromTemplateInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	RouteTemplateIds []*string `type:"list" json:",omitempty"`
+	RouteTemplateIds []*string `type:"list"`
 
 	// ServiceName is a required field
 	ServiceName *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags []*TagForCreateServiceFromTemplateInput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateServiceFromTemplateInput `type:"list"`
 
 	// TemplateId is a required field
 	TemplateId *string `type:"string" json:",omitempty" required:"true"`
@@ -328,7 +328,7 @@ type CreateServiceFromTemplateOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateServiceFromTemplateOutput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateServiceFromTemplateOutput `type:"list"`
 
 	TemplateId *string `type:"string" json:",omitempty"`
 

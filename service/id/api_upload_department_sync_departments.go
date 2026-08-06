@@ -247,7 +247,7 @@ func (s *DepartmentForUploadDepartmentSyncDepartmentsInput) SetPrecedence(v int3
 type UploadDepartmentSyncDepartmentsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Departments []*DepartmentForUploadDepartmentSyncDepartmentsInput `type:"list" json:",omitempty"`
+	Departments []*DepartmentForUploadDepartmentSyncDepartmentsInput `type:"list"`
 
 	// SessionId is a required field
 	SessionId *string `min:"1" max:"128" type:"string" json:",omitempty" required:"true"`

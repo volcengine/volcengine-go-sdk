@@ -266,6 +266,8 @@ type DescribeDBInstanceDetailOutput struct {
 
 	MaxConnections *int32 `type:"int32" json:",omitempty"`
 
+	Modules []*string `type:"list"`
+
 	MultiAZ *string `type:"string" json:",omitempty"`
 
 	NodeNumber *int32 `type:"int32" json:",omitempty"`
@@ -394,6 +396,12 @@ func (s *DescribeDBInstanceDetailOutput) SetMaintenanceTime(v string) *DescribeD
 // SetMaxConnections sets the MaxConnections field's value.
 func (s *DescribeDBInstanceDetailOutput) SetMaxConnections(v int32) *DescribeDBInstanceDetailOutput {
 	s.MaxConnections = &v
+	return s
+}
+
+// SetModules sets the Modules field's value.
+func (s *DescribeDBInstanceDetailOutput) SetModules(v []*string) *DescribeDBInstanceDetailOutput {
+	s.Modules = v
 	return s
 }
 

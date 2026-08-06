@@ -148,7 +148,9 @@ func (c *ID) BatchSyncDepartmentMembersWithContext(ctx volcengine.Context, input
 type BatchSyncDepartmentMembersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Mappings []*MappingForBatchSyncDepartmentMembersInput `type:"list" json:",omitempty"`
+	DryRun *bool `type:"boolean" json:",omitempty"`
+
+	Mappings []*MappingForBatchSyncDepartmentMembersInput `type:"list"`
 
 	// Source is a required field
 	Source *string `min:"1" max:"64" type:"string" json:",omitempty" required:"true"`
@@ -205,6 +207,12 @@ func (s *BatchSyncDepartmentMembersInput) Validate() error {
 	return nil
 }
 
+// SetDryRun sets the DryRun field's value.
+func (s *BatchSyncDepartmentMembersInput) SetDryRun(v bool) *BatchSyncDepartmentMembersInput {
+	s.DryRun = &v
+	return s
+}
+
 // SetMappings sets the Mappings field's value.
 func (s *BatchSyncDepartmentMembersInput) SetMappings(v []*MappingForBatchSyncDepartmentMembersInput) *BatchSyncDepartmentMembersInput {
 	s.Mappings = v
@@ -230,9 +238,9 @@ type BatchSyncDepartmentMembersOutput struct {
 
 	Added *int32 `type:"int32" json:",omitempty"`
 
-	Errors []*string `type:"list" json:",omitempty"`
+	Errors []*string `type:"list"`
 
-	MappingResults []*MappingResultForBatchSyncDepartmentMembersOutput `type:"list" json:",omitempty"`
+	MappingResults []*MappingResultForBatchSyncDepartmentMembersOutput `type:"list"`
 
 	Removed *int32 `type:"int32" json:",omitempty"`
 
@@ -284,9 +292,9 @@ type MappingForBatchSyncDepartmentMembersInput struct {
 
 	ExternalDepartmentID *string `min:"1" max:"512" type:"string" json:",omitempty"`
 
-	Members []*MemberForBatchSyncDepartmentMembersInput `type:"list" json:",omitempty"`
+	Members []*MemberForBatchSyncDepartmentMembersInput `type:"list"`
 
-	UserUids []*string `type:"list" json:",omitempty"`
+	UserUids []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -350,6 +358,8 @@ type MappingResultForBatchSyncDepartmentMembersOutput struct {
 
 	ExternalDepartmentID *string `max:"512" type:"string" json:",omitempty"`
 
+	MemberDiffs []*MemberDiffForBatchSyncDepartmentMembersOutput `type:"list"`
+
 	Message *string `max:"2048" type:"string" json:",omitempty"`
 
 	Removed *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
@@ -381,6 +391,12 @@ func (s *MappingResultForBatchSyncDepartmentMembersOutput) SetExternalDepartment
 	return s
 }
 
+// SetMemberDiffs sets the MemberDiffs field's value.
+func (s *MappingResultForBatchSyncDepartmentMembersOutput) SetMemberDiffs(v []*MemberDiffForBatchSyncDepartmentMembersOutput) *MappingResultForBatchSyncDepartmentMembersOutput {
+	s.MemberDiffs = v
+	return s
+}
+
 // SetMessage sets the Message field's value.
 func (s *MappingResultForBatchSyncDepartmentMembersOutput) SetMessage(v string) *MappingResultForBatchSyncDepartmentMembersOutput {
 	s.Message = &v
@@ -402,6 +418,68 @@ func (s *MappingResultForBatchSyncDepartmentMembersOutput) SetStatus(v string) *
 // SetUnchanged sets the Unchanged field's value.
 func (s *MappingResultForBatchSyncDepartmentMembersOutput) SetUnchanged(v int32) *MappingResultForBatchSyncDepartmentMembersOutput {
 	s.Unchanged = &v
+	return s
+}
+
+type MemberDiffForBatchSyncDepartmentMembersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `max:"32" type:"string" json:",omitempty"`
+
+	AfterIsPrimary *bool `type:"boolean" json:",omitempty"`
+
+	AfterRole *string `max:"64" type:"string" json:",omitempty"`
+
+	BeforeIsPrimary *bool `type:"boolean" json:",omitempty"`
+
+	BeforeRole *string `max:"64" type:"string" json:",omitempty"`
+
+	UserUid *string `max:"128" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MemberDiffForBatchSyncDepartmentMembersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MemberDiffForBatchSyncDepartmentMembersOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *MemberDiffForBatchSyncDepartmentMembersOutput) SetAction(v string) *MemberDiffForBatchSyncDepartmentMembersOutput {
+	s.Action = &v
+	return s
+}
+
+// SetAfterIsPrimary sets the AfterIsPrimary field's value.
+func (s *MemberDiffForBatchSyncDepartmentMembersOutput) SetAfterIsPrimary(v bool) *MemberDiffForBatchSyncDepartmentMembersOutput {
+	s.AfterIsPrimary = &v
+	return s
+}
+
+// SetAfterRole sets the AfterRole field's value.
+func (s *MemberDiffForBatchSyncDepartmentMembersOutput) SetAfterRole(v string) *MemberDiffForBatchSyncDepartmentMembersOutput {
+	s.AfterRole = &v
+	return s
+}
+
+// SetBeforeIsPrimary sets the BeforeIsPrimary field's value.
+func (s *MemberDiffForBatchSyncDepartmentMembersOutput) SetBeforeIsPrimary(v bool) *MemberDiffForBatchSyncDepartmentMembersOutput {
+	s.BeforeIsPrimary = &v
+	return s
+}
+
+// SetBeforeRole sets the BeforeRole field's value.
+func (s *MemberDiffForBatchSyncDepartmentMembersOutput) SetBeforeRole(v string) *MemberDiffForBatchSyncDepartmentMembersOutput {
+	s.BeforeRole = &v
+	return s
+}
+
+// SetUserUid sets the UserUid field's value.
+func (s *MemberDiffForBatchSyncDepartmentMembersOutput) SetUserUid(v string) *MemberDiffForBatchSyncDepartmentMembersOutput {
+	s.UserUid = &v
 	return s
 }
 

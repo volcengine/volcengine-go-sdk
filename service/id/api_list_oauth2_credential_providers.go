@@ -204,7 +204,7 @@ type ListOauth2CredentialProvidersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Oauth2CredentialProviders []*Oauth2CredentialProviderForListOauth2CredentialProvidersOutput `type:"list" json:",omitempty"`
+	Oauth2CredentialProviders []*Oauth2CredentialProviderForListOauth2CredentialProvidersOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

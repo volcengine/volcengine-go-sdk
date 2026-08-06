@@ -208,7 +208,7 @@ type ListTrustAnchorsOutput struct {
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 
-	TrustAnchors []*TrustAnchorForListTrustAnchorsOutput `type:"list" json:",omitempty"`
+	TrustAnchors []*TrustAnchorForListTrustAnchorsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -288,7 +288,7 @@ type TrustAnchorForListTrustAnchorsOutput struct {
 
 	Trn *string `type:"string" json:",omitempty"`
 
-	TrustAnchorCfg []*TrustAnchorCfgForListTrustAnchorsOutput `type:"list" json:",omitempty"`
+	TrustAnchorCfg []*TrustAnchorCfgForListTrustAnchorsOutput `type:"list"`
 
 	TrustAnchorType *string `type:"string" json:",omitempty"`
 

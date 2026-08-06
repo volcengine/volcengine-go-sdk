@@ -178,6 +178,8 @@ type GetWorkloadPoolOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AllowAutoCreateIdentity *bool `type:"boolean" json:",omitempty"`
+
 	CreatedAt *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
@@ -186,7 +188,7 @@ type GetWorkloadPoolOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForGetWorkloadPoolOutput `type:"list" json:",omitempty"`
+	Tags []*TagForGetWorkloadPoolOutput `type:"list"`
 
 	TotalCredentials *int64 `type:"int64" json:",omitempty"`
 
@@ -194,7 +196,11 @@ type GetWorkloadPoolOutput struct {
 
 	Trn *string `type:"string" json:",omitempty"`
 
+	TrustAnchors []*string `type:"list"`
+
 	UpdatedAt *string `type:"string" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
 
 	WorkloadPoolId *string `type:"string" json:",omitempty"`
 
@@ -209,6 +215,12 @@ func (s GetWorkloadPoolOutput) String() string {
 // GoString returns the string representation
 func (s GetWorkloadPoolOutput) GoString() string {
 	return s.String()
+}
+
+// SetAllowAutoCreateIdentity sets the AllowAutoCreateIdentity field's value.
+func (s *GetWorkloadPoolOutput) SetAllowAutoCreateIdentity(v bool) *GetWorkloadPoolOutput {
+	s.AllowAutoCreateIdentity = &v
+	return s
 }
 
 // SetCreatedAt sets the CreatedAt field's value.
@@ -259,9 +271,21 @@ func (s *GetWorkloadPoolOutput) SetTrn(v string) *GetWorkloadPoolOutput {
 	return s
 }
 
+// SetTrustAnchors sets the TrustAnchors field's value.
+func (s *GetWorkloadPoolOutput) SetTrustAnchors(v []*string) *GetWorkloadPoolOutput {
+	s.TrustAnchors = v
+	return s
+}
+
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *GetWorkloadPoolOutput) SetUpdatedAt(v string) *GetWorkloadPoolOutput {
 	s.UpdatedAt = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *GetWorkloadPoolOutput) SetUrl(v string) *GetWorkloadPoolOutput {
+	s.Url = &v
 	return s
 }
 

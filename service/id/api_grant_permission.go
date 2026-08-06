@@ -234,7 +234,7 @@ type GrantPermissionInput struct {
 
 	Operation *OperationForGrantPermissionInput `type:"structure" json:",omitempty"`
 
-	OriginalCallers []*OriginalCallerForGrantPermissionInput `type:"list" json:",omitempty"`
+	OriginalCallers []*OriginalCallerForGrantPermissionInput `type:"list"`
 
 	PolicyName *string `type:"string" json:",omitempty"`
 

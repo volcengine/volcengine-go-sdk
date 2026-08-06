@@ -148,7 +148,7 @@ type AdditionalMappingForCreateIdentityProviderOIDCInput struct {
 
 	ScimPath *string `type:"string" json:",omitempty"`
 
-	UserPoolPath []*string `type:"list" json:",omitempty"`
+	UserPoolPath []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -178,7 +178,7 @@ type AdditionalMappingForCreateIdentityProviderOIDCOutput struct {
 
 	ScimPath *string `type:"string" json:",omitempty"`
 
-	UserPoolPath []*string `type:"list" json:",omitempty"`
+	UserPoolPath []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -200,6 +200,98 @@ func (s *AdditionalMappingForCreateIdentityProviderOIDCOutput) SetScimPath(v str
 // SetUserPoolPath sets the UserPoolPath field's value.
 func (s *AdditionalMappingForCreateIdentityProviderOIDCOutput) SetUserPoolPath(v []*string) *AdditionalMappingForCreateIdentityProviderOIDCOutput {
 	s.UserPoolPath = v
+	return s
+}
+
+type AttributeMappingForCreateIdentityProviderOIDCInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalConfig *string `type:"string" json:",omitempty"`
+
+	MappingType *string `type:"string" json:",omitempty"`
+
+	SourceAttributeName *string `type:"string" json:",omitempty"`
+
+	TargetAttributeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AttributeMappingForCreateIdentityProviderOIDCInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttributeMappingForCreateIdentityProviderOIDCInput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalConfig sets the AdditionalConfig field's value.
+func (s *AttributeMappingForCreateIdentityProviderOIDCInput) SetAdditionalConfig(v string) *AttributeMappingForCreateIdentityProviderOIDCInput {
+	s.AdditionalConfig = &v
+	return s
+}
+
+// SetMappingType sets the MappingType field's value.
+func (s *AttributeMappingForCreateIdentityProviderOIDCInput) SetMappingType(v string) *AttributeMappingForCreateIdentityProviderOIDCInput {
+	s.MappingType = &v
+	return s
+}
+
+// SetSourceAttributeName sets the SourceAttributeName field's value.
+func (s *AttributeMappingForCreateIdentityProviderOIDCInput) SetSourceAttributeName(v string) *AttributeMappingForCreateIdentityProviderOIDCInput {
+	s.SourceAttributeName = &v
+	return s
+}
+
+// SetTargetAttributeName sets the TargetAttributeName field's value.
+func (s *AttributeMappingForCreateIdentityProviderOIDCInput) SetTargetAttributeName(v string) *AttributeMappingForCreateIdentityProviderOIDCInput {
+	s.TargetAttributeName = &v
+	return s
+}
+
+type AttributeMappingForCreateIdentityProviderOIDCOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalConfig *string `type:"string" json:",omitempty"`
+
+	MappingType *string `type:"string" json:",omitempty"`
+
+	SourceAttributeName *string `type:"string" json:",omitempty"`
+
+	TargetAttributeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AttributeMappingForCreateIdentityProviderOIDCOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttributeMappingForCreateIdentityProviderOIDCOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalConfig sets the AdditionalConfig field's value.
+func (s *AttributeMappingForCreateIdentityProviderOIDCOutput) SetAdditionalConfig(v string) *AttributeMappingForCreateIdentityProviderOIDCOutput {
+	s.AdditionalConfig = &v
+	return s
+}
+
+// SetMappingType sets the MappingType field's value.
+func (s *AttributeMappingForCreateIdentityProviderOIDCOutput) SetMappingType(v string) *AttributeMappingForCreateIdentityProviderOIDCOutput {
+	s.MappingType = &v
+	return s
+}
+
+// SetSourceAttributeName sets the SourceAttributeName field's value.
+func (s *AttributeMappingForCreateIdentityProviderOIDCOutput) SetSourceAttributeName(v string) *AttributeMappingForCreateIdentityProviderOIDCOutput {
+	s.SourceAttributeName = &v
+	return s
+}
+
+// SetTargetAttributeName sets the TargetAttributeName field's value.
+func (s *AttributeMappingForCreateIdentityProviderOIDCOutput) SetTargetAttributeName(v string) *AttributeMappingForCreateIdentityProviderOIDCOutput {
+	s.TargetAttributeName = &v
 	return s
 }
 
@@ -298,7 +390,7 @@ func (s *ClaimRuleForCreateIdentityProviderOIDCOutput) SetTargetClaim(v string) 
 type ClaimsPropagationConfigForCreateIdentityProviderOIDCInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForCreateIdentityProviderOIDCInput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForCreateIdentityProviderOIDCInput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -328,7 +420,7 @@ func (s *ClaimsPropagationConfigForCreateIdentityProviderOIDCInput) SetMode(v st
 type ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForCreateIdentityProviderOIDCOutput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForCreateIdentityProviderOIDCOutput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -358,6 +450,8 @@ func (s *ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput) SetMode(v s
 type CreateIdentityProviderOIDCInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AttributeMappings []*AttributeMappingForCreateIdentityProviderOIDCInput `type:"list"`
+
 	ClaimsPropagationConfig *ClaimsPropagationConfigForCreateIdentityProviderOIDCInput `type:"structure" json:",omitempty"`
 
 	// ClientId is a required field
@@ -365,6 +459,8 @@ type CreateIdentityProviderOIDCInput struct {
 
 	// ClientSecret is a required field
 	ClientSecret *string `type:"string" json:",omitempty" required:"true"`
+
+	EipId *string `type:"string" json:",omitempty"`
 
 	// Enabled is a required field
 	Enabled *bool `type:"boolean" json:",omitempty" required:"true"`
@@ -378,13 +474,17 @@ type CreateIdentityProviderOIDCInput struct {
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
+	PassvaultOauth2CredentialProviderOptions *PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput `type:"structure" json:",omitempty"`
+
 	Provider *string `type:"string" json:",omitempty"`
 
 	ProviderOptions *ProviderOptionsForCreateIdentityProviderOIDCInput `type:"structure" json:",omitempty"`
 
 	ScimProvisioning *ScimProvisioningForCreateIdentityProviderOIDCInput `type:"structure" json:",omitempty"`
 
-	ScopesList []*string `type:"list" json:",omitempty"`
+	ScopesList []*string `type:"list"`
+
+	SoleProviderConnection *bool `type:"boolean" json:",omitempty"`
 
 	// UsePkce is a required field
 	UsePkce *bool `type:"boolean" json:",omitempty" required:"true"`
@@ -437,6 +537,12 @@ func (s *CreateIdentityProviderOIDCInput) Validate() error {
 	return nil
 }
 
+// SetAttributeMappings sets the AttributeMappings field's value.
+func (s *CreateIdentityProviderOIDCInput) SetAttributeMappings(v []*AttributeMappingForCreateIdentityProviderOIDCInput) *CreateIdentityProviderOIDCInput {
+	s.AttributeMappings = v
+	return s
+}
+
 // SetClaimsPropagationConfig sets the ClaimsPropagationConfig field's value.
 func (s *CreateIdentityProviderOIDCInput) SetClaimsPropagationConfig(v *ClaimsPropagationConfigForCreateIdentityProviderOIDCInput) *CreateIdentityProviderOIDCInput {
 	s.ClaimsPropagationConfig = v
@@ -452,6 +558,12 @@ func (s *CreateIdentityProviderOIDCInput) SetClientId(v string) *CreateIdentityP
 // SetClientSecret sets the ClientSecret field's value.
 func (s *CreateIdentityProviderOIDCInput) SetClientSecret(v string) *CreateIdentityProviderOIDCInput {
 	s.ClientSecret = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *CreateIdentityProviderOIDCInput) SetEipId(v string) *CreateIdentityProviderOIDCInput {
+	s.EipId = &v
 	return s
 }
 
@@ -479,6 +591,12 @@ func (s *CreateIdentityProviderOIDCInput) SetName(v string) *CreateIdentityProvi
 	return s
 }
 
+// SetPassvaultOauth2CredentialProviderOptions sets the PassvaultOauth2CredentialProviderOptions field's value.
+func (s *CreateIdentityProviderOIDCInput) SetPassvaultOauth2CredentialProviderOptions(v *PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput) *CreateIdentityProviderOIDCInput {
+	s.PassvaultOauth2CredentialProviderOptions = v
+	return s
+}
+
 // SetProvider sets the Provider field's value.
 func (s *CreateIdentityProviderOIDCInput) SetProvider(v string) *CreateIdentityProviderOIDCInput {
 	s.Provider = &v
@@ -503,6 +621,12 @@ func (s *CreateIdentityProviderOIDCInput) SetScopesList(v []*string) *CreateIden
 	return s
 }
 
+// SetSoleProviderConnection sets the SoleProviderConnection field's value.
+func (s *CreateIdentityProviderOIDCInput) SetSoleProviderConnection(v bool) *CreateIdentityProviderOIDCInput {
+	s.SoleProviderConnection = &v
+	return s
+}
+
 // SetUsePkce sets the UsePkce field's value.
 func (s *CreateIdentityProviderOIDCInput) SetUsePkce(v bool) *CreateIdentityProviderOIDCInput {
 	s.UsePkce = &v
@@ -520,11 +644,15 @@ type CreateIdentityProviderOIDCOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AttributeMappings []*AttributeMappingForCreateIdentityProviderOIDCOutput `type:"list"`
+
 	ClaimsPropagationConfig *ClaimsPropagationConfigForCreateIdentityProviderOIDCOutput `type:"structure" json:",omitempty"`
 
 	ClientId *string `type:"string" json:",omitempty"`
 
 	ClientSecret *string `type:"string" json:",omitempty"`
+
+	EipRecord *EipRecordForCreateIdentityProviderOIDCOutput `type:"structure" json:",omitempty"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
@@ -540,7 +668,9 @@ type CreateIdentityProviderOIDCOutput struct {
 
 	ScimProvisioning *ScimProvisioningForCreateIdentityProviderOIDCOutput `type:"structure" json:",omitempty"`
 
-	ScopesList []*string `type:"list" json:",omitempty"`
+	ScopesList []*string `type:"list"`
+
+	SoleProviderConnection *bool `type:"boolean" json:",omitempty"`
 
 	Uid *string `type:"string" json:",omitempty"`
 
@@ -555,6 +685,12 @@ func (s CreateIdentityProviderOIDCOutput) String() string {
 // GoString returns the string representation
 func (s CreateIdentityProviderOIDCOutput) GoString() string {
 	return s.String()
+}
+
+// SetAttributeMappings sets the AttributeMappings field's value.
+func (s *CreateIdentityProviderOIDCOutput) SetAttributeMappings(v []*AttributeMappingForCreateIdentityProviderOIDCOutput) *CreateIdentityProviderOIDCOutput {
+	s.AttributeMappings = v
+	return s
 }
 
 // SetClaimsPropagationConfig sets the ClaimsPropagationConfig field's value.
@@ -572,6 +708,12 @@ func (s *CreateIdentityProviderOIDCOutput) SetClientId(v string) *CreateIdentity
 // SetClientSecret sets the ClientSecret field's value.
 func (s *CreateIdentityProviderOIDCOutput) SetClientSecret(v string) *CreateIdentityProviderOIDCOutput {
 	s.ClientSecret = &v
+	return s
+}
+
+// SetEipRecord sets the EipRecord field's value.
+func (s *CreateIdentityProviderOIDCOutput) SetEipRecord(v *EipRecordForCreateIdentityProviderOIDCOutput) *CreateIdentityProviderOIDCOutput {
+	s.EipRecord = v
 	return s
 }
 
@@ -623,6 +765,12 @@ func (s *CreateIdentityProviderOIDCOutput) SetScopesList(v []*string) *CreateIde
 	return s
 }
 
+// SetSoleProviderConnection sets the SoleProviderConnection field's value.
+func (s *CreateIdentityProviderOIDCOutput) SetSoleProviderConnection(v bool) *CreateIdentityProviderOIDCOutput {
+	s.SoleProviderConnection = &v
+	return s
+}
+
 // SetUid sets the Uid field's value.
 func (s *CreateIdentityProviderOIDCOutput) SetUid(v string) *CreateIdentityProviderOIDCOutput {
 	s.Uid = &v
@@ -632,6 +780,66 @@ func (s *CreateIdentityProviderOIDCOutput) SetUid(v string) *CreateIdentityProvi
 // SetUsePkce sets the UsePkce field's value.
 func (s *CreateIdentityProviderOIDCOutput) SetUsePkce(v bool) *CreateIdentityProviderOIDCOutput {
 	s.UsePkce = &v
+	return s
+}
+
+type EipRecordForCreateIdentityProviderOIDCOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipRecordForCreateIdentityProviderOIDCOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipRecordForCreateIdentityProviderOIDCOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipRecordForCreateIdentityProviderOIDCOutput) SetEipAddress(v string) *EipRecordForCreateIdentityProviderOIDCOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipRecordForCreateIdentityProviderOIDCOutput) SetEipId(v string) *EipRecordForCreateIdentityProviderOIDCOutput {
+	s.EipId = &v
+	return s
+}
+
+type PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CreatePassvaultOauth2CredentialProvider *bool `type:"boolean" json:",omitempty"`
+
+	WorkloadPoolName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput) GoString() string {
+	return s.String()
+}
+
+// SetCreatePassvaultOauth2CredentialProvider sets the CreatePassvaultOauth2CredentialProvider field's value.
+func (s *PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput) SetCreatePassvaultOauth2CredentialProvider(v bool) *PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput {
+	s.CreatePassvaultOauth2CredentialProvider = &v
+	return s
+}
+
+// SetWorkloadPoolName sets the WorkloadPoolName field's value.
+func (s *PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput) SetWorkloadPoolName(v string) *PassvaultOauth2CredentialProviderOptionsForCreateIdentityProviderOIDCInput {
+	s.WorkloadPoolName = &v
 	return s
 }
 
@@ -762,7 +970,7 @@ func (s *ProviderOptionsForCreateIdentityProviderOIDCOutput) SetUserLinkingPromp
 type ScimProvisioningForCreateIdentityProviderOIDCInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalMappings []*AdditionalMappingForCreateIdentityProviderOIDCInput `type:"list" json:",omitempty"`
+	AdditionalMappings []*AdditionalMappingForCreateIdentityProviderOIDCInput `type:"list"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
@@ -800,7 +1008,7 @@ func (s *ScimProvisioningForCreateIdentityProviderOIDCInput) SetUserIdAttribute(
 type ScimProvisioningForCreateIdentityProviderOIDCOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalMappings []*AdditionalMappingForCreateIdentityProviderOIDCOutput `type:"list" json:",omitempty"`
+	AdditionalMappings []*AdditionalMappingForCreateIdentityProviderOIDCOutput `type:"list"`
 
 	BaseUrl *string `type:"string" json:",omitempty"`
 

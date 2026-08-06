@@ -146,7 +146,7 @@ func (c *ID) ListGroupsForUsersWithContext(ctx volcengine.Context, input *ListGr
 type DataForListGroupsForUsersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Groups []*GroupForListGroupsForUsersOutput `type:"list" json:",omitempty"`
+	Groups []*GroupForListGroupsForUsersOutput `type:"list"`
 
 	UserUid *string `type:"string" json:",omitempty"`
 }
@@ -281,7 +281,7 @@ type ListGroupsForUsersInput struct {
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
 
-	UserUids []*string `type:"list" json:",omitempty"`
+	UserUids []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -324,7 +324,7 @@ type ListGroupsForUsersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListGroupsForUsersOutput `type:"list" json:",omitempty"`
+	Data []*DataForListGroupsForUsersOutput `type:"list"`
 }
 
 // String returns the string representation

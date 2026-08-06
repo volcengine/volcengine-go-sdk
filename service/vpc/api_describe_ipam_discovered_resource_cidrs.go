@@ -149,11 +149,14 @@ type DescribeIpamDiscoveredResourceCidrsInput struct {
 
 	NextToken *string `type:"string"`
 
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
 	// ResourceRegionId is a required field
 	ResourceRegionId *string `type:"string" required:"true"`
 
-	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true"`
+	ResourceType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -174,9 +177,6 @@ func (s *DescribeIpamDiscoveredResourceCidrsInput) Validate() error {
 	}
 	if s.ResourceRegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ResourceRegionId"))
-	}
-	if s.ResourceType == nil {
-		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -203,6 +203,18 @@ func (s *DescribeIpamDiscoveredResourceCidrsInput) SetNextToken(v string) *Descr
 	return s
 }
 
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeIpamDiscoveredResourceCidrsInput) SetPageNumber(v int64) *DescribeIpamDiscoveredResourceCidrsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeIpamDiscoveredResourceCidrsInput) SetPageSize(v int64) *DescribeIpamDiscoveredResourceCidrsInput {
+	s.PageSize = &v
+	return s
+}
+
 // SetResourceRegionId sets the ResourceRegionId field's value.
 func (s *DescribeIpamDiscoveredResourceCidrsInput) SetResourceRegionId(v string) *DescribeIpamDiscoveredResourceCidrsInput {
 	s.ResourceRegionId = &v
@@ -224,7 +236,13 @@ type DescribeIpamDiscoveredResourceCidrsOutput struct {
 
 	NextToken *string `type:"string"`
 
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
 	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -249,16 +267,32 @@ func (s *DescribeIpamDiscoveredResourceCidrsOutput) SetNextToken(v string) *Desc
 	return s
 }
 
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeIpamDiscoveredResourceCidrsOutput) SetPageNumber(v int64) *DescribeIpamDiscoveredResourceCidrsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeIpamDiscoveredResourceCidrsOutput) SetPageSize(v int64) *DescribeIpamDiscoveredResourceCidrsOutput {
+	s.PageSize = &v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeIpamDiscoveredResourceCidrsOutput) SetRequestId(v string) *DescribeIpamDiscoveredResourceCidrsOutput {
 	s.RequestId = &v
 	return s
 }
 
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeIpamDiscoveredResourceCidrsOutput) SetTotalCount(v int64) *DescribeIpamDiscoveredResourceCidrsOutput {
+	s.TotalCount = &v
+	return s
+}
+
 type IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput struct {
 	_ struct{} `type:"structure"`
-
-	CidrBlock *string `type:"string"`
 
 	DiscoveryTime *string `type:"string"`
 
@@ -266,7 +300,13 @@ type IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput stru
 
 	IpamResourceDiscoveryId *string `type:"string"`
 
+	ResourceCidr *string `type:"string"`
+
 	ResourceId *string `type:"string"`
+
+	ResourceName *string `type:"string"`
+
+	ResourceOwnerId *string `type:"string"`
 
 	ResourceRegionId *string `type:"string"`
 
@@ -283,12 +323,6 @@ func (s IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput) 
 // GoString returns the string representation
 func (s IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput) GoString() string {
 	return s.String()
-}
-
-// SetCidrBlock sets the CidrBlock field's value.
-func (s *IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput) SetCidrBlock(v string) *IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput {
-	s.CidrBlock = &v
-	return s
 }
 
 // SetDiscoveryTime sets the DiscoveryTime field's value.
@@ -309,9 +343,27 @@ func (s *IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput)
 	return s
 }
 
+// SetResourceCidr sets the ResourceCidr field's value.
+func (s *IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput) SetResourceCidr(v string) *IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput {
+	s.ResourceCidr = &v
+	return s
+}
+
 // SetResourceId sets the ResourceId field's value.
 func (s *IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput) SetResourceId(v string) *IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput {
 	s.ResourceId = &v
+	return s
+}
+
+// SetResourceName sets the ResourceName field's value.
+func (s *IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput) SetResourceName(v string) *IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput {
+	s.ResourceName = &v
+	return s
+}
+
+// SetResourceOwnerId sets the ResourceOwnerId field's value.
+func (s *IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput) SetResourceOwnerId(v string) *IpamDiscoveredResourceCidrForDescribeIpamDiscoveredResourceCidrsOutput {
+	s.ResourceOwnerId = &v
 	return s
 }
 

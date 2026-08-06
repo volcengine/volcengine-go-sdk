@@ -252,9 +252,11 @@ type FilterForListGroupsForUserInput struct {
 
 	GroupIdTokenName *string `type:"string" json:",omitempty"`
 
-	GroupUidsOr []*string `type:"list" json:",omitempty"`
+	GroupUidsOr []*string `type:"list"`
 
 	Name *string `type:"string" json:",omitempty"`
+
+	NameMatchMode *int32 `type:"int32" json:",omitempty"`
 
 	Source *string `type:"string" json:",omitempty"`
 }
@@ -290,6 +292,12 @@ func (s *FilterForListGroupsForUserInput) SetGroupUidsOr(v []*string) *FilterFor
 // SetName sets the Name field's value.
 func (s *FilterForListGroupsForUserInput) SetName(v string) *FilterForListGroupsForUserInput {
 	s.Name = &v
+	return s
+}
+
+// SetNameMatchMode sets the NameMatchMode field's value.
+func (s *FilterForListGroupsForUserInput) SetNameMatchMode(v int32) *FilterForListGroupsForUserInput {
+	s.NameMatchMode = &v
 	return s
 }
 
@@ -396,7 +404,7 @@ type ListGroupsForUserOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListGroupsForUserOutput `type:"list" json:",omitempty"`
+	Data []*DataForListGroupsForUserOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

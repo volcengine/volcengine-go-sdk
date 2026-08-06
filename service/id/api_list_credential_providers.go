@@ -146,6 +146,8 @@ func (c *ID) ListCredentialProvidersWithContext(ctx volcengine.Context, input *L
 type CredentialProviderForListCredentialProvidersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BindingResourceNumber *int64 `type:"int64" json:",omitempty"`
+
 	CreatedAt *string `type:"string" json:",omitempty"`
 
 	CredentialProviderTrn *string `type:"string" json:",omitempty"`
@@ -173,6 +175,12 @@ func (s CredentialProviderForListCredentialProvidersOutput) String() string {
 // GoString returns the string representation
 func (s CredentialProviderForListCredentialProvidersOutput) GoString() string {
 	return s.String()
+}
+
+// SetBindingResourceNumber sets the BindingResourceNumber field's value.
+func (s *CredentialProviderForListCredentialProvidersOutput) SetBindingResourceNumber(v int64) *CredentialProviderForListCredentialProvidersOutput {
+	s.BindingResourceNumber = &v
+	return s
 }
 
 // SetCreatedAt sets the CreatedAt field's value.
@@ -232,6 +240,8 @@ func (s *CredentialProviderForListCredentialProvidersOutput) SetVendor(v int32) 
 type FilterForListCredentialProvidersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	BindingStatus *bool `type:"boolean" json:",omitempty"`
+
 	Flow *string `type:"string" json:",omitempty" enum:"EnumOfFlowForListCredentialProvidersInput"`
 
 	Name *string `type:"string" json:",omitempty"`
@@ -239,6 +249,8 @@ type FilterForListCredentialProvidersInput struct {
 	PoolName *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	Source *string `type:"string" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListCredentialProvidersInput"`
 
@@ -253,6 +265,12 @@ func (s FilterForListCredentialProvidersInput) String() string {
 // GoString returns the string representation
 func (s FilterForListCredentialProvidersInput) GoString() string {
 	return s.String()
+}
+
+// SetBindingStatus sets the BindingStatus field's value.
+func (s *FilterForListCredentialProvidersInput) SetBindingStatus(v bool) *FilterForListCredentialProvidersInput {
+	s.BindingStatus = &v
+	return s
 }
 
 // SetFlow sets the Flow field's value.
@@ -276,6 +294,12 @@ func (s *FilterForListCredentialProvidersInput) SetPoolName(v string) *FilterFor
 // SetProjectName sets the ProjectName field's value.
 func (s *FilterForListCredentialProvidersInput) SetProjectName(v string) *FilterForListCredentialProvidersInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *FilterForListCredentialProvidersInput) SetSource(v string) *FilterForListCredentialProvidersInput {
+	s.Source = &v
 	return s
 }
 
@@ -376,7 +400,7 @@ type ListCredentialProvidersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	CredentialProviders []*CredentialProviderForListCredentialProvidersOutput `type:"list" json:",omitempty"`
+	CredentialProviders []*CredentialProviderForListCredentialProvidersOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

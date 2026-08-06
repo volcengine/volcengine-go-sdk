@@ -148,7 +148,7 @@ type ApiKeyAuthConfigForListInboundAuthConfigsOutput struct {
 
 	ApiKey *string `type:"string" json:",omitempty"`
 
-	ApiKeyMetadata []*ApiKeyMetadataForListInboundAuthConfigsOutput `type:"list" json:",omitempty"`
+	ApiKeyMetadata []*ApiKeyMetadataForListInboundAuthConfigsOutput `type:"list"`
 
 	ApiKeyName *string `type:"string" json:",omitempty"`
 
@@ -230,7 +230,7 @@ func (s *ApiKeyMetadataForListInboundAuthConfigsOutput) SetPrefix(v string) *Api
 type InboundAuthConfigForListInboundAuthConfigsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApiKeyAuthConfigs []*ApiKeyAuthConfigForListInboundAuthConfigsOutput `type:"list" json:",omitempty"`
+	ApiKeyAuthConfigs []*ApiKeyAuthConfigForListInboundAuthConfigsOutput `type:"list"`
 
 	AuthType *string `type:"string" json:",omitempty"`
 
@@ -324,9 +324,9 @@ func (s *InboundAuthConfigForListInboundAuthConfigsOutput) SetUpdatedAt(v string
 type JwtAuthConfigForListInboundAuthConfigsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowedAudiences []*string `type:"list" json:",omitempty"`
+	AllowedAudiences []*string `type:"list"`
 
-	AllowedClients []*string `type:"list" json:",omitempty"`
+	AllowedClients []*string `type:"list"`
 
 	DiscoveryUrl *string `type:"string" json:",omitempty"`
 }
@@ -428,7 +428,7 @@ type ListInboundAuthConfigsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InboundAuthConfigs []*InboundAuthConfigForListInboundAuthConfigsOutput `type:"list" json:",omitempty"`
+	InboundAuthConfigs []*InboundAuthConfigForListInboundAuthConfigsOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

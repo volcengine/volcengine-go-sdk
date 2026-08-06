@@ -1446,7 +1446,9 @@ type MaintenanceWindowConfigForListClustersOutput struct {
 
 	Duration *int32 `type:"int32" json:",omitempty"`
 
-	Enabled *bool `type:"boolean" json:",omitempty"`
+	ExemptEndDate *string `type:"string" json:",omitempty"`
+
+	ExemptStartDate *string `type:"string" json:",omitempty"`
 
 	StartTime *string `type:"string" json:",omitempty"`
 
@@ -1471,9 +1473,15 @@ func (s *MaintenanceWindowConfigForListClustersOutput) SetDuration(v int32) *Mai
 	return s
 }
 
-// SetEnabled sets the Enabled field's value.
-func (s *MaintenanceWindowConfigForListClustersOutput) SetEnabled(v bool) *MaintenanceWindowConfigForListClustersOutput {
-	s.Enabled = &v
+// SetExemptEndDate sets the ExemptEndDate field's value.
+func (s *MaintenanceWindowConfigForListClustersOutput) SetExemptEndDate(v string) *MaintenanceWindowConfigForListClustersOutput {
+	s.ExemptEndDate = &v
+	return s
+}
+
+// SetExemptStartDate sets the ExemptStartDate field's value.
+func (s *MaintenanceWindowConfigForListClustersOutput) SetExemptStartDate(v string) *MaintenanceWindowConfigForListClustersOutput {
+	s.ExemptStartDate = &v
 	return s
 }
 

@@ -160,6 +160,8 @@ type DataForListPoliciesOutput struct {
 
 	PolicyName *string `type:"string" json:",omitempty"`
 
+	Status *string `type:"string" json:",omitempty"`
+
 	Trn *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
@@ -214,6 +216,12 @@ func (s *DataForListPoliciesOutput) SetPolicyId(v string) *DataForListPoliciesOu
 // SetPolicyName sets the PolicyName field's value.
 func (s *DataForListPoliciesOutput) SetPolicyName(v string) *DataForListPoliciesOutput {
 	s.PolicyName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DataForListPoliciesOutput) SetStatus(v string) *DataForListPoliciesOutput {
+	s.Status = &v
 	return s
 }
 
@@ -420,7 +428,7 @@ type ListPoliciesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListPoliciesOutput `type:"list" json:",omitempty"`
+	Data []*DataForListPoliciesOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

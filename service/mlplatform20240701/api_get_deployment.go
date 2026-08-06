@@ -143,6 +143,44 @@ func (c *MLPLATFORM20240701) GetDeploymentWithContext(ctx volcengine.Context, in
 	return out, req.Send()
 }
 
+type AutoscalerForGetDeploymentOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Crons []*CronForGetDeploymentOutput `type:"list" json:",omitempty"`
+
+	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	MetricsAutoscaler *MetricsAutoscalerForGetDeploymentOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AutoscalerForGetDeploymentOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AutoscalerForGetDeploymentOutput) GoString() string {
+	return s.String()
+}
+
+// SetCrons sets the Crons field's value.
+func (s *AutoscalerForGetDeploymentOutput) SetCrons(v []*CronForGetDeploymentOutput) *AutoscalerForGetDeploymentOutput {
+	s.Crons = v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *AutoscalerForGetDeploymentOutput) SetEnabled(v bool) *AutoscalerForGetDeploymentOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetMetricsAutoscaler sets the MetricsAutoscaler field's value.
+func (s *AutoscalerForGetDeploymentOutput) SetMetricsAutoscaler(v *MetricsAutoscalerForGetDeploymentOutput) *AutoscalerForGetDeploymentOutput {
+	s.MetricsAutoscaler = v
+	return s
+}
+
 type CfsForGetDeploymentOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -416,6 +454,36 @@ func (s *CredentialForGetDeploymentOutput) SetSecretAccessKey(v string) *Credent
 // SetUseServiceLinkedRole sets the UseServiceLinkedRole field's value.
 func (s *CredentialForGetDeploymentOutput) SetUseServiceLinkedRole(v bool) *CredentialForGetDeploymentOutput {
 	s.UseServiceLinkedRole = &v
+	return s
+}
+
+type CronForGetDeploymentOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Schedule *string `type:"string" json:",omitempty"`
+
+	Target *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CronForGetDeploymentOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CronForGetDeploymentOutput) GoString() string {
+	return s.String()
+}
+
+// SetSchedule sets the Schedule field's value.
+func (s *CronForGetDeploymentOutput) SetSchedule(v string) *CronForGetDeploymentOutput {
+	s.Schedule = &v
+	return s
+}
+
+// SetTarget sets the Target field's value.
+func (s *CronForGetDeploymentOutput) SetTarget(v int32) *CronForGetDeploymentOutput {
+	s.Target = &v
 	return s
 }
 
@@ -1132,6 +1200,90 @@ func (s *LivenessProbeForGetDeploymentOutput) SetTimeoutSeconds(v int32) *Livene
 	return s
 }
 
+type MetricForGetDeploymentOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	TargetValue *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetricForGetDeploymentOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetricForGetDeploymentOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *MetricForGetDeploymentOutput) SetName(v string) *MetricForGetDeploymentOutput {
+	s.Name = &v
+	return s
+}
+
+// SetTargetValue sets the TargetValue field's value.
+func (s *MetricForGetDeploymentOutput) SetTargetValue(v int32) *MetricForGetDeploymentOutput {
+	s.TargetValue = &v
+	return s
+}
+
+type MetricsAutoscalerForGetDeploymentOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MaxReplicas *int32 `type:"int32" json:",omitempty"`
+
+	Metrics []*MetricForGetDeploymentOutput `type:"list" json:",omitempty"`
+
+	MinReplicas *int32 `type:"int32" json:",omitempty"`
+
+	ScaleDown *ScaleDownForGetDeploymentOutput `type:"structure" json:",omitempty"`
+
+	ScaleUp *ScaleUpForGetDeploymentOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetricsAutoscalerForGetDeploymentOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetricsAutoscalerForGetDeploymentOutput) GoString() string {
+	return s.String()
+}
+
+// SetMaxReplicas sets the MaxReplicas field's value.
+func (s *MetricsAutoscalerForGetDeploymentOutput) SetMaxReplicas(v int32) *MetricsAutoscalerForGetDeploymentOutput {
+	s.MaxReplicas = &v
+	return s
+}
+
+// SetMetrics sets the Metrics field's value.
+func (s *MetricsAutoscalerForGetDeploymentOutput) SetMetrics(v []*MetricForGetDeploymentOutput) *MetricsAutoscalerForGetDeploymentOutput {
+	s.Metrics = v
+	return s
+}
+
+// SetMinReplicas sets the MinReplicas field's value.
+func (s *MetricsAutoscalerForGetDeploymentOutput) SetMinReplicas(v int32) *MetricsAutoscalerForGetDeploymentOutput {
+	s.MinReplicas = &v
+	return s
+}
+
+// SetScaleDown sets the ScaleDown field's value.
+func (s *MetricsAutoscalerForGetDeploymentOutput) SetScaleDown(v *ScaleDownForGetDeploymentOutput) *MetricsAutoscalerForGetDeploymentOutput {
+	s.ScaleDown = v
+	return s
+}
+
+// SetScaleUp sets the ScaleUp field's value.
+func (s *MetricsAutoscalerForGetDeploymentOutput) SetScaleUp(v *ScaleUpForGetDeploymentOutput) *MetricsAutoscalerForGetDeploymentOutput {
+	s.ScaleUp = v
+	return s
+}
+
 type ModelForGetDeploymentOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1322,6 +1474,44 @@ func (s *OptionsForGetDeploymentOutput) SetMetaCacheExpiryMsec(v int64) *Options
 	return s
 }
 
+type PolicyForGetDeploymentOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	PeriodSeconds *int32 `type:"int32" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
+
+	Value *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PolicyForGetDeploymentOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PolicyForGetDeploymentOutput) GoString() string {
+	return s.String()
+}
+
+// SetPeriodSeconds sets the PeriodSeconds field's value.
+func (s *PolicyForGetDeploymentOutput) SetPeriodSeconds(v int32) *PolicyForGetDeploymentOutput {
+	s.PeriodSeconds = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *PolicyForGetDeploymentOutput) SetType(v string) *PolicyForGetDeploymentOutput {
+	s.Type = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *PolicyForGetDeploymentOutput) SetValue(v int32) *PolicyForGetDeploymentOutput {
+	s.Value = &v
+	return s
+}
+
 type PortForGetDeploymentOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1503,6 +1693,8 @@ func (s *ResourceForGetDeploymentOutput) SetZoneId(v string) *ResourceForGetDepl
 type RoleForGetDeploymentOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Autoscaler *AutoscalerForGetDeploymentOutput `type:"structure" json:",omitempty"`
+
 	Command *string `type:"string" json:",omitempty"`
 
 	Credential *CredentialForGetDeploymentOutput `type:"structure" json:",omitempty"`
@@ -1554,6 +1746,12 @@ func (s RoleForGetDeploymentOutput) String() string {
 // GoString returns the string representation
 func (s RoleForGetDeploymentOutput) GoString() string {
 	return s.String()
+}
+
+// SetAutoscaler sets the Autoscaler field's value.
+func (s *RoleForGetDeploymentOutput) SetAutoscaler(v *AutoscalerForGetDeploymentOutput) *RoleForGetDeploymentOutput {
+	s.Autoscaler = v
+	return s
 }
 
 // SetCommand sets the Command field's value.
@@ -1709,6 +1907,66 @@ func (s *RollingUpdateStrategyForGetDeploymentOutput) SetMaxSurge(v int32) *Roll
 // SetMaxUnavailable sets the MaxUnavailable field's value.
 func (s *RollingUpdateStrategyForGetDeploymentOutput) SetMaxUnavailable(v int32) *RollingUpdateStrategyForGetDeploymentOutput {
 	s.MaxUnavailable = &v
+	return s
+}
+
+type ScaleDownForGetDeploymentOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Policies []*PolicyForGetDeploymentOutput `type:"list" json:",omitempty"`
+
+	StabilizationWindowSeconds *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ScaleDownForGetDeploymentOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScaleDownForGetDeploymentOutput) GoString() string {
+	return s.String()
+}
+
+// SetPolicies sets the Policies field's value.
+func (s *ScaleDownForGetDeploymentOutput) SetPolicies(v []*PolicyForGetDeploymentOutput) *ScaleDownForGetDeploymentOutput {
+	s.Policies = v
+	return s
+}
+
+// SetStabilizationWindowSeconds sets the StabilizationWindowSeconds field's value.
+func (s *ScaleDownForGetDeploymentOutput) SetStabilizationWindowSeconds(v int32) *ScaleDownForGetDeploymentOutput {
+	s.StabilizationWindowSeconds = &v
+	return s
+}
+
+type ScaleUpForGetDeploymentOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Policies []*PolicyForGetDeploymentOutput `type:"list" json:",omitempty"`
+
+	StabilizationWindowSeconds *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ScaleUpForGetDeploymentOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScaleUpForGetDeploymentOutput) GoString() string {
+	return s.String()
+}
+
+// SetPolicies sets the Policies field's value.
+func (s *ScaleUpForGetDeploymentOutput) SetPolicies(v []*PolicyForGetDeploymentOutput) *ScaleUpForGetDeploymentOutput {
+	s.Policies = v
+	return s
+}
+
+// SetStabilizationWindowSeconds sets the StabilizationWindowSeconds field's value.
+func (s *ScaleUpForGetDeploymentOutput) SetStabilizationWindowSeconds(v int32) *ScaleUpForGetDeploymentOutput {
+	s.StabilizationWindowSeconds = &v
 	return s
 }
 
