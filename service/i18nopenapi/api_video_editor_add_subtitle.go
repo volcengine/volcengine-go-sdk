@@ -529,7 +529,8 @@ type VideoEditorAddSubtitleInput struct {
 	// SourceLanguage is a required field
 	SourceLanguage *string `type:"string" json:"sourceLanguage,omitempty" required:"true"`
 
-	SubtaskId *string `type:"string" json:"subtaskId,omitempty"`
+	// SubtaskId is a required field
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty" required:"true"`
 
 	// TargetLanguage is a required field
 	TargetLanguage *string `type:"string" json:"targetLanguage,omitempty" required:"true"`
@@ -550,6 +551,9 @@ func (s *VideoEditorAddSubtitleInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "VideoEditorAddSubtitleInput"}
 	if s.SourceLanguage == nil {
 		invalidParams.Add(request.NewErrParamRequired("SourceLanguage"))
+	}
+	if s.SubtaskId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubtaskId"))
 	}
 	if s.TargetLanguage == nil {
 		invalidParams.Add(request.NewErrParamRequired("TargetLanguage"))

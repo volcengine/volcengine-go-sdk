@@ -180,7 +180,7 @@ type VideoProjectCreateInput struct {
 
 	Comment *string `type:"string" json:"comment,omitempty"`
 
-	Contributors []*int32 `type:"list" json:"contributors,omitempty"`
+	Contributors []*string `type:"list" json:"contributors,omitempty"`
 
 	// Name is a required field
 	Name *string `type:"string" json:"name,omitempty" required:"true"`
@@ -230,7 +230,7 @@ func (s *VideoProjectCreateInput) SetComment(v string) *VideoProjectCreateInput 
 }
 
 // SetContributors sets the Contributors field's value.
-func (s *VideoProjectCreateInput) SetContributors(v []*int32) *VideoProjectCreateInput {
+func (s *VideoProjectCreateInput) SetContributors(v []*string) *VideoProjectCreateInput {
 	s.Contributors = v
 	return s
 }

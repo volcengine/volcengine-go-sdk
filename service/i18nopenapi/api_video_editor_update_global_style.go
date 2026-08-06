@@ -152,11 +152,11 @@ type SourceForVideoEditorUpdateGlobalStyleInput struct {
 
 	FontSize *int32 `min:"11" max:"72" type:"int32" json:"fontSize,omitempty"`
 
-	Show *float32 `type:"float" json:"show,omitempty"`
+	Show *bool `type:"boolean" json:"show,omitempty"`
 
-	X *int64 `max:"1" type:"int64" json:"x,omitempty"`
+	X *float64 `type:"double" json:"x,omitempty"`
 
-	Y *int64 `max:"1" type:"int64" json:"y,omitempty"`
+	Y *float64 `type:"double" json:"y,omitempty"`
 }
 
 // String returns the string representation
@@ -180,18 +180,6 @@ func (s *SourceForVideoEditorUpdateGlobalStyleInput) Validate() error {
 	}
 	if s.FontSize != nil && *s.FontSize > 72 {
 		invalidParams.Add(request.NewErrParamMaxValue("FontSize", 72))
-	}
-	if s.X != nil && *s.X < -1 {
-		invalidParams.Add(request.NewErrParamMinValue("X", -1))
-	}
-	if s.X != nil && *s.X > 1 {
-		invalidParams.Add(request.NewErrParamMaxValue("X", 1))
-	}
-	if s.Y != nil && *s.Y < -1 {
-		invalidParams.Add(request.NewErrParamMinValue("Y", -1))
-	}
-	if s.Y != nil && *s.Y > 1 {
-		invalidParams.Add(request.NewErrParamMaxValue("Y", 1))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -219,19 +207,19 @@ func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetFontSize(v int32) *Sourc
 }
 
 // SetShow sets the Show field's value.
-func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetShow(v float32) *SourceForVideoEditorUpdateGlobalStyleInput {
+func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetShow(v bool) *SourceForVideoEditorUpdateGlobalStyleInput {
 	s.Show = &v
 	return s
 }
 
 // SetX sets the X field's value.
-func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetX(v int64) *SourceForVideoEditorUpdateGlobalStyleInput {
+func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetX(v float64) *SourceForVideoEditorUpdateGlobalStyleInput {
 	s.X = &v
 	return s
 }
 
 // SetY sets the Y field's value.
-func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetY(v int64) *SourceForVideoEditorUpdateGlobalStyleInput {
+func (s *SourceForVideoEditorUpdateGlobalStyleInput) SetY(v float64) *SourceForVideoEditorUpdateGlobalStyleInput {
 	s.Y = &v
 	return s
 }
@@ -295,11 +283,11 @@ type TargetForVideoEditorUpdateGlobalStyleInput struct {
 
 	FontSize *int32 `min:"11" max:"72" type:"int32" json:"fontSize,omitempty"`
 
-	Show *float32 `type:"float" json:"show,omitempty"`
+	Show *bool `type:"boolean" json:"show,omitempty"`
 
-	X *int64 `max:"1" type:"int64" json:"x,omitempty"`
+	X *float64 `type:"double" json:"x,omitempty"`
 
-	Y *int64 `max:"1" type:"int64" json:"y,omitempty"`
+	Y *float64 `type:"double" json:"y,omitempty"`
 }
 
 // String returns the string representation
@@ -323,18 +311,6 @@ func (s *TargetForVideoEditorUpdateGlobalStyleInput) Validate() error {
 	}
 	if s.FontSize != nil && *s.FontSize > 72 {
 		invalidParams.Add(request.NewErrParamMaxValue("FontSize", 72))
-	}
-	if s.X != nil && *s.X < -1 {
-		invalidParams.Add(request.NewErrParamMinValue("X", -1))
-	}
-	if s.X != nil && *s.X > 1 {
-		invalidParams.Add(request.NewErrParamMaxValue("X", 1))
-	}
-	if s.Y != nil && *s.Y < -1 {
-		invalidParams.Add(request.NewErrParamMinValue("Y", -1))
-	}
-	if s.Y != nil && *s.Y > 1 {
-		invalidParams.Add(request.NewErrParamMaxValue("Y", 1))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -362,19 +338,19 @@ func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetFontSize(v int32) *Targe
 }
 
 // SetShow sets the Show field's value.
-func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetShow(v float32) *TargetForVideoEditorUpdateGlobalStyleInput {
+func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetShow(v bool) *TargetForVideoEditorUpdateGlobalStyleInput {
 	s.Show = &v
 	return s
 }
 
 // SetX sets the X field's value.
-func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetX(v int64) *TargetForVideoEditorUpdateGlobalStyleInput {
+func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetX(v float64) *TargetForVideoEditorUpdateGlobalStyleInput {
 	s.X = &v
 	return s
 }
 
 // SetY sets the Y field's value.
-func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetY(v int64) *TargetForVideoEditorUpdateGlobalStyleInput {
+func (s *TargetForVideoEditorUpdateGlobalStyleInput) SetY(v float64) *TargetForVideoEditorUpdateGlobalStyleInput {
 	s.Y = &v
 	return s
 }
@@ -384,7 +360,8 @@ type VideoEditorUpdateGlobalStyleInput struct {
 
 	StyleConfig *StyleConfigForVideoEditorUpdateGlobalStyleInput `type:"structure" json:"styleConfig,omitempty"`
 
-	SubtaskId *string `type:"string" json:"subtaskId,omitempty"`
+	// SubtaskId is a required field
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -400,6 +377,9 @@ func (s VideoEditorUpdateGlobalStyleInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *VideoEditorUpdateGlobalStyleInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "VideoEditorUpdateGlobalStyleInput"}
+	if s.SubtaskId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubtaskId"))
+	}
 	if s.StyleConfig != nil {
 		if err := s.StyleConfig.Validate(); err != nil {
 			invalidParams.AddNested("StyleConfig", err.(request.ErrInvalidParams))

@@ -287,6 +287,8 @@ type VideoProjectListInput struct {
 	Offset *int32 `locationName:"offset" type:"int32" required:"true"`
 
 	ProjectName *string `locationName:"projectName" type:"string"`
+
+	ProjectType *int32 `locationName:"projectType" type:"int32"`
 }
 
 // String returns the string representation
@@ -330,6 +332,12 @@ func (s *VideoProjectListInput) SetOffset(v int32) *VideoProjectListInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *VideoProjectListInput) SetProjectName(v string) *VideoProjectListInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetProjectType sets the ProjectType field's value.
+func (s *VideoProjectListInput) SetProjectType(v int32) *VideoProjectListInput {
+	s.ProjectType = &v
 	return s
 }
 

@@ -958,6 +958,8 @@ type VideoProjectAddTargetLangsToExistingDramaInput struct {
 
 	IsDub *bool `type:"boolean" json:"isDub,omitempty"`
 
+	NeedTermValidation *bool `type:"boolean" json:"needTermValidation,omitempty"`
+
 	// ProjectId is a required field
 	ProjectId *string `type:"string" json:"projectId,omitempty" required:"true"`
 
@@ -1032,6 +1034,12 @@ func (s *VideoProjectAddTargetLangsToExistingDramaInput) SetFromTaskType(v int32
 // SetIsDub sets the IsDub field's value.
 func (s *VideoProjectAddTargetLangsToExistingDramaInput) SetIsDub(v bool) *VideoProjectAddTargetLangsToExistingDramaInput {
 	s.IsDub = &v
+	return s
+}
+
+// SetNeedTermValidation sets the NeedTermValidation field's value.
+func (s *VideoProjectAddTargetLangsToExistingDramaInput) SetNeedTermValidation(v bool) *VideoProjectAddTargetLangsToExistingDramaInput {
+	s.NeedTermValidation = &v
 	return s
 }
 
