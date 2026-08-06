@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // CLOUD_TRAIL.
 //    func myFunc(svc CLOUDTRAILAPI) bool {
-//        // Make svc.LookupEvents request
+//        // Make svc.CreateTrail request
 //    }
 //
 //    func main() {
@@ -30,6 +30,62 @@ import (
 //    }
 //
 type CLOUDTRAILAPI interface {
+	CreateTrailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTrailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTrailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTrail(*CreateTrailInput) (*CreateTrailOutput, error)
+	CreateTrailWithContext(volcengine.Context, *CreateTrailInput, ...request.Option) (*CreateTrailOutput, error)
+	CreateTrailRequest(*CreateTrailInput) (*request.Request, *CreateTrailOutput)
+
+	DeleteTrailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTrailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTrailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTrail(*DeleteTrailInput) (*DeleteTrailOutput, error)
+	DeleteTrailWithContext(volcengine.Context, *DeleteTrailInput, ...request.Option) (*DeleteTrailOutput, error)
+	DeleteTrailRequest(*DeleteTrailInput) (*request.Request, *DeleteTrailOutput)
+
+	DescribeBackfillDeliveryTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBackfillDeliveryTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBackfillDeliveryTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBackfillDeliveryTask(*DescribeBackfillDeliveryTaskInput) (*DescribeBackfillDeliveryTaskOutput, error)
+	DescribeBackfillDeliveryTaskWithContext(volcengine.Context, *DescribeBackfillDeliveryTaskInput, ...request.Option) (*DescribeBackfillDeliveryTaskOutput, error)
+	DescribeBackfillDeliveryTaskRequest(*DescribeBackfillDeliveryTaskInput) (*request.Request, *DescribeBackfillDeliveryTaskOutput)
+
+	DescribeTrailsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTrailsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTrailsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTrails(*DescribeTrailsInput) (*DescribeTrailsOutput, error)
+	DescribeTrailsWithContext(volcengine.Context, *DescribeTrailsInput, ...request.Option) (*DescribeTrailsOutput, error)
+	DescribeTrailsRequest(*DescribeTrailsInput) (*request.Request, *DescribeTrailsOutput)
+
+	GetEventSelectorsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetEventSelectorsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetEventSelectorsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetEventSelectors(*GetEventSelectorsInput) (*GetEventSelectorsOutput, error)
+	GetEventSelectorsWithContext(volcengine.Context, *GetEventSelectorsInput, ...request.Option) (*GetEventSelectorsOutput, error)
+	GetEventSelectorsRequest(*GetEventSelectorsInput) (*request.Request, *GetEventSelectorsOutput)
+
+	ListBackfillDeliveryTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBackfillDeliveryTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBackfillDeliveryTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBackfillDeliveryTasks(*ListBackfillDeliveryTasksInput) (*ListBackfillDeliveryTasksOutput, error)
+	ListBackfillDeliveryTasksWithContext(volcengine.Context, *ListBackfillDeliveryTasksInput, ...request.Option) (*ListBackfillDeliveryTasksOutput, error)
+	ListBackfillDeliveryTasksRequest(*ListBackfillDeliveryTasksInput) (*request.Request, *ListBackfillDeliveryTasksOutput)
+
+	ListSearchTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSearchTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSearchTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSearchTemplates(*ListSearchTemplatesInput) (*ListSearchTemplatesOutput, error)
+	ListSearchTemplatesWithContext(volcengine.Context, *ListSearchTemplatesInput, ...request.Option) (*ListSearchTemplatesOutput, error)
+	ListSearchTemplatesRequest(*ListSearchTemplatesInput) (*request.Request, *ListSearchTemplatesOutput)
+
 	LookupEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	LookupEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	LookupEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -37,6 +93,38 @@ type CLOUDTRAILAPI interface {
 	LookupEvents(*LookupEventsInput) (*LookupEventsOutput, error)
 	LookupEventsWithContext(volcengine.Context, *LookupEventsInput, ...request.Option) (*LookupEventsOutput, error)
 	LookupEventsRequest(*LookupEventsInput) (*request.Request, *LookupEventsOutput)
+
+	StartLoggingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartLoggingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartLoggingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartLogging(*StartLoggingInput) (*StartLoggingOutput, error)
+	StartLoggingWithContext(volcengine.Context, *StartLoggingInput, ...request.Option) (*StartLoggingOutput, error)
+	StartLoggingRequest(*StartLoggingInput) (*request.Request, *StartLoggingOutput)
+
+	StopBackfillDeliveryTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopBackfillDeliveryTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopBackfillDeliveryTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopBackfillDeliveryTask(*StopBackfillDeliveryTaskInput) (*StopBackfillDeliveryTaskOutput, error)
+	StopBackfillDeliveryTaskWithContext(volcengine.Context, *StopBackfillDeliveryTaskInput, ...request.Option) (*StopBackfillDeliveryTaskOutput, error)
+	StopBackfillDeliveryTaskRequest(*StopBackfillDeliveryTaskInput) (*request.Request, *StopBackfillDeliveryTaskOutput)
+
+	StopLoggingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopLoggingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopLoggingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopLogging(*StopLoggingInput) (*StopLoggingOutput, error)
+	StopLoggingWithContext(volcengine.Context, *StopLoggingInput, ...request.Option) (*StopLoggingOutput, error)
+	StopLoggingRequest(*StopLoggingInput) (*request.Request, *StopLoggingOutput)
+
+	UpdateTrailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateTrailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateTrailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateTrail(*UpdateTrailInput) (*UpdateTrailOutput, error)
+	UpdateTrailWithContext(volcengine.Context, *UpdateTrailInput, ...request.Option) (*UpdateTrailOutput, error)
+	UpdateTrailRequest(*UpdateTrailInput) (*request.Request, *UpdateTrailOutput)
 }
 
 var _ CLOUDTRAILAPI = (*CLOUDTRAIL)(nil)
