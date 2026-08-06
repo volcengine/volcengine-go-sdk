@@ -885,6 +885,68 @@ func (s *LoggingConfigForUpdateClusterConfigInput) SetLogSetups(v []*LogSetupFor
 	return s
 }
 
+type MaintenanceWindowConfigForUpdateClusterConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Duration *int32 `type:"int32" json:",omitempty"`
+
+	ExemptEndDate *string `type:"string" json:",omitempty"`
+
+	ExemptStartDate *string `type:"string" json:",omitempty"`
+
+	StartTime *string `type:"string" json:",omitempty"`
+
+	TaskConfigs []*TaskConfigForUpdateClusterConfigInput `type:"list" json:",omitempty"`
+
+	WeeklyCycle []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MaintenanceWindowConfigForUpdateClusterConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaintenanceWindowConfigForUpdateClusterConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetDuration sets the Duration field's value.
+func (s *MaintenanceWindowConfigForUpdateClusterConfigInput) SetDuration(v int32) *MaintenanceWindowConfigForUpdateClusterConfigInput {
+	s.Duration = &v
+	return s
+}
+
+// SetExemptEndDate sets the ExemptEndDate field's value.
+func (s *MaintenanceWindowConfigForUpdateClusterConfigInput) SetExemptEndDate(v string) *MaintenanceWindowConfigForUpdateClusterConfigInput {
+	s.ExemptEndDate = &v
+	return s
+}
+
+// SetExemptStartDate sets the ExemptStartDate field's value.
+func (s *MaintenanceWindowConfigForUpdateClusterConfigInput) SetExemptStartDate(v string) *MaintenanceWindowConfigForUpdateClusterConfigInput {
+	s.ExemptStartDate = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *MaintenanceWindowConfigForUpdateClusterConfigInput) SetStartTime(v string) *MaintenanceWindowConfigForUpdateClusterConfigInput {
+	s.StartTime = &v
+	return s
+}
+
+// SetTaskConfigs sets the TaskConfigs field's value.
+func (s *MaintenanceWindowConfigForUpdateClusterConfigInput) SetTaskConfigs(v []*TaskConfigForUpdateClusterConfigInput) *MaintenanceWindowConfigForUpdateClusterConfigInput {
+	s.TaskConfigs = v
+	return s
+}
+
+// SetWeeklyCycle sets the WeeklyCycle field's value.
+func (s *MaintenanceWindowConfigForUpdateClusterConfigInput) SetWeeklyCycle(v []*string) *MaintenanceWindowConfigForUpdateClusterConfigInput {
+	s.WeeklyCycle = v
+	return s
+}
+
 type MonitoringConfigForUpdateClusterConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1091,6 +1153,44 @@ func (s *RegisterMonitoringConfigForUpdateClusterConfigInput) SetWorkspaceId(v s
 	return s
 }
 
+type TaskConfigForUpdateClusterConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty" enum:"EnumOfActionForUpdateClusterConfigInput"`
+
+	Group *string `type:"string" json:",omitempty" enum:"EnumOfGroupForUpdateClusterConfigInput"`
+
+	Targets []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TaskConfigForUpdateClusterConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TaskConfigForUpdateClusterConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *TaskConfigForUpdateClusterConfigInput) SetAction(v string) *TaskConfigForUpdateClusterConfigInput {
+	s.Action = &v
+	return s
+}
+
+// SetGroup sets the Group field's value.
+func (s *TaskConfigForUpdateClusterConfigInput) SetGroup(v string) *TaskConfigForUpdateClusterConfigInput {
+	s.Group = &v
+	return s
+}
+
+// SetTargets sets the Targets field's value.
+func (s *TaskConfigForUpdateClusterConfigInput) SetTargets(v []*string) *TaskConfigForUpdateClusterConfigInput {
+	s.Targets = v
+	return s
+}
+
 type UpdateClusterConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1110,6 +1210,8 @@ type UpdateClusterConfigInput struct {
 	KubernetesConfig *KubernetesConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 
 	LoggingConfig *LoggingConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
+
+	MaintenanceWindowConfig *MaintenanceWindowConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 
 	MonitoringConfig *MonitoringConfigForUpdateClusterConfigInput `type:"structure" json:",omitempty"`
 
@@ -1193,6 +1295,12 @@ func (s *UpdateClusterConfigInput) SetLoggingConfig(v *LoggingConfigForUpdateClu
 	return s
 }
 
+// SetMaintenanceWindowConfig sets the MaintenanceWindowConfig field's value.
+func (s *UpdateClusterConfigInput) SetMaintenanceWindowConfig(v *MaintenanceWindowConfigForUpdateClusterConfigInput) *UpdateClusterConfigInput {
+	s.MaintenanceWindowConfig = v
+	return s
+}
+
 // SetMonitoringConfig sets the MonitoringConfig field's value.
 func (s *UpdateClusterConfigInput) SetMonitoringConfig(v *MonitoringConfigForUpdateClusterConfigInput) *UpdateClusterConfigInput {
 	s.MonitoringConfig = v
@@ -1268,6 +1376,28 @@ func (s *VpcCniConfigForUpdateClusterConfigInput) SetVciSubnetIds(v []*string) *
 	s.VciSubnetIds = v
 	return s
 }
+
+const (
+	// EnumOfActionForUpdateClusterConfigInputAutoUpgradeAddonVersion is a EnumOfActionForUpdateClusterConfigInput enum value
+	EnumOfActionForUpdateClusterConfigInputAutoUpgradeAddonVersion = "AutoUpgradeAddonVersion"
+
+	// EnumOfActionForUpdateClusterConfigInputDryRunTest is a EnumOfActionForUpdateClusterConfigInput enum value
+	EnumOfActionForUpdateClusterConfigInputDryRunTest = "DryRunTest"
+
+	// EnumOfActionForUpdateClusterConfigInputFixClusterApiserverTls4sweet32 is a EnumOfActionForUpdateClusterConfigInput enum value
+	EnumOfActionForUpdateClusterConfigInputFixClusterApiserverTls4sweet32 = "FixClusterAPIServerTLS4Sweet32"
+)
+
+const (
+	// EnumOfGroupForUpdateClusterConfigInputCluster is a EnumOfGroupForUpdateClusterConfigInput enum value
+	EnumOfGroupForUpdateClusterConfigInputCluster = "Cluster"
+
+	// EnumOfGroupForUpdateClusterConfigInputAddon is a EnumOfGroupForUpdateClusterConfigInput enum value
+	EnumOfGroupForUpdateClusterConfigInputAddon = "Addon"
+
+	// EnumOfGroupForUpdateClusterConfigInputNodePool is a EnumOfGroupForUpdateClusterConfigInput enum value
+	EnumOfGroupForUpdateClusterConfigInputNodePool = "NodePool"
+)
 
 const (
 	// EnumOfIspForUpdateClusterConfigInputBgp is a EnumOfIspForUpdateClusterConfigInput enum value
@@ -1397,4 +1527,27 @@ const (
 
 	// EnumOfTypeForUpdateClusterConfigInputAgent is a EnumOfTypeForUpdateClusterConfigInput enum value
 	EnumOfTypeForUpdateClusterConfigInputAgent = "Agent"
+)
+
+const (
+	// EnumOfWeeklyCycleListForUpdateClusterConfigInputMonday is a EnumOfWeeklyCycleListForUpdateClusterConfigInput enum value
+	EnumOfWeeklyCycleListForUpdateClusterConfigInputMonday = "Monday"
+
+	// EnumOfWeeklyCycleListForUpdateClusterConfigInputTuesday is a EnumOfWeeklyCycleListForUpdateClusterConfigInput enum value
+	EnumOfWeeklyCycleListForUpdateClusterConfigInputTuesday = "Tuesday"
+
+	// EnumOfWeeklyCycleListForUpdateClusterConfigInputWednesday is a EnumOfWeeklyCycleListForUpdateClusterConfigInput enum value
+	EnumOfWeeklyCycleListForUpdateClusterConfigInputWednesday = "Wednesday"
+
+	// EnumOfWeeklyCycleListForUpdateClusterConfigInputThursday is a EnumOfWeeklyCycleListForUpdateClusterConfigInput enum value
+	EnumOfWeeklyCycleListForUpdateClusterConfigInputThursday = "Thursday"
+
+	// EnumOfWeeklyCycleListForUpdateClusterConfigInputFriday is a EnumOfWeeklyCycleListForUpdateClusterConfigInput enum value
+	EnumOfWeeklyCycleListForUpdateClusterConfigInputFriday = "Friday"
+
+	// EnumOfWeeklyCycleListForUpdateClusterConfigInputSaturday is a EnumOfWeeklyCycleListForUpdateClusterConfigInput enum value
+	EnumOfWeeklyCycleListForUpdateClusterConfigInputSaturday = "Saturday"
+
+	// EnumOfWeeklyCycleListForUpdateClusterConfigInputSunday is a EnumOfWeeklyCycleListForUpdateClusterConfigInput enum value
+	EnumOfWeeklyCycleListForUpdateClusterConfigInputSunday = "Sunday"
 )
