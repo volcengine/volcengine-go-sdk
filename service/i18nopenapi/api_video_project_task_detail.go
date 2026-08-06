@@ -634,6 +634,8 @@ type TaskForVideoProjectTaskDetailOutput struct {
 
 	Name *string `type:"string" json:"name"`
 
+	NeedTermValidation *bool `type:"boolean" json:"needTermValidation"`
+
 	ProjectId *string `type:"string" json:"projectId"`
 
 	ProjectName *string `type:"string" json:"projectName"`
@@ -714,6 +716,12 @@ func (s *TaskForVideoProjectTaskDetailOutput) SetId(v string) *TaskForVideoProje
 // SetName sets the Name field's value.
 func (s *TaskForVideoProjectTaskDetailOutput) SetName(v string) *TaskForVideoProjectTaskDetailOutput {
 	s.Name = &v
+	return s
+}
+
+// SetNeedTermValidation sets the NeedTermValidation field's value.
+func (s *TaskForVideoProjectTaskDetailOutput) SetNeedTermValidation(v bool) *TaskForVideoProjectTaskDetailOutput {
+	s.NeedTermValidation = &v
 	return s
 }
 

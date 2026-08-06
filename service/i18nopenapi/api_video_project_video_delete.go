@@ -143,20 +143,6 @@ func (c *I18NOPENAPI) VideoProjectVideoDeleteWithContext(ctx volcengine.Context,
 	return out, req.Send()
 }
 
-type DataForVideoProjectVideoDeleteOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s DataForVideoProjectVideoDeleteOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DataForVideoProjectVideoDeleteOutput) GoString() string {
-	return s.String()
-}
-
 type VideoProjectVideoDeleteInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -213,8 +199,6 @@ type VideoProjectVideoDeleteOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
-
-	Data *DataForVideoProjectVideoDeleteOutput `type:"structure" json:"data,omitempty"`
 }
 
 // String returns the string representation
@@ -225,10 +209,4 @@ func (s VideoProjectVideoDeleteOutput) String() string {
 // GoString returns the string representation
 func (s VideoProjectVideoDeleteOutput) GoString() string {
 	return s.String()
-}
-
-// SetData sets the Data field's value.
-func (s *VideoProjectVideoDeleteOutput) SetData(v *DataForVideoProjectVideoDeleteOutput) *VideoProjectVideoDeleteOutput {
-	s.Data = v
-	return s
 }

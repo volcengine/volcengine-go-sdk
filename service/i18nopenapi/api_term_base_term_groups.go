@@ -146,7 +146,7 @@ type AfForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -196,7 +196,7 @@ func (s *AfForTermBaseTermGroupsOutput) SetApplyMode(v int32) *AfForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *AfForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *AfForTermBaseTermGroupsOutput {
+func (s *AfForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *AfForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -280,7 +280,7 @@ type AfZAForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -330,7 +330,7 @@ func (s *AfZAForTermBaseTermGroupsOutput) SetApplyMode(v int32) *AfZAForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *AfZAForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *AfZAForTermBaseTermGroupsOutput {
+func (s *AfZAForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *AfZAForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -414,7 +414,7 @@ type ArARForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -464,7 +464,7 @@ func (s *ArARForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ArARForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ArARForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ArARForTermBaseTermGroupsOutput {
+func (s *ArARForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ArARForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -548,7 +548,7 @@ type ArDZForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -598,7 +598,7 @@ func (s *ArDZForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ArDZForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ArDZForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ArDZForTermBaseTermGroupsOutput {
+func (s *ArDZForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ArDZForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -682,7 +682,7 @@ type ArForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -732,7 +732,7 @@ func (s *ArForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ArForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ArForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ArForTermBaseTermGroupsOutput {
+func (s *ArForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ArForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -816,7 +816,7 @@ type ArSYForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -866,7 +866,7 @@ func (s *ArSYForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ArSYForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ArSYForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ArSYForTermBaseTermGroupsOutput {
+func (s *ArSYForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ArSYForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -950,7 +950,7 @@ type ArYEForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -1000,7 +1000,7 @@ func (s *ArYEForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ArYEForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ArYEForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ArYEForTermBaseTermGroupsOutput {
+func (s *ArYEForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ArYEForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -1084,7 +1084,7 @@ type BeForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -1134,7 +1134,7 @@ func (s *BeForTermBaseTermGroupsOutput) SetApplyMode(v int32) *BeForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *BeForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *BeForTermBaseTermGroupsOutput {
+func (s *BeForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *BeForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -1218,7 +1218,7 @@ type BnBDForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -1268,7 +1268,7 @@ func (s *BnBDForTermBaseTermGroupsOutput) SetApplyMode(v int32) *BnBDForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *BnBDForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *BnBDForTermBaseTermGroupsOutput {
+func (s *BnBDForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *BnBDForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -1352,7 +1352,7 @@ type BnForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -1402,7 +1402,7 @@ func (s *BnForTermBaseTermGroupsOutput) SetApplyMode(v int32) *BnForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *BnForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *BnForTermBaseTermGroupsOutput {
+func (s *BnForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *BnForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -1548,7 +1548,7 @@ type DaForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -1598,7 +1598,7 @@ func (s *DaForTermBaseTermGroupsOutput) SetApplyMode(v int32) *DaForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *DaForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *DaForTermBaseTermGroupsOutput {
+func (s *DaForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *DaForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -1708,6 +1708,8 @@ type DataForTermBaseTermGroupsOutput struct {
 
 	TermBaseId *string `type:"string" json:"termBaseId"`
 
+	TermKey *string `type:"string" json:"termKey"`
+
 	TermType *int32 `type:"int32" json:"termType"`
 
 	UpdatedAt *string `type:"string" json:"updatedAt"`
@@ -1813,6 +1815,12 @@ func (s *DataForTermBaseTermGroupsOutput) SetTermBaseId(v string) *DataForTermBa
 	return s
 }
 
+// SetTermKey sets the TermKey field's value.
+func (s *DataForTermBaseTermGroupsOutput) SetTermKey(v string) *DataForTermBaseTermGroupsOutput {
+	s.TermKey = &v
+	return s
+}
+
 // SetTermType sets the TermType field's value.
 func (s *DataForTermBaseTermGroupsOutput) SetTermType(v int32) *DataForTermBaseTermGroupsOutput {
 	s.TermType = &v
@@ -1832,7 +1840,7 @@ type DeDEForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -1882,7 +1890,7 @@ func (s *DeDEForTermBaseTermGroupsOutput) SetApplyMode(v int32) *DeDEForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *DeDEForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *DeDEForTermBaseTermGroupsOutput {
+func (s *DeDEForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *DeDEForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -1966,7 +1974,7 @@ type DeForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -2016,7 +2024,7 @@ func (s *DeForTermBaseTermGroupsOutput) SetApplyMode(v int32) *DeForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *DeForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *DeForTermBaseTermGroupsOutput {
+func (s *DeForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *DeForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -2100,7 +2108,7 @@ type EnDAForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -2150,7 +2158,7 @@ func (s *EnDAForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnDAForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *EnDAForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnDAForTermBaseTermGroupsOutput {
+func (s *EnDAForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *EnDAForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -2234,7 +2242,7 @@ type EnForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -2284,7 +2292,7 @@ func (s *EnForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *EnForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnForTermBaseTermGroupsOutput {
+func (s *EnForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *EnForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -2368,7 +2376,7 @@ type EnGBForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -2418,7 +2426,7 @@ func (s *EnGBForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnGBForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *EnGBForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnGBForTermBaseTermGroupsOutput {
+func (s *EnGBForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *EnGBForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -2502,7 +2510,7 @@ type EnINForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -2552,7 +2560,7 @@ func (s *EnINForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnINForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *EnINForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnINForTermBaseTermGroupsOutput {
+func (s *EnINForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *EnINForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -2636,7 +2644,7 @@ type EnPHForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -2686,7 +2694,7 @@ func (s *EnPHForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnPHForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *EnPHForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnPHForTermBaseTermGroupsOutput {
+func (s *EnPHForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *EnPHForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -2770,7 +2778,7 @@ type EnSGForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -2820,7 +2828,7 @@ func (s *EnSGForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnSGForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *EnSGForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnSGForTermBaseTermGroupsOutput {
+func (s *EnSGForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *EnSGForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -2904,7 +2912,7 @@ type EnUSForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -2954,7 +2962,7 @@ func (s *EnUSForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EnUSForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *EnUSForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EnUSForTermBaseTermGroupsOutput {
+func (s *EnUSForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *EnUSForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -3038,7 +3046,7 @@ type Es419ForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -3088,7 +3096,7 @@ func (s *Es419ForTermBaseTermGroupsOutput) SetApplyMode(v int32) *Es419ForTermBa
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *Es419ForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *Es419ForTermBaseTermGroupsOutput {
+func (s *Es419ForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *Es419ForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -3172,7 +3180,7 @@ type EsESForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -3222,7 +3230,7 @@ func (s *EsESForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EsESForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *EsESForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EsESForTermBaseTermGroupsOutput {
+func (s *EsESForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *EsESForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -3306,7 +3314,7 @@ type EsForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -3356,7 +3364,7 @@ func (s *EsForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EsForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *EsForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EsForTermBaseTermGroupsOutput {
+func (s *EsForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *EsForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -3440,7 +3448,7 @@ type EsUSForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -3490,7 +3498,7 @@ func (s *EsUSForTermBaseTermGroupsOutput) SetApplyMode(v int32) *EsUSForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *EsUSForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *EsUSForTermBaseTermGroupsOutput {
+func (s *EsUSForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *EsUSForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -3574,7 +3582,7 @@ type FaIRForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -3624,7 +3632,7 @@ func (s *FaIRForTermBaseTermGroupsOutput) SetApplyMode(v int32) *FaIRForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *FaIRForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *FaIRForTermBaseTermGroupsOutput {
+func (s *FaIRForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *FaIRForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -3708,7 +3716,7 @@ type FilForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -3758,7 +3766,7 @@ func (s *FilForTermBaseTermGroupsOutput) SetApplyMode(v int32) *FilForTermBaseTe
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *FilForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *FilForTermBaseTermGroupsOutput {
+func (s *FilForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *FilForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -3842,7 +3850,7 @@ type FilPHForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -3892,7 +3900,7 @@ func (s *FilPHForTermBaseTermGroupsOutput) SetApplyMode(v int32) *FilPHForTermBa
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *FilPHForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *FilPHForTermBaseTermGroupsOutput {
+func (s *FilPHForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *FilPHForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -3976,7 +3984,7 @@ type FrFRForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -4026,7 +4034,7 @@ func (s *FrFRForTermBaseTermGroupsOutput) SetApplyMode(v int32) *FrFRForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *FrFRForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *FrFRForTermBaseTermGroupsOutput {
+func (s *FrFRForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *FrFRForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -4110,7 +4118,7 @@ type FrForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -4160,7 +4168,7 @@ func (s *FrForTermBaseTermGroupsOutput) SetApplyMode(v int32) *FrForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *FrForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *FrForTermBaseTermGroupsOutput {
+func (s *FrForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *FrForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -4244,7 +4252,7 @@ type HiForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -4294,7 +4302,7 @@ func (s *HiForTermBaseTermGroupsOutput) SetApplyMode(v int32) *HiForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *HiForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *HiForTermBaseTermGroupsOutput {
+func (s *HiForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *HiForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -4378,7 +4386,7 @@ type HiINForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -4428,7 +4436,7 @@ func (s *HiINForTermBaseTermGroupsOutput) SetApplyMode(v int32) *HiINForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *HiINForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *HiINForTermBaseTermGroupsOutput {
+func (s *HiINForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *HiINForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -4512,7 +4520,7 @@ type IdForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -4562,7 +4570,7 @@ func (s *IdForTermBaseTermGroupsOutput) SetApplyMode(v int32) *IdForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *IdForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *IdForTermBaseTermGroupsOutput {
+func (s *IdForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *IdForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -4646,7 +4654,7 @@ type IdIDForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -4696,7 +4704,7 @@ func (s *IdIDForTermBaseTermGroupsOutput) SetApplyMode(v int32) *IdIDForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *IdIDForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *IdIDForTermBaseTermGroupsOutput {
+func (s *IdIDForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *IdIDForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -4780,7 +4788,7 @@ type ItForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -4830,7 +4838,7 @@ func (s *ItForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ItForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ItForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ItForTermBaseTermGroupsOutput {
+func (s *ItForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ItForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -4914,7 +4922,7 @@ type ItITForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -4964,7 +4972,7 @@ func (s *ItITForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ItITForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ItITForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ItITForTermBaseTermGroupsOutput {
+func (s *ItITForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ItITForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -5048,7 +5056,7 @@ type JaForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -5098,7 +5106,7 @@ func (s *JaForTermBaseTermGroupsOutput) SetApplyMode(v int32) *JaForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *JaForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *JaForTermBaseTermGroupsOutput {
+func (s *JaForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *JaForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -5182,7 +5190,7 @@ type JaJPForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -5232,7 +5240,7 @@ func (s *JaJPForTermBaseTermGroupsOutput) SetApplyMode(v int32) *JaJPForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *JaJPForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *JaJPForTermBaseTermGroupsOutput {
+func (s *JaJPForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *JaJPForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -5316,7 +5324,7 @@ type KaForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -5366,7 +5374,7 @@ func (s *KaForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KaForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *KaForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KaForTermBaseTermGroupsOutput {
+func (s *KaForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *KaForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -5450,7 +5458,7 @@ type KkKZForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -5500,7 +5508,7 @@ func (s *KkKZForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KkKZForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *KkKZForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KkKZForTermBaseTermGroupsOutput {
+func (s *KkKZForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *KkKZForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -5584,7 +5592,7 @@ type KlForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -5634,7 +5642,7 @@ func (s *KlForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KlForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *KlForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KlForTermBaseTermGroupsOutput {
+func (s *KlForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *KlForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -5718,7 +5726,7 @@ type KmForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -5768,7 +5776,7 @@ func (s *KmForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KmForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *KmForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KmForTermBaseTermGroupsOutput {
+func (s *KmForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *KmForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -5852,7 +5860,7 @@ type KmKHForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -5902,7 +5910,7 @@ func (s *KmKHForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KmKHForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *KmKHForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KmKHForTermBaseTermGroupsOutput {
+func (s *KmKHForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *KmKHForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -5986,7 +5994,7 @@ type KoForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -6036,7 +6044,7 @@ func (s *KoForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KoForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *KoForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KoForTermBaseTermGroupsOutput {
+func (s *KoForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *KoForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -6120,7 +6128,7 @@ type KoKRForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -6170,7 +6178,7 @@ func (s *KoKRForTermBaseTermGroupsOutput) SetApplyMode(v int32) *KoKRForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *KoKRForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *KoKRForTermBaseTermGroupsOutput {
+func (s *KoKRForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *KoKRForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -6916,7 +6924,7 @@ type MnForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -6966,7 +6974,7 @@ func (s *MnForTermBaseTermGroupsOutput) SetApplyMode(v int32) *MnForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *MnForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *MnForTermBaseTermGroupsOutput {
+func (s *MnForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *MnForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -7050,7 +7058,7 @@ type MsForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -7100,7 +7108,7 @@ func (s *MsForTermBaseTermGroupsOutput) SetApplyMode(v int32) *MsForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *MsForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *MsForTermBaseTermGroupsOutput {
+func (s *MsForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *MsForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -7184,7 +7192,7 @@ type MsMYForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -7234,7 +7242,7 @@ func (s *MsMYForTermBaseTermGroupsOutput) SetApplyMode(v int32) *MsMYForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *MsMYForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *MsMYForTermBaseTermGroupsOutput {
+func (s *MsMYForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *MsMYForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -7318,7 +7326,7 @@ type MyForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -7368,7 +7376,7 @@ func (s *MyForTermBaseTermGroupsOutput) SetApplyMode(v int32) *MyForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *MyForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *MyForTermBaseTermGroupsOutput {
+func (s *MyForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *MyForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -7452,7 +7460,7 @@ type NeForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -7502,7 +7510,7 @@ func (s *NeForTermBaseTermGroupsOutput) SetApplyMode(v int32) *NeForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *NeForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *NeForTermBaseTermGroupsOutput {
+func (s *NeForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *NeForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -7678,7 +7686,7 @@ type PlForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -7728,7 +7736,7 @@ func (s *PlForTermBaseTermGroupsOutput) SetApplyMode(v int32) *PlForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *PlForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *PlForTermBaseTermGroupsOutput {
+func (s *PlForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *PlForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -7812,7 +7820,7 @@ type PlPLForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -7862,7 +7870,7 @@ func (s *PlPLForTermBaseTermGroupsOutput) SetApplyMode(v int32) *PlPLForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *PlPLForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *PlPLForTermBaseTermGroupsOutput {
+func (s *PlPLForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *PlPLForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -7946,7 +7954,7 @@ type PtBRForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -7996,7 +8004,7 @@ func (s *PtBRForTermBaseTermGroupsOutput) SetApplyMode(v int32) *PtBRForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *PtBRForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *PtBRForTermBaseTermGroupsOutput {
+func (s *PtBRForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *PtBRForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -8080,7 +8088,7 @@ type PtForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -8130,7 +8138,7 @@ func (s *PtForTermBaseTermGroupsOutput) SetApplyMode(v int32) *PtForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *PtForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *PtForTermBaseTermGroupsOutput {
+func (s *PtForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *PtForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -8214,7 +8222,7 @@ type PtPTForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -8264,7 +8272,7 @@ func (s *PtPTForTermBaseTermGroupsOutput) SetApplyMode(v int32) *PtPTForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *PtPTForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *PtPTForTermBaseTermGroupsOutput {
+func (s *PtPTForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *PtPTForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -8378,7 +8386,7 @@ type RoForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -8428,7 +8436,7 @@ func (s *RoForTermBaseTermGroupsOutput) SetApplyMode(v int32) *RoForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *RoForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *RoForTermBaseTermGroupsOutput {
+func (s *RoForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *RoForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -8512,7 +8520,7 @@ type RuForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -8562,7 +8570,7 @@ func (s *RuForTermBaseTermGroupsOutput) SetApplyMode(v int32) *RuForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *RuForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *RuForTermBaseTermGroupsOutput {
+func (s *RuForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *RuForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -8646,7 +8654,7 @@ type RuRUForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -8696,7 +8704,7 @@ func (s *RuRUForTermBaseTermGroupsOutput) SetApplyMode(v int32) *RuRUForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *RuRUForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *RuRUForTermBaseTermGroupsOutput {
+func (s *RuRUForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *RuRUForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -8780,7 +8788,7 @@ type SkForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -8830,7 +8838,7 @@ func (s *SkForTermBaseTermGroupsOutput) SetApplyMode(v int32) *SkForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *SkForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *SkForTermBaseTermGroupsOutput {
+func (s *SkForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *SkForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -8914,7 +8922,7 @@ type SlForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -8964,7 +8972,7 @@ func (s *SlForTermBaseTermGroupsOutput) SetApplyMode(v int32) *SlForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *SlForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *SlForTermBaseTermGroupsOutput {
+func (s *SlForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *SlForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -9048,7 +9056,7 @@ type SourceForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -9098,7 +9106,7 @@ func (s *SourceForTermBaseTermGroupsOutput) SetApplyMode(v int32) *SourceForTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *SourceForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *SourceForTermBaseTermGroupsOutput {
+func (s *SourceForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *SourceForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -9182,7 +9190,7 @@ type SrForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -9232,7 +9240,7 @@ func (s *SrForTermBaseTermGroupsOutput) SetApplyMode(v int32) *SrForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *SrForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *SrForTermBaseTermGroupsOutput {
+func (s *SrForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *SrForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -9316,7 +9324,7 @@ type SvForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -9366,7 +9374,7 @@ func (s *SvForTermBaseTermGroupsOutput) SetApplyMode(v int32) *SvForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *SvForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *SvForTermBaseTermGroupsOutput {
+func (s *SvForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *SvForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -9450,7 +9458,7 @@ type TaForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -9500,7 +9508,7 @@ func (s *TaForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TaForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *TaForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TaForTermBaseTermGroupsOutput {
+func (s *TaForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *TaForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -9638,7 +9646,7 @@ type TargetForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -9688,7 +9696,7 @@ func (s *TargetForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TargetForTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *TargetForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TargetForTermBaseTermGroupsOutput {
+func (s *TargetForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *TargetForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -9772,7 +9780,7 @@ type TeForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -9822,7 +9830,7 @@ func (s *TeForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TeForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *TeForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TeForTermBaseTermGroupsOutput {
+func (s *TeForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *TeForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -10046,7 +10054,7 @@ type ThForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -10096,7 +10104,7 @@ func (s *ThForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ThForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ThForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ThForTermBaseTermGroupsOutput {
+func (s *ThForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ThForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -10180,7 +10188,7 @@ type ThTHForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -10230,7 +10238,7 @@ func (s *ThTHForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ThTHForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ThTHForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ThTHForTermBaseTermGroupsOutput {
+func (s *ThTHForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ThTHForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -10314,7 +10322,7 @@ type TlPHForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -10364,7 +10372,7 @@ func (s *TlPHForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TlPHForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *TlPHForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TlPHForTermBaseTermGroupsOutput {
+func (s *TlPHForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *TlPHForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -10448,7 +10456,7 @@ type TrForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -10498,7 +10506,7 @@ func (s *TrForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TrForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *TrForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TrForTermBaseTermGroupsOutput {
+func (s *TrForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *TrForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -10582,7 +10590,7 @@ type TrTRForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -10632,7 +10640,7 @@ func (s *TrTRForTermBaseTermGroupsOutput) SetApplyMode(v int32) *TrTRForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *TrTRForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *TrTRForTermBaseTermGroupsOutput {
+func (s *TrTRForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *TrTRForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -10716,7 +10724,7 @@ type UrForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -10766,7 +10774,7 @@ func (s *UrForTermBaseTermGroupsOutput) SetApplyMode(v int32) *UrForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *UrForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *UrForTermBaseTermGroupsOutput {
+func (s *UrForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *UrForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -10850,7 +10858,7 @@ type UzForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -10900,7 +10908,7 @@ func (s *UzForTermBaseTermGroupsOutput) SetApplyMode(v int32) *UzForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *UzForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *UzForTermBaseTermGroupsOutput {
+func (s *UzForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *UzForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -10984,7 +10992,7 @@ type ViForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -11034,7 +11042,7 @@ func (s *ViForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ViForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ViForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ViForTermBaseTermGroupsOutput {
+func (s *ViForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ViForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -11118,7 +11126,7 @@ type ViVNForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -11168,7 +11176,7 @@ func (s *ViVNForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ViVNForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ViVNForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ViVNForTermBaseTermGroupsOutput {
+func (s *ViVNForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ViVNForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -11252,7 +11260,7 @@ type ZhCNForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -11302,7 +11310,7 @@ func (s *ZhCNForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhCNForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ZhCNForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhCNForTermBaseTermGroupsOutput {
+func (s *ZhCNForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ZhCNForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -11386,7 +11394,7 @@ type ZhForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -11436,7 +11444,7 @@ func (s *ZhForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhForTermBaseTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ZhForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhForTermBaseTermGroupsOutput {
+func (s *ZhForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ZhForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -11520,7 +11528,7 @@ type ZhHKForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -11570,7 +11578,7 @@ func (s *ZhHKForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhHKForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ZhHKForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhHKForTermBaseTermGroupsOutput {
+func (s *ZhHKForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ZhHKForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -11654,7 +11662,7 @@ type ZhHansCNForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -11704,7 +11712,7 @@ func (s *ZhHansCNForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhHansCNFor
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ZhHansCNForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhHansCNForTermBaseTermGroupsOutput {
+func (s *ZhHansCNForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ZhHansCNForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -11788,7 +11796,7 @@ type ZhHansForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -11838,7 +11846,7 @@ func (s *ZhHansForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhHansForTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ZhHansForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhHansForTermBaseTermGroupsOutput {
+func (s *ZhHansForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ZhHansForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -11922,7 +11930,7 @@ type ZhHantForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -11972,7 +11980,7 @@ func (s *ZhHantForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhHantForTerm
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ZhHantForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhHantForTermBaseTermGroupsOutput {
+func (s *ZhHantForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ZhHantForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }
@@ -12056,7 +12064,7 @@ type ZhTWForTermBaseTermGroupsOutput struct {
 
 	ApplyMode *int32 `type:"int32" json:"applyMode"`
 
-	CaseSensitive *int64 `type:"int64" json:"caseSensitive"`
+	CaseSensitive *bool `type:"boolean" json:"caseSensitive"`
 
 	Content *string `type:"string" json:"content"`
 
@@ -12106,7 +12114,7 @@ func (s *ZhTWForTermBaseTermGroupsOutput) SetApplyMode(v int32) *ZhTWForTermBase
 }
 
 // SetCaseSensitive sets the CaseSensitive field's value.
-func (s *ZhTWForTermBaseTermGroupsOutput) SetCaseSensitive(v int64) *ZhTWForTermBaseTermGroupsOutput {
+func (s *ZhTWForTermBaseTermGroupsOutput) SetCaseSensitive(v bool) *ZhTWForTermBaseTermGroupsOutput {
 	s.CaseSensitive = &v
 	return s
 }

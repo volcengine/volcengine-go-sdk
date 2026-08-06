@@ -215,6 +215,36 @@ func (s *DataForVideoProjectTaskListOutput) SetTotalCount(v string) *DataForVide
 	return s
 }
 
+type PaginationForVideoProjectTaskListOutput struct {
+	_ struct{} `type:"structure"`
+
+	Limit *int32 `type:"int32" json:"limit"`
+
+	Offset *int32 `type:"int32" json:"offset"`
+}
+
+// String returns the string representation
+func (s PaginationForVideoProjectTaskListOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PaginationForVideoProjectTaskListOutput) GoString() string {
+	return s.String()
+}
+
+// SetLimit sets the Limit field's value.
+func (s *PaginationForVideoProjectTaskListOutput) SetLimit(v int32) *PaginationForVideoProjectTaskListOutput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *PaginationForVideoProjectTaskListOutput) SetOffset(v int32) *PaginationForVideoProjectTaskListOutput {
+	s.Offset = &v
+	return s
+}
+
 type TaskForVideoProjectTaskListOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -328,6 +358,8 @@ func (s *TaskForVideoProjectTaskListOutput) SetWorkflowType(v int32) *TaskForVid
 type VideoProjectTaskListInput struct {
 	_ struct{} `type:"structure"`
 
+	DramaId *string `locationName:"dramaId" type:"string"`
+
 	EndTime *int32 `locationName:"endTime" type:"int32"`
 
 	Limit *int32 `locationName:"limit" type:"int32"`
@@ -377,6 +409,12 @@ func (s *VideoProjectTaskListInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetDramaId sets the DramaId field's value.
+func (s *VideoProjectTaskListInput) SetDramaId(v string) *VideoProjectTaskListInput {
+	s.DramaId = &v
+	return s
 }
 
 // SetEndTime sets the EndTime field's value.
@@ -463,6 +501,10 @@ type VideoProjectTaskListOutput struct {
 	Metadata *response.ResponseMetadata
 
 	Data *DataForVideoProjectTaskListOutput `type:"structure" json:"data"`
+
+	Pagination *PaginationForVideoProjectTaskListOutput `type:"structure" json:"pagination"`
+
+	Total *int32 `type:"int32" json:"total"`
 }
 
 // String returns the string representation
@@ -478,5 +520,17 @@ func (s VideoProjectTaskListOutput) GoString() string {
 // SetData sets the Data field's value.
 func (s *VideoProjectTaskListOutput) SetData(v *DataForVideoProjectTaskListOutput) *VideoProjectTaskListOutput {
 	s.Data = v
+	return s
+}
+
+// SetPagination sets the Pagination field's value.
+func (s *VideoProjectTaskListOutput) SetPagination(v *PaginationForVideoProjectTaskListOutput) *VideoProjectTaskListOutput {
+	s.Pagination = v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *VideoProjectTaskListOutput) SetTotal(v int32) *VideoProjectTaskListOutput {
+	s.Total = &v
 	return s
 }

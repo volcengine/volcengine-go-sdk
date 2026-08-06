@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // I18N_OPENAPI.
 //    func myFunc(svc I18NOPENAPIAPI) bool {
-//        // Make svc.CreateVideoCreate request
+//        // Make svc.DocumentCreate request
 //    }
 //
 //    func main() {
@@ -30,14 +30,6 @@ import (
 //    }
 //
 type I18NOPENAPIAPI interface {
-	CreateVideoCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateVideoCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateVideoCreateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateVideoCreate(*CreateVideoCreateInput) (*CreateVideoCreateOutput, error)
-	CreateVideoCreateWithContext(volcengine.Context, *CreateVideoCreateInput, ...request.Option) (*CreateVideoCreateOutput, error)
-	CreateVideoCreateRequest(*CreateVideoCreateInput) (*request.Request, *CreateVideoCreateOutput)
-
 	DocumentCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DocumentCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DocumentCreateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -710,14 +702,6 @@ type I18NOPENAPIAPI interface {
 	VideoEditorDownloadSubtitleFileUrlWithContext(volcengine.Context, *VideoEditorDownloadSubtitleFileUrlInput, ...request.Option) (*VideoEditorDownloadSubtitleFileUrlOutput, error)
 	VideoEditorDownloadSubtitleFileUrlRequest(*VideoEditorDownloadSubtitleFileUrlInput) (*request.Request, *VideoEditorDownloadSubtitleFileUrlOutput)
 
-	VideoEditorGenDubbingCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	VideoEditorGenDubbingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	VideoEditorGenDubbingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	VideoEditorGenDubbing(*VideoEditorGenDubbingInput) (*VideoEditorGenDubbingOutput, error)
-	VideoEditorGenDubbingWithContext(volcengine.Context, *VideoEditorGenDubbingInput, ...request.Option) (*VideoEditorGenDubbingOutput, error)
-	VideoEditorGenDubbingRequest(*VideoEditorGenDubbingInput) (*request.Request, *VideoEditorGenDubbingOutput)
-
 	VideoEditorGetEmotionTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoEditorGetEmotionTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoEditorGetEmotionTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -981,14 +965,6 @@ type I18NOPENAPIAPI interface {
 	VideoProjectVideoUpload(*VideoProjectVideoUploadInput) (*VideoProjectVideoUploadOutput, error)
 	VideoProjectVideoUploadWithContext(volcengine.Context, *VideoProjectVideoUploadInput, ...request.Option) (*VideoProjectVideoUploadOutput, error)
 	VideoProjectVideoUploadRequest(*VideoProjectVideoUploadInput) (*request.Request, *VideoProjectVideoUploadOutput)
-
-	VideoResourceUploadCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	VideoResourceUploadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	VideoResourceUploadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	VideoResourceUpload(*VideoResourceUploadInput) (*VideoResourceUploadOutput, error)
-	VideoResourceUploadWithContext(volcengine.Context, *VideoResourceUploadInput, ...request.Option) (*VideoResourceUploadOutput, error)
-	VideoResourceUploadRequest(*VideoResourceUploadInput) (*request.Request, *VideoResourceUploadOutput)
 
 	VideoTermBasesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoTermBasesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

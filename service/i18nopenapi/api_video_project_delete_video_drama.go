@@ -146,8 +146,7 @@ func (c *I18NOPENAPI) VideoProjectDeleteVideoDramaWithContext(ctx volcengine.Con
 type VideoProjectDeleteVideoDramaInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// DeleteSourceVideo is a required field
-	DeleteSourceVideo *bool `type:"boolean" json:"deleteSourceVideo,omitempty" required:"true"`
+	DeleteSourceVideo *bool `type:"boolean" json:"deleteSourceVideo,omitempty"`
 
 	// DramaId is a required field
 	DramaId *string `type:"string" json:"dramaId,omitempty" required:"true"`
@@ -169,9 +168,6 @@ func (s VideoProjectDeleteVideoDramaInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *VideoProjectDeleteVideoDramaInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "VideoProjectDeleteVideoDramaInput"}
-	if s.DeleteSourceVideo == nil {
-		invalidParams.Add(request.NewErrParamRequired("DeleteSourceVideo"))
-	}
 	if s.DramaId == nil {
 		invalidParams.Add(request.NewErrParamRequired("DramaId"))
 	}
