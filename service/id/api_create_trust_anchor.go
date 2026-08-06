@@ -153,12 +153,12 @@ type CreateTrustAnchorInput struct {
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
-	TrustAnchorCfg []*TrustAnchorCfgForCreateTrustAnchorInput `type:"list" json:",omitempty"`
+	TrustAnchorCfg []*TrustAnchorCfgForCreateTrustAnchorInput `type:"list"`
 
 	// TrustAnchorType is a required field
 	TrustAnchorType *string `type:"string" json:",omitempty" required:"true"`
 
-	WorkloadPoolName []*string `type:"list" json:",omitempty"`
+	WorkloadPoolName []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -234,11 +234,13 @@ type CreateTrustAnchorOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	IdentityNameTemplate *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:",omitempty"`
 
 	Trn *string `type:"string" json:",omitempty"`
 
-	TrustAnchorCfg []*TrustAnchorCfgForCreateTrustAnchorOutput `type:"list" json:",omitempty"`
+	TrustAnchorCfg []*TrustAnchorCfgForCreateTrustAnchorOutput `type:"list"`
 
 	TrustAnchorType *string `type:"string" json:",omitempty"`
 
@@ -270,6 +272,12 @@ func (s *CreateTrustAnchorOutput) SetCreatedAt(v string) *CreateTrustAnchorOutpu
 // SetDescription sets the Description field's value.
 func (s *CreateTrustAnchorOutput) SetDescription(v string) *CreateTrustAnchorOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIdentityNameTemplate sets the IdentityNameTemplate field's value.
+func (s *CreateTrustAnchorOutput) SetIdentityNameTemplate(v string) *CreateTrustAnchorOutput {
+	s.IdentityNameTemplate = &v
 	return s
 }
 

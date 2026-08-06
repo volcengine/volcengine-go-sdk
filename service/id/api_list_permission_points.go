@@ -198,7 +198,7 @@ type ListPermissionPointsOutput struct {
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	PermissionPoints []*PermissionPointForListPermissionPointsOutput `type:"list" json:",omitempty"`
+	PermissionPoints []*PermissionPointForListPermissionPointsOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }

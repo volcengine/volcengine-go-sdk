@@ -143,6 +143,150 @@ func (c *ID) ListUsersInDepartmentWithContext(ctx volcengine.Context, input *Lis
 	return out, req.Send()
 }
 
+type ConditionForListUsersInDepartmentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Operator *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConditionForListUsersInDepartmentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionForListUsersInDepartmentInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *ConditionForListUsersInDepartmentInput) SetName(v string) *ConditionForListUsersInDepartmentInput {
+	s.Name = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ConditionForListUsersInDepartmentInput) SetOperator(v string) *ConditionForListUsersInDepartmentInput {
+	s.Operator = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ConditionForListUsersInDepartmentInput) SetValue(v string) *ConditionForListUsersInDepartmentInput {
+	s.Value = &v
+	return s
+}
+
+type ConvertGroupForListUsersInDepartmentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*ConditionForListUsersInDepartmentInput `type:"list"`
+
+	Groups []*GroupForListUsersInDepartmentInput `type:"list"`
+
+	Relation *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertGroupForListUsersInDepartmentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertGroupForListUsersInDepartmentInput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *ConvertGroupForListUsersInDepartmentInput) SetConditions(v []*ConditionForListUsersInDepartmentInput) *ConvertGroupForListUsersInDepartmentInput {
+	s.Conditions = v
+	return s
+}
+
+// SetGroups sets the Groups field's value.
+func (s *ConvertGroupForListUsersInDepartmentInput) SetGroups(v []*GroupForListUsersInDepartmentInput) *ConvertGroupForListUsersInDepartmentInput {
+	s.Groups = v
+	return s
+}
+
+// SetRelation sets the Relation field's value.
+func (s *ConvertGroupForListUsersInDepartmentInput) SetRelation(v string) *ConvertGroupForListUsersInDepartmentInput {
+	s.Relation = &v
+	return s
+}
+
+type CustomAttributeFilterForListUsersInDepartmentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*ConditionForListUsersInDepartmentInput `type:"list"`
+
+	Groups []*ConvertGroupForListUsersInDepartmentInput `type:"list"`
+
+	Relation *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributeFilterForListUsersInDepartmentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributeFilterForListUsersInDepartmentInput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *CustomAttributeFilterForListUsersInDepartmentInput) SetConditions(v []*ConditionForListUsersInDepartmentInput) *CustomAttributeFilterForListUsersInDepartmentInput {
+	s.Conditions = v
+	return s
+}
+
+// SetGroups sets the Groups field's value.
+func (s *CustomAttributeFilterForListUsersInDepartmentInput) SetGroups(v []*ConvertGroupForListUsersInDepartmentInput) *CustomAttributeFilterForListUsersInDepartmentInput {
+	s.Groups = v
+	return s
+}
+
+// SetRelation sets the Relation field's value.
+func (s *CustomAttributeFilterForListUsersInDepartmentInput) SetRelation(v string) *CustomAttributeFilterForListUsersInDepartmentInput {
+	s.Relation = &v
+	return s
+}
+
+type CustomAttributeForListUsersInDepartmentOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributeForListUsersInDepartmentOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributeForListUsersInDepartmentOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *CustomAttributeForListUsersInDepartmentOutput) SetName(v string) *CustomAttributeForListUsersInDepartmentOutput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomAttributeForListUsersInDepartmentOutput) SetValue(v string) *CustomAttributeForListUsersInDepartmentOutput {
+	s.Value = &v
+	return s
+}
+
 type DataForListUsersInDepartmentOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -152,13 +296,15 @@ type DataForListUsersInDepartmentOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	DepartmentUids []*string `type:"list" json:",omitempty"`
+	CustomAttributes []*CustomAttributeForListUsersInDepartmentOutput `type:"list"`
+
+	DepartmentUids []*string `type:"list"`
 
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
 
-	ExternalIdentities []*ExternalIdentityForListUsersInDepartmentOutput `type:"list" json:",omitempty"`
+	ExternalIdentities []*ExternalIdentityForListUsersInDepartmentOutput `type:"list"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
@@ -166,11 +312,17 @@ type DataForListUsersInDepartmentOutput struct {
 
 	GivenName *string `type:"string" json:",omitempty"`
 
-	GroupUids []*string `type:"list" json:",omitempty"`
+	GroupUids []*string `type:"list"`
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
 	LatestLogin *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionName *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionProvider *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionType *string `type:"string" json:",omitempty"`
 
 	LatestLoginMethod *string `type:"string" json:",omitempty"`
 
@@ -237,6 +389,12 @@ func (s *DataForListUsersInDepartmentOutput) SetCreateTime(v string) *DataForLis
 	return s
 }
 
+// SetCustomAttributes sets the CustomAttributes field's value.
+func (s *DataForListUsersInDepartmentOutput) SetCustomAttributes(v []*CustomAttributeForListUsersInDepartmentOutput) *DataForListUsersInDepartmentOutput {
+	s.CustomAttributes = v
+	return s
+}
+
 // SetDepartmentUids sets the DepartmentUids field's value.
 func (s *DataForListUsersInDepartmentOutput) SetDepartmentUids(v []*string) *DataForListUsersInDepartmentOutput {
 	s.DepartmentUids = v
@@ -294,6 +452,24 @@ func (s *DataForListUsersInDepartmentOutput) SetLatestBrowser(v string) *DataFor
 // SetLatestLogin sets the LatestLogin field's value.
 func (s *DataForListUsersInDepartmentOutput) SetLatestLogin(v string) *DataForListUsersInDepartmentOutput {
 	s.LatestLogin = &v
+	return s
+}
+
+// SetLatestLoginConnectionName sets the LatestLoginConnectionName field's value.
+func (s *DataForListUsersInDepartmentOutput) SetLatestLoginConnectionName(v string) *DataForListUsersInDepartmentOutput {
+	s.LatestLoginConnectionName = &v
+	return s
+}
+
+// SetLatestLoginConnectionProvider sets the LatestLoginConnectionProvider field's value.
+func (s *DataForListUsersInDepartmentOutput) SetLatestLoginConnectionProvider(v string) *DataForListUsersInDepartmentOutput {
+	s.LatestLoginConnectionProvider = &v
+	return s
+}
+
+// SetLatestLoginConnectionType sets the LatestLoginConnectionType field's value.
+func (s *DataForListUsersInDepartmentOutput) SetLatestLoginConnectionType(v string) *DataForListUsersInDepartmentOutput {
+	s.LatestLoginConnectionType = &v
 	return s
 }
 
@@ -416,6 +592,8 @@ type ExternalIdentityForListUsersInDepartmentOutput struct {
 
 	ExternalProviderUserMetadata *string `type:"string" json:",omitempty"`
 
+	LastLoginAt *string `type:"string" json:",omitempty"`
+
 	LinkSource *string `type:"string" json:",omitempty"`
 
 	Provider *string `type:"string" json:",omitempty"`
@@ -457,6 +635,12 @@ func (s *ExternalIdentityForListUsersInDepartmentOutput) SetExternalProviderUser
 	return s
 }
 
+// SetLastLoginAt sets the LastLoginAt field's value.
+func (s *ExternalIdentityForListUsersInDepartmentOutput) SetLastLoginAt(v string) *ExternalIdentityForListUsersInDepartmentOutput {
+	s.LastLoginAt = &v
+	return s
+}
+
 // SetLinkSource sets the LinkSource field's value.
 func (s *ExternalIdentityForListUsersInDepartmentOutput) SetLinkSource(v string) *ExternalIdentityForListUsersInDepartmentOutput {
 	s.LinkSource = &v
@@ -480,13 +664,21 @@ type FilterForListUsersInDepartmentInput struct {
 
 	Connection *string `type:"string" json:",omitempty"`
 
+	CustomAttributeFilter *CustomAttributeFilterForListUsersInDepartmentInput `type:"structure" json:",omitempty"`
+
 	DepartmentUid *string `type:"string" json:",omitempty"`
 
+	DepartmentUidRecursive *bool `type:"boolean" json:",omitempty"`
+
 	Email *string `type:"string" json:",omitempty"`
+
+	EmailIsDuplicated *bool `type:"boolean" json:",omitempty"`
 
 	EmailIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
 	EmailPhoneNameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
+
+	ExternalProviderUserIdentifiersOr []*string `type:"list"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
@@ -501,6 +693,8 @@ type FilterForListUsersInDepartmentInput struct {
 	GivenNameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
 	GroupUid *string `type:"string" json:",omitempty"`
+
+	GroupUidsOr []*string `type:"list"`
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
@@ -520,7 +714,13 @@ type FilterForListUsersInDepartmentInput struct {
 
 	NicknameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
+	NotInAnyDepartment *bool `type:"boolean" json:",omitempty"`
+
+	NotInAnyGroup *bool `type:"boolean" json:",omitempty"`
+
 	PhoneNumber *string `type:"string" json:",omitempty"`
+
+	PhoneNumberIsDuplicated *bool `type:"boolean" json:",omitempty"`
 
 	PhoneNumberIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
@@ -528,7 +728,9 @@ type FilterForListUsersInDepartmentInput struct {
 
 	PreferredUsernameIsNullOrEmpty *bool `type:"boolean" json:",omitempty"`
 
-	UserUidsOr []*string `type:"list" json:",omitempty"`
+	UniversalSearch []*UniversalSearchForListUsersInDepartmentInput `type:"list"`
+
+	UserUidsOr []*string `type:"list"`
 
 	Website *string `type:"string" json:",omitempty"`
 
@@ -551,15 +753,33 @@ func (s *FilterForListUsersInDepartmentInput) SetConnection(v string) *FilterFor
 	return s
 }
 
+// SetCustomAttributeFilter sets the CustomAttributeFilter field's value.
+func (s *FilterForListUsersInDepartmentInput) SetCustomAttributeFilter(v *CustomAttributeFilterForListUsersInDepartmentInput) *FilterForListUsersInDepartmentInput {
+	s.CustomAttributeFilter = v
+	return s
+}
+
 // SetDepartmentUid sets the DepartmentUid field's value.
 func (s *FilterForListUsersInDepartmentInput) SetDepartmentUid(v string) *FilterForListUsersInDepartmentInput {
 	s.DepartmentUid = &v
 	return s
 }
 
+// SetDepartmentUidRecursive sets the DepartmentUidRecursive field's value.
+func (s *FilterForListUsersInDepartmentInput) SetDepartmentUidRecursive(v bool) *FilterForListUsersInDepartmentInput {
+	s.DepartmentUidRecursive = &v
+	return s
+}
+
 // SetEmail sets the Email field's value.
 func (s *FilterForListUsersInDepartmentInput) SetEmail(v string) *FilterForListUsersInDepartmentInput {
 	s.Email = &v
+	return s
+}
+
+// SetEmailIsDuplicated sets the EmailIsDuplicated field's value.
+func (s *FilterForListUsersInDepartmentInput) SetEmailIsDuplicated(v bool) *FilterForListUsersInDepartmentInput {
+	s.EmailIsDuplicated = &v
 	return s
 }
 
@@ -572,6 +792,12 @@ func (s *FilterForListUsersInDepartmentInput) SetEmailIsNullOrEmpty(v bool) *Fil
 // SetEmailPhoneNameIsNullOrEmpty sets the EmailPhoneNameIsNullOrEmpty field's value.
 func (s *FilterForListUsersInDepartmentInput) SetEmailPhoneNameIsNullOrEmpty(v bool) *FilterForListUsersInDepartmentInput {
 	s.EmailPhoneNameIsNullOrEmpty = &v
+	return s
+}
+
+// SetExternalProviderUserIdentifiersOr sets the ExternalProviderUserIdentifiersOr field's value.
+func (s *FilterForListUsersInDepartmentInput) SetExternalProviderUserIdentifiersOr(v []*string) *FilterForListUsersInDepartmentInput {
+	s.ExternalProviderUserIdentifiersOr = v
 	return s
 }
 
@@ -614,6 +840,12 @@ func (s *FilterForListUsersInDepartmentInput) SetGivenNameIsNullOrEmpty(v bool) 
 // SetGroupUid sets the GroupUid field's value.
 func (s *FilterForListUsersInDepartmentInput) SetGroupUid(v string) *FilterForListUsersInDepartmentInput {
 	s.GroupUid = &v
+	return s
+}
+
+// SetGroupUidsOr sets the GroupUidsOr field's value.
+func (s *FilterForListUsersInDepartmentInput) SetGroupUidsOr(v []*string) *FilterForListUsersInDepartmentInput {
+	s.GroupUidsOr = v
 	return s
 }
 
@@ -671,9 +903,27 @@ func (s *FilterForListUsersInDepartmentInput) SetNicknameIsNullOrEmpty(v bool) *
 	return s
 }
 
+// SetNotInAnyDepartment sets the NotInAnyDepartment field's value.
+func (s *FilterForListUsersInDepartmentInput) SetNotInAnyDepartment(v bool) *FilterForListUsersInDepartmentInput {
+	s.NotInAnyDepartment = &v
+	return s
+}
+
+// SetNotInAnyGroup sets the NotInAnyGroup field's value.
+func (s *FilterForListUsersInDepartmentInput) SetNotInAnyGroup(v bool) *FilterForListUsersInDepartmentInput {
+	s.NotInAnyGroup = &v
+	return s
+}
+
 // SetPhoneNumber sets the PhoneNumber field's value.
 func (s *FilterForListUsersInDepartmentInput) SetPhoneNumber(v string) *FilterForListUsersInDepartmentInput {
 	s.PhoneNumber = &v
+	return s
+}
+
+// SetPhoneNumberIsDuplicated sets the PhoneNumberIsDuplicated field's value.
+func (s *FilterForListUsersInDepartmentInput) SetPhoneNumberIsDuplicated(v bool) *FilterForListUsersInDepartmentInput {
+	s.PhoneNumberIsDuplicated = &v
 	return s
 }
 
@@ -695,6 +945,12 @@ func (s *FilterForListUsersInDepartmentInput) SetPreferredUsernameIsNullOrEmpty(
 	return s
 }
 
+// SetUniversalSearch sets the UniversalSearch field's value.
+func (s *FilterForListUsersInDepartmentInput) SetUniversalSearch(v []*UniversalSearchForListUsersInDepartmentInput) *FilterForListUsersInDepartmentInput {
+	s.UniversalSearch = v
+	return s
+}
+
 // SetUserUidsOr sets the UserUidsOr field's value.
 func (s *FilterForListUsersInDepartmentInput) SetUserUidsOr(v []*string) *FilterForListUsersInDepartmentInput {
 	s.UserUidsOr = v
@@ -710,6 +966,36 @@ func (s *FilterForListUsersInDepartmentInput) SetWebsite(v string) *FilterForLis
 // SetWebsiteIsNullOrEmpty sets the WebsiteIsNullOrEmpty field's value.
 func (s *FilterForListUsersInDepartmentInput) SetWebsiteIsNullOrEmpty(v bool) *FilterForListUsersInDepartmentInput {
 	s.WebsiteIsNullOrEmpty = &v
+	return s
+}
+
+type GroupForListUsersInDepartmentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Conditions []*ConditionForListUsersInDepartmentInput `type:"list"`
+
+	Relation *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s GroupForListUsersInDepartmentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GroupForListUsersInDepartmentInput) GoString() string {
+	return s.String()
+}
+
+// SetConditions sets the Conditions field's value.
+func (s *GroupForListUsersInDepartmentInput) SetConditions(v []*ConditionForListUsersInDepartmentInput) *GroupForListUsersInDepartmentInput {
+	s.Conditions = v
+	return s
+}
+
+// SetRelation sets the Relation field's value.
+func (s *GroupForListUsersInDepartmentInput) SetRelation(v string) *GroupForListUsersInDepartmentInput {
+	s.Relation = &v
 	return s
 }
 
@@ -822,7 +1108,7 @@ type ListUsersInDepartmentOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListUsersInDepartmentOutput `type:"list" json:",omitempty"`
+	Data []*DataForListUsersInDepartmentOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -862,5 +1148,43 @@ func (s *ListUsersInDepartmentOutput) SetPageSize(v int32) *ListUsersInDepartmen
 // SetTotalCount sets the TotalCount field's value.
 func (s *ListUsersInDepartmentOutput) SetTotalCount(v int32) *ListUsersInDepartmentOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type UniversalSearchForListUsersInDepartmentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ExactMatch *bool `type:"boolean" json:",omitempty"`
+
+	Fields []*string `type:"list"`
+
+	Search *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s UniversalSearchForListUsersInDepartmentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UniversalSearchForListUsersInDepartmentInput) GoString() string {
+	return s.String()
+}
+
+// SetExactMatch sets the ExactMatch field's value.
+func (s *UniversalSearchForListUsersInDepartmentInput) SetExactMatch(v bool) *UniversalSearchForListUsersInDepartmentInput {
+	s.ExactMatch = &v
+	return s
+}
+
+// SetFields sets the Fields field's value.
+func (s *UniversalSearchForListUsersInDepartmentInput) SetFields(v []*string) *UniversalSearchForListUsersInDepartmentInput {
+	s.Fields = v
+	return s
+}
+
+// SetSearch sets the Search field's value.
+func (s *UniversalSearchForListUsersInDepartmentInput) SetSearch(v string) *UniversalSearchForListUsersInDepartmentInput {
+	s.Search = &v
 	return s
 }

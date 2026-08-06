@@ -148,13 +148,13 @@ type AuthorizationServerMetadataForCreateOauth2CredentialProviderInput struct {
 
 	AuthorizationEndpoint *string `type:"string" json:",omitempty"`
 
-	CodeChallengeMethodsSupported []*string `type:"list" json:",omitempty"`
+	CodeChallengeMethodsSupported []*string `type:"list"`
 
 	Issuer *string `type:"string" json:",omitempty"`
 
 	RegistrationEndpoint *string `type:"string" json:",omitempty"`
 
-	ResponseTypes []*string `type:"list" json:",omitempty"`
+	ResponseTypes []*string `type:"list"`
 
 	RevocationEndpoint *string `type:"string" json:",omitempty"`
 
@@ -234,7 +234,7 @@ type ConfigForCreateOauth2CredentialProviderInput struct {
 
 	RedirectUrl *string `type:"string" json:",omitempty"`
 
-	Scopes []*string `type:"list" json:",omitempty"`
+	Scopes []*string `type:"list"`
 
 	SecretStorage *SecretStorageForCreateOauth2CredentialProviderInput `type:"structure" json:",omitempty"`
 }
@@ -327,6 +327,8 @@ type CreateOauth2CredentialProviderInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	Source *string `type:"string" json:",omitempty"`
+
 	// Vendor is a required field
 	Vendor *int32 `type:"int32" json:",omitempty" required:"true"`
 }
@@ -378,6 +380,12 @@ func (s *CreateOauth2CredentialProviderInput) SetPoolName(v string) *CreateOauth
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateOauth2CredentialProviderInput) SetProjectName(v string) *CreateOauth2CredentialProviderInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *CreateOauth2CredentialProviderInput) SetSource(v string) *CreateOauth2CredentialProviderInput {
+	s.Source = &v
 	return s
 }
 
@@ -438,7 +446,7 @@ func (s *CreateOauth2CredentialProviderOutput) SetSecretTrn(v string) *CreateOau
 type CustomParametersForCreateOauth2CredentialProviderInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Entries []*EntryForCreateOauth2CredentialProviderInput `type:"list" json:",omitempty"`
+	Entries []*EntryForCreateOauth2CredentialProviderInput `type:"list"`
 }
 
 // String returns the string representation

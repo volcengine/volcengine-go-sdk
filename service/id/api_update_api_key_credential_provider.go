@@ -186,7 +186,7 @@ type UpdateApiKeyCredentialProviderInput struct {
 
 	ApiKey *string `type:"string" json:",omitempty"`
 
-	ApiKeyMetadata []*ApiKeyMetadataForUpdateApiKeyCredentialProviderInput `type:"list" json:",omitempty"`
+	ApiKeyMetadata []*ApiKeyMetadataForUpdateApiKeyCredentialProviderInput `type:"list"`
 
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`

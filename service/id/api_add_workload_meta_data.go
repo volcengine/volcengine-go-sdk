@@ -146,7 +146,7 @@ func (c *ID) AddWorkloadMetaDataWithContext(ctx volcengine.Context, input *AddWo
 type AddWorkloadMetaDataInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MetaData []*MetaDataForAddWorkloadMetaDataInput `type:"list" json:",omitempty"`
+	MetaData []*MetaDataForAddWorkloadMetaDataInput `type:"list"`
 
 	// WorkloadIdentity is a required field
 	WorkloadIdentity *string `type:"string" json:",omitempty" required:"true"`
@@ -204,7 +204,7 @@ type AddWorkloadMetaDataOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	MetaData []*MetaDataForAddWorkloadMetaDataOutput `type:"list" json:",omitempty"`
+	MetaData []*MetaDataForAddWorkloadMetaDataOutput `type:"list"`
 
 	WorkloadIdentity *string `type:"string" json:",omitempty"`
 
@@ -244,7 +244,7 @@ type MetaDataForAddWorkloadMetaDataInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -274,7 +274,7 @@ type MetaDataForAddWorkloadMetaDataOutput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation

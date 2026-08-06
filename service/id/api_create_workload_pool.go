@@ -150,7 +150,7 @@ type CreateWorkloadPoolInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateWorkloadPoolInput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateWorkloadPoolInput `type:"list"`
 
 	WorkloadPoolName *string `type:"string" json:",omitempty"`
 }
@@ -202,7 +202,7 @@ type CreateWorkloadPoolOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateWorkloadPoolOutput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateWorkloadPoolOutput `type:"list"`
 
 	Trn *string `type:"string" json:",omitempty"`
 

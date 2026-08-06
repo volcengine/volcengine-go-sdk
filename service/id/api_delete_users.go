@@ -149,7 +149,7 @@ type DeleteUsersInput struct {
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
 
-	UserUids []*string `type:"list" json:",omitempty"`
+	UserUids []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -192,15 +192,15 @@ type DeleteUsersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Errors []*string `type:"list" json:",omitempty"`
+	Errors []*string `type:"list"`
 
-	ErrorsStructured []*ErrorsStructuredForDeleteUsersOutput `type:"list" json:",omitempty"`
+	ErrorsStructured []*ErrorsStructuredForDeleteUsersOutput `type:"list"`
 
 	FailureCount *int32 `type:"int32" json:",omitempty"`
 
 	SuccessCount *int32 `type:"int32" json:",omitempty"`
 
-	SuccessfulUids []*string `type:"list" json:",omitempty"`
+	SuccessfulUids []*string `type:"list"`
 }
 
 // String returns the string representation

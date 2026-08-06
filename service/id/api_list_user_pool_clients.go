@@ -216,7 +216,7 @@ func (s *DataForListUserPoolClientsOutput) SetUpdateTime(v string) *DataForListU
 type FilterForListUserPoolClientsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientTypes []*string `type:"list" json:",omitempty"`
+	ClientTypes []*string `type:"list"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -340,7 +340,7 @@ type ListUserPoolClientsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListUserPoolClientsOutput `type:"list" json:",omitempty"`
+	Data []*DataForListUserPoolClientsOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

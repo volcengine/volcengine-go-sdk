@@ -150,13 +150,13 @@ type ApiSpecForCreateServiceInput struct {
 
 	ActionValue *string `type:"string" json:",omitempty"`
 
-	Extractors []*ExtractorForCreateServiceInput `type:"list" json:",omitempty"`
+	Extractors []*ExtractorForCreateServiceInput `type:"list"`
 
 	IdentifierType *int32 `type:"int32" json:",omitempty"`
 
 	IdentifierValue *string `type:"string" json:",omitempty"`
 
-	ResponseFilters []*ResponseFilterForCreateServiceInput `type:"list" json:",omitempty"`
+	ResponseFilters []*ResponseFilterForCreateServiceInput `type:"list"`
 }
 
 // String returns the string representation
@@ -357,12 +357,12 @@ type CreateServiceInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Routes []*RouteForCreateServiceInput `type:"list" json:",omitempty"`
+	Routes []*RouteForCreateServiceInput `type:"list"`
 
 	// ServiceName is a required field
 	ServiceName *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags []*TagForCreateServiceInput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateServiceInput `type:"list"`
 }
 
 // String returns the string representation
@@ -470,7 +470,7 @@ type CreateServiceOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateServiceOutput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateServiceOutput `type:"list"`
 
 	TemplateId *string `type:"string" json:",omitempty"`
 
@@ -640,7 +640,7 @@ func (s *ExtractorForCreateServiceInput) SetSource(v int32) *ExtractorForCreateS
 type ResponseFilterForCreateServiceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Attributes []*AttributeForCreateServiceInput `type:"list" json:",omitempty"`
+	Attributes []*AttributeForCreateServiceInput `type:"list"`
 
 	FilterPath *string `type:"string" json:",omitempty"`
 

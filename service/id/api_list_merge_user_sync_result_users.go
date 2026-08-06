@@ -146,6 +146,8 @@ func (c *ID) ListMergeUserSyncResultUsersWithContext(ctx volcengine.Context, inp
 type CurrentUserForListMergeUserSyncResultUsersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CustomAttributes []*CustomAttributeForListMergeUserSyncResultUsersOutput `type:"list"`
+
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
@@ -155,6 +157,8 @@ type CurrentUserForListMergeUserSyncResultUsersOutput struct {
 	PhoneNumber *string `type:"string" json:",omitempty"`
 
 	PhoneNumberVerified *bool `type:"boolean" json:",omitempty"`
+
+	PreferredUsername *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -165,6 +169,12 @@ func (s CurrentUserForListMergeUserSyncResultUsersOutput) String() string {
 // GoString returns the string representation
 func (s CurrentUserForListMergeUserSyncResultUsersOutput) GoString() string {
 	return s.String()
+}
+
+// SetCustomAttributes sets the CustomAttributes field's value.
+func (s *CurrentUserForListMergeUserSyncResultUsersOutput) SetCustomAttributes(v []*CustomAttributeForListMergeUserSyncResultUsersOutput) *CurrentUserForListMergeUserSyncResultUsersOutput {
+	s.CustomAttributes = v
+	return s
 }
 
 // SetEmail sets the Email field's value.
@@ -197,10 +207,124 @@ func (s *CurrentUserForListMergeUserSyncResultUsersOutput) SetPhoneNumberVerifie
 	return s
 }
 
+// SetPreferredUsername sets the PreferredUsername field's value.
+func (s *CurrentUserForListMergeUserSyncResultUsersOutput) SetPreferredUsername(v string) *CurrentUserForListMergeUserSyncResultUsersOutput {
+	s.PreferredUsername = &v
+	return s
+}
+
+type CustomAttributeForListMergeUserSyncResultUsersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributeForListMergeUserSyncResultUsersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributeForListMergeUserSyncResultUsersOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *CustomAttributeForListMergeUserSyncResultUsersOutput) SetName(v string) *CustomAttributeForListMergeUserSyncResultUsersOutput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomAttributeForListMergeUserSyncResultUsersOutput) SetValue(v string) *CustomAttributeForListMergeUserSyncResultUsersOutput {
+	s.Value = &v
+	return s
+}
+
+type CustomAttributeHeaderForListMergeUserSyncResultUsersOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	DataType *string `type:"string" json:",omitempty"`
+
+	Maximum *int32 `type:"int32" json:",omitempty"`
+
+	Minimum *int32 `type:"int32" json:",omitempty"`
+
+	Mutability *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Uid *string `type:"string" json:",omitempty"`
+
+	UpdateTime *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributeHeaderForListMergeUserSyncResultUsersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributeHeaderForListMergeUserSyncResultUsersOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput) SetCreateTime(v string) *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDataType sets the DataType field's value.
+func (s *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput) SetDataType(v string) *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput {
+	s.DataType = &v
+	return s
+}
+
+// SetMaximum sets the Maximum field's value.
+func (s *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput) SetMaximum(v int32) *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput {
+	s.Maximum = &v
+	return s
+}
+
+// SetMinimum sets the Minimum field's value.
+func (s *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput) SetMinimum(v int32) *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput {
+	s.Minimum = &v
+	return s
+}
+
+// SetMutability sets the Mutability field's value.
+func (s *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput) SetMutability(v string) *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput {
+	s.Mutability = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput) SetName(v string) *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput {
+	s.Name = &v
+	return s
+}
+
+// SetUid sets the Uid field's value.
+func (s *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput) SetUid(v string) *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput {
+	s.Uid = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput) SetUpdateTime(v string) *CustomAttributeHeaderForListMergeUserSyncResultUsersOutput {
+	s.UpdateTime = &v
+	return s
+}
+
 type DataForListMergeUserSyncResultUsersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConflictFields []*string `type:"list" json:",omitempty"`
+	ConflictFields []*string `type:"list"`
 
 	ConnectionUid *string `type:"string" json:",omitempty"`
 
@@ -318,7 +442,7 @@ func (s *DataForListMergeUserSyncResultUsersOutput) SetUserUid(v string) *DataFo
 type FilterForListMergeUserSyncResultUsersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConflictFields []*string `type:"list" json:",omitempty"`
+	ConflictFields []*string `type:"list"`
 
 	CurrentEmail *string `type:"string" json:",omitempty"`
 
@@ -335,6 +459,8 @@ type FilterForListMergeUserSyncResultUsersInput struct {
 	NewPhoneNumber *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
+
+	Statuses []*string `type:"list"`
 
 	UserUid *string `type:"string" json:",omitempty"`
 }
@@ -403,6 +529,12 @@ func (s *FilterForListMergeUserSyncResultUsersInput) SetStatus(v string) *Filter
 	return s
 }
 
+// SetStatuses sets the Statuses field's value.
+func (s *FilterForListMergeUserSyncResultUsersInput) SetStatuses(v []*string) *FilterForListMergeUserSyncResultUsersInput {
+	s.Statuses = v
+	return s
+}
+
 // SetUserUid sets the UserUid field's value.
 func (s *FilterForListMergeUserSyncResultUsersInput) SetUserUid(v string) *FilterForListMergeUserSyncResultUsersInput {
 	s.UserUid = &v
@@ -411,6 +543,8 @@ func (s *FilterForListMergeUserSyncResultUsersInput) SetUserUid(v string) *Filte
 
 type ListMergeUserSyncResultUsersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	ErrorMessageLanguage *string `type:"string" json:",omitempty"`
 
 	Filter *FilterForListMergeUserSyncResultUsersInput `type:"structure" json:",omitempty"`
 
@@ -459,6 +593,12 @@ func (s *ListMergeUserSyncResultUsersInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetErrorMessageLanguage sets the ErrorMessageLanguage field's value.
+func (s *ListMergeUserSyncResultUsersInput) SetErrorMessageLanguage(v string) *ListMergeUserSyncResultUsersInput {
+	s.ErrorMessageLanguage = &v
+	return s
 }
 
 // SetFilter sets the Filter field's value.
@@ -514,7 +654,9 @@ type ListMergeUserSyncResultUsersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListMergeUserSyncResultUsersOutput `type:"list" json:",omitempty"`
+	CustomAttributeHeaders []*CustomAttributeHeaderForListMergeUserSyncResultUsersOutput `type:"list"`
+
+	Data []*DataForListMergeUserSyncResultUsersOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -531,6 +673,12 @@ func (s ListMergeUserSyncResultUsersOutput) String() string {
 // GoString returns the string representation
 func (s ListMergeUserSyncResultUsersOutput) GoString() string {
 	return s.String()
+}
+
+// SetCustomAttributeHeaders sets the CustomAttributeHeaders field's value.
+func (s *ListMergeUserSyncResultUsersOutput) SetCustomAttributeHeaders(v []*CustomAttributeHeaderForListMergeUserSyncResultUsersOutput) *ListMergeUserSyncResultUsersOutput {
+	s.CustomAttributeHeaders = v
+	return s
 }
 
 // SetData sets the Data field's value.
@@ -560,6 +708,8 @@ func (s *ListMergeUserSyncResultUsersOutput) SetTotalCount(v int32) *ListMergeUs
 type NewUserForListMergeUserSyncResultUsersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CustomAttributes []*CustomAttributeForListMergeUserSyncResultUsersOutput `type:"list"`
+
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
@@ -569,6 +719,8 @@ type NewUserForListMergeUserSyncResultUsersOutput struct {
 	PhoneNumber *string `type:"string" json:",omitempty"`
 
 	PhoneNumberVerified *bool `type:"boolean" json:",omitempty"`
+
+	PreferredUsername *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -579,6 +731,12 @@ func (s NewUserForListMergeUserSyncResultUsersOutput) String() string {
 // GoString returns the string representation
 func (s NewUserForListMergeUserSyncResultUsersOutput) GoString() string {
 	return s.String()
+}
+
+// SetCustomAttributes sets the CustomAttributes field's value.
+func (s *NewUserForListMergeUserSyncResultUsersOutput) SetCustomAttributes(v []*CustomAttributeForListMergeUserSyncResultUsersOutput) *NewUserForListMergeUserSyncResultUsersOutput {
+	s.CustomAttributes = v
+	return s
 }
 
 // SetEmail sets the Email field's value.
@@ -608,6 +766,12 @@ func (s *NewUserForListMergeUserSyncResultUsersOutput) SetPhoneNumber(v string) 
 // SetPhoneNumberVerified sets the PhoneNumberVerified field's value.
 func (s *NewUserForListMergeUserSyncResultUsersOutput) SetPhoneNumberVerified(v bool) *NewUserForListMergeUserSyncResultUsersOutput {
 	s.PhoneNumberVerified = &v
+	return s
+}
+
+// SetPreferredUsername sets the PreferredUsername field's value.
+func (s *NewUserForListMergeUserSyncResultUsersOutput) SetPreferredUsername(v string) *NewUserForListMergeUserSyncResultUsersOutput {
+	s.PreferredUsername = &v
 	return s
 }
 

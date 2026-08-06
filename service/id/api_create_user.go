@@ -148,9 +148,15 @@ type CreateUserInput struct {
 
 	Birthdate *string `type:"string" json:",omitempty"`
 
+	CustomAttributesToUpsert []*CustomAttributesToUpsertForCreateUserInput `type:"list"`
+
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
+
+	ExternalProviderConnectionUid *string `type:"string" json:",omitempty"`
+
+	ExternalProviderUserIdentifier *string `type:"string" json:",omitempty"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
@@ -166,8 +172,7 @@ type CreateUserInput struct {
 
 	Nickname *string `type:"string" json:",omitempty"`
 
-	// Password is a required field
-	Password *string `type:"string" json:",omitempty" required:"true"`
+	Password *string `type:"string" json:",omitempty"`
 
 	PhoneNumber *string `type:"string" json:",omitempty"`
 
@@ -202,9 +207,6 @@ func (s CreateUserInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateUserInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateUserInput"}
-	if s.Password == nil {
-		invalidParams.Add(request.NewErrParamRequired("Password"))
-	}
 	if s.UserPoolUid == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserPoolUid"))
 	}
@@ -221,6 +223,12 @@ func (s *CreateUserInput) SetBirthdate(v string) *CreateUserInput {
 	return s
 }
 
+// SetCustomAttributesToUpsert sets the CustomAttributesToUpsert field's value.
+func (s *CreateUserInput) SetCustomAttributesToUpsert(v []*CustomAttributesToUpsertForCreateUserInput) *CreateUserInput {
+	s.CustomAttributesToUpsert = v
+	return s
+}
+
 // SetEmail sets the Email field's value.
 func (s *CreateUserInput) SetEmail(v string) *CreateUserInput {
 	s.Email = &v
@@ -230,6 +238,18 @@ func (s *CreateUserInput) SetEmail(v string) *CreateUserInput {
 // SetEmailVerified sets the EmailVerified field's value.
 func (s *CreateUserInput) SetEmailVerified(v bool) *CreateUserInput {
 	s.EmailVerified = &v
+	return s
+}
+
+// SetExternalProviderConnectionUid sets the ExternalProviderConnectionUid field's value.
+func (s *CreateUserInput) SetExternalProviderConnectionUid(v string) *CreateUserInput {
+	s.ExternalProviderConnectionUid = &v
+	return s
+}
+
+// SetExternalProviderUserIdentifier sets the ExternalProviderUserIdentifier field's value.
+func (s *CreateUserInput) SetExternalProviderUserIdentifier(v string) *CreateUserInput {
+	s.ExternalProviderUserIdentifier = &v
 	return s
 }
 
@@ -346,13 +366,15 @@ type CreateUserOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	DepartmentUids []*string `type:"list" json:",omitempty"`
+	CustomAttributes []*CustomAttributeForCreateUserOutput `type:"list"`
+
+	DepartmentUids []*string `type:"list"`
 
 	Email *string `type:"string" json:",omitempty"`
 
 	EmailVerified *bool `type:"boolean" json:",omitempty"`
 
-	ExternalIdentities []*ExternalIdentityForCreateUserOutput `type:"list" json:",omitempty"`
+	ExternalIdentities []*ExternalIdentityForCreateUserOutput `type:"list"`
 
 	FamilyName *string `type:"string" json:",omitempty"`
 
@@ -360,11 +382,17 @@ type CreateUserOutput struct {
 
 	GivenName *string `type:"string" json:",omitempty"`
 
-	GroupUids []*string `type:"list" json:",omitempty"`
+	GroupUids []*string `type:"list"`
 
 	LatestBrowser *string `type:"string" json:",omitempty"`
 
 	LatestLogin *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionName *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionProvider *string `type:"string" json:",omitempty"`
+
+	LatestLoginConnectionType *string `type:"string" json:",omitempty"`
 
 	LatestLoginMethod *string `type:"string" json:",omitempty"`
 
@@ -431,6 +459,12 @@ func (s *CreateUserOutput) SetCreateTime(v string) *CreateUserOutput {
 	return s
 }
 
+// SetCustomAttributes sets the CustomAttributes field's value.
+func (s *CreateUserOutput) SetCustomAttributes(v []*CustomAttributeForCreateUserOutput) *CreateUserOutput {
+	s.CustomAttributes = v
+	return s
+}
+
 // SetDepartmentUids sets the DepartmentUids field's value.
 func (s *CreateUserOutput) SetDepartmentUids(v []*string) *CreateUserOutput {
 	s.DepartmentUids = v
@@ -488,6 +522,24 @@ func (s *CreateUserOutput) SetLatestBrowser(v string) *CreateUserOutput {
 // SetLatestLogin sets the LatestLogin field's value.
 func (s *CreateUserOutput) SetLatestLogin(v string) *CreateUserOutput {
 	s.LatestLogin = &v
+	return s
+}
+
+// SetLatestLoginConnectionName sets the LatestLoginConnectionName field's value.
+func (s *CreateUserOutput) SetLatestLoginConnectionName(v string) *CreateUserOutput {
+	s.LatestLoginConnectionName = &v
+	return s
+}
+
+// SetLatestLoginConnectionProvider sets the LatestLoginConnectionProvider field's value.
+func (s *CreateUserOutput) SetLatestLoginConnectionProvider(v string) *CreateUserOutput {
+	s.LatestLoginConnectionProvider = &v
+	return s
+}
+
+// SetLatestLoginConnectionType sets the LatestLoginConnectionType field's value.
+func (s *CreateUserOutput) SetLatestLoginConnectionType(v string) *CreateUserOutput {
+	s.LatestLoginConnectionType = &v
 	return s
 }
 
@@ -599,6 +651,66 @@ func (s *CreateUserOutput) SetZoneinfo(v string) *CreateUserOutput {
 	return s
 }
 
+type CustomAttributeForCreateUserOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributeForCreateUserOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributeForCreateUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *CustomAttributeForCreateUserOutput) SetName(v string) *CustomAttributeForCreateUserOutput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomAttributeForCreateUserOutput) SetValue(v string) *CustomAttributeForCreateUserOutput {
+	s.Value = &v
+	return s
+}
+
+type CustomAttributesToUpsertForCreateUserInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CustomAttributesToUpsertForCreateUserInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomAttributesToUpsertForCreateUserInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *CustomAttributesToUpsertForCreateUserInput) SetName(v string) *CustomAttributesToUpsertForCreateUserInput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CustomAttributesToUpsertForCreateUserInput) SetValue(v string) *CustomAttributesToUpsertForCreateUserInput {
+	s.Value = &v
+	return s
+}
+
 type ExternalIdentityForCreateUserOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -609,6 +721,8 @@ type ExternalIdentityForCreateUserOutput struct {
 	ExternalProviderUserIdentifier *string `type:"string" json:",omitempty"`
 
 	ExternalProviderUserMetadata *string `type:"string" json:",omitempty"`
+
+	LastLoginAt *string `type:"string" json:",omitempty"`
 
 	LinkSource *string `type:"string" json:",omitempty"`
 
@@ -648,6 +762,12 @@ func (s *ExternalIdentityForCreateUserOutput) SetExternalProviderUserIdentifier(
 // SetExternalProviderUserMetadata sets the ExternalProviderUserMetadata field's value.
 func (s *ExternalIdentityForCreateUserOutput) SetExternalProviderUserMetadata(v string) *ExternalIdentityForCreateUserOutput {
 	s.ExternalProviderUserMetadata = &v
+	return s
+}
+
+// SetLastLoginAt sets the LastLoginAt field's value.
+func (s *ExternalIdentityForCreateUserOutput) SetLastLoginAt(v string) *ExternalIdentityForCreateUserOutput {
+	s.LastLoginAt = &v
 	return s
 }
 

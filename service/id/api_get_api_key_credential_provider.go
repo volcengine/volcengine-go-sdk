@@ -230,7 +230,7 @@ type GetApiKeyCredentialProviderOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ApiKeyMetadata []*ApiKeyMetadataForGetApiKeyCredentialProviderOutput `type:"list" json:",omitempty"`
+	ApiKeyMetadata []*ApiKeyMetadataForGetApiKeyCredentialProviderOutput `type:"list"`
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 

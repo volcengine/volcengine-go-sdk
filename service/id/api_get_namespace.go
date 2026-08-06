@@ -178,7 +178,7 @@ type GetNamespaceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Associates []*string `type:"list" json:",omitempty"`
+	Associates []*string `type:"list"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
@@ -190,7 +190,7 @@ type GetNamespaceOutput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForGetNamespaceOutput `type:"list" json:",omitempty"`
+	Tags []*TagForGetNamespaceOutput `type:"list"`
 
 	Trn *string `type:"string" json:",omitempty"`
 

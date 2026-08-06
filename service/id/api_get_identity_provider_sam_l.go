@@ -148,7 +148,7 @@ type AdditionalMappingForGetIdentityProviderSAMLOutput struct {
 
 	ScimPath *string `type:"string" json:",omitempty"`
 
-	UserPoolPath []*string `type:"list" json:",omitempty"`
+	UserPoolPath []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -170,6 +170,52 @@ func (s *AdditionalMappingForGetIdentityProviderSAMLOutput) SetScimPath(v string
 // SetUserPoolPath sets the UserPoolPath field's value.
 func (s *AdditionalMappingForGetIdentityProviderSAMLOutput) SetUserPoolPath(v []*string) *AdditionalMappingForGetIdentityProviderSAMLOutput {
 	s.UserPoolPath = v
+	return s
+}
+
+type AttributeMappingForGetIdentityProviderSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalConfig *string `type:"string" json:",omitempty"`
+
+	MappingType *string `type:"string" json:",omitempty"`
+
+	SourceAttributeName *string `type:"string" json:",omitempty"`
+
+	TargetAttributeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AttributeMappingForGetIdentityProviderSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttributeMappingForGetIdentityProviderSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalConfig sets the AdditionalConfig field's value.
+func (s *AttributeMappingForGetIdentityProviderSAMLOutput) SetAdditionalConfig(v string) *AttributeMappingForGetIdentityProviderSAMLOutput {
+	s.AdditionalConfig = &v
+	return s
+}
+
+// SetMappingType sets the MappingType field's value.
+func (s *AttributeMappingForGetIdentityProviderSAMLOutput) SetMappingType(v string) *AttributeMappingForGetIdentityProviderSAMLOutput {
+	s.MappingType = &v
+	return s
+}
+
+// SetSourceAttributeName sets the SourceAttributeName field's value.
+func (s *AttributeMappingForGetIdentityProviderSAMLOutput) SetSourceAttributeName(v string) *AttributeMappingForGetIdentityProviderSAMLOutput {
+	s.SourceAttributeName = &v
+	return s
+}
+
+// SetTargetAttributeName sets the TargetAttributeName field's value.
+func (s *AttributeMappingForGetIdentityProviderSAMLOutput) SetTargetAttributeName(v string) *AttributeMappingForGetIdentityProviderSAMLOutput {
+	s.TargetAttributeName = &v
 	return s
 }
 
@@ -222,7 +268,7 @@ func (s *ClaimRuleForGetIdentityProviderSAMLOutput) SetTargetClaim(v string) *Cl
 type ClaimsPropagationConfigForGetIdentityProviderSAMLOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForGetIdentityProviderSAMLOutput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForGetIdentityProviderSAMLOutput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -246,6 +292,36 @@ func (s *ClaimsPropagationConfigForGetIdentityProviderSAMLOutput) SetClaimRules(
 // SetMode sets the Mode field's value.
 func (s *ClaimsPropagationConfigForGetIdentityProviderSAMLOutput) SetMode(v string) *ClaimsPropagationConfigForGetIdentityProviderSAMLOutput {
 	s.Mode = &v
+	return s
+}
+
+type EipRecordForGetIdentityProviderSAMLOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipRecordForGetIdentityProviderSAMLOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipRecordForGetIdentityProviderSAMLOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipRecordForGetIdentityProviderSAMLOutput) SetEipAddress(v string) *EipRecordForGetIdentityProviderSAMLOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipRecordForGetIdentityProviderSAMLOutput) SetEipId(v string) *EipRecordForGetIdentityProviderSAMLOutput {
+	s.EipId = &v
 	return s
 }
 
@@ -304,9 +380,13 @@ type GetIdentityProviderSAMLOutput struct {
 
 	AttributeMapping *string `type:"string" json:",omitempty"`
 
+	AttributeMappings []*AttributeMappingForGetIdentityProviderSAMLOutput `type:"list"`
+
 	Certificate *string `type:"string" json:",omitempty"`
 
 	ClaimsPropagationConfig *ClaimsPropagationConfigForGetIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
+
+	EipRecord *EipRecordForGetIdentityProviderSAMLOutput `type:"structure" json:",omitempty"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
@@ -347,6 +427,12 @@ func (s *GetIdentityProviderSAMLOutput) SetAttributeMapping(v string) *GetIdenti
 	return s
 }
 
+// SetAttributeMappings sets the AttributeMappings field's value.
+func (s *GetIdentityProviderSAMLOutput) SetAttributeMappings(v []*AttributeMappingForGetIdentityProviderSAMLOutput) *GetIdentityProviderSAMLOutput {
+	s.AttributeMappings = v
+	return s
+}
+
 // SetCertificate sets the Certificate field's value.
 func (s *GetIdentityProviderSAMLOutput) SetCertificate(v string) *GetIdentityProviderSAMLOutput {
 	s.Certificate = &v
@@ -356,6 +442,12 @@ func (s *GetIdentityProviderSAMLOutput) SetCertificate(v string) *GetIdentityPro
 // SetClaimsPropagationConfig sets the ClaimsPropagationConfig field's value.
 func (s *GetIdentityProviderSAMLOutput) SetClaimsPropagationConfig(v *ClaimsPropagationConfigForGetIdentityProviderSAMLOutput) *GetIdentityProviderSAMLOutput {
 	s.ClaimsPropagationConfig = v
+	return s
+}
+
+// SetEipRecord sets the EipRecord field's value.
+func (s *GetIdentityProviderSAMLOutput) SetEipRecord(v *EipRecordForGetIdentityProviderSAMLOutput) *GetIdentityProviderSAMLOutput {
+	s.EipRecord = v
 	return s
 }
 
@@ -490,7 +582,7 @@ func (s *ProviderOptionsForGetIdentityProviderSAMLOutput) SetUserLinkingPromptEn
 type ScimProvisioningForGetIdentityProviderSAMLOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AdditionalMappings []*AdditionalMappingForGetIdentityProviderSAMLOutput `type:"list" json:",omitempty"`
+	AdditionalMappings []*AdditionalMappingForGetIdentityProviderSAMLOutput `type:"list"`
 
 	BaseUrl *string `type:"string" json:",omitempty"`
 

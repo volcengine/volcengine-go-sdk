@@ -150,7 +150,7 @@ type PlanForValidateDepartmentSyncSessionOutput struct {
 
 	DeletePct *float64 `max:"1" type:"double" json:",omitempty"`
 
-	DepartmentErrors []*string `type:"list" json:",omitempty"`
+	DepartmentErrors []*string `type:"list"`
 
 	DeptCreated *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
 
@@ -162,7 +162,7 @@ type PlanForValidateDepartmentSyncSessionOutput struct {
 
 	MemberAdded *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
 
-	MemberErrors []*string `type:"list" json:",omitempty"`
+	MemberErrors []*string `type:"list"`
 
 	MemberRemoved *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
 

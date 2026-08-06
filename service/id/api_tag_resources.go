@@ -176,12 +176,12 @@ func (s *TagForTagResourcesInput) SetValue(v string) *TagForTagResourcesInput {
 type TagResourcesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceIds []*string `type:"list" json:",omitempty"`
+	ResourceIds []*string `type:"list"`
 
 	// ResourceType is a required field
 	ResourceType *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags []*TagForTagResourcesInput `type:"list" json:",omitempty"`
+	Tags []*TagForTagResourcesInput `type:"list"`
 }
 
 // String returns the string representation

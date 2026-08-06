@@ -146,12 +146,12 @@ func (c *ID) UntagResourcesWithContext(ctx volcengine.Context, input *UntagResou
 type UntagResourcesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ResourceIds []*string `type:"list" json:",omitempty"`
+	ResourceIds []*string `type:"list"`
 
 	// ResourceType is a required field
 	ResourceType *string `type:"string" json:",omitempty" required:"true"`
 
-	TagKeys []*string `type:"list" json:",omitempty"`
+	TagKeys []*string `type:"list"`
 }
 
 // String returns the string representation

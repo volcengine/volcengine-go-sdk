@@ -148,7 +148,7 @@ type GetUserPoolMausInput struct {
 
 	Month *string `type:"string" json:",omitempty"`
 
-	UserPoolUids []*string `type:"list" json:",omitempty"`
+	UserPoolUids []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -180,7 +180,7 @@ type GetUserPoolMausOutput struct {
 
 	Month *string `type:"string" json:",omitempty"`
 
-	UserPoolMaus []*UserPoolMauForGetUserPoolMausOutput `type:"list" json:",omitempty"`
+	UserPoolMaus []*UserPoolMauForGetUserPoolMausOutput `type:"list"`
 }
 
 // String returns the string representation

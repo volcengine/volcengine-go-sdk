@@ -148,7 +148,7 @@ type ApiKeyAuthConfigForBatchGetInboundAuthConfigOutput struct {
 
 	ApiKey *string `type:"string" json:",omitempty"`
 
-	ApiKeyMetadata []*ApiKeyMetadataForBatchGetInboundAuthConfigOutput `type:"list" json:",omitempty"`
+	ApiKeyMetadata []*ApiKeyMetadataForBatchGetInboundAuthConfigOutput `type:"list"`
 
 	ApiKeyName *string `type:"string" json:",omitempty"`
 
@@ -230,7 +230,7 @@ func (s *ApiKeyMetadataForBatchGetInboundAuthConfigOutput) SetPrefix(v string) *
 type BatchGetInboundAuthConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InboundAuthConfigIds []*string `type:"list" json:",omitempty"`
+	InboundAuthConfigIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -254,7 +254,7 @@ type BatchGetInboundAuthConfigOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InboundAuthConfigs []*InboundAuthConfigForBatchGetInboundAuthConfigOutput `type:"list" json:",omitempty"`
+	InboundAuthConfigs []*InboundAuthConfigForBatchGetInboundAuthConfigOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -276,7 +276,7 @@ func (s *BatchGetInboundAuthConfigOutput) SetInboundAuthConfigs(v []*InboundAuth
 type InboundAuthConfigForBatchGetInboundAuthConfigOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApiKeyAuthConfigs []*ApiKeyAuthConfigForBatchGetInboundAuthConfigOutput `type:"list" json:",omitempty"`
+	ApiKeyAuthConfigs []*ApiKeyAuthConfigForBatchGetInboundAuthConfigOutput `type:"list"`
 
 	AuthType *string `type:"string" json:",omitempty"`
 
@@ -370,9 +370,9 @@ func (s *InboundAuthConfigForBatchGetInboundAuthConfigOutput) SetUpdatedAt(v str
 type JwtAuthConfigForBatchGetInboundAuthConfigOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowedAudiences []*string `type:"list" json:",omitempty"`
+	AllowedAudiences []*string `type:"list"`
 
-	AllowedClients []*string `type:"list" json:",omitempty"`
+	AllowedClients []*string `type:"list"`
 
 	DiscoveryUrl *string `type:"string" json:",omitempty"`
 }

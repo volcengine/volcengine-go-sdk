@@ -148,7 +148,7 @@ type ApiKeyAuthConfigForCreateInboundAuthConfigInput struct {
 
 	ApiKey *string `type:"string" json:",omitempty"`
 
-	ApiKeyMetadata []*ApiKeyMetadataForCreateInboundAuthConfigInput `type:"list" json:",omitempty"`
+	ApiKeyMetadata []*ApiKeyMetadataForCreateInboundAuthConfigInput `type:"list"`
 
 	ApiKeyName *string `type:"string" json:",omitempty"`
 
@@ -194,7 +194,7 @@ type ApiKeyAuthConfigForCreateInboundAuthConfigOutput struct {
 
 	ApiKey *string `type:"string" json:",omitempty"`
 
-	ApiKeyMetadata []*ApiKeyMetadataForCreateInboundAuthConfigOutput `type:"list" json:",omitempty"`
+	ApiKeyMetadata []*ApiKeyMetadataForCreateInboundAuthConfigOutput `type:"list"`
 
 	ApiKeyName *string `type:"string" json:",omitempty"`
 
@@ -314,7 +314,7 @@ func (s *ApiKeyMetadataForCreateInboundAuthConfigOutput) SetPrefix(v string) *Ap
 type CreateInboundAuthConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApiKeyAuthConfigs []*ApiKeyAuthConfigForCreateInboundAuthConfigInput `type:"list" json:",omitempty"`
+	ApiKeyAuthConfigs []*ApiKeyAuthConfigForCreateInboundAuthConfigInput `type:"list"`
 
 	// AuthType is a required field
 	AuthType *string `type:"string" json:",omitempty" required:"true"`
@@ -392,7 +392,7 @@ type CreateInboundAuthConfigOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ApiKeyAuthConfigs []*ApiKeyAuthConfigForCreateInboundAuthConfigOutput `type:"list" json:",omitempty"`
+	ApiKeyAuthConfigs []*ApiKeyAuthConfigForCreateInboundAuthConfigOutput `type:"list"`
 
 	AuthType *string `type:"string" json:",omitempty"`
 
@@ -486,9 +486,9 @@ func (s *CreateInboundAuthConfigOutput) SetUpdatedAt(v string) *CreateInboundAut
 type JwtAuthConfigForCreateInboundAuthConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowedAudiences []*string `type:"list" json:",omitempty"`
+	AllowedAudiences []*string `type:"list"`
 
-	AllowedClients []*string `type:"list" json:",omitempty"`
+	AllowedClients []*string `type:"list"`
 
 	DiscoveryUrl *string `type:"string" json:",omitempty"`
 }
@@ -524,9 +524,9 @@ func (s *JwtAuthConfigForCreateInboundAuthConfigInput) SetDiscoveryUrl(v string)
 type JwtAuthConfigForCreateInboundAuthConfigOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowedAudiences []*string `type:"list" json:",omitempty"`
+	AllowedAudiences []*string `type:"list"`
 
-	AllowedClients []*string `type:"list" json:",omitempty"`
+	AllowedClients []*string `type:"list"`
 
 	DiscoveryUrl *string `type:"string" json:",omitempty"`
 }

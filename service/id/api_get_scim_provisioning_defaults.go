@@ -148,7 +148,7 @@ type AdditionalMappingForGetSCIMProvisioningDefaultsOutput struct {
 
 	ScimPath *string `type:"string" json:",omitempty"`
 
-	UserPoolPath []*string `type:"list" json:",omitempty"`
+	UserPoolPath []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -214,7 +214,7 @@ type GetSCIMProvisioningDefaultsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AdditionalMappings []*AdditionalMappingForGetSCIMProvisioningDefaultsOutput `type:"list" json:",omitempty"`
+	AdditionalMappings []*AdditionalMappingForGetSCIMProvisioningDefaultsOutput `type:"list"`
 
 	UserIdAttribute *string `type:"string" json:",omitempty"`
 }

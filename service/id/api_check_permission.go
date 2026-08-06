@@ -146,18 +146,20 @@ func (c *ID) CheckPermissionWithContext(ctx volcengine.Context, input *CheckPerm
 type CheckPermissionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Extra *ExtraForCheckPermissionInput `type:"structure" json:",omitempty"`
+
 	// NamespaceName is a required field
 	NamespaceName *string `type:"string" json:",omitempty" required:"true"`
 
 	Operation *OperationForCheckPermissionInput `type:"structure" json:",omitempty"`
 
-	OriginalCallers []*OriginalCallerForCheckPermissionInput `type:"list" json:",omitempty"`
+	OriginalCallers []*OriginalCallerForCheckPermissionInput `type:"list"`
 
 	PermissionPointId *string `type:"string" json:",omitempty"`
 
 	Principal *PrincipalForCheckPermissionInput `type:"structure" json:",omitempty"`
 
-	References []*ReferenceForCheckPermissionInput `type:"list" json:",omitempty"`
+	References []*ReferenceForCheckPermissionInput `type:"list"`
 
 	Resource *ResourceForCheckPermissionInput `type:"structure" json:",omitempty"`
 }
@@ -183,6 +185,12 @@ func (s *CheckPermissionInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetExtra sets the Extra field's value.
+func (s *CheckPermissionInput) SetExtra(v *ExtraForCheckPermissionInput) *CheckPermissionInput {
+	s.Extra = v
+	return s
 }
 
 // SetNamespaceName sets the NamespaceName field's value.
@@ -286,6 +294,36 @@ func (s *EntityForCheckPermissionInput) SetId(v string) *EntityForCheckPermissio
 // SetType sets the Type field's value.
 func (s *EntityForCheckPermissionInput) SetType(v string) *EntityForCheckPermissionInput {
 	s.Type = &v
+	return s
+}
+
+type ExtraForCheckPermissionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	RunID *string `type:"string" json:"runID,omitempty"`
+
+	SessionID *string `type:"string" json:"sessionID,omitempty"`
+}
+
+// String returns the string representation
+func (s ExtraForCheckPermissionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExtraForCheckPermissionInput) GoString() string {
+	return s.String()
+}
+
+// SetRunID sets the RunID field's value.
+func (s *ExtraForCheckPermissionInput) SetRunID(v string) *ExtraForCheckPermissionInput {
+	s.RunID = &v
+	return s
+}
+
+// SetSessionID sets the SessionID field's value.
+func (s *ExtraForCheckPermissionInput) SetSessionID(v string) *ExtraForCheckPermissionInput {
+	s.SessionID = &v
 	return s
 }
 
@@ -414,7 +452,7 @@ type ReferenceForCheckPermissionInput struct {
 
 	Entity *EntityForCheckPermissionInput `type:"structure" json:",omitempty"`
 
-	Parents []*ParentForCheckPermissionInput `type:"list" json:",omitempty"`
+	Parents []*ParentForCheckPermissionInput `type:"list"`
 }
 
 // String returns the string representation

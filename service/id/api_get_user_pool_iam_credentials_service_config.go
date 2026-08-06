@@ -186,17 +186,17 @@ type GetUserPoolIamCredentialsServiceConfigOutput struct {
 
 	AllowUnauthenticatedIdentities *bool `type:"boolean" json:",omitempty"`
 
-	AllowedClientIds []*string `type:"list" json:",omitempty"`
+	AllowedClientIds []*string `type:"list"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	IamOidcProviderRoleTrns []*IamOidcProviderRoleTrnForGetUserPoolIamCredentialsServiceConfigOutput `type:"list" json:",omitempty"`
+	IamOidcProviderRoleTrns []*IamOidcProviderRoleTrnForGetUserPoolIamCredentialsServiceConfigOutput `type:"list"`
 
-	OAuthConnections []*string `type:"list" json:",omitempty"`
+	OAuthConnections []*string `type:"list"`
 
-	OidcConnections []*string `type:"list" json:",omitempty"`
+	OidcConnections []*string `type:"list"`
 
-	SamlConnections []*string `type:"list" json:",omitempty"`
+	SamlConnections []*string `type:"list"`
 
 	UserPoolUid *string `type:"string" json:",omitempty"`
 }

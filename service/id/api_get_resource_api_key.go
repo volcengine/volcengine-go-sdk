@@ -244,7 +244,7 @@ type GetResourceApiKeyOutput struct {
 
 	ApiKey *string `type:"string" json:",omitempty"`
 
-	ApiKeyMetadata []*ApiKeyMetadataForGetResourceApiKeyOutput `type:"list" json:",omitempty"`
+	ApiKeyMetadata []*ApiKeyMetadataForGetResourceApiKeyOutput `type:"list"`
 }
 
 // String returns the string representation

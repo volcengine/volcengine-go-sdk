@@ -222,17 +222,17 @@ type CreateIamOidcProviderOutput struct {
 
 	AllowUnauthenticatedIdentities *bool `type:"boolean" json:",omitempty"`
 
-	AllowedClientIds []*string `type:"list" json:",omitempty"`
+	AllowedClientIds []*string `type:"list"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
-	IamOidcProviderRoleTrns []*IamOidcProviderRoleTrnForCreateIamOidcProviderOutput `type:"list" json:",omitempty"`
+	IamOidcProviderRoleTrns []*IamOidcProviderRoleTrnForCreateIamOidcProviderOutput `type:"list"`
 
-	OAuthConnections []*string `type:"list" json:",omitempty"`
+	OAuthConnections []*string `type:"list"`
 
-	OidcConnections []*string `type:"list" json:",omitempty"`
+	OidcConnections []*string `type:"list"`
 
-	SamlConnections []*string `type:"list" json:",omitempty"`
+	SamlConnections []*string `type:"list"`
 
 	UserPoolUid *string `type:"string" json:",omitempty"`
 }

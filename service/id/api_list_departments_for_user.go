@@ -388,7 +388,7 @@ type ListDepartmentsForUserOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Departments []*ConvertDepartmentForListDepartmentsForUserOutput `type:"list" json:",omitempty"`
+	Departments []*ConvertDepartmentForListDepartmentsForUserOutput `type:"list"`
 }
 
 // String returns the string representation

@@ -183,6 +183,8 @@ type DeleteTrustAnchorOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	Name *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -193,4 +195,10 @@ func (s DeleteTrustAnchorOutput) String() string {
 // GoString returns the string representation
 func (s DeleteTrustAnchorOutput) GoString() string {
 	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *DeleteTrustAnchorOutput) SetName(v string) *DeleteTrustAnchorOutput {
+	s.Name = &v
+	return s
 }

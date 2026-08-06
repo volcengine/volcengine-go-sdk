@@ -150,13 +150,13 @@ type ApiSpecForDescribeRouteTemplateOptionsOutput struct {
 
 	ActionValue *string `type:"string" json:",omitempty"`
 
-	Extractors []*ExtractorForDescribeRouteTemplateOptionsOutput `type:"list" json:",omitempty"`
+	Extractors []*ExtractorForDescribeRouteTemplateOptionsOutput `type:"list"`
 
 	IdentifierType *int32 `type:"int32" json:",omitempty"`
 
 	IdentifierValue *string `type:"string" json:",omitempty"`
 
-	ResponseFilters []*ResponseFilterForDescribeRouteTemplateOptionsOutput `type:"list" json:",omitempty"`
+	ResponseFilters []*ResponseFilterForDescribeRouteTemplateOptionsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -276,7 +276,7 @@ type DescribeRouteTemplateOptionsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Routes []*RouteForDescribeRouteTemplateOptionsOutput `type:"list" json:",omitempty"`
+	Routes []*RouteForDescribeRouteTemplateOptionsOutput `type:"list"`
 
 	Template *TemplateForDescribeRouteTemplateOptionsOutput `type:"structure" json:",omitempty"`
 }
@@ -352,7 +352,7 @@ func (s *ExtractorForDescribeRouteTemplateOptionsOutput) SetSource(v int32) *Ext
 type ResponseFilterForDescribeRouteTemplateOptionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Attributes []*AttributeForDescribeRouteTemplateOptionsOutput `type:"list" json:",omitempty"`
+	Attributes []*AttributeForDescribeRouteTemplateOptionsOutput `type:"list"`
 
 	FilterPath *string `type:"string" json:",omitempty"`
 

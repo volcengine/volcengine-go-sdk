@@ -146,7 +146,7 @@ func (c *ID) GetResourceOauth2TokenWithContext(ctx volcengine.Context, input *Ge
 type CustomParametersForGetResourceOauth2TokenInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Entries []*EntryForGetResourceOauth2TokenInput `type:"list" json:",omitempty"`
+	Entries []*EntryForGetResourceOauth2TokenInput `type:"list"`
 }
 
 // String returns the string representation
@@ -218,7 +218,7 @@ type GetResourceOauth2TokenInput struct {
 
 	ResourceOauth2ReturnUrl *string `type:"string" json:",omitempty"`
 
-	Scopes []*string `type:"list" json:",omitempty"`
+	Scopes []*string `type:"list"`
 
 	SessionUri *string `type:"string" json:",omitempty"`
 }

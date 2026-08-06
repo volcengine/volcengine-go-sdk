@@ -263,7 +263,7 @@ type ListDepartmentMembersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Members []*MemberForListDepartmentMembersOutput `type:"list" json:",omitempty"`
+	Members []*MemberForListDepartmentMembersOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 

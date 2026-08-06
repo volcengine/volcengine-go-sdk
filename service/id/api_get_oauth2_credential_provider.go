@@ -148,13 +148,13 @@ type AuthorizationServerMetadataForGetOauth2CredentialProviderOutput struct {
 
 	AuthorizationEndpoint *string `type:"string" json:",omitempty"`
 
-	CodeChallengeMethodsSupported []*string `type:"list" json:",omitempty"`
+	CodeChallengeMethodsSupported []*string `type:"list"`
 
 	Issuer *string `type:"string" json:",omitempty"`
 
 	RegistrationEndpoint *string `type:"string" json:",omitempty"`
 
-	ResponseTypes []*string `type:"list" json:",omitempty"`
+	ResponseTypes []*string `type:"list"`
 
 	RevocationEndpoint *string `type:"string" json:",omitempty"`
 
@@ -220,13 +220,13 @@ type ClientMetadataForGetOauth2CredentialProviderOutput struct {
 
 	ClientUri *string `type:"string" json:",omitempty"`
 
-	GrantTypes []*string `type:"list" json:",omitempty"`
+	GrantTypes []*string `type:"list"`
 
 	LogoUri *string `type:"string" json:",omitempty"`
 
-	RedirectUris []*string `type:"list" json:",omitempty"`
+	RedirectUris []*string `type:"list"`
 
-	ResponseTypes []*string `type:"list" json:",omitempty"`
+	ResponseTypes []*string `type:"list"`
 
 	Scope *string `type:"string" json:",omitempty"`
 
@@ -312,7 +312,7 @@ type ConfigForGetOauth2CredentialProviderOutput struct {
 
 	RedirectUrl *string `type:"string" json:",omitempty"`
 
-	Scopes []*string `type:"list" json:",omitempty"`
+	Scopes []*string `type:"list"`
 
 	SecretStorage *SecretStorageForGetOauth2CredentialProviderOutput `type:"structure" json:",omitempty"`
 }
@@ -396,7 +396,7 @@ func (s *ConfigForGetOauth2CredentialProviderOutput) SetSecretStorage(v *SecretS
 type CustomParametersForGetOauth2CredentialProviderOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Entries []*EntryForGetOauth2CredentialProviderOutput `type:"list" json:",omitempty"`
+	Entries []*EntryForGetOauth2CredentialProviderOutput `type:"list"`
 }
 
 // String returns the string representation

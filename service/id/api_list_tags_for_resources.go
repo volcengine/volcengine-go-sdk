@@ -150,12 +150,12 @@ type ListTagsForResourcesInput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
-	ResourceIds []*string `type:"list" json:",omitempty"`
+	ResourceIds []*string `type:"list"`
 
 	// ResourceType is a required field
 	ResourceType *string `type:"string" json:",omitempty" required:"true"`
 
-	TagFilters []*TagFilterForListTagsForResourcesInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForListTagsForResourcesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -218,7 +218,7 @@ type ListTagsForResourcesOutput struct {
 
 	NextToken *string `type:"string" json:",omitempty"`
 
-	ResourceTags []*ResourceTagForListTagsForResourcesOutput `type:"list" json:",omitempty"`
+	ResourceTags []*ResourceTagForListTagsForResourcesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -294,7 +294,7 @@ type TagFilterForListTagsForResourcesInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation

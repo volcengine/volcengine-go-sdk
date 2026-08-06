@@ -146,6 +146,8 @@ type CreateUsersCSVInput struct {
 
 	// UserPoolUid is a required field
 	UserPoolUid *string `type:"string" required:"true"`
+
+	UsersCsvB64 *string `type:"string"`
 }
 
 // String returns the string representation
@@ -180,6 +182,12 @@ func (s *CreateUsersCSVInput) SetExternalProviderConnectionUid(v string) *Create
 // SetUserPoolUid sets the UserPoolUid field's value.
 func (s *CreateUsersCSVInput) SetUserPoolUid(v string) *CreateUsersCSVInput {
 	s.UserPoolUid = &v
+	return s
+}
+
+// SetUsersCsvB64 sets the UsersCsvB64 field's value.
+func (s *CreateUsersCSVInput) SetUsersCsvB64(v string) *CreateUsersCSVInput {
+	s.UsersCsvB64 = &v
 	return s
 }
 
@@ -256,6 +264,8 @@ type ErrorsStructuredForCreateUsersCSVOutput struct {
 
 	ErrorType *string `type:"string"`
 
+	ExternalProviderUserIdentifier *string `type:"string"`
+
 	Field *string `type:"string"`
 
 	Index *int32 `type:"int32"`
@@ -289,6 +299,12 @@ func (s *ErrorsStructuredForCreateUsersCSVOutput) SetErrorType(v string) *Errors
 	return s
 }
 
+// SetExternalProviderUserIdentifier sets the ExternalProviderUserIdentifier field's value.
+func (s *ErrorsStructuredForCreateUsersCSVOutput) SetExternalProviderUserIdentifier(v string) *ErrorsStructuredForCreateUsersCSVOutput {
+	s.ExternalProviderUserIdentifier = &v
+	return s
+}
+
 // SetField sets the Field field's value.
 func (s *ErrorsStructuredForCreateUsersCSVOutput) SetField(v string) *ErrorsStructuredForCreateUsersCSVOutput {
 	s.Field = &v
@@ -304,6 +320,8 @@ func (s *ErrorsStructuredForCreateUsersCSVOutput) SetIndex(v int32) *ErrorsStruc
 type SuccessfulUidsStructuredForCreateUsersCSVOutput struct {
 	_ struct{} `type:"structure"`
 
+	ExternalProviderUserIdentifier *string `type:"string"`
+
 	Index *int32 `type:"int32"`
 
 	Uid *string `type:"string"`
@@ -317,6 +335,12 @@ func (s SuccessfulUidsStructuredForCreateUsersCSVOutput) String() string {
 // GoString returns the string representation
 func (s SuccessfulUidsStructuredForCreateUsersCSVOutput) GoString() string {
 	return s.String()
+}
+
+// SetExternalProviderUserIdentifier sets the ExternalProviderUserIdentifier field's value.
+func (s *SuccessfulUidsStructuredForCreateUsersCSVOutput) SetExternalProviderUserIdentifier(v string) *SuccessfulUidsStructuredForCreateUsersCSVOutput {
+	s.ExternalProviderUserIdentifier = &v
+	return s
 }
 
 // SetIndex sets the Index field's value.

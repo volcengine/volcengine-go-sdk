@@ -299,16 +299,104 @@ func (s *DepartmentForGetDepartmentTreeOutput) SetUserPoolUid(v string) *Departm
 	return s
 }
 
+type FilterForGetDepartmentTreeInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DepartmentUid *string `type:"string" json:",omitempty"`
+
+	Description *string `max:"2048" type:"string" json:",omitempty"`
+
+	ExternalID *string `max:"512" type:"string" json:",omitempty"`
+
+	Name *string `max:"255" type:"string" json:",omitempty"`
+
+	NameMatchMode *int32 `type:"int32" json:",omitempty"`
+
+	Source *string `max:"64" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilterForGetDepartmentTreeInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilterForGetDepartmentTreeInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *FilterForGetDepartmentTreeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "FilterForGetDepartmentTreeInput"}
+	if s.Description != nil && len(*s.Description) > 2048 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 2048, *s.Description))
+	}
+	if s.ExternalID != nil && len(*s.ExternalID) > 512 {
+		invalidParams.Add(request.NewErrParamMaxLen("ExternalID", 512, *s.ExternalID))
+	}
+	if s.Name != nil && len(*s.Name) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Name", 255, *s.Name))
+	}
+	if s.Source != nil && len(*s.Source) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("Source", 64, *s.Source))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDepartmentUid sets the DepartmentUid field's value.
+func (s *FilterForGetDepartmentTreeInput) SetDepartmentUid(v string) *FilterForGetDepartmentTreeInput {
+	s.DepartmentUid = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *FilterForGetDepartmentTreeInput) SetDescription(v string) *FilterForGetDepartmentTreeInput {
+	s.Description = &v
+	return s
+}
+
+// SetExternalID sets the ExternalID field's value.
+func (s *FilterForGetDepartmentTreeInput) SetExternalID(v string) *FilterForGetDepartmentTreeInput {
+	s.ExternalID = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *FilterForGetDepartmentTreeInput) SetName(v string) *FilterForGetDepartmentTreeInput {
+	s.Name = &v
+	return s
+}
+
+// SetNameMatchMode sets the NameMatchMode field's value.
+func (s *FilterForGetDepartmentTreeInput) SetNameMatchMode(v int32) *FilterForGetDepartmentTreeInput {
+	s.NameMatchMode = &v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *FilterForGetDepartmentTreeInput) SetSource(v string) *FilterForGetDepartmentTreeInput {
+	s.Source = &v
+	return s
+}
+
 type GetDepartmentTreeInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MaxDepth *int32 `max:"2.147483647e+09" type:"int32" json:",omitempty"`
+	Filter *FilterForGetDepartmentTreeInput `type:"structure" json:",omitempty"`
+
+	FilterResultMode *int32 `type:"int32" json:",omitempty"`
+
+	MaxDepth *int32 `type:"int32" json:",omitempty"`
 
 	// RootDepartmentUid is a required field
-	RootDepartmentUid *string `min:"1" max:"128" type:"string" json:",omitempty" required:"true"`
+	RootDepartmentUid *string `type:"string" json:",omitempty" required:"true"`
 
 	// UserPoolUid is a required field
-	UserPoolUid *string `min:"1" max:"128" type:"string" json:",omitempty" required:"true"`
+	UserPoolUid *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -324,32 +412,34 @@ func (s GetDepartmentTreeInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetDepartmentTreeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetDepartmentTreeInput"}
-	if s.MaxDepth != nil && *s.MaxDepth > 2.147483647e+09 {
-		invalidParams.Add(request.NewErrParamMaxValue("MaxDepth", 2.147483647e+09))
-	}
 	if s.RootDepartmentUid == nil {
 		invalidParams.Add(request.NewErrParamRequired("RootDepartmentUid"))
-	}
-	if s.RootDepartmentUid != nil && len(*s.RootDepartmentUid) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("RootDepartmentUid", 1))
-	}
-	if s.RootDepartmentUid != nil && len(*s.RootDepartmentUid) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("RootDepartmentUid", 128, *s.RootDepartmentUid))
 	}
 	if s.UserPoolUid == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserPoolUid"))
 	}
-	if s.UserPoolUid != nil && len(*s.UserPoolUid) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("UserPoolUid", 1))
-	}
-	if s.UserPoolUid != nil && len(*s.UserPoolUid) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("UserPoolUid", 128, *s.UserPoolUid))
+	if s.Filter != nil {
+		if err := s.Filter.Validate(); err != nil {
+			invalidParams.AddNested("Filter", err.(request.ErrInvalidParams))
+		}
 	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetFilter sets the Filter field's value.
+func (s *GetDepartmentTreeInput) SetFilter(v *FilterForGetDepartmentTreeInput) *GetDepartmentTreeInput {
+	s.Filter = v
+	return s
+}
+
+// SetFilterResultMode sets the FilterResultMode field's value.
+func (s *GetDepartmentTreeInput) SetFilterResultMode(v int32) *GetDepartmentTreeInput {
+	s.FilterResultMode = &v
+	return s
 }
 
 // SetMaxDepth sets the MaxDepth field's value.
@@ -375,7 +465,7 @@ type GetDepartmentTreeOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Roots []*RootForGetDepartmentTreeOutput `type:"list" json:",omitempty"`
+	Roots []*RootForGetDepartmentTreeOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -397,7 +487,7 @@ func (s *GetDepartmentTreeOutput) SetRoots(v []*RootForGetDepartmentTreeOutput) 
 type RootForGetDepartmentTreeOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Children []*ChildForGetDepartmentTreeOutput `type:"list" json:",omitempty"`
+	Children []*ChildForGetDepartmentTreeOutput `type:"list"`
 
 	Department *DepartmentForGetDepartmentTreeOutput `type:"structure" json:",omitempty"`
 

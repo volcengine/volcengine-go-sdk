@@ -146,7 +146,7 @@ func (c *ID) BindWorkloadPoolTrustAnchorWithContext(ctx volcengine.Context, inpu
 type BindWorkloadPoolTrustAnchorInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	TrustAnchorNames []*string `type:"list" json:",omitempty"`
+	TrustAnchorNames []*string `type:"list"`
 
 	// WorkloadPoolName is a required field
 	WorkloadPoolName *string `type:"string" json:",omitempty" required:"true"`
@@ -192,7 +192,25 @@ type BindWorkloadPoolTrustAnchorOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	WorkloadPool *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput `type:"structure" json:",omitempty"`
+	AllowAutoCreateIdentity *bool `type:"boolean" json:",omitempty"`
+
+	CreatedAt *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	DiscoveryUrl *string `type:"string" json:",omitempty"`
+
+	Trn *string `type:"string" json:",omitempty"`
+
+	TrustAnchors []*string `type:"list"`
+
+	UpdatedAt *string `type:"string" json:",omitempty"`
+
+	Url *string `type:"string" json:",omitempty"`
+
+	WorkloadPoolId *string `type:"string" json:",omitempty"`
+
+	WorkloadPoolName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -205,148 +223,62 @@ func (s BindWorkloadPoolTrustAnchorOutput) GoString() string {
 	return s.String()
 }
 
-// SetWorkloadPool sets the WorkloadPool field's value.
-func (s *BindWorkloadPoolTrustAnchorOutput) SetWorkloadPool(v *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) *BindWorkloadPoolTrustAnchorOutput {
-	s.WorkloadPool = v
+// SetAllowAutoCreateIdentity sets the AllowAutoCreateIdentity field's value.
+func (s *BindWorkloadPoolTrustAnchorOutput) SetAllowAutoCreateIdentity(v bool) *BindWorkloadPoolTrustAnchorOutput {
+	s.AllowAutoCreateIdentity = &v
 	return s
-}
-
-type TagForBindWorkloadPoolTrustAnchorOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Value *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TagForBindWorkloadPoolTrustAnchorOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagForBindWorkloadPoolTrustAnchorOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagForBindWorkloadPoolTrustAnchorOutput) SetKey(v string) *TagForBindWorkloadPoolTrustAnchorOutput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *TagForBindWorkloadPoolTrustAnchorOutput) SetValue(v string) *TagForBindWorkloadPoolTrustAnchorOutput {
-	s.Value = &v
-	return s
-}
-
-type WorkloadPoolForBindWorkloadPoolTrustAnchorOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	CreatedAt *string `type:"string" json:",omitempty"`
-
-	Description *string `type:"string" json:",omitempty"`
-
-	DiscoveryUrl *string `type:"string" json:",omitempty"`
-
-	ProjectName *string `type:"string" json:",omitempty"`
-
-	Tags []*TagForBindWorkloadPoolTrustAnchorOutput `type:"list" json:",omitempty"`
-
-	TotalCredentials *int64 `type:"int64" json:",omitempty"`
-
-	TotalWorkloads *int64 `type:"int64" json:",omitempty"`
-
-	Trn *string `type:"string" json:",omitempty"`
-
-	TrustAnchors []*string `type:"list" json:",omitempty"`
-
-	UpdatedAt *string `type:"string" json:",omitempty"`
-
-	WorkloadPoolId *string `type:"string" json:",omitempty"`
-
-	WorkloadPoolName *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) GoString() string {
-	return s.String()
 }
 
 // SetCreatedAt sets the CreatedAt field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetCreatedAt(v string) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
+func (s *BindWorkloadPoolTrustAnchorOutput) SetCreatedAt(v string) *BindWorkloadPoolTrustAnchorOutput {
 	s.CreatedAt = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetDescription(v string) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
+func (s *BindWorkloadPoolTrustAnchorOutput) SetDescription(v string) *BindWorkloadPoolTrustAnchorOutput {
 	s.Description = &v
 	return s
 }
 
 // SetDiscoveryUrl sets the DiscoveryUrl field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetDiscoveryUrl(v string) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
+func (s *BindWorkloadPoolTrustAnchorOutput) SetDiscoveryUrl(v string) *BindWorkloadPoolTrustAnchorOutput {
 	s.DiscoveryUrl = &v
 	return s
 }
 
-// SetProjectName sets the ProjectName field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetProjectName(v string) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
-	s.ProjectName = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetTags(v []*TagForBindWorkloadPoolTrustAnchorOutput) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
-	s.Tags = v
-	return s
-}
-
-// SetTotalCredentials sets the TotalCredentials field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetTotalCredentials(v int64) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
-	s.TotalCredentials = &v
-	return s
-}
-
-// SetTotalWorkloads sets the TotalWorkloads field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetTotalWorkloads(v int64) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
-	s.TotalWorkloads = &v
-	return s
-}
-
 // SetTrn sets the Trn field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetTrn(v string) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
+func (s *BindWorkloadPoolTrustAnchorOutput) SetTrn(v string) *BindWorkloadPoolTrustAnchorOutput {
 	s.Trn = &v
 	return s
 }
 
 // SetTrustAnchors sets the TrustAnchors field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetTrustAnchors(v []*string) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
+func (s *BindWorkloadPoolTrustAnchorOutput) SetTrustAnchors(v []*string) *BindWorkloadPoolTrustAnchorOutput {
 	s.TrustAnchors = v
 	return s
 }
 
 // SetUpdatedAt sets the UpdatedAt field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetUpdatedAt(v string) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
+func (s *BindWorkloadPoolTrustAnchorOutput) SetUpdatedAt(v string) *BindWorkloadPoolTrustAnchorOutput {
 	s.UpdatedAt = &v
 	return s
 }
 
+// SetUrl sets the Url field's value.
+func (s *BindWorkloadPoolTrustAnchorOutput) SetUrl(v string) *BindWorkloadPoolTrustAnchorOutput {
+	s.Url = &v
+	return s
+}
+
 // SetWorkloadPoolId sets the WorkloadPoolId field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetWorkloadPoolId(v string) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
+func (s *BindWorkloadPoolTrustAnchorOutput) SetWorkloadPoolId(v string) *BindWorkloadPoolTrustAnchorOutput {
 	s.WorkloadPoolId = &v
 	return s
 }
 
 // SetWorkloadPoolName sets the WorkloadPoolName field's value.
-func (s *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput) SetWorkloadPoolName(v string) *WorkloadPoolForBindWorkloadPoolTrustAnchorOutput {
+func (s *BindWorkloadPoolTrustAnchorOutput) SetWorkloadPoolName(v string) *BindWorkloadPoolTrustAnchorOutput {
 	s.WorkloadPoolName = &v
 	return s
 }

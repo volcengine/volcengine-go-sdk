@@ -143,14 +143,108 @@ func (c *ID) UpdateIdentityProviderWeComWithContext(ctx volcengine.Context, inpu
 	return out, req.Send()
 }
 
+type AttributeMappingForUpdateIdentityProviderWeComInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalConfig *string `type:"string" json:",omitempty"`
+
+	MappingType *string `type:"string" json:",omitempty"`
+
+	SourceAttributeName *string `type:"string" json:",omitempty"`
+
+	TargetAttributeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AttributeMappingForUpdateIdentityProviderWeComInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttributeMappingForUpdateIdentityProviderWeComInput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalConfig sets the AdditionalConfig field's value.
+func (s *AttributeMappingForUpdateIdentityProviderWeComInput) SetAdditionalConfig(v string) *AttributeMappingForUpdateIdentityProviderWeComInput {
+	s.AdditionalConfig = &v
+	return s
+}
+
+// SetMappingType sets the MappingType field's value.
+func (s *AttributeMappingForUpdateIdentityProviderWeComInput) SetMappingType(v string) *AttributeMappingForUpdateIdentityProviderWeComInput {
+	s.MappingType = &v
+	return s
+}
+
+// SetSourceAttributeName sets the SourceAttributeName field's value.
+func (s *AttributeMappingForUpdateIdentityProviderWeComInput) SetSourceAttributeName(v string) *AttributeMappingForUpdateIdentityProviderWeComInput {
+	s.SourceAttributeName = &v
+	return s
+}
+
+// SetTargetAttributeName sets the TargetAttributeName field's value.
+func (s *AttributeMappingForUpdateIdentityProviderWeComInput) SetTargetAttributeName(v string) *AttributeMappingForUpdateIdentityProviderWeComInput {
+	s.TargetAttributeName = &v
+	return s
+}
+
+type AttributeMappingForUpdateIdentityProviderWeComOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AdditionalConfig *string `type:"string" json:",omitempty"`
+
+	MappingType *string `type:"string" json:",omitempty"`
+
+	SourceAttributeName *string `type:"string" json:",omitempty"`
+
+	TargetAttributeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AttributeMappingForUpdateIdentityProviderWeComOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttributeMappingForUpdateIdentityProviderWeComOutput) GoString() string {
+	return s.String()
+}
+
+// SetAdditionalConfig sets the AdditionalConfig field's value.
+func (s *AttributeMappingForUpdateIdentityProviderWeComOutput) SetAdditionalConfig(v string) *AttributeMappingForUpdateIdentityProviderWeComOutput {
+	s.AdditionalConfig = &v
+	return s
+}
+
+// SetMappingType sets the MappingType field's value.
+func (s *AttributeMappingForUpdateIdentityProviderWeComOutput) SetMappingType(v string) *AttributeMappingForUpdateIdentityProviderWeComOutput {
+	s.MappingType = &v
+	return s
+}
+
+// SetSourceAttributeName sets the SourceAttributeName field's value.
+func (s *AttributeMappingForUpdateIdentityProviderWeComOutput) SetSourceAttributeName(v string) *AttributeMappingForUpdateIdentityProviderWeComOutput {
+	s.SourceAttributeName = &v
+	return s
+}
+
+// SetTargetAttributeName sets the TargetAttributeName field's value.
+func (s *AttributeMappingForUpdateIdentityProviderWeComOutput) SetTargetAttributeName(v string) *AttributeMappingForUpdateIdentityProviderWeComOutput {
+	s.TargetAttributeName = &v
+	return s
+}
+
 type ClaimRuleForUpdateIdentityProviderWeComInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimKey *string `type:"string" json:",omitempty"`
-
 	ClaimType *string `type:"string" json:",omitempty"`
 
-	ClaimValue *string `type:"string" json:",omitempty"`
+	Required *bool `type:"boolean" json:",omitempty"`
+
+	SourceClaimPath *string `type:"string" json:",omitempty"`
+
+	TargetClaim *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -163,32 +257,40 @@ func (s ClaimRuleForUpdateIdentityProviderWeComInput) GoString() string {
 	return s.String()
 }
 
-// SetClaimKey sets the ClaimKey field's value.
-func (s *ClaimRuleForUpdateIdentityProviderWeComInput) SetClaimKey(v string) *ClaimRuleForUpdateIdentityProviderWeComInput {
-	s.ClaimKey = &v
-	return s
-}
-
 // SetClaimType sets the ClaimType field's value.
 func (s *ClaimRuleForUpdateIdentityProviderWeComInput) SetClaimType(v string) *ClaimRuleForUpdateIdentityProviderWeComInput {
 	s.ClaimType = &v
 	return s
 }
 
-// SetClaimValue sets the ClaimValue field's value.
-func (s *ClaimRuleForUpdateIdentityProviderWeComInput) SetClaimValue(v string) *ClaimRuleForUpdateIdentityProviderWeComInput {
-	s.ClaimValue = &v
+// SetRequired sets the Required field's value.
+func (s *ClaimRuleForUpdateIdentityProviderWeComInput) SetRequired(v bool) *ClaimRuleForUpdateIdentityProviderWeComInput {
+	s.Required = &v
+	return s
+}
+
+// SetSourceClaimPath sets the SourceClaimPath field's value.
+func (s *ClaimRuleForUpdateIdentityProviderWeComInput) SetSourceClaimPath(v string) *ClaimRuleForUpdateIdentityProviderWeComInput {
+	s.SourceClaimPath = &v
+	return s
+}
+
+// SetTargetClaim sets the TargetClaim field's value.
+func (s *ClaimRuleForUpdateIdentityProviderWeComInput) SetTargetClaim(v string) *ClaimRuleForUpdateIdentityProviderWeComInput {
+	s.TargetClaim = &v
 	return s
 }
 
 type ClaimRuleForUpdateIdentityProviderWeComOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimKey *string `type:"string" json:",omitempty"`
-
 	ClaimType *string `type:"string" json:",omitempty"`
 
-	ClaimValue *string `type:"string" json:",omitempty"`
+	Required *bool `type:"boolean" json:",omitempty"`
+
+	SourceClaimPath *string `type:"string" json:",omitempty"`
+
+	TargetClaim *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -201,28 +303,34 @@ func (s ClaimRuleForUpdateIdentityProviderWeComOutput) GoString() string {
 	return s.String()
 }
 
-// SetClaimKey sets the ClaimKey field's value.
-func (s *ClaimRuleForUpdateIdentityProviderWeComOutput) SetClaimKey(v string) *ClaimRuleForUpdateIdentityProviderWeComOutput {
-	s.ClaimKey = &v
-	return s
-}
-
 // SetClaimType sets the ClaimType field's value.
 func (s *ClaimRuleForUpdateIdentityProviderWeComOutput) SetClaimType(v string) *ClaimRuleForUpdateIdentityProviderWeComOutput {
 	s.ClaimType = &v
 	return s
 }
 
-// SetClaimValue sets the ClaimValue field's value.
-func (s *ClaimRuleForUpdateIdentityProviderWeComOutput) SetClaimValue(v string) *ClaimRuleForUpdateIdentityProviderWeComOutput {
-	s.ClaimValue = &v
+// SetRequired sets the Required field's value.
+func (s *ClaimRuleForUpdateIdentityProviderWeComOutput) SetRequired(v bool) *ClaimRuleForUpdateIdentityProviderWeComOutput {
+	s.Required = &v
+	return s
+}
+
+// SetSourceClaimPath sets the SourceClaimPath field's value.
+func (s *ClaimRuleForUpdateIdentityProviderWeComOutput) SetSourceClaimPath(v string) *ClaimRuleForUpdateIdentityProviderWeComOutput {
+	s.SourceClaimPath = &v
+	return s
+}
+
+// SetTargetClaim sets the TargetClaim field's value.
+func (s *ClaimRuleForUpdateIdentityProviderWeComOutput) SetTargetClaim(v string) *ClaimRuleForUpdateIdentityProviderWeComOutput {
+	s.TargetClaim = &v
 	return s
 }
 
 type ClaimsPropagationConfigForUpdateIdentityProviderWeComInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForUpdateIdentityProviderWeComInput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForUpdateIdentityProviderWeComInput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -252,7 +360,7 @@ func (s *ClaimsPropagationConfigForUpdateIdentityProviderWeComInput) SetMode(v s
 type ClaimsPropagationConfigForUpdateIdentityProviderWeComOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClaimRules []*ClaimRuleForUpdateIdentityProviderWeComOutput `type:"list" json:",omitempty"`
+	ClaimRules []*ClaimRuleForUpdateIdentityProviderWeComOutput `type:"list"`
 
 	Mode *string `type:"string" json:",omitempty"`
 }
@@ -276,6 +384,36 @@ func (s *ClaimsPropagationConfigForUpdateIdentityProviderWeComOutput) SetClaimRu
 // SetMode sets the Mode field's value.
 func (s *ClaimsPropagationConfigForUpdateIdentityProviderWeComOutput) SetMode(v string) *ClaimsPropagationConfigForUpdateIdentityProviderWeComOutput {
 	s.Mode = &v
+	return s
+}
+
+type EipRecordForUpdateIdentityProviderWeComOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EipAddress *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EipRecordForUpdateIdentityProviderWeComOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipRecordForUpdateIdentityProviderWeComOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipRecordForUpdateIdentityProviderWeComOutput) SetEipAddress(v string) *EipRecordForUpdateIdentityProviderWeComOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EipRecordForUpdateIdentityProviderWeComOutput) SetEipId(v string) *EipRecordForUpdateIdentityProviderWeComOutput {
+	s.EipId = &v
 	return s
 }
 
@@ -408,6 +546,8 @@ type UpdateIdentityProviderWeComInput struct {
 
 	AgentId *string `type:"string" json:",omitempty"`
 
+	AttributeMappings []*AttributeMappingForUpdateIdentityProviderWeComInput `type:"list"`
+
 	AuthorizationEndpoint *string `type:"string" json:",omitempty"`
 
 	ClaimsPropagationConfig *ClaimsPropagationConfigForUpdateIdentityProviderWeComInput `type:"structure" json:",omitempty"`
@@ -422,6 +562,8 @@ type UpdateIdentityProviderWeComInput struct {
 	DomainVerifyContent *string `type:"string" json:",omitempty"`
 
 	DomainVerifyFileName *string `type:"string" json:",omitempty"`
+
+	EipId *string `type:"string" json:",omitempty"`
 
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
@@ -473,6 +615,12 @@ func (s *UpdateIdentityProviderWeComInput) SetAgentId(v string) *UpdateIdentityP
 	return s
 }
 
+// SetAttributeMappings sets the AttributeMappings field's value.
+func (s *UpdateIdentityProviderWeComInput) SetAttributeMappings(v []*AttributeMappingForUpdateIdentityProviderWeComInput) *UpdateIdentityProviderWeComInput {
+	s.AttributeMappings = v
+	return s
+}
+
 // SetAuthorizationEndpoint sets the AuthorizationEndpoint field's value.
 func (s *UpdateIdentityProviderWeComInput) SetAuthorizationEndpoint(v string) *UpdateIdentityProviderWeComInput {
 	s.AuthorizationEndpoint = &v
@@ -512,6 +660,12 @@ func (s *UpdateIdentityProviderWeComInput) SetDomainVerifyContent(v string) *Upd
 // SetDomainVerifyFileName sets the DomainVerifyFileName field's value.
 func (s *UpdateIdentityProviderWeComInput) SetDomainVerifyFileName(v string) *UpdateIdentityProviderWeComInput {
 	s.DomainVerifyFileName = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *UpdateIdentityProviderWeComInput) SetEipId(v string) *UpdateIdentityProviderWeComInput {
+	s.EipId = &v
 	return s
 }
 
@@ -570,6 +724,8 @@ type UpdateIdentityProviderWeComOutput struct {
 
 	AgentId *string `type:"string" json:",omitempty"`
 
+	AttributeMappings []*AttributeMappingForUpdateIdentityProviderWeComOutput `type:"list"`
+
 	AuthorizationEndpoint *string `type:"string" json:",omitempty"`
 
 	ClaimsPropagationConfig *ClaimsPropagationConfigForUpdateIdentityProviderWeComOutput `type:"structure" json:",omitempty"`
@@ -582,17 +738,21 @@ type UpdateIdentityProviderWeComOutput struct {
 
 	DomainVerifyFileName *string `type:"string" json:",omitempty"`
 
+	EipRecord *EipRecordForUpdateIdentityProviderWeComOutput `type:"structure" json:",omitempty"`
+
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
 	Name *string `type:"string" json:",omitempty"`
 
-	OutboundEgressIps []*string `type:"list" json:",omitempty"`
+	OutboundEgressIps []*string `type:"list"`
 
 	ProviderOptions *ProviderOptionsForUpdateIdentityProviderWeComOutput `type:"structure" json:",omitempty"`
 
 	RetrieveSensitiveUserInfoEnabled *bool `type:"boolean" json:",omitempty"`
 
 	Secret *string `type:"string" json:",omitempty"`
+
+	SoleProviderConnection *bool `type:"boolean" json:",omitempty"`
 
 	TokenEndpoint *string `type:"string" json:",omitempty"`
 
@@ -614,6 +774,12 @@ func (s UpdateIdentityProviderWeComOutput) GoString() string {
 // SetAgentId sets the AgentId field's value.
 func (s *UpdateIdentityProviderWeComOutput) SetAgentId(v string) *UpdateIdentityProviderWeComOutput {
 	s.AgentId = &v
+	return s
+}
+
+// SetAttributeMappings sets the AttributeMappings field's value.
+func (s *UpdateIdentityProviderWeComOutput) SetAttributeMappings(v []*AttributeMappingForUpdateIdentityProviderWeComOutput) *UpdateIdentityProviderWeComOutput {
+	s.AttributeMappings = v
 	return s
 }
 
@@ -653,6 +819,12 @@ func (s *UpdateIdentityProviderWeComOutput) SetDomainVerifyFileName(v string) *U
 	return s
 }
 
+// SetEipRecord sets the EipRecord field's value.
+func (s *UpdateIdentityProviderWeComOutput) SetEipRecord(v *EipRecordForUpdateIdentityProviderWeComOutput) *UpdateIdentityProviderWeComOutput {
+	s.EipRecord = v
+	return s
+}
+
 // SetEnabled sets the Enabled field's value.
 func (s *UpdateIdentityProviderWeComOutput) SetEnabled(v bool) *UpdateIdentityProviderWeComOutput {
 	s.Enabled = &v
@@ -686,6 +858,12 @@ func (s *UpdateIdentityProviderWeComOutput) SetRetrieveSensitiveUserInfoEnabled(
 // SetSecret sets the Secret field's value.
 func (s *UpdateIdentityProviderWeComOutput) SetSecret(v string) *UpdateIdentityProviderWeComOutput {
 	s.Secret = &v
+	return s
+}
+
+// SetSoleProviderConnection sets the SoleProviderConnection field's value.
+func (s *UpdateIdentityProviderWeComOutput) SetSoleProviderConnection(v bool) *UpdateIdentityProviderWeComOutput {
+	s.SoleProviderConnection = &v
 	return s
 }
 

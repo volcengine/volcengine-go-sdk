@@ -187,7 +187,7 @@ type CreateApiKeyCredentialProviderInput struct {
 	// ApiKey is a required field
 	ApiKey *string `type:"string" json:",omitempty" required:"true"`
 
-	ApiKeyMetadata []*ApiKeyMetadataForCreateApiKeyCredentialProviderInput `type:"list" json:",omitempty"`
+	ApiKeyMetadata []*ApiKeyMetadataForCreateApiKeyCredentialProviderInput `type:"list"`
 
 	// Name is a required field
 	Name *string `type:"string" json:",omitempty" required:"true"`
@@ -197,6 +197,8 @@ type CreateApiKeyCredentialProviderInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	SecretStorage *SecretStorageForCreateApiKeyCredentialProviderInput `type:"structure" json:",omitempty"`
+
+	Source *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -258,6 +260,12 @@ func (s *CreateApiKeyCredentialProviderInput) SetProjectName(v string) *CreateAp
 // SetSecretStorage sets the SecretStorage field's value.
 func (s *CreateApiKeyCredentialProviderInput) SetSecretStorage(v *SecretStorageForCreateApiKeyCredentialProviderInput) *CreateApiKeyCredentialProviderInput {
 	s.SecretStorage = v
+	return s
+}
+
+// SetSource sets the Source field's value.
+func (s *CreateApiKeyCredentialProviderInput) SetSource(v string) *CreateApiKeyCredentialProviderInput {
+	s.Source = &v
 	return s
 }
 
