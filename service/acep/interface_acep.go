@@ -150,6 +150,14 @@ type ACEPAPI interface {
 	CloseAppWithContext(volcengine.Context, *CloseAppInput, ...request.Option) (*CloseAppOutput, error)
 	CloseAppRequest(*CloseAppInput) (*request.Request, *CloseAppOutput)
 
+	CreateAppImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAppImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAppImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAppImage(*CreateAppImageInput) (*CreateAppImageOutput, error)
+	CreateAppImageWithContext(volcengine.Context, *CreateAppImageInput, ...request.Option) (*CreateAppImageOutput, error)
+	CreateAppImageRequest(*CreateAppImageInput) (*request.Request, *CreateAppImageOutput)
+
 	CreateDNSRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDNSRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDNSRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -230,6 +238,14 @@ type ACEPAPI interface {
 	DeleteAppWithContext(volcengine.Context, *DeleteAppInput, ...request.Option) (*DeleteAppOutput, error)
 	DeleteAppRequest(*DeleteAppInput) (*request.Request, *DeleteAppOutput)
 
+	DeleteAppImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAppImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAppImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAppImage(*DeleteAppImageInput) (*DeleteAppImageOutput, error)
+	DeleteAppImageWithContext(volcengine.Context, *DeleteAppImageInput, ...request.Option) (*DeleteAppImageOutput, error)
+	DeleteAppImageRequest(*DeleteAppImageInput) (*request.Request, *DeleteAppImageOutput)
+
 	DeleteBackupDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteBackupDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteBackupDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -286,6 +302,14 @@ type ACEPAPI interface {
 	DetailAppWithContext(volcengine.Context, *DetailAppInput, ...request.Option) (*DetailAppOutput, error)
 	DetailAppRequest(*DetailAppInput) (*request.Request, *DetailAppOutput)
 
+	DetailAppImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetailAppImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetailAppImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DetailAppImage(*DetailAppImageInput) (*DetailAppImageOutput, error)
+	DetailAppImageWithContext(volcengine.Context, *DetailAppImageInput, ...request.Option) (*DetailAppImageOutput, error)
+	DetailAppImageRequest(*DetailAppImageInput) (*request.Request, *DetailAppImageOutput)
+
 	DetailDNSRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DetailDNSRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DetailDNSRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -341,6 +365,14 @@ type ACEPAPI interface {
 	GetDcBandwidthDailyPeak(*GetDcBandwidthDailyPeakInput) (*GetDcBandwidthDailyPeakOutput, error)
 	GetDcBandwidthDailyPeakWithContext(volcengine.Context, *GetDcBandwidthDailyPeakInput, ...request.Option) (*GetDcBandwidthDailyPeakOutput, error)
 	GetDcBandwidthDailyPeakRequest(*GetDcBandwidthDailyPeakInput) (*request.Request, *GetDcBandwidthDailyPeakOutput)
+
+	GetEdgeTunnelConnectionInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetEdgeTunnelConnectionInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetEdgeTunnelConnectionInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetEdgeTunnelConnectionInfo(*GetEdgeTunnelConnectionInfoInput) (*GetEdgeTunnelConnectionInfoOutput, error)
+	GetEdgeTunnelConnectionInfoWithContext(volcengine.Context, *GetEdgeTunnelConnectionInfoInput, ...request.Option) (*GetEdgeTunnelConnectionInfoOutput, error)
+	GetEdgeTunnelConnectionInfoRequest(*GetEdgeTunnelConnectionInfoInput) (*request.Request, *GetEdgeTunnelConnectionInfoOutput)
 
 	GetImagePreheatingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetImagePreheatingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -477,6 +509,14 @@ type ACEPAPI interface {
 	ListApp(*ListAppInput) (*ListAppOutput, error)
 	ListAppWithContext(volcengine.Context, *ListAppInput, ...request.Option) (*ListAppOutput, error)
 	ListAppRequest(*ListAppInput) (*request.Request, *ListAppOutput)
+
+	ListAppImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAppImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAppImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAppImage(*ListAppImageInput) (*ListAppImageOutput, error)
+	ListAppImageWithContext(volcengine.Context, *ListAppImageInput, ...request.Option) (*ListAppImageOutput, error)
+	ListAppImageRequest(*ListAppImageInput) (*request.Request, *ListAppImageOutput)
 
 	ListAppVersionDeployCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAppVersionDeployCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
