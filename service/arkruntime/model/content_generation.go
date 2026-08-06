@@ -36,6 +36,7 @@ type CreateContentGenerationTaskRequest struct {
 	Seed                  *int64                                `json:"seed,omitempty"`
 	Resolution            *string                               `json:"resolution,omitempty"`
 	Ratio                 *string                               `json:"ratio,omitempty"`
+	OutputFormat          *string                               `json:"output_format,omitempty"`
 	Duration              *int64                                `json:"duration,omitempty"`
 	Frames                *int64                                `json:"frames,omitempty"`
 	Tools                 []*ContentGenerationTool              `json:"tools,omitempty"`
