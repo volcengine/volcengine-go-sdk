@@ -146,6 +146,8 @@ type DescribeIpamResourceDiscoveriesInput struct {
 
 	IpamResourceDiscoveryName *string `type:"string"`
 
+	IpamResourceDiscoveryOwnerId *string `type:"string"`
+
 	MaxResults *int64 `type:"integer"`
 
 	NextToken *string `type:"string"`
@@ -176,6 +178,12 @@ func (s *DescribeIpamResourceDiscoveriesInput) SetIpamResourceDiscoveryIds(v []*
 // SetIpamResourceDiscoveryName sets the IpamResourceDiscoveryName field's value.
 func (s *DescribeIpamResourceDiscoveriesInput) SetIpamResourceDiscoveryName(v string) *DescribeIpamResourceDiscoveriesInput {
 	s.IpamResourceDiscoveryName = &v
+	return s
+}
+
+// SetIpamResourceDiscoveryOwnerId sets the IpamResourceDiscoveryOwnerId field's value.
+func (s *DescribeIpamResourceDiscoveriesInput) SetIpamResourceDiscoveryOwnerId(v string) *DescribeIpamResourceDiscoveriesInput {
+	s.IpamResourceDiscoveryOwnerId = &v
 	return s
 }
 

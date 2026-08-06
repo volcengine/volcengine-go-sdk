@@ -222,6 +222,8 @@ type CreateIpamScopeOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AsyncTaskId *string `type:"string"`
+
 	IpamScopeId *string `type:"string"`
 
 	RequestId *string `type:"string"`
@@ -235,6 +237,12 @@ func (s CreateIpamScopeOutput) String() string {
 // GoString returns the string representation
 func (s CreateIpamScopeOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateIpamScopeOutput) SetAsyncTaskId(v string) *CreateIpamScopeOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetIpamScopeId sets the IpamScopeId field's value.

@@ -142,6 +142,8 @@ func (c *VPC) AssociateVpcCidrBlockWithContext(ctx volcengine.Context, input *As
 type AssociateVpcCidrBlockInput struct {
 	_ struct{} `type:"structure"`
 
+	Ipv4IpamPoolId *string `type:"string"`
+
 	Ipv6CidrBlock *string `type:"string"`
 
 	Ipv6Isp *string `type:"string"`
@@ -175,6 +177,12 @@ func (s *AssociateVpcCidrBlockInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetIpv4IpamPoolId sets the Ipv4IpamPoolId field's value.
+func (s *AssociateVpcCidrBlockInput) SetIpv4IpamPoolId(v string) *AssociateVpcCidrBlockInput {
+	s.Ipv4IpamPoolId = &v
+	return s
 }
 
 // SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.

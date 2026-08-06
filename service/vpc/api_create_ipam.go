@@ -146,7 +146,12 @@ type CreateIpamInput struct {
 
 	IpamName *string `min:"1" max:"128" type:"string"`
 
-	OperatingRegions []*string `type:"list"`
+	// OperatingRegions is a required field
+	OperatingRegions []*string `type:"list" required:"true"`
+
+	ProjectName *string `type:"string"`
+
+	Tags []*TagForCreateIpamInput `type:"list"`
 }
 
 // String returns the string representation
@@ -174,6 +179,9 @@ func (s *CreateIpamInput) Validate() error {
 	if s.IpamName != nil && len(*s.IpamName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("IpamName", 128, *s.IpamName))
 	}
+	if s.OperatingRegions == nil {
+		invalidParams.Add(request.NewErrParamRequired("OperatingRegions"))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -199,10 +207,24 @@ func (s *CreateIpamInput) SetOperatingRegions(v []*string) *CreateIpamInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateIpamInput) SetProjectName(v string) *CreateIpamInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateIpamInput) SetTags(v []*TagForCreateIpamInput) *CreateIpamInput {
+	s.Tags = v
+	return s
+}
+
 type CreateIpamOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	AsyncTaskId *string `type:"string"`
 
 	DefaultResourceDiscoveryId *string `type:"string"`
 
@@ -223,6 +245,12 @@ func (s CreateIpamOutput) String() string {
 // GoString returns the string representation
 func (s CreateIpamOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *CreateIpamOutput) SetAsyncTaskId(v string) *CreateIpamOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetDefaultResourceDiscoveryId sets the DefaultResourceDiscoveryId field's value.
@@ -252,5 +280,35 @@ func (s *CreateIpamOutput) SetPublicDefaultScopeId(v string) *CreateIpamOutput {
 // SetRequestId sets the RequestId field's value.
 func (s *CreateIpamOutput) SetRequestId(v string) *CreateIpamOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForCreateIpamInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateIpamInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateIpamInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateIpamInput) SetKey(v string) *TagForCreateIpamInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateIpamInput) SetValue(v string) *TagForCreateIpamInput {
+	s.Value = &v
 	return s
 }

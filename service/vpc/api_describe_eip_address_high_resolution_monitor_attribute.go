@@ -191,6 +191,8 @@ type DescribeEipAddressHighResolutionMonitorAttributeOutput struct {
 	LogTopicId *string `type:"string"`
 
 	LogTopicName *string `type:"string"`
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -236,5 +238,11 @@ func (s *DescribeEipAddressHighResolutionMonitorAttributeOutput) SetLogTopicId(v
 // SetLogTopicName sets the LogTopicName field's value.
 func (s *DescribeEipAddressHighResolutionMonitorAttributeOutput) SetLogTopicName(v string) *DescribeEipAddressHighResolutionMonitorAttributeOutput {
 	s.LogTopicName = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeEipAddressHighResolutionMonitorAttributeOutput) SetRequestId(v string) *DescribeEipAddressHighResolutionMonitorAttributeOutput {
+	s.RequestId = &v
 	return s
 }
