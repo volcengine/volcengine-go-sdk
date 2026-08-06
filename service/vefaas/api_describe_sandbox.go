@@ -282,6 +282,10 @@ type DescribeSandboxOutput struct {
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
+	RoleChainTrn []*string `type:"list" json:",omitempty"`
+
+	RoleTrn *string `type:"string" json:",omitempty"`
+
 	SessionId *string `type:"string" json:",omitempty"`
 
 	Sidecars []*SidecarForDescribeSandboxOutput `type:"list" json:",omitempty"`
@@ -416,6 +420,18 @@ func (s *DescribeSandboxOutput) SetRequestTimeout(v int32) *DescribeSandboxOutpu
 // SetRevisionNumber sets the RevisionNumber field's value.
 func (s *DescribeSandboxOutput) SetRevisionNumber(v int32) *DescribeSandboxOutput {
 	s.RevisionNumber = &v
+	return s
+}
+
+// SetRoleChainTrn sets the RoleChainTrn field's value.
+func (s *DescribeSandboxOutput) SetRoleChainTrn(v []*string) *DescribeSandboxOutput {
+	s.RoleChainTrn = v
+	return s
+}
+
+// SetRoleTrn sets the RoleTrn field's value.
+func (s *DescribeSandboxOutput) SetRoleTrn(v string) *DescribeSandboxOutput {
+	s.RoleTrn = &v
 	return s
 }
 

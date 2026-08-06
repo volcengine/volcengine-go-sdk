@@ -175,6 +175,8 @@ type CreateSandboxInput struct {
 
 	RoleChainTrn []*string `type:"list" json:",omitempty"`
 
+	RoleTrn *string `type:"string" json:",omitempty"`
+
 	SessionId *string `type:"string" json:",omitempty"`
 
 	Sidecars []*SidecarForCreateSandboxInput `type:"list" json:",omitempty"`
@@ -290,6 +292,12 @@ func (s *CreateSandboxInput) SetRequestTimeout(v int32) *CreateSandboxInput {
 // SetRoleChainTrn sets the RoleChainTrn field's value.
 func (s *CreateSandboxInput) SetRoleChainTrn(v []*string) *CreateSandboxInput {
 	s.RoleChainTrn = v
+	return s
+}
+
+// SetRoleTrn sets the RoleTrn field's value.
+func (s *CreateSandboxInput) SetRoleTrn(v string) *CreateSandboxInput {
+	s.RoleTrn = &v
 	return s
 }
 
