@@ -205,6 +205,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	"vikingdb":                    {Service: "vikingdb", IsGlobal: false},
 	"volcsms":                     {Service: "volcsms", IsGlobal: true},
 	"id":                          {Service: "id", IsGlobal: false},
+	"tidb":                        {Service: "tidb", IsGlobal: false},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {
