@@ -286,6 +286,14 @@ type ACEPAPI interface {
 	DeletePodWithContext(volcengine.Context, *DeletePodInput, ...request.Option) (*DeletePodOutput, error)
 	DeletePodRequest(*DeletePodInput) (*request.Request, *DeletePodOutput)
 
+	DeletePortMappingRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeletePortMappingRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeletePortMappingRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeletePortMappingRule(*DeletePortMappingRuleInput) (*DeletePortMappingRuleOutput, error)
+	DeletePortMappingRuleWithContext(volcengine.Context, *DeletePortMappingRuleInput, ...request.Option) (*DeletePortMappingRuleOutput, error)
+	DeletePortMappingRuleRequest(*DeletePortMappingRuleInput) (*request.Request, *DeletePortMappingRuleOutput)
+
 	DeleteTagCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteTagCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteTagCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
