@@ -37,6 +37,7 @@ type CreateContentGenerationTaskRequest struct {
 	Resolution            *string                               `json:"resolution,omitempty"`
 	Ratio                 *string                               `json:"ratio,omitempty"`
 	OutputFormat          *string                               `json:"output_format,omitempty"`
+	OmniReferenceTaskType *string                               `json:"omni_reference_task_type,omitempty"`
 	Duration              *int64                                `json:"duration,omitempty"`
 	Frames                *int64                                `json:"frames,omitempty"`
 	Tools                 []*ContentGenerationTool              `json:"tools,omitempty"`
@@ -90,6 +91,7 @@ type GetContentGenerationTaskResponse struct {
 	FramesPerSecond       *int64                   `json:"framespersecond"`
 	Resolution            *string                  `json:"resolution,omitempty"`
 	Ratio                 *string                  `json:"ratio,omitempty"`
+	OutputFormat          *string                  `json:"output_format,omitempty"`
 	Duration              *int64                   `json:"duration,omitempty"`
 	CreatedAt             int64                    `json:"created_at"`
 	UpdatedAt             int64                    `json:"updated_at"`
