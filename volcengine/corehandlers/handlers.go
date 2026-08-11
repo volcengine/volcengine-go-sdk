@@ -24,6 +24,31 @@ type lener interface {
 	Len() int
 }
 
+const (
+	// retryInvocationIDHeader carries an id that is generated once per
+	// logical request and stays the same across all of its retry attempts,
+	// so a server can group attempts that belong to the same call.
+	retryInvocationIDHeader = "X-Sdk-Invocation-Id"
+
+	// retryAttemptHeader carries the current attempt count (1 for the
+	// initial try) and the maximum number of attempts the SDK will make,
+	// so a server can tell a retry attempt apart from the initial request.
+	retryAttemptHeader = "X-Sdk-Request"
+)
+
+// AddRetryInfoHeaderHandler annotates every HTTP attempt with the request's
+// invocation id and its attempt/max-attempt count. It runs on every retry
+// (it is registered on Handlers.Sign, which is re-run for each attempt),
+// so the attempt count in the header always reflects the current try.
+var AddRetryInfoHeaderHandler = request.NamedHandler{
+	Name: "core.AddRetryInfoHeaderHandler",
+	Fn: func(r *request.Request) {
+		r.HTTPRequest.Header.Set(retryInvocationIDHeader, r.InvocationID)
+		r.HTTPRequest.Header.Set(retryAttemptHeader,
+			fmt.Sprintf("attempt=%d; max=%d", r.RetryCount+1, r.MaxRetries()+1))
+	},
+}
+
 // BuildContentLengthHandler builds the content length of a request based on the volcenginebody,
 // or will use the HTTPRequest.Header's "Content-Length" if defined. If unable
 // to determine request volcenginebody length and no "Content-Length" was specified it will panic.
