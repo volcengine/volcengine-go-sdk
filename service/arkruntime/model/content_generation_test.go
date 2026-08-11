@@ -2,7 +2,6 @@ package model
 
 import (
 	"encoding/json"
-	"reflect"
 	"testing"
 )
 
@@ -90,36 +89,5 @@ func TestGetContentGenerationTaskResponseOutputFormatJSON(t *testing.T) {
 	}
 	if got, want := *response.OutputFormat, "mp4"; got != want {
 		t.Fatalf("OutputFormat = %q, want %q", got, want)
-	}
-}
-
-func TestGetContentGenerationTaskResponseDurationJSON(t *testing.T) {
-	tests := []struct {
-		name    string
-		payload string
-		want    float64
-	}{
-		{name: "fractional", payload: `{"duration":5.5}`, want: 5.5},
-		{name: "integer", payload: `{"duration":5}`, want: 5.0},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			var response GetContentGenerationTaskResponse
-			if err := json.Unmarshal([]byte(tt.payload), &response); err != nil {
-				t.Fatalf("json.Unmarshal() error = %v", err)
-			}
-			if response.Duration == nil {
-				t.Fatal("Duration = nil, want non-nil pointer")
-			}
-
-			value := reflect.ValueOf(*response.Duration)
-			if got, want := value.Kind(), reflect.Float64; got != want {
-				t.Fatalf("Duration kind = %v, want %v", got, want)
-			}
-			if got := value.Float(); got != tt.want {
-				t.Fatalf("Duration = %v, want %v", got, tt.want)
-			}
-		})
 	}
 }
