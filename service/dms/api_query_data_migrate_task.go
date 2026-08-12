@@ -204,6 +204,10 @@ type BasicConfigForQueryDataMigrateTaskOutput struct {
 
 	OverwritePolicy *string `type:"string" json:",omitempty" enum:"EnumOfOverwritePolicyForQueryDataMigrateTaskOutput"`
 
+	ReportPathPrefix *string `type:"string" json:",omitempty"`
+
+	SkipArchiveObject *bool `type:"boolean" json:",omitempty"`
+
 	SourceType *string `type:"string" json:",omitempty" enum:"EnumOfSourceTypeForQueryDataMigrateTaskOutput"`
 
 	StorageClass *string `type:"string" json:",omitempty" enum:"EnumOfStorageClassForQueryDataMigrateTaskOutput"`
@@ -257,6 +261,18 @@ func (s *BasicConfigForQueryDataMigrateTaskOutput) SetOverwritePolicy(v string) 
 	return s
 }
 
+// SetReportPathPrefix sets the ReportPathPrefix field's value.
+func (s *BasicConfigForQueryDataMigrateTaskOutput) SetReportPathPrefix(v string) *BasicConfigForQueryDataMigrateTaskOutput {
+	s.ReportPathPrefix = &v
+	return s
+}
+
+// SetSkipArchiveObject sets the SkipArchiveObject field's value.
+func (s *BasicConfigForQueryDataMigrateTaskOutput) SetSkipArchiveObject(v bool) *BasicConfigForQueryDataMigrateTaskOutput {
+	s.SkipArchiveObject = &v
+	return s
+}
+
 // SetSourceType sets the SourceType field's value.
 func (s *BasicConfigForQueryDataMigrateTaskOutput) SetSourceType(v string) *BasicConfigForQueryDataMigrateTaskOutput {
 	s.SourceType = &v
@@ -289,6 +305,8 @@ type BucketAccessConfigForQueryDataMigrateTaskOutput struct {
 	RoleTrn *string `type:"string" json:",omitempty"`
 
 	SK *string `type:"string" json:",omitempty"`
+
+	SecurityToken *string `type:"string" json:",omitempty"`
 
 	Vendor *string `type:"string" json:",omitempty"`
 }
@@ -336,6 +354,12 @@ func (s *BucketAccessConfigForQueryDataMigrateTaskOutput) SetRoleTrn(v string) *
 // SetSK sets the SK field's value.
 func (s *BucketAccessConfigForQueryDataMigrateTaskOutput) SetSK(v string) *BucketAccessConfigForQueryDataMigrateTaskOutput {
 	s.SK = &v
+	return s
+}
+
+// SetSecurityToken sets the SecurityToken field's value.
+func (s *BucketAccessConfigForQueryDataMigrateTaskOutput) SetSecurityToken(v string) *BucketAccessConfigForQueryDataMigrateTaskOutput {
+	s.SecurityToken = &v
 	return s
 }
 
@@ -774,6 +798,8 @@ type TargetForQueryDataMigrateTaskOutput struct {
 
 	SK *string `type:"string" json:",omitempty"`
 
+	SecurityToken *string `type:"string" json:",omitempty"`
+
 	Vendor *string `type:"string" json:",omitempty"`
 }
 
@@ -820,6 +846,12 @@ func (s *TargetForQueryDataMigrateTaskOutput) SetRoleTrn(v string) *TargetForQue
 // SetSK sets the SK field's value.
 func (s *TargetForQueryDataMigrateTaskOutput) SetSK(v string) *TargetForQueryDataMigrateTaskOutput {
 	s.SK = &v
+	return s
+}
+
+// SetSecurityToken sets the SecurityToken field's value.
+func (s *TargetForQueryDataMigrateTaskOutput) SetSecurityToken(v string) *TargetForQueryDataMigrateTaskOutput {
+	s.SecurityToken = &v
 	return s
 }
 

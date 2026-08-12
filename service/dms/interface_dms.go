@@ -62,6 +62,14 @@ type DMSAPI interface {
 	ListDataMigrateTaskWithContext(volcengine.Context, *ListDataMigrateTaskInput, ...request.Option) (*ListDataMigrateTaskOutput, error)
 	ListDataMigrateTaskRequest(*ListDataMigrateTaskInput) (*request.Request, *ListDataMigrateTaskOutput)
 
+	ListFailedObjectsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListFailedObjectsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListFailedObjectsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListFailedObjects(*ListFailedObjectsInput) (*ListFailedObjectsOutput, error)
+	ListFailedObjectsWithContext(volcengine.Context, *ListFailedObjectsInput, ...request.Option) (*ListFailedObjectsOutput, error)
+	ListFailedObjectsRequest(*ListFailedObjectsInput) (*request.Request, *ListFailedObjectsOutput)
+
 	QueryDataMigrateTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryDataMigrateTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	QueryDataMigrateTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +85,14 @@ type DMSAPI interface {
 	ResumeDataMigrateTask(*ResumeDataMigrateTaskInput) (*ResumeDataMigrateTaskOutput, error)
 	ResumeDataMigrateTaskWithContext(volcengine.Context, *ResumeDataMigrateTaskInput, ...request.Option) (*ResumeDataMigrateTaskOutput, error)
 	ResumeDataMigrateTaskRequest(*ResumeDataMigrateTaskInput) (*request.Request, *ResumeDataMigrateTaskOutput)
+
+	RetryMigrateTaskCallbackCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RetryMigrateTaskCallbackCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RetryMigrateTaskCallbackCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RetryMigrateTaskCallback(*RetryMigrateTaskCallbackInput) (*RetryMigrateTaskCallbackOutput, error)
+	RetryMigrateTaskCallbackWithContext(volcengine.Context, *RetryMigrateTaskCallbackInput, ...request.Option) (*RetryMigrateTaskCallbackOutput, error)
+	RetryMigrateTaskCallbackRequest(*RetryMigrateTaskCallbackInput) (*request.Request, *RetryMigrateTaskCallbackOutput)
 
 	StopDataMigrateTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StopDataMigrateTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
