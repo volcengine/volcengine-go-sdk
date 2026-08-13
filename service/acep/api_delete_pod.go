@@ -207,6 +207,8 @@ type DeletePodOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	Details []*DetailForDeletePodOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -217,4 +219,56 @@ func (s DeletePodOutput) String() string {
 // GoString returns the string representation
 func (s DeletePodOutput) GoString() string {
 	return s.String()
+}
+
+// SetDetails sets the Details field's value.
+func (s *DeletePodOutput) SetDetails(v []*DetailForDeletePodOutput) *DeletePodOutput {
+	s.Details = v
+	return s
+}
+
+type DetailForDeletePodOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ErrCode *int32 `type:"int32" json:",omitempty"`
+
+	ErrMsg *string `type:"string" json:",omitempty"`
+
+	PodId *string `type:"string" json:",omitempty"`
+
+	Success *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DetailForDeletePodOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DetailForDeletePodOutput) GoString() string {
+	return s.String()
+}
+
+// SetErrCode sets the ErrCode field's value.
+func (s *DetailForDeletePodOutput) SetErrCode(v int32) *DetailForDeletePodOutput {
+	s.ErrCode = &v
+	return s
+}
+
+// SetErrMsg sets the ErrMsg field's value.
+func (s *DetailForDeletePodOutput) SetErrMsg(v string) *DetailForDeletePodOutput {
+	s.ErrMsg = &v
+	return s
+}
+
+// SetPodId sets the PodId field's value.
+func (s *DetailForDeletePodOutput) SetPodId(v string) *DetailForDeletePodOutput {
+	s.PodId = &v
+	return s
+}
+
+// SetSuccess sets the Success field's value.
+func (s *DetailForDeletePodOutput) SetSuccess(v bool) *DetailForDeletePodOutput {
+	s.Success = &v
+	return s
 }
