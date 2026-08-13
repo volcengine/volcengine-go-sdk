@@ -168,7 +168,7 @@ func (s *DataForSendBatchMessageOutput) SetMessageId(v string) *DataForSendBatch
 type PriorityForSendBatchMessageInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ChannelType *string `type:"string" json:",omitempty"`
+	ChannelType *string `type:"string" json:",omitempty" enum:"EnumOfChannelTypeForSendBatchMessageInput"`
 
 	Failback *string `type:"string" json:",omitempty"`
 
@@ -392,3 +392,23 @@ func (s *SendBatchMessageOutput) SetSuccess(v bool) *SendBatchMessageOutput {
 	s.Success = &v
 	return s
 }
+
+const (
+	// EnumOfChannelTypeForSendBatchMessageInputWhatsApp is a EnumOfChannelTypeForSendBatchMessageInput enum value
+	EnumOfChannelTypeForSendBatchMessageInputWhatsApp = "WhatsApp"
+
+	// EnumOfChannelTypeForSendBatchMessageInputSms is a EnumOfChannelTypeForSendBatchMessageInput enum value
+	EnumOfChannelTypeForSendBatchMessageInputSms = "SMS"
+
+	// EnumOfChannelTypeForSendBatchMessageInputVms is a EnumOfChannelTypeForSendBatchMessageInput enum value
+	EnumOfChannelTypeForSendBatchMessageInputVms = "VMS"
+
+	// EnumOfChannelTypeForSendBatchMessageInputAim is a EnumOfChannelTypeForSendBatchMessageInput enum value
+	EnumOfChannelTypeForSendBatchMessageInputAim = "AIM"
+
+	// EnumOfChannelTypeForSendBatchMessageInputVolcSms is a EnumOfChannelTypeForSendBatchMessageInput enum value
+	EnumOfChannelTypeForSendBatchMessageInputVolcSms = "VOLC_SMS"
+
+	// EnumOfChannelTypeForSendBatchMessageInputVolcRcs is a EnumOfChannelTypeForSendBatchMessageInput enum value
+	EnumOfChannelTypeForSendBatchMessageInputVolcRcs = "VOLC_RCS"
+)
