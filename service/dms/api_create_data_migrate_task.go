@@ -236,6 +236,10 @@ type BasicConfigForCreateDataMigrateTaskInput struct {
 
 	OverwritePolicy *string `type:"string" json:",omitempty" enum:"EnumOfOverwritePolicyForCreateDataMigrateTaskInput"`
 
+	ReportPathPrefix *string `type:"string" json:",omitempty"`
+
+	SkipArchiveObject *bool `type:"boolean" json:",omitempty"`
+
 	SourceType *string `type:"string" json:",omitempty" enum:"EnumOfSourceTypeForCreateDataMigrateTaskInput"`
 
 	StorageClass *string `type:"string" json:",omitempty" enum:"EnumOfStorageClassForCreateDataMigrateTaskInput"`
@@ -308,6 +312,18 @@ func (s *BasicConfigForCreateDataMigrateTaskInput) SetOverwritePolicy(v string) 
 	return s
 }
 
+// SetReportPathPrefix sets the ReportPathPrefix field's value.
+func (s *BasicConfigForCreateDataMigrateTaskInput) SetReportPathPrefix(v string) *BasicConfigForCreateDataMigrateTaskInput {
+	s.ReportPathPrefix = &v
+	return s
+}
+
+// SetSkipArchiveObject sets the SkipArchiveObject field's value.
+func (s *BasicConfigForCreateDataMigrateTaskInput) SetSkipArchiveObject(v bool) *BasicConfigForCreateDataMigrateTaskInput {
+	s.SkipArchiveObject = &v
+	return s
+}
+
 // SetSourceType sets the SourceType field's value.
 func (s *BasicConfigForCreateDataMigrateTaskInput) SetSourceType(v string) *BasicConfigForCreateDataMigrateTaskInput {
 	s.SourceType = &v
@@ -340,6 +356,8 @@ type BucketAccessConfigForCreateDataMigrateTaskInput struct {
 	RoleTrn *string `type:"string" json:",omitempty"`
 
 	SK *string `type:"string" json:",omitempty"`
+
+	SecurityToken *string `type:"string" json:",omitempty"`
 
 	Vendor *string `type:"string" json:",omitempty"`
 }
@@ -387,6 +405,12 @@ func (s *BucketAccessConfigForCreateDataMigrateTaskInput) SetRoleTrn(v string) *
 // SetSK sets the SK field's value.
 func (s *BucketAccessConfigForCreateDataMigrateTaskInput) SetSK(v string) *BucketAccessConfigForCreateDataMigrateTaskInput {
 	s.SK = &v
+	return s
+}
+
+// SetSecurityToken sets the SecurityToken field's value.
+func (s *BucketAccessConfigForCreateDataMigrateTaskInput) SetSecurityToken(v string) *BucketAccessConfigForCreateDataMigrateTaskInput {
+	s.SecurityToken = &v
 	return s
 }
 

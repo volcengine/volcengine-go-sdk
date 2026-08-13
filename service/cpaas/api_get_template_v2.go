@@ -32,7 +32,7 @@ const opGetTemplateV2Common = "GetTemplateV2"
 func (c *CPAAS) GetTemplateV2CommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetTemplateV2Common,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -97,7 +97,7 @@ const opGetTemplateV2 = "GetTemplateV2"
 func (c *CPAAS) GetTemplateV2Request(input *GetTemplateV2Input) (req *request.Request, output *GetTemplateV2Output) {
 	op := &request.Operation{
 		Name:       opGetTemplateV2,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 

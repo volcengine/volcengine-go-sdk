@@ -230,6 +230,8 @@ type GetApiKeyCredentialProviderOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	ApiKey *string `type:"string" json:",omitempty"`
+
 	ApiKeyMetadata []*ApiKeyMetadataForGetApiKeyCredentialProviderOutput `type:"list"`
 
 	CreatedAt *string `type:"string" json:",omitempty"`
@@ -257,6 +259,12 @@ func (s GetApiKeyCredentialProviderOutput) String() string {
 // GoString returns the string representation
 func (s GetApiKeyCredentialProviderOutput) GoString() string {
 	return s.String()
+}
+
+// SetApiKey sets the ApiKey field's value.
+func (s *GetApiKeyCredentialProviderOutput) SetApiKey(v string) *GetApiKeyCredentialProviderOutput {
+	s.ApiKey = &v
+	return s
 }
 
 // SetApiKeyMetadata sets the ApiKeyMetadata field's value.

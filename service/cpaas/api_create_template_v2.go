@@ -194,7 +194,7 @@ type CreateTemplateV2Input struct {
 
 	BusinessType *string `type:"string" json:",omitempty"`
 
-	EnableShortUrl *string `type:"string" json:",omitempty"`
+	EnabledShortUrl *string `type:"string" json:",omitempty"`
 
 	Language *string `type:"string" json:",omitempty"`
 
@@ -202,8 +202,6 @@ type CreateTemplateV2Input struct {
 	SceneTemplateName *string `type:"string" json:",omitempty" required:"true"`
 
 	SendAudit *string `type:"string" json:",omitempty"`
-
-	Signature *string `type:"string" json:",omitempty"`
 
 	SubAccountId *string `type:"string" json:",omitempty"`
 
@@ -241,9 +239,9 @@ func (s *CreateTemplateV2Input) SetBusinessType(v string) *CreateTemplateV2Input
 	return s
 }
 
-// SetEnableShortUrl sets the EnableShortUrl field's value.
-func (s *CreateTemplateV2Input) SetEnableShortUrl(v string) *CreateTemplateV2Input {
-	s.EnableShortUrl = &v
+// SetEnabledShortUrl sets the EnabledShortUrl field's value.
+func (s *CreateTemplateV2Input) SetEnabledShortUrl(v string) *CreateTemplateV2Input {
+	s.EnabledShortUrl = &v
 	return s
 }
 
@@ -262,12 +260,6 @@ func (s *CreateTemplateV2Input) SetSceneTemplateName(v string) *CreateTemplateV2
 // SetSendAudit sets the SendAudit field's value.
 func (s *CreateTemplateV2Input) SetSendAudit(v string) *CreateTemplateV2Input {
 	s.SendAudit = &v
-	return s
-}
-
-// SetSignature sets the Signature field's value.
-func (s *CreateTemplateV2Input) SetSignature(v string) *CreateTemplateV2Input {
-	s.Signature = &v
 	return s
 }
 
