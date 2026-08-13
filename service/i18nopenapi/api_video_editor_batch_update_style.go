@@ -184,6 +184,9 @@ func (s *SubtitleStyleForVideoEditorBatchUpdateStyleInput) SetTargetStyle(v stri
 type VideoEditorBatchUpdateStyleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	// SubtaskId is a required field
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty" required:"true"`
+
 	SubtitleStyles []*SubtitleStyleForVideoEditorBatchUpdateStyleInput `type:"list" json:"subtitleStyles,omitempty"`
 }
 
@@ -195,6 +198,25 @@ func (s VideoEditorBatchUpdateStyleInput) String() string {
 // GoString returns the string representation
 func (s VideoEditorBatchUpdateStyleInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *VideoEditorBatchUpdateStyleInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "VideoEditorBatchUpdateStyleInput"}
+	if s.SubtaskId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubtaskId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSubtaskId sets the SubtaskId field's value.
+func (s *VideoEditorBatchUpdateStyleInput) SetSubtaskId(v string) *VideoEditorBatchUpdateStyleInput {
+	s.SubtaskId = &v
+	return s
 }
 
 // SetSubtitleStyles sets the SubtitleStyles field's value.

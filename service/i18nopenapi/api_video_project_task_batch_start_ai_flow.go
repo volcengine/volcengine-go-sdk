@@ -146,7 +146,7 @@ func (c *I18NOPENAPI) VideoProjectTaskBatchStartAIFlowWithContext(ctx volcengine
 type BaseRespForVideoProjectTaskBatchStartAIFlowOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	StatusCode *string `type:"string" json:"statusCode,omitempty"`
+	StatusCode *int32 `type:"int32" json:"statusCode,omitempty"`
 
 	StatusMessage *string `type:"string" json:"statusMessage,omitempty"`
 }
@@ -162,7 +162,7 @@ func (s BaseRespForVideoProjectTaskBatchStartAIFlowOutput) GoString() string {
 }
 
 // SetStatusCode sets the StatusCode field's value.
-func (s *BaseRespForVideoProjectTaskBatchStartAIFlowOutput) SetStatusCode(v string) *BaseRespForVideoProjectTaskBatchStartAIFlowOutput {
+func (s *BaseRespForVideoProjectTaskBatchStartAIFlowOutput) SetStatusCode(v int32) *BaseRespForVideoProjectTaskBatchStartAIFlowOutput {
 	s.StatusCode = &v
 	return s
 }

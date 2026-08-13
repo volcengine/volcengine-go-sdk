@@ -268,7 +268,7 @@ type SubForVideoEditorSaveSubtitleInput struct {
 
 	AiVoiceId *string `type:"string" json:"aiVoiceId,omitempty"`
 
-	EffectType *string `type:"string" json:"effectType,omitempty"`
+	EffectType *int32 `type:"int32" json:"effectType,omitempty"`
 
 	EmotionTag *string `type:"string" json:"emotionTag,omitempty"`
 
@@ -308,7 +308,7 @@ func (s *SubForVideoEditorSaveSubtitleInput) SetAiVoiceId(v string) *SubForVideo
 }
 
 // SetEffectType sets the EffectType field's value.
-func (s *SubForVideoEditorSaveSubtitleInput) SetEffectType(v string) *SubForVideoEditorSaveSubtitleInput {
+func (s *SubForVideoEditorSaveSubtitleInput) SetEffectType(v int32) *SubForVideoEditorSaveSubtitleInput {
 	s.EffectType = &v
 	return s
 }
