@@ -144,7 +144,7 @@ type DescribeIpamsInput struct {
 
 	IpamIds []*string `type:"list"`
 
-	IpamName *string `min:"1" max:"255" type:"string"`
+	IpamName *string `min:"1" max:"128" type:"string"`
 
 	MaxResults *int64 `type:"integer"`
 
@@ -171,8 +171,8 @@ func (s *DescribeIpamsInput) Validate() error {
 	if s.IpamName != nil && len(*s.IpamName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("IpamName", 1))
 	}
-	if s.IpamName != nil && len(*s.IpamName) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("IpamName", 255, *s.IpamName))
+	if s.IpamName != nil && len(*s.IpamName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("IpamName", 128, *s.IpamName))
 	}
 
 	if invalidParams.Len() > 0 {

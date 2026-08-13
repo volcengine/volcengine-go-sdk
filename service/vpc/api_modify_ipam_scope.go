@@ -142,12 +142,12 @@ func (c *VPC) ModifyIpamScopeWithContext(ctx volcengine.Context, input *ModifyIp
 type ModifyIpamScopeInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `max:"255" type:"string"`
 
 	// IpamScopeId is a required field
 	IpamScopeId *string `min:"1" max:"128" type:"string" required:"true"`
 
-	IpamScopeName *string `min:"1" max:"255" type:"string"`
+	IpamScopeName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -163,9 +163,6 @@ func (s ModifyIpamScopeInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyIpamScopeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyIpamScopeInput"}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
@@ -181,8 +178,8 @@ func (s *ModifyIpamScopeInput) Validate() error {
 	if s.IpamScopeName != nil && len(*s.IpamScopeName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("IpamScopeName", 1))
 	}
-	if s.IpamScopeName != nil && len(*s.IpamScopeName) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("IpamScopeName", 255, *s.IpamScopeName))
+	if s.IpamScopeName != nil && len(*s.IpamScopeName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("IpamScopeName", 128, *s.IpamScopeName))
 	}
 
 	if invalidParams.Len() > 0 {

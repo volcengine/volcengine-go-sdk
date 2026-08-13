@@ -142,9 +142,9 @@ func (c *VPC) CreateIpamResourceDiscoveryWithContext(ctx volcengine.Context, inp
 type CreateIpamResourceDiscoveryInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `max:"255" type:"string"`
 
-	IpamResourceDiscoveryName *string `type:"string"`
+	IpamResourceDiscoveryName *string `min:"1" max:"128" type:"string"`
 
 	OperatingRegions []*string `type:"list"`
 
@@ -159,6 +159,25 @@ func (s CreateIpamResourceDiscoveryInput) String() string {
 // GoString returns the string representation
 func (s CreateIpamResourceDiscoveryInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateIpamResourceDiscoveryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateIpamResourceDiscoveryInput"}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.IpamResourceDiscoveryName != nil && len(*s.IpamResourceDiscoveryName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("IpamResourceDiscoveryName", 1))
+	}
+	if s.IpamResourceDiscoveryName != nil && len(*s.IpamResourceDiscoveryName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("IpamResourceDiscoveryName", 128, *s.IpamResourceDiscoveryName))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDescription sets the Description field's value.
