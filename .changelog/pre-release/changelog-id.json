@@ -1,8 +1,0 @@
-{
-  "actions": [
-    "GetApiKeyCredentialProvider"
-  ],
-  "description": "ID: 修改 GetApiKeyCredentialProvider",
-  "modules": "service/id",
-  "type": "feature"
-}
