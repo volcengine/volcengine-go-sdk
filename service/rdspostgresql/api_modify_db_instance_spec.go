@@ -194,6 +194,8 @@ type ModifyDBInstanceSpecInput struct {
 	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	StorageType *string `type:"string" json:",omitempty"`
+
+	SwitchType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -270,6 +272,12 @@ func (s *ModifyDBInstanceSpecInput) SetStorageSpace(v int32) *ModifyDBInstanceSp
 // SetStorageType sets the StorageType field's value.
 func (s *ModifyDBInstanceSpecInput) SetStorageType(v string) *ModifyDBInstanceSpecInput {
 	s.StorageType = &v
+	return s
+}
+
+// SetSwitchType sets the SwitchType field's value.
+func (s *ModifyDBInstanceSpecInput) SetSwitchType(v string) *ModifyDBInstanceSpecInput {
+	s.SwitchType = &v
 	return s
 }
 

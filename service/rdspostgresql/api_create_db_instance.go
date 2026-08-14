@@ -209,6 +209,8 @@ type CreateDBInstanceInput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
+	KMSTrn *string `type:"string" json:",omitempty"`
+
 	MaintenanceWindow *MaintenanceWindowForCreateDBInstanceInput `type:"structure" json:",omitempty"`
 
 	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list" json:",omitempty"`
@@ -222,6 +224,8 @@ type CreateDBInstanceInput struct {
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" json:",omitempty" required:"true"`
+
+	TDEEnable *bool `type:"boolean" json:",omitempty"`
 
 	Tags []*TagForCreateDBInstanceInput `type:"list" json:",omitempty"`
 
@@ -285,6 +289,12 @@ func (s *CreateDBInstanceInput) SetInstanceName(v string) *CreateDBInstanceInput
 	return s
 }
 
+// SetKMSTrn sets the KMSTrn field's value.
+func (s *CreateDBInstanceInput) SetKMSTrn(v string) *CreateDBInstanceInput {
+	s.KMSTrn = &v
+	return s
+}
+
 // SetMaintenanceWindow sets the MaintenanceWindow field's value.
 func (s *CreateDBInstanceInput) SetMaintenanceWindow(v *MaintenanceWindowForCreateDBInstanceInput) *CreateDBInstanceInput {
 	s.MaintenanceWindow = v
@@ -318,6 +328,12 @@ func (s *CreateDBInstanceInput) SetStorageType(v string) *CreateDBInstanceInput 
 // SetSubnetId sets the SubnetId field's value.
 func (s *CreateDBInstanceInput) SetSubnetId(v string) *CreateDBInstanceInput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTDEEnable sets the TDEEnable field's value.
+func (s *CreateDBInstanceInput) SetTDEEnable(v bool) *CreateDBInstanceInput {
+	s.TDEEnable = &v
 	return s
 }
 
