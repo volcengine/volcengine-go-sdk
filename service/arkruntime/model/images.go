@@ -61,6 +61,7 @@ type GenerateImagesRequest struct {
 	SequentialImageGenerationOptions *SequentialImageGenerationOptions `json:"sequential_image_generation_options,omitempty"`
 	Tools                            []*ContentGenerationTool          `json:"tools,omitempty"`
 	OutputFormat                     *OutputFormat                     `json:"output_format,omitempty"`
+	LayerDecomposition               *bool                             `json:"layer_decomposition,omitempty"`
 }
 
 func (req *GenerateImagesRequest) NormalizeImages() error {
@@ -94,12 +95,23 @@ type SequentialImageGenerationOptions struct {
 }
 
 type Image struct {
-	Url     *string `json:"url,omitempty"`
-	B64Json *string `json:"b64_json,omitempty"`
-	Size    string  `json:"size"`
+	Url          *string       `json:"url,omitempty"`
+	B64Json      *string       `json:"b64_json,omitempty"`
+	Size         string        `json:"size"`
+	OutputFormat *OutputFormat `json:"output_format,omitempty"`
+	ZIndex       *int32        `json:"z_index,omitempty"`
+	BoundingBox  *BoundingBox  `json:"bounding_box,omitempty"`
+	Name         *string       `json:"name,omitempty"`
+	Description  *string       `json:"description,omitempty"`
+}
+
+type BoundingBox struct {
+	Absolute   []int32 `json:"absolute,omitempty"`
+	Normalized []int32 `json:"normalized,omitempty"`
 }
 
 type GenerateImagesUsage struct {
+	InputImages     int64      `json:"input_images"`
 	GeneratedImages int64      `json:"generated_images"`
 	OutputTokens    int64      `json:"output_tokens"`
 	TotalTokens     int64      `json:"total_tokens"`
