@@ -478,6 +478,14 @@ type IDAPI interface {
 	CreateServiceFromTemplateWithContext(volcengine.Context, *CreateServiceFromTemplateInput, ...request.Option) (*CreateServiceFromTemplateOutput, error)
 	CreateServiceFromTemplateRequest(*CreateServiceFromTemplateInput) (*request.Request, *CreateServiceFromTemplateOutput)
 
+	CreateSharedOauth2CredentialCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSharedOauth2CredentialCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSharedOauth2CredentialCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSharedOauth2Credential(*CreateSharedOauth2CredentialInput) (*CreateSharedOauth2CredentialOutput, error)
+	CreateSharedOauth2CredentialWithContext(volcengine.Context, *CreateSharedOauth2CredentialInput, ...request.Option) (*CreateSharedOauth2CredentialOutput, error)
+	CreateSharedOauth2CredentialRequest(*CreateSharedOauth2CredentialInput) (*request.Request, *CreateSharedOauth2CredentialOutput)
+
 	CreateTaskCommitAppVisibleUsersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateTaskCommitAppVisibleUsersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateTaskCommitAppVisibleUsersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -821,6 +829,14 @@ type IDAPI interface {
 	DeleteService(*DeleteServiceInput) (*DeleteServiceOutput, error)
 	DeleteServiceWithContext(volcengine.Context, *DeleteServiceInput, ...request.Option) (*DeleteServiceOutput, error)
 	DeleteServiceRequest(*DeleteServiceInput) (*request.Request, *DeleteServiceOutput)
+
+	DeleteSharedOauth2CredentialCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSharedOauth2CredentialCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSharedOauth2CredentialCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSharedOauth2Credential(*DeleteSharedOauth2CredentialInput) (*DeleteSharedOauth2CredentialOutput, error)
+	DeleteSharedOauth2CredentialWithContext(volcengine.Context, *DeleteSharedOauth2CredentialInput, ...request.Option) (*DeleteSharedOauth2CredentialOutput, error)
+	DeleteSharedOauth2CredentialRequest(*DeleteSharedOauth2CredentialInput) (*request.Request, *DeleteSharedOauth2CredentialOutput)
 
 	DeleteTrustAnchorCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteTrustAnchorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1213,6 +1229,14 @@ type IDAPI interface {
 	GetService(*GetServiceInput) (*GetServiceOutput, error)
 	GetServiceWithContext(volcengine.Context, *GetServiceInput, ...request.Option) (*GetServiceOutput, error)
 	GetServiceRequest(*GetServiceInput) (*request.Request, *GetServiceOutput)
+
+	GetSharedOauth2CredentialCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSharedOauth2CredentialCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSharedOauth2CredentialCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSharedOauth2Credential(*GetSharedOauth2CredentialInput) (*GetSharedOauth2CredentialOutput, error)
+	GetSharedOauth2CredentialWithContext(volcengine.Context, *GetSharedOauth2CredentialInput, ...request.Option) (*GetSharedOauth2CredentialOutput, error)
+	GetSharedOauth2CredentialRequest(*GetSharedOauth2CredentialInput) (*request.Request, *GetSharedOauth2CredentialOutput)
 
 	GetSmsServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetSmsServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1661,6 +1685,14 @@ type IDAPI interface {
 	ListServices(*ListServicesInput) (*ListServicesOutput, error)
 	ListServicesWithContext(volcengine.Context, *ListServicesInput, ...request.Option) (*ListServicesOutput, error)
 	ListServicesRequest(*ListServicesInput) (*request.Request, *ListServicesOutput)
+
+	ListSharedOauth2CredentialsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSharedOauth2CredentialsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSharedOauth2CredentialsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSharedOauth2Credentials(*ListSharedOauth2CredentialsInput) (*ListSharedOauth2CredentialsOutput, error)
+	ListSharedOauth2CredentialsWithContext(volcengine.Context, *ListSharedOauth2CredentialsInput, ...request.Option) (*ListSharedOauth2CredentialsOutput, error)
+	ListSharedOauth2CredentialsRequest(*ListSharedOauth2CredentialsInput) (*request.Request, *ListSharedOauth2CredentialsOutput)
 
 	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
