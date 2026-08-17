@@ -340,6 +340,7 @@ type GenerateSummarizeV2 struct {
 
 type Client struct {
 	url        string
+	rewriteUrl string
 	region     string
 	ak         string
 	sk         string

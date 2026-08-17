@@ -20,6 +20,7 @@ const (
 	OptionProxyAddr  = "ProxyAddr"
 	OptionConnMax    = "ConnMax"
 	OptionTimeout    = "Timeout"
+	OptionRewriteUrl = "RewriteUrl"
 )
 
 // New 创建一个新的客户端实例
@@ -105,6 +106,13 @@ func NewWithOptions(url string, ak string, sk string, region string, options map
 		}
 	}
 
+	var rewriteUrl string
+	if options != nil {
+		if ru, ok := options[OptionRewriteUrl].(string); ok && ru != "" {
+			rewriteUrl = ru
+		}
+	}
+
 	httpClient := &http.Client{
 		Timeout: timeout,
 	}
@@ -114,6 +122,7 @@ func NewWithOptions(url string, ak string, sk string, region string, options map
 
 	client := &Client{
 		url:        url,
+		rewriteUrl: rewriteUrl,
 		httpClient: httpClient,
 		ak:         ak,
 		sk:         sk,
