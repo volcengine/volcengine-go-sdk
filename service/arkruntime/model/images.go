@@ -111,7 +111,7 @@ type BoundingBox struct {
 }
 
 type GenerateImagesUsage struct {
-	InputImages     int64      `json:"input_images"`
+	InputImages     *int64     `json:"input_images,omitempty"`
 	GeneratedImages int64      `json:"generated_images"`
 	OutputTokens    int64      `json:"output_tokens"`
 	TotalTokens     int64      `json:"total_tokens"`
