@@ -152,6 +152,8 @@ type DataForVideoEditorListSubtitlesOutput struct {
 
 	EffectType *int32 `type:"int32" json:"effectType"`
 
+	EmotionTag *string `type:"string" json:"emotionTag"`
+
 	EndTime *string `type:"string" json:"endTime"`
 
 	Extra *string `type:"string" json:"extra"`
@@ -218,6 +220,12 @@ func (s *DataForVideoEditorListSubtitlesOutput) SetCreateTime(v string) *DataFor
 // SetEffectType sets the EffectType field's value.
 func (s *DataForVideoEditorListSubtitlesOutput) SetEffectType(v int32) *DataForVideoEditorListSubtitlesOutput {
 	s.EffectType = &v
+	return s
+}
+
+// SetEmotionTag sets the EmotionTag field's value.
+func (s *DataForVideoEditorListSubtitlesOutput) SetEmotionTag(v string) *DataForVideoEditorListSubtitlesOutput {
+	s.EmotionTag = &v
 	return s
 }
 

@@ -368,6 +368,8 @@ type UpdatedSegmentForVideoEditorAddSubtitleOutput struct {
 
 	EffectType *int32 `type:"int32" json:"effectType,omitempty"`
 
+	EmotionTag *string `type:"string" json:"emotionTag,omitempty"`
+
 	EndTime *string `type:"string" json:"endTime,omitempty"`
 
 	Extra *string `type:"string" json:"extra,omitempty"`
@@ -434,6 +436,12 @@ func (s *UpdatedSegmentForVideoEditorAddSubtitleOutput) SetCreateTime(v string) 
 // SetEffectType sets the EffectType field's value.
 func (s *UpdatedSegmentForVideoEditorAddSubtitleOutput) SetEffectType(v int32) *UpdatedSegmentForVideoEditorAddSubtitleOutput {
 	s.EffectType = &v
+	return s
+}
+
+// SetEmotionTag sets the EmotionTag field's value.
+func (s *UpdatedSegmentForVideoEditorAddSubtitleOutput) SetEmotionTag(v string) *UpdatedSegmentForVideoEditorAddSubtitleOutput {
+	s.EmotionTag = &v
 	return s
 }
 
