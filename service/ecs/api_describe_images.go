@@ -366,6 +366,8 @@ type ImageForDescribeImagesOutput struct {
 
 	LicenseType *string `type:"string"`
 
+	LifecycleStatus *string `type:"string"`
+
 	MarketplaceImageBillType *int32 `type:"int32"`
 
 	OsName *string `type:"string"`
@@ -482,6 +484,12 @@ func (s *ImageForDescribeImagesOutput) SetKernel(v string) *ImageForDescribeImag
 // SetLicenseType sets the LicenseType field's value.
 func (s *ImageForDescribeImagesOutput) SetLicenseType(v string) *ImageForDescribeImagesOutput {
 	s.LicenseType = &v
+	return s
+}
+
+// SetLifecycleStatus sets the LifecycleStatus field's value.
+func (s *ImageForDescribeImagesOutput) SetLifecycleStatus(v string) *ImageForDescribeImagesOutput {
+	s.LifecycleStatus = &v
 	return s
 }
 
