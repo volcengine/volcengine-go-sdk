@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "DescribeImages",
-    "DescribeLaunchTemplates"
-  ],
-  "description": "ECS: 修改 DescribeImages, DescribeLaunchTemplates",
-  "modules": "service/ecs",
-  "type": "breaking-change"
-}
