@@ -1,0 +1,19 @@
+{
+  "actions": [
+    "DescribeIpamPools",
+    "DescribeIpamScopes",
+    "CreateIpam",
+    "CreateIpamPool",
+    "DescribeIpamResourceDiscoveries",
+    "DescribeIpams",
+    "ModifyIpam",
+    "CreateIpamResourceDiscovery",
+    "ModifyIpamPool",
+    "ModifyIpamScope",
+    "CreateIpamScope",
+    "ModifyIpamResourceDiscovery"
+  ],
+  "description": "VPC: 修改 DescribeIpamResourceDiscoveries, DescribeIpams, ModifyIpam, ModifyIpamPool, ModifyIpamScope, CreateIpamScope, CreateIpamResourceDiscovery, DescribeIpamPools, DescribeIpamScopes, ModifyIpamResourceDiscovery, CreateIpam, CreateIpamPool",
+  "modules": "service/vpc",
+  "type": "breaking-change"
+}

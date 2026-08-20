@@ -144,7 +144,7 @@ type DescribeIpamResourceDiscoveriesInput struct {
 
 	IpamResourceDiscoveryIds []*string `type:"list"`
 
-	IpamResourceDiscoveryName *string `type:"string"`
+	IpamResourceDiscoveryName *string `min:"1" max:"128" type:"string"`
 
 	IpamResourceDiscoveryOwnerId *string `type:"string"`
 
@@ -167,6 +167,22 @@ func (s DescribeIpamResourceDiscoveriesInput) String() string {
 // GoString returns the string representation
 func (s DescribeIpamResourceDiscoveriesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeIpamResourceDiscoveriesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeIpamResourceDiscoveriesInput"}
+	if s.IpamResourceDiscoveryName != nil && len(*s.IpamResourceDiscoveryName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("IpamResourceDiscoveryName", 1))
+	}
+	if s.IpamResourceDiscoveryName != nil && len(*s.IpamResourceDiscoveryName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("IpamResourceDiscoveryName", 128, *s.IpamResourceDiscoveryName))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetIpamResourceDiscoveryIds sets the IpamResourceDiscoveryIds field's value.

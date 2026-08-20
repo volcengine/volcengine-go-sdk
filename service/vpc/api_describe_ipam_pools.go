@@ -146,7 +146,7 @@ type DescribeIpamPoolsInput struct {
 
 	IpamPoolIds []*string `type:"list"`
 
-	IpamPoolName *string `type:"string"`
+	IpamPoolName *string `min:"1" max:"128" type:"string"`
 
 	IpamPoolOwnerId *string `type:"string"`
 
@@ -173,6 +173,22 @@ func (s DescribeIpamPoolsInput) String() string {
 // GoString returns the string representation
 func (s DescribeIpamPoolsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeIpamPoolsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeIpamPoolsInput"}
+	if s.IpamPoolName != nil && len(*s.IpamPoolName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("IpamPoolName", 1))
+	}
+	if s.IpamPoolName != nil && len(*s.IpamPoolName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("IpamPoolName", 128, *s.IpamPoolName))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetIpVersion sets the IpVersion field's value.

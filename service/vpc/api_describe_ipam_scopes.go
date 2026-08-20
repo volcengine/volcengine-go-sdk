@@ -146,7 +146,7 @@ type DescribeIpamScopesInput struct {
 
 	IpamScopeIds []*string `type:"list"`
 
-	IpamScopeName *string `type:"string"`
+	IpamScopeName *string `min:"1" max:"128" type:"string"`
 
 	IpamScopeType *string `type:"string"`
 
@@ -167,6 +167,22 @@ func (s DescribeIpamScopesInput) String() string {
 // GoString returns the string representation
 func (s DescribeIpamScopesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeIpamScopesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeIpamScopesInput"}
+	if s.IpamScopeName != nil && len(*s.IpamScopeName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("IpamScopeName", 1))
+	}
+	if s.IpamScopeName != nil && len(*s.IpamScopeName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("IpamScopeName", 128, *s.IpamScopeName))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetIpamId sets the IpamId field's value.

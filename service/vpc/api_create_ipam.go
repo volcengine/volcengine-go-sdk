@@ -142,7 +142,7 @@ func (c *VPC) CreateIpamWithContext(ctx volcengine.Context, input *CreateIpamInp
 type CreateIpamInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `max:"255" type:"string"`
 
 	IpamName *string `min:"1" max:"128" type:"string"`
 
@@ -167,9 +167,6 @@ func (s CreateIpamInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateIpamInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateIpamInput"}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}

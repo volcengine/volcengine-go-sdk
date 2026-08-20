@@ -150,12 +150,12 @@ type CreateIpamPoolInput struct {
 
 	AutoImport *bool `type:"boolean"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `max:"255" type:"string"`
 
 	// IpVersion is a required field
 	IpVersion *string `type:"string" required:"true"`
 
-	IpamPoolName *string `min:"1" max:"255" type:"string"`
+	IpamPoolName *string `min:"1" max:"128" type:"string"`
 
 	// IpamScopeId is a required field
 	IpamScopeId *string `min:"1" max:"128" type:"string" required:"true"`
@@ -187,9 +187,6 @@ func (s *CreateIpamPoolInput) Validate() error {
 	if s.AllocationMinCidrMask != nil && *s.AllocationMinCidrMask > 32 {
 		invalidParams.Add(request.NewErrParamMaxValue("AllocationMinCidrMask", 32))
 	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
@@ -199,8 +196,8 @@ func (s *CreateIpamPoolInput) Validate() error {
 	if s.IpamPoolName != nil && len(*s.IpamPoolName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("IpamPoolName", 1))
 	}
-	if s.IpamPoolName != nil && len(*s.IpamPoolName) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("IpamPoolName", 255, *s.IpamPoolName))
+	if s.IpamPoolName != nil && len(*s.IpamPoolName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("IpamPoolName", 128, *s.IpamPoolName))
 	}
 	if s.IpamScopeId == nil {
 		invalidParams.Add(request.NewErrParamRequired("IpamScopeId"))
