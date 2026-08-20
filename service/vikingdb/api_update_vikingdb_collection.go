@@ -145,6 +145,44 @@ func (c *VIKINGDB) UpdateVikingdbCollectionWithContext(ctx volcengine.Context, i
 	return out, req.Send()
 }
 
+type AnalyzerForUpdateVikingdbCollectionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CharacterConverters []*string `type:"list" json:",omitempty"`
+
+	StopWordsFilters []*string `type:"list" json:",omitempty"`
+
+	Tokenizer *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AnalyzerForUpdateVikingdbCollectionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AnalyzerForUpdateVikingdbCollectionInput) GoString() string {
+	return s.String()
+}
+
+// SetCharacterConverters sets the CharacterConverters field's value.
+func (s *AnalyzerForUpdateVikingdbCollectionInput) SetCharacterConverters(v []*string) *AnalyzerForUpdateVikingdbCollectionInput {
+	s.CharacterConverters = v
+	return s
+}
+
+// SetStopWordsFilters sets the StopWordsFilters field's value.
+func (s *AnalyzerForUpdateVikingdbCollectionInput) SetStopWordsFilters(v []*string) *AnalyzerForUpdateVikingdbCollectionInput {
+	s.StopWordsFilters = v
+	return s
+}
+
+// SetTokenizer sets the Tokenizer field's value.
+func (s *AnalyzerForUpdateVikingdbCollectionInput) SetTokenizer(v string) *AnalyzerForUpdateVikingdbCollectionInput {
+	s.Tokenizer = &v
+	return s
+}
+
 type FieldForUpdateVikingdbCollectionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -215,6 +253,49 @@ func (s *FieldForUpdateVikingdbCollectionInput) SetIsPrimaryKey(v bool) *FieldFo
 	return s
 }
 
+type FullTextForUpdateVikingdbCollectionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Analyzer *AnalyzerForUpdateVikingdbCollectionInput `type:"structure" json:",omitempty"`
+
+	Field *string `min:"1" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FullTextForUpdateVikingdbCollectionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FullTextForUpdateVikingdbCollectionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *FullTextForUpdateVikingdbCollectionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "FullTextForUpdateVikingdbCollectionInput"}
+	if s.Field != nil && len(*s.Field) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Field", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAnalyzer sets the Analyzer field's value.
+func (s *FullTextForUpdateVikingdbCollectionInput) SetAnalyzer(v *AnalyzerForUpdateVikingdbCollectionInput) *FullTextForUpdateVikingdbCollectionInput {
+	s.Analyzer = v
+	return s
+}
+
+// SetField sets the Field field's value.
+func (s *FullTextForUpdateVikingdbCollectionInput) SetField(v string) *FullTextForUpdateVikingdbCollectionInput {
+	s.Field = &v
+	return s
+}
+
 type UpdateVikingdbCollectionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -225,6 +306,8 @@ type UpdateVikingdbCollectionInput struct {
 	Description *string `type:"string" json:",omitempty"`
 
 	Fields []*FieldForUpdateVikingdbCollectionInput `type:"list" json:",omitempty"`
+
+	FullText []*FullTextForUpdateVikingdbCollectionInput `type:"list" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -251,6 +334,16 @@ func (s *UpdateVikingdbCollectionInput) Validate() error {
 			}
 			if err := v.Validate(); err != nil {
 				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Fields", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.FullText != nil {
+		for i, v := range s.FullText {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "FullText", i), err.(request.ErrInvalidParams))
 			}
 		}
 	}
@@ -282,6 +375,12 @@ func (s *UpdateVikingdbCollectionInput) SetDescription(v string) *UpdateVikingdb
 // SetFields sets the Fields field's value.
 func (s *UpdateVikingdbCollectionInput) SetFields(v []*FieldForUpdateVikingdbCollectionInput) *UpdateVikingdbCollectionInput {
 	s.Fields = v
+	return s
+}
+
+// SetFullText sets the FullText field's value.
+func (s *UpdateVikingdbCollectionInput) SetFullText(v []*FullTextForUpdateVikingdbCollectionInput) *UpdateVikingdbCollectionInput {
+	s.FullText = v
 	return s
 }
 
