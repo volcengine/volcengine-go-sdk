@@ -46,6 +46,30 @@ type TIDBAPI interface {
 	CancelImportTaskWithContext(volcengine.Context, *CancelImportTaskInput, ...request.Option) (*CancelImportTaskOutput, error)
 	CancelImportTaskRequest(*CancelImportTaskInput) (*request.Request, *CancelImportTaskOutput)
 
+	ChangeBranchPasswordCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ChangeBranchPasswordCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ChangeBranchPasswordCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ChangeBranchPassword(*ChangeBranchPasswordInput) (*ChangeBranchPasswordOutput, error)
+	ChangeBranchPasswordWithContext(volcengine.Context, *ChangeBranchPasswordInput, ...request.Option) (*ChangeBranchPasswordOutput, error)
+	ChangeBranchPasswordRequest(*ChangeBranchPasswordInput) (*request.Request, *ChangeBranchPasswordOutput)
+
+	CreateBranchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateBranchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateBranchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateBranch(*CreateBranchInput) (*CreateBranchOutput, error)
+	CreateBranchWithContext(volcengine.Context, *CreateBranchInput, ...request.Option) (*CreateBranchOutput, error)
+	CreateBranchRequest(*CreateBranchInput) (*request.Request, *CreateBranchOutput)
+
+	CreateClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateCluster(*CreateClusterInput) (*CreateClusterOutput, error)
+	CreateClusterWithContext(volcengine.Context, *CreateClusterInput, ...request.Option) (*CreateClusterOutput, error)
+	CreateClusterRequest(*CreateClusterInput) (*request.Request, *CreateClusterOutput)
+
 	CreateExportTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateExportTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateExportTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -70,6 +94,22 @@ type TIDBAPI interface {
 	CreateImportUploadUrlWithContext(volcengine.Context, *CreateImportUploadUrlInput, ...request.Option) (*CreateImportUploadUrlOutput, error)
 	CreateImportUploadUrlRequest(*CreateImportUploadUrlInput) (*request.Request, *CreateImportUploadUrlOutput)
 
+	DeleteBranchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteBranchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteBranchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteBranch(*DeleteBranchInput) (*DeleteBranchOutput, error)
+	DeleteBranchWithContext(volcengine.Context, *DeleteBranchInput, ...request.Option) (*DeleteBranchOutput, error)
+	DeleteBranchRequest(*DeleteBranchInput) (*request.Request, *DeleteBranchOutput)
+
+	DeleteClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteCluster(*DeleteClusterInput) (*DeleteClusterOutput, error)
+	DeleteClusterWithContext(volcengine.Context, *DeleteClusterInput, ...request.Option) (*DeleteClusterOutput, error)
+	DeleteClusterRequest(*DeleteClusterInput) (*request.Request, *DeleteClusterOutput)
+
 	DeleteExportTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteExportTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteExportTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +117,14 @@ type TIDBAPI interface {
 	DeleteExportTask(*DeleteExportTaskInput) (*DeleteExportTaskOutput, error)
 	DeleteExportTaskWithContext(volcengine.Context, *DeleteExportTaskInput, ...request.Option) (*DeleteExportTaskOutput, error)
 	DeleteExportTaskRequest(*DeleteExportTaskInput) (*request.Request, *DeleteExportTaskOutput)
+
+	DescribePriceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePriceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePriceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePriceDetail(*DescribePriceDetailInput) (*DescribePriceDetailOutput, error)
+	DescribePriceDetailWithContext(volcengine.Context, *DescribePriceDetailInput, ...request.Option) (*DescribePriceDetailOutput, error)
+	DescribePriceDetailRequest(*DescribePriceDetailInput) (*request.Request, *DescribePriceDetailOutput)
 
 	GetBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -93,6 +141,22 @@ type TIDBAPI interface {
 	GetBackupRetention(*GetBackupRetentionInput) (*GetBackupRetentionOutput, error)
 	GetBackupRetentionWithContext(volcengine.Context, *GetBackupRetentionInput, ...request.Option) (*GetBackupRetentionOutput, error)
 	GetBackupRetentionRequest(*GetBackupRetentionInput) (*request.Request, *GetBackupRetentionOutput)
+
+	GetBranchDetailsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetBranchDetailsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetBranchDetailsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetBranchDetails(*GetBranchDetailsInput) (*GetBranchDetailsOutput, error)
+	GetBranchDetailsWithContext(volcengine.Context, *GetBranchDetailsInput, ...request.Option) (*GetBranchDetailsOutput, error)
+	GetBranchDetailsRequest(*GetBranchDetailsInput) (*request.Request, *GetBranchDetailsOutput)
+
+	GetClusterDetailsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetClusterDetailsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetClusterDetailsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetClusterDetails(*GetClusterDetailsInput) (*GetClusterDetailsOutput, error)
+	GetClusterDetailsWithContext(volcengine.Context, *GetClusterDetailsInput, ...request.Option) (*GetClusterDetailsOutput, error)
+	GetClusterDetailsRequest(*GetClusterDetailsInput) (*request.Request, *GetClusterDetailsOutput)
 
 	GetExportTaskDetailsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetExportTaskDetailsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -157,6 +221,38 @@ type TIDBAPI interface {
 	ListBackups(*ListBackupsInput) (*ListBackupsOutput, error)
 	ListBackupsWithContext(volcengine.Context, *ListBackupsInput, ...request.Option) (*ListBackupsOutput, error)
 	ListBackupsRequest(*ListBackupsInput) (*request.Request, *ListBackupsOutput)
+
+	ListBranchDatabasesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBranchDatabasesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBranchDatabasesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBranchDatabases(*ListBranchDatabasesInput) (*ListBranchDatabasesOutput, error)
+	ListBranchDatabasesWithContext(volcengine.Context, *ListBranchDatabasesInput, ...request.Option) (*ListBranchDatabasesOutput, error)
+	ListBranchDatabasesRequest(*ListBranchDatabasesInput) (*request.Request, *ListBranchDatabasesOutput)
+
+	ListBranchesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBranchesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBranchesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBranches(*ListBranchesInput) (*ListBranchesOutput, error)
+	ListBranchesWithContext(volcengine.Context, *ListBranchesInput, ...request.Option) (*ListBranchesOutput, error)
+	ListBranchesRequest(*ListBranchesInput) (*request.Request, *ListBranchesOutput)
+
+	ListClusterDatabasesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListClusterDatabasesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListClusterDatabasesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListClusterDatabases(*ListClusterDatabasesInput) (*ListClusterDatabasesOutput, error)
+	ListClusterDatabasesWithContext(volcengine.Context, *ListClusterDatabasesInput, ...request.Option) (*ListClusterDatabasesOutput, error)
+	ListClusterDatabasesRequest(*ListClusterDatabasesInput) (*request.Request, *ListClusterDatabasesOutput)
+
+	ListClustersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListClustersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListClustersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListClusters(*ListClustersInput) (*ListClustersOutput, error)
+	ListClustersWithContext(volcengine.Context, *ListClustersInput, ...request.Option) (*ListClustersOutput, error)
+	ListClustersRequest(*ListClustersInput) (*request.Request, *ListClustersOutput)
 
 	ListEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -270,6 +366,22 @@ type TIDBAPI interface {
 	PreviewLocalImportWithContext(volcengine.Context, *PreviewLocalImportInput, ...request.Option) (*PreviewLocalImportOutput, error)
 	PreviewLocalImportRequest(*PreviewLocalImportInput) (*request.Request, *PreviewLocalImportOutput)
 
+	ResetBranchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResetBranchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResetBranchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResetBranch(*ResetBranchInput) (*ResetBranchOutput, error)
+	ResetBranchWithContext(volcengine.Context, *ResetBranchInput, ...request.Option) (*ResetBranchOutput, error)
+	ResetBranchRequest(*ResetBranchInput) (*request.Request, *ResetBranchOutput)
+
+	ResetClusterPasswordCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResetClusterPasswordCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResetClusterPasswordCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResetClusterPassword(*ResetClusterPasswordInput) (*ResetClusterPasswordOutput, error)
+	ResetClusterPasswordWithContext(volcengine.Context, *ResetClusterPasswordInput, ...request.Option) (*ResetClusterPasswordOutput, error)
+	ResetClusterPasswordRequest(*ResetClusterPasswordInput) (*request.Request, *ResetClusterPasswordOutput)
+
 	RestoreClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestoreClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RestoreClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -277,6 +389,22 @@ type TIDBAPI interface {
 	RestoreCluster(*RestoreClusterInput) (*RestoreClusterOutput, error)
 	RestoreClusterWithContext(volcengine.Context, *RestoreClusterInput, ...request.Option) (*RestoreClusterOutput, error)
 	RestoreClusterRequest(*RestoreClusterInput) (*request.Request, *RestoreClusterOutput)
+
+	UpdateBranchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateBranchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateBranchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateBranch(*UpdateBranchInput) (*UpdateBranchOutput, error)
+	UpdateBranchWithContext(volcengine.Context, *UpdateBranchInput, ...request.Option) (*UpdateBranchOutput, error)
+	UpdateBranchRequest(*UpdateBranchInput) (*request.Request, *UpdateBranchOutput)
+
+	UpdateClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateCluster(*UpdateClusterInput) (*UpdateClusterOutput, error)
+	UpdateClusterWithContext(volcengine.Context, *UpdateClusterInput, ...request.Option) (*UpdateClusterOutput, error)
+	UpdateClusterRequest(*UpdateClusterInput) (*request.Request, *UpdateClusterOutput)
 
 	ValidateImportTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ValidateImportTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

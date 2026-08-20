@@ -149,6 +149,10 @@ type CreateSandboxSnapshotInput struct {
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
+	Metadata *MetadataForCreateSandboxSnapshotInput `type:"structure" json:",omitempty"`
+
+	RetentionDays *int32 `type:"int32" json:",omitempty"`
+
 	// SandboxId is a required field
 	SandboxId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -187,6 +191,18 @@ func (s *CreateSandboxSnapshotInput) SetFunctionId(v string) *CreateSandboxSnaps
 	return s
 }
 
+// SetMetadata sets the Metadata field's value.
+func (s *CreateSandboxSnapshotInput) SetMetadata(v *MetadataForCreateSandboxSnapshotInput) *CreateSandboxSnapshotInput {
+	s.Metadata = v
+	return s
+}
+
+// SetRetentionDays sets the RetentionDays field's value.
+func (s *CreateSandboxSnapshotInput) SetRetentionDays(v int32) *CreateSandboxSnapshotInput {
+	s.RetentionDays = &v
+	return s
+}
+
 // SetSandboxId sets the SandboxId field's value.
 func (s *CreateSandboxSnapshotInput) SetSandboxId(v string) *CreateSandboxSnapshotInput {
 	s.SandboxId = &v
@@ -221,4 +237,18 @@ func (s CreateSandboxSnapshotOutput) GoString() string {
 func (s *CreateSandboxSnapshotOutput) SetSnapshotId(v string) *CreateSandboxSnapshotOutput {
 	s.SnapshotId = &v
 	return s
+}
+
+type MetadataForCreateSandboxSnapshotInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetadataForCreateSandboxSnapshotInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetadataForCreateSandboxSnapshotInput) GoString() string {
+	return s.String()
 }

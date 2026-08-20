@@ -172,6 +172,8 @@ type ClawOmniInstanceForGetClawOmniInstanceOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	OperationLock *OperationLockForGetClawOmniInstanceOutput `type:"structure" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	Soul *string `type:"string" json:",omitempty"`
@@ -183,6 +185,14 @@ type ClawOmniInstanceForGetClawOmniInstanceOutput struct {
 	Tags []*TagForGetClawOmniInstanceOutput `type:"list"`
 
 	TemplateId *string `type:"string" json:",omitempty"`
+
+	TokenLimitPerDay *string `type:"string" json:",omitempty"`
+
+	TokenLimitPerMin *string `type:"string" json:",omitempty"`
+
+	TokenLimitPerWeek *string `type:"string" json:",omitempty"`
+
+	TokenQuota *TokenQuotaForGetClawOmniInstanceOutput `type:"structure" json:",omitempty"`
 
 	UpdatedAt *string `type:"string" json:",omitempty"`
 }
@@ -275,6 +285,12 @@ func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetName(v string) *ClawOm
 	return s
 }
 
+// SetOperationLock sets the OperationLock field's value.
+func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetOperationLock(v *OperationLockForGetClawOmniInstanceOutput) *ClawOmniInstanceForGetClawOmniInstanceOutput {
+	s.OperationLock = v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetProjectName(v string) *ClawOmniInstanceForGetClawOmniInstanceOutput {
 	s.ProjectName = &v
@@ -308,6 +324,30 @@ func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetTags(v []*TagForGetCla
 // SetTemplateId sets the TemplateId field's value.
 func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetTemplateId(v string) *ClawOmniInstanceForGetClawOmniInstanceOutput {
 	s.TemplateId = &v
+	return s
+}
+
+// SetTokenLimitPerDay sets the TokenLimitPerDay field's value.
+func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetTokenLimitPerDay(v string) *ClawOmniInstanceForGetClawOmniInstanceOutput {
+	s.TokenLimitPerDay = &v
+	return s
+}
+
+// SetTokenLimitPerMin sets the TokenLimitPerMin field's value.
+func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetTokenLimitPerMin(v string) *ClawOmniInstanceForGetClawOmniInstanceOutput {
+	s.TokenLimitPerMin = &v
+	return s
+}
+
+// SetTokenLimitPerWeek sets the TokenLimitPerWeek field's value.
+func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetTokenLimitPerWeek(v string) *ClawOmniInstanceForGetClawOmniInstanceOutput {
+	s.TokenLimitPerWeek = &v
+	return s
+}
+
+// SetTokenQuota sets the TokenQuota field's value.
+func (s *ClawOmniInstanceForGetClawOmniInstanceOutput) SetTokenQuota(v *TokenQuotaForGetClawOmniInstanceOutput) *ClawOmniInstanceForGetClawOmniInstanceOutput {
+	s.TokenQuota = v
 	return s
 }
 
@@ -423,6 +463,44 @@ func (s *ModelConfigForGetClawOmniInstanceOutput) SetModelSource(v string) *Mode
 	return s
 }
 
+type OperationLockForGetClawOmniInstanceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Locked *bool `type:"boolean" json:",omitempty"`
+
+	LockedAt *string `type:"string" json:",omitempty"`
+
+	Scope []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s OperationLockForGetClawOmniInstanceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OperationLockForGetClawOmniInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetLocked sets the Locked field's value.
+func (s *OperationLockForGetClawOmniInstanceOutput) SetLocked(v bool) *OperationLockForGetClawOmniInstanceOutput {
+	s.Locked = &v
+	return s
+}
+
+// SetLockedAt sets the LockedAt field's value.
+func (s *OperationLockForGetClawOmniInstanceOutput) SetLockedAt(v string) *OperationLockForGetClawOmniInstanceOutput {
+	s.LockedAt = &v
+	return s
+}
+
+// SetScope sets the Scope field's value.
+func (s *OperationLockForGetClawOmniInstanceOutput) SetScope(v []*string) *OperationLockForGetClawOmniInstanceOutput {
+	s.Scope = v
+	return s
+}
+
 type TagForGetClawOmniInstanceOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -458,5 +536,51 @@ func (s *TagForGetClawOmniInstanceOutput) SetType(v string) *TagForGetClawOmniIn
 // SetValue sets the Value field's value.
 func (s *TagForGetClawOmniInstanceOutput) SetValue(v string) *TagForGetClawOmniInstanceOutput {
 	s.Value = &v
+	return s
+}
+
+type TokenQuotaForGetClawOmniInstanceOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EndTime *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	StartTime *string `type:"string" json:",omitempty"`
+
+	Threshold *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TokenQuotaForGetClawOmniInstanceOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TokenQuotaForGetClawOmniInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *TokenQuotaForGetClawOmniInstanceOutput) SetEndTime(v string) *TokenQuotaForGetClawOmniInstanceOutput {
+	s.EndTime = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *TokenQuotaForGetClawOmniInstanceOutput) SetName(v string) *TokenQuotaForGetClawOmniInstanceOutput {
+	s.Name = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *TokenQuotaForGetClawOmniInstanceOutput) SetStartTime(v string) *TokenQuotaForGetClawOmniInstanceOutput {
+	s.StartTime = &v
+	return s
+}
+
+// SetThreshold sets the Threshold field's value.
+func (s *TokenQuotaForGetClawOmniInstanceOutput) SetThreshold(v string) *TokenQuotaForGetClawOmniInstanceOutput {
+	s.Threshold = &v
 	return s
 }

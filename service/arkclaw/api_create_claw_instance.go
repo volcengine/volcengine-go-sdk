@@ -156,6 +156,8 @@ type CreateClawInstanceInput struct {
 
 	DryRun *bool `type:"boolean" json:",omitempty"`
 
+	EnableHeadless *bool `type:"boolean" json:",omitempty"`
+
 	ModelApiKey *string `type:"string" json:",omitempty"`
 
 	ModelBaseUrl *string `type:"string" json:",omitempty"`
@@ -240,6 +242,12 @@ func (s *CreateClawInstanceInput) SetDescription(v string) *CreateClawInstanceIn
 // SetDryRun sets the DryRun field's value.
 func (s *CreateClawInstanceInput) SetDryRun(v bool) *CreateClawInstanceInput {
 	s.DryRun = &v
+	return s
+}
+
+// SetEnableHeadless sets the EnableHeadless field's value.
+func (s *CreateClawInstanceInput) SetEnableHeadless(v bool) *CreateClawInstanceInput {
+	s.EnableHeadless = &v
 	return s
 }
 

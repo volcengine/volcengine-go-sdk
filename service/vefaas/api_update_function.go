@@ -219,6 +219,142 @@ func (s *AsyncTaskConfigForUpdateFunctionOutput) SetMaxRetry(v int32) *AsyncTask
 	return s
 }
 
+type BackendForUpdateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountTarget *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BackendForUpdateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackendForUpdateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetMountTarget sets the MountTarget field's value.
+func (s *BackendForUpdateFunctionInput) SetMountTarget(v string) *BackendForUpdateFunctionInput {
+	s.MountTarget = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *BackendForUpdateFunctionInput) SetZoneId(v string) *BackendForUpdateFunctionInput {
+	s.ZoneId = &v
+	return s
+}
+
+type BackendForUpdateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountTarget *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BackendForUpdateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackendForUpdateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountTarget sets the MountTarget field's value.
+func (s *BackendForUpdateFunctionOutput) SetMountTarget(v string) *BackendForUpdateFunctionOutput {
+	s.MountTarget = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *BackendForUpdateFunctionOutput) SetZoneId(v string) *BackendForUpdateFunctionOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type ConvertMountPointForUpdateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Backend *BackendForUpdateFunctionInput `type:"structure" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertMountPointForUpdateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertMountPointForUpdateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetBackend sets the Backend field's value.
+func (s *ConvertMountPointForUpdateFunctionInput) SetBackend(v *BackendForUpdateFunctionInput) *ConvertMountPointForUpdateFunctionInput {
+	s.Backend = v
+	return s
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *ConvertMountPointForUpdateFunctionInput) SetLocalMountPath(v string) *ConvertMountPointForUpdateFunctionInput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *ConvertMountPointForUpdateFunctionInput) SetReadOnly(v bool) *ConvertMountPointForUpdateFunctionInput {
+	s.ReadOnly = &v
+	return s
+}
+
+type ConvertMountPointForUpdateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Backend *BackendForUpdateFunctionOutput `type:"structure" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertMountPointForUpdateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertMountPointForUpdateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetBackend sets the Backend field's value.
+func (s *ConvertMountPointForUpdateFunctionOutput) SetBackend(v *BackendForUpdateFunctionOutput) *ConvertMountPointForUpdateFunctionOutput {
+	s.Backend = v
+	return s
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *ConvertMountPointForUpdateFunctionOutput) SetLocalMountPath(v string) *ConvertMountPointForUpdateFunctionOutput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *ConvertMountPointForUpdateFunctionOutput) SetReadOnly(v bool) *ConvertMountPointForUpdateFunctionOutput {
+	s.ReadOnly = &v
+	return s
+}
+
 type CredentialsForUpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -339,6 +475,142 @@ func (s *DestinationConfigForUpdateFunctionOutput) SetOnSuccess(v *OnSuccessForU
 	return s
 }
 
+type EfsMountConfigForUpdateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPoints []*ConvertMountPointForUpdateFunctionInput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsMountConfigForUpdateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsMountConfigForUpdateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetMountPoints sets the MountPoints field's value.
+func (s *EfsMountConfigForUpdateFunctionInput) SetMountPoints(v []*ConvertMountPointForUpdateFunctionInput) *EfsMountConfigForUpdateFunctionInput {
+	s.MountPoints = v
+	return s
+}
+
+type EfsMountConfigForUpdateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPoints []*ConvertMountPointForUpdateFunctionOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsMountConfigForUpdateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsMountConfigForUpdateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountPoints sets the MountPoints field's value.
+func (s *EfsMountConfigForUpdateFunctionOutput) SetMountPoints(v []*ConvertMountPointForUpdateFunctionOutput) *EfsMountConfigForUpdateFunctionOutput {
+	s.MountPoints = v
+	return s
+}
+
+type EncryptionConfigForUpdateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableSSE *bool `type:"boolean" json:",omitempty"`
+
+	EncryptionAlgorithm *string `type:"string" json:",omitempty"`
+
+	EncryptionMethod *string `type:"string" json:",omitempty"`
+
+	KMSMasterKeyID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EncryptionConfigForUpdateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EncryptionConfigForUpdateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetEnableSSE sets the EnableSSE field's value.
+func (s *EncryptionConfigForUpdateFunctionInput) SetEnableSSE(v bool) *EncryptionConfigForUpdateFunctionInput {
+	s.EnableSSE = &v
+	return s
+}
+
+// SetEncryptionAlgorithm sets the EncryptionAlgorithm field's value.
+func (s *EncryptionConfigForUpdateFunctionInput) SetEncryptionAlgorithm(v string) *EncryptionConfigForUpdateFunctionInput {
+	s.EncryptionAlgorithm = &v
+	return s
+}
+
+// SetEncryptionMethod sets the EncryptionMethod field's value.
+func (s *EncryptionConfigForUpdateFunctionInput) SetEncryptionMethod(v string) *EncryptionConfigForUpdateFunctionInput {
+	s.EncryptionMethod = &v
+	return s
+}
+
+// SetKMSMasterKeyID sets the KMSMasterKeyID field's value.
+func (s *EncryptionConfigForUpdateFunctionInput) SetKMSMasterKeyID(v string) *EncryptionConfigForUpdateFunctionInput {
+	s.KMSMasterKeyID = &v
+	return s
+}
+
+type EncryptionConfigForUpdateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EnableSSE *bool `type:"boolean" json:",omitempty"`
+
+	EncryptionAlgorithm *string `type:"string" json:",omitempty"`
+
+	EncryptionMethod *string `type:"string" json:",omitempty"`
+
+	KMSMasterKeyID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EncryptionConfigForUpdateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EncryptionConfigForUpdateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnableSSE sets the EnableSSE field's value.
+func (s *EncryptionConfigForUpdateFunctionOutput) SetEnableSSE(v bool) *EncryptionConfigForUpdateFunctionOutput {
+	s.EnableSSE = &v
+	return s
+}
+
+// SetEncryptionAlgorithm sets the EncryptionAlgorithm field's value.
+func (s *EncryptionConfigForUpdateFunctionOutput) SetEncryptionAlgorithm(v string) *EncryptionConfigForUpdateFunctionOutput {
+	s.EncryptionAlgorithm = &v
+	return s
+}
+
+// SetEncryptionMethod sets the EncryptionMethod field's value.
+func (s *EncryptionConfigForUpdateFunctionOutput) SetEncryptionMethod(v string) *EncryptionConfigForUpdateFunctionOutput {
+	s.EncryptionMethod = &v
+	return s
+}
+
+// SetKMSMasterKeyID sets the KMSMasterKeyID field's value.
+func (s *EncryptionConfigForUpdateFunctionOutput) SetKMSMasterKeyID(v string) *EncryptionConfigForUpdateFunctionOutput {
+	s.KMSMasterKeyID = &v
+	return s
+}
+
 type EnvForUpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -406,6 +678,8 @@ type MountPointForUpdateFunctionInput struct {
 
 	BucketPath *string `type:"string" json:",omitempty"`
 
+	EncryptionConfig *EncryptionConfigForUpdateFunctionInput `type:"structure" json:",omitempty"`
+
 	Endpoint *string `type:"string" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
@@ -435,6 +709,12 @@ func (s *MountPointForUpdateFunctionInput) SetBucketPath(v string) *MountPointFo
 	return s
 }
 
+// SetEncryptionConfig sets the EncryptionConfig field's value.
+func (s *MountPointForUpdateFunctionInput) SetEncryptionConfig(v *EncryptionConfigForUpdateFunctionInput) *MountPointForUpdateFunctionInput {
+	s.EncryptionConfig = v
+	return s
+}
+
 // SetEndpoint sets the Endpoint field's value.
 func (s *MountPointForUpdateFunctionInput) SetEndpoint(v string) *MountPointForUpdateFunctionInput {
 	s.Endpoint = &v
@@ -459,6 +739,8 @@ type MountPointForUpdateFunctionOutput struct {
 	BucketName *string `type:"string" json:",omitempty"`
 
 	BucketPath *string `type:"string" json:",omitempty"`
+
+	EncryptionConfig *EncryptionConfigForUpdateFunctionOutput `type:"structure" json:",omitempty"`
 
 	Endpoint *string `type:"string" json:",omitempty"`
 
@@ -486,6 +768,12 @@ func (s *MountPointForUpdateFunctionOutput) SetBucketName(v string) *MountPointF
 // SetBucketPath sets the BucketPath field's value.
 func (s *MountPointForUpdateFunctionOutput) SetBucketPath(v string) *MountPointForUpdateFunctionOutput {
 	s.BucketPath = &v
+	return s
+}
+
+// SetEncryptionConfig sets the EncryptionConfig field's value.
+func (s *MountPointForUpdateFunctionOutput) SetEncryptionConfig(v *EncryptionConfigForUpdateFunctionOutput) *MountPointForUpdateFunctionOutput {
+	s.EncryptionConfig = v
 	return s
 }
 
@@ -948,6 +1236,8 @@ func (s *TlsConfigForUpdateFunctionOutput) SetTlsTopicId(v string) *TlsConfigFor
 type TosMountConfigForUpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AuthMode *string `type:"string" json:",omitempty"`
+
 	Credentials *CredentialsForUpdateFunctionInput `type:"structure" json:",omitempty"`
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
@@ -963,6 +1253,12 @@ func (s TosMountConfigForUpdateFunctionInput) String() string {
 // GoString returns the string representation
 func (s TosMountConfigForUpdateFunctionInput) GoString() string {
 	return s.String()
+}
+
+// SetAuthMode sets the AuthMode field's value.
+func (s *TosMountConfigForUpdateFunctionInput) SetAuthMode(v string) *TosMountConfigForUpdateFunctionInput {
+	s.AuthMode = &v
+	return s
 }
 
 // SetCredentials sets the Credentials field's value.
@@ -986,6 +1282,8 @@ func (s *TosMountConfigForUpdateFunctionInput) SetMountPoints(v []*MountPointFor
 type TosMountConfigForUpdateFunctionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AuthMode *string `type:"string" json:",omitempty"`
+
 	Credentials *CredentialsForUpdateFunctionOutput `type:"structure" json:",omitempty"`
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
@@ -1001,6 +1299,12 @@ func (s TosMountConfigForUpdateFunctionOutput) String() string {
 // GoString returns the string representation
 func (s TosMountConfigForUpdateFunctionOutput) GoString() string {
 	return s.String()
+}
+
+// SetAuthMode sets the AuthMode field's value.
+func (s *TosMountConfigForUpdateFunctionOutput) SetAuthMode(v string) *TosMountConfigForUpdateFunctionOutput {
+	s.AuthMode = &v
+	return s
 }
 
 // SetCredentials sets the Credentials field's value.
@@ -1031,6 +1335,8 @@ type UpdateFunctionInput struct {
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	EfsMountConfig *EfsMountConfigForUpdateFunctionInput `type:"structure" json:",omitempty"`
 
 	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
@@ -1118,6 +1424,12 @@ func (s *UpdateFunctionInput) SetCpuMilli(v int32) *UpdateFunctionInput {
 // SetDescription sets the Description field's value.
 func (s *UpdateFunctionInput) SetDescription(v string) *UpdateFunctionInput {
 	s.Description = &v
+	return s
+}
+
+// SetEfsMountConfig sets the EfsMountConfig field's value.
+func (s *UpdateFunctionInput) SetEfsMountConfig(v *EfsMountConfigForUpdateFunctionInput) *UpdateFunctionInput {
+	s.EfsMountConfig = v
 	return s
 }
 
@@ -1262,6 +1574,8 @@ type UpdateFunctionOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	EfsMountConfig *EfsMountConfigForUpdateFunctionOutput `type:"structure" json:",omitempty"`
+
 	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
 	Envs []*EnvForUpdateFunctionOutput `type:"list" json:",omitempty"`
@@ -1370,6 +1684,12 @@ func (s *UpdateFunctionOutput) SetCreationTime(v string) *UpdateFunctionOutput {
 // SetDescription sets the Description field's value.
 func (s *UpdateFunctionOutput) SetDescription(v string) *UpdateFunctionOutput {
 	s.Description = &v
+	return s
+}
+
+// SetEfsMountConfig sets the EfsMountConfig field's value.
+func (s *UpdateFunctionOutput) SetEfsMountConfig(v *EfsMountConfigForUpdateFunctionOutput) *UpdateFunctionOutput {
+	s.EfsMountConfig = v
 	return s
 }
 

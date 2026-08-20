@@ -198,6 +198,8 @@ func (s *EntryForGetResourceOauth2TokenInput) SetValue(v string) *EntryForGetRes
 type GetResourceOauth2TokenInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CredentialName *string `type:"string" json:",omitempty"`
+
 	CustomParameters *CustomParametersForGetResourceOauth2TokenInput `type:"structure" json:",omitempty"`
 
 	CustomState *string `type:"string" json:",omitempty"`
@@ -247,6 +249,12 @@ func (s *GetResourceOauth2TokenInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetCredentialName sets the CredentialName field's value.
+func (s *GetResourceOauth2TokenInput) SetCredentialName(v string) *GetResourceOauth2TokenInput {
+	s.CredentialName = &v
+	return s
 }
 
 // SetCustomParameters sets the CustomParameters field's value.

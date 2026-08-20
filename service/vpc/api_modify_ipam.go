@@ -145,12 +145,12 @@ type ModifyIpamInput struct {
 	// AddOperatingRegions is a required field
 	AddOperatingRegions []*string `type:"list" required:"true"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `max:"255" type:"string"`
 
 	// IpamId is a required field
 	IpamId *string `min:"1" max:"128" type:"string" required:"true"`
 
-	IpamName *string `min:"1" max:"255" type:"string"`
+	IpamName *string `min:"1" max:"128" type:"string"`
 
 	RemoveOperatingRegions []*string `type:"list"`
 }
@@ -171,9 +171,6 @@ func (s *ModifyIpamInput) Validate() error {
 	if s.AddOperatingRegions == nil {
 		invalidParams.Add(request.NewErrParamRequired("AddOperatingRegions"))
 	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
@@ -189,8 +186,8 @@ func (s *ModifyIpamInput) Validate() error {
 	if s.IpamName != nil && len(*s.IpamName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("IpamName", 1))
 	}
-	if s.IpamName != nil && len(*s.IpamName) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("IpamName", 255, *s.IpamName))
+	if s.IpamName != nil && len(*s.IpamName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("IpamName", 128, *s.IpamName))
 	}
 
 	if invalidParams.Len() > 0 {

@@ -346,8 +346,6 @@ type TagFilterForDescribeLaunchTemplatesInput struct {
 
 	Key *string `type:"string"`
 
-	Value []*string `type:"list"`
-
 	Values []*string `type:"list"`
 }
 
@@ -364,12 +362,6 @@ func (s TagFilterForDescribeLaunchTemplatesInput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagFilterForDescribeLaunchTemplatesInput) SetKey(v string) *TagFilterForDescribeLaunchTemplatesInput {
 	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *TagFilterForDescribeLaunchTemplatesInput) SetValue(v []*string) *TagFilterForDescribeLaunchTemplatesInput {
-	s.Value = v
 	return s
 }
 

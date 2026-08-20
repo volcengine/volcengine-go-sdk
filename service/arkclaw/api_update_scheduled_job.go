@@ -161,6 +161,58 @@ func (s *FieldMaskForUpdateScheduledJobInput) SetPaths(v []*string) *FieldMaskFo
 	return s
 }
 
+type ResultDeliveryForUpdateScheduledJobInput struct {
+	_ struct{} `type:"structure"`
+
+	Channel *string `type:"string"`
+
+	ChatId *string `type:"string"`
+
+	// Target is a required field
+	Target *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ResultDeliveryForUpdateScheduledJobInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResultDeliveryForUpdateScheduledJobInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ResultDeliveryForUpdateScheduledJobInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ResultDeliveryForUpdateScheduledJobInput"}
+	if s.Target == nil {
+		invalidParams.Add(request.NewErrParamRequired("Target"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetChannel sets the Channel field's value.
+func (s *ResultDeliveryForUpdateScheduledJobInput) SetChannel(v string) *ResultDeliveryForUpdateScheduledJobInput {
+	s.Channel = &v
+	return s
+}
+
+// SetChatId sets the ChatId field's value.
+func (s *ResultDeliveryForUpdateScheduledJobInput) SetChatId(v string) *ResultDeliveryForUpdateScheduledJobInput {
+	s.ChatId = &v
+	return s
+}
+
+// SetTarget sets the Target field's value.
+func (s *ResultDeliveryForUpdateScheduledJobInput) SetTarget(v string) *ResultDeliveryForUpdateScheduledJobInput {
+	s.Target = &v
+	return s
+}
+
 type UpdateScheduledJobInput struct {
 	_ struct{} `type:"structure"`
 
@@ -174,6 +226,8 @@ type UpdateScheduledJobInput struct {
 	Name *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	ResultDelivery *ResultDeliveryForUpdateScheduledJobInput `type:"structure"`
 
 	ScheduleExpr *string `type:"string"`
 
@@ -205,6 +259,11 @@ func (s *UpdateScheduledJobInput) Validate() error {
 	}
 	if s.SpaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SpaceId"))
+	}
+	if s.ResultDelivery != nil {
+		if err := s.ResultDelivery.Validate(); err != nil {
+			invalidParams.AddNested("ResultDelivery", err.(request.ErrInvalidParams))
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -240,6 +299,12 @@ func (s *UpdateScheduledJobInput) SetName(v string) *UpdateScheduledJobInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *UpdateScheduledJobInput) SetProjectName(v string) *UpdateScheduledJobInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetResultDelivery sets the ResultDelivery field's value.
+func (s *UpdateScheduledJobInput) SetResultDelivery(v *ResultDeliveryForUpdateScheduledJobInput) *UpdateScheduledJobInput {
+	s.ResultDelivery = v
 	return s
 }
 

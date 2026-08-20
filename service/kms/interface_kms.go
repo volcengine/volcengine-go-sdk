@@ -142,6 +142,14 @@ type KMSAPI interface {
 	CreateKeyringWithContext(volcengine.Context, *CreateKeyringInput, ...request.Option) (*CreateKeyringOutput, error)
 	CreateKeyringRequest(*CreateKeyringInput) (*request.Request, *CreateKeyringOutput)
 
+	CreateKmsInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateKmsInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateKmsInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateKmsInstance(*CreateKmsInstanceInput) (*CreateKmsInstanceOutput, error)
+	CreateKmsInstanceWithContext(volcengine.Context, *CreateKmsInstanceInput, ...request.Option) (*CreateKmsInstanceOutput, error)
+	CreateKmsInstanceRequest(*CreateKmsInstanceInput) (*request.Request, *CreateKmsInstanceOutput)
+
 	CreateSecretCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSecretCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateSecretCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -149,6 +157,14 @@ type KMSAPI interface {
 	CreateSecret(*CreateSecretInput) (*CreateSecretOutput, error)
 	CreateSecretWithContext(volcengine.Context, *CreateSecretInput, ...request.Option) (*CreateSecretOutput, error)
 	CreateSecretRequest(*CreateSecretInput) (*request.Request, *CreateSecretOutput)
+
+	CreateSecretInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSecretInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSecretInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSecretInstance(*CreateSecretInstanceInput) (*CreateSecretInstanceOutput, error)
+	CreateSecretInstanceWithContext(volcengine.Context, *CreateSecretInstanceInput, ...request.Option) (*CreateSecretInstanceOutput, error)
+	CreateSecretInstanceRequest(*CreateSecretInstanceInput) (*request.Request, *CreateSecretInstanceOutput)
 
 	CreateSecretOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSecretOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -222,6 +238,14 @@ type KMSAPI interface {
 	DescribeKeysWithContext(volcengine.Context, *DescribeKeysInput, ...request.Option) (*DescribeKeysOutput, error)
 	DescribeKeysRequest(*DescribeKeysInput) (*request.Request, *DescribeKeysOutput)
 
+	DescribeKmsInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeKmsInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeKmsInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeKmsInstances(*DescribeKmsInstancesInput) (*DescribeKmsInstancesOutput, error)
+	DescribeKmsInstancesWithContext(volcengine.Context, *DescribeKmsInstancesInput, ...request.Option) (*DescribeKmsInstancesOutput, error)
+	DescribeKmsInstancesRequest(*DescribeKmsInstancesInput) (*request.Request, *DescribeKmsInstancesOutput)
+
 	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -237,6 +261,14 @@ type KMSAPI interface {
 	DescribeSecret(*DescribeSecretInput) (*DescribeSecretOutput, error)
 	DescribeSecretWithContext(volcengine.Context, *DescribeSecretInput, ...request.Option) (*DescribeSecretOutput, error)
 	DescribeSecretRequest(*DescribeSecretInput) (*request.Request, *DescribeSecretOutput)
+
+	DescribeSecretInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSecretInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSecretInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSecretInstances(*DescribeSecretInstancesInput) (*DescribeSecretInstancesOutput, error)
+	DescribeSecretInstancesWithContext(volcengine.Context, *DescribeSecretInstancesInput, ...request.Option) (*DescribeSecretInstancesOutput, error)
+	DescribeSecretInstancesRequest(*DescribeSecretInstancesInput) (*request.Request, *DescribeSecretInstancesOutput)
 
 	DescribeSecretVersionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSecretVersionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -357,6 +389,22 @@ type KMSAPI interface {
 	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
+	ModifyKmsInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyKmsInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyKmsInstanceSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyKmsInstanceSpec(*ModifyKmsInstanceSpecInput) (*ModifyKmsInstanceSpecOutput, error)
+	ModifyKmsInstanceSpecWithContext(volcengine.Context, *ModifyKmsInstanceSpecInput, ...request.Option) (*ModifyKmsInstanceSpecOutput, error)
+	ModifyKmsInstanceSpecRequest(*ModifyKmsInstanceSpecInput) (*request.Request, *ModifyKmsInstanceSpecOutput)
+
+	ModifySecretInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySecretInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySecretInstanceSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySecretInstanceSpec(*ModifySecretInstanceSpecInput) (*ModifySecretInstanceSpecOutput, error)
+	ModifySecretInstanceSpecWithContext(volcengine.Context, *ModifySecretInstanceSpecInput, ...request.Option) (*ModifySecretInstanceSpecOutput, error)
+	ModifySecretInstanceSpecRequest(*ModifySecretInstanceSpecInput) (*request.Request, *ModifySecretInstanceSpecOutput)
 
 	QueryKeyringCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryKeyringCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
