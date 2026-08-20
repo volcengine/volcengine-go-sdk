@@ -236,6 +236,8 @@ type JobForGetScheduledJobOutput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
+	ResultDelivery *ResultDeliveryForGetScheduledJobOutput `type:"structure" json:",omitempty"`
+
 	ScheduleExpr *string `type:"string" json:",omitempty"`
 
 	ScheduleType *string `type:"string" json:",omitempty"`
@@ -289,6 +291,12 @@ func (s *JobForGetScheduledJobOutput) SetName(v string) *JobForGetScheduledJobOu
 	return s
 }
 
+// SetResultDelivery sets the ResultDelivery field's value.
+func (s *JobForGetScheduledJobOutput) SetResultDelivery(v *ResultDeliveryForGetScheduledJobOutput) *JobForGetScheduledJobOutput {
+	s.ResultDelivery = v
+	return s
+}
+
 // SetScheduleExpr sets the ScheduleExpr field's value.
 func (s *JobForGetScheduledJobOutput) SetScheduleExpr(v string) *JobForGetScheduledJobOutput {
 	s.ScheduleExpr = &v
@@ -322,5 +330,43 @@ func (s *JobForGetScheduledJobOutput) SetTimezone(v string) *JobForGetScheduledJ
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *JobForGetScheduledJobOutput) SetUpdatedAt(v string) *JobForGetScheduledJobOutput {
 	s.UpdatedAt = &v
+	return s
+}
+
+type ResultDeliveryForGetScheduledJobOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Channel *string `type:"string" json:",omitempty"`
+
+	ChatId *string `type:"string" json:",omitempty"`
+
+	Target *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResultDeliveryForGetScheduledJobOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResultDeliveryForGetScheduledJobOutput) GoString() string {
+	return s.String()
+}
+
+// SetChannel sets the Channel field's value.
+func (s *ResultDeliveryForGetScheduledJobOutput) SetChannel(v string) *ResultDeliveryForGetScheduledJobOutput {
+	s.Channel = &v
+	return s
+}
+
+// SetChatId sets the ChatId field's value.
+func (s *ResultDeliveryForGetScheduledJobOutput) SetChatId(v string) *ResultDeliveryForGetScheduledJobOutput {
+	s.ChatId = &v
+	return s
+}
+
+// SetTarget sets the Target field's value.
+func (s *ResultDeliveryForGetScheduledJobOutput) SetTarget(v string) *ResultDeliveryForGetScheduledJobOutput {
+	s.Target = &v
 	return s
 }
