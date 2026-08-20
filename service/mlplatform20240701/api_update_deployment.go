@@ -143,6 +143,84 @@ func (c *MLPLATFORM20240701) UpdateDeploymentWithContext(ctx volcengine.Context,
 	return out, req.Send()
 }
 
+type AsyncConfigForUpdateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Consumer *ConsumerForUpdateDeploymentInput `type:"structure" json:",omitempty"`
+
+	ConsumerEnvs []*ConsumerEnvForUpdateDeploymentInput `type:"list" json:",omitempty"`
+
+	ConsumerTargetPort *int32 `type:"int32" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	HTTPServerEnvs []*HTTPServerEnvForUpdateDeploymentInput `type:"list" json:",omitempty"`
+
+	HTTPServerPort *int32 `type:"int32" json:",omitempty"`
+
+	Kafka *KafkaForUpdateDeploymentInput `type:"structure" json:",omitempty"`
+
+	TOS *TOSForUpdateDeploymentInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AsyncConfigForUpdateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AsyncConfigForUpdateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetConsumer sets the Consumer field's value.
+func (s *AsyncConfigForUpdateDeploymentInput) SetConsumer(v *ConsumerForUpdateDeploymentInput) *AsyncConfigForUpdateDeploymentInput {
+	s.Consumer = v
+	return s
+}
+
+// SetConsumerEnvs sets the ConsumerEnvs field's value.
+func (s *AsyncConfigForUpdateDeploymentInput) SetConsumerEnvs(v []*ConsumerEnvForUpdateDeploymentInput) *AsyncConfigForUpdateDeploymentInput {
+	s.ConsumerEnvs = v
+	return s
+}
+
+// SetConsumerTargetPort sets the ConsumerTargetPort field's value.
+func (s *AsyncConfigForUpdateDeploymentInput) SetConsumerTargetPort(v int32) *AsyncConfigForUpdateDeploymentInput {
+	s.ConsumerTargetPort = &v
+	return s
+}
+
+// SetEnable sets the Enable field's value.
+func (s *AsyncConfigForUpdateDeploymentInput) SetEnable(v bool) *AsyncConfigForUpdateDeploymentInput {
+	s.Enable = &v
+	return s
+}
+
+// SetHTTPServerEnvs sets the HTTPServerEnvs field's value.
+func (s *AsyncConfigForUpdateDeploymentInput) SetHTTPServerEnvs(v []*HTTPServerEnvForUpdateDeploymentInput) *AsyncConfigForUpdateDeploymentInput {
+	s.HTTPServerEnvs = v
+	return s
+}
+
+// SetHTTPServerPort sets the HTTPServerPort field's value.
+func (s *AsyncConfigForUpdateDeploymentInput) SetHTTPServerPort(v int32) *AsyncConfigForUpdateDeploymentInput {
+	s.HTTPServerPort = &v
+	return s
+}
+
+// SetKafka sets the Kafka field's value.
+func (s *AsyncConfigForUpdateDeploymentInput) SetKafka(v *KafkaForUpdateDeploymentInput) *AsyncConfigForUpdateDeploymentInput {
+	s.Kafka = v
+	return s
+}
+
+// SetTOS sets the TOS field's value.
+func (s *AsyncConfigForUpdateDeploymentInput) SetTOS(v *TOSForUpdateDeploymentInput) *AsyncConfigForUpdateDeploymentInput {
+	s.TOS = v
+	return s
+}
+
 type AutoscalerForUpdateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -190,7 +268,7 @@ type CfsForUpdateDeploymentInput struct {
 
 	Options *OptionsForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 
-	Tos *TosForUpdateDeploymentInput `type:"structure" json:",omitempty"`
+	Tos *ConvertTosForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,7 +300,7 @@ func (s *CfsForUpdateDeploymentInput) SetOptions(v *OptionsForUpdateDeploymentIn
 }
 
 // SetTos sets the Tos field's value.
-func (s *CfsForUpdateDeploymentInput) SetTos(v *TosForUpdateDeploymentInput) *CfsForUpdateDeploymentInput {
+func (s *CfsForUpdateDeploymentInput) SetTos(v *ConvertTosForUpdateDeploymentInput) *CfsForUpdateDeploymentInput {
 	s.Tos = v
 	return s
 }
@@ -242,7 +320,7 @@ type ConfigForUpdateDeploymentInput struct {
 
 	Sfcs *SfcsForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 
-	Tos *TosForUpdateDeploymentInput `type:"structure" json:",omitempty"`
+	Tos *ConvertTosForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 
 	TosAP *TosAPForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 
@@ -298,7 +376,7 @@ func (s *ConfigForUpdateDeploymentInput) SetSfcs(v *SfcsForUpdateDeploymentInput
 }
 
 // SetTos sets the Tos field's value.
-func (s *ConfigForUpdateDeploymentInput) SetTos(v *TosForUpdateDeploymentInput) *ConfigForUpdateDeploymentInput {
+func (s *ConfigForUpdateDeploymentInput) SetTos(v *ConvertTosForUpdateDeploymentInput) *ConfigForUpdateDeploymentInput {
 	s.Tos = v
 	return s
 }
@@ -318,6 +396,74 @@ func (s *ConfigForUpdateDeploymentInput) SetVepfs(v *VepfsForUpdateDeploymentInp
 // SetVepfsAP sets the VepfsAP field's value.
 func (s *ConfigForUpdateDeploymentInput) SetVepfsAP(v *VepfsAPForUpdateDeploymentInput) *ConfigForUpdateDeploymentInput {
 	s.VepfsAP = v
+	return s
+}
+
+type ConsumerEnvForUpdateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConsumerEnvForUpdateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConsumerEnvForUpdateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *ConsumerEnvForUpdateDeploymentInput) SetName(v string) *ConsumerEnvForUpdateDeploymentInput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ConsumerEnvForUpdateDeploymentInput) SetValue(v string) *ConsumerEnvForUpdateDeploymentInput {
+	s.Value = &v
+	return s
+}
+
+type ConsumerForUpdateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MaxRetries *int32 `type:"int32" json:",omitempty"`
+
+	ProcessTimeoutSeconds *int32 `type:"int32" json:",omitempty"`
+
+	WorkerCount *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConsumerForUpdateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConsumerForUpdateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetMaxRetries sets the MaxRetries field's value.
+func (s *ConsumerForUpdateDeploymentInput) SetMaxRetries(v int32) *ConsumerForUpdateDeploymentInput {
+	s.MaxRetries = &v
+	return s
+}
+
+// SetProcessTimeoutSeconds sets the ProcessTimeoutSeconds field's value.
+func (s *ConsumerForUpdateDeploymentInput) SetProcessTimeoutSeconds(v int32) *ConsumerForUpdateDeploymentInput {
+	s.ProcessTimeoutSeconds = &v
+	return s
+}
+
+// SetWorkerCount sets the WorkerCount field's value.
+func (s *ConsumerForUpdateDeploymentInput) SetWorkerCount(v int32) *ConsumerForUpdateDeploymentInput {
+	s.WorkerCount = &v
 	return s
 }
 
@@ -378,6 +524,36 @@ func (s *ConvertOptionsForUpdateDeploymentInput) SetInternalSync(v int64) *Conve
 // SetReplicas sets the Replicas field's value.
 func (s *ConvertOptionsForUpdateDeploymentInput) SetReplicas(v int64) *ConvertOptionsForUpdateDeploymentInput {
 	s.Replicas = &v
+	return s
+}
+
+type ConvertTosForUpdateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Bucket *string `type:"string" json:",omitempty"`
+
+	Prefix *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertTosForUpdateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertTosForUpdateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *ConvertTosForUpdateDeploymentInput) SetBucket(v string) *ConvertTosForUpdateDeploymentInput {
+	s.Bucket = &v
+	return s
+}
+
+// SetPrefix sets the Prefix field's value.
+func (s *ConvertTosForUpdateDeploymentInput) SetPrefix(v string) *ConvertTosForUpdateDeploymentInput {
+	s.Prefix = &v
 	return s
 }
 
@@ -723,6 +899,36 @@ func (s *HTTPHeaderForUpdateDeploymentInput) SetValue(v string) *HTTPHeaderForUp
 	return s
 }
 
+type HTTPServerEnvForUpdateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HTTPServerEnvForUpdateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HTTPServerEnvForUpdateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *HTTPServerEnvForUpdateDeploymentInput) SetName(v string) *HTTPServerEnvForUpdateDeploymentInput {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *HTTPServerEnvForUpdateDeploymentInput) SetValue(v string) *HTTPServerEnvForUpdateDeploymentInput {
+	s.Value = &v
+	return s
+}
+
 type ImageForUpdateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -758,6 +964,68 @@ func (s *ImageForUpdateDeploymentInput) SetType(v string) *ImageForUpdateDeploym
 // SetUrl sets the Url field's value.
 func (s *ImageForUpdateDeploymentInput) SetUrl(v string) *ImageForUpdateDeploymentInput {
 	s.Url = &v
+	return s
+}
+
+type KafkaForUpdateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BootstrapServers *string `type:"string" json:",omitempty"`
+
+	Password *string `type:"string" json:",omitempty"`
+
+	SaslMechanism *string `type:"string" json:",omitempty"`
+
+	SecurityProtocol *string `type:"string" json:",omitempty"`
+
+	Topic *string `type:"string" json:",omitempty"`
+
+	Username *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s KafkaForUpdateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KafkaForUpdateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetBootstrapServers sets the BootstrapServers field's value.
+func (s *KafkaForUpdateDeploymentInput) SetBootstrapServers(v string) *KafkaForUpdateDeploymentInput {
+	s.BootstrapServers = &v
+	return s
+}
+
+// SetPassword sets the Password field's value.
+func (s *KafkaForUpdateDeploymentInput) SetPassword(v string) *KafkaForUpdateDeploymentInput {
+	s.Password = &v
+	return s
+}
+
+// SetSaslMechanism sets the SaslMechanism field's value.
+func (s *KafkaForUpdateDeploymentInput) SetSaslMechanism(v string) *KafkaForUpdateDeploymentInput {
+	s.SaslMechanism = &v
+	return s
+}
+
+// SetSecurityProtocol sets the SecurityProtocol field's value.
+func (s *KafkaForUpdateDeploymentInput) SetSecurityProtocol(v string) *KafkaForUpdateDeploymentInput {
+	s.SecurityProtocol = &v
+	return s
+}
+
+// SetTopic sets the Topic field's value.
+func (s *KafkaForUpdateDeploymentInput) SetTopic(v string) *KafkaForUpdateDeploymentInput {
+	s.Topic = &v
+	return s
+}
+
+// SetUsername sets the Username field's value.
+func (s *KafkaForUpdateDeploymentInput) SetUsername(v string) *KafkaForUpdateDeploymentInput {
+	s.Username = &v
 	return s
 }
 
@@ -1340,6 +1608,8 @@ func (s *ResourceForUpdateDeploymentInput) SetZoneId(v string) *ResourceForUpdat
 type RoleForUpdateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AsyncConfig *AsyncConfigForUpdateDeploymentInput `type:"structure" json:",omitempty"`
+
 	Autoscaler *AutoscalerForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 
 	Command *string `type:"string" json:",omitempty"`
@@ -1391,6 +1661,12 @@ func (s RoleForUpdateDeploymentInput) String() string {
 // GoString returns the string representation
 func (s RoleForUpdateDeploymentInput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncConfig sets the AsyncConfig field's value.
+func (s *RoleForUpdateDeploymentInput) SetAsyncConfig(v *AsyncConfigForUpdateDeploymentInput) *RoleForUpdateDeploymentInput {
+	s.AsyncConfig = v
+	return s
 }
 
 // SetAutoscaler sets the Autoscaler field's value.
@@ -1618,7 +1894,7 @@ type SfcsForUpdateDeploymentInput struct {
 
 	Options *ConvertOptionsForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 
-	Tos *TosForUpdateDeploymentInput `type:"structure" json:",omitempty"`
+	Tos *ConvertTosForUpdateDeploymentInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1650,7 +1926,7 @@ func (s *SfcsForUpdateDeploymentInput) SetOptions(v *ConvertOptionsForUpdateDepl
 }
 
 // SetTos sets the Tos field's value.
-func (s *SfcsForUpdateDeploymentInput) SetTos(v *TosForUpdateDeploymentInput) *SfcsForUpdateDeploymentInput {
+func (s *SfcsForUpdateDeploymentInput) SetTos(v *ConvertTosForUpdateDeploymentInput) *SfcsForUpdateDeploymentInput {
 	s.Tos = v
 	return s
 }
@@ -1847,6 +2123,68 @@ func (s *TCPSocketForUpdateDeploymentInput) SetPort(v int32) *TCPSocketForUpdate
 	return s
 }
 
+type TOSForUpdateDeploymentInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BootstrapServers *string `type:"string" json:",omitempty"`
+
+	Password *string `type:"string" json:",omitempty"`
+
+	SaslMechanism *string `type:"string" json:",omitempty"`
+
+	SecurityProtocol *string `type:"string" json:",omitempty"`
+
+	Topic *string `type:"string" json:",omitempty"`
+
+	Username *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TOSForUpdateDeploymentInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TOSForUpdateDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetBootstrapServers sets the BootstrapServers field's value.
+func (s *TOSForUpdateDeploymentInput) SetBootstrapServers(v string) *TOSForUpdateDeploymentInput {
+	s.BootstrapServers = &v
+	return s
+}
+
+// SetPassword sets the Password field's value.
+func (s *TOSForUpdateDeploymentInput) SetPassword(v string) *TOSForUpdateDeploymentInput {
+	s.Password = &v
+	return s
+}
+
+// SetSaslMechanism sets the SaslMechanism field's value.
+func (s *TOSForUpdateDeploymentInput) SetSaslMechanism(v string) *TOSForUpdateDeploymentInput {
+	s.SaslMechanism = &v
+	return s
+}
+
+// SetSecurityProtocol sets the SecurityProtocol field's value.
+func (s *TOSForUpdateDeploymentInput) SetSecurityProtocol(v string) *TOSForUpdateDeploymentInput {
+	s.SecurityProtocol = &v
+	return s
+}
+
+// SetTopic sets the Topic field's value.
+func (s *TOSForUpdateDeploymentInput) SetTopic(v string) *TOSForUpdateDeploymentInput {
+	s.Topic = &v
+	return s
+}
+
+// SetUsername sets the Username field's value.
+func (s *TOSForUpdateDeploymentInput) SetUsername(v string) *TOSForUpdateDeploymentInput {
+	s.Username = &v
+	return s
+}
+
 type TosAPForUpdateDeploymentInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1906,36 +2244,6 @@ func (s *TosAPForUpdateDeploymentInput) SetRegion(v string) *TosAPForUpdateDeplo
 // SetServer sets the Server field's value.
 func (s *TosAPForUpdateDeploymentInput) SetServer(v string) *TosAPForUpdateDeploymentInput {
 	s.Server = &v
-	return s
-}
-
-type TosForUpdateDeploymentInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Bucket *string `type:"string" json:",omitempty"`
-
-	Prefix *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s TosForUpdateDeploymentInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TosForUpdateDeploymentInput) GoString() string {
-	return s.String()
-}
-
-// SetBucket sets the Bucket field's value.
-func (s *TosForUpdateDeploymentInput) SetBucket(v string) *TosForUpdateDeploymentInput {
-	s.Bucket = &v
-	return s
-}
-
-// SetPrefix sets the Prefix field's value.
-func (s *TosForUpdateDeploymentInput) SetPrefix(v string) *TosForUpdateDeploymentInput {
-	s.Prefix = &v
 	return s
 }
 

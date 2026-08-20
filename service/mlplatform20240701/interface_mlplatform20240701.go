@@ -206,6 +206,14 @@ type MLPLATFORM20240701API interface {
 	GetDevInstanceWithContext(volcengine.Context, *GetDevInstanceInput, ...request.Option) (*GetDevInstanceOutput, error)
 	GetDevInstanceRequest(*GetDevInstanceInput) (*request.Request, *GetDevInstanceOutput)
 
+	GetExecCommandHistoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetExecCommandHistoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetExecCommandHistoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetExecCommandHistory(*GetExecCommandHistoryInput) (*GetExecCommandHistoryOutput, error)
+	GetExecCommandHistoryWithContext(volcengine.Context, *GetExecCommandHistoryInput, ...request.Option) (*GetExecCommandHistoryOutput, error)
+	GetExecCommandHistoryRequest(*GetExecCommandHistoryInput) (*request.Request, *GetExecCommandHistoryOutput)
+
 	GetInstanceTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetInstanceTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetInstanceTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -269,6 +277,14 @@ type MLPLATFORM20240701API interface {
 	ListAvailabilityZones(*ListAvailabilityZonesInput) (*ListAvailabilityZonesOutput, error)
 	ListAvailabilityZonesWithContext(volcengine.Context, *ListAvailabilityZonesInput, ...request.Option) (*ListAvailabilityZonesOutput, error)
 	ListAvailabilityZonesRequest(*ListAvailabilityZonesInput) (*request.Request, *ListAvailabilityZonesOutput)
+
+	ListBorrowingWorkloadsInQueueCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBorrowingWorkloadsInQueueCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBorrowingWorkloadsInQueueCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBorrowingWorkloadsInQueue(*ListBorrowingWorkloadsInQueueInput) (*ListBorrowingWorkloadsInQueueOutput, error)
+	ListBorrowingWorkloadsInQueueWithContext(volcengine.Context, *ListBorrowingWorkloadsInQueueInput, ...request.Option) (*ListBorrowingWorkloadsInQueueOutput, error)
+	ListBorrowingWorkloadsInQueueRequest(*ListBorrowingWorkloadsInQueueInput) (*request.Request, *ListBorrowingWorkloadsInQueueOutput)
 
 	ListDeploymentsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDeploymentsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -486,6 +502,14 @@ type MLPLATFORM20240701API interface {
 	StartDevInstanceWithContext(volcengine.Context, *StartDevInstanceInput, ...request.Option) (*StartDevInstanceOutput, error)
 	StartDevInstanceRequest(*StartDevInstanceInput) (*request.Request, *StartDevInstanceOutput)
 
+	StartExecCommandCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartExecCommandCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartExecCommandCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartExecCommand(*StartExecCommandInput) (*StartExecCommandOutput, error)
+	StartExecCommandWithContext(volcengine.Context, *StartExecCommandInput, ...request.Option) (*StartExecCommandOutput, error)
+	StartExecCommandRequest(*StartExecCommandInput) (*request.Request, *StartExecCommandOutput)
+
 	StartServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StartServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -557,6 +581,14 @@ type MLPLATFORM20240701API interface {
 	SubmitTeleOpTask(*SubmitTeleOpTaskInput) (*SubmitTeleOpTaskOutput, error)
 	SubmitTeleOpTaskWithContext(volcengine.Context, *SubmitTeleOpTaskInput, ...request.Option) (*SubmitTeleOpTaskOutput, error)
 	SubmitTeleOpTaskRequest(*SubmitTeleOpTaskInput) (*request.Request, *SubmitTeleOpTaskOutput)
+
+	TriggerJobDiagnosisCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TriggerJobDiagnosisCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TriggerJobDiagnosisCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TriggerJobDiagnosis(*TriggerJobDiagnosisInput) (*TriggerJobDiagnosisOutput, error)
+	TriggerJobDiagnosisWithContext(volcengine.Context, *TriggerJobDiagnosisInput, ...request.Option) (*TriggerJobDiagnosisOutput, error)
+	TriggerJobDiagnosisRequest(*TriggerJobDiagnosisInput) (*request.Request, *TriggerJobDiagnosisOutput)
 
 	UpdateDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
