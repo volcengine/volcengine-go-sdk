@@ -282,13 +282,7 @@ func (s *BackendForUpdateFunctionOutput) SetZoneId(v string) *BackendForUpdateFu
 type ConvertMountPointForUpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketName *string `type:"string" json:",omitempty"`
-
-	BucketPath *string `type:"string" json:",omitempty"`
-
-	EncryptionConfig *EncryptionConfigForUpdateFunctionInput `type:"structure" json:",omitempty"`
-
-	Endpoint *string `type:"string" json:",omitempty"`
+	Backend *BackendForUpdateFunctionInput `type:"structure" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
 
@@ -305,27 +299,9 @@ func (s ConvertMountPointForUpdateFunctionInput) GoString() string {
 	return s.String()
 }
 
-// SetBucketName sets the BucketName field's value.
-func (s *ConvertMountPointForUpdateFunctionInput) SetBucketName(v string) *ConvertMountPointForUpdateFunctionInput {
-	s.BucketName = &v
-	return s
-}
-
-// SetBucketPath sets the BucketPath field's value.
-func (s *ConvertMountPointForUpdateFunctionInput) SetBucketPath(v string) *ConvertMountPointForUpdateFunctionInput {
-	s.BucketPath = &v
-	return s
-}
-
-// SetEncryptionConfig sets the EncryptionConfig field's value.
-func (s *ConvertMountPointForUpdateFunctionInput) SetEncryptionConfig(v *EncryptionConfigForUpdateFunctionInput) *ConvertMountPointForUpdateFunctionInput {
-	s.EncryptionConfig = v
-	return s
-}
-
-// SetEndpoint sets the Endpoint field's value.
-func (s *ConvertMountPointForUpdateFunctionInput) SetEndpoint(v string) *ConvertMountPointForUpdateFunctionInput {
-	s.Endpoint = &v
+// SetBackend sets the Backend field's value.
+func (s *ConvertMountPointForUpdateFunctionInput) SetBackend(v *BackendForUpdateFunctionInput) *ConvertMountPointForUpdateFunctionInput {
+	s.Backend = v
 	return s
 }
 
@@ -344,13 +320,7 @@ func (s *ConvertMountPointForUpdateFunctionInput) SetReadOnly(v bool) *ConvertMo
 type ConvertMountPointForUpdateFunctionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketName *string `type:"string" json:",omitempty"`
-
-	BucketPath *string `type:"string" json:",omitempty"`
-
-	EncryptionConfig *EncryptionConfigForUpdateFunctionOutput `type:"structure" json:",omitempty"`
-
-	Endpoint *string `type:"string" json:",omitempty"`
+	Backend *BackendForUpdateFunctionOutput `type:"structure" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
 
@@ -367,27 +337,9 @@ func (s ConvertMountPointForUpdateFunctionOutput) GoString() string {
 	return s.String()
 }
 
-// SetBucketName sets the BucketName field's value.
-func (s *ConvertMountPointForUpdateFunctionOutput) SetBucketName(v string) *ConvertMountPointForUpdateFunctionOutput {
-	s.BucketName = &v
-	return s
-}
-
-// SetBucketPath sets the BucketPath field's value.
-func (s *ConvertMountPointForUpdateFunctionOutput) SetBucketPath(v string) *ConvertMountPointForUpdateFunctionOutput {
-	s.BucketPath = &v
-	return s
-}
-
-// SetEncryptionConfig sets the EncryptionConfig field's value.
-func (s *ConvertMountPointForUpdateFunctionOutput) SetEncryptionConfig(v *EncryptionConfigForUpdateFunctionOutput) *ConvertMountPointForUpdateFunctionOutput {
-	s.EncryptionConfig = v
-	return s
-}
-
-// SetEndpoint sets the Endpoint field's value.
-func (s *ConvertMountPointForUpdateFunctionOutput) SetEndpoint(v string) *ConvertMountPointForUpdateFunctionOutput {
-	s.Endpoint = &v
+// SetBackend sets the Backend field's value.
+func (s *ConvertMountPointForUpdateFunctionOutput) SetBackend(v *BackendForUpdateFunctionOutput) *ConvertMountPointForUpdateFunctionOutput {
+	s.Backend = v
 	return s
 }
 
@@ -526,7 +478,7 @@ func (s *DestinationConfigForUpdateFunctionOutput) SetOnSuccess(v *OnSuccessForU
 type EfsMountConfigForUpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForUpdateFunctionInput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForUpdateFunctionInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -540,7 +492,7 @@ func (s EfsMountConfigForUpdateFunctionInput) GoString() string {
 }
 
 // SetMountPoints sets the MountPoints field's value.
-func (s *EfsMountConfigForUpdateFunctionInput) SetMountPoints(v []*MountPointForUpdateFunctionInput) *EfsMountConfigForUpdateFunctionInput {
+func (s *EfsMountConfigForUpdateFunctionInput) SetMountPoints(v []*ConvertMountPointForUpdateFunctionInput) *EfsMountConfigForUpdateFunctionInput {
 	s.MountPoints = v
 	return s
 }
@@ -548,7 +500,7 @@ func (s *EfsMountConfigForUpdateFunctionInput) SetMountPoints(v []*MountPointFor
 type EfsMountConfigForUpdateFunctionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForUpdateFunctionOutput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForUpdateFunctionOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -562,7 +514,7 @@ func (s EfsMountConfigForUpdateFunctionOutput) GoString() string {
 }
 
 // SetMountPoints sets the MountPoints field's value.
-func (s *EfsMountConfigForUpdateFunctionOutput) SetMountPoints(v []*MountPointForUpdateFunctionOutput) *EfsMountConfigForUpdateFunctionOutput {
+func (s *EfsMountConfigForUpdateFunctionOutput) SetMountPoints(v []*ConvertMountPointForUpdateFunctionOutput) *EfsMountConfigForUpdateFunctionOutput {
 	s.MountPoints = v
 	return s
 }
@@ -722,7 +674,13 @@ func (s *EnvForUpdateFunctionOutput) SetValue(v string) *EnvForUpdateFunctionOut
 type MountPointForUpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Backend *BackendForUpdateFunctionInput `type:"structure" json:",omitempty"`
+	BucketName *string `type:"string" json:",omitempty"`
+
+	BucketPath *string `type:"string" json:",omitempty"`
+
+	EncryptionConfig *EncryptionConfigForUpdateFunctionInput `type:"structure" json:",omitempty"`
+
+	Endpoint *string `type:"string" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
 
@@ -739,9 +697,27 @@ func (s MountPointForUpdateFunctionInput) GoString() string {
 	return s.String()
 }
 
-// SetBackend sets the Backend field's value.
-func (s *MountPointForUpdateFunctionInput) SetBackend(v *BackendForUpdateFunctionInput) *MountPointForUpdateFunctionInput {
-	s.Backend = v
+// SetBucketName sets the BucketName field's value.
+func (s *MountPointForUpdateFunctionInput) SetBucketName(v string) *MountPointForUpdateFunctionInput {
+	s.BucketName = &v
+	return s
+}
+
+// SetBucketPath sets the BucketPath field's value.
+func (s *MountPointForUpdateFunctionInput) SetBucketPath(v string) *MountPointForUpdateFunctionInput {
+	s.BucketPath = &v
+	return s
+}
+
+// SetEncryptionConfig sets the EncryptionConfig field's value.
+func (s *MountPointForUpdateFunctionInput) SetEncryptionConfig(v *EncryptionConfigForUpdateFunctionInput) *MountPointForUpdateFunctionInput {
+	s.EncryptionConfig = v
+	return s
+}
+
+// SetEndpoint sets the Endpoint field's value.
+func (s *MountPointForUpdateFunctionInput) SetEndpoint(v string) *MountPointForUpdateFunctionInput {
+	s.Endpoint = &v
 	return s
 }
 
@@ -760,7 +736,13 @@ func (s *MountPointForUpdateFunctionInput) SetReadOnly(v bool) *MountPointForUpd
 type MountPointForUpdateFunctionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Backend *BackendForUpdateFunctionOutput `type:"structure" json:",omitempty"`
+	BucketName *string `type:"string" json:",omitempty"`
+
+	BucketPath *string `type:"string" json:",omitempty"`
+
+	EncryptionConfig *EncryptionConfigForUpdateFunctionOutput `type:"structure" json:",omitempty"`
+
+	Endpoint *string `type:"string" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
 
@@ -777,9 +759,27 @@ func (s MountPointForUpdateFunctionOutput) GoString() string {
 	return s.String()
 }
 
-// SetBackend sets the Backend field's value.
-func (s *MountPointForUpdateFunctionOutput) SetBackend(v *BackendForUpdateFunctionOutput) *MountPointForUpdateFunctionOutput {
-	s.Backend = v
+// SetBucketName sets the BucketName field's value.
+func (s *MountPointForUpdateFunctionOutput) SetBucketName(v string) *MountPointForUpdateFunctionOutput {
+	s.BucketName = &v
+	return s
+}
+
+// SetBucketPath sets the BucketPath field's value.
+func (s *MountPointForUpdateFunctionOutput) SetBucketPath(v string) *MountPointForUpdateFunctionOutput {
+	s.BucketPath = &v
+	return s
+}
+
+// SetEncryptionConfig sets the EncryptionConfig field's value.
+func (s *MountPointForUpdateFunctionOutput) SetEncryptionConfig(v *EncryptionConfigForUpdateFunctionOutput) *MountPointForUpdateFunctionOutput {
+	s.EncryptionConfig = v
+	return s
+}
+
+// SetEndpoint sets the Endpoint field's value.
+func (s *MountPointForUpdateFunctionOutput) SetEndpoint(v string) *MountPointForUpdateFunctionOutput {
+	s.Endpoint = &v
 	return s
 }
 
@@ -1242,7 +1242,7 @@ type TosMountConfigForUpdateFunctionInput struct {
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*ConvertMountPointForUpdateFunctionInput `type:"list" json:",omitempty"`
+	MountPoints []*MountPointForUpdateFunctionInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1274,7 +1274,7 @@ func (s *TosMountConfigForUpdateFunctionInput) SetEnableTos(v bool) *TosMountCon
 }
 
 // SetMountPoints sets the MountPoints field's value.
-func (s *TosMountConfigForUpdateFunctionInput) SetMountPoints(v []*ConvertMountPointForUpdateFunctionInput) *TosMountConfigForUpdateFunctionInput {
+func (s *TosMountConfigForUpdateFunctionInput) SetMountPoints(v []*MountPointForUpdateFunctionInput) *TosMountConfigForUpdateFunctionInput {
 	s.MountPoints = v
 	return s
 }
@@ -1288,7 +1288,7 @@ type TosMountConfigForUpdateFunctionOutput struct {
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*ConvertMountPointForUpdateFunctionOutput `type:"list" json:",omitempty"`
+	MountPoints []*MountPointForUpdateFunctionOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1320,7 +1320,7 @@ func (s *TosMountConfigForUpdateFunctionOutput) SetEnableTos(v bool) *TosMountCo
 }
 
 // SetMountPoints sets the MountPoints field's value.
-func (s *TosMountConfigForUpdateFunctionOutput) SetMountPoints(v []*ConvertMountPointForUpdateFunctionOutput) *TosMountConfigForUpdateFunctionOutput {
+func (s *TosMountConfigForUpdateFunctionOutput) SetMountPoints(v []*MountPointForUpdateFunctionOutput) *TosMountConfigForUpdateFunctionOutput {
 	s.MountPoints = v
 	return s
 }

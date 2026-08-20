@@ -214,11 +214,7 @@ func (s *BackendForGetRevisionOutput) SetZoneId(v string) *BackendForGetRevision
 type ConvertMountPointForGetRevisionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketName *string `type:"string" json:",omitempty"`
-
-	BucketPath *string `type:"string" json:",omitempty"`
-
-	Endpoint *string `type:"string" json:",omitempty"`
+	Backend *BackendForGetRevisionOutput `type:"structure" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
 
@@ -235,21 +231,9 @@ func (s ConvertMountPointForGetRevisionOutput) GoString() string {
 	return s.String()
 }
 
-// SetBucketName sets the BucketName field's value.
-func (s *ConvertMountPointForGetRevisionOutput) SetBucketName(v string) *ConvertMountPointForGetRevisionOutput {
-	s.BucketName = &v
-	return s
-}
-
-// SetBucketPath sets the BucketPath field's value.
-func (s *ConvertMountPointForGetRevisionOutput) SetBucketPath(v string) *ConvertMountPointForGetRevisionOutput {
-	s.BucketPath = &v
-	return s
-}
-
-// SetEndpoint sets the Endpoint field's value.
-func (s *ConvertMountPointForGetRevisionOutput) SetEndpoint(v string) *ConvertMountPointForGetRevisionOutput {
-	s.Endpoint = &v
+// SetBackend sets the Backend field's value.
+func (s *ConvertMountPointForGetRevisionOutput) SetBackend(v *BackendForGetRevisionOutput) *ConvertMountPointForGetRevisionOutput {
+	s.Backend = v
 	return s
 }
 
@@ -328,7 +312,7 @@ func (s *DestinationConfigForGetRevisionOutput) SetOnSuccess(v *OnSuccessForGetR
 type EfsMountConfigForGetRevisionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForGetRevisionOutput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForGetRevisionOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -342,7 +326,7 @@ func (s EfsMountConfigForGetRevisionOutput) GoString() string {
 }
 
 // SetMountPoints sets the MountPoints field's value.
-func (s *EfsMountConfigForGetRevisionOutput) SetMountPoints(v []*MountPointForGetRevisionOutput) *EfsMountConfigForGetRevisionOutput {
+func (s *EfsMountConfigForGetRevisionOutput) SetMountPoints(v []*ConvertMountPointForGetRevisionOutput) *EfsMountConfigForGetRevisionOutput {
 	s.MountPoints = v
 	return s
 }
@@ -822,7 +806,11 @@ func (s *HealthCheckConfigForGetRevisionOutput) SetTimeoutSeconds(v int32) *Heal
 type MountPointForGetRevisionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Backend *BackendForGetRevisionOutput `type:"structure" json:",omitempty"`
+	BucketName *string `type:"string" json:",omitempty"`
+
+	BucketPath *string `type:"string" json:",omitempty"`
+
+	Endpoint *string `type:"string" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
 
@@ -839,9 +827,21 @@ func (s MountPointForGetRevisionOutput) GoString() string {
 	return s.String()
 }
 
-// SetBackend sets the Backend field's value.
-func (s *MountPointForGetRevisionOutput) SetBackend(v *BackendForGetRevisionOutput) *MountPointForGetRevisionOutput {
-	s.Backend = v
+// SetBucketName sets the BucketName field's value.
+func (s *MountPointForGetRevisionOutput) SetBucketName(v string) *MountPointForGetRevisionOutput {
+	s.BucketName = &v
+	return s
+}
+
+// SetBucketPath sets the BucketPath field's value.
+func (s *MountPointForGetRevisionOutput) SetBucketPath(v string) *MountPointForGetRevisionOutput {
+	s.BucketPath = &v
+	return s
+}
+
+// SetEndpoint sets the Endpoint field's value.
+func (s *MountPointForGetRevisionOutput) SetEndpoint(v string) *MountPointForGetRevisionOutput {
+	s.Endpoint = &v
 	return s
 }
 
@@ -1090,7 +1090,7 @@ type TosMountConfigForGetRevisionOutput struct {
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*ConvertMountPointForGetRevisionOutput `type:"list" json:",omitempty"`
+	MountPoints []*MountPointForGetRevisionOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1116,7 +1116,7 @@ func (s *TosMountConfigForGetRevisionOutput) SetEnableTos(v bool) *TosMountConfi
 }
 
 // SetMountPoints sets the MountPoints field's value.
-func (s *TosMountConfigForGetRevisionOutput) SetMountPoints(v []*ConvertMountPointForGetRevisionOutput) *TosMountConfigForGetRevisionOutput {
+func (s *TosMountConfigForGetRevisionOutput) SetMountPoints(v []*MountPointForGetRevisionOutput) *TosMountConfigForGetRevisionOutput {
 	s.MountPoints = v
 	return s
 }

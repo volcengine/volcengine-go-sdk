@@ -176,11 +176,7 @@ func (s *BackendForListFunctionsOutput) SetZoneId(v string) *BackendForListFunct
 type ConvertMountPointForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketName *string `type:"string" json:",omitempty"`
-
-	BucketPath *string `type:"string" json:",omitempty"`
-
-	Endpoint *string `type:"string" json:",omitempty"`
+	Backend *BackendForListFunctionsOutput `type:"structure" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
 
@@ -197,21 +193,9 @@ func (s ConvertMountPointForListFunctionsOutput) GoString() string {
 	return s.String()
 }
 
-// SetBucketName sets the BucketName field's value.
-func (s *ConvertMountPointForListFunctionsOutput) SetBucketName(v string) *ConvertMountPointForListFunctionsOutput {
-	s.BucketName = &v
-	return s
-}
-
-// SetBucketPath sets the BucketPath field's value.
-func (s *ConvertMountPointForListFunctionsOutput) SetBucketPath(v string) *ConvertMountPointForListFunctionsOutput {
-	s.BucketPath = &v
-	return s
-}
-
-// SetEndpoint sets the Endpoint field's value.
-func (s *ConvertMountPointForListFunctionsOutput) SetEndpoint(v string) *ConvertMountPointForListFunctionsOutput {
-	s.Endpoint = &v
+// SetBackend sets the Backend field's value.
+func (s *ConvertMountPointForListFunctionsOutput) SetBackend(v *BackendForListFunctionsOutput) *ConvertMountPointForListFunctionsOutput {
+	s.Backend = v
 	return s
 }
 
@@ -260,7 +244,7 @@ func (s *CredentialsForListFunctionsOutput) SetSecretAccessKey(v string) *Creden
 type EfsMountConfigForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForListFunctionsOutput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForListFunctionsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -274,7 +258,7 @@ func (s EfsMountConfigForListFunctionsOutput) GoString() string {
 }
 
 // SetMountPoints sets the MountPoints field's value.
-func (s *EfsMountConfigForListFunctionsOutput) SetMountPoints(v []*MountPointForListFunctionsOutput) *EfsMountConfigForListFunctionsOutput {
+func (s *EfsMountConfigForListFunctionsOutput) SetMountPoints(v []*ConvertMountPointForListFunctionsOutput) *EfsMountConfigForListFunctionsOutput {
 	s.MountPoints = v
 	return s
 }
@@ -714,7 +698,11 @@ func (s *ListFunctionsOutput) SetTotal(v int32) *ListFunctionsOutput {
 type MountPointForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Backend *BackendForListFunctionsOutput `type:"structure" json:",omitempty"`
+	BucketName *string `type:"string" json:",omitempty"`
+
+	BucketPath *string `type:"string" json:",omitempty"`
+
+	Endpoint *string `type:"string" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
 
@@ -731,9 +719,21 @@ func (s MountPointForListFunctionsOutput) GoString() string {
 	return s.String()
 }
 
-// SetBackend sets the Backend field's value.
-func (s *MountPointForListFunctionsOutput) SetBackend(v *BackendForListFunctionsOutput) *MountPointForListFunctionsOutput {
-	s.Backend = v
+// SetBucketName sets the BucketName field's value.
+func (s *MountPointForListFunctionsOutput) SetBucketName(v string) *MountPointForListFunctionsOutput {
+	s.BucketName = &v
+	return s
+}
+
+// SetBucketPath sets the BucketPath field's value.
+func (s *MountPointForListFunctionsOutput) SetBucketPath(v string) *MountPointForListFunctionsOutput {
+	s.BucketPath = &v
+	return s
+}
+
+// SetEndpoint sets the Endpoint field's value.
+func (s *MountPointForListFunctionsOutput) SetEndpoint(v string) *MountPointForListFunctionsOutput {
+	s.Endpoint = &v
 	return s
 }
 
@@ -946,7 +946,7 @@ type TosMountConfigForListFunctionsOutput struct {
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*ConvertMountPointForListFunctionsOutput `type:"list" json:",omitempty"`
+	MountPoints []*MountPointForListFunctionsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -972,7 +972,7 @@ func (s *TosMountConfigForListFunctionsOutput) SetEnableTos(v bool) *TosMountCon
 }
 
 // SetMountPoints sets the MountPoints field's value.
-func (s *TosMountConfigForListFunctionsOutput) SetMountPoints(v []*ConvertMountPointForListFunctionsOutput) *TosMountConfigForListFunctionsOutput {
+func (s *TosMountConfigForListFunctionsOutput) SetMountPoints(v []*MountPointForListFunctionsOutput) *TosMountConfigForListFunctionsOutput {
 	s.MountPoints = v
 	return s
 }
