@@ -143,6 +143,118 @@ func (c *VEFAAS) ListSandboxesWithContext(ctx volcengine.Context, input *ListSan
 	return out, req.Send()
 }
 
+type AllowEgressForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DomainRule *DomainRuleForListSandboxesOutput `type:"structure" json:",omitempty"`
+
+	IpRule *IpRuleForListSandboxesOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AllowEgressForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AllowEgressForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetDomainRule sets the DomainRule field's value.
+func (s *AllowEgressForListSandboxesOutput) SetDomainRule(v *DomainRuleForListSandboxesOutput) *AllowEgressForListSandboxesOutput {
+	s.DomainRule = v
+	return s
+}
+
+// SetIpRule sets the IpRule field's value.
+func (s *AllowEgressForListSandboxesOutput) SetIpRule(v *IpRuleForListSandboxesOutput) *AllowEgressForListSandboxesOutput {
+	s.IpRule = v
+	return s
+}
+
+type BackendForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountTarget *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BackendForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackendForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountTarget sets the MountTarget field's value.
+func (s *BackendForListSandboxesOutput) SetMountTarget(v string) *BackendForListSandboxesOutput {
+	s.MountTarget = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *BackendForListSandboxesOutput) SetZoneId(v string) *BackendForListSandboxesOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type DenyEgressForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DomainRule *DomainRuleForListSandboxesOutput `type:"structure" json:",omitempty"`
+
+	IpRule *IpRuleForListSandboxesOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DenyEgressForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DenyEgressForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetDomainRule sets the DomainRule field's value.
+func (s *DenyEgressForListSandboxesOutput) SetDomainRule(v *DomainRuleForListSandboxesOutput) *DenyEgressForListSandboxesOutput {
+	s.DomainRule = v
+	return s
+}
+
+// SetIpRule sets the IpRule field's value.
+func (s *DenyEgressForListSandboxesOutput) SetIpRule(v *IpRuleForListSandboxesOutput) *DenyEgressForListSandboxesOutput {
+	s.IpRule = v
+	return s
+}
+
+type DomainRuleForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Domains []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DomainRuleForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainRuleForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetDomains sets the Domains field's value.
+func (s *DomainRuleForListSandboxesOutput) SetDomains(v []*string) *DomainRuleForListSandboxesOutput {
+	s.Domains = v
+	return s
+}
+
 type EBSVolumeForListSandboxesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -260,6 +372,58 @@ func (s *FilterForListSandboxesInput) SetName(v string) *FilterForListSandboxesI
 // SetValues sets the Values field's value.
 func (s *FilterForListSandboxesInput) SetValues(v []*string) *FilterForListSandboxesInput {
 	s.Values = v
+	return s
+}
+
+type InstanceEfsMountConfigForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPoints []*MountPointForListSandboxesOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstanceEfsMountConfigForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceEfsMountConfigForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountPoints sets the MountPoints field's value.
+func (s *InstanceEfsMountConfigForListSandboxesOutput) SetMountPoints(v []*MountPointForListSandboxesOutput) *InstanceEfsMountConfigForListSandboxesOutput {
+	s.MountPoints = v
+	return s
+}
+
+type IpRuleForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Cidrs []*string `type:"list" json:",omitempty"`
+
+	Ports []*PortForListSandboxesOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IpRuleForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IpRuleForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCidrs sets the Cidrs field's value.
+func (s *IpRuleForListSandboxesOutput) SetCidrs(v []*string) *IpRuleForListSandboxesOutput {
+	s.Cidrs = v
+	return s
+}
+
+// SetPorts sets the Ports field's value.
+func (s *IpRuleForListSandboxesOutput) SetPorts(v []*PortForListSandboxesOutput) *IpRuleForListSandboxesOutput {
+	s.Ports = v
 	return s
 }
 
@@ -403,6 +567,128 @@ func (s *ListSandboxesOutput) SetTotal(v int32) *ListSandboxesOutput {
 	return s
 }
 
+type MountPointForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Backend *BackendForListSandboxesOutput `type:"structure" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MountPointForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MountPointForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetBackend sets the Backend field's value.
+func (s *MountPointForListSandboxesOutput) SetBackend(v *BackendForListSandboxesOutput) *MountPointForListSandboxesOutput {
+	s.Backend = v
+	return s
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *MountPointForListSandboxesOutput) SetLocalMountPath(v string) *MountPointForListSandboxesOutput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *MountPointForListSandboxesOutput) SetReadOnly(v bool) *MountPointForListSandboxesOutput {
+	s.ReadOnly = &v
+	return s
+}
+
+type NetworkRulesForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AllowEgress []*AllowEgressForListSandboxesOutput `type:"list" json:",omitempty"`
+
+	AllowEgressAccess *bool `type:"boolean" json:",omitempty"`
+
+	DenyEgress []*DenyEgressForListSandboxesOutput `type:"list" json:",omitempty"`
+
+	MaxEgressCps *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NetworkRulesForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkRulesForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllowEgress sets the AllowEgress field's value.
+func (s *NetworkRulesForListSandboxesOutput) SetAllowEgress(v []*AllowEgressForListSandboxesOutput) *NetworkRulesForListSandboxesOutput {
+	s.AllowEgress = v
+	return s
+}
+
+// SetAllowEgressAccess sets the AllowEgressAccess field's value.
+func (s *NetworkRulesForListSandboxesOutput) SetAllowEgressAccess(v bool) *NetworkRulesForListSandboxesOutput {
+	s.AllowEgressAccess = &v
+	return s
+}
+
+// SetDenyEgress sets the DenyEgress field's value.
+func (s *NetworkRulesForListSandboxesOutput) SetDenyEgress(v []*DenyEgressForListSandboxesOutput) *NetworkRulesForListSandboxesOutput {
+	s.DenyEgress = v
+	return s
+}
+
+// SetMaxEgressCps sets the MaxEgressCps field's value.
+func (s *NetworkRulesForListSandboxesOutput) SetMaxEgressCps(v int64) *NetworkRulesForListSandboxesOutput {
+	s.MaxEgressCps = &v
+	return s
+}
+
+type PortForListSandboxesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EndPort *int32 `type:"int32" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+
+	Protocol *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PortForListSandboxesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PortForListSandboxesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEndPort sets the EndPort field's value.
+func (s *PortForListSandboxesOutput) SetEndPort(v int32) *PortForListSandboxesOutput {
+	s.EndPort = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *PortForListSandboxesOutput) SetPort(v int32) *PortForListSandboxesOutput {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *PortForListSandboxesOutput) SetProtocol(v string) *PortForListSandboxesOutput {
+	s.Protocol = &v
+	return s
+}
+
 type RevisionCountForListSandboxesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 }
@@ -442,17 +728,25 @@ type SandboxForListSandboxesOutput struct {
 
 	Image *string `type:"string" json:",omitempty"`
 
+	InstanceEfsMountConfig *InstanceEfsMountConfigForListSandboxesOutput `type:"structure" json:",omitempty"`
+
 	InstanceType *string `type:"string" json:",omitempty"`
 
 	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
 	Metadata map[string]*string `type:"map" json:",omitempty"`
 
+	NetworkRules *NetworkRulesForListSandboxesOutput `type:"structure" json:",omitempty"`
+
 	PausedAt *string `type:"string" json:",omitempty"`
 
 	Pending *bool `type:"boolean" json:",omitempty"`
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
+
+	RoleChainTrn []*string `type:"list" json:",omitempty"`
+
+	RoleTrn *string `type:"string" json:",omitempty"`
 
 	SessionId *string `type:"string" json:",omitempty"`
 
@@ -537,6 +831,12 @@ func (s *SandboxForListSandboxesOutput) SetImage(v string) *SandboxForListSandbo
 	return s
 }
 
+// SetInstanceEfsMountConfig sets the InstanceEfsMountConfig field's value.
+func (s *SandboxForListSandboxesOutput) SetInstanceEfsMountConfig(v *InstanceEfsMountConfigForListSandboxesOutput) *SandboxForListSandboxesOutput {
+	s.InstanceEfsMountConfig = v
+	return s
+}
+
 // SetInstanceType sets the InstanceType field's value.
 func (s *SandboxForListSandboxesOutput) SetInstanceType(v string) *SandboxForListSandboxesOutput {
 	s.InstanceType = &v
@@ -555,6 +855,12 @@ func (s *SandboxForListSandboxesOutput) SetMetadata(v map[string]*string) *Sandb
 	return s
 }
 
+// SetNetworkRules sets the NetworkRules field's value.
+func (s *SandboxForListSandboxesOutput) SetNetworkRules(v *NetworkRulesForListSandboxesOutput) *SandboxForListSandboxesOutput {
+	s.NetworkRules = v
+	return s
+}
+
 // SetPausedAt sets the PausedAt field's value.
 func (s *SandboxForListSandboxesOutput) SetPausedAt(v string) *SandboxForListSandboxesOutput {
 	s.PausedAt = &v
@@ -570,6 +876,18 @@ func (s *SandboxForListSandboxesOutput) SetPending(v bool) *SandboxForListSandbo
 // SetRevisionNumber sets the RevisionNumber field's value.
 func (s *SandboxForListSandboxesOutput) SetRevisionNumber(v int32) *SandboxForListSandboxesOutput {
 	s.RevisionNumber = &v
+	return s
+}
+
+// SetRoleChainTrn sets the RoleChainTrn field's value.
+func (s *SandboxForListSandboxesOutput) SetRoleChainTrn(v []*string) *SandboxForListSandboxesOutput {
+	s.RoleChainTrn = v
+	return s
+}
+
+// SetRoleTrn sets the RoleTrn field's value.
+func (s *SandboxForListSandboxesOutput) SetRoleTrn(v string) *SandboxForListSandboxesOutput {
+	s.RoleTrn = &v
 	return s
 }
 

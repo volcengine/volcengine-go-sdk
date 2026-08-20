@@ -181,6 +181,90 @@ func (s *AsyncTaskConfigForGetRevisionOutput) SetMaxRetry(v int32) *AsyncTaskCon
 	return s
 }
 
+type BackendForGetRevisionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountTarget *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BackendForGetRevisionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackendForGetRevisionOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountTarget sets the MountTarget field's value.
+func (s *BackendForGetRevisionOutput) SetMountTarget(v string) *BackendForGetRevisionOutput {
+	s.MountTarget = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *BackendForGetRevisionOutput) SetZoneId(v string) *BackendForGetRevisionOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type ConvertMountPointForGetRevisionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BucketName *string `type:"string" json:",omitempty"`
+
+	BucketPath *string `type:"string" json:",omitempty"`
+
+	Endpoint *string `type:"string" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertMountPointForGetRevisionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertMountPointForGetRevisionOutput) GoString() string {
+	return s.String()
+}
+
+// SetBucketName sets the BucketName field's value.
+func (s *ConvertMountPointForGetRevisionOutput) SetBucketName(v string) *ConvertMountPointForGetRevisionOutput {
+	s.BucketName = &v
+	return s
+}
+
+// SetBucketPath sets the BucketPath field's value.
+func (s *ConvertMountPointForGetRevisionOutput) SetBucketPath(v string) *ConvertMountPointForGetRevisionOutput {
+	s.BucketPath = &v
+	return s
+}
+
+// SetEndpoint sets the Endpoint field's value.
+func (s *ConvertMountPointForGetRevisionOutput) SetEndpoint(v string) *ConvertMountPointForGetRevisionOutput {
+	s.Endpoint = &v
+	return s
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *ConvertMountPointForGetRevisionOutput) SetLocalMountPath(v string) *ConvertMountPointForGetRevisionOutput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *ConvertMountPointForGetRevisionOutput) SetReadOnly(v bool) *ConvertMountPointForGetRevisionOutput {
+	s.ReadOnly = &v
+	return s
+}
+
 type CredentialsForGetRevisionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -238,6 +322,28 @@ func (s *DestinationConfigForGetRevisionOutput) SetOnFailure(v *OnFailureForGetR
 // SetOnSuccess sets the OnSuccess field's value.
 func (s *DestinationConfigForGetRevisionOutput) SetOnSuccess(v *OnSuccessForGetRevisionOutput) *DestinationConfigForGetRevisionOutput {
 	s.OnSuccess = v
+	return s
+}
+
+type EfsMountConfigForGetRevisionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPoints []*MountPointForGetRevisionOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsMountConfigForGetRevisionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsMountConfigForGetRevisionOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountPoints sets the MountPoints field's value.
+func (s *EfsMountConfigForGetRevisionOutput) SetMountPoints(v []*MountPointForGetRevisionOutput) *EfsMountConfigForGetRevisionOutput {
+	s.MountPoints = v
 	return s
 }
 
@@ -334,6 +440,8 @@ type GetRevisionOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	EfsMountConfig *EfsMountConfigForGetRevisionOutput `type:"structure" json:",omitempty"`
+
 	Envs []*EnvForGetRevisionOutput `type:"list" json:",omitempty"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
@@ -418,6 +526,12 @@ func (s *GetRevisionOutput) SetCreationTime(v string) *GetRevisionOutput {
 // SetDescription sets the Description field's value.
 func (s *GetRevisionOutput) SetDescription(v string) *GetRevisionOutput {
 	s.Description = &v
+	return s
+}
+
+// SetEfsMountConfig sets the EfsMountConfig field's value.
+func (s *GetRevisionOutput) SetEfsMountConfig(v *EfsMountConfigForGetRevisionOutput) *GetRevisionOutput {
+	s.EfsMountConfig = v
 	return s
 }
 
@@ -708,11 +822,7 @@ func (s *HealthCheckConfigForGetRevisionOutput) SetTimeoutSeconds(v int32) *Heal
 type MountPointForGetRevisionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketName *string `type:"string" json:",omitempty"`
-
-	BucketPath *string `type:"string" json:",omitempty"`
-
-	Endpoint *string `type:"string" json:",omitempty"`
+	Backend *BackendForGetRevisionOutput `type:"structure" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
 
@@ -729,21 +839,9 @@ func (s MountPointForGetRevisionOutput) GoString() string {
 	return s.String()
 }
 
-// SetBucketName sets the BucketName field's value.
-func (s *MountPointForGetRevisionOutput) SetBucketName(v string) *MountPointForGetRevisionOutput {
-	s.BucketName = &v
-	return s
-}
-
-// SetBucketPath sets the BucketPath field's value.
-func (s *MountPointForGetRevisionOutput) SetBucketPath(v string) *MountPointForGetRevisionOutput {
-	s.BucketPath = &v
-	return s
-}
-
-// SetEndpoint sets the Endpoint field's value.
-func (s *MountPointForGetRevisionOutput) SetEndpoint(v string) *MountPointForGetRevisionOutput {
-	s.Endpoint = &v
+// SetBackend sets the Backend field's value.
+func (s *MountPointForGetRevisionOutput) SetBackend(v *BackendForGetRevisionOutput) *MountPointForGetRevisionOutput {
+	s.Backend = v
 	return s
 }
 
@@ -992,7 +1090,7 @@ type TosMountConfigForGetRevisionOutput struct {
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*MountPointForGetRevisionOutput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForGetRevisionOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1018,7 +1116,7 @@ func (s *TosMountConfigForGetRevisionOutput) SetEnableTos(v bool) *TosMountConfi
 }
 
 // SetMountPoints sets the MountPoints field's value.
-func (s *TosMountConfigForGetRevisionOutput) SetMountPoints(v []*MountPointForGetRevisionOutput) *TosMountConfigForGetRevisionOutput {
+func (s *TosMountConfigForGetRevisionOutput) SetMountPoints(v []*ConvertMountPointForGetRevisionOutput) *TosMountConfigForGetRevisionOutput {
 	s.MountPoints = v
 	return s
 }
