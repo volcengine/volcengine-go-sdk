@@ -142,6 +142,14 @@ type ROCKETMQAPI interface {
 	DeleteAllowListWithContext(volcengine.Context, *DeleteAllowListInput, ...request.Option) (*DeleteAllowListOutput, error)
 	DeleteAllowListRequest(*DeleteAllowListInput) (*request.Request, *DeleteAllowListOutput)
 
+	DeleteConsumerGroupSubscriptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteConsumerGroupSubscriptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteConsumerGroupSubscriptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteConsumerGroupSubscription(*DeleteConsumerGroupSubscriptionInput) (*DeleteConsumerGroupSubscriptionOutput, error)
+	DeleteConsumerGroupSubscriptionWithContext(volcengine.Context, *DeleteConsumerGroupSubscriptionInput, ...request.Option) (*DeleteConsumerGroupSubscriptionOutput, error)
+	DeleteConsumerGroupSubscriptionRequest(*DeleteConsumerGroupSubscriptionInput) (*request.Request, *DeleteConsumerGroupSubscriptionOutput)
+
 	DeleteGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -318,6 +326,14 @@ type ROCKETMQAPI interface {
 	DescribePLWhitelistWithContext(volcengine.Context, *DescribePLWhitelistInput, ...request.Option) (*DescribePLWhitelistOutput, error)
 	DescribePLWhitelistRequest(*DescribePLWhitelistInput) (*request.Request, *DescribePLWhitelistOutput)
 
+	DescribeProducersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeProducersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeProducersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeProducers(*DescribeProducersInput) (*DescribeProducersOutput, error)
+	DescribeProducersWithContext(volcengine.Context, *DescribeProducersInput, ...request.Option) (*DescribeProducersOutput, error)
+	DescribeProducersRequest(*DescribeProducersInput) (*request.Request, *DescribeProducersOutput)
+
 	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -414,6 +430,14 @@ type ROCKETMQAPI interface {
 	EnableInstanceInspectWithContext(volcengine.Context, *EnableInstanceInspectInput, ...request.Option) (*EnableInstanceInspectOutput, error)
 	EnableInstanceInspectRequest(*EnableInstanceInspectInput) (*request.Request, *EnableInstanceInspectOutput)
 
+	ExportDLQMessagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ExportDLQMessagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ExportDLQMessagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ExportDLQMessages(*ExportDLQMessagesInput) (*ExportDLQMessagesOutput, error)
+	ExportDLQMessagesWithContext(volcengine.Context, *ExportDLQMessagesInput, ...request.Option) (*ExportDLQMessagesOutput, error)
+	ExportDLQMessagesRequest(*ExportDLQMessagesInput) (*request.Request, *ExportDLQMessagesOutput)
+
 	GetInspectConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetInspectConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetInspectConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -429,6 +453,14 @@ type ROCKETMQAPI interface {
 	GetInstanceInspectResult(*GetInstanceInspectResultInput) (*GetInstanceInspectResultOutput, error)
 	GetInstanceInspectResultWithContext(volcengine.Context, *GetInstanceInspectResultInput, ...request.Option) (*GetInstanceInspectResultOutput, error)
 	GetInstanceInspectResultRequest(*GetInstanceInspectResultInput) (*request.Request, *GetInstanceInspectResultOutput)
+
+	ListRocketmqVersionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRocketmqVersionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRocketmqVersionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRocketmqVersions(*ListRocketmqVersionsInput) (*ListRocketmqVersionsOutput, error)
+	ListRocketmqVersionsWithContext(volcengine.Context, *ListRocketmqVersionsInput, ...request.Option) (*ListRocketmqVersionsOutput, error)
+	ListRocketmqVersionsRequest(*ListRocketmqVersionsInput) (*request.Request, *ListRocketmqVersionsOutput)
 
 	ManualProcessResultCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ManualProcessResultCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -613,6 +645,22 @@ type ROCKETMQAPI interface {
 	ResetConsumedOffsets(*ResetConsumedOffsetsInput) (*ResetConsumedOffsetsOutput, error)
 	ResetConsumedOffsetsWithContext(volcengine.Context, *ResetConsumedOffsetsInput, ...request.Option) (*ResetConsumedOffsetsOutput, error)
 	ResetConsumedOffsetsRequest(*ResetConsumedOffsetsInput) (*request.Request, *ResetConsumedOffsetsOutput)
+
+	UpdateGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateGroup(*UpdateGroupInput) (*UpdateGroupOutput, error)
+	UpdateGroupWithContext(volcengine.Context, *UpdateGroupInput, ...request.Option) (*UpdateGroupOutput, error)
+	UpdateGroupRequest(*UpdateGroupInput) (*request.Request, *UpdateGroupOutput)
+
+	UpdateTopicCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateTopicCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateTopicCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateTopic(*UpdateTopicInput) (*UpdateTopicOutput, error)
+	UpdateTopicWithContext(volcengine.Context, *UpdateTopicInput, ...request.Option) (*UpdateTopicOutput, error)
+	UpdateTopicRequest(*UpdateTopicInput) (*request.Request, *UpdateTopicOutput)
 }
 
 var _ ROCKETMQAPI = (*ROCKETMQ)(nil)

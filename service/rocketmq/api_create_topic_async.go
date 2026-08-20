@@ -207,6 +207,8 @@ type CreateTopicAsyncInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
+	LiteTopicTTLMinutes *int32 `type:"int32" json:",omitempty"`
+
 	// MessageType is a required field
 	MessageType *int32 `type:"int32" json:",omitempty" required:"true"`
 
@@ -274,6 +276,12 @@ func (s *CreateTopicAsyncInput) SetDescription(v string) *CreateTopicAsyncInput 
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateTopicAsyncInput) SetInstanceId(v string) *CreateTopicAsyncInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetLiteTopicTTLMinutes sets the LiteTopicTTLMinutes field's value.
+func (s *CreateTopicAsyncInput) SetLiteTopicTTLMinutes(v int32) *CreateTopicAsyncInput {
+	s.LiteTopicTTLMinutes = &v
 	return s
 }
 
