@@ -143,98 +143,10 @@ func (c *WAF) UpdateSystemBotConfigWithContext(ctx volcengine.Context, input *Up
 	return out, req.Send()
 }
 
-type SubRuleForUpdateSystemBotConfigInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccRuleIDList []*int32 `type:"list" json:",omitempty"`
-
-	Action *string `type:"string" json:",omitempty"`
-
-	Description *string `type:"string" json:",omitempty"`
-
-	Enable *int32 `type:"int32" json:",omitempty"`
-
-	Name *string `type:"string" json:",omitempty"`
-
-	Type *string `type:"string" json:",omitempty"`
-
-	VerificationConfID *int32 `type:"int32" json:",omitempty"`
-
-	VerificationExemptionTime *int32 `type:"int32" json:",omitempty"`
-
-	VerificationFailedAction *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s SubRuleForUpdateSystemBotConfigInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s SubRuleForUpdateSystemBotConfigInput) GoString() string {
-	return s.String()
-}
-
-// SetAccRuleIDList sets the AccRuleIDList field's value.
-func (s *SubRuleForUpdateSystemBotConfigInput) SetAccRuleIDList(v []*int32) *SubRuleForUpdateSystemBotConfigInput {
-	s.AccRuleIDList = v
-	return s
-}
-
-// SetAction sets the Action field's value.
-func (s *SubRuleForUpdateSystemBotConfigInput) SetAction(v string) *SubRuleForUpdateSystemBotConfigInput {
-	s.Action = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *SubRuleForUpdateSystemBotConfigInput) SetDescription(v string) *SubRuleForUpdateSystemBotConfigInput {
-	s.Description = &v
-	return s
-}
-
-// SetEnable sets the Enable field's value.
-func (s *SubRuleForUpdateSystemBotConfigInput) SetEnable(v int32) *SubRuleForUpdateSystemBotConfigInput {
-	s.Enable = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *SubRuleForUpdateSystemBotConfigInput) SetName(v string) *SubRuleForUpdateSystemBotConfigInput {
-	s.Name = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *SubRuleForUpdateSystemBotConfigInput) SetType(v string) *SubRuleForUpdateSystemBotConfigInput {
-	s.Type = &v
-	return s
-}
-
-// SetVerificationConfID sets the VerificationConfID field's value.
-func (s *SubRuleForUpdateSystemBotConfigInput) SetVerificationConfID(v int32) *SubRuleForUpdateSystemBotConfigInput {
-	s.VerificationConfID = &v
-	return s
-}
-
-// SetVerificationExemptionTime sets the VerificationExemptionTime field's value.
-func (s *SubRuleForUpdateSystemBotConfigInput) SetVerificationExemptionTime(v int32) *SubRuleForUpdateSystemBotConfigInput {
-	s.VerificationExemptionTime = &v
-	return s
-}
-
-// SetVerificationFailedAction sets the VerificationFailedAction field's value.
-func (s *SubRuleForUpdateSystemBotConfigInput) SetVerificationFailedAction(v int32) *SubRuleForUpdateSystemBotConfigInput {
-	s.VerificationFailedAction = &v
-	return s
-}
-
 type UpdateSystemBotConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Action *string `type:"string" json:",omitempty" enum:"EnumOfActionForUpdateSystemBotConfigInput"`
-
-	BotType *string `type:"string" json:",omitempty"`
 
 	Enable *int32 `type:"int32" json:",omitempty"`
 
@@ -244,8 +156,6 @@ type UpdateSystemBotConfigInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RuleTagList []*string `type:"list" json:",omitempty"`
-
-	SubRules []*SubRuleForUpdateSystemBotConfigInput `type:"list" json:",omitempty"`
 
 	VerificationExemptionTime *int32 `type:"int32" json:",omitempty"`
 }
@@ -279,12 +189,6 @@ func (s *UpdateSystemBotConfigInput) SetAction(v string) *UpdateSystemBotConfigI
 	return s
 }
 
-// SetBotType sets the BotType field's value.
-func (s *UpdateSystemBotConfigInput) SetBotType(v string) *UpdateSystemBotConfigInput {
-	s.BotType = &v
-	return s
-}
-
 // SetEnable sets the Enable field's value.
 func (s *UpdateSystemBotConfigInput) SetEnable(v int32) *UpdateSystemBotConfigInput {
 	s.Enable = &v
@@ -306,12 +210,6 @@ func (s *UpdateSystemBotConfigInput) SetProjectName(v string) *UpdateSystemBotCo
 // SetRuleTagList sets the RuleTagList field's value.
 func (s *UpdateSystemBotConfigInput) SetRuleTagList(v []*string) *UpdateSystemBotConfigInput {
 	s.RuleTagList = v
-	return s
-}
-
-// SetSubRules sets the SubRules field's value.
-func (s *UpdateSystemBotConfigInput) SetSubRules(v []*SubRuleForUpdateSystemBotConfigInput) *UpdateSystemBotConfigInput {
-	s.SubRules = v
 	return s
 }
 

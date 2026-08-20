@@ -253,6 +253,10 @@ type CreateBotAnalyseProtectRuleInput struct {
 	// ActionType is a required field
 	ActionType *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	CronConfs []*CronConfForCreateBotAnalyseProtectRuleInput `type:"list" json:",omitempty"`
+
+	CronEnable *int32 `type:"int32" json:",omitempty"`
+
 	EffectTime *int32 `type:"int32" json:",omitempty"`
 
 	// Enable is a required field
@@ -352,6 +356,18 @@ func (s *CreateBotAnalyseProtectRuleInput) SetAccurateGroupPriority(v int32) *Cr
 // SetActionType sets the ActionType field's value.
 func (s *CreateBotAnalyseProtectRuleInput) SetActionType(v int32) *CreateBotAnalyseProtectRuleInput {
 	s.ActionType = &v
+	return s
+}
+
+// SetCronConfs sets the CronConfs field's value.
+func (s *CreateBotAnalyseProtectRuleInput) SetCronConfs(v []*CronConfForCreateBotAnalyseProtectRuleInput) *CreateBotAnalyseProtectRuleInput {
+	s.CronConfs = v
+	return s
+}
+
+// SetCronEnable sets the CronEnable field's value.
+func (s *CreateBotAnalyseProtectRuleInput) SetCronEnable(v int32) *CreateBotAnalyseProtectRuleInput {
+	s.CronEnable = &v
 	return s
 }
 
@@ -460,5 +476,43 @@ func (s CreateBotAnalyseProtectRuleOutput) GoString() string {
 // SetId sets the Id field's value.
 func (s *CreateBotAnalyseProtectRuleOutput) SetId(v int32) *CreateBotAnalyseProtectRuleOutput {
 	s.Id = &v
+	return s
+}
+
+type CronConfForCreateBotAnalyseProtectRuleInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Crontab *string `type:"string" json:",omitempty"`
+
+	PathThreshold *int32 `type:"int32" json:",omitempty"`
+
+	SingleThreshold *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CronConfForCreateBotAnalyseProtectRuleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CronConfForCreateBotAnalyseProtectRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetCrontab sets the Crontab field's value.
+func (s *CronConfForCreateBotAnalyseProtectRuleInput) SetCrontab(v string) *CronConfForCreateBotAnalyseProtectRuleInput {
+	s.Crontab = &v
+	return s
+}
+
+// SetPathThreshold sets the PathThreshold field's value.
+func (s *CronConfForCreateBotAnalyseProtectRuleInput) SetPathThreshold(v int32) *CronConfForCreateBotAnalyseProtectRuleInput {
+	s.PathThreshold = &v
+	return s
+}
+
+// SetSingleThreshold sets the SingleThreshold field's value.
+func (s *CronConfForCreateBotAnalyseProtectRuleInput) SetSingleThreshold(v int32) *CronConfForCreateBotAnalyseProtectRuleInput {
+	s.SingleThreshold = &v
 	return s
 }

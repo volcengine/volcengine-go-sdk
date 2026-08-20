@@ -202,6 +202,10 @@ type ListAllIpGroupsInput struct {
 
 	Ip *string `type:"string" json:",omitempty"`
 
+	IpGroupId *int32 `type:"int32" json:",omitempty"`
+
+	IpGroupIds []*int32 `type:"list" json:",omitempty"`
+
 	Page *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
@@ -240,6 +244,18 @@ func (s *ListAllIpGroupsInput) Validate() error {
 // SetIp sets the Ip field's value.
 func (s *ListAllIpGroupsInput) SetIp(v string) *ListAllIpGroupsInput {
 	s.Ip = &v
+	return s
+}
+
+// SetIpGroupId sets the IpGroupId field's value.
+func (s *ListAllIpGroupsInput) SetIpGroupId(v int32) *ListAllIpGroupsInput {
+	s.IpGroupId = &v
+	return s
+}
+
+// SetIpGroupIds sets the IpGroupIds field's value.
+func (s *ListAllIpGroupsInput) SetIpGroupIds(v []*int32) *ListAllIpGroupsInput {
+	s.IpGroupIds = v
 	return s
 }
 

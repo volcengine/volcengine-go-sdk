@@ -324,6 +324,8 @@ type ListCustomBotConfigInput struct {
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	RuleTag *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -370,6 +372,12 @@ func (s *ListCustomBotConfigInput) SetPageSize(v int32) *ListCustomBotConfigInpu
 // SetProjectName sets the ProjectName field's value.
 func (s *ListCustomBotConfigInput) SetProjectName(v string) *ListCustomBotConfigInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetRuleTag sets the RuleTag field's value.
+func (s *ListCustomBotConfigInput) SetRuleTag(v string) *ListCustomBotConfigInput {
+	s.RuleTag = &v
 	return s
 }
 
