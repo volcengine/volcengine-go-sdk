@@ -38,6 +38,22 @@ type DATALEAP20260301API interface {
 	CreateDataSourceWithContext(volcengine.Context, *CreateDataSourceInput, ...request.Option) (*CreateDataSourceOutput, error)
 	CreateDataSourceRequest(*CreateDataSourceInput) (*request.Request, *CreateDataSourceOutput)
 
+	CreateExclusiveComputeResourceGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateExclusiveComputeResourceGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateExclusiveComputeResourceGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateExclusiveComputeResourceGroup(*CreateExclusiveComputeResourceGroupInput) (*CreateExclusiveComputeResourceGroupOutput, error)
+	CreateExclusiveComputeResourceGroupWithContext(volcengine.Context, *CreateExclusiveComputeResourceGroupInput, ...request.Option) (*CreateExclusiveComputeResourceGroupOutput, error)
+	CreateExclusiveComputeResourceGroupRequest(*CreateExclusiveComputeResourceGroupInput) (*request.Request, *CreateExclusiveComputeResourceGroupOutput)
+
+	CreateExclusiveScheduleResourceGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateExclusiveScheduleResourceGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateExclusiveScheduleResourceGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateExclusiveScheduleResourceGroup(*CreateExclusiveScheduleResourceGroupInput) (*CreateExclusiveScheduleResourceGroupOutput, error)
+	CreateExclusiveScheduleResourceGroupWithContext(volcengine.Context, *CreateExclusiveScheduleResourceGroupInput, ...request.Option) (*CreateExclusiveScheduleResourceGroupOutput, error)
+	CreateExclusiveScheduleResourceGroupRequest(*CreateExclusiveScheduleResourceGroupInput) (*request.Request, *CreateExclusiveScheduleResourceGroupOutput)
+
 	CreateSolutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSolutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateSolutionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -70,6 +86,22 @@ type DATALEAP20260301API interface {
 	DeleteEntityTagWithContext(volcengine.Context, *DeleteEntityTagInput, ...request.Option) (*DeleteEntityTagOutput, error)
 	DeleteEntityTagRequest(*DeleteEntityTagInput) (*request.Request, *DeleteEntityTagOutput)
 
+	DeleteExclusiveComputeResourceGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteExclusiveComputeResourceGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteExclusiveComputeResourceGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteExclusiveComputeResourceGroup(*DeleteExclusiveComputeResourceGroupInput) (*DeleteExclusiveComputeResourceGroupOutput, error)
+	DeleteExclusiveComputeResourceGroupWithContext(volcengine.Context, *DeleteExclusiveComputeResourceGroupInput, ...request.Option) (*DeleteExclusiveComputeResourceGroupOutput, error)
+	DeleteExclusiveComputeResourceGroupRequest(*DeleteExclusiveComputeResourceGroupInput) (*request.Request, *DeleteExclusiveComputeResourceGroupOutput)
+
+	DeleteExclusiveScheduleResourceGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteExclusiveScheduleResourceGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteExclusiveScheduleResourceGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteExclusiveScheduleResourceGroup(*DeleteExclusiveScheduleResourceGroupInput) (*DeleteExclusiveScheduleResourceGroupOutput, error)
+	DeleteExclusiveScheduleResourceGroupWithContext(volcengine.Context, *DeleteExclusiveScheduleResourceGroupInput, ...request.Option) (*DeleteExclusiveScheduleResourceGroupOutput, error)
+	DeleteExclusiveScheduleResourceGroupRequest(*DeleteExclusiveScheduleResourceGroupInput) (*request.Request, *DeleteExclusiveScheduleResourceGroupOutput)
+
 	DeleteSolutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteSolutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteSolutionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +109,22 @@ type DATALEAP20260301API interface {
 	DeleteSolution(*DeleteSolutionInput) (*DeleteSolutionOutput, error)
 	DeleteSolutionWithContext(volcengine.Context, *DeleteSolutionInput, ...request.Option) (*DeleteSolutionOutput, error)
 	DeleteSolutionRequest(*DeleteSolutionInput) (*request.Request, *DeleteSolutionOutput)
+
+	GetBackfillCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetBackfillCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetBackfillCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetBackfill(*GetBackfillInput) (*GetBackfillOutput, error)
+	GetBackfillWithContext(volcengine.Context, *GetBackfillInput, ...request.Option) (*GetBackfillOutput, error)
+	GetBackfillRequest(*GetBackfillInput) (*request.Request, *GetBackfillOutput)
+
+	GetBackfillInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetBackfillInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetBackfillInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetBackfillInstances(*GetBackfillInstancesInput) (*GetBackfillInstancesOutput, error)
+	GetBackfillInstancesWithContext(volcengine.Context, *GetBackfillInstancesInput, ...request.Option) (*GetBackfillInstancesOutput, error)
+	GetBackfillInstancesRequest(*GetBackfillInstancesInput) (*request.Request, *GetBackfillInstancesOutput)
 
 	GetDataSourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetDataSourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -94,6 +142,22 @@ type DATALEAP20260301API interface {
 	GetEmrAccountRelationByInternalIdWithContext(volcengine.Context, *GetEmrAccountRelationByInternalIdInput, ...request.Option) (*GetEmrAccountRelationByInternalIdOutput, error)
 	GetEmrAccountRelationByInternalIdRequest(*GetEmrAccountRelationByInternalIdInput) (*request.Request, *GetEmrAccountRelationByInternalIdOutput)
 
+	GetExclusiveComputeResourceGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetExclusiveComputeResourceGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetExclusiveComputeResourceGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetExclusiveComputeResourceGroup(*GetExclusiveComputeResourceGroupInput) (*GetExclusiveComputeResourceGroupOutput, error)
+	GetExclusiveComputeResourceGroupWithContext(volcengine.Context, *GetExclusiveComputeResourceGroupInput, ...request.Option) (*GetExclusiveComputeResourceGroupOutput, error)
+	GetExclusiveComputeResourceGroupRequest(*GetExclusiveComputeResourceGroupInput) (*request.Request, *GetExclusiveComputeResourceGroupOutput)
+
+	GetExclusiveScheduleResourceGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetExclusiveScheduleResourceGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetExclusiveScheduleResourceGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetExclusiveScheduleResourceGroup(*GetExclusiveScheduleResourceGroupInput) (*GetExclusiveScheduleResourceGroupOutput, error)
+	GetExclusiveScheduleResourceGroupWithContext(volcengine.Context, *GetExclusiveScheduleResourceGroupInput, ...request.Option) (*GetExclusiveScheduleResourceGroupOutput, error)
+	GetExclusiveScheduleResourceGroupRequest(*GetExclusiveScheduleResourceGroupInput) (*request.Request, *GetExclusiveScheduleResourceGroupOutput)
+
 	GetSolutionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetSolutionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetSolutionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -110,6 +174,14 @@ type DATALEAP20260301API interface {
 	GetSolutionExecutionWithContext(volcengine.Context, *GetSolutionExecutionInput, ...request.Option) (*GetSolutionExecutionOutput, error)
 	GetSolutionExecutionRequest(*GetSolutionExecutionInput) (*request.Request, *GetSolutionExecutionOutput)
 
+	LaunchBackfillCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	LaunchBackfillCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	LaunchBackfillCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	LaunchBackfill(*LaunchBackfillInput) (*LaunchBackfillOutput, error)
+	LaunchBackfillWithContext(volcengine.Context, *LaunchBackfillInput, ...request.Option) (*LaunchBackfillOutput, error)
+	LaunchBackfillRequest(*LaunchBackfillInput) (*request.Request, *LaunchBackfillOutput)
+
 	ListDataSourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDataSourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListDataSourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -125,6 +197,22 @@ type DATALEAP20260301API interface {
 	ListEntityTags(*ListEntityTagsInput) (*ListEntityTagsOutput, error)
 	ListEntityTagsWithContext(volcengine.Context, *ListEntityTagsInput, ...request.Option) (*ListEntityTagsOutput, error)
 	ListEntityTagsRequest(*ListEntityTagsInput) (*request.Request, *ListEntityTagsOutput)
+
+	ListExclusiveComputeResourceGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListExclusiveComputeResourceGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListExclusiveComputeResourceGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListExclusiveComputeResourceGroups(*ListExclusiveComputeResourceGroupsInput) (*ListExclusiveComputeResourceGroupsOutput, error)
+	ListExclusiveComputeResourceGroupsWithContext(volcengine.Context, *ListExclusiveComputeResourceGroupsInput, ...request.Option) (*ListExclusiveComputeResourceGroupsOutput, error)
+	ListExclusiveComputeResourceGroupsRequest(*ListExclusiveComputeResourceGroupsInput) (*request.Request, *ListExclusiveComputeResourceGroupsOutput)
+
+	ListExclusiveScheduleResourceGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListExclusiveScheduleResourceGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListExclusiveScheduleResourceGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListExclusiveScheduleResourceGroups(*ListExclusiveScheduleResourceGroupsInput) (*ListExclusiveScheduleResourceGroupsOutput, error)
+	ListExclusiveScheduleResourceGroupsWithContext(volcengine.Context, *ListExclusiveScheduleResourceGroupsInput, ...request.Option) (*ListExclusiveScheduleResourceGroupsOutput, error)
+	ListExclusiveScheduleResourceGroupsRequest(*ListExclusiveScheduleResourceGroupsInput) (*request.Request, *ListExclusiveScheduleResourceGroupsOutput)
 
 	ListSolutionBatchTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSolutionBatchTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
