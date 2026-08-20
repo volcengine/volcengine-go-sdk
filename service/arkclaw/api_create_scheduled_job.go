@@ -157,6 +157,12 @@ type CreateScheduledJobInput struct {
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
+	ResultDeliveryChannel *string `type:"string" json:"ResultDelivery.Channel,omitempty"`
+
+	ResultDeliveryChatId *string `type:"string" json:"ResultDelivery.ChatId,omitempty"`
+
+	ResultDeliveryTarget *string `type:"string" json:"ResultDelivery.Target,omitempty"`
+
 	// ScheduleExpr is a required field
 	ScheduleExpr *string `type:"string" json:",omitempty" required:"true"`
 
@@ -226,6 +232,24 @@ func (s *CreateScheduledJobInput) SetName(v string) *CreateScheduledJobInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateScheduledJobInput) SetProjectName(v string) *CreateScheduledJobInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetResultDeliveryChannel sets the ResultDeliveryChannel field's value.
+func (s *CreateScheduledJobInput) SetResultDeliveryChannel(v string) *CreateScheduledJobInput {
+	s.ResultDeliveryChannel = &v
+	return s
+}
+
+// SetResultDeliveryChatId sets the ResultDeliveryChatId field's value.
+func (s *CreateScheduledJobInput) SetResultDeliveryChatId(v string) *CreateScheduledJobInput {
+	s.ResultDeliveryChatId = &v
+	return s
+}
+
+// SetResultDeliveryTarget sets the ResultDeliveryTarget field's value.
+func (s *CreateScheduledJobInput) SetResultDeliveryTarget(v string) *CreateScheduledJobInput {
+	s.ResultDeliveryTarget = &v
 	return s
 }
 

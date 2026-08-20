@@ -78,6 +78,14 @@ type ARKCLAWAPI interface {
 	CreateClawOmniInstanceCommandJobWithContext(volcengine.Context, *CreateClawOmniInstanceCommandJobInput, ...request.Option) (*CreateClawOmniInstanceCommandJobOutput, error)
 	CreateClawOmniInstanceCommandJobRequest(*CreateClawOmniInstanceCommandJobInput) (*request.Request, *CreateClawOmniInstanceCommandJobOutput)
 
+	CreateIdentityProviderTokenExchangeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateIdentityProviderTokenExchangeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateIdentityProviderTokenExchangeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateIdentityProviderTokenExchange(*CreateIdentityProviderTokenExchangeInput) (*CreateIdentityProviderTokenExchangeOutput, error)
+	CreateIdentityProviderTokenExchangeWithContext(volcengine.Context, *CreateIdentityProviderTokenExchangeInput, ...request.Option) (*CreateIdentityProviderTokenExchangeOutput, error)
+	CreateIdentityProviderTokenExchangeRequest(*CreateIdentityProviderTokenExchangeInput) (*request.Request, *CreateIdentityProviderTokenExchangeOutput)
+
 	CreatePrivateClawOmniSpaceTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreatePrivateClawOmniSpaceTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreatePrivateClawOmniSpaceTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,6 +93,38 @@ type ARKCLAWAPI interface {
 	CreatePrivateClawOmniSpaceTemplate(*CreatePrivateClawOmniSpaceTemplateInput) (*CreatePrivateClawOmniSpaceTemplateOutput, error)
 	CreatePrivateClawOmniSpaceTemplateWithContext(volcengine.Context, *CreatePrivateClawOmniSpaceTemplateInput, ...request.Option) (*CreatePrivateClawOmniSpaceTemplateOutput, error)
 	CreatePrivateClawOmniSpaceTemplateRequest(*CreatePrivateClawOmniSpaceTemplateInput) (*request.Request, *CreatePrivateClawOmniSpaceTemplateOutput)
+
+	CreatePrivateEgressDnsBlockRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePrivateEgressDnsBlockRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePrivateEgressDnsBlockRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePrivateEgressDnsBlockRule(*CreatePrivateEgressDnsBlockRuleInput) (*CreatePrivateEgressDnsBlockRuleOutput, error)
+	CreatePrivateEgressDnsBlockRuleWithContext(volcengine.Context, *CreatePrivateEgressDnsBlockRuleInput, ...request.Option) (*CreatePrivateEgressDnsBlockRuleOutput, error)
+	CreatePrivateEgressDnsBlockRuleRequest(*CreatePrivateEgressDnsBlockRuleInput) (*request.Request, *CreatePrivateEgressDnsBlockRuleOutput)
+
+	CreatePrivateEgressEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePrivateEgressEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePrivateEgressEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePrivateEgressEndpoint(*CreatePrivateEgressEndpointInput) (*CreatePrivateEgressEndpointOutput, error)
+	CreatePrivateEgressEndpointWithContext(volcengine.Context, *CreatePrivateEgressEndpointInput, ...request.Option) (*CreatePrivateEgressEndpointOutput, error)
+	CreatePrivateEgressEndpointRequest(*CreatePrivateEgressEndpointInput) (*request.Request, *CreatePrivateEgressEndpointOutput)
+
+	CreatePrivateEgressNetworkAccessRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePrivateEgressNetworkAccessRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePrivateEgressNetworkAccessRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePrivateEgressNetworkAccessRule(*CreatePrivateEgressNetworkAccessRuleInput) (*CreatePrivateEgressNetworkAccessRuleOutput, error)
+	CreatePrivateEgressNetworkAccessRuleWithContext(volcengine.Context, *CreatePrivateEgressNetworkAccessRuleInput, ...request.Option) (*CreatePrivateEgressNetworkAccessRuleOutput, error)
+	CreatePrivateEgressNetworkAccessRuleRequest(*CreatePrivateEgressNetworkAccessRuleInput) (*request.Request, *CreatePrivateEgressNetworkAccessRuleOutput)
+
+	CreatePrivateEgressWebAccessRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePrivateEgressWebAccessRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePrivateEgressWebAccessRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePrivateEgressWebAccessRule(*CreatePrivateEgressWebAccessRuleInput) (*CreatePrivateEgressWebAccessRuleOutput, error)
+	CreatePrivateEgressWebAccessRuleWithContext(volcengine.Context, *CreatePrivateEgressWebAccessRuleInput, ...request.Option) (*CreatePrivateEgressWebAccessRuleOutput, error)
+	CreatePrivateEgressWebAccessRuleRequest(*CreatePrivateEgressWebAccessRuleInput) (*request.Request, *CreatePrivateEgressWebAccessRuleOutput)
 
 	CreateScheduledJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateScheduledJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -118,6 +158,46 @@ type ARKCLAWAPI interface {
 	DeleteClawOmniInstanceWithContext(volcengine.Context, *DeleteClawOmniInstanceInput, ...request.Option) (*DeleteClawOmniInstanceOutput, error)
 	DeleteClawOmniInstanceRequest(*DeleteClawOmniInstanceInput) (*request.Request, *DeleteClawOmniInstanceOutput)
 
+	DeleteIdentityProviderTokenExchangeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIdentityProviderTokenExchangeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIdentityProviderTokenExchangeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIdentityProviderTokenExchange(*DeleteIdentityProviderTokenExchangeInput) (*DeleteIdentityProviderTokenExchangeOutput, error)
+	DeleteIdentityProviderTokenExchangeWithContext(volcengine.Context, *DeleteIdentityProviderTokenExchangeInput, ...request.Option) (*DeleteIdentityProviderTokenExchangeOutput, error)
+	DeleteIdentityProviderTokenExchangeRequest(*DeleteIdentityProviderTokenExchangeInput) (*request.Request, *DeleteIdentityProviderTokenExchangeOutput)
+
+	DeletePrivateEgressDnsBlockRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeletePrivateEgressDnsBlockRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeletePrivateEgressDnsBlockRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeletePrivateEgressDnsBlockRule(*DeletePrivateEgressDnsBlockRuleInput) (*DeletePrivateEgressDnsBlockRuleOutput, error)
+	DeletePrivateEgressDnsBlockRuleWithContext(volcengine.Context, *DeletePrivateEgressDnsBlockRuleInput, ...request.Option) (*DeletePrivateEgressDnsBlockRuleOutput, error)
+	DeletePrivateEgressDnsBlockRuleRequest(*DeletePrivateEgressDnsBlockRuleInput) (*request.Request, *DeletePrivateEgressDnsBlockRuleOutput)
+
+	DeletePrivateEgressEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeletePrivateEgressEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeletePrivateEgressEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeletePrivateEgressEndpoint(*DeletePrivateEgressEndpointInput) (*DeletePrivateEgressEndpointOutput, error)
+	DeletePrivateEgressEndpointWithContext(volcengine.Context, *DeletePrivateEgressEndpointInput, ...request.Option) (*DeletePrivateEgressEndpointOutput, error)
+	DeletePrivateEgressEndpointRequest(*DeletePrivateEgressEndpointInput) (*request.Request, *DeletePrivateEgressEndpointOutput)
+
+	DeletePrivateEgressNetworkAccessRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeletePrivateEgressNetworkAccessRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeletePrivateEgressNetworkAccessRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeletePrivateEgressNetworkAccessRule(*DeletePrivateEgressNetworkAccessRuleInput) (*DeletePrivateEgressNetworkAccessRuleOutput, error)
+	DeletePrivateEgressNetworkAccessRuleWithContext(volcengine.Context, *DeletePrivateEgressNetworkAccessRuleInput, ...request.Option) (*DeletePrivateEgressNetworkAccessRuleOutput, error)
+	DeletePrivateEgressNetworkAccessRuleRequest(*DeletePrivateEgressNetworkAccessRuleInput) (*request.Request, *DeletePrivateEgressNetworkAccessRuleOutput)
+
+	DeletePrivateEgressWebAccessRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeletePrivateEgressWebAccessRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeletePrivateEgressWebAccessRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeletePrivateEgressWebAccessRule(*DeletePrivateEgressWebAccessRuleInput) (*DeletePrivateEgressWebAccessRuleOutput, error)
+	DeletePrivateEgressWebAccessRuleWithContext(volcengine.Context, *DeletePrivateEgressWebAccessRuleInput, ...request.Option) (*DeletePrivateEgressWebAccessRuleOutput, error)
+	DeletePrivateEgressWebAccessRuleRequest(*DeletePrivateEgressWebAccessRuleInput) (*request.Request, *DeletePrivateEgressWebAccessRuleOutput)
+
 	DeleteScheduledJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteScheduledJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteScheduledJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -126,6 +206,182 @@ type ARKCLAWAPI interface {
 	DeleteScheduledJobWithContext(volcengine.Context, *DeleteScheduledJobInput, ...request.Option) (*DeleteScheduledJobOutput, error)
 	DeleteScheduledJobRequest(*DeleteScheduledJobInput) (*request.Request, *DeleteScheduledJobOutput)
 
+	DescribeAccountWhiteListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAccountWhiteListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAccountWhiteListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAccountWhiteList(*DescribeAccountWhiteListInput) (*DescribeAccountWhiteListOutput, error)
+	DescribeAccountWhiteListWithContext(volcengine.Context, *DescribeAccountWhiteListInput, ...request.Option) (*DescribeAccountWhiteListOutput, error)
+	DescribeAccountWhiteListRequest(*DescribeAccountWhiteListInput) (*request.Request, *DescribeAccountWhiteListOutput)
+
+	DescribePrivateEgressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateEgressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateEgressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateEgress(*DescribePrivateEgressInput) (*DescribePrivateEgressOutput, error)
+	DescribePrivateEgressWithContext(volcengine.Context, *DescribePrivateEgressInput, ...request.Option) (*DescribePrivateEgressOutput, error)
+	DescribePrivateEgressRequest(*DescribePrivateEgressInput) (*request.Request, *DescribePrivateEgressOutput)
+
+	DescribePrivateEgressAvailableZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateEgressAvailableZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateEgressAvailableZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateEgressAvailableZones(*DescribePrivateEgressAvailableZonesInput) (*DescribePrivateEgressAvailableZonesOutput, error)
+	DescribePrivateEgressAvailableZonesWithContext(volcengine.Context, *DescribePrivateEgressAvailableZonesInput, ...request.Option) (*DescribePrivateEgressAvailableZonesOutput, error)
+	DescribePrivateEgressAvailableZonesRequest(*DescribePrivateEgressAvailableZonesInput) (*request.Request, *DescribePrivateEgressAvailableZonesOutput)
+
+	DescribePrivateEgressDnsBlockRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateEgressDnsBlockRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateEgressDnsBlockRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateEgressDnsBlockRules(*DescribePrivateEgressDnsBlockRulesInput) (*DescribePrivateEgressDnsBlockRulesOutput, error)
+	DescribePrivateEgressDnsBlockRulesWithContext(volcengine.Context, *DescribePrivateEgressDnsBlockRulesInput, ...request.Option) (*DescribePrivateEgressDnsBlockRulesOutput, error)
+	DescribePrivateEgressDnsBlockRulesRequest(*DescribePrivateEgressDnsBlockRulesInput) (*request.Request, *DescribePrivateEgressDnsBlockRulesOutput)
+
+	DescribePrivateEgressEndpointsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateEgressEndpointsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateEgressEndpointsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateEgressEndpoints(*DescribePrivateEgressEndpointsInput) (*DescribePrivateEgressEndpointsOutput, error)
+	DescribePrivateEgressEndpointsWithContext(volcengine.Context, *DescribePrivateEgressEndpointsInput, ...request.Option) (*DescribePrivateEgressEndpointsOutput, error)
+	DescribePrivateEgressEndpointsRequest(*DescribePrivateEgressEndpointsInput) (*request.Request, *DescribePrivateEgressEndpointsOutput)
+
+	DescribePrivateEgressManagedWebAccessRuleTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateEgressManagedWebAccessRuleTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateEgressManagedWebAccessRuleTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateEgressManagedWebAccessRuleTemplates(*DescribePrivateEgressManagedWebAccessRuleTemplatesInput) (*DescribePrivateEgressManagedWebAccessRuleTemplatesOutput, error)
+	DescribePrivateEgressManagedWebAccessRuleTemplatesWithContext(volcengine.Context, *DescribePrivateEgressManagedWebAccessRuleTemplatesInput, ...request.Option) (*DescribePrivateEgressManagedWebAccessRuleTemplatesOutput, error)
+	DescribePrivateEgressManagedWebAccessRuleTemplatesRequest(*DescribePrivateEgressManagedWebAccessRuleTemplatesInput) (*request.Request, *DescribePrivateEgressManagedWebAccessRuleTemplatesOutput)
+
+	DescribePrivateEgressNetworkAccessPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateEgressNetworkAccessPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateEgressNetworkAccessPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateEgressNetworkAccessPolicy(*DescribePrivateEgressNetworkAccessPolicyInput) (*DescribePrivateEgressNetworkAccessPolicyOutput, error)
+	DescribePrivateEgressNetworkAccessPolicyWithContext(volcengine.Context, *DescribePrivateEgressNetworkAccessPolicyInput, ...request.Option) (*DescribePrivateEgressNetworkAccessPolicyOutput, error)
+	DescribePrivateEgressNetworkAccessPolicyRequest(*DescribePrivateEgressNetworkAccessPolicyInput) (*request.Request, *DescribePrivateEgressNetworkAccessPolicyOutput)
+
+	DescribePrivateEgressNetworkAccessRuleAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateEgressNetworkAccessRuleAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateEgressNetworkAccessRuleAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateEgressNetworkAccessRuleAttributes(*DescribePrivateEgressNetworkAccessRuleAttributesInput) (*DescribePrivateEgressNetworkAccessRuleAttributesOutput, error)
+	DescribePrivateEgressNetworkAccessRuleAttributesWithContext(volcengine.Context, *DescribePrivateEgressNetworkAccessRuleAttributesInput, ...request.Option) (*DescribePrivateEgressNetworkAccessRuleAttributesOutput, error)
+	DescribePrivateEgressNetworkAccessRuleAttributesRequest(*DescribePrivateEgressNetworkAccessRuleAttributesInput) (*request.Request, *DescribePrivateEgressNetworkAccessRuleAttributesOutput)
+
+	DescribePrivateEgressNetworkAccessRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateEgressNetworkAccessRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateEgressNetworkAccessRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateEgressNetworkAccessRules(*DescribePrivateEgressNetworkAccessRulesInput) (*DescribePrivateEgressNetworkAccessRulesOutput, error)
+	DescribePrivateEgressNetworkAccessRulesWithContext(volcengine.Context, *DescribePrivateEgressNetworkAccessRulesInput, ...request.Option) (*DescribePrivateEgressNetworkAccessRulesOutput, error)
+	DescribePrivateEgressNetworkAccessRulesRequest(*DescribePrivateEgressNetworkAccessRulesInput) (*request.Request, *DescribePrivateEgressNetworkAccessRulesOutput)
+
+	DescribePrivateEgressWebAccessPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateEgressWebAccessPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateEgressWebAccessPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateEgressWebAccessPolicy(*DescribePrivateEgressWebAccessPolicyInput) (*DescribePrivateEgressWebAccessPolicyOutput, error)
+	DescribePrivateEgressWebAccessPolicyWithContext(volcengine.Context, *DescribePrivateEgressWebAccessPolicyInput, ...request.Option) (*DescribePrivateEgressWebAccessPolicyOutput, error)
+	DescribePrivateEgressWebAccessPolicyRequest(*DescribePrivateEgressWebAccessPolicyInput) (*request.Request, *DescribePrivateEgressWebAccessPolicyOutput)
+
+	DescribePrivateEgressWebAccessRuleAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateEgressWebAccessRuleAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateEgressWebAccessRuleAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateEgressWebAccessRuleAttributes(*DescribePrivateEgressWebAccessRuleAttributesInput) (*DescribePrivateEgressWebAccessRuleAttributesOutput, error)
+	DescribePrivateEgressWebAccessRuleAttributesWithContext(volcengine.Context, *DescribePrivateEgressWebAccessRuleAttributesInput, ...request.Option) (*DescribePrivateEgressWebAccessRuleAttributesOutput, error)
+	DescribePrivateEgressWebAccessRuleAttributesRequest(*DescribePrivateEgressWebAccessRuleAttributesInput) (*request.Request, *DescribePrivateEgressWebAccessRuleAttributesOutput)
+
+	DescribePrivateEgressWebAccessRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateEgressWebAccessRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateEgressWebAccessRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateEgressWebAccessRules(*DescribePrivateEgressWebAccessRulesInput) (*DescribePrivateEgressWebAccessRulesOutput, error)
+	DescribePrivateEgressWebAccessRulesWithContext(volcengine.Context, *DescribePrivateEgressWebAccessRulesInput, ...request.Option) (*DescribePrivateEgressWebAccessRulesOutput, error)
+	DescribePrivateEgressWebAccessRulesRequest(*DescribePrivateEgressWebAccessRulesInput) (*request.Request, *DescribePrivateEgressWebAccessRulesOutput)
+
+	DisablePrivateEgressAccessLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisablePrivateEgressAccessLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisablePrivateEgressAccessLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisablePrivateEgressAccessLog(*DisablePrivateEgressAccessLogInput) (*DisablePrivateEgressAccessLogOutput, error)
+	DisablePrivateEgressAccessLogWithContext(volcengine.Context, *DisablePrivateEgressAccessLogInput, ...request.Option) (*DisablePrivateEgressAccessLogOutput, error)
+	DisablePrivateEgressAccessLogRequest(*DisablePrivateEgressAccessLogInput) (*request.Request, *DisablePrivateEgressAccessLogOutput)
+
+	DisablePrivateEgressDnsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisablePrivateEgressDnsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisablePrivateEgressDnsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisablePrivateEgressDns(*DisablePrivateEgressDnsInput) (*DisablePrivateEgressDnsOutput, error)
+	DisablePrivateEgressDnsWithContext(volcengine.Context, *DisablePrivateEgressDnsInput, ...request.Option) (*DisablePrivateEgressDnsOutput, error)
+	DisablePrivateEgressDnsRequest(*DisablePrivateEgressDnsInput) (*request.Request, *DisablePrivateEgressDnsOutput)
+
+	DisablePrivateEgressDnsBlockRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisablePrivateEgressDnsBlockRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisablePrivateEgressDnsBlockRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisablePrivateEgressDnsBlockRule(*DisablePrivateEgressDnsBlockRuleInput) (*DisablePrivateEgressDnsBlockRuleOutput, error)
+	DisablePrivateEgressDnsBlockRuleWithContext(volcengine.Context, *DisablePrivateEgressDnsBlockRuleInput, ...request.Option) (*DisablePrivateEgressDnsBlockRuleOutput, error)
+	DisablePrivateEgressDnsBlockRuleRequest(*DisablePrivateEgressDnsBlockRuleInput) (*request.Request, *DisablePrivateEgressDnsBlockRuleOutput)
+
+	DisablePrivateEgressNetworkAccessPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisablePrivateEgressNetworkAccessPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisablePrivateEgressNetworkAccessPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisablePrivateEgressNetworkAccessPolicy(*DisablePrivateEgressNetworkAccessPolicyInput) (*DisablePrivateEgressNetworkAccessPolicyOutput, error)
+	DisablePrivateEgressNetworkAccessPolicyWithContext(volcengine.Context, *DisablePrivateEgressNetworkAccessPolicyInput, ...request.Option) (*DisablePrivateEgressNetworkAccessPolicyOutput, error)
+	DisablePrivateEgressNetworkAccessPolicyRequest(*DisablePrivateEgressNetworkAccessPolicyInput) (*request.Request, *DisablePrivateEgressNetworkAccessPolicyOutput)
+
+	DisablePrivateEgressWebAccessPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisablePrivateEgressWebAccessPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisablePrivateEgressWebAccessPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisablePrivateEgressWebAccessPolicy(*DisablePrivateEgressWebAccessPolicyInput) (*DisablePrivateEgressWebAccessPolicyOutput, error)
+	DisablePrivateEgressWebAccessPolicyWithContext(volcengine.Context, *DisablePrivateEgressWebAccessPolicyInput, ...request.Option) (*DisablePrivateEgressWebAccessPolicyOutput, error)
+	DisablePrivateEgressWebAccessPolicyRequest(*DisablePrivateEgressWebAccessPolicyInput) (*request.Request, *DisablePrivateEgressWebAccessPolicyOutput)
+
+	EnablePrivateEgressAccessLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnablePrivateEgressAccessLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnablePrivateEgressAccessLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnablePrivateEgressAccessLog(*EnablePrivateEgressAccessLogInput) (*EnablePrivateEgressAccessLogOutput, error)
+	EnablePrivateEgressAccessLogWithContext(volcengine.Context, *EnablePrivateEgressAccessLogInput, ...request.Option) (*EnablePrivateEgressAccessLogOutput, error)
+	EnablePrivateEgressAccessLogRequest(*EnablePrivateEgressAccessLogInput) (*request.Request, *EnablePrivateEgressAccessLogOutput)
+
+	EnablePrivateEgressDnsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnablePrivateEgressDnsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnablePrivateEgressDnsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnablePrivateEgressDns(*EnablePrivateEgressDnsInput) (*EnablePrivateEgressDnsOutput, error)
+	EnablePrivateEgressDnsWithContext(volcengine.Context, *EnablePrivateEgressDnsInput, ...request.Option) (*EnablePrivateEgressDnsOutput, error)
+	EnablePrivateEgressDnsRequest(*EnablePrivateEgressDnsInput) (*request.Request, *EnablePrivateEgressDnsOutput)
+
+	EnablePrivateEgressDnsBlockRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnablePrivateEgressDnsBlockRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnablePrivateEgressDnsBlockRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnablePrivateEgressDnsBlockRule(*EnablePrivateEgressDnsBlockRuleInput) (*EnablePrivateEgressDnsBlockRuleOutput, error)
+	EnablePrivateEgressDnsBlockRuleWithContext(volcengine.Context, *EnablePrivateEgressDnsBlockRuleInput, ...request.Option) (*EnablePrivateEgressDnsBlockRuleOutput, error)
+	EnablePrivateEgressDnsBlockRuleRequest(*EnablePrivateEgressDnsBlockRuleInput) (*request.Request, *EnablePrivateEgressDnsBlockRuleOutput)
+
+	EnablePrivateEgressNetworkAccessPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnablePrivateEgressNetworkAccessPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnablePrivateEgressNetworkAccessPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnablePrivateEgressNetworkAccessPolicy(*EnablePrivateEgressNetworkAccessPolicyInput) (*EnablePrivateEgressNetworkAccessPolicyOutput, error)
+	EnablePrivateEgressNetworkAccessPolicyWithContext(volcengine.Context, *EnablePrivateEgressNetworkAccessPolicyInput, ...request.Option) (*EnablePrivateEgressNetworkAccessPolicyOutput, error)
+	EnablePrivateEgressNetworkAccessPolicyRequest(*EnablePrivateEgressNetworkAccessPolicyInput) (*request.Request, *EnablePrivateEgressNetworkAccessPolicyOutput)
+
+	EnablePrivateEgressWebAccessPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnablePrivateEgressWebAccessPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnablePrivateEgressWebAccessPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnablePrivateEgressWebAccessPolicy(*EnablePrivateEgressWebAccessPolicyInput) (*EnablePrivateEgressWebAccessPolicyOutput, error)
+	EnablePrivateEgressWebAccessPolicyWithContext(volcengine.Context, *EnablePrivateEgressWebAccessPolicyInput, ...request.Option) (*EnablePrivateEgressWebAccessPolicyOutput, error)
+	EnablePrivateEgressWebAccessPolicyRequest(*EnablePrivateEgressWebAccessPolicyInput) (*request.Request, *EnablePrivateEgressWebAccessPolicyOutput)
+
 	ExecuteClawOmniInstanceCommandCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ExecuteClawOmniInstanceCommandCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ExecuteClawOmniInstanceCommandCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +389,14 @@ type ARKCLAWAPI interface {
 	ExecuteClawOmniInstanceCommand(*ExecuteClawOmniInstanceCommandInput) (*ExecuteClawOmniInstanceCommandOutput, error)
 	ExecuteClawOmniInstanceCommandWithContext(volcengine.Context, *ExecuteClawOmniInstanceCommandInput, ...request.Option) (*ExecuteClawOmniInstanceCommandOutput, error)
 	ExecuteClawOmniInstanceCommandRequest(*ExecuteClawOmniInstanceCommandInput) (*request.Request, *ExecuteClawOmniInstanceCommandOutput)
+
+	GetArkclawOmniInstanceWebuiCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetArkclawOmniInstanceWebuiCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetArkclawOmniInstanceWebuiCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetArkclawOmniInstanceWebui(*GetArkclawOmniInstanceWebuiInput) (*GetArkclawOmniInstanceWebuiOutput, error)
+	GetArkclawOmniInstanceWebuiWithContext(volcengine.Context, *GetArkclawOmniInstanceWebuiInput, ...request.Option) (*GetArkclawOmniInstanceWebuiOutput, error)
+	GetArkclawOmniInstanceWebuiRequest(*GetArkclawOmniInstanceWebuiInput) (*request.Request, *GetArkclawOmniInstanceWebuiOutput)
 
 	GetClawInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetClawInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -190,6 +454,14 @@ type ARKCLAWAPI interface {
 	GetClawOmniSpaceTemplateWithContext(volcengine.Context, *GetClawOmniSpaceTemplateInput, ...request.Option) (*GetClawOmniSpaceTemplateOutput, error)
 	GetClawOmniSpaceTemplateRequest(*GetClawOmniSpaceTemplateInput) (*request.Request, *GetClawOmniSpaceTemplateOutput)
 
+	GetIdentityProviderTokenExchangeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetIdentityProviderTokenExchangeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetIdentityProviderTokenExchangeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetIdentityProviderTokenExchange(*GetIdentityProviderTokenExchangeInput) (*GetIdentityProviderTokenExchangeOutput, error)
+	GetIdentityProviderTokenExchangeWithContext(volcengine.Context, *GetIdentityProviderTokenExchangeInput, ...request.Option) (*GetIdentityProviderTokenExchangeOutput, error)
+	GetIdentityProviderTokenExchangeRequest(*GetIdentityProviderTokenExchangeInput) (*request.Request, *GetIdentityProviderTokenExchangeOutput)
+
 	GetScheduledJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetScheduledJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetScheduledJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -197,6 +469,14 @@ type ARKCLAWAPI interface {
 	GetScheduledJob(*GetScheduledJobInput) (*GetScheduledJobOutput, error)
 	GetScheduledJobWithContext(volcengine.Context, *GetScheduledJobInput, ...request.Option) (*GetScheduledJobOutput, error)
 	GetScheduledJobRequest(*GetScheduledJobInput) (*request.Request, *GetScheduledJobOutput)
+
+	GetUserPoolClientCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetUserPoolClientCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetUserPoolClientCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetUserPoolClient(*GetUserPoolClientInput) (*GetUserPoolClientOutput, error)
+	GetUserPoolClientWithContext(volcengine.Context, *GetUserPoolClientInput, ...request.Option) (*GetUserPoolClientOutput, error)
+	GetUserPoolClientRequest(*GetUserPoolClientInput) (*request.Request, *GetUserPoolClientOutput)
 
 	InstallClawOmniInstanceSkillCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	InstallClawOmniInstanceSkillCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -278,6 +558,14 @@ type ARKCLAWAPI interface {
 	ListClawSpaceSeatsWithContext(volcengine.Context, *ListClawSpaceSeatsInput, ...request.Option) (*ListClawSpaceSeatsOutput, error)
 	ListClawSpaceSeatsRequest(*ListClawSpaceSeatsInput) (*request.Request, *ListClawSpaceSeatsOutput)
 
+	ListIdentityProvidersTokenExchangeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListIdentityProvidersTokenExchangeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListIdentityProvidersTokenExchangeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListIdentityProvidersTokenExchange(*ListIdentityProvidersTokenExchangeInput) (*ListIdentityProvidersTokenExchangeOutput, error)
+	ListIdentityProvidersTokenExchangeWithContext(volcengine.Context, *ListIdentityProvidersTokenExchangeInput, ...request.Option) (*ListIdentityProvidersTokenExchangeOutput, error)
+	ListIdentityProvidersTokenExchangeRequest(*ListIdentityProvidersTokenExchangeInput) (*request.Request, *ListIdentityProvidersTokenExchangeOutput)
+
 	ListScheduledJobRunsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListScheduledJobRunsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListScheduledJobRunsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -301,6 +589,54 @@ type ARKCLAWAPI interface {
 	ListUsers(*ListUsersInput) (*ListUsersOutput, error)
 	ListUsersWithContext(volcengine.Context, *ListUsersInput, ...request.Option) (*ListUsersOutput, error)
 	ListUsersRequest(*ListUsersInput) (*request.Request, *ListUsersOutput)
+
+	ModifyPrivateEgressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyPrivateEgressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyPrivateEgressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyPrivateEgress(*ModifyPrivateEgressInput) (*ModifyPrivateEgressOutput, error)
+	ModifyPrivateEgressWithContext(volcengine.Context, *ModifyPrivateEgressInput, ...request.Option) (*ModifyPrivateEgressOutput, error)
+	ModifyPrivateEgressRequest(*ModifyPrivateEgressInput) (*request.Request, *ModifyPrivateEgressOutput)
+
+	ModifyPrivateEgressDnsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyPrivateEgressDnsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyPrivateEgressDnsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyPrivateEgressDns(*ModifyPrivateEgressDnsInput) (*ModifyPrivateEgressDnsOutput, error)
+	ModifyPrivateEgressDnsWithContext(volcengine.Context, *ModifyPrivateEgressDnsInput, ...request.Option) (*ModifyPrivateEgressDnsOutput, error)
+	ModifyPrivateEgressDnsRequest(*ModifyPrivateEgressDnsInput) (*request.Request, *ModifyPrivateEgressDnsOutput)
+
+	ModifyPrivateEgressDnsBlockRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyPrivateEgressDnsBlockRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyPrivateEgressDnsBlockRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyPrivateEgressDnsBlockRule(*ModifyPrivateEgressDnsBlockRuleInput) (*ModifyPrivateEgressDnsBlockRuleOutput, error)
+	ModifyPrivateEgressDnsBlockRuleWithContext(volcengine.Context, *ModifyPrivateEgressDnsBlockRuleInput, ...request.Option) (*ModifyPrivateEgressDnsBlockRuleOutput, error)
+	ModifyPrivateEgressDnsBlockRuleRequest(*ModifyPrivateEgressDnsBlockRuleInput) (*request.Request, *ModifyPrivateEgressDnsBlockRuleOutput)
+
+	ModifyPrivateEgressEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyPrivateEgressEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyPrivateEgressEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyPrivateEgressEndpoint(*ModifyPrivateEgressEndpointInput) (*ModifyPrivateEgressEndpointOutput, error)
+	ModifyPrivateEgressEndpointWithContext(volcengine.Context, *ModifyPrivateEgressEndpointInput, ...request.Option) (*ModifyPrivateEgressEndpointOutput, error)
+	ModifyPrivateEgressEndpointRequest(*ModifyPrivateEgressEndpointInput) (*request.Request, *ModifyPrivateEgressEndpointOutput)
+
+	ModifyPrivateEgressNetworkAccessRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyPrivateEgressNetworkAccessRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyPrivateEgressNetworkAccessRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyPrivateEgressNetworkAccessRule(*ModifyPrivateEgressNetworkAccessRuleInput) (*ModifyPrivateEgressNetworkAccessRuleOutput, error)
+	ModifyPrivateEgressNetworkAccessRuleWithContext(volcengine.Context, *ModifyPrivateEgressNetworkAccessRuleInput, ...request.Option) (*ModifyPrivateEgressNetworkAccessRuleOutput, error)
+	ModifyPrivateEgressNetworkAccessRuleRequest(*ModifyPrivateEgressNetworkAccessRuleInput) (*request.Request, *ModifyPrivateEgressNetworkAccessRuleOutput)
+
+	ModifyPrivateEgressWebAccessRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyPrivateEgressWebAccessRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyPrivateEgressWebAccessRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyPrivateEgressWebAccessRule(*ModifyPrivateEgressWebAccessRuleInput) (*ModifyPrivateEgressWebAccessRuleOutput, error)
+	ModifyPrivateEgressWebAccessRuleWithContext(volcengine.Context, *ModifyPrivateEgressWebAccessRuleInput, ...request.Option) (*ModifyPrivateEgressWebAccessRuleOutput, error)
+	ModifyPrivateEgressWebAccessRuleRequest(*ModifyPrivateEgressWebAccessRuleInput) (*request.Request, *ModifyPrivateEgressWebAccessRuleOutput)
 
 	PauseClawOmniInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	PauseClawOmniInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -334,6 +670,14 @@ type ARKCLAWAPI interface {
 	ResetClawOmniInstanceWithContext(volcengine.Context, *ResetClawOmniInstanceInput, ...request.Option) (*ResetClawOmniInstanceOutput, error)
 	ResetClawOmniInstanceRequest(*ResetClawOmniInstanceInput) (*request.Request, *ResetClawOmniInstanceOutput)
 
+	RestartClawInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestartClawInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestartClawInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RestartClawInstance(*RestartClawInstanceInput) (*RestartClawInstanceOutput, error)
+	RestartClawInstanceWithContext(volcengine.Context, *RestartClawInstanceInput, ...request.Option) (*RestartClawInstanceOutput, error)
+	RestartClawInstanceRequest(*RestartClawInstanceInput) (*request.Request, *RestartClawInstanceOutput)
+
 	ResumeClawOmniInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ResumeClawOmniInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ResumeClawOmniInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -358,6 +702,14 @@ type ARKCLAWAPI interface {
 	StopClawOmniInstanceCommandJobWithContext(volcengine.Context, *StopClawOmniInstanceCommandJobInput, ...request.Option) (*StopClawOmniInstanceCommandJobOutput, error)
 	StopClawOmniInstanceCommandJobRequest(*StopClawOmniInstanceCommandJobInput) (*request.Request, *StopClawOmniInstanceCommandJobOutput)
 
+	UnbindClawInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnbindClawInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnbindClawInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnbindClawInstance(*UnbindClawInstanceInput) (*UnbindClawInstanceOutput, error)
+	UnbindClawInstanceWithContext(volcengine.Context, *UnbindClawInstanceInput, ...request.Option) (*UnbindClawInstanceOutput, error)
+	UnbindClawInstanceRequest(*UnbindClawInstanceInput) (*request.Request, *UnbindClawInstanceOutput)
+
 	UpdateClawOmniInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateClawOmniInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateClawOmniInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -373,6 +725,14 @@ type ARKCLAWAPI interface {
 	UpdateClawOmniInstanceModel(*UpdateClawOmniInstanceModelInput) (*UpdateClawOmniInstanceModelOutput, error)
 	UpdateClawOmniInstanceModelWithContext(volcengine.Context, *UpdateClawOmniInstanceModelInput, ...request.Option) (*UpdateClawOmniInstanceModelOutput, error)
 	UpdateClawOmniInstanceModelRequest(*UpdateClawOmniInstanceModelInput) (*request.Request, *UpdateClawOmniInstanceModelOutput)
+
+	UpdateIdentityProviderTokenExchangeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateIdentityProviderTokenExchangeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateIdentityProviderTokenExchangeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateIdentityProviderTokenExchange(*UpdateIdentityProviderTokenExchangeInput) (*UpdateIdentityProviderTokenExchangeOutput, error)
+	UpdateIdentityProviderTokenExchangeWithContext(volcengine.Context, *UpdateIdentityProviderTokenExchangeInput, ...request.Option) (*UpdateIdentityProviderTokenExchangeOutput, error)
+	UpdateIdentityProviderTokenExchangeRequest(*UpdateIdentityProviderTokenExchangeInput) (*request.Request, *UpdateIdentityProviderTokenExchangeOutput)
 
 	UpdatePrivateClawOmniSpaceTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdatePrivateClawOmniSpaceTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

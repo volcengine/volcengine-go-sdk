@@ -32,7 +32,7 @@ const opUpdateClawOmniInstanceCommon = "UpdateClawOmniInstance"
 func (c *ARKCLAW) UpdateClawOmniInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateClawOmniInstanceCommon,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -42,8 +42,6 @@ func (c *ARKCLAW) UpdateClawOmniInstanceCommonRequest(input *map[string]interfac
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -99,7 +97,7 @@ const opUpdateClawOmniInstance = "UpdateClawOmniInstance"
 func (c *ARKCLAW) UpdateClawOmniInstanceRequest(input *UpdateClawOmniInstanceInput) (req *request.Request, output *UpdateClawOmniInstanceOutput) {
 	op := &request.Operation{
 		Name:       opUpdateClawOmniInstance,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -109,8 +107,6 @@ func (c *ARKCLAW) UpdateClawOmniInstanceRequest(input *UpdateClawOmniInstanceInp
 
 	output = &UpdateClawOmniInstanceOutput{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -143,21 +139,58 @@ func (c *ARKCLAW) UpdateClawOmniInstanceWithContext(ctx volcengine.Context, inpu
 	return out, req.Send()
 }
 
-type UpdateClawOmniInstanceInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+type OperationLockForUpdateClawOmniInstanceInput struct {
+	_ struct{} `type:"structure"`
 
-	FieldMask *string `type:"string" json:",omitempty"`
+	Locked *bool `type:"boolean"`
+
+	Scope []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s OperationLockForUpdateClawOmniInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OperationLockForUpdateClawOmniInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetLocked sets the Locked field's value.
+func (s *OperationLockForUpdateClawOmniInstanceInput) SetLocked(v bool) *OperationLockForUpdateClawOmniInstanceInput {
+	s.Locked = &v
+	return s
+}
+
+// SetScope sets the Scope field's value.
+func (s *OperationLockForUpdateClawOmniInstanceInput) SetScope(v []*string) *OperationLockForUpdateClawOmniInstanceInput {
+	s.Scope = v
+	return s
+}
+
+type UpdateClawOmniInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	FieldMask *string `type:"string"`
 
 	// Id is a required field
-	Id *string `type:"string" json:",omitempty" required:"true"`
+	Id *string `type:"string" required:"true"`
 
-	TokenLimitPerDay *int32 `type:"int32" json:",omitempty"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 
-	TokenLimitPerMin *int32 `type:"int32" json:",omitempty"`
+	OperationLock *OperationLockForUpdateClawOmniInstanceInput `type:"structure"`
 
-	TokenLimitPerWeek *string `type:"string" json:",omitempty"`
+	Timeout *int32 `type:"int32"`
 
-	TokenQuota *string `type:"string" json:",omitempty"`
+	TokenLimitPerDay *int32 `type:"int32"`
+
+	TokenLimitPerMin *int32 `type:"int32"`
+
+	TokenLimitPerWeek *string `type:"string"`
+
+	TokenQuota *string `type:"string"`
 }
 
 // String returns the string representation
@@ -176,6 +209,9 @@ func (s *UpdateClawOmniInstanceInput) Validate() error {
 	if s.Id == nil {
 		invalidParams.Add(request.NewErrParamRequired("Id"))
 	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -192,6 +228,24 @@ func (s *UpdateClawOmniInstanceInput) SetFieldMask(v string) *UpdateClawOmniInst
 // SetId sets the Id field's value.
 func (s *UpdateClawOmniInstanceInput) SetId(v string) *UpdateClawOmniInstanceInput {
 	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *UpdateClawOmniInstanceInput) SetName(v string) *UpdateClawOmniInstanceInput {
+	s.Name = &v
+	return s
+}
+
+// SetOperationLock sets the OperationLock field's value.
+func (s *UpdateClawOmniInstanceInput) SetOperationLock(v *OperationLockForUpdateClawOmniInstanceInput) *UpdateClawOmniInstanceInput {
+	s.OperationLock = v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *UpdateClawOmniInstanceInput) SetTimeout(v int32) *UpdateClawOmniInstanceInput {
+	s.Timeout = &v
 	return s
 }
 
@@ -220,11 +274,11 @@ func (s *UpdateClawOmniInstanceInput) SetTokenQuota(v string) *UpdateClawOmniIns
 }
 
 type UpdateClawOmniInstanceOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
+	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *string `type:"string" json:",omitempty"`
+	Id *string `type:"string"`
 }
 
 // String returns the string representation
