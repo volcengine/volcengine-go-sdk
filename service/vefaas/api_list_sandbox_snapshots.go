@@ -143,6 +143,96 @@ func (c *VEFAAS) ListSandboxSnapshotsWithContext(ctx volcengine.Context, input *
 	return out, req.Send()
 }
 
+type EBSVolumeForListSandboxSnapshotsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+
+	VolumeID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EBSVolumeForListSandboxSnapshotsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EBSVolumeForListSandboxSnapshotsOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountPath sets the MountPath field's value.
+func (s *EBSVolumeForListSandboxSnapshotsOutput) SetMountPath(v string) *EBSVolumeForListSandboxSnapshotsOutput {
+	s.MountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *EBSVolumeForListSandboxSnapshotsOutput) SetReadOnly(v bool) *EBSVolumeForListSandboxSnapshotsOutput {
+	s.ReadOnly = &v
+	return s
+}
+
+// SetVolumeID sets the VolumeID field's value.
+func (s *EBSVolumeForListSandboxSnapshotsOutput) SetVolumeID(v string) *EBSVolumeForListSandboxSnapshotsOutput {
+	s.VolumeID = &v
+	return s
+}
+
+type EmptyDirVolumeForListSandboxSnapshotsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPath *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EmptyDirVolumeForListSandboxSnapshotsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EmptyDirVolumeForListSandboxSnapshotsOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountPath sets the MountPath field's value.
+func (s *EmptyDirVolumeForListSandboxSnapshotsOutput) SetMountPath(v string) *EmptyDirVolumeForListSandboxSnapshotsOutput {
+	s.MountPath = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *EmptyDirVolumeForListSandboxSnapshotsOutput) SetName(v string) *EmptyDirVolumeForListSandboxSnapshotsOutput {
+	s.Name = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *EmptyDirVolumeForListSandboxSnapshotsOutput) SetReadOnly(v bool) *EmptyDirVolumeForListSandboxSnapshotsOutput {
+	s.ReadOnly = &v
+	return s
+}
+
+type EnvsForListSandboxSnapshotsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EnvsForListSandboxSnapshotsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnvsForListSandboxSnapshotsOutput) GoString() string {
+	return s.String()
+}
+
 type ListSandboxSnapshotsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -219,12 +309,312 @@ func (s *ListSandboxSnapshotsOutput) SetTotal(v int32) *ListSandboxSnapshotsOutp
 	return s
 }
 
+type MetadataForListSandboxSnapshotsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetadataForListSandboxSnapshotsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetadataForListSandboxSnapshotsOutput) GoString() string {
+	return s.String()
+}
+
+type SandboxInfoForListSandboxSnapshotsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AssignStatus *string `type:"string" json:",omitempty"`
+
+	AvailabilityZone *string `type:"string" json:",omitempty"`
+
+	CpuMilli *int32 `type:"int32" json:",omitempty"`
+
+	CreatedAt *string `type:"string" json:",omitempty"`
+
+	EBSVolumes []*EBSVolumeForListSandboxSnapshotsOutput `type:"list" json:",omitempty"`
+
+	ErrorCode *string `type:"string" json:",omitempty"`
+
+	ErrorMessage *string `type:"string" json:",omitempty"`
+
+	ExpireAt *string `type:"string" json:",omitempty"`
+
+	FunctionId *string `type:"string" json:",omitempty"`
+
+	Id *string `type:"string" json:",omitempty"`
+
+	Image *string `type:"string" json:",omitempty"`
+
+	InstanceType *string `type:"string" json:",omitempty"`
+
+	MemoryMB *int32 `type:"int32" json:",omitempty"`
+
+	Metadata *MetadataForListSandboxSnapshotsOutput `type:"structure" json:",omitempty"`
+
+	PausedAt *string `type:"string" json:",omitempty"`
+
+	Pending *bool `type:"boolean" json:",omitempty"`
+
+	RevisionNumber *int32 `type:"int32" json:",omitempty"`
+
+	RoleChainTrn []*string `type:"list" json:",omitempty"`
+
+	RoleTrn *string `type:"string" json:",omitempty"`
+
+	SessionId *string `type:"string" json:",omitempty"`
+
+	Sidecars []*SidecarForListSandboxSnapshotsOutput `type:"list" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SandboxInfoForListSandboxSnapshotsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SandboxInfoForListSandboxSnapshotsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAssignStatus sets the AssignStatus field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetAssignStatus(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.AssignStatus = &v
+	return s
+}
+
+// SetAvailabilityZone sets the AvailabilityZone field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetAvailabilityZone(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.AvailabilityZone = &v
+	return s
+}
+
+// SetCpuMilli sets the CpuMilli field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetCpuMilli(v int32) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.CpuMilli = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetCreatedAt(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetEBSVolumes sets the EBSVolumes field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetEBSVolumes(v []*EBSVolumeForListSandboxSnapshotsOutput) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.EBSVolumes = v
+	return s
+}
+
+// SetErrorCode sets the ErrorCode field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetErrorCode(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.ErrorCode = &v
+	return s
+}
+
+// SetErrorMessage sets the ErrorMessage field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetErrorMessage(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.ErrorMessage = &v
+	return s
+}
+
+// SetExpireAt sets the ExpireAt field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetExpireAt(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.ExpireAt = &v
+	return s
+}
+
+// SetFunctionId sets the FunctionId field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetFunctionId(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.FunctionId = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetId(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetImage sets the Image field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetImage(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.Image = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetInstanceType(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetMemoryMB sets the MemoryMB field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetMemoryMB(v int32) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.MemoryMB = &v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetMetadata(v *MetadataForListSandboxSnapshotsOutput) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.Metadata = v
+	return s
+}
+
+// SetPausedAt sets the PausedAt field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetPausedAt(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.PausedAt = &v
+	return s
+}
+
+// SetPending sets the Pending field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetPending(v bool) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.Pending = &v
+	return s
+}
+
+// SetRevisionNumber sets the RevisionNumber field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetRevisionNumber(v int32) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.RevisionNumber = &v
+	return s
+}
+
+// SetRoleChainTrn sets the RoleChainTrn field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetRoleChainTrn(v []*string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.RoleChainTrn = v
+	return s
+}
+
+// SetRoleTrn sets the RoleTrn field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetRoleTrn(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.RoleTrn = &v
+	return s
+}
+
+// SetSessionId sets the SessionId field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetSessionId(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.SessionId = &v
+	return s
+}
+
+// SetSidecars sets the Sidecars field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetSidecars(v []*SidecarForListSandboxSnapshotsOutput) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.Sidecars = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetStatus(v string) *SandboxInfoForListSandboxSnapshotsOutput {
+	s.Status = &v
+	return s
+}
+
+type SidecarForListSandboxSnapshotsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Args []*string `type:"list" json:",omitempty"`
+
+	Command []*string `type:"list" json:",omitempty"`
+
+	CpuMilli *int32 `type:"int32" json:",omitempty"`
+
+	EmptyDirVolume []*EmptyDirVolumeForListSandboxSnapshotsOutput `type:"list" json:",omitempty"`
+
+	Envs *EnvsForListSandboxSnapshotsOutput `type:"structure" json:",omitempty"`
+
+	Image *string `type:"string" json:",omitempty"`
+
+	IsInitContainer *bool `type:"boolean" json:",omitempty"`
+
+	MemoryMB *int32 `type:"int32" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SidecarForListSandboxSnapshotsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SidecarForListSandboxSnapshotsOutput) GoString() string {
+	return s.String()
+}
+
+// SetArgs sets the Args field's value.
+func (s *SidecarForListSandboxSnapshotsOutput) SetArgs(v []*string) *SidecarForListSandboxSnapshotsOutput {
+	s.Args = v
+	return s
+}
+
+// SetCommand sets the Command field's value.
+func (s *SidecarForListSandboxSnapshotsOutput) SetCommand(v []*string) *SidecarForListSandboxSnapshotsOutput {
+	s.Command = v
+	return s
+}
+
+// SetCpuMilli sets the CpuMilli field's value.
+func (s *SidecarForListSandboxSnapshotsOutput) SetCpuMilli(v int32) *SidecarForListSandboxSnapshotsOutput {
+	s.CpuMilli = &v
+	return s
+}
+
+// SetEmptyDirVolume sets the EmptyDirVolume field's value.
+func (s *SidecarForListSandboxSnapshotsOutput) SetEmptyDirVolume(v []*EmptyDirVolumeForListSandboxSnapshotsOutput) *SidecarForListSandboxSnapshotsOutput {
+	s.EmptyDirVolume = v
+	return s
+}
+
+// SetEnvs sets the Envs field's value.
+func (s *SidecarForListSandboxSnapshotsOutput) SetEnvs(v *EnvsForListSandboxSnapshotsOutput) *SidecarForListSandboxSnapshotsOutput {
+	s.Envs = v
+	return s
+}
+
+// SetImage sets the Image field's value.
+func (s *SidecarForListSandboxSnapshotsOutput) SetImage(v string) *SidecarForListSandboxSnapshotsOutput {
+	s.Image = &v
+	return s
+}
+
+// SetIsInitContainer sets the IsInitContainer field's value.
+func (s *SidecarForListSandboxSnapshotsOutput) SetIsInitContainer(v bool) *SidecarForListSandboxSnapshotsOutput {
+	s.IsInitContainer = &v
+	return s
+}
+
+// SetMemoryMB sets the MemoryMB field's value.
+func (s *SidecarForListSandboxSnapshotsOutput) SetMemoryMB(v int32) *SidecarForListSandboxSnapshotsOutput {
+	s.MemoryMB = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *SidecarForListSandboxSnapshotsOutput) SetName(v string) *SidecarForListSandboxSnapshotsOutput {
+	s.Name = &v
+	return s
+}
+
 type SnapshotForListSandboxSnapshotsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 
+	CreatedByJobId *string `type:"string" json:",omitempty"`
+
+	Metadata *MetadataForListSandboxSnapshotsOutput `type:"structure" json:",omitempty"`
+
+	RetentionDays *int32 `type:"int32" json:",omitempty"`
+
+	RetentionExpiresAt *string `type:"string" json:",omitempty"`
+
 	SandboxId *string `type:"string" json:",omitempty"`
+
+	SandboxInfo *SandboxInfoForListSandboxSnapshotsOutput `type:"structure" json:",omitempty"`
 
 	SnapshotId *string `type:"string" json:",omitempty"`
 
@@ -251,9 +641,39 @@ func (s *SnapshotForListSandboxSnapshotsOutput) SetCreatedAt(v string) *Snapshot
 	return s
 }
 
+// SetCreatedByJobId sets the CreatedByJobId field's value.
+func (s *SnapshotForListSandboxSnapshotsOutput) SetCreatedByJobId(v string) *SnapshotForListSandboxSnapshotsOutput {
+	s.CreatedByJobId = &v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *SnapshotForListSandboxSnapshotsOutput) SetMetadata(v *MetadataForListSandboxSnapshotsOutput) *SnapshotForListSandboxSnapshotsOutput {
+	s.Metadata = v
+	return s
+}
+
+// SetRetentionDays sets the RetentionDays field's value.
+func (s *SnapshotForListSandboxSnapshotsOutput) SetRetentionDays(v int32) *SnapshotForListSandboxSnapshotsOutput {
+	s.RetentionDays = &v
+	return s
+}
+
+// SetRetentionExpiresAt sets the RetentionExpiresAt field's value.
+func (s *SnapshotForListSandboxSnapshotsOutput) SetRetentionExpiresAt(v string) *SnapshotForListSandboxSnapshotsOutput {
+	s.RetentionExpiresAt = &v
+	return s
+}
+
 // SetSandboxId sets the SandboxId field's value.
 func (s *SnapshotForListSandboxSnapshotsOutput) SetSandboxId(v string) *SnapshotForListSandboxSnapshotsOutput {
 	s.SandboxId = &v
+	return s
+}
+
+// SetSandboxInfo sets the SandboxInfo field's value.
+func (s *SnapshotForListSandboxSnapshotsOutput) SetSandboxInfo(v *SandboxInfoForListSandboxSnapshotsOutput) *SnapshotForListSandboxSnapshotsOutput {
+	s.SandboxInfo = v
 	return s
 }
 

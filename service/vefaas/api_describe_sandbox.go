@@ -143,6 +143,166 @@ func (c *VEFAAS) DescribeSandboxWithContext(ctx volcengine.Context, input *Descr
 	return out, req.Send()
 }
 
+type AllowEgressForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DomainRule *DomainRuleForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+
+	IpRule *IpRuleForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AllowEgressForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AllowEgressForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetDomainRule sets the DomainRule field's value.
+func (s *AllowEgressForDescribeSandboxOutput) SetDomainRule(v *DomainRuleForDescribeSandboxOutput) *AllowEgressForDescribeSandboxOutput {
+	s.DomainRule = v
+	return s
+}
+
+// SetIpRule sets the IpRule field's value.
+func (s *AllowEgressForDescribeSandboxOutput) SetIpRule(v *IpRuleForDescribeSandboxOutput) *AllowEgressForDescribeSandboxOutput {
+	s.IpRule = v
+	return s
+}
+
+type AutoPauseConfigForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	SnapshotType *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AutoPauseConfigForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AutoPauseConfigForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *AutoPauseConfigForDescribeSandboxOutput) SetEnable(v bool) *AutoPauseConfigForDescribeSandboxOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetSnapshotType sets the SnapshotType field's value.
+func (s *AutoPauseConfigForDescribeSandboxOutput) SetSnapshotType(v string) *AutoPauseConfigForDescribeSandboxOutput {
+	s.SnapshotType = &v
+	return s
+}
+
+type AutoSnapshotConfigForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CronExpression *string `type:"string" json:",omitempty"`
+
+	Enable *bool `type:"boolean" json:",omitempty"`
+
+	MaxRetained *int32 `type:"int32" json:",omitempty"`
+
+	Metadata *MetadataForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+
+	RetentionDays *int32 `type:"int32" json:",omitempty"`
+
+	SnapshotType *string `type:"string" json:",omitempty"`
+
+	TimeZone *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AutoSnapshotConfigForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AutoSnapshotConfigForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetCronExpression sets the CronExpression field's value.
+func (s *AutoSnapshotConfigForDescribeSandboxOutput) SetCronExpression(v string) *AutoSnapshotConfigForDescribeSandboxOutput {
+	s.CronExpression = &v
+	return s
+}
+
+// SetEnable sets the Enable field's value.
+func (s *AutoSnapshotConfigForDescribeSandboxOutput) SetEnable(v bool) *AutoSnapshotConfigForDescribeSandboxOutput {
+	s.Enable = &v
+	return s
+}
+
+// SetMaxRetained sets the MaxRetained field's value.
+func (s *AutoSnapshotConfigForDescribeSandboxOutput) SetMaxRetained(v int32) *AutoSnapshotConfigForDescribeSandboxOutput {
+	s.MaxRetained = &v
+	return s
+}
+
+// SetMetadata sets the Metadata field's value.
+func (s *AutoSnapshotConfigForDescribeSandboxOutput) SetMetadata(v *MetadataForDescribeSandboxOutput) *AutoSnapshotConfigForDescribeSandboxOutput {
+	s.Metadata = v
+	return s
+}
+
+// SetRetentionDays sets the RetentionDays field's value.
+func (s *AutoSnapshotConfigForDescribeSandboxOutput) SetRetentionDays(v int32) *AutoSnapshotConfigForDescribeSandboxOutput {
+	s.RetentionDays = &v
+	return s
+}
+
+// SetSnapshotType sets the SnapshotType field's value.
+func (s *AutoSnapshotConfigForDescribeSandboxOutput) SetSnapshotType(v string) *AutoSnapshotConfigForDescribeSandboxOutput {
+	s.SnapshotType = &v
+	return s
+}
+
+// SetTimeZone sets the TimeZone field's value.
+func (s *AutoSnapshotConfigForDescribeSandboxOutput) SetTimeZone(v string) *AutoSnapshotConfigForDescribeSandboxOutput {
+	s.TimeZone = &v
+	return s
+}
+
+type BackendForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountTarget *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BackendForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackendForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountTarget sets the MountTarget field's value.
+func (s *BackendForDescribeSandboxOutput) SetMountTarget(v string) *BackendForDescribeSandboxOutput {
+	s.MountTarget = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *BackendForDescribeSandboxOutput) SetZoneId(v string) *BackendForDescribeSandboxOutput {
+	s.ZoneId = &v
+	return s
+}
+
 type CredentialsForDescribeSandboxOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -178,6 +338,36 @@ func (s *CredentialsForDescribeSandboxOutput) SetSecretAccessKey(v string) *Cred
 // SetSessionToken sets the SessionToken field's value.
 func (s *CredentialsForDescribeSandboxOutput) SetSessionToken(v string) *CredentialsForDescribeSandboxOutput {
 	s.SessionToken = &v
+	return s
+}
+
+type DenyEgressForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DomainRule *DomainRuleForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+
+	IpRule *IpRuleForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DenyEgressForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DenyEgressForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetDomainRule sets the DomainRule field's value.
+func (s *DenyEgressForDescribeSandboxOutput) SetDomainRule(v *DomainRuleForDescribeSandboxOutput) *DenyEgressForDescribeSandboxOutput {
+	s.DomainRule = v
+	return s
+}
+
+// SetIpRule sets the IpRule field's value.
+func (s *DenyEgressForDescribeSandboxOutput) SetIpRule(v *IpRuleForDescribeSandboxOutput) *DenyEgressForDescribeSandboxOutput {
+	s.IpRule = v
 	return s
 }
 
@@ -244,6 +434,10 @@ type DescribeSandboxOutput struct {
 
 	AssignStatus *string `type:"string" json:",omitempty"`
 
+	AutoPauseConfig *AutoPauseConfigForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+
+	AutoSnapshotConfig *AutoSnapshotConfigForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+
 	AvailabilityZone *string `type:"string" json:",omitempty"`
 
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
@@ -264,6 +458,8 @@ type DescribeSandboxOutput struct {
 
 	ImageInfo *ImageInfoForDescribeSandboxOutput `type:"structure" json:",omitempty"`
 
+	InstanceEfsMountConfig *InstanceEfsMountConfigForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+
 	InstanceNasMountConfig *InstanceNasMountConfigForDescribeSandboxOutput `type:"structure" json:",omitempty"`
 
 	InstanceTosMountConfig *InstanceTosMountConfigForDescribeSandboxOutput `type:"structure" json:",omitempty"`
@@ -275,6 +471,10 @@ type DescribeSandboxOutput struct {
 	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
 	MetadataList []*MetadataListForDescribeSandboxOutput `type:"list" json:",omitempty"`
+
+	NetworkRules *NetworkRulesForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+
+	PausedAt *string `type:"string" json:",omitempty"`
 
 	Pending *bool `type:"boolean" json:",omitempty"`
 
@@ -306,6 +506,18 @@ func (s DescribeSandboxOutput) GoString() string {
 // SetAssignStatus sets the AssignStatus field's value.
 func (s *DescribeSandboxOutput) SetAssignStatus(v string) *DescribeSandboxOutput {
 	s.AssignStatus = &v
+	return s
+}
+
+// SetAutoPauseConfig sets the AutoPauseConfig field's value.
+func (s *DescribeSandboxOutput) SetAutoPauseConfig(v *AutoPauseConfigForDescribeSandboxOutput) *DescribeSandboxOutput {
+	s.AutoPauseConfig = v
+	return s
+}
+
+// SetAutoSnapshotConfig sets the AutoSnapshotConfig field's value.
+func (s *DescribeSandboxOutput) SetAutoSnapshotConfig(v *AutoSnapshotConfigForDescribeSandboxOutput) *DescribeSandboxOutput {
+	s.AutoSnapshotConfig = v
 	return s
 }
 
@@ -369,6 +581,12 @@ func (s *DescribeSandboxOutput) SetImageInfo(v *ImageInfoForDescribeSandboxOutpu
 	return s
 }
 
+// SetInstanceEfsMountConfig sets the InstanceEfsMountConfig field's value.
+func (s *DescribeSandboxOutput) SetInstanceEfsMountConfig(v *InstanceEfsMountConfigForDescribeSandboxOutput) *DescribeSandboxOutput {
+	s.InstanceEfsMountConfig = v
+	return s
+}
+
 // SetInstanceNasMountConfig sets the InstanceNasMountConfig field's value.
 func (s *DescribeSandboxOutput) SetInstanceNasMountConfig(v *InstanceNasMountConfigForDescribeSandboxOutput) *DescribeSandboxOutput {
 	s.InstanceNasMountConfig = v
@@ -402,6 +620,18 @@ func (s *DescribeSandboxOutput) SetMemoryMB(v int32) *DescribeSandboxOutput {
 // SetMetadataList sets the MetadataList field's value.
 func (s *DescribeSandboxOutput) SetMetadataList(v []*MetadataListForDescribeSandboxOutput) *DescribeSandboxOutput {
 	s.MetadataList = v
+	return s
+}
+
+// SetNetworkRules sets the NetworkRules field's value.
+func (s *DescribeSandboxOutput) SetNetworkRules(v *NetworkRulesForDescribeSandboxOutput) *DescribeSandboxOutput {
+	s.NetworkRules = v
+	return s
+}
+
+// SetPausedAt sets the PausedAt field's value.
+func (s *DescribeSandboxOutput) SetPausedAt(v string) *DescribeSandboxOutput {
+	s.PausedAt = &v
 	return s
 }
 
@@ -450,6 +680,28 @@ func (s *DescribeSandboxOutput) SetSidecars(v []*SidecarForDescribeSandboxOutput
 // SetStatus sets the Status field's value.
 func (s *DescribeSandboxOutput) SetStatus(v string) *DescribeSandboxOutput {
 	s.Status = &v
+	return s
+}
+
+type DomainRuleForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Domains []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DomainRuleForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainRuleForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetDomains sets the Domains field's value.
+func (s *DomainRuleForDescribeSandboxOutput) SetDomains(v []*string) *DomainRuleForDescribeSandboxOutput {
+	s.Domains = v
 	return s
 }
 
@@ -651,6 +903,28 @@ func (s *ImageInfoForDescribeSandboxOutput) SetSourceImageUrl(v string) *ImageIn
 	return s
 }
 
+type InstanceEfsMountConfigForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPoints []*MountPointForDescribeSandboxOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s InstanceEfsMountConfigForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceEfsMountConfigForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountPoints sets the MountPoints field's value.
+func (s *InstanceEfsMountConfigForDescribeSandboxOutput) SetMountPoints(v []*MountPointForDescribeSandboxOutput) *InstanceEfsMountConfigForDescribeSandboxOutput {
+	s.MountPoints = v
+	return s
+}
+
 type InstanceNasMountConfigForDescribeSandboxOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -735,6 +1009,36 @@ func (s *InstanceTosMountConfigForDescribeSandboxOutput) SetTosMountPoints(v []*
 	return s
 }
 
+type IpRuleForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Cidrs []*string `type:"list" json:",omitempty"`
+
+	Ports []*PortForDescribeSandboxOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s IpRuleForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IpRuleForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetCidrs sets the Cidrs field's value.
+func (s *IpRuleForDescribeSandboxOutput) SetCidrs(v []*string) *IpRuleForDescribeSandboxOutput {
+	s.Cidrs = v
+	return s
+}
+
+// SetPorts sets the Ports field's value.
+func (s *IpRuleForDescribeSandboxOutput) SetPorts(v []*PortForDescribeSandboxOutput) *IpRuleForDescribeSandboxOutput {
+	s.Ports = v
+	return s
+}
+
 type MetadataForDescribeSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 }
@@ -746,6 +1050,20 @@ func (s MetadataForDescribeSandboxInput) String() string {
 
 // GoString returns the string representation
 func (s MetadataForDescribeSandboxInput) GoString() string {
+	return s.String()
+}
+
+type MetadataForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetadataForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetadataForDescribeSandboxOutput) GoString() string {
 	return s.String()
 }
 
@@ -779,6 +1097,44 @@ func (s *MetadataListForDescribeSandboxOutput) SetMetaValue(v string) *MetadataL
 	return s
 }
 
+type MountPointForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Backend *BackendForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MountPointForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MountPointForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetBackend sets the Backend field's value.
+func (s *MountPointForDescribeSandboxOutput) SetBackend(v *BackendForDescribeSandboxOutput) *MountPointForDescribeSandboxOutput {
+	s.Backend = v
+	return s
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *MountPointForDescribeSandboxOutput) SetLocalMountPath(v string) *MountPointForDescribeSandboxOutput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *MountPointForDescribeSandboxOutput) SetReadOnly(v bool) *MountPointForDescribeSandboxOutput {
+	s.ReadOnly = &v
+	return s
+}
+
 type NasMountPointForDescribeSandboxOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -806,6 +1162,90 @@ func (s *NasMountPointForDescribeSandboxOutput) SetLocalMountPath(v string) *Nas
 // SetRemotePath sets the RemotePath field's value.
 func (s *NasMountPointForDescribeSandboxOutput) SetRemotePath(v string) *NasMountPointForDescribeSandboxOutput {
 	s.RemotePath = &v
+	return s
+}
+
+type NetworkRulesForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AllowEgress []*AllowEgressForDescribeSandboxOutput `type:"list" json:",omitempty"`
+
+	AllowEgressAccess *bool `type:"boolean" json:",omitempty"`
+
+	DenyEgress []*DenyEgressForDescribeSandboxOutput `type:"list" json:",omitempty"`
+
+	MaxEgressCps *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NetworkRulesForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkRulesForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllowEgress sets the AllowEgress field's value.
+func (s *NetworkRulesForDescribeSandboxOutput) SetAllowEgress(v []*AllowEgressForDescribeSandboxOutput) *NetworkRulesForDescribeSandboxOutput {
+	s.AllowEgress = v
+	return s
+}
+
+// SetAllowEgressAccess sets the AllowEgressAccess field's value.
+func (s *NetworkRulesForDescribeSandboxOutput) SetAllowEgressAccess(v bool) *NetworkRulesForDescribeSandboxOutput {
+	s.AllowEgressAccess = &v
+	return s
+}
+
+// SetDenyEgress sets the DenyEgress field's value.
+func (s *NetworkRulesForDescribeSandboxOutput) SetDenyEgress(v []*DenyEgressForDescribeSandboxOutput) *NetworkRulesForDescribeSandboxOutput {
+	s.DenyEgress = v
+	return s
+}
+
+// SetMaxEgressCps sets the MaxEgressCps field's value.
+func (s *NetworkRulesForDescribeSandboxOutput) SetMaxEgressCps(v int64) *NetworkRulesForDescribeSandboxOutput {
+	s.MaxEgressCps = &v
+	return s
+}
+
+type PortForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EndPort *int32 `type:"int32" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+
+	Protocol *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PortForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PortForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetEndPort sets the EndPort field's value.
+func (s *PortForDescribeSandboxOutput) SetEndPort(v int32) *PortForDescribeSandboxOutput {
+	s.EndPort = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *PortForDescribeSandboxOutput) SetPort(v int32) *PortForDescribeSandboxOutput {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *PortForDescribeSandboxOutput) SetProtocol(v string) *PortForDescribeSandboxOutput {
+	s.Protocol = &v
 	return s
 }
 

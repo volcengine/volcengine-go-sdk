@@ -143,6 +143,90 @@ func (c *VEFAAS) ListFunctionsWithContext(ctx volcengine.Context, input *ListFun
 	return out, req.Send()
 }
 
+type BackendForListFunctionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountTarget *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BackendForListFunctionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackendForListFunctionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountTarget sets the MountTarget field's value.
+func (s *BackendForListFunctionsOutput) SetMountTarget(v string) *BackendForListFunctionsOutput {
+	s.MountTarget = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *BackendForListFunctionsOutput) SetZoneId(v string) *BackendForListFunctionsOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type ConvertMountPointForListFunctionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BucketName *string `type:"string" json:",omitempty"`
+
+	BucketPath *string `type:"string" json:",omitempty"`
+
+	Endpoint *string `type:"string" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertMountPointForListFunctionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertMountPointForListFunctionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBucketName sets the BucketName field's value.
+func (s *ConvertMountPointForListFunctionsOutput) SetBucketName(v string) *ConvertMountPointForListFunctionsOutput {
+	s.BucketName = &v
+	return s
+}
+
+// SetBucketPath sets the BucketPath field's value.
+func (s *ConvertMountPointForListFunctionsOutput) SetBucketPath(v string) *ConvertMountPointForListFunctionsOutput {
+	s.BucketPath = &v
+	return s
+}
+
+// SetEndpoint sets the Endpoint field's value.
+func (s *ConvertMountPointForListFunctionsOutput) SetEndpoint(v string) *ConvertMountPointForListFunctionsOutput {
+	s.Endpoint = &v
+	return s
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *ConvertMountPointForListFunctionsOutput) SetLocalMountPath(v string) *ConvertMountPointForListFunctionsOutput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *ConvertMountPointForListFunctionsOutput) SetReadOnly(v bool) *ConvertMountPointForListFunctionsOutput {
+	s.ReadOnly = &v
+	return s
+}
+
 type CredentialsForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -170,6 +254,28 @@ func (s *CredentialsForListFunctionsOutput) SetAccessKeyId(v string) *Credential
 // SetSecretAccessKey sets the SecretAccessKey field's value.
 func (s *CredentialsForListFunctionsOutput) SetSecretAccessKey(v string) *CredentialsForListFunctionsOutput {
 	s.SecretAccessKey = &v
+	return s
+}
+
+type EfsMountConfigForListFunctionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPoints []*MountPointForListFunctionsOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsMountConfigForListFunctionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsMountConfigForListFunctionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountPoints sets the MountPoints field's value.
+func (s *EfsMountConfigForListFunctionsOutput) SetMountPoints(v []*MountPointForListFunctionsOutput) *EfsMountConfigForListFunctionsOutput {
+	s.MountPoints = v
 	return s
 }
 
@@ -251,6 +357,8 @@ type ItemForListFunctionsOutput struct {
 	CreationTime *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	EfsMountConfig *EfsMountConfigForListFunctionsOutput `type:"structure" json:",omitempty"`
 
 	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
@@ -360,6 +468,12 @@ func (s *ItemForListFunctionsOutput) SetCreationTime(v string) *ItemForListFunct
 // SetDescription sets the Description field's value.
 func (s *ItemForListFunctionsOutput) SetDescription(v string) *ItemForListFunctionsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetEfsMountConfig sets the EfsMountConfig field's value.
+func (s *ItemForListFunctionsOutput) SetEfsMountConfig(v *EfsMountConfigForListFunctionsOutput) *ItemForListFunctionsOutput {
+	s.EfsMountConfig = v
 	return s
 }
 
@@ -600,11 +714,7 @@ func (s *ListFunctionsOutput) SetTotal(v int32) *ListFunctionsOutput {
 type MountPointForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BucketName *string `type:"string" json:",omitempty"`
-
-	BucketPath *string `type:"string" json:",omitempty"`
-
-	Endpoint *string `type:"string" json:",omitempty"`
+	Backend *BackendForListFunctionsOutput `type:"structure" json:",omitempty"`
 
 	LocalMountPath *string `type:"string" json:",omitempty"`
 
@@ -621,21 +731,9 @@ func (s MountPointForListFunctionsOutput) GoString() string {
 	return s.String()
 }
 
-// SetBucketName sets the BucketName field's value.
-func (s *MountPointForListFunctionsOutput) SetBucketName(v string) *MountPointForListFunctionsOutput {
-	s.BucketName = &v
-	return s
-}
-
-// SetBucketPath sets the BucketPath field's value.
-func (s *MountPointForListFunctionsOutput) SetBucketPath(v string) *MountPointForListFunctionsOutput {
-	s.BucketPath = &v
-	return s
-}
-
-// SetEndpoint sets the Endpoint field's value.
-func (s *MountPointForListFunctionsOutput) SetEndpoint(v string) *MountPointForListFunctionsOutput {
-	s.Endpoint = &v
+// SetBackend sets the Backend field's value.
+func (s *MountPointForListFunctionsOutput) SetBackend(v *BackendForListFunctionsOutput) *MountPointForListFunctionsOutput {
+	s.Backend = v
 	return s
 }
 
@@ -848,7 +946,7 @@ type TosMountConfigForListFunctionsOutput struct {
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*MountPointForListFunctionsOutput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForListFunctionsOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -874,7 +972,7 @@ func (s *TosMountConfigForListFunctionsOutput) SetEnableTos(v bool) *TosMountCon
 }
 
 // SetMountPoints sets the MountPoints field's value.
-func (s *TosMountConfigForListFunctionsOutput) SetMountPoints(v []*MountPointForListFunctionsOutput) *TosMountConfigForListFunctionsOutput {
+func (s *TosMountConfigForListFunctionsOutput) SetMountPoints(v []*ConvertMountPointForListFunctionsOutput) *TosMountConfigForListFunctionsOutput {
 	s.MountPoints = v
 	return s
 }
