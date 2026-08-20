@@ -181,6 +181,74 @@ func (s *AsyncTaskConfigForListRevisionsOutput) SetMaxRetry(v int32) *AsyncTaskC
 	return s
 }
 
+type BackendForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountTarget *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BackendForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackendForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountTarget sets the MountTarget field's value.
+func (s *BackendForListRevisionsOutput) SetMountTarget(v string) *BackendForListRevisionsOutput {
+	s.MountTarget = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *BackendForListRevisionsOutput) SetZoneId(v string) *BackendForListRevisionsOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type ConvertMountPointForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Backend *BackendForListRevisionsOutput `type:"structure" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertMountPointForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertMountPointForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBackend sets the Backend field's value.
+func (s *ConvertMountPointForListRevisionsOutput) SetBackend(v *BackendForListRevisionsOutput) *ConvertMountPointForListRevisionsOutput {
+	s.Backend = v
+	return s
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *ConvertMountPointForListRevisionsOutput) SetLocalMountPath(v string) *ConvertMountPointForListRevisionsOutput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *ConvertMountPointForListRevisionsOutput) SetReadOnly(v bool) *ConvertMountPointForListRevisionsOutput {
+	s.ReadOnly = &v
+	return s
+}
+
 type CredentialsForListRevisionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -238,6 +306,28 @@ func (s *DestinationConfigForListRevisionsOutput) SetOnFailure(v *OnFailureForLi
 // SetOnSuccess sets the OnSuccess field's value.
 func (s *DestinationConfigForListRevisionsOutput) SetOnSuccess(v *OnSuccessForListRevisionsOutput) *DestinationConfigForListRevisionsOutput {
 	s.OnSuccess = v
+	return s
+}
+
+type EfsMountConfigForListRevisionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPoints []*ConvertMountPointForListRevisionsOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsMountConfigForListRevisionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsMountConfigForListRevisionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountPoints sets the MountPoints field's value.
+func (s *EfsMountConfigForListRevisionsOutput) SetMountPoints(v []*ConvertMountPointForListRevisionsOutput) *EfsMountConfigForListRevisionsOutput {
+	s.MountPoints = v
 	return s
 }
 
@@ -460,6 +550,8 @@ type ItemForListRevisionsOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
+	EfsMountConfig *EfsMountConfigForListRevisionsOutput `type:"structure" json:",omitempty"`
+
 	Envs []*EnvForListRevisionsOutput `type:"list" json:",omitempty"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
@@ -546,6 +638,12 @@ func (s *ItemForListRevisionsOutput) SetCreationTime(v string) *ItemForListRevis
 // SetDescription sets the Description field's value.
 func (s *ItemForListRevisionsOutput) SetDescription(v string) *ItemForListRevisionsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetEfsMountConfig sets the EfsMountConfig field's value.
+func (s *ItemForListRevisionsOutput) SetEfsMountConfig(v *EfsMountConfigForListRevisionsOutput) *ItemForListRevisionsOutput {
+	s.EfsMountConfig = v
 	return s
 }
 

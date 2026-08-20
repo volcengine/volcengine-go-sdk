@@ -143,6 +143,74 @@ func (c *VEFAAS) ListFunctionsWithContext(ctx volcengine.Context, input *ListFun
 	return out, req.Send()
 }
 
+type BackendForListFunctionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountTarget *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BackendForListFunctionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackendForListFunctionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountTarget sets the MountTarget field's value.
+func (s *BackendForListFunctionsOutput) SetMountTarget(v string) *BackendForListFunctionsOutput {
+	s.MountTarget = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *BackendForListFunctionsOutput) SetZoneId(v string) *BackendForListFunctionsOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type ConvertMountPointForListFunctionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Backend *BackendForListFunctionsOutput `type:"structure" json:",omitempty"`
+
+	LocalMountPath *string `type:"string" json:",omitempty"`
+
+	ReadOnly *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertMountPointForListFunctionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertMountPointForListFunctionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBackend sets the Backend field's value.
+func (s *ConvertMountPointForListFunctionsOutput) SetBackend(v *BackendForListFunctionsOutput) *ConvertMountPointForListFunctionsOutput {
+	s.Backend = v
+	return s
+}
+
+// SetLocalMountPath sets the LocalMountPath field's value.
+func (s *ConvertMountPointForListFunctionsOutput) SetLocalMountPath(v string) *ConvertMountPointForListFunctionsOutput {
+	s.LocalMountPath = &v
+	return s
+}
+
+// SetReadOnly sets the ReadOnly field's value.
+func (s *ConvertMountPointForListFunctionsOutput) SetReadOnly(v bool) *ConvertMountPointForListFunctionsOutput {
+	s.ReadOnly = &v
+	return s
+}
+
 type CredentialsForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -170,6 +238,28 @@ func (s *CredentialsForListFunctionsOutput) SetAccessKeyId(v string) *Credential
 // SetSecretAccessKey sets the SecretAccessKey field's value.
 func (s *CredentialsForListFunctionsOutput) SetSecretAccessKey(v string) *CredentialsForListFunctionsOutput {
 	s.SecretAccessKey = &v
+	return s
+}
+
+type EfsMountConfigForListFunctionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	MountPoints []*ConvertMountPointForListFunctionsOutput `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EfsMountConfigForListFunctionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EfsMountConfigForListFunctionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetMountPoints sets the MountPoints field's value.
+func (s *EfsMountConfigForListFunctionsOutput) SetMountPoints(v []*ConvertMountPointForListFunctionsOutput) *EfsMountConfigForListFunctionsOutput {
+	s.MountPoints = v
 	return s
 }
 
@@ -251,6 +341,8 @@ type ItemForListFunctionsOutput struct {
 	CreationTime *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
+
+	EfsMountConfig *EfsMountConfigForListFunctionsOutput `type:"structure" json:",omitempty"`
 
 	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
@@ -360,6 +452,12 @@ func (s *ItemForListFunctionsOutput) SetCreationTime(v string) *ItemForListFunct
 // SetDescription sets the Description field's value.
 func (s *ItemForListFunctionsOutput) SetDescription(v string) *ItemForListFunctionsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetEfsMountConfig sets the EfsMountConfig field's value.
+func (s *ItemForListFunctionsOutput) SetEfsMountConfig(v *EfsMountConfigForListFunctionsOutput) *ItemForListFunctionsOutput {
+	s.EfsMountConfig = v
 	return s
 }
 
