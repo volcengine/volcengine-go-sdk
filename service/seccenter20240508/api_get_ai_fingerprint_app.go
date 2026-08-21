@@ -150,7 +150,7 @@ type DataForGetAIFingerprintAppOutput struct {
 
 	Description *string `type:"string" json:",omitempty"`
 
-	Enabled *bool `type:"boolean" json:",omitempty"`
+	Enabled *string `type:"string" json:",omitempty"`
 
 	ID *string `type:"string" json:",omitempty"`
 
@@ -198,7 +198,7 @@ func (s *DataForGetAIFingerprintAppOutput) SetDescription(v string) *DataForGetA
 }
 
 // SetEnabled sets the Enabled field's value.
-func (s *DataForGetAIFingerprintAppOutput) SetEnabled(v bool) *DataForGetAIFingerprintAppOutput {
+func (s *DataForGetAIFingerprintAppOutput) SetEnabled(v string) *DataForGetAIFingerprintAppOutput {
 	s.Enabled = &v
 	return s
 }
@@ -274,6 +274,8 @@ type GetAIFingerprintAppInput struct {
 
 	AppID *string `type:"string" json:",omitempty"`
 
+	Name *string `type:"string" json:",omitempty"`
+
 	OnlyAIApplicationAsset *bool `type:"boolean" json:",omitempty"`
 
 	// PageNumber is a required field
@@ -320,6 +322,12 @@ func (s *GetAIFingerprintAppInput) Validate() error {
 // SetAppID sets the AppID field's value.
 func (s *GetAIFingerprintAppInput) SetAppID(v string) *GetAIFingerprintAppInput {
 	s.AppID = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *GetAIFingerprintAppInput) SetName(v string) *GetAIFingerprintAppInput {
+	s.Name = &v
 	return s
 }
 

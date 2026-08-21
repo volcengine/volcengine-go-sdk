@@ -142,7 +142,8 @@ func (c *SECCENTER20240508) GetDevDetailWithContext(ctx volcengine.Context, inpu
 type GetDevDetailInput struct {
 	_ struct{} `type:"structure"`
 
-	AssetID *string `type:"string"`
+	// AssetID is a required field
+	AssetID *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s GetDevDetailInput) String() string {
 // GoString returns the string representation
 func (s GetDevDetailInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetDevDetailInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetDevDetailInput"}
+	if s.AssetID == nil {
+		invalidParams.Add(request.NewErrParamRequired("AssetID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAssetID sets the AssetID field's value.

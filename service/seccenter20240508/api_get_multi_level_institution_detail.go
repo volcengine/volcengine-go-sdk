@@ -340,11 +340,11 @@ type GetMultiLevelInstitutionDetailOutput struct {
 
 	Configuration *ConfigurationForGetMultiLevelInstitutionDetailOutput `type:"structure" json:"configuration,omitempty"`
 
-	HostOverview *HostOverviewForGetMultiLevelInstitutionDetailOutput `type:"structure" json:"hostOverview,omitempty"`
+	HostOverview *HostOverviewForGetMultiLevelInstitutionDetailOutput `type:"structure" json:",omitempty"`
 
 	ID *string `type:"string" json:",omitempty"`
 
-	Threaten *ThreatenForGetMultiLevelInstitutionDetailOutput `type:"structure" json:"threaten,omitempty"`
+	Threaten *ThreatenForGetMultiLevelInstitutionDetailOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation

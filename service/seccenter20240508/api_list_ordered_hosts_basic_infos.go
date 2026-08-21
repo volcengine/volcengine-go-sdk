@@ -154,6 +154,8 @@ type ConditionsForListOrderedHostsBasicInfosInput struct {
 
 	Hostname *string `type:"string" json:",omitempty"`
 
+	InstanceStatus []*string `type:"list" json:",omitempty"`
+
 	Ip *string `type:"string" json:",omitempty"`
 
 	LeafGroupIDs []*string `type:"list" json:",omitempty"`
@@ -204,6 +206,12 @@ func (s *ConditionsForListOrderedHostsBasicInfosInput) SetCloudProviders(v []*st
 // SetHostname sets the Hostname field's value.
 func (s *ConditionsForListOrderedHostsBasicInfosInput) SetHostname(v string) *ConditionsForListOrderedHostsBasicInfosInput {
 	s.Hostname = &v
+	return s
+}
+
+// SetInstanceStatus sets the InstanceStatus field's value.
+func (s *ConditionsForListOrderedHostsBasicInfosInput) SetInstanceStatus(v []*string) *ConditionsForListOrderedHostsBasicInfosInput {
+	s.InstanceStatus = v
 	return s
 }
 
@@ -291,6 +299,10 @@ type DataForListOrderedHostsBasicInfosOutput struct {
 	Reason *string `type:"string" json:",omitempty"`
 
 	SecurityEnhancement *bool `type:"boolean" json:",omitempty"`
+
+	State *string `type:"string" json:",omitempty"`
+
+	StateDetail *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
 
@@ -394,6 +406,18 @@ func (s *DataForListOrderedHostsBasicInfosOutput) SetReason(v string) *DataForLi
 // SetSecurityEnhancement sets the SecurityEnhancement field's value.
 func (s *DataForListOrderedHostsBasicInfosOutput) SetSecurityEnhancement(v bool) *DataForListOrderedHostsBasicInfosOutput {
 	s.SecurityEnhancement = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *DataForListOrderedHostsBasicInfosOutput) SetState(v string) *DataForListOrderedHostsBasicInfosOutput {
+	s.State = &v
+	return s
+}
+
+// SetStateDetail sets the StateDetail field's value.
+func (s *DataForListOrderedHostsBasicInfosOutput) SetStateDetail(v string) *DataForListOrderedHostsBasicInfosOutput {
+	s.StateDetail = &v
 	return s
 }
 
@@ -622,9 +646,11 @@ type ListOrderedHostsBasicInfosInput struct {
 
 	Conditions *ConditionsForListOrderedHostsBasicInfosInput `type:"structure" json:",omitempty"`
 
-	PageNumber *int64 `type:"int64" json:",omitempty"`
+	// PageNumber is a required field
+	PageNumber *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	PageSize *int64 `type:"int64" json:",omitempty"`
+	// PageSize is a required field
+	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -641,6 +667,22 @@ func (s ListOrderedHostsBasicInfosInput) String() string {
 // GoString returns the string representation
 func (s ListOrderedHostsBasicInfosInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListOrderedHostsBasicInfosInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListOrderedHostsBasicInfosInput"}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetConditions sets the Conditions field's value.

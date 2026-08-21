@@ -169,6 +169,8 @@ type GetAIAlarmJudgeConfigOutput struct {
 	AutoHandleList []*string `type:"list" json:",omitempty"`
 
 	ManagerID *string `type:"string" json:",omitempty"`
+
+	RemainQuota *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -202,5 +204,11 @@ func (s *GetAIAlarmJudgeConfigOutput) SetAutoHandleList(v []*string) *GetAIAlarm
 // SetManagerID sets the ManagerID field's value.
 func (s *GetAIAlarmJudgeConfigOutput) SetManagerID(v string) *GetAIAlarmJudgeConfigOutput {
 	s.ManagerID = &v
+	return s
+}
+
+// SetRemainQuota sets the RemainQuota field's value.
+func (s *GetAIAlarmJudgeConfigOutput) SetRemainQuota(v int64) *GetAIAlarmJudgeConfigOutput {
+	s.RemainQuota = &v
 	return s
 }

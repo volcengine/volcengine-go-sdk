@@ -196,7 +196,8 @@ func (s *DirectoryListForGetMonitorPolicyDirectoryOutput) SetWatchMode(v int64) 
 type GetMonitorPolicyDirectoryInput struct {
 	_ struct{} `type:"structure"`
 
-	ID *string `type:"string"`
+	// ID is a required field
+	ID *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -207,6 +208,19 @@ func (s GetMonitorPolicyDirectoryInput) String() string {
 // GoString returns the string representation
 func (s GetMonitorPolicyDirectoryInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetMonitorPolicyDirectoryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetMonitorPolicyDirectoryInput"}
+	if s.ID == nil {
+		invalidParams.Add(request.NewErrParamRequired("ID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetID sets the ID field's value.

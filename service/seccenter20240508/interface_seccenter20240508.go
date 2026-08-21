@@ -86,6 +86,14 @@ type SECCENTER20240508API interface {
 	AddRaspConfigWithContext(volcengine.Context, *AddRaspConfigInput, ...request.Option) (*AddRaspConfigOutput, error)
 	AddRaspConfigRequest(*AddRaspConfigInput) (*request.Request, *AddRaspConfigOutput)
 
+	AddTrustDirectoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddTrustDirectoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddTrustDirectoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddTrustDirectory(*AddTrustDirectoryInput) (*AddTrustDirectoryOutput, error)
+	AddTrustDirectoryWithContext(volcengine.Context, *AddTrustDirectoryInput, ...request.Option) (*AddTrustDirectoryOutput, error)
+	AddTrustDirectoryRequest(*AddTrustDirectoryInput) (*request.Request, *AddTrustDirectoryOutput)
+
 	AddUserAutoDefenseRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddUserAutoDefenseRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddUserAutoDefenseRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -262,6 +270,14 @@ type SECCENTER20240508API interface {
 	CreatFileScanTaskWithContext(volcengine.Context, *CreatFileScanTaskInput, ...request.Option) (*CreatFileScanTaskOutput, error)
 	CreatFileScanTaskRequest(*CreatFileScanTaskInput) (*request.Request, *CreatFileScanTaskOutput)
 
+	CreateAutoHardeningConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAutoHardeningConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAutoHardeningConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAutoHardeningConfig(*CreateAutoHardeningConfigInput) (*CreateAutoHardeningConfigOutput, error)
+	CreateAutoHardeningConfigWithContext(volcengine.Context, *CreateAutoHardeningConfigInput, ...request.Option) (*CreateAutoHardeningConfigOutput, error)
+	CreateAutoHardeningConfigRequest(*CreateAutoHardeningConfigInput) (*request.Request, *CreateAutoHardeningConfigOutput)
+
 	CreateHostTagCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateHostTagCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateHostTagCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -318,6 +334,14 @@ type SECCENTER20240508API interface {
 	CreateVarmorPolicyWithContext(volcengine.Context, *CreateVarmorPolicyInput, ...request.Option) (*CreateVarmorPolicyOutput, error)
 	CreateVarmorPolicyRequest(*CreateVarmorPolicyInput) (*request.Request, *CreateVarmorPolicyOutput)
 
+	CreateVulnExportJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateVulnExportJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateVulnExportJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateVulnExportJob(*CreateVulnExportJobInput) (*CreateVulnExportJobOutput, error)
+	CreateVulnExportJobWithContext(volcengine.Context, *CreateVulnExportJobInput, ...request.Option) (*CreateVulnExportJobOutput, error)
+	CreateVulnExportJobRequest(*CreateVulnExportJobInput) (*request.Request, *CreateVulnExportJobOutput)
+
 	DeleteAgentProxyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAgentProxyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteAgentProxyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -333,6 +357,14 @@ type SECCENTER20240508API interface {
 	DeleteAgentProxyServer(*DeleteAgentProxyServerInput) (*DeleteAgentProxyServerOutput, error)
 	DeleteAgentProxyServerWithContext(volcengine.Context, *DeleteAgentProxyServerInput, ...request.Option) (*DeleteAgentProxyServerOutput, error)
 	DeleteAgentProxyServerRequest(*DeleteAgentProxyServerInput) (*request.Request, *DeleteAgentProxyServerOutput)
+
+	DeleteAutoHardeningConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAutoHardeningConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAutoHardeningConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAutoHardeningConfig(*DeleteAutoHardeningConfigInput) (*DeleteAutoHardeningConfigOutput, error)
+	DeleteAutoHardeningConfigWithContext(volcengine.Context, *DeleteAutoHardeningConfigInput, ...request.Option) (*DeleteAutoHardeningConfigOutput, error)
+	DeleteAutoHardeningConfigRequest(*DeleteAutoHardeningConfigInput) (*request.Request, *DeleteAutoHardeningConfigOutput)
 
 	DeleteAutoIsolateAgentListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAutoIsolateAgentListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -365,6 +397,14 @@ type SECCENTER20240508API interface {
 	DeleteCommand(*DeleteCommandInput) (*DeleteCommandOutput, error)
 	DeleteCommandWithContext(volcengine.Context, *DeleteCommandInput, ...request.Option) (*DeleteCommandOutput, error)
 	DeleteCommandRequest(*DeleteCommandInput) (*request.Request, *DeleteCommandOutput)
+
+	DeleteExportFileJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteExportFileJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteExportFileJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteExportFileJob(*DeleteExportFileJobInput) (*DeleteExportFileJobOutput, error)
+	DeleteExportFileJobWithContext(volcengine.Context, *DeleteExportFileJobInput, ...request.Option) (*DeleteExportFileJobOutput, error)
+	DeleteExportFileJobRequest(*DeleteExportFileJobInput) (*request.Request, *DeleteExportFileJobOutput)
 
 	DeleteHostTagCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteHostTagCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -413,6 +453,14 @@ type SECCENTER20240508API interface {
 	DeleteRaspConfig(*DeleteRaspConfigInput) (*DeleteRaspConfigOutput, error)
 	DeleteRaspConfigWithContext(volcengine.Context, *DeleteRaspConfigInput, ...request.Option) (*DeleteRaspConfigOutput, error)
 	DeleteRaspConfigRequest(*DeleteRaspConfigInput) (*request.Request, *DeleteRaspConfigOutput)
+
+	DeleteTrustDirectoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTrustDirectoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTrustDirectoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTrustDirectory(*DeleteTrustDirectoryInput) (*DeleteTrustDirectoryOutput, error)
+	DeleteTrustDirectoryWithContext(volcengine.Context, *DeleteTrustDirectoryInput, ...request.Option) (*DeleteTrustDirectoryOutput, error)
+	DeleteTrustDirectoryRequest(*DeleteTrustDirectoryInput) (*request.Request, *DeleteTrustDirectoryOutput)
 
 	DeleteUserAutoDefenseRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteUserAutoDefenseRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -605,6 +653,14 @@ type SECCENTER20240508API interface {
 	EditRaspConfig(*EditRaspConfigInput) (*EditRaspConfigOutput, error)
 	EditRaspConfigWithContext(volcengine.Context, *EditRaspConfigInput, ...request.Option) (*EditRaspConfigOutput, error)
 	EditRaspConfigRequest(*EditRaspConfigInput) (*request.Request, *EditRaspConfigOutput)
+
+	EditTrustDirectoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EditTrustDirectoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EditTrustDirectoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EditTrustDirectory(*EditTrustDirectoryInput) (*EditTrustDirectoryOutput, error)
+	EditTrustDirectoryWithContext(volcengine.Context, *EditTrustDirectoryInput, ...request.Option) (*EditTrustDirectoryOutput, error)
+	EditTrustDirectoryRequest(*EditTrustDirectoryInput) (*request.Request, *EditTrustDirectoryOutput)
 
 	EditVulnScanConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EditVulnScanConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -909,6 +965,30 @@ type SECCENTER20240508API interface {
 	GetAssetWorkloadStatistic(*GetAssetWorkloadStatisticInput) (*GetAssetWorkloadStatisticOutput, error)
 	GetAssetWorkloadStatisticWithContext(volcengine.Context, *GetAssetWorkloadStatisticInput, ...request.Option) (*GetAssetWorkloadStatisticOutput, error)
 	GetAssetWorkloadStatisticRequest(*GetAssetWorkloadStatisticInput) (*request.Request, *GetAssetWorkloadStatisticOutput)
+
+	GetAutoHardeningConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAutoHardeningConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAutoHardeningConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAutoHardeningConfig(*GetAutoHardeningConfigInput) (*GetAutoHardeningConfigOutput, error)
+	GetAutoHardeningConfigWithContext(volcengine.Context, *GetAutoHardeningConfigInput, ...request.Option) (*GetAutoHardeningConfigOutput, error)
+	GetAutoHardeningConfigRequest(*GetAutoHardeningConfigInput) (*request.Request, *GetAutoHardeningConfigOutput)
+
+	GetAutoHardeningEnabledCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAutoHardeningEnabledCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAutoHardeningEnabledCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAutoHardeningEnabled(*GetAutoHardeningEnabledInput) (*GetAutoHardeningEnabledOutput, error)
+	GetAutoHardeningEnabledWithContext(volcengine.Context, *GetAutoHardeningEnabledInput, ...request.Option) (*GetAutoHardeningEnabledOutput, error)
+	GetAutoHardeningEnabledRequest(*GetAutoHardeningEnabledInput) (*request.Request, *GetAutoHardeningEnabledOutput)
+
+	GetAutoHardeningPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAutoHardeningPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAutoHardeningPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAutoHardeningPolicy(*GetAutoHardeningPolicyInput) (*GetAutoHardeningPolicyOutput, error)
+	GetAutoHardeningPolicyWithContext(volcengine.Context, *GetAutoHardeningPolicyInput, ...request.Option) (*GetAutoHardeningPolicyOutput, error)
+	GetAutoHardeningPolicyRequest(*GetAutoHardeningPolicyInput) (*request.Request, *GetAutoHardeningPolicyOutput)
 
 	GetAutoIsolateAgentListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAutoIsolateAgentListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1622,6 +1702,14 @@ type SECCENTER20240508API interface {
 	GetStackTraceWithContext(volcengine.Context, *GetStackTraceInput, ...request.Option) (*GetStackTraceOutput, error)
 	GetStackTraceRequest(*GetStackTraceInput) (*request.Request, *GetStackTraceOutput)
 
+	GetSupportedVarmorVersionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSupportedVarmorVersionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSupportedVarmorVersionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSupportedVarmorVersions(*GetSupportedVarmorVersionsInput) (*GetSupportedVarmorVersionsOutput, error)
+	GetSupportedVarmorVersionsWithContext(volcengine.Context, *GetSupportedVarmorVersionsInput, ...request.Option) (*GetSupportedVarmorVersionsOutput, error)
+	GetSupportedVarmorVersionsRequest(*GetSupportedVarmorVersionsInput) (*request.Request, *GetSupportedVarmorVersionsOutput)
+
 	GetTLSInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetTLSInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetTLSInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1838,6 +1926,14 @@ type SECCENTER20240508API interface {
 	IsolateFileWithContext(volcengine.Context, *IsolateFileInput, ...request.Option) (*IsolateFileOutput, error)
 	IsolateFileRequest(*IsolateFileInput) (*request.Request, *IsolateFileOutput)
 
+	JudgeAlarmBySecurityIntelligenceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	JudgeAlarmBySecurityIntelligenceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	JudgeAlarmBySecurityIntelligenceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	JudgeAlarmBySecurityIntelligence(*JudgeAlarmBySecurityIntelligenceInput) (*JudgeAlarmBySecurityIntelligenceOutput, error)
+	JudgeAlarmBySecurityIntelligenceWithContext(volcengine.Context, *JudgeAlarmBySecurityIntelligenceInput, ...request.Option) (*JudgeAlarmBySecurityIntelligenceOutput, error)
+	JudgeAlarmBySecurityIntelligenceRequest(*JudgeAlarmBySecurityIntelligenceInput) (*request.Request, *JudgeAlarmBySecurityIntelligenceOutput)
+
 	ListAIApplicationBasicInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAIApplicationBasicInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAIApplicationBasicInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1989,6 +2085,22 @@ type SECCENTER20240508API interface {
 	ListAutoDefenseRules(*ListAutoDefenseRulesInput) (*ListAutoDefenseRulesOutput, error)
 	ListAutoDefenseRulesWithContext(volcengine.Context, *ListAutoDefenseRulesInput, ...request.Option) (*ListAutoDefenseRulesOutput, error)
 	ListAutoDefenseRulesRequest(*ListAutoDefenseRulesInput) (*request.Request, *ListAutoDefenseRulesOutput)
+
+	ListAutoHardeningConfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAutoHardeningConfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAutoHardeningConfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAutoHardeningConfigs(*ListAutoHardeningConfigsInput) (*ListAutoHardeningConfigsOutput, error)
+	ListAutoHardeningConfigsWithContext(volcengine.Context, *ListAutoHardeningConfigsInput, ...request.Option) (*ListAutoHardeningConfigsOutput, error)
+	ListAutoHardeningConfigsRequest(*ListAutoHardeningConfigsInput) (*request.Request, *ListAutoHardeningConfigsOutput)
+
+	ListAutoHardeningPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAutoHardeningPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAutoHardeningPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAutoHardeningPolicies(*ListAutoHardeningPoliciesInput) (*ListAutoHardeningPoliciesOutput, error)
+	ListAutoHardeningPoliciesWithContext(volcengine.Context, *ListAutoHardeningPoliciesInput, ...request.Option) (*ListAutoHardeningPoliciesOutput, error)
+	ListAutoHardeningPoliciesRequest(*ListAutoHardeningPoliciesInput) (*request.Request, *ListAutoHardeningPoliciesOutput)
 
 	ListBanIPListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListBanIPListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -2173,6 +2285,14 @@ type SECCENTER20240508API interface {
 	ListEndpointHandleMethods(*ListEndpointHandleMethodsInput) (*ListEndpointHandleMethodsOutput, error)
 	ListEndpointHandleMethodsWithContext(volcengine.Context, *ListEndpointHandleMethodsInput, ...request.Option) (*ListEndpointHandleMethodsOutput, error)
 	ListEndpointHandleMethodsRequest(*ListEndpointHandleMethodsInput) (*request.Request, *ListEndpointHandleMethodsOutput)
+
+	ListExportFileJobCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListExportFileJobCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListExportFileJobCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListExportFileJob(*ListExportFileJobInput) (*ListExportFileJobOutput, error)
+	ListExportFileJobWithContext(volcengine.Context, *ListExportFileJobInput, ...request.Option) (*ListExportFileJobOutput, error)
+	ListExportFileJobRequest(*ListExportFileJobInput) (*request.Request, *ListExportFileJobOutput)
 
 	ListFileMonitorAlarmsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListFileMonitorAlarmsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -2534,6 +2654,14 @@ type SECCENTER20240508API interface {
 	ListTagsDetailWithContext(volcengine.Context, *ListTagsDetailInput, ...request.Option) (*ListTagsDetailOutput, error)
 	ListTagsDetailRequest(*ListTagsDetailInput) (*request.Request, *ListTagsDetailOutput)
 
+	ListTrustDirectoriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTrustDirectoriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTrustDirectoriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTrustDirectories(*ListTrustDirectoriesInput) (*ListTrustDirectoriesOutput, error)
+	ListTrustDirectoriesWithContext(volcengine.Context, *ListTrustDirectoriesInput, ...request.Option) (*ListTrustDirectoriesOutput, error)
+	ListTrustDirectoriesRequest(*ListTrustDirectoriesInput) (*request.Request, *ListTrustDirectoriesOutput)
+
 	ListVarmorPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListVarmorPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListVarmorPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -2806,6 +2934,14 @@ type SECCENTER20240508API interface {
 	SetAIAlarmJudgeConfigWithContext(volcengine.Context, *SetAIAlarmJudgeConfigInput, ...request.Option) (*SetAIAlarmJudgeConfigOutput, error)
 	SetAIAlarmJudgeConfigRequest(*SetAIAlarmJudgeConfigInput) (*request.Request, *SetAIAlarmJudgeConfigOutput)
 
+	SetAutoHardeningEnabledCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetAutoHardeningEnabledCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetAutoHardeningEnabledCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetAutoHardeningEnabled(*SetAutoHardeningEnabledInput) (*SetAutoHardeningEnabledOutput, error)
+	SetAutoHardeningEnabledWithContext(volcengine.Context, *SetAutoHardeningEnabledInput, ...request.Option) (*SetAutoHardeningEnabledOutput, error)
+	SetAutoHardeningEnabledRequest(*SetAutoHardeningEnabledInput) (*request.Request, *SetAutoHardeningEnabledOutput)
+
 	SetBruteForceBanConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetBruteForceBanConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	SetBruteForceBanConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -2837,6 +2973,14 @@ type SECCENTER20240508API interface {
 	StopMLPAssetSyncTask(*StopMLPAssetSyncTaskInput) (*StopMLPAssetSyncTaskOutput, error)
 	StopMLPAssetSyncTaskWithContext(volcengine.Context, *StopMLPAssetSyncTaskInput, ...request.Option) (*StopMLPAssetSyncTaskOutput, error)
 	StopMLPAssetSyncTaskRequest(*StopMLPAssetSyncTaskInput) (*request.Request, *StopMLPAssetSyncTaskOutput)
+
+	StopScanTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopScanTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopScanTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopScanTask(*StopScanTaskInput) (*StopScanTaskOutput, error)
+	StopScanTaskWithContext(volcengine.Context, *StopScanTaskInput, ...request.Option) (*StopScanTaskOutput, error)
+	StopScanTaskRequest(*StopScanTaskInput) (*request.Request, *StopScanTaskOutput)
 
 	SwitchCloudEnvSyncCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SwitchCloudEnvSyncCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -2901,6 +3045,14 @@ type SECCENTER20240508API interface {
 	UpdateAssetClusters(*UpdateAssetClustersInput) (*UpdateAssetClustersOutput, error)
 	UpdateAssetClustersWithContext(volcengine.Context, *UpdateAssetClustersInput, ...request.Option) (*UpdateAssetClustersOutput, error)
 	UpdateAssetClustersRequest(*UpdateAssetClustersInput) (*request.Request, *UpdateAssetClustersOutput)
+
+	UpdateAutoHardeningConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAutoHardeningConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAutoHardeningConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAutoHardeningConfig(*UpdateAutoHardeningConfigInput) (*UpdateAutoHardeningConfigOutput, error)
+	UpdateAutoHardeningConfigWithContext(volcengine.Context, *UpdateAutoHardeningConfigInput, ...request.Option) (*UpdateAutoHardeningConfigOutput, error)
+	UpdateAutoHardeningConfigRequest(*UpdateAutoHardeningConfigInput) (*request.Request, *UpdateAutoHardeningConfigOutput)
 
 	UpdateAutoProtectConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateAutoProtectConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

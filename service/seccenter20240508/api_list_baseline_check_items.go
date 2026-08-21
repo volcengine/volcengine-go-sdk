@@ -175,6 +175,8 @@ type BaselineInfoForListBaselineCheckItemsOutput struct {
 	TypeCn *string `type:"string" json:",omitempty"`
 
 	UpdateTime *int64 `type:"int64" json:",omitempty"`
+
+	WhitelistStatus *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -274,6 +276,12 @@ func (s *BaselineInfoForListBaselineCheckItemsOutput) SetTypeCn(v string) *Basel
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *BaselineInfoForListBaselineCheckItemsOutput) SetUpdateTime(v int64) *BaselineInfoForListBaselineCheckItemsOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetWhitelistStatus sets the WhitelistStatus field's value.
+func (s *BaselineInfoForListBaselineCheckItemsOutput) SetWhitelistStatus(v bool) *BaselineInfoForListBaselineCheckItemsOutput {
+	s.WhitelistStatus = &v
 	return s
 }
 

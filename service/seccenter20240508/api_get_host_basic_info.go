@@ -514,6 +514,10 @@ type GetHostBasicInfoOutput struct {
 
 	StartTime *int64 `type:"int64"`
 
+	State *string `type:"string"`
+
+	StateDetail *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	Tags []*string `type:"list"`
@@ -712,6 +716,18 @@ func (s *GetHostBasicInfoOutput) SetSecurityEnhancement(v bool) *GetHostBasicInf
 // SetStartTime sets the StartTime field's value.
 func (s *GetHostBasicInfoOutput) SetStartTime(v int64) *GetHostBasicInfoOutput {
 	s.StartTime = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *GetHostBasicInfoOutput) SetState(v string) *GetHostBasicInfoOutput {
+	s.State = &v
+	return s
+}
+
+// SetStateDetail sets the StateDetail field's value.
+func (s *GetHostBasicInfoOutput) SetStateDetail(v string) *GetHostBasicInfoOutput {
+	s.StateDetail = &v
 	return s
 }
 

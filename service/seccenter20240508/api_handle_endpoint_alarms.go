@@ -221,6 +221,8 @@ type HandleEndpointAlarmsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	Data *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -233,6 +235,12 @@ func (s HandleEndpointAlarmsOutput) GoString() string {
 	return s.String()
 }
 
+// SetData sets the Data field's value.
+func (s *HandleEndpointAlarmsOutput) SetData(v string) *HandleEndpointAlarmsOutput {
+	s.Data = &v
+	return s
+}
+
 type HandleListForHandleEndpointAlarmsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -243,6 +251,10 @@ type HandleListForHandleEndpointAlarmsInput struct {
 	Files []*FileForHandleEndpointAlarmsInput `type:"list" json:",omitempty"`
 
 	Processes []*ProcessForHandleEndpointAlarmsInput `type:"list" json:",omitempty"`
+
+	SpanTraceID []*int64 `type:"list" json:",omitempty"`
+
+	SpanUniqueID []*int64 `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -276,6 +288,18 @@ func (s *HandleListForHandleEndpointAlarmsInput) SetFiles(v []*FileForHandleEndp
 // SetProcesses sets the Processes field's value.
 func (s *HandleListForHandleEndpointAlarmsInput) SetProcesses(v []*ProcessForHandleEndpointAlarmsInput) *HandleListForHandleEndpointAlarmsInput {
 	s.Processes = v
+	return s
+}
+
+// SetSpanTraceID sets the SpanTraceID field's value.
+func (s *HandleListForHandleEndpointAlarmsInput) SetSpanTraceID(v []*int64) *HandleListForHandleEndpointAlarmsInput {
+	s.SpanTraceID = v
+	return s
+}
+
+// SetSpanUniqueID sets the SpanUniqueID field's value.
+func (s *HandleListForHandleEndpointAlarmsInput) SetSpanUniqueID(v []*int64) *HandleListForHandleEndpointAlarmsInput {
+	s.SpanUniqueID = v
 	return s
 }
 

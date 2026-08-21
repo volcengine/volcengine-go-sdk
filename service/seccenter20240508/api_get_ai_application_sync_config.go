@@ -162,6 +162,8 @@ type GetAIApplicationSyncConfigOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Enable *bool `type:"boolean" json:",omitempty"`
+
 	Period *int64 `type:"int64" json:",omitempty"`
 }
 
@@ -173,6 +175,12 @@ func (s GetAIApplicationSyncConfigOutput) String() string {
 // GoString returns the string representation
 func (s GetAIApplicationSyncConfigOutput) GoString() string {
 	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *GetAIApplicationSyncConfigOutput) SetEnable(v bool) *GetAIApplicationSyncConfigOutput {
+	s.Enable = &v
+	return s
 }
 
 // SetPeriod sets the Period field's value.

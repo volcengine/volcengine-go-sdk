@@ -200,6 +200,10 @@ type DataForListAutoDefenseHostsOutput struct {
 
 	StartTime *int64 `type:"int64" json:",omitempty"`
 
+	State *string `type:"string" json:",omitempty"`
+
+	StateDetail *string `type:"string" json:",omitempty"`
+
 	Status *string `type:"string" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
@@ -382,6 +386,18 @@ func (s *DataForListAutoDefenseHostsOutput) SetSecurityEnhancement(v bool) *Data
 // SetStartTime sets the StartTime field's value.
 func (s *DataForListAutoDefenseHostsOutput) SetStartTime(v int64) *DataForListAutoDefenseHostsOutput {
 	s.StartTime = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *DataForListAutoDefenseHostsOutput) SetState(v string) *DataForListAutoDefenseHostsOutput {
+	s.State = &v
+	return s
+}
+
+// SetStateDetail sets the StateDetail field's value.
+func (s *DataForListAutoDefenseHostsOutput) SetStateDetail(v string) *DataForListAutoDefenseHostsOutput {
+	s.StateDetail = &v
 	return s
 }
 

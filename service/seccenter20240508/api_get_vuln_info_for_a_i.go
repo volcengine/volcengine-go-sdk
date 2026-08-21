@@ -310,9 +310,19 @@ type GetVulnInfoForAIOutput struct {
 
 	IfRasp *bool `type:"boolean" json:",omitempty"`
 
+	Is_important_vul *string `type:"string" json:"is_important_vul,omitempty"`
+
+	Is_llm_vul *string `type:"string" json:"is_llm_vul,omitempty"`
+
 	Level *string `type:"string" json:",omitempty"`
 
 	Md5 *string `type:"string" json:",omitempty"`
+
+	Need_quick_follow *string `type:"string" json:"need_quick_follow,omitempty"`
+
+	Need_rasp *string `type:"string" json:"need_rasp,omitempty"`
+
+	Need_varmor *string `type:"string" json:"need_varmor,omitempty"`
 
 	PatchUrl *string `type:"string" json:",omitempty"`
 
@@ -459,6 +469,18 @@ func (s *GetVulnInfoForAIOutput) SetIfRasp(v bool) *GetVulnInfoForAIOutput {
 	return s
 }
 
+// SetIs_important_vul sets the Is_important_vul field's value.
+func (s *GetVulnInfoForAIOutput) SetIs_important_vul(v string) *GetVulnInfoForAIOutput {
+	s.Is_important_vul = &v
+	return s
+}
+
+// SetIs_llm_vul sets the Is_llm_vul field's value.
+func (s *GetVulnInfoForAIOutput) SetIs_llm_vul(v string) *GetVulnInfoForAIOutput {
+	s.Is_llm_vul = &v
+	return s
+}
+
 // SetLevel sets the Level field's value.
 func (s *GetVulnInfoForAIOutput) SetLevel(v string) *GetVulnInfoForAIOutput {
 	s.Level = &v
@@ -468,6 +490,24 @@ func (s *GetVulnInfoForAIOutput) SetLevel(v string) *GetVulnInfoForAIOutput {
 // SetMd5 sets the Md5 field's value.
 func (s *GetVulnInfoForAIOutput) SetMd5(v string) *GetVulnInfoForAIOutput {
 	s.Md5 = &v
+	return s
+}
+
+// SetNeed_quick_follow sets the Need_quick_follow field's value.
+func (s *GetVulnInfoForAIOutput) SetNeed_quick_follow(v string) *GetVulnInfoForAIOutput {
+	s.Need_quick_follow = &v
+	return s
+}
+
+// SetNeed_rasp sets the Need_rasp field's value.
+func (s *GetVulnInfoForAIOutput) SetNeed_rasp(v string) *GetVulnInfoForAIOutput {
+	s.Need_rasp = &v
+	return s
+}
+
+// SetNeed_varmor sets the Need_varmor field's value.
+func (s *GetVulnInfoForAIOutput) SetNeed_varmor(v string) *GetVulnInfoForAIOutput {
+	s.Need_varmor = &v
 	return s
 }
 

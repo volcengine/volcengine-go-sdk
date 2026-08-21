@@ -162,7 +162,7 @@ type ExportDevFingerprintDataInput struct {
 
 	Conditions *ConditionsForExportDevFingerprintDataInput `type:"structure" json:",omitempty"`
 
-	FingerprintType *string `type:"string" json:",omitempty" enum:"EnumOfFingerprintTypeForExportDevFingerprintDataInput"`
+	FingerprintType *string `type:"string" json:",omitempty"`
 
 	IDList []*string `type:"list" json:",omitempty"`
 }
@@ -218,14 +218,3 @@ func (s *ExportDevFingerprintDataOutput) SetFileName(v string) *ExportDevFingerp
 	s.FileName = &v
 	return s
 }
-
-const (
-	// EnumOfFingerprintTypeForExportDevFingerprintDataInputProcess is a EnumOfFingerprintTypeForExportDevFingerprintDataInput enum value
-	EnumOfFingerprintTypeForExportDevFingerprintDataInputProcess = "process"
-
-	// EnumOfFingerprintTypeForExportDevFingerprintDataInputPort is a EnumOfFingerprintTypeForExportDevFingerprintDataInput enum value
-	EnumOfFingerprintTypeForExportDevFingerprintDataInputPort = "port"
-
-	// EnumOfFingerprintTypeForExportDevFingerprintDataInputSoftware is a EnumOfFingerprintTypeForExportDevFingerprintDataInput enum value
-	EnumOfFingerprintTypeForExportDevFingerprintDataInputSoftware = "software"
-)

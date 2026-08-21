@@ -148,7 +148,8 @@ type BatchAddHostToGroupInput struct {
 
 	AgentIds []*string `type:"list" json:",omitempty"`
 
-	GroupID *string `type:"string" json:",omitempty"`
+	// GroupID is a required field
+	GroupID *string `type:"string" json:",omitempty" required:"true"`
 
 	Reconfirm *bool `type:"boolean" json:",omitempty"`
 }
@@ -161,6 +162,19 @@ func (s BatchAddHostToGroupInput) String() string {
 // GoString returns the string representation
 func (s BatchAddHostToGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BatchAddHostToGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BatchAddHostToGroupInput"}
+	if s.GroupID == nil {
+		invalidParams.Add(request.NewErrParamRequired("GroupID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAgentIds sets the AgentIds field's value.

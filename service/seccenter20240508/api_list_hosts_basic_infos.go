@@ -382,6 +382,10 @@ type DataForListHostsBasicInfosOutput struct {
 
 	StartTime *int64 `type:"int64" json:",omitempty"`
 
+	State *string `type:"string" json:",omitempty"`
+
+	StateDetail *string `type:"string" json:",omitempty"`
+
 	Status *string `type:"string" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
@@ -564,6 +568,18 @@ func (s *DataForListHostsBasicInfosOutput) SetSecurityEnhancement(v bool) *DataF
 // SetStartTime sets the StartTime field's value.
 func (s *DataForListHostsBasicInfosOutput) SetStartTime(v int64) *DataForListHostsBasicInfosOutput {
 	s.StartTime = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *DataForListHostsBasicInfosOutput) SetState(v string) *DataForListHostsBasicInfosOutput {
+	s.State = &v
+	return s
+}
+
+// SetStateDetail sets the StateDetail field's value.
+func (s *DataForListHostsBasicInfosOutput) SetStateDetail(v string) *DataForListHostsBasicInfosOutput {
+	s.StateDetail = &v
 	return s
 }
 

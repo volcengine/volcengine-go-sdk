@@ -754,7 +754,11 @@ type AlarmNodeForGetRaspAlarmSummaryInfoOutput struct {
 
 	SecurityIntelligenceComplete *bool `type:"boolean"`
 
+	SecurityIntelligenceError *string `type:"string"`
+
 	SecurityIntelligenceResult *string `type:"string"`
+
+	SecurityIntelligenceStatus *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -1471,9 +1475,21 @@ func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetSecurityIntelligenceCompl
 	return s
 }
 
+// SetSecurityIntelligenceError sets the SecurityIntelligenceError field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetSecurityIntelligenceError(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceError = &v
+	return s
+}
+
 // SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
 func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
 	s.SecurityIntelligenceResult = &v
+	return s
+}
+
+// SetSecurityIntelligenceStatus sets the SecurityIntelligenceStatus field's value.
+func (s *AlarmNodeForGetRaspAlarmSummaryInfoOutput) SetSecurityIntelligenceStatus(v string) *AlarmNodeForGetRaspAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceStatus = &v
 	return s
 }
 
@@ -2336,7 +2352,8 @@ func (s *ExtendInfoForGetRaspAlarmSummaryInfoOutput) SetVulInfo(v []*VulInfoForG
 type GetRaspAlarmSummaryInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	AlarmID *string `type:"string"`
+	// AlarmID is a required field
+	AlarmID *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2347,6 +2364,19 @@ func (s GetRaspAlarmSummaryInfoInput) String() string {
 // GoString returns the string representation
 func (s GetRaspAlarmSummaryInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetRaspAlarmSummaryInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetRaspAlarmSummaryInfoInput"}
+	if s.AlarmID == nil {
+		invalidParams.Add(request.NewErrParamRequired("AlarmID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAlarmID sets the AlarmID field's value.
@@ -2860,7 +2890,11 @@ type KillChainNodeListForGetRaspAlarmSummaryInfoOutput struct {
 
 	SecurityIntelligenceComplete *bool `type:"boolean"`
 
+	SecurityIntelligenceError *string `type:"string"`
+
 	SecurityIntelligenceResult *string `type:"string"`
+
+	SecurityIntelligenceStatus *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -3577,9 +3611,21 @@ func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetSecurityIntellige
 	return s
 }
 
+// SetSecurityIntelligenceError sets the SecurityIntelligenceError field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetSecurityIntelligenceError(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceError = &v
+	return s
+}
+
 // SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
 func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
 	s.SecurityIntelligenceResult = &v
+	return s
+}
+
+// SetSecurityIntelligenceStatus sets the SecurityIntelligenceStatus field's value.
+func (s *KillChainNodeListForGetRaspAlarmSummaryInfoOutput) SetSecurityIntelligenceStatus(v string) *KillChainNodeListForGetRaspAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceStatus = &v
 	return s
 }
 
