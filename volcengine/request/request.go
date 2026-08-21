@@ -12,6 +12,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/google/uuid"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/custom"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -50,19 +52,24 @@ type Request struct {
 	Handlers   Handlers
 
 	Retryer
-	AttemptTime            time.Time
-	Time                   time.Time
-	Operation              *Operation
-	HTTPRequest            *http.Request
-	HTTPResponse           *http.Response
-	Body                   io.ReadSeeker
-	BodyStart              int64 // offset from beginning of Body that the request volcenginebody starts
-	Params                 interface{}
-	Error                  error
-	Data                   interface{}
-	RequestID              string
-	RetryCount             int
-	Retryable              *bool
+	AttemptTime  time.Time
+	Time         time.Time
+	Operation    *Operation
+	HTTPRequest  *http.Request
+	HTTPResponse *http.Response
+	Body         io.ReadSeeker
+	BodyStart    int64 // offset from beginning of Body that the request volcenginebody starts
+	Params       interface{}
+	Error        error
+	Data         interface{}
+	RequestID    string
+	RetryCount   int
+	Retryable    *bool
+	// InvocationID identifies a single logical Send() call: it is generated
+	// once in New() and stays the same across all retry attempts of that
+	// call, letting the server tell attempts of the same request apart from
+	// unrelated ones.
+	InvocationID           string
 	RetryDelay             time.Duration
 	NotHoist               bool
 	SignedHeaderVals       http.Header
@@ -136,18 +143,19 @@ func New(cfg volcengine.Config, clientInfo metadata.ClientInfo, handlers Handler
 	SanitizeHostForHeader(httpReq)
 
 	r := &Request{
-		Config:      cfg,
-		ClientInfo:  clientInfo,
-		Handlers:    handlers.Copy(),
-		Retryer:     retryer,
-		Time:        time.Now(),
-		ExpireTime:  0,
-		Operation:   operation,
-		HTTPRequest: httpReq,
-		Body:        nil,
-		Params:      params,
-		Error:       err,
-		Data:        data,
+		Config:       cfg,
+		ClientInfo:   clientInfo,
+		Handlers:     handlers.Copy(),
+		Retryer:      retryer,
+		Time:         time.Now(),
+		ExpireTime:   0,
+		Operation:    operation,
+		HTTPRequest:  httpReq,
+		Body:         nil,
+		Params:       params,
+		Error:        err,
+		Data:         data,
+		InvocationID: uuid.New().String(),
 	}
 	r.SetBufferBody([]byte{})
 
