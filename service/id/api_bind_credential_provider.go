@@ -154,8 +154,8 @@ type BindCredentialProviderInput struct {
 	// ProviderType is a required field
 	ProviderType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfProviderTypeForBindCredentialProviderInput"`
 
-	// Reousrce is a required field
-	Reousrce *string `type:"string" json:",omitempty" required:"true"`
+	// Resource is a required field
+	Resource *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -177,8 +177,8 @@ func (s *BindCredentialProviderInput) Validate() error {
 	if s.ProviderType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ProviderType"))
 	}
-	if s.Reousrce == nil {
-		invalidParams.Add(request.NewErrParamRequired("Reousrce"))
+	if s.Resource == nil {
+		invalidParams.Add(request.NewErrParamRequired("Resource"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -205,9 +205,9 @@ func (s *BindCredentialProviderInput) SetProviderType(v string) *BindCredentialP
 	return s
 }
 
-// SetReousrce sets the Reousrce field's value.
-func (s *BindCredentialProviderInput) SetReousrce(v string) *BindCredentialProviderInput {
-	s.Reousrce = &v
+// SetResource sets the Resource field's value.
+func (s *BindCredentialProviderInput) SetResource(v string) *BindCredentialProviderInput {
+	s.Resource = &v
 	return s
 }
 

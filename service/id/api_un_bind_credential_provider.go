@@ -154,8 +154,8 @@ type UnBindCredentialProviderInput struct {
 	// ProviderType is a required field
 	ProviderType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfProviderTypeForUnBindCredentialProviderInput"`
 
-	// Reousrce is a required field
-	Reousrce *string `type:"string" json:",omitempty" required:"true"`
+	// Resource is a required field
+	Resource *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -177,8 +177,8 @@ func (s *UnBindCredentialProviderInput) Validate() error {
 	if s.ProviderType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ProviderType"))
 	}
-	if s.Reousrce == nil {
-		invalidParams.Add(request.NewErrParamRequired("Reousrce"))
+	if s.Resource == nil {
+		invalidParams.Add(request.NewErrParamRequired("Resource"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -205,9 +205,9 @@ func (s *UnBindCredentialProviderInput) SetProviderType(v string) *UnBindCredent
 	return s
 }
 
-// SetReousrce sets the Reousrce field's value.
-func (s *UnBindCredentialProviderInput) SetReousrce(v string) *UnBindCredentialProviderInput {
-	s.Reousrce = &v
+// SetResource sets the Resource field's value.
+func (s *UnBindCredentialProviderInput) SetResource(v string) *UnBindCredentialProviderInput {
+	s.Resource = &v
 	return s
 }
 
