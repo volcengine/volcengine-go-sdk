@@ -106,6 +106,8 @@ type ModerateV2Request struct {
 	History []*MessageV2 `thrift:"history,6,optional" form:"History" json:"History,omitempty"`
 	// 扩展字段，如HookName
 	Extensions map[string]string `thrift:"Extensions,7,optional" form:"Extensions" json:"Extensions,omitempty"`
+	// 命中优化回答时是否同步触发代答
+	CallGenerateOnOptimize *bool `thrift:"callGenerateOnOptimize,8,optional" form:"CallGenerateOnOptimize" json:"CallGenerateOnOptimize,omitempty"`
 }
 
 type Error struct {
@@ -199,7 +201,26 @@ type RiskMatchV2 struct {
 	Source MatchSource `thrift:"source,3" form:"Source" json:"Source"`
 	// 规则ID
 	RuleID string `thrift:"ruleID,4" form:"RuleID" json:"RuleID,omitempty"`
+	// 命中位置
+	Position *PositionInfo `thrift:"position,4,optional" form:"Position" json:"Position,omitempty"`
 }
+
+type PositionInfo struct {
+	// 图片信息
+	ImagePosition *ImagePositionInfo `thrift:"ImagePosition,1,optional" form:"ImagePosition" json:"ImagePosition,omitempty"`
+}
+
+type ImagePositionInfo struct {
+	// XStart
+	XStart string `thrift:"XStart,1" form:"xStart" json:"xStart"`
+	// YStart
+	YStart string `thrift:"YStart,2" form:"yStart" json:"yStart"`
+	// XEnd
+	XEnd string `thrift:"XEnd,3" form:"xEnd" json:"xEnd"`
+	// YEnd
+	YEnd string `thrift:"YEnd,4" form:"yEnd" json:"yEnd"`
+}
+
 type PermitMatchV2 struct {
 	// 命中词
 	Word string `thrift:"word,1" form:"Word" json:"Word"`
