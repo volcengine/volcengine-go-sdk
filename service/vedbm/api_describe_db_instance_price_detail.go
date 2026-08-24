@@ -303,6 +303,8 @@ type DescribeDBInstancePriceDetailInput struct {
 	PrePaidStorageInGB *int32 `type:"int32" json:",omitempty"`
 
 	StorageChargeType *string `type:"string" json:",omitempty" enum:"EnumOfStorageChargeTypeForDescribeDBInstancePriceDetailInput"`
+
+	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForDescribeDBInstancePriceDetailInput"`
 }
 
 // String returns the string representation
@@ -376,6 +378,12 @@ func (s *DescribeDBInstancePriceDetailInput) SetPrePaidStorageInGB(v int32) *Des
 // SetStorageChargeType sets the StorageChargeType field's value.
 func (s *DescribeDBInstancePriceDetailInput) SetStorageChargeType(v string) *DescribeDBInstancePriceDetailInput {
 	s.StorageChargeType = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *DescribeDBInstancePriceDetailInput) SetStorageType(v string) *DescribeDBInstancePriceDetailInput {
+	s.StorageType = &v
 	return s
 }
 
@@ -473,4 +481,12 @@ const (
 
 	// EnumOfStorageChargeTypeForDescribeDBInstancePriceDetailInputPrePaid is a EnumOfStorageChargeTypeForDescribeDBInstancePriceDetailInput enum value
 	EnumOfStorageChargeTypeForDescribeDBInstancePriceDetailInputPrePaid = "PrePaid"
+)
+
+const (
+	// EnumOfStorageTypeForDescribeDBInstancePriceDetailInputIooptimizedStorage is a EnumOfStorageTypeForDescribeDBInstancePriceDetailInput enum value
+	EnumOfStorageTypeForDescribeDBInstancePriceDetailInputIooptimizedStorage = "IOOptimizedStorage"
+
+	// EnumOfStorageTypeForDescribeDBInstancePriceDetailInputSmartCompressedStorage is a EnumOfStorageTypeForDescribeDBInstancePriceDetailInput enum value
+	EnumOfStorageTypeForDescribeDBInstancePriceDetailInputSmartCompressedStorage = "SmartCompressedStorage"
 )

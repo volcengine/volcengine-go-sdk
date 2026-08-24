@@ -245,6 +245,8 @@ type DescribeAllowListDetailOutput struct {
 	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	UserAllowList *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -302,5 +304,11 @@ func (s *DescribeAllowListDetailOutput) SetAssociatedInstances(v []*AssociatedIn
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeAllowListDetailOutput) SetProjectName(v string) *DescribeAllowListDetailOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetUserAllowList sets the UserAllowList field's value.
+func (s *DescribeAllowListDetailOutput) SetUserAllowList(v string) *DescribeAllowListDetailOutput {
+	s.UserAllowList = &v
 	return s
 }

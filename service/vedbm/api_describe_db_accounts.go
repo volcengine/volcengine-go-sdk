@@ -152,7 +152,7 @@ type AccountForDescribeDBAccountsOutput struct {
 
 	AccountPrivileges []*AccountPrivilegeForDescribeDBAccountsOutput `type:"list" json:",omitempty"`
 
-	AccountType *string `type:"string" json:",omitempty" enum:"EnumOfAccountTypeForDescribeDBAccountsOutput"`
+	AccountType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *AccountForDescribeDBAccountsOutput) SetAccountType(v string) *AccountFo
 type AccountPrivilegeForDescribeDBAccountsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountPrivilege *string `type:"string" json:",omitempty" enum:"EnumOfAccountPrivilegeForDescribeDBAccountsOutput"`
+	AccountPrivilege *string `type:"string" json:",omitempty"`
 
 	AccountPrivilegeDetail *string `type:"string" json:",omitempty"`
 
@@ -318,28 +318,3 @@ func (s *DescribeDBAccountsOutput) SetTotal(v int32) *DescribeDBAccountsOutput {
 	s.Total = &v
 	return s
 }
-
-const (
-	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputCustom is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
-	EnumOfAccountPrivilegeForDescribeDBAccountsOutputCustom = "Custom"
-
-	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputDdlonly is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
-	EnumOfAccountPrivilegeForDescribeDBAccountsOutputDdlonly = "DDLOnly"
-
-	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputDmlonly is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
-	EnumOfAccountPrivilegeForDescribeDBAccountsOutputDmlonly = "DMLOnly"
-
-	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadOnly is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
-	EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadOnly = "ReadOnly"
-
-	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadWrite is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
-	EnumOfAccountPrivilegeForDescribeDBAccountsOutputReadWrite = "ReadWrite"
-)
-
-const (
-	// EnumOfAccountTypeForDescribeDBAccountsOutputNormal is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
-	EnumOfAccountTypeForDescribeDBAccountsOutputNormal = "Normal"
-
-	// EnumOfAccountTypeForDescribeDBAccountsOutputSuper is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
-	EnumOfAccountTypeForDescribeDBAccountsOutputSuper = "Super"
-)

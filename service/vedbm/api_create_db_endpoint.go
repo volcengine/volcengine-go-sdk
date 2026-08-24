@@ -148,6 +148,9 @@ type CreateDBEndpointInput struct {
 
 	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
+	// ConnectionPool is a required field
+	ConnectionPool *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfConnectionPoolForCreateDBEndpointInput"`
+
 	ConsistLevel *string `type:"string" json:",omitempty" enum:"EnumOfConsistLevelForCreateDBEndpointInput"`
 
 	ConsistTimeout *int32 `type:"int32" json:",omitempty"`
@@ -187,6 +190,9 @@ func (s CreateDBEndpointInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateDBEndpointInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDBEndpointInput"}
+	if s.ConnectionPool == nil {
+		invalidParams.Add(request.NewErrParamRequired("ConnectionPool"))
+	}
 	if s.EndpointType == nil {
 		invalidParams.Add(request.NewErrParamRequired("EndpointType"))
 	}
@@ -206,6 +212,12 @@ func (s *CreateDBEndpointInput) Validate() error {
 // SetAutoAddNewNodes sets the AutoAddNewNodes field's value.
 func (s *CreateDBEndpointInput) SetAutoAddNewNodes(v bool) *CreateDBEndpointInput {
 	s.AutoAddNewNodes = &v
+	return s
+}
+
+// SetConnectionPool sets the ConnectionPool field's value.
+func (s *CreateDBEndpointInput) SetConnectionPool(v string) *CreateDBEndpointInput {
+	s.ConnectionPool = &v
 	return s
 }
 
@@ -298,6 +310,11 @@ func (s *CreateDBEndpointOutput) SetEndpointId(v string) *CreateDBEndpointOutput
 	s.EndpointId = &v
 	return s
 }
+
+const (
+	// EnumOfConnectionPoolForCreateDBEndpointInputOff is a EnumOfConnectionPoolForCreateDBEndpointInput enum value
+	EnumOfConnectionPoolForCreateDBEndpointInputOff = "Off"
+)
 
 const (
 	// EnumOfConsistLevelForCreateDBEndpointInputEventual is a EnumOfConsistLevelForCreateDBEndpointInput enum value
