@@ -202,7 +202,7 @@ type RiskMatchV2 struct {
 	// 规则ID
 	RuleID string `thrift:"ruleID,4" form:"RuleID" json:"RuleID,omitempty"`
 	// 命中位置
-	Position *PositionInfo `thrift:"position,4,optional" form:"Position" json:"Position,omitempty"`
+	Position *PositionInfo `thrift:"position,5,optional" form:"Position" json:"Position,omitempty"`
 }
 
 type PositionInfo struct {
@@ -241,10 +241,20 @@ type RiskV2 struct {
 	Prob *float64 `thrift:"prob,3,optional" form:"Prob" json:"Prob,omitempty"`
 	// 命中词表信息
 	Matches []*RiskMatchV2 `thrift:"matches,4,optional" form:"Matches" json:"Matches,omitempty"`
+	// 来源信息
+	SourceInfos []*SourceInfoV2 `thrift:"sourceInfos,5,optional" form:"SourceInfos" json:"SourceInfos,omitempty"`
 }
+
 type RiskInfoV2 struct {
 	// 风险信息
 	Risks []*RiskV2 `thrift:"risks,1" form:"Risks" json:"Risks"`
+}
+
+type SourceInfoV2 struct {
+	// 风险来源
+	Source string `thrift:"source,1" form:"Source" json:"Source"`
+	// 风险来源详情
+	SourceDetail map[string]string `thrift:"sourceDetail,2" form:"SourceDetail" json:"SourceDetail"`
 }
 
 type PermitV2 struct {
