@@ -95,7 +95,6 @@ func (c *Client) DoRequestSign(request *http.Request, body []byte) error {
 			headerList = append(headerList, header+":"+strings.TrimSpace(v))
 		}
 	}
-	request.Host = signHost
 	headerString := strings.Join(headerList, "\n")
 
 	canonicalString := strings.Join([]string{
