@@ -384,6 +384,10 @@ type DataForListMultiLevelAssetHostsOutput struct {
 
 	StartTime *int64 `type:"int64" json:",omitempty"`
 
+	State *string `type:"string" json:",omitempty"`
+
+	StateDetail *string `type:"string" json:",omitempty"`
+
 	Status *string `type:"string" json:",omitempty"`
 
 	Tags []*string `type:"list" json:",omitempty"`
@@ -574,6 +578,18 @@ func (s *DataForListMultiLevelAssetHostsOutput) SetSecurityEnhancement(v bool) *
 // SetStartTime sets the StartTime field's value.
 func (s *DataForListMultiLevelAssetHostsOutput) SetStartTime(v int64) *DataForListMultiLevelAssetHostsOutput {
 	s.StartTime = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *DataForListMultiLevelAssetHostsOutput) SetState(v string) *DataForListMultiLevelAssetHostsOutput {
+	s.State = &v
+	return s
+}
+
+// SetStateDetail sets the StateDetail field's value.
+func (s *DataForListMultiLevelAssetHostsOutput) SetStateDetail(v string) *DataForListMultiLevelAssetHostsOutput {
+	s.StateDetail = &v
 	return s
 }
 

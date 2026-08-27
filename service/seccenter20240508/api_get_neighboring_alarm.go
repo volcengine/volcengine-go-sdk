@@ -830,7 +830,11 @@ type NextForGetNeighboringAlarmOutput struct {
 
 	SecurityIntelligenceComplete *bool `type:"boolean" json:",omitempty"`
 
+	SecurityIntelligenceError *string `type:"string" json:",omitempty"`
+
 	SecurityIntelligenceResult *string `type:"string" json:",omitempty"`
+
+	SecurityIntelligenceStatus *string `type:"string" json:",omitempty"`
 
 	Sid *string `type:"string" json:",omitempty"`
 
@@ -1119,9 +1123,21 @@ func (s *NextForGetNeighboringAlarmOutput) SetSecurityIntelligenceComplete(v boo
 	return s
 }
 
+// SetSecurityIntelligenceError sets the SecurityIntelligenceError field's value.
+func (s *NextForGetNeighboringAlarmOutput) SetSecurityIntelligenceError(v string) *NextForGetNeighboringAlarmOutput {
+	s.SecurityIntelligenceError = &v
+	return s
+}
+
 // SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
 func (s *NextForGetNeighboringAlarmOutput) SetSecurityIntelligenceResult(v string) *NextForGetNeighboringAlarmOutput {
 	s.SecurityIntelligenceResult = &v
+	return s
+}
+
+// SetSecurityIntelligenceStatus sets the SecurityIntelligenceStatus field's value.
+func (s *NextForGetNeighboringAlarmOutput) SetSecurityIntelligenceStatus(v string) *NextForGetNeighboringAlarmOutput {
+	s.SecurityIntelligenceStatus = &v
 	return s
 }
 
@@ -1252,7 +1268,11 @@ type PrevForGetNeighboringAlarmOutput struct {
 
 	SecurityIntelligenceComplete *bool `type:"boolean" json:",omitempty"`
 
+	SecurityIntelligenceError *string `type:"string" json:",omitempty"`
+
 	SecurityIntelligenceResult *string `type:"string" json:",omitempty"`
+
+	SecurityIntelligenceStatus *string `type:"string" json:",omitempty"`
 
 	Sid *string `type:"string" json:",omitempty"`
 
@@ -1541,9 +1561,21 @@ func (s *PrevForGetNeighboringAlarmOutput) SetSecurityIntelligenceComplete(v boo
 	return s
 }
 
+// SetSecurityIntelligenceError sets the SecurityIntelligenceError field's value.
+func (s *PrevForGetNeighboringAlarmOutput) SetSecurityIntelligenceError(v string) *PrevForGetNeighboringAlarmOutput {
+	s.SecurityIntelligenceError = &v
+	return s
+}
+
 // SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
 func (s *PrevForGetNeighboringAlarmOutput) SetSecurityIntelligenceResult(v string) *PrevForGetNeighboringAlarmOutput {
 	s.SecurityIntelligenceResult = &v
+	return s
+}
+
+// SetSecurityIntelligenceStatus sets the SecurityIntelligenceStatus field's value.
+func (s *PrevForGetNeighboringAlarmOutput) SetSecurityIntelligenceStatus(v string) *PrevForGetNeighboringAlarmOutput {
+	s.SecurityIntelligenceStatus = &v
 	return s
 }
 

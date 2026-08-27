@@ -754,7 +754,11 @@ type AlarmNodeForGetVirusAlarmSummaryInfoOutput struct {
 
 	SecurityIntelligenceComplete *bool `type:"boolean"`
 
+	SecurityIntelligenceError *string `type:"string"`
+
 	SecurityIntelligenceResult *string `type:"string"`
+
+	SecurityIntelligenceStatus *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -1471,9 +1475,21 @@ func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetSecurityIntelligenceComp
 	return s
 }
 
+// SetSecurityIntelligenceError sets the SecurityIntelligenceError field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetSecurityIntelligenceError(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceError = &v
+	return s
+}
+
 // SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
 func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
 	s.SecurityIntelligenceResult = &v
+	return s
+}
+
+// SetSecurityIntelligenceStatus sets the SecurityIntelligenceStatus field's value.
+func (s *AlarmNodeForGetVirusAlarmSummaryInfoOutput) SetSecurityIntelligenceStatus(v string) *AlarmNodeForGetVirusAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceStatus = &v
 	return s
 }
 
@@ -2336,7 +2352,8 @@ func (s *ExtendInfoForGetVirusAlarmSummaryInfoOutput) SetVulInfo(v []*VulInfoFor
 type GetVirusAlarmSummaryInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	AlarmID *string `type:"string"`
+	// AlarmID is a required field
+	AlarmID *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2347,6 +2364,19 @@ func (s GetVirusAlarmSummaryInfoInput) String() string {
 // GoString returns the string representation
 func (s GetVirusAlarmSummaryInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetVirusAlarmSummaryInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetVirusAlarmSummaryInfoInput"}
+	if s.AlarmID == nil {
+		invalidParams.Add(request.NewErrParamRequired("AlarmID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAlarmID sets the AlarmID field's value.
@@ -2860,7 +2890,11 @@ type KillChainNodeListForGetVirusAlarmSummaryInfoOutput struct {
 
 	SecurityIntelligenceComplete *bool `type:"boolean"`
 
+	SecurityIntelligenceError *string `type:"string"`
+
 	SecurityIntelligenceResult *string `type:"string"`
+
+	SecurityIntelligenceStatus *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -3577,9 +3611,21 @@ func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetSecurityIntellig
 	return s
 }
 
+// SetSecurityIntelligenceError sets the SecurityIntelligenceError field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetSecurityIntelligenceError(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceError = &v
+	return s
+}
+
 // SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
 func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
 	s.SecurityIntelligenceResult = &v
+	return s
+}
+
+// SetSecurityIntelligenceStatus sets the SecurityIntelligenceStatus field's value.
+func (s *KillChainNodeListForGetVirusAlarmSummaryInfoOutput) SetSecurityIntelligenceStatus(v string) *KillChainNodeListForGetVirusAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceStatus = &v
 	return s
 }
 

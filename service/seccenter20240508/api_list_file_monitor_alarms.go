@@ -326,7 +326,11 @@ type DataForListFileMonitorAlarmsOutput struct {
 
 	SecurityIntelligenceComplete *bool `type:"boolean" json:",omitempty"`
 
+	SecurityIntelligenceError *string `type:"string" json:",omitempty"`
+
 	SecurityIntelligenceResult *string `type:"string" json:",omitempty"`
+
+	SecurityIntelligenceStatus *string `type:"string" json:",omitempty"`
 
 	Sid *string `type:"string" json:",omitempty"`
 
@@ -615,9 +619,21 @@ func (s *DataForListFileMonitorAlarmsOutput) SetSecurityIntelligenceComplete(v b
 	return s
 }
 
+// SetSecurityIntelligenceError sets the SecurityIntelligenceError field's value.
+func (s *DataForListFileMonitorAlarmsOutput) SetSecurityIntelligenceError(v string) *DataForListFileMonitorAlarmsOutput {
+	s.SecurityIntelligenceError = &v
+	return s
+}
+
 // SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
 func (s *DataForListFileMonitorAlarmsOutput) SetSecurityIntelligenceResult(v string) *DataForListFileMonitorAlarmsOutput {
 	s.SecurityIntelligenceResult = &v
+	return s
+}
+
+// SetSecurityIntelligenceStatus sets the SecurityIntelligenceStatus field's value.
+func (s *DataForListFileMonitorAlarmsOutput) SetSecurityIntelligenceStatus(v string) *DataForListFileMonitorAlarmsOutput {
+	s.SecurityIntelligenceStatus = &v
 	return s
 }
 

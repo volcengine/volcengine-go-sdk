@@ -142,7 +142,8 @@ func (c *SECCENTER20240508) GetStackTraceWithContext(ctx volcengine.Context, inp
 type GetStackTraceInput struct {
 	_ struct{} `type:"structure"`
 
-	StackTraceHash *string `type:"string"`
+	// StackTraceHash is a required field
+	StackTraceHash *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s GetStackTraceInput) String() string {
 // GoString returns the string representation
 func (s GetStackTraceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetStackTraceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetStackTraceInput"}
+	if s.StackTraceHash == nil {
+		invalidParams.Add(request.NewErrParamRequired("StackTraceHash"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetStackTraceHash sets the StackTraceHash field's value.

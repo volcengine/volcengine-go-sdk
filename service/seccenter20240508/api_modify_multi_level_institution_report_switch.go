@@ -177,6 +177,8 @@ type ModifyMultiLevelInstitutionReportSwitchOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	Data *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -187,4 +189,10 @@ func (s ModifyMultiLevelInstitutionReportSwitchOutput) String() string {
 // GoString returns the string representation
 func (s ModifyMultiLevelInstitutionReportSwitchOutput) GoString() string {
 	return s.String()
+}
+
+// SetData sets the Data field's value.
+func (s *ModifyMultiLevelInstitutionReportSwitchOutput) SetData(v string) *ModifyMultiLevelInstitutionReportSwitchOutput {
+	s.Data = &v
+	return s
 }

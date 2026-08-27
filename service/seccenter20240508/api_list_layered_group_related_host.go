@@ -146,7 +146,8 @@ func (c *SECCENTER20240508) ListLayeredGroupRelatedHostWithContext(ctx volcengin
 type ListLayeredGroupRelatedHostInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	GroupID *string `type:"string" json:",omitempty"`
+	// GroupID is a required field
+	GroupID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s ListLayeredGroupRelatedHostInput) String() string {
 // GoString returns the string representation
 func (s ListLayeredGroupRelatedHostInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListLayeredGroupRelatedHostInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListLayeredGroupRelatedHostInput"}
+	if s.GroupID == nil {
+		invalidParams.Add(request.NewErrParamRequired("GroupID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetGroupID sets the GroupID field's value.

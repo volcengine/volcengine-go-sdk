@@ -179,11 +179,15 @@ type HandleAlarmByAgentInput struct {
 	AlarmID *string `type:"string" json:",omitempty"`
 
 	// AlarmType is a required field
-	AlarmType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfAlarmTypeForHandleAlarmByAgentInput"`
+	AlarmType *string `type:"string" json:",omitempty" required:"true"`
 
 	Files []*FileForHandleAlarmByAgentInput `type:"list" json:",omitempty"`
 
 	Processes []*ProcessForHandleAlarmByAgentInput `type:"list" json:",omitempty"`
+
+	SpanTraceID []*int64 `type:"list" json:",omitempty"`
+
+	SpanUniqueID []*int64 `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -230,6 +234,18 @@ func (s *HandleAlarmByAgentInput) SetFiles(v []*FileForHandleAlarmByAgentInput) 
 // SetProcesses sets the Processes field's value.
 func (s *HandleAlarmByAgentInput) SetProcesses(v []*ProcessForHandleAlarmByAgentInput) *HandleAlarmByAgentInput {
 	s.Processes = v
+	return s
+}
+
+// SetSpanTraceID sets the SpanTraceID field's value.
+func (s *HandleAlarmByAgentInput) SetSpanTraceID(v []*int64) *HandleAlarmByAgentInput {
+	s.SpanTraceID = v
+	return s
+}
+
+// SetSpanUniqueID sets the SpanUniqueID field's value.
+func (s *HandleAlarmByAgentInput) SetSpanUniqueID(v []*int64) *HandleAlarmByAgentInput {
+	s.SpanUniqueID = v
 	return s
 }
 
@@ -294,11 +310,3 @@ func (s *ProcessForHandleAlarmByAgentInput) SetPid(v int64) *ProcessForHandleAla
 	s.Pid = &v
 	return s
 }
-
-const (
-	// EnumOfAlarmTypeForHandleAlarmByAgentInputHids is a EnumOfAlarmTypeForHandleAlarmByAgentInput enum value
-	EnumOfAlarmTypeForHandleAlarmByAgentInputHids = "hids"
-
-	// EnumOfAlarmTypeForHandleAlarmByAgentInputVirus is a EnumOfAlarmTypeForHandleAlarmByAgentInput enum value
-	EnumOfAlarmTypeForHandleAlarmByAgentInputVirus = "virus"
-)

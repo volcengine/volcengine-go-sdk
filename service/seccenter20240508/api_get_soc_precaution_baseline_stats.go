@@ -166,11 +166,11 @@ type GetSOCPrecautionBaselineStatsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Passed *int64 `type:"int64" json:"passed"`
+	Passed *int64 `type:"int64"`
 
-	Risky *RiskyForGetSOCPrecautionBaselineStatsOutput `type:"structure" json:"risky"`
+	Risky *RiskyForGetSOCPrecautionBaselineStatsOutput `type:"structure"`
 
-	Total *int64 `type:"int64" json:"total"`
+	Total *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -204,15 +204,15 @@ func (s *GetSOCPrecautionBaselineStatsOutput) SetTotal(v int64) *GetSOCPrecautio
 type RiskyForGetSOCPrecautionBaselineStatsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Critical *int64 `type:"int64" json:"critical"`
+	Critical *int64 `type:"int64"`
 
-	High *int64 `type:"int64" json:"high"`
+	High *int64 `type:"int64"`
 
-	Info *int64 `type:"int64" json:"info"`
+	Info *int64 `type:"int64"`
 
-	Low *int64 `type:"int64" json:"low"`
+	Low *int64 `type:"int64"`
 
-	Medium *int64 `type:"int64" json:"medium"`
+	Medium *int64 `type:"int64"`
 }
 
 // String returns the string representation

@@ -146,15 +146,15 @@ func (c *SECCENTER20240508) GetRepoImageScanScopeWithContext(ctx volcengine.Cont
 type DataForGetRepoImageScanScopeOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ImageSizeLimit *int32 `type:"int32" json:",omitempty"`
+	ImageSizeLimit *int64 `type:"int64" json:",omitempty"`
 
-	LatestPush *int32 `type:"int32" json:",omitempty"`
+	LatestPush *int64 `type:"int64" json:",omitempty"`
 
 	NamespaceIDs []*string `type:"list" json:",omitempty"`
 
 	ScanItems []*string `type:"list" json:",omitempty"`
 
-	Timeout *int32 `type:"int32" json:",omitempty"`
+	Timeout *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -168,13 +168,13 @@ func (s DataForGetRepoImageScanScopeOutput) GoString() string {
 }
 
 // SetImageSizeLimit sets the ImageSizeLimit field's value.
-func (s *DataForGetRepoImageScanScopeOutput) SetImageSizeLimit(v int32) *DataForGetRepoImageScanScopeOutput {
+func (s *DataForGetRepoImageScanScopeOutput) SetImageSizeLimit(v int64) *DataForGetRepoImageScanScopeOutput {
 	s.ImageSizeLimit = &v
 	return s
 }
 
 // SetLatestPush sets the LatestPush field's value.
-func (s *DataForGetRepoImageScanScopeOutput) SetLatestPush(v int32) *DataForGetRepoImageScanScopeOutput {
+func (s *DataForGetRepoImageScanScopeOutput) SetLatestPush(v int64) *DataForGetRepoImageScanScopeOutput {
 	s.LatestPush = &v
 	return s
 }
@@ -192,7 +192,7 @@ func (s *DataForGetRepoImageScanScopeOutput) SetScanItems(v []*string) *DataForG
 }
 
 // SetTimeout sets the Timeout field's value.
-func (s *DataForGetRepoImageScanScopeOutput) SetTimeout(v int32) *DataForGetRepoImageScanScopeOutput {
+func (s *DataForGetRepoImageScanScopeOutput) SetTimeout(v int64) *DataForGetRepoImageScanScopeOutput {
 	s.Timeout = &v
 	return s
 }

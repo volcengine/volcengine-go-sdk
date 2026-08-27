@@ -492,9 +492,11 @@ func (s *ContainerInfoForGetAlarmBySmithKeyOutput) SetContainerName(v string) *C
 type GetAlarmBySmithKeyInput struct {
 	_ struct{} `type:"structure"`
 
-	AlarmCategory *string `type:"string"`
+	// AlarmCategory is a required field
+	AlarmCategory *string `type:"string" required:"true"`
 
-	SmithKey *string `type:"string"`
+	// SmithKey is a required field
+	SmithKey *string `type:"string" required:"true"`
 
 	Type *string `type:"string"`
 }
@@ -507,6 +509,22 @@ func (s GetAlarmBySmithKeyInput) String() string {
 // GoString returns the string representation
 func (s GetAlarmBySmithKeyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetAlarmBySmithKeyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetAlarmBySmithKeyInput"}
+	if s.AlarmCategory == nil {
+		invalidParams.Add(request.NewErrParamRequired("AlarmCategory"))
+	}
+	if s.SmithKey == nil {
+		invalidParams.Add(request.NewErrParamRequired("SmithKey"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAlarmCategory sets the AlarmCategory field's value.

@@ -492,7 +492,8 @@ func (s *ContainerInfoForGetHidsAlarmInfoOutput) SetContainerName(v string) *Con
 type GetHidsAlarmInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	AlarmID *string `type:"string"`
+	// AlarmID is a required field
+	AlarmID *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -503,6 +504,19 @@ func (s GetHidsAlarmInfoInput) String() string {
 // GoString returns the string representation
 func (s GetHidsAlarmInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetHidsAlarmInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetHidsAlarmInfoInput"}
+	if s.AlarmID == nil {
+		invalidParams.Add(request.NewErrParamRequired("AlarmID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAlarmID sets the AlarmID field's value.
