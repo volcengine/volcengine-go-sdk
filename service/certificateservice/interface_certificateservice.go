@@ -46,6 +46,14 @@ type CERTIFICATESERVICEAPI interface {
 	CertificateAddOrganizationWithContext(volcengine.Context, *CertificateAddOrganizationInput, ...request.Option) (*CertificateAddOrganizationOutput, error)
 	CertificateAddOrganizationRequest(*CertificateAddOrganizationInput) (*request.Request, *CertificateAddOrganizationOutput)
 
+	CertificateBatchDeleteInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CertificateBatchDeleteInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CertificateBatchDeleteInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CertificateBatchDeleteInstance(*CertificateBatchDeleteInstanceInput) (*CertificateBatchDeleteInstanceOutput, error)
+	CertificateBatchDeleteInstanceWithContext(volcengine.Context, *CertificateBatchDeleteInstanceInput, ...request.Option) (*CertificateBatchDeleteInstanceOutput, error)
+	CertificateBatchDeleteInstanceRequest(*CertificateBatchDeleteInstanceInput) (*request.Request, *CertificateBatchDeleteInstanceOutput)
+
 	CertificateDeleteInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CertificateDeleteInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CertificateDeleteInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +69,14 @@ type CERTIFICATESERVICEAPI interface {
 	CertificateDeleteOrganization(*CertificateDeleteOrganizationInput) (*CertificateDeleteOrganizationOutput, error)
 	CertificateDeleteOrganizationWithContext(volcengine.Context, *CertificateDeleteOrganizationInput, ...request.Option) (*CertificateDeleteOrganizationOutput, error)
 	CertificateDeleteOrganizationRequest(*CertificateDeleteOrganizationInput) (*request.Request, *CertificateDeleteOrganizationOutput)
+
+	CertificateGetDcvParamCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CertificateGetDcvParamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CertificateGetDcvParamCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CertificateGetDcvParam(*CertificateGetDcvParamInput) (*CertificateGetDcvParamOutput, error)
+	CertificateGetDcvParamWithContext(volcengine.Context, *CertificateGetDcvParamInput, ...request.Option) (*CertificateGetDcvParamOutput, error)
+	CertificateGetDcvParamRequest(*CertificateGetDcvParamInput) (*request.Request, *CertificateGetDcvParamOutput)
 
 	CertificateGetInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CertificateGetInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -109,6 +125,46 @@ type CERTIFICATESERVICEAPI interface {
 	CertificateUpdateOrganization(*CertificateUpdateOrganizationInput) (*CertificateUpdateOrganizationOutput, error)
 	CertificateUpdateOrganizationWithContext(volcengine.Context, *CertificateUpdateOrganizationInput, ...request.Option) (*CertificateUpdateOrganizationOutput, error)
 	CertificateUpdateOrganizationRequest(*CertificateUpdateOrganizationInput) (*request.Request, *CertificateUpdateOrganizationOutput)
+
+	CodeSignCertificateCancelInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CodeSignCertificateCancelInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CodeSignCertificateCancelInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CodeSignCertificateCancelInstance(*CodeSignCertificateCancelInstanceInput) (*CodeSignCertificateCancelInstanceOutput, error)
+	CodeSignCertificateCancelInstanceWithContext(volcengine.Context, *CodeSignCertificateCancelInstanceInput, ...request.Option) (*CodeSignCertificateCancelInstanceOutput, error)
+	CodeSignCertificateCancelInstanceRequest(*CodeSignCertificateCancelInstanceInput) (*request.Request, *CodeSignCertificateCancelInstanceOutput)
+
+	CodeSignCertificateDeleteInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CodeSignCertificateDeleteInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CodeSignCertificateDeleteInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CodeSignCertificateDeleteInstance(*CodeSignCertificateDeleteInstanceInput) (*CodeSignCertificateDeleteInstanceOutput, error)
+	CodeSignCertificateDeleteInstanceWithContext(volcengine.Context, *CodeSignCertificateDeleteInstanceInput, ...request.Option) (*CodeSignCertificateDeleteInstanceOutput, error)
+	CodeSignCertificateDeleteInstanceRequest(*CodeSignCertificateDeleteInstanceInput) (*request.Request, *CodeSignCertificateDeleteInstanceOutput)
+
+	CodeSignCertificateGetInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CodeSignCertificateGetInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CodeSignCertificateGetInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CodeSignCertificateGetInstance(*CodeSignCertificateGetInstanceInput) (*CodeSignCertificateGetInstanceOutput, error)
+	CodeSignCertificateGetInstanceWithContext(volcengine.Context, *CodeSignCertificateGetInstanceInput, ...request.Option) (*CodeSignCertificateGetInstanceOutput, error)
+	CodeSignCertificateGetInstanceRequest(*CodeSignCertificateGetInstanceInput) (*request.Request, *CodeSignCertificateGetInstanceOutput)
+
+	CodeSignCertificateListInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CodeSignCertificateListInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CodeSignCertificateListInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CodeSignCertificateListInstances(*CodeSignCertificateListInstancesInput) (*CodeSignCertificateListInstancesOutput, error)
+	CodeSignCertificateListInstancesWithContext(volcengine.Context, *CodeSignCertificateListInstancesInput, ...request.Option) (*CodeSignCertificateListInstancesOutput, error)
+	CodeSignCertificateListInstancesRequest(*CodeSignCertificateListInstancesInput) (*request.Request, *CodeSignCertificateListInstancesOutput)
+
+	CodeSignCertificateQuickPlaceOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CodeSignCertificateQuickPlaceOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CodeSignCertificateQuickPlaceOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CodeSignCertificateQuickPlaceOrder(*CodeSignCertificateQuickPlaceOrderInput) (*CodeSignCertificateQuickPlaceOrderOutput, error)
+	CodeSignCertificateQuickPlaceOrderWithContext(volcengine.Context, *CodeSignCertificateQuickPlaceOrderInput, ...request.Option) (*CodeSignCertificateQuickPlaceOrderOutput, error)
+	CodeSignCertificateQuickPlaceOrderRequest(*CodeSignCertificateQuickPlaceOrderInput) (*request.Request, *CodeSignCertificateQuickPlaceOrderOutput)
 
 	ImportCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ImportCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
