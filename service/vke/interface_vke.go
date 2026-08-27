@@ -406,6 +406,14 @@ type VKEAPI interface {
 	UpdateClusterConfigWithContext(volcengine.Context, *UpdateClusterConfigInput, ...request.Option) (*UpdateClusterConfigOutput, error)
 	UpdateClusterConfigRequest(*UpdateClusterConfigInput) (*request.Request, *UpdateClusterConfigOutput)
 
+	UpdateKubernetesObservabilityComponentConfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateKubernetesObservabilityComponentConfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateKubernetesObservabilityComponentConfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateKubernetesObservabilityComponentConfigs(*UpdateKubernetesObservabilityComponentConfigsInput) (*UpdateKubernetesObservabilityComponentConfigsOutput, error)
+	UpdateKubernetesObservabilityComponentConfigsWithContext(volcengine.Context, *UpdateKubernetesObservabilityComponentConfigsInput, ...request.Option) (*UpdateKubernetesObservabilityComponentConfigsOutput, error)
+	UpdateKubernetesObservabilityComponentConfigsRequest(*UpdateKubernetesObservabilityComponentConfigsInput) (*request.Request, *UpdateKubernetesObservabilityComponentConfigsOutput)
+
 	UpdateNodePoolConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateNodePoolConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateNodePoolConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
