@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "BindCredentialProvider",
-    "UnBindCredentialProvider"
-  ],
-  "description": "ID: 修改 BindCredentialProvider, UnBindCredentialProvider",
-  "modules": "service/id",
-  "type": "breaking-change"
-}

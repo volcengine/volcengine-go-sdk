@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "ListCustomBotConfig",
-    "ListBotAnalyseProtectRule"
-  ],
-  "description": "WAF: 修改 ListCustomBotConfig, ListBotAnalyseProtectRule",
-  "modules": "service/waf",
-  "type": "breaking-change"
-}
