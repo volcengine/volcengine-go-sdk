@@ -190,7 +190,11 @@ type CreateAlertingRuleInput struct {
 	// NotifyGroupPolicyId is a required field
 	NotifyGroupPolicyId *string `type:"string" json:",omitempty" required:"true"`
 
+	NotifyGroupPolicySource *string `type:"string" json:",omitempty"`
+
 	NotifyPolicyId *string `type:"string" json:",omitempty"`
+
+	NotifyPolicySource *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -267,9 +271,21 @@ func (s *CreateAlertingRuleInput) SetNotifyGroupPolicyId(v string) *CreateAlerti
 	return s
 }
 
+// SetNotifyGroupPolicySource sets the NotifyGroupPolicySource field's value.
+func (s *CreateAlertingRuleInput) SetNotifyGroupPolicySource(v string) *CreateAlertingRuleInput {
+	s.NotifyGroupPolicySource = &v
+	return s
+}
+
 // SetNotifyPolicyId sets the NotifyPolicyId field's value.
 func (s *CreateAlertingRuleInput) SetNotifyPolicyId(v string) *CreateAlertingRuleInput {
 	s.NotifyPolicyId = &v
+	return s
+}
+
+// SetNotifyPolicySource sets the NotifyPolicySource field's value.
+func (s *CreateAlertingRuleInput) SetNotifyPolicySource(v string) *CreateAlertingRuleInput {
+	s.NotifyPolicySource = &v
 	return s
 }
 
