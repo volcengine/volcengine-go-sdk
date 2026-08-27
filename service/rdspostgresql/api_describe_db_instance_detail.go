@@ -248,6 +248,8 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 
 	InstanceType *string `type:"string" json:",omitempty"`
 
+	KMSTrn *string `type:"string" json:",omitempty"`
+
 	MaintenanceWindow *MaintenanceWindowForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
 	Memory *int32 `type:"int32" json:",omitempty"`
@@ -275,6 +277,8 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 	StorageWALUse *int64 `type:"int64" json:",omitempty"`
 
 	SubnetId *string `type:"string" json:",omitempty"`
+
+	TDEEnable *bool `type:"boolean" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 
@@ -340,6 +344,12 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetInstanceTag(v []*Instanc
 // SetInstanceType sets the InstanceType field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetInstanceType(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetKMSTrn sets the KMSTrn field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetKMSTrn(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.KMSTrn = &v
 	return s
 }
 
@@ -424,6 +434,12 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetStorageWALUse(v int64) *
 // SetSubnetId sets the SubnetId field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetSubnetId(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTDEEnable sets the TDEEnable field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetTDEEnable(v bool) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.TDEEnable = &v
 	return s
 }
 
