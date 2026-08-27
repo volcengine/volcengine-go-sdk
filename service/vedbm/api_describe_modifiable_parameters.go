@@ -232,7 +232,7 @@ type ParameterForDescribeModifiableParametersOutput struct {
 
 	CheckingCode *string `type:"string" json:",omitempty"`
 
-	DataType *string `type:"string" json:",omitempty" enum:"EnumOfDataTypeForDescribeModifiableParametersOutput"`
+	DataType *string `type:"string" json:",omitempty"`
 
 	Modifiable *bool `type:"boolean" json:",omitempty"`
 
@@ -248,7 +248,7 @@ type ParameterForDescribeModifiableParametersOutput struct {
 
 	ParameterValue *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeModifiableParametersOutput"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -320,25 +320,6 @@ func (s *ParameterForDescribeModifiableParametersOutput) SetStatus(v string) *Pa
 	s.Status = &v
 	return s
 }
-
-const (
-	// EnumOfDataTypeForDescribeModifiableParametersOutputFloat is a EnumOfDataTypeForDescribeModifiableParametersOutput enum value
-	EnumOfDataTypeForDescribeModifiableParametersOutputFloat = "FLOAT"
-
-	// EnumOfDataTypeForDescribeModifiableParametersOutputInt is a EnumOfDataTypeForDescribeModifiableParametersOutput enum value
-	EnumOfDataTypeForDescribeModifiableParametersOutputInt = "INT"
-
-	// EnumOfDataTypeForDescribeModifiableParametersOutputString is a EnumOfDataTypeForDescribeModifiableParametersOutput enum value
-	EnumOfDataTypeForDescribeModifiableParametersOutputString = "STRING"
-)
-
-const (
-	// EnumOfStatusForDescribeModifiableParametersOutputApplied is a EnumOfStatusForDescribeModifiableParametersOutput enum value
-	EnumOfStatusForDescribeModifiableParametersOutputApplied = "Applied"
-
-	// EnumOfStatusForDescribeModifiableParametersOutputSyncing is a EnumOfStatusForDescribeModifiableParametersOutput enum value
-	EnumOfStatusForDescribeModifiableParametersOutputSyncing = "Syncing"
-)
 
 const (
 	// EnumOfTemplateCategoryForDescribeModifiableParametersInputDbengine is a EnumOfTemplateCategoryForDescribeModifiableParametersInput enum value

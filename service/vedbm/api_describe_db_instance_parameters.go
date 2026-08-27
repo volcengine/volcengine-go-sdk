@@ -216,7 +216,7 @@ type ParameterForDescribeDBInstanceParametersOutput struct {
 
 	CheckingCode *string `type:"string" json:",omitempty"`
 
-	DataType *string `type:"string" json:",omitempty" enum:"EnumOfDataTypeForDescribeDBInstanceParametersOutput"`
+	DataType *string `type:"string" json:",omitempty"`
 
 	Modifiable *bool `type:"boolean" json:",omitempty"`
 
@@ -232,7 +232,7 @@ type ParameterForDescribeDBInstanceParametersOutput struct {
 
 	ParameterValue *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeDBInstanceParametersOutput"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,22 +304,3 @@ func (s *ParameterForDescribeDBInstanceParametersOutput) SetStatus(v string) *Pa
 	s.Status = &v
 	return s
 }
-
-const (
-	// EnumOfDataTypeForDescribeDBInstanceParametersOutputFloat is a EnumOfDataTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfDataTypeForDescribeDBInstanceParametersOutputFloat = "FLOAT"
-
-	// EnumOfDataTypeForDescribeDBInstanceParametersOutputInt is a EnumOfDataTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfDataTypeForDescribeDBInstanceParametersOutputInt = "INT"
-
-	// EnumOfDataTypeForDescribeDBInstanceParametersOutputString is a EnumOfDataTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfDataTypeForDescribeDBInstanceParametersOutputString = "STRING"
-)
-
-const (
-	// EnumOfStatusForDescribeDBInstanceParametersOutputApplied is a EnumOfStatusForDescribeDBInstanceParametersOutput enum value
-	EnumOfStatusForDescribeDBInstanceParametersOutputApplied = "Applied"
-
-	// EnumOfStatusForDescribeDBInstanceParametersOutputSyncing is a EnumOfStatusForDescribeDBInstanceParametersOutput enum value
-	EnumOfStatusForDescribeDBInstanceParametersOutputSyncing = "Syncing"
-)

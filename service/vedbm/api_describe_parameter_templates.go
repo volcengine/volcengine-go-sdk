@@ -280,7 +280,7 @@ type TemplateInfoForDescribeParameterTemplatesOutput struct {
 
 	ParameterNumber *int32 `type:"int32" json:",omitempty"`
 
-	TemplateCategory *string `type:"string" json:",omitempty" enum:"EnumOfTemplateCategoryForDescribeParameterTemplatesOutput"`
+	TemplateCategory *string `type:"string" json:",omitempty"`
 
 	TemplateDescription *string `type:"string" json:",omitempty"`
 
@@ -288,11 +288,11 @@ type TemplateInfoForDescribeParameterTemplatesOutput struct {
 
 	TemplateName *string `type:"string" json:",omitempty"`
 
-	TemplateSource *string `type:"string" json:",omitempty" enum:"EnumOfTemplateSourceForDescribeParameterTemplatesOutput"`
+	TemplateSource *string `type:"string" json:",omitempty"`
 
-	TemplateType *string `type:"string" json:",omitempty" enum:"EnumOfTemplateTypeForDescribeParameterTemplatesOutput"`
+	TemplateType *string `type:"string" json:",omitempty"`
 
-	TemplateTypeVersion *string `type:"string" json:",omitempty" enum:"EnumOfTemplateTypeVersionForDescribeParameterTemplatesOutput"`
+	TemplateTypeVersion *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 }
@@ -379,11 +379,6 @@ const (
 )
 
 const (
-	// EnumOfTemplateCategoryForDescribeParameterTemplatesOutputDbengine is a EnumOfTemplateCategoryForDescribeParameterTemplatesOutput enum value
-	EnumOfTemplateCategoryForDescribeParameterTemplatesOutputDbengine = "DBEngine"
-)
-
-const (
 	// EnumOfTemplateSourceForDescribeParameterTemplatesInputSystem is a EnumOfTemplateSourceForDescribeParameterTemplatesInput enum value
 	EnumOfTemplateSourceForDescribeParameterTemplatesInputSystem = "System"
 
@@ -392,21 +387,8 @@ const (
 )
 
 const (
-	// EnumOfTemplateSourceForDescribeParameterTemplatesOutputSystem is a EnumOfTemplateSourceForDescribeParameterTemplatesOutput enum value
-	EnumOfTemplateSourceForDescribeParameterTemplatesOutputSystem = "System"
-
-	// EnumOfTemplateSourceForDescribeParameterTemplatesOutputUser is a EnumOfTemplateSourceForDescribeParameterTemplatesOutput enum value
-	EnumOfTemplateSourceForDescribeParameterTemplatesOutputUser = "User"
-)
-
-const (
 	// EnumOfTemplateTypeForDescribeParameterTemplatesInputMySql is a EnumOfTemplateTypeForDescribeParameterTemplatesInput enum value
 	EnumOfTemplateTypeForDescribeParameterTemplatesInputMySql = "MySQL"
-)
-
-const (
-	// EnumOfTemplateTypeForDescribeParameterTemplatesOutputMySql is a EnumOfTemplateTypeForDescribeParameterTemplatesOutput enum value
-	EnumOfTemplateTypeForDescribeParameterTemplatesOutputMySql = "MySQL"
 )
 
 const (
@@ -415,12 +397,4 @@ const (
 
 	// EnumOfTemplateTypeVersionForDescribeParameterTemplatesInputMySql80 is a EnumOfTemplateTypeVersionForDescribeParameterTemplatesInput enum value
 	EnumOfTemplateTypeVersionForDescribeParameterTemplatesInputMySql80 = "MySQL_8_0"
-)
-
-const (
-	// EnumOfTemplateTypeVersionForDescribeParameterTemplatesOutputMySql57 is a EnumOfTemplateTypeVersionForDescribeParameterTemplatesOutput enum value
-	EnumOfTemplateTypeVersionForDescribeParameterTemplatesOutputMySql57 = "MySQL_5_7"
-
-	// EnumOfTemplateTypeVersionForDescribeParameterTemplatesOutputMySql80 is a EnumOfTemplateTypeVersionForDescribeParameterTemplatesOutput enum value
-	EnumOfTemplateTypeVersionForDescribeParameterTemplatesOutputMySql80 = "MySQL_8_0"
 )

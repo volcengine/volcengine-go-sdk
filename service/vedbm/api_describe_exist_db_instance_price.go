@@ -419,6 +419,8 @@ type InstanceForDescribeExistDBInstancePriceInput struct {
 	PrePaidStorageInGB *int32 `type:"int32" json:",omitempty"`
 
 	StorageChargeType *string `type:"string" json:",omitempty" enum:"EnumOfStorageChargeTypeForDescribeExistDBInstancePriceInput"`
+
+	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForDescribeExistDBInstancePriceInput"`
 }
 
 // String returns the string representation
@@ -452,6 +454,12 @@ func (s *InstanceForDescribeExistDBInstancePriceInput) SetPrePaidStorageInGB(v i
 // SetStorageChargeType sets the StorageChargeType field's value.
 func (s *InstanceForDescribeExistDBInstancePriceInput) SetStorageChargeType(v string) *InstanceForDescribeExistDBInstancePriceInput {
 	s.StorageChargeType = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *InstanceForDescribeExistDBInstancePriceInput) SetStorageType(v string) *InstanceForDescribeExistDBInstancePriceInput {
+	s.StorageType = &v
 	return s
 }
 
@@ -526,9 +534,20 @@ const (
 )
 
 const (
+	// EnumOfStorageTypeForDescribeExistDBInstancePriceInputIooptimizedStorage is a EnumOfStorageTypeForDescribeExistDBInstancePriceInput enum value
+	EnumOfStorageTypeForDescribeExistDBInstancePriceInputIooptimizedStorage = "IOOptimizedStorage"
+
+	// EnumOfStorageTypeForDescribeExistDBInstancePriceInputSmartCompressedStorage is a EnumOfStorageTypeForDescribeExistDBInstancePriceInput enum value
+	EnumOfStorageTypeForDescribeExistDBInstancePriceInputSmartCompressedStorage = "SmartCompressedStorage"
+)
+
+const (
 	// EnumOfUserActionForDescribeExistDBInstancePriceInputModifyDbinstanceChargeType is a EnumOfUserActionForDescribeExistDBInstancePriceInput enum value
 	EnumOfUserActionForDescribeExistDBInstancePriceInputModifyDbinstanceChargeType = "ModifyDBInstanceChargeType"
 
 	// EnumOfUserActionForDescribeExistDBInstancePriceInputModifyDbinstanceSpec is a EnumOfUserActionForDescribeExistDBInstancePriceInput enum value
 	EnumOfUserActionForDescribeExistDBInstancePriceInputModifyDbinstanceSpec = "ModifyDBInstanceSpec"
+
+	// EnumOfUserActionForDescribeExistDBInstancePriceInputModifyDbinstanceStorageType is a EnumOfUserActionForDescribeExistDBInstancePriceInput enum value
+	EnumOfUserActionForDescribeExistDBInstancePriceInputModifyDbinstanceStorageType = "ModifyDBInstanceStorageType"
 )

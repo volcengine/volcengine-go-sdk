@@ -159,6 +159,10 @@ type ModifyAllowListInput struct {
 	ApplyInstanceNum *int32 `type:"int32" json:",omitempty"`
 
 	ModifyMode *string `type:"string" json:",omitempty" enum:"EnumOfModifyModeForModifyAllowListInput"`
+
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForModifyAllowListInput `type:"list" json:",omitempty"`
+
+	UserAllowList *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -223,6 +227,18 @@ func (s *ModifyAllowListInput) SetModifyMode(v string) *ModifyAllowListInput {
 	return s
 }
 
+// SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
+func (s *ModifyAllowListInput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForModifyAllowListInput) *ModifyAllowListInput {
+	s.SecurityGroupBindInfos = v
+	return s
+}
+
+// SetUserAllowList sets the UserAllowList field's value.
+func (s *ModifyAllowListInput) SetUserAllowList(v string) *ModifyAllowListInput {
+	s.UserAllowList = &v
+	return s
+}
+
 type ModifyAllowListOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -238,6 +254,60 @@ func (s ModifyAllowListOutput) String() string {
 func (s ModifyAllowListOutput) GoString() string {
 	return s.String()
 }
+
+type SecurityGroupBindInfoForModifyAllowListInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	BindMode *string `type:"string" json:",omitempty" enum:"EnumOfBindModeForModifyAllowListInput"`
+
+	IpList []*string `type:"list" json:",omitempty"`
+
+	SecurityGroupId *string `type:"string" json:",omitempty"`
+
+	SecurityGroupName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SecurityGroupBindInfoForModifyAllowListInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecurityGroupBindInfoForModifyAllowListInput) GoString() string {
+	return s.String()
+}
+
+// SetBindMode sets the BindMode field's value.
+func (s *SecurityGroupBindInfoForModifyAllowListInput) SetBindMode(v string) *SecurityGroupBindInfoForModifyAllowListInput {
+	s.BindMode = &v
+	return s
+}
+
+// SetIpList sets the IpList field's value.
+func (s *SecurityGroupBindInfoForModifyAllowListInput) SetIpList(v []*string) *SecurityGroupBindInfoForModifyAllowListInput {
+	s.IpList = v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupBindInfoForModifyAllowListInput) SetSecurityGroupId(v string) *SecurityGroupBindInfoForModifyAllowListInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroupBindInfoForModifyAllowListInput) SetSecurityGroupName(v string) *SecurityGroupBindInfoForModifyAllowListInput {
+	s.SecurityGroupName = &v
+	return s
+}
+
+const (
+	// EnumOfBindModeForModifyAllowListInputAssociateEcsIp is a EnumOfBindModeForModifyAllowListInput enum value
+	EnumOfBindModeForModifyAllowListInputAssociateEcsIp = "AssociateEcsIp"
+
+	// EnumOfBindModeForModifyAllowListInputIngressDirectionIp is a EnumOfBindModeForModifyAllowListInput enum value
+	EnumOfBindModeForModifyAllowListInputIngressDirectionIp = "IngressDirectionIp"
+)
 
 const (
 	// EnumOfModifyModeForModifyAllowListInputAppend is a EnumOfModifyModeForModifyAllowListInput enum value

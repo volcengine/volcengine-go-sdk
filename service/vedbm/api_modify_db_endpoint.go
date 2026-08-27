@@ -148,6 +148,8 @@ type ModifyDBEndpointInput struct {
 
 	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
+	ConnectionPool *string `type:"string" json:",omitempty" enum:"EnumOfConnectionPoolForModifyDBEndpointInput"`
+
 	ConsistLevel *string `type:"string" json:",omitempty" enum:"EnumOfConsistLevelForModifyDBEndpointInput"`
 
 	ConsistTimeout *int32 `type:"int32" json:",omitempty"`
@@ -202,6 +204,12 @@ func (s *ModifyDBEndpointInput) Validate() error {
 // SetAutoAddNewNodes sets the AutoAddNewNodes field's value.
 func (s *ModifyDBEndpointInput) SetAutoAddNewNodes(v bool) *ModifyDBEndpointInput {
 	s.AutoAddNewNodes = &v
+	return s
+}
+
+// SetConnectionPool sets the ConnectionPool field's value.
+func (s *ModifyDBEndpointInput) SetConnectionPool(v string) *ModifyDBEndpointInput {
+	s.ConnectionPool = &v
 	return s
 }
 
@@ -286,6 +294,11 @@ func (s ModifyDBEndpointOutput) String() string {
 func (s ModifyDBEndpointOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfConnectionPoolForModifyDBEndpointInputOff is a EnumOfConnectionPoolForModifyDBEndpointInput enum value
+	EnumOfConnectionPoolForModifyDBEndpointInputOff = "Off"
+)
 
 const (
 	// EnumOfConsistLevelForModifyDBEndpointInputEventual is a EnumOfConsistLevelForModifyDBEndpointInput enum value

@@ -146,7 +146,7 @@ func (c *VEDBM) DescribeDatabasesWithContext(ctx volcengine.Context, input *Desc
 type DatabaseForDescribeDatabasesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CharacterSetName *string `type:"string" json:",omitempty" enum:"EnumOfCharacterSetNameForDescribeDatabasesOutput"`
+	CharacterSetName *string `type:"string" json:",omitempty"`
 
 	DBDesc *string `type:"string" json:",omitempty"`
 
@@ -194,7 +194,7 @@ type DatabasesPrivilegeForDescribeDatabasesOutput struct {
 
 	AccountName *string `type:"string" json:",omitempty"`
 
-	AccountPrivilege *string `type:"string" json:",omitempty" enum:"EnumOfAccountPrivilegeForDescribeDatabasesOutput"`
+	AccountPrivilege *string `type:"string" json:",omitempty"`
 
 	AccountPrivilegeDetail *string `type:"string" json:",omitempty"`
 }
@@ -318,34 +318,3 @@ func (s *DescribeDatabasesOutput) SetTotal(v int32) *DescribeDatabasesOutput {
 	s.Total = &v
 	return s
 }
-
-const (
-	// EnumOfAccountPrivilegeForDescribeDatabasesOutputCustom is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
-	EnumOfAccountPrivilegeForDescribeDatabasesOutputCustom = "Custom"
-
-	// EnumOfAccountPrivilegeForDescribeDatabasesOutputDdlonly is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
-	EnumOfAccountPrivilegeForDescribeDatabasesOutputDdlonly = "DDLOnly"
-
-	// EnumOfAccountPrivilegeForDescribeDatabasesOutputDmlonly is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
-	EnumOfAccountPrivilegeForDescribeDatabasesOutputDmlonly = "DMLOnly"
-
-	// EnumOfAccountPrivilegeForDescribeDatabasesOutputReadOnly is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
-	EnumOfAccountPrivilegeForDescribeDatabasesOutputReadOnly = "ReadOnly"
-
-	// EnumOfAccountPrivilegeForDescribeDatabasesOutputReadWrite is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
-	EnumOfAccountPrivilegeForDescribeDatabasesOutputReadWrite = "ReadWrite"
-)
-
-const (
-	// EnumOfCharacterSetNameForDescribeDatabasesOutputAscii is a EnumOfCharacterSetNameForDescribeDatabasesOutput enum value
-	EnumOfCharacterSetNameForDescribeDatabasesOutputAscii = "ascii"
-
-	// EnumOfCharacterSetNameForDescribeDatabasesOutputLatin1 is a EnumOfCharacterSetNameForDescribeDatabasesOutput enum value
-	EnumOfCharacterSetNameForDescribeDatabasesOutputLatin1 = "latin1"
-
-	// EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8 is a EnumOfCharacterSetNameForDescribeDatabasesOutput enum value
-	EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8 = "utf8"
-
-	// EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8mb4 is a EnumOfCharacterSetNameForDescribeDatabasesOutput enum value
-	EnumOfCharacterSetNameForDescribeDatabasesOutputUtf8mb4 = "utf8mb4"
-)

@@ -204,7 +204,7 @@ type NodeSpecForDescribeDBInstanceSpecsOutput struct {
 
 	PrePaidMinStorage *int32 `type:"int32" json:",omitempty"`
 
-	SpecFamily *string `type:"string" json:",omitempty" enum:"EnumOfSpecFamilyForDescribeDBInstanceSpecsOutput"`
+	SpecFamily *string `type:"string" json:",omitempty"`
 
 	VCPU *int32 `type:"int32" json:"vCPU,omitempty"`
 }
@@ -266,11 +266,3 @@ func (s *NodeSpecForDescribeDBInstanceSpecsOutput) SetVCPU(v int32) *NodeSpecFor
 	s.VCPU = &v
 	return s
 }
-
-const (
-	// EnumOfSpecFamilyForDescribeDBInstanceSpecsOutputExclusive is a EnumOfSpecFamilyForDescribeDBInstanceSpecsOutput enum value
-	EnumOfSpecFamilyForDescribeDBInstanceSpecsOutputExclusive = "Exclusive"
-
-	// EnumOfSpecFamilyForDescribeDBInstanceSpecsOutputGeneral is a EnumOfSpecFamilyForDescribeDBInstanceSpecsOutput enum value
-	EnumOfSpecFamilyForDescribeDBInstanceSpecsOutputGeneral = "General"
-)

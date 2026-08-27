@@ -446,6 +446,14 @@ type VEDBMAPI interface {
 	ModifyBackupPolicyWithContext(volcengine.Context, *ModifyBackupPolicyInput, ...request.Option) (*ModifyBackupPolicyOutput, error)
 	ModifyBackupPolicyRequest(*ModifyBackupPolicyInput) (*request.Request, *ModifyBackupPolicyOutput)
 
+	ModifyConnectionPersistenceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyConnectionPersistenceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyConnectionPersistenceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyConnectionPersistence(*ModifyConnectionPersistenceInput) (*ModifyConnectionPersistenceOutput, error)
+	ModifyConnectionPersistenceWithContext(volcengine.Context, *ModifyConnectionPersistenceInput, ...request.Option) (*ModifyConnectionPersistenceOutput, error)
+	ModifyConnectionPersistenceRequest(*ModifyConnectionPersistenceInput) (*request.Request, *ModifyConnectionPersistenceOutput)
+
 	ModifyCrossRegionBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyCrossRegionBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyCrossRegionBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -533,6 +541,14 @@ type VEDBMAPI interface {
 	ModifyDBInstanceSpec(*ModifyDBInstanceSpecInput) (*ModifyDBInstanceSpecOutput, error)
 	ModifyDBInstanceSpecWithContext(volcengine.Context, *ModifyDBInstanceSpecInput, ...request.Option) (*ModifyDBInstanceSpecOutput, error)
 	ModifyDBInstanceSpecRequest(*ModifyDBInstanceSpecInput) (*request.Request, *ModifyDBInstanceSpecOutput)
+
+	ModifyDBInstanceStorageTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceStorageTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceStorageTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceStorageType(*ModifyDBInstanceStorageTypeInput) (*ModifyDBInstanceStorageTypeOutput, error)
+	ModifyDBInstanceStorageTypeWithContext(volcengine.Context, *ModifyDBInstanceStorageTypeInput, ...request.Option) (*ModifyDBInstanceStorageTypeOutput, error)
+	ModifyDBInstanceStorageTypeRequest(*ModifyDBInstanceStorageTypeInput) (*request.Request, *ModifyDBInstanceStorageTypeOutput)
 
 	ModifyDBNodeConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBNodeConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

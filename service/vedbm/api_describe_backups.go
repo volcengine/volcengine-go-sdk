@@ -156,7 +156,7 @@ type BackupsInfoForDescribeBackupsOutput struct {
 
 	BackupStartTime *string `type:"string" json:",omitempty"`
 
-	BackupStatus *string `type:"string" json:",omitempty" enum:"EnumOfBackupStatusForDescribeBackupsOutput"`
+	BackupStatus *string `type:"string" json:",omitempty"`
 
 	BackupType *string `type:"string" json:",omitempty"`
 
@@ -367,17 +367,6 @@ const (
 
 	// EnumOfBackupStatusForDescribeBackupsInputSuccess is a EnumOfBackupStatusForDescribeBackupsInput enum value
 	EnumOfBackupStatusForDescribeBackupsInputSuccess = "Success"
-)
-
-const (
-	// EnumOfBackupStatusForDescribeBackupsOutputFailed is a EnumOfBackupStatusForDescribeBackupsOutput enum value
-	EnumOfBackupStatusForDescribeBackupsOutputFailed = "Failed"
-
-	// EnumOfBackupStatusForDescribeBackupsOutputRunning is a EnumOfBackupStatusForDescribeBackupsOutput enum value
-	EnumOfBackupStatusForDescribeBackupsOutputRunning = "Running"
-
-	// EnumOfBackupStatusForDescribeBackupsOutputSuccess is a EnumOfBackupStatusForDescribeBackupsOutput enum value
-	EnumOfBackupStatusForDescribeBackupsOutputSuccess = "Success"
 )
 
 const (

@@ -154,7 +154,7 @@ type AddressForDescribeDBInstanceDetailOutput struct {
 
 	IPAddress *string `type:"string" json:",omitempty"`
 
-	NetworkType *string `type:"string" json:",omitempty" enum:"EnumOfNetworkTypeForDescribeDBInstanceDetailOutput"`
+	NetworkType *string `type:"string" json:",omitempty"`
 
 	Port *string `type:"string" json:",omitempty"`
 
@@ -222,9 +222,9 @@ type ChargeDetailForDescribeDBInstanceDetailOutput struct {
 
 	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string" json:",omitempty" enum:"EnumOfChargeStatusForDescribeDBInstanceDetailOutput"`
+	ChargeStatus *string `type:"string" json:",omitempty"`
 
-	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeDBInstanceDetailOutput"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
 	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
@@ -382,11 +382,13 @@ type EndpointForDescribeDBInstanceDetailOutput struct {
 
 	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
-	ConsistLevel *string `type:"string" json:",omitempty" enum:"EnumOfConsistLevelForDescribeDBInstanceDetailOutput"`
+	ConnectionPool *string `type:"string" json:",omitempty"`
+
+	ConsistLevel *string `type:"string" json:",omitempty"`
 
 	ConsistTimeout *int32 `type:"int32" json:",omitempty"`
 
-	ConsistTimeoutAction *string `type:"string" json:",omitempty" enum:"EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutput"`
+	ConsistTimeoutAction *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -396,13 +398,13 @@ type EndpointForDescribeDBInstanceDetailOutput struct {
 
 	EndpointName *string `type:"string" json:",omitempty"`
 
-	EndpointType *string `type:"string" json:",omitempty" enum:"EnumOfEndpointTypeForDescribeDBInstanceDetailOutput"`
+	EndpointType *string `type:"string" json:",omitempty"`
 
 	MasterAcceptReadRequests *bool `type:"boolean" json:",omitempty"`
 
 	NodeIds []*string `type:"list" json:",omitempty"`
 
-	ReadWriteMode *string `type:"string" json:",omitempty" enum:"EnumOfReadWriteModeForDescribeDBInstanceDetailOutput"`
+	ReadWriteMode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -424,6 +426,12 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetAddresses(v []*AddressFor
 // SetAutoAddNewNodes sets the AutoAddNewNodes field's value.
 func (s *EndpointForDescribeDBInstanceDetailOutput) SetAutoAddNewNodes(v bool) *EndpointForDescribeDBInstanceDetailOutput {
 	s.AutoAddNewNodes = &v
+	return s
+}
+
+// SetConnectionPool sets the ConnectionPool field's value.
+func (s *EndpointForDescribeDBInstanceDetailOutput) SetConnectionPool(v string) *EndpointForDescribeDBInstanceDetailOutput {
+	s.ConnectionPool = &v
 	return s
 }
 
@@ -496,17 +504,19 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetReadWriteMode(v string) *
 type InstanceDetailForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CompressedStorageUsedGiB *float64 `type:"double" json:",omitempty"`
+
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	DeletionProtection *string `type:"string" json:",omitempty" enum:"EnumOfDeletionProtectionForDescribeDBInstanceDetailOutput"`
+	DeletionProtection *string `type:"string" json:",omitempty"`
 
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string" json:",omitempty" enum:"EnumOfInstanceStatusForDescribeDBInstanceDetailOutput"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
 	InstanceStructures []*InstanceStructureForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
@@ -520,9 +530,11 @@ type InstanceDetailForDescribeDBInstanceDetailOutput struct {
 
 	RegionId *string `type:"string" json:",omitempty"`
 
-	SpecFamily *string `type:"string" json:",omitempty" enum:"EnumOfSpecFamilyForDescribeDBInstanceDetailOutput"`
+	SpecFamily *string `type:"string" json:",omitempty"`
 
-	StorageChargeType *string `type:"string" json:",omitempty" enum:"EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutput"`
+	StorageChargeType *string `type:"string" json:",omitempty"`
+
+	StorageType *string `type:"string" json:",omitempty"`
 
 	StorageUsedGiB *float64 `type:"double" json:",omitempty"`
 
@@ -543,6 +555,12 @@ func (s InstanceDetailForDescribeDBInstanceDetailOutput) String() string {
 // GoString returns the string representation
 func (s InstanceDetailForDescribeDBInstanceDetailOutput) GoString() string {
 	return s.String()
+}
+
+// SetCompressedStorageUsedGiB sets the CompressedStorageUsedGiB field's value.
+func (s *InstanceDetailForDescribeDBInstanceDetailOutput) SetCompressedStorageUsedGiB(v float64) *InstanceDetailForDescribeDBInstanceDetailOutput {
+	s.CompressedStorageUsedGiB = &v
+	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
@@ -629,6 +647,12 @@ func (s *InstanceDetailForDescribeDBInstanceDetailOutput) SetStorageChargeType(v
 	return s
 }
 
+// SetStorageType sets the StorageType field's value.
+func (s *InstanceDetailForDescribeDBInstanceDetailOutput) SetStorageType(v string) *InstanceDetailForDescribeDBInstanceDetailOutput {
+	s.StorageType = &v
+	return s
+}
+
 // SetStorageUsedGiB sets the StorageUsedGiB field's value.
 func (s *InstanceDetailForDescribeDBInstanceDetailOutput) SetStorageUsedGiB(v float64) *InstanceDetailForDescribeDBInstanceDetailOutput {
 	s.StorageUsedGiB = &v
@@ -664,7 +688,7 @@ type InstanceStructureForDescribeDBInstanceDetailOutput struct {
 
 	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	SubInstanceType *string `type:"string" json:",omitempty" enum:"EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutput"`
+	SubInstanceType *string `type:"string" json:",omitempty"`
 
 	ZoneIds *string `type:"string" json:",omitempty"`
 }
@@ -700,7 +724,7 @@ func (s *InstanceStructureForDescribeDBInstanceDetailOutput) SetZoneIds(v string
 type MaintenanceWindowForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DayKind *string `type:"string" json:",omitempty" enum:"EnumOfDayKindForDescribeDBInstanceDetailOutput"`
+	DayKind *string `type:"string" json:",omitempty"`
 
 	DayOfMonth []*int32 `type:"list" json:",omitempty"`
 
@@ -752,9 +776,11 @@ type NodeForDescribeDBInstanceDetailOutput struct {
 
 	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string" json:",omitempty" enum:"EnumOfNodeSpecForDescribeDBInstanceDetailOutput"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string" json:",omitempty" enum:"EnumOfNodeTypeForDescribeDBInstanceDetailOutput"`
+	NodeType *string `type:"string" json:",omitempty"`
+
+	SubInstanceType *string `type:"string" json:",omitempty"`
 
 	VCPU *int32 `type:"int32" json:"vCPU,omitempty"`
 
@@ -801,6 +827,12 @@ func (s *NodeForDescribeDBInstanceDetailOutput) SetNodeType(v string) *NodeForDe
 	return s
 }
 
+// SetSubInstanceType sets the SubInstanceType field's value.
+func (s *NodeForDescribeDBInstanceDetailOutput) SetSubInstanceType(v string) *NodeForDescribeDBInstanceDetailOutput {
+	s.SubInstanceType = &v
+	return s
+}
+
 // SetVCPU sets the VCPU field's value.
 func (s *NodeForDescribeDBInstanceDetailOutput) SetVCPU(v int32) *NodeForDescribeDBInstanceDetailOutput {
 	s.VCPU = &v
@@ -842,259 +874,3 @@ func (s *TagForDescribeDBInstanceDetailOutput) SetValue(v string) *TagForDescrib
 	s.Value = &v
 	return s
 }
-
-const (
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputExpired is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputExpired = "Expired"
-
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputNormal is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputNormal = "Normal"
-
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue = "Overdue"
-
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputRecycled is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputRecycled = "Recycled"
-
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputShutdown is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputShutdown = "Shutdown"
-)
-
-const (
-	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputPostPaid is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeTypeForDescribeDBInstanceDetailOutputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputPrePaid is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeTypeForDescribeDBInstanceDetailOutputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfConsistLevelForDescribeDBInstanceDetailOutputEventual is a EnumOfConsistLevelForDescribeDBInstanceDetailOutput enum value
-	EnumOfConsistLevelForDescribeDBInstanceDetailOutputEventual = "Eventual"
-
-	// EnumOfConsistLevelForDescribeDBInstanceDetailOutputGlobal is a EnumOfConsistLevelForDescribeDBInstanceDetailOutput enum value
-	EnumOfConsistLevelForDescribeDBInstanceDetailOutputGlobal = "Global"
-
-	// EnumOfConsistLevelForDescribeDBInstanceDetailOutputSession is a EnumOfConsistLevelForDescribeDBInstanceDetailOutput enum value
-	EnumOfConsistLevelForDescribeDBInstanceDetailOutputSession = "Session"
-)
-
-const (
-	// EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutputReadMaster is a EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutput enum value
-	EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutputReadMaster = "ReadMaster"
-
-	// EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutputReturnError is a EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutput enum value
-	EnumOfConsistTimeoutActionForDescribeDBInstanceDetailOutputReturnError = "ReturnError"
-)
-
-const (
-	// EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMySql57 is a EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMySql57 = "MySQL_5_7"
-
-	// EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMySql80 is a EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMySql80 = "MySQL_8_0"
-)
-
-const (
-	// EnumOfDayKindForDescribeDBInstanceDetailOutputMonth is a EnumOfDayKindForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayKindForDescribeDBInstanceDetailOutputMonth = "Month"
-
-	// EnumOfDayKindForDescribeDBInstanceDetailOutputWeek is a EnumOfDayKindForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayKindForDescribeDBInstanceDetailOutputWeek = "Week"
-)
-
-const (
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputFriday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputFriday = "Friday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputMonday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputMonday = "Monday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSaturday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSaturday = "Saturday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSunday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSunday = "Sunday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputThursday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputThursday = "Thursday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputTuesday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputTuesday = "Tuesday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputWednesday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputWednesday = "Wednesday"
-)
-
-const (
-	// EnumOfDeletionProtectionForDescribeDBInstanceDetailOutputDisabled is a EnumOfDeletionProtectionForDescribeDBInstanceDetailOutput enum value
-	EnumOfDeletionProtectionForDescribeDBInstanceDetailOutputDisabled = "disabled"
-
-	// EnumOfDeletionProtectionForDescribeDBInstanceDetailOutputEnabled is a EnumOfDeletionProtectionForDescribeDBInstanceDetailOutput enum value
-	EnumOfDeletionProtectionForDescribeDBInstanceDetailOutputEnabled = "enabled"
-)
-
-const (
-	// EnumOfEndpointTypeForDescribeDBInstanceDetailOutputCluster is a EnumOfEndpointTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfEndpointTypeForDescribeDBInstanceDetailOutputCluster = "Cluster"
-
-	// EnumOfEndpointTypeForDescribeDBInstanceDetailOutputCustom is a EnumOfEndpointTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfEndpointTypeForDescribeDBInstanceDetailOutputCustom = "Custom"
-
-	// EnumOfEndpointTypeForDescribeDBInstanceDetailOutputPrimary is a EnumOfEndpointTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfEndpointTypeForDescribeDBInstanceDetailOutputPrimary = "Primary"
-)
-
-const (
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputAddressModifying is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputAddressModifying = "AddressModifying"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputAllowListMaintaining = "AllowListMaintaining"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreateFailed is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreateFailed = "CreateFailed"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreating is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreating = "Creating"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDeleting is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDeleting = "Deleting"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputError is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputError = "Error"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputExpired is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputExpired = "Expired"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputOwing is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputOwing = "Owing"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputPrimaryChanging is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputPrimaryChanging = "PrimaryChanging"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputReclaiming is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputReclaiming = "Reclaiming"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestarting is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestarting = "Restarting"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestoring is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestoring = "Restoring"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputResuming is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputResuming = "Resuming"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRunning is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRunning = "Running"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputScaling is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputScaling = "Scaling"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUpgrading is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUpgrading = "Upgrading"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputWaitingPaid = "WaitingPaid"
-)
-
-const (
-	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPrivate is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPrivate = "Private"
-
-	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPublic is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPublic = "Public"
-)
-
-const (
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG42xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG42xlarge = "vedb.mysql.g4.2xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG44xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG44xlarge = "vedb.mysql.g4.4xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG4Large is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG4Large = "vedb.mysql.g4.large"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG4Xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG4Xlarge = "vedb.mysql.g4.xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG82xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG82xlarge = "vedb.mysql.g8.2xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX42xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX42xlarge = "vedb.mysql.x4.2xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX44xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX44xlarge = "vedb.mysql.x4.4xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX48xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX48xlarge = "vedb.mysql.x4.8xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX4Large is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX4Large = "vedb.mysql.x4.large"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX4Xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX4Xlarge = "vedb.mysql.x4.xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX82xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX82xlarge = "vedb.mysql.x8.2xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX84xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX84xlarge = "vedb.mysql.x8.4xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX86xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX86xlarge = "vedb.mysql.x8.6xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX88xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX88xlarge = "vedb.mysql.x8.8xlarge"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX8Large is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX8Large = "vedb.mysql.x8.large"
-
-	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX8Xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX8Xlarge = "vedb.mysql.x8.xlarge"
-)
-
-const (
-	// EnumOfNodeTypeForDescribeDBInstanceDetailOutputPrimary is a EnumOfNodeTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeTypeForDescribeDBInstanceDetailOutputPrimary = "Primary"
-
-	// EnumOfNodeTypeForDescribeDBInstanceDetailOutputReadOnly is a EnumOfNodeTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeTypeForDescribeDBInstanceDetailOutputReadOnly = "ReadOnly"
-)
-
-const (
-	// EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadOnly is a EnumOfReadWriteModeForDescribeDBInstanceDetailOutput enum value
-	EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadOnly = "ReadOnly"
-
-	// EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadWrite is a EnumOfReadWriteModeForDescribeDBInstanceDetailOutput enum value
-	EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadWrite = "ReadWrite"
-)
-
-const (
-	// EnumOfSpecFamilyForDescribeDBInstanceDetailOutputExclusive is a EnumOfSpecFamilyForDescribeDBInstanceDetailOutput enum value
-	EnumOfSpecFamilyForDescribeDBInstanceDetailOutputExclusive = "Exclusive"
-
-	// EnumOfSpecFamilyForDescribeDBInstanceDetailOutputGeneral is a EnumOfSpecFamilyForDescribeDBInstanceDetailOutput enum value
-	EnumOfSpecFamilyForDescribeDBInstanceDetailOutputGeneral = "General"
-)
-
-const (
-	// EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutputPostPaid is a EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutputPostPaid = "PostPaid"
-
-	// EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutputPrePaid is a EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutputHotStandby is a EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutputHotStandby = "HotStandby"
-
-	// EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutputPrimary is a EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutputPrimary = "Primary"
-
-	// EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutputZoneStandby is a EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutputZoneStandby = "ZoneStandby"
-)
