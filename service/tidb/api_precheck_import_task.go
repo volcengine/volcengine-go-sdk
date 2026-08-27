@@ -173,44 +173,6 @@ func (s *AccessKeyForPrecheckImportTaskInput) SetSecret(v string) *AccessKeyForP
 	return s
 }
 
-type AzureBlobForPrecheckImportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForPrecheckImportTaskInput"`
-
-	SasToken *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AzureBlobForPrecheckImportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AzureBlobForPrecheckImportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *AzureBlobForPrecheckImportTaskInput) SetAuthType(v string) *AzureBlobForPrecheckImportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetSasToken sets the SasToken field's value.
-func (s *AzureBlobForPrecheckImportTaskInput) SetSasToken(v string) *AzureBlobForPrecheckImportTaskInput {
-	s.SasToken = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *AzureBlobForPrecheckImportTaskInput) SetUri(v string) *AzureBlobForPrecheckImportTaskInput {
-	s.Uri = &v
-	return s
-}
-
 type ColumnForPrecheckImportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -365,44 +327,6 @@ func (s *CsvFormatForPrecheckImportTaskInput) SetTrimLastSeparator(v bool) *CsvF
 	return s
 }
 
-type GcsForPrecheckImportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForPrecheckImportTaskInput"`
-
-	ServiceAccountKey *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s GcsForPrecheckImportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s GcsForPrecheckImportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *GcsForPrecheckImportTaskInput) SetAuthType(v string) *GcsForPrecheckImportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetServiceAccountKey sets the ServiceAccountKey field's value.
-func (s *GcsForPrecheckImportTaskInput) SetServiceAccountKey(v string) *GcsForPrecheckImportTaskInput {
-	s.ServiceAccountKey = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *GcsForPrecheckImportTaskInput) SetUri(v string) *GcsForPrecheckImportTaskInput {
-	s.Uri = &v
-	return s
-}
-
 type ImportOptionsForPrecheckImportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -508,44 +432,6 @@ func (s *LocalForPrecheckImportTaskInput) SetTargetTable(v string) *LocalForPrec
 // SetUploadId sets the UploadId field's value.
 func (s *LocalForPrecheckImportTaskInput) SetUploadId(v string) *LocalForPrecheckImportTaskInput {
 	s.UploadId = &v
-	return s
-}
-
-type OssForPrecheckImportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForPrecheckImportTaskInput"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s OssForPrecheckImportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s OssForPrecheckImportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *OssForPrecheckImportTaskInput) SetAccessKey(v *AccessKeyForPrecheckImportTaskInput) *OssForPrecheckImportTaskInput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *OssForPrecheckImportTaskInput) SetAuthType(v string) *OssForPrecheckImportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *OssForPrecheckImportTaskInput) SetUri(v string) *OssForPrecheckImportTaskInput {
-	s.Uri = &v
 	return s
 }
 
@@ -665,112 +551,10 @@ func (s *PrecheckImportTaskOutput) SetTotalTablesCount(v string) *PrecheckImport
 	return s
 }
 
-type S3CompatibleForPrecheckImportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForPrecheckImportTaskInput"`
-
-	Endpoint *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s S3CompatibleForPrecheckImportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s S3CompatibleForPrecheckImportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *S3CompatibleForPrecheckImportTaskInput) SetAccessKey(v *AccessKeyForPrecheckImportTaskInput) *S3CompatibleForPrecheckImportTaskInput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *S3CompatibleForPrecheckImportTaskInput) SetAuthType(v string) *S3CompatibleForPrecheckImportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetEndpoint sets the Endpoint field's value.
-func (s *S3CompatibleForPrecheckImportTaskInput) SetEndpoint(v string) *S3CompatibleForPrecheckImportTaskInput {
-	s.Endpoint = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *S3CompatibleForPrecheckImportTaskInput) SetUri(v string) *S3CompatibleForPrecheckImportTaskInput {
-	s.Uri = &v
-	return s
-}
-
-type S3ForPrecheckImportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForPrecheckImportTaskInput"`
-
-	RoleArn *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s S3ForPrecheckImportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s S3ForPrecheckImportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *S3ForPrecheckImportTaskInput) SetAccessKey(v *AccessKeyForPrecheckImportTaskInput) *S3ForPrecheckImportTaskInput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *S3ForPrecheckImportTaskInput) SetAuthType(v string) *S3ForPrecheckImportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetRoleArn sets the RoleArn field's value.
-func (s *S3ForPrecheckImportTaskInput) SetRoleArn(v string) *S3ForPrecheckImportTaskInput {
-	s.RoleArn = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *S3ForPrecheckImportTaskInput) SetUri(v string) *S3ForPrecheckImportTaskInput {
-	s.Uri = &v
-	return s
-}
-
 type SourceForPrecheckImportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AzureBlob *AzureBlobForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
-
-	Gcs *GcsForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
-
 	Local *LocalForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
-
-	Oss *OssForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
-
-	S3 *S3ForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
-
-	S3Compatible *S3CompatibleForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
 
 	TargetTableInfos []*TargetTableInfoForPrecheckImportTaskInput `type:"list"`
 
@@ -789,39 +573,9 @@ func (s SourceForPrecheckImportTaskInput) GoString() string {
 	return s.String()
 }
 
-// SetAzureBlob sets the AzureBlob field's value.
-func (s *SourceForPrecheckImportTaskInput) SetAzureBlob(v *AzureBlobForPrecheckImportTaskInput) *SourceForPrecheckImportTaskInput {
-	s.AzureBlob = v
-	return s
-}
-
-// SetGcs sets the Gcs field's value.
-func (s *SourceForPrecheckImportTaskInput) SetGcs(v *GcsForPrecheckImportTaskInput) *SourceForPrecheckImportTaskInput {
-	s.Gcs = v
-	return s
-}
-
 // SetLocal sets the Local field's value.
 func (s *SourceForPrecheckImportTaskInput) SetLocal(v *LocalForPrecheckImportTaskInput) *SourceForPrecheckImportTaskInput {
 	s.Local = v
-	return s
-}
-
-// SetOss sets the Oss field's value.
-func (s *SourceForPrecheckImportTaskInput) SetOss(v *OssForPrecheckImportTaskInput) *SourceForPrecheckImportTaskInput {
-	s.Oss = v
-	return s
-}
-
-// SetS3 sets the S3 field's value.
-func (s *SourceForPrecheckImportTaskInput) SetS3(v *S3ForPrecheckImportTaskInput) *SourceForPrecheckImportTaskInput {
-	s.S3 = v
-	return s
-}
-
-// SetS3Compatible sets the S3Compatible field's value.
-func (s *SourceForPrecheckImportTaskInput) SetS3Compatible(v *S3CompatibleForPrecheckImportTaskInput) *SourceForPrecheckImportTaskInput {
-	s.S3Compatible = v
 	return s
 }
 
@@ -972,17 +726,8 @@ func (s *TosForPrecheckImportTaskInput) SetUri(v string) *TosForPrecheckImportTa
 }
 
 const (
-	// EnumOfAuthTypeForPrecheckImportTaskInputRoleArn is a EnumOfAuthTypeForPrecheckImportTaskInput enum value
-	EnumOfAuthTypeForPrecheckImportTaskInputRoleArn = "ROLE_ARN"
-
-	// EnumOfAuthTypeForPrecheckImportTaskInputAccessKey is a EnumOfAuthTypeForPrecheckImportTaskInput enum value
-	EnumOfAuthTypeForPrecheckImportTaskInputAccessKey = "ACCESS_KEY"
-
-	// EnumOfAuthTypeForPrecheckImportTaskInputServiceAccountKey is a EnumOfAuthTypeForPrecheckImportTaskInput enum value
-	EnumOfAuthTypeForPrecheckImportTaskInputServiceAccountKey = "SERVICE_ACCOUNT_KEY"
-
-	// EnumOfAuthTypeForPrecheckImportTaskInputSasToken is a EnumOfAuthTypeForPrecheckImportTaskInput enum value
-	EnumOfAuthTypeForPrecheckImportTaskInputSasToken = "SAS_TOKEN"
+	// EnumOfAuthTypeForPrecheckImportTaskInput2 is a EnumOfAuthTypeForPrecheckImportTaskInput enum value
+	EnumOfAuthTypeForPrecheckImportTaskInput2 = "2"
 )
 
 const (
