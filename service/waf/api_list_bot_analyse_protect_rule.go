@@ -197,6 +197,44 @@ func (s *AccurateRuleForListBotAnalyseProtectRuleOutput) SetValueString(v string
 	return s
 }
 
+type CronConfForListBotAnalyseProtectRuleOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Crontab *string `type:"string" json:",omitempty"`
+
+	PathThreshold *int32 `type:"int32" json:",omitempty"`
+
+	SingleThreshold *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CronConfForListBotAnalyseProtectRuleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CronConfForListBotAnalyseProtectRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetCrontab sets the Crontab field's value.
+func (s *CronConfForListBotAnalyseProtectRuleOutput) SetCrontab(v string) *CronConfForListBotAnalyseProtectRuleOutput {
+	s.Crontab = &v
+	return s
+}
+
+// SetPathThreshold sets the PathThreshold field's value.
+func (s *CronConfForListBotAnalyseProtectRuleOutput) SetPathThreshold(v int32) *CronConfForListBotAnalyseProtectRuleOutput {
+	s.PathThreshold = &v
+	return s
+}
+
+// SetSingleThreshold sets the SingleThreshold field's value.
+func (s *CronConfForListBotAnalyseProtectRuleOutput) SetSingleThreshold(v int32) *CronConfForListBotAnalyseProtectRuleOutput {
+	s.SingleThreshold = &v
+	return s
+}
+
 type DataForListBotAnalyseProtectRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -476,6 +514,10 @@ type RuleForListBotAnalyseProtectRuleOutput struct {
 
 	ActionType *int32 `type:"int32" json:",omitempty"`
 
+	CronConfs []*CronConfForListBotAnalyseProtectRuleOutput `type:"list" json:",omitempty"`
+
+	CronEnable *int32 `type:"int32" json:",omitempty"`
+
 	EffectTime *int32 `type:"int32" json:",omitempty"`
 
 	Enable *int32 `type:"int32" json:",omitempty"`
@@ -542,6 +584,18 @@ func (s *RuleForListBotAnalyseProtectRuleOutput) SetActionAfterVerification(v in
 // SetActionType sets the ActionType field's value.
 func (s *RuleForListBotAnalyseProtectRuleOutput) SetActionType(v int32) *RuleForListBotAnalyseProtectRuleOutput {
 	s.ActionType = &v
+	return s
+}
+
+// SetCronConfs sets the CronConfs field's value.
+func (s *RuleForListBotAnalyseProtectRuleOutput) SetCronConfs(v []*CronConfForListBotAnalyseProtectRuleOutput) *RuleForListBotAnalyseProtectRuleOutput {
+	s.CronConfs = v
+	return s
+}
+
+// SetCronEnable sets the CronEnable field's value.
+func (s *RuleForListBotAnalyseProtectRuleOutput) SetCronEnable(v int32) *RuleForListBotAnalyseProtectRuleOutput {
+	s.CronEnable = &v
 	return s
 }
 

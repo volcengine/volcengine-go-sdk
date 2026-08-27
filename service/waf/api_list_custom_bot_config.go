@@ -230,7 +230,7 @@ func (s *AccurateRuleForListCustomBotConfigOutput) SetValueString(v string) *Acc
 type DataForListCustomBotConfigOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Accurate []*AccurateForListCustomBotConfigOutput `type:"list" json:",omitempty"`
+	Accurate *AccurateForListCustomBotConfigOutput `type:"structure" json:",omitempty"`
 
 	Action *string `type:"string" json:",omitempty"`
 
@@ -260,7 +260,7 @@ func (s DataForListCustomBotConfigOutput) GoString() string {
 }
 
 // SetAccurate sets the Accurate field's value.
-func (s *DataForListCustomBotConfigOutput) SetAccurate(v []*AccurateForListCustomBotConfigOutput) *DataForListCustomBotConfigOutput {
+func (s *DataForListCustomBotConfigOutput) SetAccurate(v *AccurateForListCustomBotConfigOutput) *DataForListCustomBotConfigOutput {
 	s.Accurate = v
 	return s
 }
