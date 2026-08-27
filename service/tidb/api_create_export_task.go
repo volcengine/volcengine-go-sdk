@@ -203,82 +203,6 @@ func (s *AccessKeyForCreateExportTaskOutput) SetSecret(v string) *AccessKeyForCr
 	return s
 }
 
-type AzureBlobForCreateExportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateExportTaskInput"`
-
-	SasToken *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AzureBlobForCreateExportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AzureBlobForCreateExportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *AzureBlobForCreateExportTaskInput) SetAuthType(v string) *AzureBlobForCreateExportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetSasToken sets the SasToken field's value.
-func (s *AzureBlobForCreateExportTaskInput) SetSasToken(v string) *AzureBlobForCreateExportTaskInput {
-	s.SasToken = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *AzureBlobForCreateExportTaskInput) SetUri(v string) *AzureBlobForCreateExportTaskInput {
-	s.Uri = &v
-	return s
-}
-
-type AzureBlobForCreateExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateExportTaskOutput"`
-
-	SasToken *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AzureBlobForCreateExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AzureBlobForCreateExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *AzureBlobForCreateExportTaskOutput) SetAuthType(v string) *AzureBlobForCreateExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetSasToken sets the SasToken field's value.
-func (s *AzureBlobForCreateExportTaskOutput) SetSasToken(v string) *AzureBlobForCreateExportTaskOutput {
-	s.SasToken = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *AzureBlobForCreateExportTaskOutput) SetUri(v string) *AzureBlobForCreateExportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
 type CreateExportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -749,158 +673,6 @@ func (s *FilterForCreateExportTaskOutput) SetTable(v *TableForCreateExportTaskOu
 	return s
 }
 
-type GcsForCreateExportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateExportTaskInput"`
-
-	ServiceAccountKey *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s GcsForCreateExportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s GcsForCreateExportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *GcsForCreateExportTaskInput) SetAuthType(v string) *GcsForCreateExportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetServiceAccountKey sets the ServiceAccountKey field's value.
-func (s *GcsForCreateExportTaskInput) SetServiceAccountKey(v string) *GcsForCreateExportTaskInput {
-	s.ServiceAccountKey = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *GcsForCreateExportTaskInput) SetUri(v string) *GcsForCreateExportTaskInput {
-	s.Uri = &v
-	return s
-}
-
-type GcsForCreateExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateExportTaskOutput"`
-
-	ServiceAccountKey *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s GcsForCreateExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s GcsForCreateExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *GcsForCreateExportTaskOutput) SetAuthType(v string) *GcsForCreateExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetServiceAccountKey sets the ServiceAccountKey field's value.
-func (s *GcsForCreateExportTaskOutput) SetServiceAccountKey(v string) *GcsForCreateExportTaskOutput {
-	s.ServiceAccountKey = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *GcsForCreateExportTaskOutput) SetUri(v string) *GcsForCreateExportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
-type OssForCreateExportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCreateExportTaskInput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateExportTaskInput"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s OssForCreateExportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s OssForCreateExportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *OssForCreateExportTaskInput) SetAccessKey(v *AccessKeyForCreateExportTaskInput) *OssForCreateExportTaskInput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *OssForCreateExportTaskInput) SetAuthType(v string) *OssForCreateExportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *OssForCreateExportTaskInput) SetUri(v string) *OssForCreateExportTaskInput {
-	s.Uri = &v
-	return s
-}
-
-type OssForCreateExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCreateExportTaskOutput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateExportTaskOutput"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s OssForCreateExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s OssForCreateExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *OssForCreateExportTaskOutput) SetAccessKey(v *AccessKeyForCreateExportTaskOutput) *OssForCreateExportTaskOutput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *OssForCreateExportTaskOutput) SetAuthType(v string) *OssForCreateExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *OssForCreateExportTaskOutput) SetUri(v string) *OssForCreateExportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
 type ParquetFormatForCreateExportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -942,98 +714,6 @@ func (s ParquetFormatForCreateExportTaskOutput) GoString() string {
 // SetCompression sets the Compression field's value.
 func (s *ParquetFormatForCreateExportTaskOutput) SetCompression(v string) *ParquetFormatForCreateExportTaskOutput {
 	s.Compression = &v
-	return s
-}
-
-type S3ForCreateExportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCreateExportTaskInput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateExportTaskInput"`
-
-	RoleArn *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s S3ForCreateExportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s S3ForCreateExportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *S3ForCreateExportTaskInput) SetAccessKey(v *AccessKeyForCreateExportTaskInput) *S3ForCreateExportTaskInput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *S3ForCreateExportTaskInput) SetAuthType(v string) *S3ForCreateExportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetRoleArn sets the RoleArn field's value.
-func (s *S3ForCreateExportTaskInput) SetRoleArn(v string) *S3ForCreateExportTaskInput {
-	s.RoleArn = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *S3ForCreateExportTaskInput) SetUri(v string) *S3ForCreateExportTaskInput {
-	s.Uri = &v
-	return s
-}
-
-type S3ForCreateExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCreateExportTaskOutput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateExportTaskOutput"`
-
-	RoleArn *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s S3ForCreateExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s S3ForCreateExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *S3ForCreateExportTaskOutput) SetAccessKey(v *AccessKeyForCreateExportTaskOutput) *S3ForCreateExportTaskOutput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *S3ForCreateExportTaskOutput) SetAuthType(v string) *S3ForCreateExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetRoleArn sets the RoleArn field's value.
-func (s *S3ForCreateExportTaskOutput) SetRoleArn(v string) *S3ForCreateExportTaskOutput {
-	s.RoleArn = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *S3ForCreateExportTaskOutput) SetUri(v string) *S3ForCreateExportTaskOutput {
-	s.Uri = &v
 	return s
 }
 
@@ -1100,14 +780,6 @@ func (s *TableForCreateExportTaskOutput) SetWhere(v string) *TableForCreateExpor
 type TargetForCreateExportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AzureBlob *AzureBlobForCreateExportTaskInput `type:"structure" json:",omitempty"`
-
-	Gcs *GcsForCreateExportTaskInput `type:"structure" json:",omitempty"`
-
-	Oss *OssForCreateExportTaskInput `type:"structure" json:",omitempty"`
-
-	S3 *S3ForCreateExportTaskInput `type:"structure" json:",omitempty"`
-
 	Tos *TosForCreateExportTaskInput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateExportTaskInput"`
@@ -1121,30 +793,6 @@ func (s TargetForCreateExportTaskInput) String() string {
 // GoString returns the string representation
 func (s TargetForCreateExportTaskInput) GoString() string {
 	return s.String()
-}
-
-// SetAzureBlob sets the AzureBlob field's value.
-func (s *TargetForCreateExportTaskInput) SetAzureBlob(v *AzureBlobForCreateExportTaskInput) *TargetForCreateExportTaskInput {
-	s.AzureBlob = v
-	return s
-}
-
-// SetGcs sets the Gcs field's value.
-func (s *TargetForCreateExportTaskInput) SetGcs(v *GcsForCreateExportTaskInput) *TargetForCreateExportTaskInput {
-	s.Gcs = v
-	return s
-}
-
-// SetOss sets the Oss field's value.
-func (s *TargetForCreateExportTaskInput) SetOss(v *OssForCreateExportTaskInput) *TargetForCreateExportTaskInput {
-	s.Oss = v
-	return s
-}
-
-// SetS3 sets the S3 field's value.
-func (s *TargetForCreateExportTaskInput) SetS3(v *S3ForCreateExportTaskInput) *TargetForCreateExportTaskInput {
-	s.S3 = v
-	return s
 }
 
 // SetTos sets the Tos field's value.
@@ -1162,14 +810,6 @@ func (s *TargetForCreateExportTaskInput) SetType(v string) *TargetForCreateExpor
 type TargetForCreateExportTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AzureBlob *AzureBlobForCreateExportTaskOutput `type:"structure" json:",omitempty"`
-
-	Gcs *GcsForCreateExportTaskOutput `type:"structure" json:",omitempty"`
-
-	Oss *OssForCreateExportTaskOutput `type:"structure" json:",omitempty"`
-
-	S3 *S3ForCreateExportTaskOutput `type:"structure" json:",omitempty"`
-
 	Tos *TosForCreateExportTaskOutput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateExportTaskOutput"`
@@ -1183,30 +823,6 @@ func (s TargetForCreateExportTaskOutput) String() string {
 // GoString returns the string representation
 func (s TargetForCreateExportTaskOutput) GoString() string {
 	return s.String()
-}
-
-// SetAzureBlob sets the AzureBlob field's value.
-func (s *TargetForCreateExportTaskOutput) SetAzureBlob(v *AzureBlobForCreateExportTaskOutput) *TargetForCreateExportTaskOutput {
-	s.AzureBlob = v
-	return s
-}
-
-// SetGcs sets the Gcs field's value.
-func (s *TargetForCreateExportTaskOutput) SetGcs(v *GcsForCreateExportTaskOutput) *TargetForCreateExportTaskOutput {
-	s.Gcs = v
-	return s
-}
-
-// SetOss sets the Oss field's value.
-func (s *TargetForCreateExportTaskOutput) SetOss(v *OssForCreateExportTaskOutput) *TargetForCreateExportTaskOutput {
-	s.Oss = v
-	return s
-}
-
-// SetS3 sets the S3 field's value.
-func (s *TargetForCreateExportTaskOutput) SetS3(v *S3ForCreateExportTaskOutput) *TargetForCreateExportTaskOutput {
-	s.S3 = v
-	return s
 }
 
 // SetTos sets the Tos field's value.
@@ -1298,31 +914,13 @@ func (s *TosForCreateExportTaskOutput) SetUri(v string) *TosForCreateExportTaskO
 }
 
 const (
-	// EnumOfAuthTypeForCreateExportTaskInputRoleArn is a EnumOfAuthTypeForCreateExportTaskInput enum value
-	EnumOfAuthTypeForCreateExportTaskInputRoleArn = "ROLE_ARN"
-
-	// EnumOfAuthTypeForCreateExportTaskInputAccessKey is a EnumOfAuthTypeForCreateExportTaskInput enum value
-	EnumOfAuthTypeForCreateExportTaskInputAccessKey = "ACCESS_KEY"
-
-	// EnumOfAuthTypeForCreateExportTaskInputServiceAccountKey is a EnumOfAuthTypeForCreateExportTaskInput enum value
-	EnumOfAuthTypeForCreateExportTaskInputServiceAccountKey = "SERVICE_ACCOUNT_KEY"
-
-	// EnumOfAuthTypeForCreateExportTaskInputSasToken is a EnumOfAuthTypeForCreateExportTaskInput enum value
-	EnumOfAuthTypeForCreateExportTaskInputSasToken = "SAS_TOKEN"
+	// EnumOfAuthTypeForCreateExportTaskInput2 is a EnumOfAuthTypeForCreateExportTaskInput enum value
+	EnumOfAuthTypeForCreateExportTaskInput2 = "2"
 )
 
 const (
-	// EnumOfAuthTypeForCreateExportTaskOutputRoleArn is a EnumOfAuthTypeForCreateExportTaskOutput enum value
-	EnumOfAuthTypeForCreateExportTaskOutputRoleArn = "ROLE_ARN"
-
-	// EnumOfAuthTypeForCreateExportTaskOutputAccessKey is a EnumOfAuthTypeForCreateExportTaskOutput enum value
-	EnumOfAuthTypeForCreateExportTaskOutputAccessKey = "ACCESS_KEY"
-
-	// EnumOfAuthTypeForCreateExportTaskOutputServiceAccountKey is a EnumOfAuthTypeForCreateExportTaskOutput enum value
-	EnumOfAuthTypeForCreateExportTaskOutputServiceAccountKey = "SERVICE_ACCOUNT_KEY"
-
-	// EnumOfAuthTypeForCreateExportTaskOutputSasToken is a EnumOfAuthTypeForCreateExportTaskOutput enum value
-	EnumOfAuthTypeForCreateExportTaskOutputSasToken = "SAS_TOKEN"
+	// EnumOfAuthTypeForCreateExportTaskOutput2 is a EnumOfAuthTypeForCreateExportTaskOutput enum value
+	EnumOfAuthTypeForCreateExportTaskOutput2 = "2"
 )
 
 const (
@@ -1396,41 +994,11 @@ const (
 )
 
 const (
-	// EnumOfTypeForCreateExportTaskInputLocal is a EnumOfTypeForCreateExportTaskInput enum value
-	EnumOfTypeForCreateExportTaskInputLocal = "LOCAL"
-
-	// EnumOfTypeForCreateExportTaskInputS3 is a EnumOfTypeForCreateExportTaskInput enum value
-	EnumOfTypeForCreateExportTaskInputS3 = "S3"
-
-	// EnumOfTypeForCreateExportTaskInputGcs is a EnumOfTypeForCreateExportTaskInput enum value
-	EnumOfTypeForCreateExportTaskInputGcs = "GCS"
-
-	// EnumOfTypeForCreateExportTaskInputAzureBlob is a EnumOfTypeForCreateExportTaskInput enum value
-	EnumOfTypeForCreateExportTaskInputAzureBlob = "AZURE_BLOB"
-
-	// EnumOfTypeForCreateExportTaskInputOss is a EnumOfTypeForCreateExportTaskInput enum value
-	EnumOfTypeForCreateExportTaskInputOss = "OSS"
-
-	// EnumOfTypeForCreateExportTaskInputTos is a EnumOfTypeForCreateExportTaskInput enum value
-	EnumOfTypeForCreateExportTaskInputTos = "TOS"
+	// EnumOfTypeForCreateExportTaskInput6 is a EnumOfTypeForCreateExportTaskInput enum value
+	EnumOfTypeForCreateExportTaskInput6 = "6"
 )
 
 const (
-	// EnumOfTypeForCreateExportTaskOutputLocal is a EnumOfTypeForCreateExportTaskOutput enum value
-	EnumOfTypeForCreateExportTaskOutputLocal = "LOCAL"
-
-	// EnumOfTypeForCreateExportTaskOutputS3 is a EnumOfTypeForCreateExportTaskOutput enum value
-	EnumOfTypeForCreateExportTaskOutputS3 = "S3"
-
-	// EnumOfTypeForCreateExportTaskOutputGcs is a EnumOfTypeForCreateExportTaskOutput enum value
-	EnumOfTypeForCreateExportTaskOutputGcs = "GCS"
-
-	// EnumOfTypeForCreateExportTaskOutputAzureBlob is a EnumOfTypeForCreateExportTaskOutput enum value
-	EnumOfTypeForCreateExportTaskOutputAzureBlob = "AZURE_BLOB"
-
-	// EnumOfTypeForCreateExportTaskOutputOss is a EnumOfTypeForCreateExportTaskOutput enum value
-	EnumOfTypeForCreateExportTaskOutputOss = "OSS"
-
-	// EnumOfTypeForCreateExportTaskOutputTos is a EnumOfTypeForCreateExportTaskOutput enum value
-	EnumOfTypeForCreateExportTaskOutputTos = "TOS"
+	// EnumOfTypeForCreateExportTaskOutput6 is a EnumOfTypeForCreateExportTaskOutput enum value
+	EnumOfTypeForCreateExportTaskOutput6 = "6"
 )

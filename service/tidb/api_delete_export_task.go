@@ -173,44 +173,6 @@ func (s *AccessKeyForDeleteExportTaskOutput) SetSecret(v string) *AccessKeyForDe
 	return s
 }
 
-type AzureBlobForDeleteExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForDeleteExportTaskOutput"`
-
-	SasToken *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AzureBlobForDeleteExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AzureBlobForDeleteExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *AzureBlobForDeleteExportTaskOutput) SetAuthType(v string) *AzureBlobForDeleteExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetSasToken sets the SasToken field's value.
-func (s *AzureBlobForDeleteExportTaskOutput) SetSasToken(v string) *AzureBlobForDeleteExportTaskOutput {
-	s.SasToken = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *AzureBlobForDeleteExportTaskOutput) SetUri(v string) *AzureBlobForDeleteExportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
 type CsvFormatForDeleteExportTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -539,82 +501,6 @@ func (s *FilterForDeleteExportTaskOutput) SetTable(v *TableForDeleteExportTaskOu
 	return s
 }
 
-type GcsForDeleteExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForDeleteExportTaskOutput"`
-
-	ServiceAccountKey *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s GcsForDeleteExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s GcsForDeleteExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *GcsForDeleteExportTaskOutput) SetAuthType(v string) *GcsForDeleteExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetServiceAccountKey sets the ServiceAccountKey field's value.
-func (s *GcsForDeleteExportTaskOutput) SetServiceAccountKey(v string) *GcsForDeleteExportTaskOutput {
-	s.ServiceAccountKey = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *GcsForDeleteExportTaskOutput) SetUri(v string) *GcsForDeleteExportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
-type OssForDeleteExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForDeleteExportTaskOutput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForDeleteExportTaskOutput"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s OssForDeleteExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s OssForDeleteExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *OssForDeleteExportTaskOutput) SetAccessKey(v *AccessKeyForDeleteExportTaskOutput) *OssForDeleteExportTaskOutput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *OssForDeleteExportTaskOutput) SetAuthType(v string) *OssForDeleteExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *OssForDeleteExportTaskOutput) SetUri(v string) *OssForDeleteExportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
 type ParquetFormatForDeleteExportTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -634,52 +520,6 @@ func (s ParquetFormatForDeleteExportTaskOutput) GoString() string {
 // SetCompression sets the Compression field's value.
 func (s *ParquetFormatForDeleteExportTaskOutput) SetCompression(v string) *ParquetFormatForDeleteExportTaskOutput {
 	s.Compression = &v
-	return s
-}
-
-type S3ForDeleteExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForDeleteExportTaskOutput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForDeleteExportTaskOutput"`
-
-	RoleArn *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s S3ForDeleteExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s S3ForDeleteExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *S3ForDeleteExportTaskOutput) SetAccessKey(v *AccessKeyForDeleteExportTaskOutput) *S3ForDeleteExportTaskOutput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *S3ForDeleteExportTaskOutput) SetAuthType(v string) *S3ForDeleteExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetRoleArn sets the RoleArn field's value.
-func (s *S3ForDeleteExportTaskOutput) SetRoleArn(v string) *S3ForDeleteExportTaskOutput {
-	s.RoleArn = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *S3ForDeleteExportTaskOutput) SetUri(v string) *S3ForDeleteExportTaskOutput {
-	s.Uri = &v
 	return s
 }
 
@@ -716,14 +556,6 @@ func (s *TableForDeleteExportTaskOutput) SetWhere(v string) *TableForDeleteExpor
 type TargetForDeleteExportTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AzureBlob *AzureBlobForDeleteExportTaskOutput `type:"structure" json:",omitempty"`
-
-	Gcs *GcsForDeleteExportTaskOutput `type:"structure" json:",omitempty"`
-
-	Oss *OssForDeleteExportTaskOutput `type:"structure" json:",omitempty"`
-
-	S3 *S3ForDeleteExportTaskOutput `type:"structure" json:",omitempty"`
-
 	Tos *TosForDeleteExportTaskOutput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForDeleteExportTaskOutput"`
@@ -737,30 +569,6 @@ func (s TargetForDeleteExportTaskOutput) String() string {
 // GoString returns the string representation
 func (s TargetForDeleteExportTaskOutput) GoString() string {
 	return s.String()
-}
-
-// SetAzureBlob sets the AzureBlob field's value.
-func (s *TargetForDeleteExportTaskOutput) SetAzureBlob(v *AzureBlobForDeleteExportTaskOutput) *TargetForDeleteExportTaskOutput {
-	s.AzureBlob = v
-	return s
-}
-
-// SetGcs sets the Gcs field's value.
-func (s *TargetForDeleteExportTaskOutput) SetGcs(v *GcsForDeleteExportTaskOutput) *TargetForDeleteExportTaskOutput {
-	s.Gcs = v
-	return s
-}
-
-// SetOss sets the Oss field's value.
-func (s *TargetForDeleteExportTaskOutput) SetOss(v *OssForDeleteExportTaskOutput) *TargetForDeleteExportTaskOutput {
-	s.Oss = v
-	return s
-}
-
-// SetS3 sets the S3 field's value.
-func (s *TargetForDeleteExportTaskOutput) SetS3(v *S3ForDeleteExportTaskOutput) *TargetForDeleteExportTaskOutput {
-	s.S3 = v
-	return s
 }
 
 // SetTos sets the Tos field's value.
@@ -814,17 +622,8 @@ func (s *TosForDeleteExportTaskOutput) SetUri(v string) *TosForDeleteExportTaskO
 }
 
 const (
-	// EnumOfAuthTypeForDeleteExportTaskOutputRoleArn is a EnumOfAuthTypeForDeleteExportTaskOutput enum value
-	EnumOfAuthTypeForDeleteExportTaskOutputRoleArn = "ROLE_ARN"
-
-	// EnumOfAuthTypeForDeleteExportTaskOutputAccessKey is a EnumOfAuthTypeForDeleteExportTaskOutput enum value
-	EnumOfAuthTypeForDeleteExportTaskOutputAccessKey = "ACCESS_KEY"
-
-	// EnumOfAuthTypeForDeleteExportTaskOutputServiceAccountKey is a EnumOfAuthTypeForDeleteExportTaskOutput enum value
-	EnumOfAuthTypeForDeleteExportTaskOutputServiceAccountKey = "SERVICE_ACCOUNT_KEY"
-
-	// EnumOfAuthTypeForDeleteExportTaskOutputSasToken is a EnumOfAuthTypeForDeleteExportTaskOutput enum value
-	EnumOfAuthTypeForDeleteExportTaskOutputSasToken = "SAS_TOKEN"
+	// EnumOfAuthTypeForDeleteExportTaskOutput2 is a EnumOfAuthTypeForDeleteExportTaskOutput enum value
+	EnumOfAuthTypeForDeleteExportTaskOutput2 = "2"
 )
 
 const (
@@ -873,21 +672,6 @@ const (
 )
 
 const (
-	// EnumOfTypeForDeleteExportTaskOutputLocal is a EnumOfTypeForDeleteExportTaskOutput enum value
-	EnumOfTypeForDeleteExportTaskOutputLocal = "LOCAL"
-
-	// EnumOfTypeForDeleteExportTaskOutputS3 is a EnumOfTypeForDeleteExportTaskOutput enum value
-	EnumOfTypeForDeleteExportTaskOutputS3 = "S3"
-
-	// EnumOfTypeForDeleteExportTaskOutputGcs is a EnumOfTypeForDeleteExportTaskOutput enum value
-	EnumOfTypeForDeleteExportTaskOutputGcs = "GCS"
-
-	// EnumOfTypeForDeleteExportTaskOutputAzureBlob is a EnumOfTypeForDeleteExportTaskOutput enum value
-	EnumOfTypeForDeleteExportTaskOutputAzureBlob = "AZURE_BLOB"
-
-	// EnumOfTypeForDeleteExportTaskOutputOss is a EnumOfTypeForDeleteExportTaskOutput enum value
-	EnumOfTypeForDeleteExportTaskOutputOss = "OSS"
-
-	// EnumOfTypeForDeleteExportTaskOutputTos is a EnumOfTypeForDeleteExportTaskOutput enum value
-	EnumOfTypeForDeleteExportTaskOutputTos = "TOS"
+	// EnumOfTypeForDeleteExportTaskOutput6 is a EnumOfTypeForDeleteExportTaskOutput enum value
+	EnumOfTypeForDeleteExportTaskOutput6 = "6"
 )
