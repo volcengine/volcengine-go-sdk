@@ -159,7 +159,11 @@ type CreateGroupInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
+	MessageModel *string `type:"string" json:",omitempty" enum:"EnumOfMessageModelForCreateGroupInput"`
+
 	RetryMaxTimes *int32 `type:"int32" json:",omitempty"`
+
+	TopicName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -221,9 +225,21 @@ func (s *CreateGroupInput) SetInstanceId(v string) *CreateGroupInput {
 	return s
 }
 
+// SetMessageModel sets the MessageModel field's value.
+func (s *CreateGroupInput) SetMessageModel(v string) *CreateGroupInput {
+	s.MessageModel = &v
+	return s
+}
+
 // SetRetryMaxTimes sets the RetryMaxTimes field's value.
 func (s *CreateGroupInput) SetRetryMaxTimes(v int32) *CreateGroupInput {
 	s.RetryMaxTimes = &v
+	return s
+}
+
+// SetTopicName sets the TopicName field's value.
+func (s *CreateGroupInput) SetTopicName(v string) *CreateGroupInput {
+	s.TopicName = &v
 	return s
 }
 
@@ -242,3 +258,11 @@ func (s CreateGroupOutput) String() string {
 func (s CreateGroupOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfMessageModelForCreateGroupInputClustering is a EnumOfMessageModelForCreateGroupInput enum value
+	EnumOfMessageModelForCreateGroupInputClustering = "CLUSTERING"
+
+	// EnumOfMessageModelForCreateGroupInputLiteSelective is a EnumOfMessageModelForCreateGroupInput enum value
+	EnumOfMessageModelForCreateGroupInputLiteSelective = "LITE_SELECTIVE"
+)

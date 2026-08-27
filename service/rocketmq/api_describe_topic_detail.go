@@ -206,6 +206,8 @@ type DescribeTopicDetailOutput struct {
 
 	InstanceRegion *string `type:"string" json:",omitempty"`
 
+	LiteTopicTTLMinutes *int32 `type:"int32" json:",omitempty"`
+
 	MessageType *string `type:"string" json:",omitempty"`
 
 	ServiceStatus *string `type:"string" json:",omitempty"`
@@ -252,6 +254,12 @@ func (s *DescribeTopicDetailOutput) SetInstanceName(v string) *DescribeTopicDeta
 // SetInstanceRegion sets the InstanceRegion field's value.
 func (s *DescribeTopicDetailOutput) SetInstanceRegion(v string) *DescribeTopicDetailOutput {
 	s.InstanceRegion = &v
+	return s
+}
+
+// SetLiteTopicTTLMinutes sets the LiteTopicTTLMinutes field's value.
+func (s *DescribeTopicDetailOutput) SetLiteTopicTTLMinutes(v int32) *DescribeTopicDetailOutput {
+	s.LiteTopicTTLMinutes = &v
 	return s
 }
 
