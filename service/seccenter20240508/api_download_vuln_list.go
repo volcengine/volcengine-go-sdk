@@ -240,6 +240,8 @@ type DownloadVulnListInput struct {
 
 	Conditions *ConditionsForDownloadVulnListInput `type:"structure" json:",omitempty"`
 
+	ExportJobType *string `type:"string" json:",omitempty"`
+
 	IDList []*string `type:"list" json:",omitempty"`
 
 	Status []*string `type:"list" json:",omitempty"`
@@ -278,6 +280,12 @@ func (s *DownloadVulnListInput) SetAssetType(v string) *DownloadVulnListInput {
 // SetConditions sets the Conditions field's value.
 func (s *DownloadVulnListInput) SetConditions(v *ConditionsForDownloadVulnListInput) *DownloadVulnListInput {
 	s.Conditions = v
+	return s
+}
+
+// SetExportJobType sets the ExportJobType field's value.
+func (s *DownloadVulnListInput) SetExportJobType(v string) *DownloadVulnListInput {
+	s.ExportJobType = &v
 	return s
 }
 

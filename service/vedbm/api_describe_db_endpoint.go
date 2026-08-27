@@ -154,7 +154,7 @@ type AddressForDescribeDBEndpointOutput struct {
 
 	IPAddress *string `type:"string" json:",omitempty"`
 
-	NetworkType *string `type:"string" json:",omitempty" enum:"EnumOfNetworkTypeForDescribeDBEndpointOutput"`
+	NetworkType *string `type:"string" json:",omitempty"`
 
 	Port *string `type:"string" json:",omitempty"`
 
@@ -296,11 +296,13 @@ type EndpointForDescribeDBEndpointOutput struct {
 
 	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
-	ConsistLevel *string `type:"string" json:",omitempty" enum:"EnumOfConsistLevelForDescribeDBEndpointOutput"`
+	ConnectionPool *string `type:"string" json:",omitempty"`
+
+	ConsistLevel *string `type:"string" json:",omitempty"`
 
 	ConsistTimeout *int32 `type:"int32" json:",omitempty"`
 
-	ConsistTimeoutAction *string `type:"string" json:",omitempty" enum:"EnumOfConsistTimeoutActionForDescribeDBEndpointOutput"`
+	ConsistTimeoutAction *string `type:"string" json:",omitempty"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -310,13 +312,13 @@ type EndpointForDescribeDBEndpointOutput struct {
 
 	EndpointName *string `type:"string" json:",omitempty"`
 
-	EndpointType *string `type:"string" json:",omitempty" enum:"EnumOfEndpointTypeForDescribeDBEndpointOutput"`
+	EndpointType *string `type:"string" json:",omitempty"`
 
 	MasterAcceptReadRequests *bool `type:"boolean" json:",omitempty"`
 
 	NodeIds []*string `type:"list" json:",omitempty"`
 
-	ReadWriteMode *string `type:"string" json:",omitempty" enum:"EnumOfReadWriteModeForDescribeDBEndpointOutput"`
+	ReadWriteMode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -338,6 +340,12 @@ func (s *EndpointForDescribeDBEndpointOutput) SetAddresses(v []*AddressForDescri
 // SetAutoAddNewNodes sets the AutoAddNewNodes field's value.
 func (s *EndpointForDescribeDBEndpointOutput) SetAutoAddNewNodes(v bool) *EndpointForDescribeDBEndpointOutput {
 	s.AutoAddNewNodes = &v
+	return s
+}
+
+// SetConnectionPool sets the ConnectionPool field's value.
+func (s *EndpointForDescribeDBEndpointOutput) SetConnectionPool(v string) *EndpointForDescribeDBEndpointOutput {
+	s.ConnectionPool = &v
 	return s
 }
 
@@ -406,49 +414,3 @@ func (s *EndpointForDescribeDBEndpointOutput) SetReadWriteMode(v string) *Endpoi
 	s.ReadWriteMode = &v
 	return s
 }
-
-const (
-	// EnumOfConsistLevelForDescribeDBEndpointOutputEventual is a EnumOfConsistLevelForDescribeDBEndpointOutput enum value
-	EnumOfConsistLevelForDescribeDBEndpointOutputEventual = "Eventual"
-
-	// EnumOfConsistLevelForDescribeDBEndpointOutputGlobal is a EnumOfConsistLevelForDescribeDBEndpointOutput enum value
-	EnumOfConsistLevelForDescribeDBEndpointOutputGlobal = "Global"
-
-	// EnumOfConsistLevelForDescribeDBEndpointOutputSession is a EnumOfConsistLevelForDescribeDBEndpointOutput enum value
-	EnumOfConsistLevelForDescribeDBEndpointOutputSession = "Session"
-)
-
-const (
-	// EnumOfConsistTimeoutActionForDescribeDBEndpointOutputReadMaster is a EnumOfConsistTimeoutActionForDescribeDBEndpointOutput enum value
-	EnumOfConsistTimeoutActionForDescribeDBEndpointOutputReadMaster = "ReadMaster"
-
-	// EnumOfConsistTimeoutActionForDescribeDBEndpointOutputReturnError is a EnumOfConsistTimeoutActionForDescribeDBEndpointOutput enum value
-	EnumOfConsistTimeoutActionForDescribeDBEndpointOutputReturnError = "ReturnError"
-)
-
-const (
-	// EnumOfEndpointTypeForDescribeDBEndpointOutputCluster is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
-	EnumOfEndpointTypeForDescribeDBEndpointOutputCluster = "Cluster"
-
-	// EnumOfEndpointTypeForDescribeDBEndpointOutputCustom is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
-	EnumOfEndpointTypeForDescribeDBEndpointOutputCustom = "Custom"
-
-	// EnumOfEndpointTypeForDescribeDBEndpointOutputPrimary is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
-	EnumOfEndpointTypeForDescribeDBEndpointOutputPrimary = "Primary"
-)
-
-const (
-	// EnumOfNetworkTypeForDescribeDBEndpointOutputPrivate is a EnumOfNetworkTypeForDescribeDBEndpointOutput enum value
-	EnumOfNetworkTypeForDescribeDBEndpointOutputPrivate = "Private"
-
-	// EnumOfNetworkTypeForDescribeDBEndpointOutputPublic is a EnumOfNetworkTypeForDescribeDBEndpointOutput enum value
-	EnumOfNetworkTypeForDescribeDBEndpointOutputPublic = "Public"
-)
-
-const (
-	// EnumOfReadWriteModeForDescribeDBEndpointOutputReadOnly is a EnumOfReadWriteModeForDescribeDBEndpointOutput enum value
-	EnumOfReadWriteModeForDescribeDBEndpointOutputReadOnly = "ReadOnly"
-
-	// EnumOfReadWriteModeForDescribeDBEndpointOutputReadWrite is a EnumOfReadWriteModeForDescribeDBEndpointOutput enum value
-	EnumOfReadWriteModeForDescribeDBEndpointOutputReadWrite = "ReadWrite"
-)

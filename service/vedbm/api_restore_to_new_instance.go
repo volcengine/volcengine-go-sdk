@@ -184,6 +184,8 @@ type RestoreToNewInstanceInput struct {
 
 	StorageChargeType *string `type:"string" json:",omitempty"`
 
+	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForRestoreToNewInstanceInput"`
+
 	// SubnetId is a required field
 	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -341,6 +343,12 @@ func (s *RestoreToNewInstanceInput) SetStorageChargeType(v string) *RestoreToNew
 	return s
 }
 
+// SetStorageType sets the StorageType field's value.
+func (s *RestoreToNewInstanceInput) SetStorageType(v string) *RestoreToNewInstanceInput {
+	s.StorageType = &v
+	return s
+}
+
 // SetSubnetId sets the SubnetId field's value.
 func (s *RestoreToNewInstanceInput) SetSubnetId(v string) *RestoreToNewInstanceInput {
 	s.SubnetId = &v
@@ -464,4 +472,12 @@ const (
 
 	// EnumOfPeriodUnitForRestoreToNewInstanceInputYear is a EnumOfPeriodUnitForRestoreToNewInstanceInput enum value
 	EnumOfPeriodUnitForRestoreToNewInstanceInputYear = "Year"
+)
+
+const (
+	// EnumOfStorageTypeForRestoreToNewInstanceInputIooptimizedStorage is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
+	EnumOfStorageTypeForRestoreToNewInstanceInputIooptimizedStorage = "IOOptimizedStorage"
+
+	// EnumOfStorageTypeForRestoreToNewInstanceInputSmartCompressedStorage is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
+	EnumOfStorageTypeForRestoreToNewInstanceInputSmartCompressedStorage = "SmartCompressedStorage"
 )

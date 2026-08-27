@@ -142,7 +142,8 @@ func (c *SECCENTER20240508) GetAlarmTraceWithContext(ctx volcengine.Context, inp
 type GetAlarmTraceInput struct {
 	_ struct{} `type:"structure"`
 
-	TraceID *string `type:"string"`
+	// TraceID is a required field
+	TraceID *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s GetAlarmTraceInput) String() string {
 // GoString returns the string representation
 func (s GetAlarmTraceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetAlarmTraceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetAlarmTraceInput"}
+	if s.TraceID == nil {
+		invalidParams.Add(request.NewErrParamRequired("TraceID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetTraceID sets the TraceID field's value.

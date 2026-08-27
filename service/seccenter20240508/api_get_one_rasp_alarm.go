@@ -352,7 +352,8 @@ func (s *ContainerInfoForGetOneRaspAlarmOutput) SetContainerName(v string) *Cont
 type GetOneRaspAlarmInput struct {
 	_ struct{} `type:"structure"`
 
-	AlarmID *string `type:"string"`
+	// AlarmID is a required field
+	AlarmID *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -363,6 +364,19 @@ func (s GetOneRaspAlarmInput) String() string {
 // GoString returns the string representation
 func (s GetOneRaspAlarmInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetOneRaspAlarmInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetOneRaspAlarmInput"}
+	if s.AlarmID == nil {
+		invalidParams.Add(request.NewErrParamRequired("AlarmID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAlarmID sets the AlarmID field's value.

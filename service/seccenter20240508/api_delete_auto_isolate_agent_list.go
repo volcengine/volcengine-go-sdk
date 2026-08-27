@@ -218,7 +218,7 @@ type DeleteAutoIsolateAgentListInput struct {
 
 	AgentIDList []*string `type:"list" json:",omitempty"`
 
-	BasicQuery *BasicQueryForDeleteAutoIsolateAgentListInput `type:"structure" json:"basicQuery,omitempty"`
+	BasicQuery *BasicQueryForDeleteAutoIsolateAgentListInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation

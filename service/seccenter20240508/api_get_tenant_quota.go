@@ -216,6 +216,8 @@ type BasicQuotaForGetTenantQuotaOutput struct {
 
 	PaidType *string `type:"string" json:",omitempty"`
 
+	RunningUsedCount *int64 `type:"int64" json:",omitempty"`
+
 	TotalCount *int64 `type:"int64" json:",omitempty"`
 
 	UsedCount *int64 `type:"int64" json:",omitempty"`
@@ -257,6 +259,12 @@ func (s *BasicQuotaForGetTenantQuotaOutput) SetPaidType(v string) *BasicQuotaFor
 	return s
 }
 
+// SetRunningUsedCount sets the RunningUsedCount field's value.
+func (s *BasicQuotaForGetTenantQuotaOutput) SetRunningUsedCount(v int64) *BasicQuotaForGetTenantQuotaOutput {
+	s.RunningUsedCount = &v
+	return s
+}
+
 // SetTotalCount sets the TotalCount field's value.
 func (s *BasicQuotaForGetTenantQuotaOutput) SetTotalCount(v int64) *BasicQuotaForGetTenantQuotaOutput {
 	s.TotalCount = &v
@@ -287,6 +295,8 @@ type CapWhiteListForGetTenantQuotaOutput struct {
 	FileMonitorCap *int64 `type:"int64" json:",omitempty"`
 
 	SecurityAgentCap *int64 `type:"int64" json:",omitempty"`
+
+	UserAutoDefenseCap *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -326,6 +336,12 @@ func (s *CapWhiteListForGetTenantQuotaOutput) SetFileMonitorCap(v int64) *CapWhi
 // SetSecurityAgentCap sets the SecurityAgentCap field's value.
 func (s *CapWhiteListForGetTenantQuotaOutput) SetSecurityAgentCap(v int64) *CapWhiteListForGetTenantQuotaOutput {
 	s.SecurityAgentCap = &v
+	return s
+}
+
+// SetUserAutoDefenseCap sets the UserAutoDefenseCap field's value.
+func (s *CapWhiteListForGetTenantQuotaOutput) SetUserAutoDefenseCap(v int64) *CapWhiteListForGetTenantQuotaOutput {
+	s.UserAutoDefenseCap = &v
 	return s
 }
 

@@ -478,6 +478,8 @@ type ListVulDetailInput struct {
 
 	Conditions *ConditionsForListVulDetailInput `type:"structure" json:",omitempty"`
 
+	ExportJobType *string `type:"string" json:",omitempty"`
+
 	IDList []*string `type:"list" json:",omitempty"`
 
 	Status []*string `type:"list" json:",omitempty"`
@@ -516,6 +518,12 @@ func (s *ListVulDetailInput) SetAssetType(v string) *ListVulDetailInput {
 // SetConditions sets the Conditions field's value.
 func (s *ListVulDetailInput) SetConditions(v *ConditionsForListVulDetailInput) *ListVulDetailInput {
 	s.Conditions = v
+	return s
+}
+
+// SetExportJobType sets the ExportJobType field's value.
+func (s *ListVulDetailInput) SetExportJobType(v string) *ListVulDetailInput {
+	s.ExportJobType = &v
 	return s
 }
 

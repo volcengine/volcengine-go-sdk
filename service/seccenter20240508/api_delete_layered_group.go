@@ -146,7 +146,8 @@ func (c *SECCENTER20240508) DeleteLayeredGroupWithContext(ctx volcengine.Context
 type DeleteLayeredGroupInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	GroupID *string `type:"string" json:",omitempty"`
+	// GroupID is a required field
+	GroupID *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DeleteLayeredGroupInput) String() string {
 // GoString returns the string representation
 func (s DeleteLayeredGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteLayeredGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteLayeredGroupInput"}
+	if s.GroupID == nil {
+		invalidParams.Add(request.NewErrParamRequired("GroupID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetGroupID sets the GroupID field's value.

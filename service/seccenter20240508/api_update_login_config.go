@@ -301,6 +301,8 @@ type UpdateLoginConfigOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	Data *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -311,4 +313,10 @@ func (s UpdateLoginConfigOutput) String() string {
 // GoString returns the string representation
 func (s UpdateLoginConfigOutput) GoString() string {
 	return s.String()
+}
+
+// SetData sets the Data field's value.
+func (s *UpdateLoginConfigOutput) SetData(v string) *UpdateLoginConfigOutput {
+	s.Data = &v
+	return s
 }

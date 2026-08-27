@@ -593,6 +593,8 @@ type DescribeInstanceDetailOutput struct {
 	ConnectionInfo []*ConnectionInfoForDescribeInstanceDetailOutput `type:"list"`
 
 	FileReservedTime *int32 `type:"int32" json:",omitempty"`
+
+	QuotaObjects []*QuotaObjectForDescribeInstanceDetailOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -629,6 +631,12 @@ func (s *DescribeInstanceDetailOutput) SetFileReservedTime(v int32) *DescribeIns
 	return s
 }
 
+// SetQuotaObjects sets the QuotaObjects field's value.
+func (s *DescribeInstanceDetailOutput) SetQuotaObjects(v []*QuotaObjectForDescribeInstanceDetailOutput) *DescribeInstanceDetailOutput {
+	s.QuotaObjects = v
+	return s
+}
+
 type InstanceTagForDescribeInstanceDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -658,3 +666,57 @@ func (s *InstanceTagForDescribeInstanceDetailOutput) SetValue(v string) *Instanc
 	s.Value = &v
 	return s
 }
+
+type QuotaObjectForDescribeInstanceDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	FreeCount *string `type:"string" json:"freeCount,omitempty"`
+
+	QuotaName *string `type:"string" json:"quotaName,omitempty" enum:"EnumOfquotaNameForDescribeInstanceDetailOutput"`
+
+	TotalCount *int32 `type:"int32" json:"totalCount,omitempty"`
+
+	UsedCount *string `type:"string" json:"usedCount,omitempty"`
+}
+
+// String returns the string representation
+func (s QuotaObjectForDescribeInstanceDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s QuotaObjectForDescribeInstanceDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetFreeCount sets the FreeCount field's value.
+func (s *QuotaObjectForDescribeInstanceDetailOutput) SetFreeCount(v string) *QuotaObjectForDescribeInstanceDetailOutput {
+	s.FreeCount = &v
+	return s
+}
+
+// SetQuotaName sets the QuotaName field's value.
+func (s *QuotaObjectForDescribeInstanceDetailOutput) SetQuotaName(v string) *QuotaObjectForDescribeInstanceDetailOutput {
+	s.QuotaName = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *QuotaObjectForDescribeInstanceDetailOutput) SetTotalCount(v int32) *QuotaObjectForDescribeInstanceDetailOutput {
+	s.TotalCount = &v
+	return s
+}
+
+// SetUsedCount sets the UsedCount field's value.
+func (s *QuotaObjectForDescribeInstanceDetailOutput) SetUsedCount(v string) *QuotaObjectForDescribeInstanceDetailOutput {
+	s.UsedCount = &v
+	return s
+}
+
+const (
+	// EnumOfquotaNameForDescribeInstanceDetailOutputLiteTopicQuota is a EnumOfquotaNameForDescribeInstanceDetailOutput enum value
+	EnumOfquotaNameForDescribeInstanceDetailOutputLiteTopicQuota = "LITE_TOPIC_QUOTA"
+
+	// EnumOfquotaNameForDescribeInstanceDetailOutputLiteSubscriptionQuota is a EnumOfquotaNameForDescribeInstanceDetailOutput enum value
+	EnumOfquotaNameForDescribeInstanceDetailOutputLiteSubscriptionQuota = "LITE_SUBSCRIPTION_QUOTA"
+)

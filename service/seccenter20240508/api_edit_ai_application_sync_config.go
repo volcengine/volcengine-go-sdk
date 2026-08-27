@@ -146,6 +146,8 @@ func (c *SECCENTER20240508) EditAIApplicationSyncConfigWithContext(ctx volcengin
 type EditAIApplicationSyncConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Enable *bool `type:"boolean" json:",omitempty"`
+
 	Period *int64 `type:"int64" json:",omitempty"`
 }
 
@@ -157,6 +159,12 @@ func (s EditAIApplicationSyncConfigInput) String() string {
 // GoString returns the string representation
 func (s EditAIApplicationSyncConfigInput) GoString() string {
 	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *EditAIApplicationSyncConfigInput) SetEnable(v bool) *EditAIApplicationSyncConfigInput {
+	s.Enable = &v
+	return s
 }
 
 // SetPeriod sets the Period field's value.

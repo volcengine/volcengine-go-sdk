@@ -297,7 +297,11 @@ type UpdateAlertingRuleInput struct {
 
 	NotifyGroupPolicyId *string `type:"string" json:",omitempty"`
 
+	NotifyGroupPolicySource *string `type:"string" json:",omitempty"`
+
 	NotifyPolicyId *string `type:"string" json:",omitempty"`
+
+	NotifyPolicySource *string `type:"string" json:",omitempty"`
 
 	Query *QueryForUpdateAlertingRuleInput `type:"structure" json:",omitempty"`
 
@@ -369,9 +373,21 @@ func (s *UpdateAlertingRuleInput) SetNotifyGroupPolicyId(v string) *UpdateAlerti
 	return s
 }
 
+// SetNotifyGroupPolicySource sets the NotifyGroupPolicySource field's value.
+func (s *UpdateAlertingRuleInput) SetNotifyGroupPolicySource(v string) *UpdateAlertingRuleInput {
+	s.NotifyGroupPolicySource = &v
+	return s
+}
+
 // SetNotifyPolicyId sets the NotifyPolicyId field's value.
 func (s *UpdateAlertingRuleInput) SetNotifyPolicyId(v string) *UpdateAlertingRuleInput {
 	s.NotifyPolicyId = &v
+	return s
+}
+
+// SetNotifyPolicySource sets the NotifyPolicySource field's value.
+func (s *UpdateAlertingRuleInput) SetNotifyPolicySource(v string) *UpdateAlertingRuleInput {
+	s.NotifyPolicySource = &v
 	return s
 }
 

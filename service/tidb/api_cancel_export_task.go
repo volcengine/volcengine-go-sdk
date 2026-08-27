@@ -173,44 +173,6 @@ func (s *AccessKeyForCancelExportTaskOutput) SetSecret(v string) *AccessKeyForCa
 	return s
 }
 
-type AzureBlobForCancelExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCancelExportTaskOutput"`
-
-	SasToken *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AzureBlobForCancelExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AzureBlobForCancelExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *AzureBlobForCancelExportTaskOutput) SetAuthType(v string) *AzureBlobForCancelExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetSasToken sets the SasToken field's value.
-func (s *AzureBlobForCancelExportTaskOutput) SetSasToken(v string) *AzureBlobForCancelExportTaskOutput {
-	s.SasToken = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *AzureBlobForCancelExportTaskOutput) SetUri(v string) *AzureBlobForCancelExportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
 type CancelExportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -539,82 +501,6 @@ func (s *FilterForCancelExportTaskOutput) SetTable(v *TableForCancelExportTaskOu
 	return s
 }
 
-type GcsForCancelExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCancelExportTaskOutput"`
-
-	ServiceAccountKey *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s GcsForCancelExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s GcsForCancelExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *GcsForCancelExportTaskOutput) SetAuthType(v string) *GcsForCancelExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetServiceAccountKey sets the ServiceAccountKey field's value.
-func (s *GcsForCancelExportTaskOutput) SetServiceAccountKey(v string) *GcsForCancelExportTaskOutput {
-	s.ServiceAccountKey = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *GcsForCancelExportTaskOutput) SetUri(v string) *GcsForCancelExportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
-type OssForCancelExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCancelExportTaskOutput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCancelExportTaskOutput"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s OssForCancelExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s OssForCancelExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *OssForCancelExportTaskOutput) SetAccessKey(v *AccessKeyForCancelExportTaskOutput) *OssForCancelExportTaskOutput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *OssForCancelExportTaskOutput) SetAuthType(v string) *OssForCancelExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *OssForCancelExportTaskOutput) SetUri(v string) *OssForCancelExportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
 type ParquetFormatForCancelExportTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -634,52 +520,6 @@ func (s ParquetFormatForCancelExportTaskOutput) GoString() string {
 // SetCompression sets the Compression field's value.
 func (s *ParquetFormatForCancelExportTaskOutput) SetCompression(v string) *ParquetFormatForCancelExportTaskOutput {
 	s.Compression = &v
-	return s
-}
-
-type S3ForCancelExportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCancelExportTaskOutput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCancelExportTaskOutput"`
-
-	RoleArn *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s S3ForCancelExportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s S3ForCancelExportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *S3ForCancelExportTaskOutput) SetAccessKey(v *AccessKeyForCancelExportTaskOutput) *S3ForCancelExportTaskOutput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *S3ForCancelExportTaskOutput) SetAuthType(v string) *S3ForCancelExportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetRoleArn sets the RoleArn field's value.
-func (s *S3ForCancelExportTaskOutput) SetRoleArn(v string) *S3ForCancelExportTaskOutput {
-	s.RoleArn = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *S3ForCancelExportTaskOutput) SetUri(v string) *S3ForCancelExportTaskOutput {
-	s.Uri = &v
 	return s
 }
 
@@ -716,14 +556,6 @@ func (s *TableForCancelExportTaskOutput) SetWhere(v string) *TableForCancelExpor
 type TargetForCancelExportTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AzureBlob *AzureBlobForCancelExportTaskOutput `type:"structure" json:",omitempty"`
-
-	Gcs *GcsForCancelExportTaskOutput `type:"structure" json:",omitempty"`
-
-	Oss *OssForCancelExportTaskOutput `type:"structure" json:",omitempty"`
-
-	S3 *S3ForCancelExportTaskOutput `type:"structure" json:",omitempty"`
-
 	Tos *TosForCancelExportTaskOutput `type:"structure" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCancelExportTaskOutput"`
@@ -737,30 +569,6 @@ func (s TargetForCancelExportTaskOutput) String() string {
 // GoString returns the string representation
 func (s TargetForCancelExportTaskOutput) GoString() string {
 	return s.String()
-}
-
-// SetAzureBlob sets the AzureBlob field's value.
-func (s *TargetForCancelExportTaskOutput) SetAzureBlob(v *AzureBlobForCancelExportTaskOutput) *TargetForCancelExportTaskOutput {
-	s.AzureBlob = v
-	return s
-}
-
-// SetGcs sets the Gcs field's value.
-func (s *TargetForCancelExportTaskOutput) SetGcs(v *GcsForCancelExportTaskOutput) *TargetForCancelExportTaskOutput {
-	s.Gcs = v
-	return s
-}
-
-// SetOss sets the Oss field's value.
-func (s *TargetForCancelExportTaskOutput) SetOss(v *OssForCancelExportTaskOutput) *TargetForCancelExportTaskOutput {
-	s.Oss = v
-	return s
-}
-
-// SetS3 sets the S3 field's value.
-func (s *TargetForCancelExportTaskOutput) SetS3(v *S3ForCancelExportTaskOutput) *TargetForCancelExportTaskOutput {
-	s.S3 = v
-	return s
 }
 
 // SetTos sets the Tos field's value.
@@ -814,17 +622,8 @@ func (s *TosForCancelExportTaskOutput) SetUri(v string) *TosForCancelExportTaskO
 }
 
 const (
-	// EnumOfAuthTypeForCancelExportTaskOutputRoleArn is a EnumOfAuthTypeForCancelExportTaskOutput enum value
-	EnumOfAuthTypeForCancelExportTaskOutputRoleArn = "ROLE_ARN"
-
-	// EnumOfAuthTypeForCancelExportTaskOutputAccessKey is a EnumOfAuthTypeForCancelExportTaskOutput enum value
-	EnumOfAuthTypeForCancelExportTaskOutputAccessKey = "ACCESS_KEY"
-
-	// EnumOfAuthTypeForCancelExportTaskOutputServiceAccountKey is a EnumOfAuthTypeForCancelExportTaskOutput enum value
-	EnumOfAuthTypeForCancelExportTaskOutputServiceAccountKey = "SERVICE_ACCOUNT_KEY"
-
-	// EnumOfAuthTypeForCancelExportTaskOutputSasToken is a EnumOfAuthTypeForCancelExportTaskOutput enum value
-	EnumOfAuthTypeForCancelExportTaskOutputSasToken = "SAS_TOKEN"
+	// EnumOfAuthTypeForCancelExportTaskOutput2 is a EnumOfAuthTypeForCancelExportTaskOutput enum value
+	EnumOfAuthTypeForCancelExportTaskOutput2 = "2"
 )
 
 const (
@@ -873,21 +672,6 @@ const (
 )
 
 const (
-	// EnumOfTypeForCancelExportTaskOutputLocal is a EnumOfTypeForCancelExportTaskOutput enum value
-	EnumOfTypeForCancelExportTaskOutputLocal = "LOCAL"
-
-	// EnumOfTypeForCancelExportTaskOutputS3 is a EnumOfTypeForCancelExportTaskOutput enum value
-	EnumOfTypeForCancelExportTaskOutputS3 = "S3"
-
-	// EnumOfTypeForCancelExportTaskOutputGcs is a EnumOfTypeForCancelExportTaskOutput enum value
-	EnumOfTypeForCancelExportTaskOutputGcs = "GCS"
-
-	// EnumOfTypeForCancelExportTaskOutputAzureBlob is a EnumOfTypeForCancelExportTaskOutput enum value
-	EnumOfTypeForCancelExportTaskOutputAzureBlob = "AZURE_BLOB"
-
-	// EnumOfTypeForCancelExportTaskOutputOss is a EnumOfTypeForCancelExportTaskOutput enum value
-	EnumOfTypeForCancelExportTaskOutputOss = "OSS"
-
-	// EnumOfTypeForCancelExportTaskOutputTos is a EnumOfTypeForCancelExportTaskOutput enum value
-	EnumOfTypeForCancelExportTaskOutputTos = "TOS"
+	// EnumOfTypeForCancelExportTaskOutput6 is a EnumOfTypeForCancelExportTaskOutput enum value
+	EnumOfTypeForCancelExportTaskOutput6 = "6"
 )

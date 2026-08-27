@@ -143,10 +143,24 @@ func (c *SECCENTER20240508) ExportAIFingerprintDataWithContext(ctx volcengine.Co
 	return out, req.Send()
 }
 
+type ConditionForExportAIFingerprintDataInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConditionForExportAIFingerprintDataInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionForExportAIFingerprintDataInput) GoString() string {
+	return s.String()
+}
+
 type ExportAIFingerprintDataInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Conditions []*int64 `type:"list" json:",omitempty"`
+	Conditions []*ConditionForExportAIFingerprintDataInput `type:"list" json:",omitempty"`
 
 	FingerprintType *string `type:"string" json:",omitempty"`
 
@@ -164,7 +178,7 @@ func (s ExportAIFingerprintDataInput) GoString() string {
 }
 
 // SetConditions sets the Conditions field's value.
-func (s *ExportAIFingerprintDataInput) SetConditions(v []*int64) *ExportAIFingerprintDataInput {
+func (s *ExportAIFingerprintDataInput) SetConditions(v []*ConditionForExportAIFingerprintDataInput) *ExportAIFingerprintDataInput {
 	s.Conditions = v
 	return s
 }

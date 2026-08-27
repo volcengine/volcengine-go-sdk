@@ -249,4 +249,7 @@ const (
 
 	// EnumOfStorageTypeListForDescribeStoragePayablePriceInputColdDataArchive is a EnumOfStorageTypeListForDescribeStoragePayablePriceInput enum value
 	EnumOfStorageTypeListForDescribeStoragePayablePriceInputColdDataArchive = "ColdDataArchive"
+
+	// EnumOfStorageTypeListForDescribeStoragePayablePriceInputCompressClusterpool is a EnumOfStorageTypeListForDescribeStoragePayablePriceInput enum value
+	EnumOfStorageTypeListForDescribeStoragePayablePriceInputCompressClusterpool = "CompressClusterpool"
 )

@@ -270,7 +270,7 @@ type ParameterChangeHistoryForDescribeDBInstanceParameterChangeHistoryOutput str
 
 	ParameterName *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeDBInstanceParameterChangeHistoryOutput"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -312,11 +312,3 @@ func (s *ParameterChangeHistoryForDescribeDBInstanceParameterChangeHistoryOutput
 	s.Status = &v
 	return s
 }
-
-const (
-	// EnumOfStatusForDescribeDBInstanceParameterChangeHistoryOutputApplied is a EnumOfStatusForDescribeDBInstanceParameterChangeHistoryOutput enum value
-	EnumOfStatusForDescribeDBInstanceParameterChangeHistoryOutputApplied = "Applied"
-
-	// EnumOfStatusForDescribeDBInstanceParameterChangeHistoryOutputSyncing is a EnumOfStatusForDescribeDBInstanceParameterChangeHistoryOutput enum value
-	EnumOfStatusForDescribeDBInstanceParameterChangeHistoryOutputSyncing = "Syncing"
-)

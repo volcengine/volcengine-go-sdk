@@ -142,7 +142,8 @@ func (c *SECCENTER20240508) DownloadRawTraceDataWithContext(ctx volcengine.Conte
 type DownloadRawTraceDataInput struct {
 	_ struct{} `type:"structure"`
 
-	TraceID *string `type:"string"`
+	// TraceID is a required field
+	TraceID *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DownloadRawTraceDataInput) String() string {
 // GoString returns the string representation
 func (s DownloadRawTraceDataInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DownloadRawTraceDataInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DownloadRawTraceDataInput"}
+	if s.TraceID == nil {
+		invalidParams.Add(request.NewErrParamRequired("TraceID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetTraceID sets the TraceID field's value.

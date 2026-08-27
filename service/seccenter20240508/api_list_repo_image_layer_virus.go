@@ -202,7 +202,7 @@ type ListRepoImageLayerVirusInput struct {
 	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+	PageSize *int32 `min:"1" max:"100" type:"int32" json:",omitempty" required:"true"`
 
 	SortBy *string `type:"string" json:",omitempty"`
 
@@ -233,6 +233,12 @@ func (s *ListRepoImageLayerVirusInput) Validate() error {
 	}
 	if s.PageSize == nil {
 		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+	if s.PageSize != nil && *s.PageSize < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
 	}
 
 	if invalidParams.Len() > 0 {

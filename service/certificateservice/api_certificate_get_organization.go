@@ -148,8 +148,6 @@ type CertificateGetOrganizationInput struct {
 
 	// OrganizationId is a required field
 	OrganizationId *string `type:"string" json:",omitempty" required:"true"`
-
-	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -178,12 +176,6 @@ func (s *CertificateGetOrganizationInput) Validate() error {
 // SetOrganizationId sets the OrganizationId field's value.
 func (s *CertificateGetOrganizationInput) SetOrganizationId(v string) *CertificateGetOrganizationInput {
 	s.OrganizationId = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *CertificateGetOrganizationInput) SetProjectName(v string) *CertificateGetOrganizationInput {
-	s.ProjectName = &v
 	return s
 }
 

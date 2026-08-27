@@ -94,6 +94,14 @@ type TIDBAPI interface {
 	CreateImportUploadUrlWithContext(volcengine.Context, *CreateImportUploadUrlInput, ...request.Option) (*CreateImportUploadUrlOutput, error)
 	CreateImportUploadUrlRequest(*CreateImportUploadUrlInput) (*request.Request, *CreateImportUploadUrlOutput)
 
+	CreatePrivateEndpointAllowlistRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePrivateEndpointAllowlistRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePrivateEndpointAllowlistRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePrivateEndpointAllowlistRule(*CreatePrivateEndpointAllowlistRuleInput) (*CreatePrivateEndpointAllowlistRuleOutput, error)
+	CreatePrivateEndpointAllowlistRuleWithContext(volcengine.Context, *CreatePrivateEndpointAllowlistRuleInput, ...request.Option) (*CreatePrivateEndpointAllowlistRuleOutput, error)
+	CreatePrivateEndpointAllowlistRuleRequest(*CreatePrivateEndpointAllowlistRuleInput) (*request.Request, *CreatePrivateEndpointAllowlistRuleOutput)
+
 	DeleteBranchCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteBranchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteBranchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,6 +125,14 @@ type TIDBAPI interface {
 	DeleteExportTask(*DeleteExportTaskInput) (*DeleteExportTaskOutput, error)
 	DeleteExportTaskWithContext(volcengine.Context, *DeleteExportTaskInput, ...request.Option) (*DeleteExportTaskOutput, error)
 	DeleteExportTaskRequest(*DeleteExportTaskInput) (*request.Request, *DeleteExportTaskOutput)
+
+	DeletePrivateEndpointAllowlistRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeletePrivateEndpointAllowlistRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeletePrivateEndpointAllowlistRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeletePrivateEndpointAllowlistRule(*DeletePrivateEndpointAllowlistRuleInput) (*DeletePrivateEndpointAllowlistRuleOutput, error)
+	DeletePrivateEndpointAllowlistRuleWithContext(volcengine.Context, *DeletePrivateEndpointAllowlistRuleInput, ...request.Option) (*DeletePrivateEndpointAllowlistRuleOutput, error)
+	DeletePrivateEndpointAllowlistRuleRequest(*DeletePrivateEndpointAllowlistRuleInput) (*request.Request, *DeletePrivateEndpointAllowlistRuleOutput)
 
 	DescribePriceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribePriceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -294,6 +310,14 @@ type TIDBAPI interface {
 	ListImportTasksWithContext(volcengine.Context, *ListImportTasksInput, ...request.Option) (*ListImportTasksOutput, error)
 	ListImportTasksRequest(*ListImportTasksInput) (*request.Request, *ListImportTasksOutput)
 
+	ListPrivateEndpointAllowlistCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListPrivateEndpointAllowlistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListPrivateEndpointAllowlistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListPrivateEndpointAllowlist(*ListPrivateEndpointAllowlistInput) (*ListPrivateEndpointAllowlistOutput, error)
+	ListPrivateEndpointAllowlistWithContext(volcengine.Context, *ListPrivateEndpointAllowlistInput, ...request.Option) (*ListPrivateEndpointAllowlistOutput, error)
+	ListPrivateEndpointAllowlistRequest(*ListPrivateEndpointAllowlistInput) (*request.Request, *ListPrivateEndpointAllowlistOutput)
+
 	ListRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -341,6 +365,14 @@ type TIDBAPI interface {
 	ListStatements(*ListStatementsInput) (*ListStatementsOutput, error)
 	ListStatementsWithContext(volcengine.Context, *ListStatementsInput, ...request.Option) (*ListStatementsOutput, error)
 	ListStatementsRequest(*ListStatementsInput) (*request.Request, *ListStatementsOutput)
+
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
 
 	ListZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -390,6 +422,22 @@ type TIDBAPI interface {
 	RestoreClusterWithContext(volcengine.Context, *RestoreClusterInput, ...request.Option) (*RestoreClusterOutput, error)
 	RestoreClusterRequest(*RestoreClusterInput) (*request.Request, *RestoreClusterOutput)
 
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
 	UpdateBranchCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateBranchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateBranchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -405,6 +453,14 @@ type TIDBAPI interface {
 	UpdateCluster(*UpdateClusterInput) (*UpdateClusterOutput, error)
 	UpdateClusterWithContext(volcengine.Context, *UpdateClusterInput, ...request.Option) (*UpdateClusterOutput, error)
 	UpdateClusterRequest(*UpdateClusterInput) (*request.Request, *UpdateClusterOutput)
+
+	UpdatePrivateEndpointAllowlistRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdatePrivateEndpointAllowlistRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdatePrivateEndpointAllowlistRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdatePrivateEndpointAllowlistRule(*UpdatePrivateEndpointAllowlistRuleInput) (*UpdatePrivateEndpointAllowlistRuleOutput, error)
+	UpdatePrivateEndpointAllowlistRuleWithContext(volcengine.Context, *UpdatePrivateEndpointAllowlistRuleInput, ...request.Option) (*UpdatePrivateEndpointAllowlistRuleOutput, error)
+	UpdatePrivateEndpointAllowlistRuleRequest(*UpdatePrivateEndpointAllowlistRuleInput) (*request.Request, *UpdatePrivateEndpointAllowlistRuleOutput)
 
 	ValidateImportTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ValidateImportTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

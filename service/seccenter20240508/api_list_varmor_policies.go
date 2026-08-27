@@ -226,7 +226,7 @@ type DataForListVarmorPoliciesOutput struct {
 
 	Region *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForListVarmorPoliciesOutput"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -340,6 +340,8 @@ type ListVarmorPoliciesInput struct {
 	// PageSize is a required field
 	PageSize *int64 `type:"int64" json:",omitempty" required:"true"`
 
+	PolicyIds []*string `type:"list" json:",omitempty"`
+
 	PolicyMode *string `type:"string" json:",omitempty"`
 
 	PolicyName *string `type:"string" json:",omitempty"`
@@ -416,6 +418,12 @@ func (s *ListVarmorPoliciesInput) SetPageNumber(v int64) *ListVarmorPoliciesInpu
 // SetPageSize sets the PageSize field's value.
 func (s *ListVarmorPoliciesInput) SetPageSize(v int64) *ListVarmorPoliciesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetPolicyIds sets the PolicyIds field's value.
+func (s *ListVarmorPoliciesInput) SetPolicyIds(v []*string) *ListVarmorPoliciesInput {
+	s.PolicyIds = v
 	return s
 }
 
@@ -514,29 +522,3 @@ func (s *ListVarmorPoliciesOutput) SetTotalCount(v int64) *ListVarmorPoliciesOut
 	s.TotalCount = &v
 	return s
 }
-
-const (
-	// EnumOfStatusForListVarmorPoliciesOutputPending is a EnumOfStatusForListVarmorPoliciesOutput enum value
-	EnumOfStatusForListVarmorPoliciesOutputPending = "Pending"
-
-	// EnumOfStatusForListVarmorPoliciesOutputProtecting is a EnumOfStatusForListVarmorPoliciesOutput enum value
-	EnumOfStatusForListVarmorPoliciesOutputProtecting = "Protecting"
-
-	// EnumOfStatusForListVarmorPoliciesOutputModeling is a EnumOfStatusForListVarmorPoliciesOutput enum value
-	EnumOfStatusForListVarmorPoliciesOutputModeling = "Modeling"
-
-	// EnumOfStatusForListVarmorPoliciesOutputCompleted is a EnumOfStatusForListVarmorPoliciesOutput enum value
-	EnumOfStatusForListVarmorPoliciesOutputCompleted = "Completed"
-
-	// EnumOfStatusForListVarmorPoliciesOutputError is a EnumOfStatusForListVarmorPoliciesOutput enum value
-	EnumOfStatusForListVarmorPoliciesOutputError = "Error"
-
-	// EnumOfStatusForListVarmorPoliciesOutputFailed is a EnumOfStatusForListVarmorPoliciesOutput enum value
-	EnumOfStatusForListVarmorPoliciesOutputFailed = "Failed"
-
-	// EnumOfStatusForListVarmorPoliciesOutputUnknown is a EnumOfStatusForListVarmorPoliciesOutput enum value
-	EnumOfStatusForListVarmorPoliciesOutputUnknown = "Unknown"
-
-	// EnumOfStatusForListVarmorPoliciesOutputUnchanged is a EnumOfStatusForListVarmorPoliciesOutput enum value
-	EnumOfStatusForListVarmorPoliciesOutputUnchanged = "Unchanged"
-)

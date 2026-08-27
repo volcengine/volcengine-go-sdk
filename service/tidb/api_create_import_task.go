@@ -249,82 +249,6 @@ func (s *AllCompletedTableForCreateImportTaskOutput) SetTableName(v string) *All
 	return s
 }
 
-type AzureBlobForCreateImportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateImportTaskInput"`
-
-	SasToken *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AzureBlobForCreateImportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AzureBlobForCreateImportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *AzureBlobForCreateImportTaskInput) SetAuthType(v string) *AzureBlobForCreateImportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetSasToken sets the SasToken field's value.
-func (s *AzureBlobForCreateImportTaskInput) SetSasToken(v string) *AzureBlobForCreateImportTaskInput {
-	s.SasToken = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *AzureBlobForCreateImportTaskInput) SetUri(v string) *AzureBlobForCreateImportTaskInput {
-	s.Uri = &v
-	return s
-}
-
-type AzureBlobForCreateImportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateImportTaskOutput"`
-
-	SasToken *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AzureBlobForCreateImportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AzureBlobForCreateImportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *AzureBlobForCreateImportTaskOutput) SetAuthType(v string) *AzureBlobForCreateImportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetSasToken sets the SasToken field's value.
-func (s *AzureBlobForCreateImportTaskOutput) SetSasToken(v string) *AzureBlobForCreateImportTaskOutput {
-	s.SasToken = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *AzureBlobForCreateImportTaskOutput) SetUri(v string) *AzureBlobForCreateImportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
 type ColumnForCreateImportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -636,82 +560,6 @@ func (s *CsvFormatForCreateImportTaskOutput) SetSeparator(v string) *CsvFormatFo
 // SetTrimLastSeparator sets the TrimLastSeparator field's value.
 func (s *CsvFormatForCreateImportTaskOutput) SetTrimLastSeparator(v bool) *CsvFormatForCreateImportTaskOutput {
 	s.TrimLastSeparator = &v
-	return s
-}
-
-type GcsForCreateImportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateImportTaskInput"`
-
-	ServiceAccountKey *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s GcsForCreateImportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s GcsForCreateImportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *GcsForCreateImportTaskInput) SetAuthType(v string) *GcsForCreateImportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetServiceAccountKey sets the ServiceAccountKey field's value.
-func (s *GcsForCreateImportTaskInput) SetServiceAccountKey(v string) *GcsForCreateImportTaskInput {
-	s.ServiceAccountKey = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *GcsForCreateImportTaskInput) SetUri(v string) *GcsForCreateImportTaskInput {
-	s.Uri = &v
-	return s
-}
-
-type GcsForCreateImportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateImportTaskOutput"`
-
-	ServiceAccountKey *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s GcsForCreateImportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s GcsForCreateImportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *GcsForCreateImportTaskOutput) SetAuthType(v string) *GcsForCreateImportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetServiceAccountKey sets the ServiceAccountKey field's value.
-func (s *GcsForCreateImportTaskOutput) SetServiceAccountKey(v string) *GcsForCreateImportTaskOutput {
-	s.ServiceAccountKey = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *GcsForCreateImportTaskOutput) SetUri(v string) *GcsForCreateImportTaskOutput {
-	s.Uri = &v
 	return s
 }
 
@@ -1073,280 +921,10 @@ func (s *LocalForCreateImportTaskOutput) SetUploadId(v string) *LocalForCreateIm
 	return s
 }
 
-type OssForCreateImportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCreateImportTaskInput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateImportTaskInput"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s OssForCreateImportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s OssForCreateImportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *OssForCreateImportTaskInput) SetAccessKey(v *AccessKeyForCreateImportTaskInput) *OssForCreateImportTaskInput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *OssForCreateImportTaskInput) SetAuthType(v string) *OssForCreateImportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *OssForCreateImportTaskInput) SetUri(v string) *OssForCreateImportTaskInput {
-	s.Uri = &v
-	return s
-}
-
-type OssForCreateImportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCreateImportTaskOutput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateImportTaskOutput"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s OssForCreateImportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s OssForCreateImportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *OssForCreateImportTaskOutput) SetAccessKey(v *AccessKeyForCreateImportTaskOutput) *OssForCreateImportTaskOutput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *OssForCreateImportTaskOutput) SetAuthType(v string) *OssForCreateImportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *OssForCreateImportTaskOutput) SetUri(v string) *OssForCreateImportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
-type S3CompatibleForCreateImportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCreateImportTaskInput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateImportTaskInput"`
-
-	Endpoint *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s S3CompatibleForCreateImportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s S3CompatibleForCreateImportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *S3CompatibleForCreateImportTaskInput) SetAccessKey(v *AccessKeyForCreateImportTaskInput) *S3CompatibleForCreateImportTaskInput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *S3CompatibleForCreateImportTaskInput) SetAuthType(v string) *S3CompatibleForCreateImportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetEndpoint sets the Endpoint field's value.
-func (s *S3CompatibleForCreateImportTaskInput) SetEndpoint(v string) *S3CompatibleForCreateImportTaskInput {
-	s.Endpoint = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *S3CompatibleForCreateImportTaskInput) SetUri(v string) *S3CompatibleForCreateImportTaskInput {
-	s.Uri = &v
-	return s
-}
-
-type S3CompatibleForCreateImportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCreateImportTaskOutput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateImportTaskOutput"`
-
-	Endpoint *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s S3CompatibleForCreateImportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s S3CompatibleForCreateImportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *S3CompatibleForCreateImportTaskOutput) SetAccessKey(v *AccessKeyForCreateImportTaskOutput) *S3CompatibleForCreateImportTaskOutput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *S3CompatibleForCreateImportTaskOutput) SetAuthType(v string) *S3CompatibleForCreateImportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetEndpoint sets the Endpoint field's value.
-func (s *S3CompatibleForCreateImportTaskOutput) SetEndpoint(v string) *S3CompatibleForCreateImportTaskOutput {
-	s.Endpoint = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *S3CompatibleForCreateImportTaskOutput) SetUri(v string) *S3CompatibleForCreateImportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
-type S3ForCreateImportTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCreateImportTaskInput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateImportTaskInput"`
-
-	RoleArn *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s S3ForCreateImportTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s S3ForCreateImportTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *S3ForCreateImportTaskInput) SetAccessKey(v *AccessKeyForCreateImportTaskInput) *S3ForCreateImportTaskInput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *S3ForCreateImportTaskInput) SetAuthType(v string) *S3ForCreateImportTaskInput {
-	s.AuthType = &v
-	return s
-}
-
-// SetRoleArn sets the RoleArn field's value.
-func (s *S3ForCreateImportTaskInput) SetRoleArn(v string) *S3ForCreateImportTaskInput {
-	s.RoleArn = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *S3ForCreateImportTaskInput) SetUri(v string) *S3ForCreateImportTaskInput {
-	s.Uri = &v
-	return s
-}
-
-type S3ForCreateImportTaskOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AccessKey *AccessKeyForCreateImportTaskOutput `type:"structure" json:",omitempty"`
-
-	AuthType *string `type:"string" json:",omitempty" enum:"EnumOfAuthTypeForCreateImportTaskOutput"`
-
-	RoleArn *string `type:"string" json:",omitempty"`
-
-	Uri *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s S3ForCreateImportTaskOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s S3ForCreateImportTaskOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccessKey sets the AccessKey field's value.
-func (s *S3ForCreateImportTaskOutput) SetAccessKey(v *AccessKeyForCreateImportTaskOutput) *S3ForCreateImportTaskOutput {
-	s.AccessKey = v
-	return s
-}
-
-// SetAuthType sets the AuthType field's value.
-func (s *S3ForCreateImportTaskOutput) SetAuthType(v string) *S3ForCreateImportTaskOutput {
-	s.AuthType = &v
-	return s
-}
-
-// SetRoleArn sets the RoleArn field's value.
-func (s *S3ForCreateImportTaskOutput) SetRoleArn(v string) *S3ForCreateImportTaskOutput {
-	s.RoleArn = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *S3ForCreateImportTaskOutput) SetUri(v string) *S3ForCreateImportTaskOutput {
-	s.Uri = &v
-	return s
-}
-
 type SourceForCreateImportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AzureBlob *AzureBlobForCreateImportTaskInput `type:"structure" json:",omitempty"`
-
-	Gcs *GcsForCreateImportTaskInput `type:"structure" json:",omitempty"`
-
 	Local *LocalForCreateImportTaskInput `type:"structure" json:",omitempty"`
-
-	Oss *OssForCreateImportTaskInput `type:"structure" json:",omitempty"`
-
-	S3 *S3ForCreateImportTaskInput `type:"structure" json:",omitempty"`
-
-	S3Compatible *S3CompatibleForCreateImportTaskInput `type:"structure" json:",omitempty"`
 
 	TargetTableInfos []*TargetTableInfoForCreateImportTaskInput `type:"list"`
 
@@ -1365,39 +943,9 @@ func (s SourceForCreateImportTaskInput) GoString() string {
 	return s.String()
 }
 
-// SetAzureBlob sets the AzureBlob field's value.
-func (s *SourceForCreateImportTaskInput) SetAzureBlob(v *AzureBlobForCreateImportTaskInput) *SourceForCreateImportTaskInput {
-	s.AzureBlob = v
-	return s
-}
-
-// SetGcs sets the Gcs field's value.
-func (s *SourceForCreateImportTaskInput) SetGcs(v *GcsForCreateImportTaskInput) *SourceForCreateImportTaskInput {
-	s.Gcs = v
-	return s
-}
-
 // SetLocal sets the Local field's value.
 func (s *SourceForCreateImportTaskInput) SetLocal(v *LocalForCreateImportTaskInput) *SourceForCreateImportTaskInput {
 	s.Local = v
-	return s
-}
-
-// SetOss sets the Oss field's value.
-func (s *SourceForCreateImportTaskInput) SetOss(v *OssForCreateImportTaskInput) *SourceForCreateImportTaskInput {
-	s.Oss = v
-	return s
-}
-
-// SetS3 sets the S3 field's value.
-func (s *SourceForCreateImportTaskInput) SetS3(v *S3ForCreateImportTaskInput) *SourceForCreateImportTaskInput {
-	s.S3 = v
-	return s
-}
-
-// SetS3Compatible sets the S3Compatible field's value.
-func (s *SourceForCreateImportTaskInput) SetS3Compatible(v *S3CompatibleForCreateImportTaskInput) *SourceForCreateImportTaskInput {
-	s.S3Compatible = v
 	return s
 }
 
@@ -1422,17 +970,7 @@ func (s *SourceForCreateImportTaskInput) SetType(v string) *SourceForCreateImpor
 type SourceForCreateImportTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AzureBlob *AzureBlobForCreateImportTaskOutput `type:"structure" json:",omitempty"`
-
-	Gcs *GcsForCreateImportTaskOutput `type:"structure" json:",omitempty"`
-
 	Local *LocalForCreateImportTaskOutput `type:"structure" json:",omitempty"`
-
-	Oss *OssForCreateImportTaskOutput `type:"structure" json:",omitempty"`
-
-	S3 *S3ForCreateImportTaskOutput `type:"structure" json:",omitempty"`
-
-	S3Compatible *S3CompatibleForCreateImportTaskOutput `type:"structure" json:",omitempty"`
 
 	TargetTableInfos []*TargetTableInfoForCreateImportTaskOutput `type:"list"`
 
@@ -1451,39 +989,9 @@ func (s SourceForCreateImportTaskOutput) GoString() string {
 	return s.String()
 }
 
-// SetAzureBlob sets the AzureBlob field's value.
-func (s *SourceForCreateImportTaskOutput) SetAzureBlob(v *AzureBlobForCreateImportTaskOutput) *SourceForCreateImportTaskOutput {
-	s.AzureBlob = v
-	return s
-}
-
-// SetGcs sets the Gcs field's value.
-func (s *SourceForCreateImportTaskOutput) SetGcs(v *GcsForCreateImportTaskOutput) *SourceForCreateImportTaskOutput {
-	s.Gcs = v
-	return s
-}
-
 // SetLocal sets the Local field's value.
 func (s *SourceForCreateImportTaskOutput) SetLocal(v *LocalForCreateImportTaskOutput) *SourceForCreateImportTaskOutput {
 	s.Local = v
-	return s
-}
-
-// SetOss sets the Oss field's value.
-func (s *SourceForCreateImportTaskOutput) SetOss(v *OssForCreateImportTaskOutput) *SourceForCreateImportTaskOutput {
-	s.Oss = v
-	return s
-}
-
-// SetS3 sets the S3 field's value.
-func (s *SourceForCreateImportTaskOutput) SetS3(v *S3ForCreateImportTaskOutput) *SourceForCreateImportTaskOutput {
-	s.S3 = v
-	return s
-}
-
-// SetS3Compatible sets the S3Compatible field's value.
-func (s *SourceForCreateImportTaskOutput) SetS3Compatible(v *S3CompatibleForCreateImportTaskOutput) *SourceForCreateImportTaskOutput {
-	s.S3Compatible = v
 	return s
 }
 
@@ -1702,31 +1210,13 @@ func (s *TosForCreateImportTaskOutput) SetUri(v string) *TosForCreateImportTaskO
 }
 
 const (
-	// EnumOfAuthTypeForCreateImportTaskInputRoleArn is a EnumOfAuthTypeForCreateImportTaskInput enum value
-	EnumOfAuthTypeForCreateImportTaskInputRoleArn = "ROLE_ARN"
-
-	// EnumOfAuthTypeForCreateImportTaskInputAccessKey is a EnumOfAuthTypeForCreateImportTaskInput enum value
-	EnumOfAuthTypeForCreateImportTaskInputAccessKey = "ACCESS_KEY"
-
-	// EnumOfAuthTypeForCreateImportTaskInputServiceAccountKey is a EnumOfAuthTypeForCreateImportTaskInput enum value
-	EnumOfAuthTypeForCreateImportTaskInputServiceAccountKey = "SERVICE_ACCOUNT_KEY"
-
-	// EnumOfAuthTypeForCreateImportTaskInputSasToken is a EnumOfAuthTypeForCreateImportTaskInput enum value
-	EnumOfAuthTypeForCreateImportTaskInputSasToken = "SAS_TOKEN"
+	// EnumOfAuthTypeForCreateImportTaskInput2 is a EnumOfAuthTypeForCreateImportTaskInput enum value
+	EnumOfAuthTypeForCreateImportTaskInput2 = "2"
 )
 
 const (
-	// EnumOfAuthTypeForCreateImportTaskOutputRoleArn is a EnumOfAuthTypeForCreateImportTaskOutput enum value
-	EnumOfAuthTypeForCreateImportTaskOutputRoleArn = "ROLE_ARN"
-
-	// EnumOfAuthTypeForCreateImportTaskOutputAccessKey is a EnumOfAuthTypeForCreateImportTaskOutput enum value
-	EnumOfAuthTypeForCreateImportTaskOutputAccessKey = "ACCESS_KEY"
-
-	// EnumOfAuthTypeForCreateImportTaskOutputServiceAccountKey is a EnumOfAuthTypeForCreateImportTaskOutput enum value
-	EnumOfAuthTypeForCreateImportTaskOutputServiceAccountKey = "SERVICE_ACCOUNT_KEY"
-
-	// EnumOfAuthTypeForCreateImportTaskOutputSasToken is a EnumOfAuthTypeForCreateImportTaskOutput enum value
-	EnumOfAuthTypeForCreateImportTaskOutputSasToken = "SAS_TOKEN"
+	// EnumOfAuthTypeForCreateImportTaskOutput2 is a EnumOfAuthTypeForCreateImportTaskOutput enum value
+	EnumOfAuthTypeForCreateImportTaskOutput2 = "2"
 )
 
 const (

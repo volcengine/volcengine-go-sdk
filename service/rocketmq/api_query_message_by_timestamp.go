@@ -243,6 +243,8 @@ type QueryMessageByTimestampInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
+	LiteTopic *string `type:"string" json:",omitempty"`
+
 	// PageNumber is a required field
 	PageNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
@@ -294,6 +296,12 @@ func (s *QueryMessageByTimestampInput) Validate() error {
 // SetInstanceId sets the InstanceId field's value.
 func (s *QueryMessageByTimestampInput) SetInstanceId(v string) *QueryMessageByTimestampInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetLiteTopic sets the LiteTopic field's value.
+func (s *QueryMessageByTimestampInput) SetLiteTopic(v string) *QueryMessageByTimestampInput {
+	s.LiteTopic = &v
 	return s
 }
 

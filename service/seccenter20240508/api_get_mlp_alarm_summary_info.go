@@ -754,7 +754,11 @@ type AlarmNodeForGetMlpAlarmSummaryInfoOutput struct {
 
 	SecurityIntelligenceComplete *bool `type:"boolean"`
 
+	SecurityIntelligenceError *string `type:"string"`
+
 	SecurityIntelligenceResult *string `type:"string"`
+
+	SecurityIntelligenceStatus *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -1471,9 +1475,21 @@ func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligenceComple
 	return s
 }
 
+// SetSecurityIntelligenceError sets the SecurityIntelligenceError field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligenceError(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceError = &v
+	return s
+}
+
 // SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
 func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
 	s.SecurityIntelligenceResult = &v
+	return s
+}
+
+// SetSecurityIntelligenceStatus sets the SecurityIntelligenceStatus field's value.
+func (s *AlarmNodeForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligenceStatus(v string) *AlarmNodeForGetMlpAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceStatus = &v
 	return s
 }
 
@@ -2336,7 +2352,8 @@ func (s *ExtendInfoForGetMlpAlarmSummaryInfoOutput) SetVulInfo(v []*VulInfoForGe
 type GetMlpAlarmSummaryInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	AlarmID *string `type:"string"`
+	// AlarmID is a required field
+	AlarmID *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2347,6 +2364,19 @@ func (s GetMlpAlarmSummaryInfoInput) String() string {
 // GoString returns the string representation
 func (s GetMlpAlarmSummaryInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetMlpAlarmSummaryInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetMlpAlarmSummaryInfoInput"}
+	if s.AlarmID == nil {
+		invalidParams.Add(request.NewErrParamRequired("AlarmID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAlarmID sets the AlarmID field's value.
@@ -2860,7 +2890,11 @@ type KillChainNodeListForGetMlpAlarmSummaryInfoOutput struct {
 
 	SecurityIntelligenceComplete *bool `type:"boolean"`
 
+	SecurityIntelligenceError *string `type:"string"`
+
 	SecurityIntelligenceResult *string `type:"string"`
+
+	SecurityIntelligenceStatus *string `type:"string"`
 
 	ServiceAccount *string `type:"string"`
 
@@ -3577,9 +3611,21 @@ func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligen
 	return s
 }
 
+// SetSecurityIntelligenceError sets the SecurityIntelligenceError field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligenceError(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceError = &v
+	return s
+}
+
 // SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
 func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligenceResult(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
 	s.SecurityIntelligenceResult = &v
+	return s
+}
+
+// SetSecurityIntelligenceStatus sets the SecurityIntelligenceStatus field's value.
+func (s *KillChainNodeListForGetMlpAlarmSummaryInfoOutput) SetSecurityIntelligenceStatus(v string) *KillChainNodeListForGetMlpAlarmSummaryInfoOutput {
+	s.SecurityIntelligenceStatus = &v
 	return s
 }
 

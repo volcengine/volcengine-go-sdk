@@ -304,13 +304,13 @@ type DataForListClustersAndVarmorAppsOutput struct {
 
 	VarmorConfig *VarmorConfigForListClustersAndVarmorAppsOutput `type:"structure" json:",omitempty"`
 
-	VarmorInstallStatus *string `type:"string" json:",omitempty" enum:"EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutput"`
+	VarmorInstallStatus *string `type:"string" json:",omitempty"`
 
 	VarmorNamespace *string `type:"string" json:",omitempty"`
 
 	VarmorVersion *string `type:"string" json:",omitempty"`
 
-	VarmorVersionStatus *string `type:"string" json:",omitempty" enum:"EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutput"`
+	VarmorVersionStatus *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -686,6 +686,8 @@ func (s *ResourceLimitForListClustersAndVarmorAppsOutput) SetManagerResourceLimi
 type VarmorConfigForListClustersAndVarmorAppsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AddonJsonConfig *string `type:"string" json:",omitempty"`
+
 	ConfigType *string `type:"string" json:",omitempty"`
 
 	VarmorSimpleConfig *VarmorSimpleConfigForListClustersAndVarmorAppsOutput `type:"structure" json:",omitempty"`
@@ -701,6 +703,12 @@ func (s VarmorConfigForListClustersAndVarmorAppsOutput) String() string {
 // GoString returns the string representation
 func (s VarmorConfigForListClustersAndVarmorAppsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAddonJsonConfig sets the AddonJsonConfig field's value.
+func (s *VarmorConfigForListClustersAndVarmorAppsOutput) SetAddonJsonConfig(v string) *VarmorConfigForListClustersAndVarmorAppsOutput {
+	s.AddonJsonConfig = &v
+	return s
 }
 
 // SetConfigType sets the ConfigType field's value.
@@ -790,34 +798,3 @@ func (s *VarmorSimpleConfigForListClustersAndVarmorAppsOutput) SetWebhookMatchLa
 	s.WebhookMatchLabel = &v
 	return s
 }
-
-const (
-	// EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutputNotInstalled is a EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutput enum value
-	EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutputNotInstalled = "NotInstalled"
-
-	// EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutputInstalled is a EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutput enum value
-	EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutputInstalled = "Installed"
-
-	// EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutputChanging is a EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutput enum value
-	EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutputChanging = "Changing"
-
-	// EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutputInstallFailed is a EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutput enum value
-	EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutputInstallFailed = "InstallFailed"
-
-	// EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutputUninstallFailed is a EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutput enum value
-	EnumOfVarmorInstallStatusForListClustersAndVarmorAppsOutputUninstallFailed = "UninstallFailed"
-)
-
-const (
-	// EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutputNotInstalled is a EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutput enum value
-	EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutputNotInstalled = "NotInstalled"
-
-	// EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutputUpgradable is a EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutput enum value
-	EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutputUpgradable = "Upgradable"
-
-	// EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutputUpgradeFailed is a EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutput enum value
-	EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutputUpgradeFailed = "UpgradeFailed"
-
-	// EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutputLatest is a EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutput enum value
-	EnumOfVarmorVersionStatusForListClustersAndVarmorAppsOutputLatest = "Latest"
-)

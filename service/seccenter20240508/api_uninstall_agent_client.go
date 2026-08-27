@@ -190,7 +190,8 @@ type UninstallAgentClientInput struct {
 
 	Suggestion *string `type:"string" json:",omitempty"`
 
-	Type *string `type:"string" json:",omitempty"`
+	// Type is a required field
+	Type *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -201,6 +202,19 @@ func (s UninstallAgentClientInput) String() string {
 // GoString returns the string representation
 func (s UninstallAgentClientInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UninstallAgentClientInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UninstallAgentClientInput"}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAgentIDs sets the AgentIDs field's value.

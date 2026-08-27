@@ -226,7 +226,7 @@ type InstanceForDescribeCrossRegionBackupDBInstancesOutput struct {
 
 	CrossRegionBackup *bool `type:"boolean" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string" json:",omitempty" enum:"EnumOfDBEngineVersionForDescribeCrossRegionBackupDBInstancesOutput"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
 	DBRevisionVersion *string `type:"string" json:",omitempty"`
 
@@ -314,11 +314,3 @@ func (s *InstanceForDescribeCrossRegionBackupDBInstancesOutput) SetTimeZone(v st
 	s.TimeZone = &v
 	return s
 }
-
-const (
-	// EnumOfDBEngineVersionForDescribeCrossRegionBackupDBInstancesOutputMySql57 is a EnumOfDBEngineVersionForDescribeCrossRegionBackupDBInstancesOutput enum value
-	EnumOfDBEngineVersionForDescribeCrossRegionBackupDBInstancesOutputMySql57 = "MySQL_5_7"
-
-	// EnumOfDBEngineVersionForDescribeCrossRegionBackupDBInstancesOutputMySql80 is a EnumOfDBEngineVersionForDescribeCrossRegionBackupDBInstancesOutput enum value
-	EnumOfDBEngineVersionForDescribeCrossRegionBackupDBInstancesOutputMySql80 = "MySQL_8_0"
-)

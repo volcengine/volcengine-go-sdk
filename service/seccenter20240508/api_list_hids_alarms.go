@@ -326,7 +326,11 @@ type DataForListHidsAlarmsOutput struct {
 
 	SecurityIntelligenceComplete *bool `type:"boolean" json:",omitempty"`
 
+	SecurityIntelligenceError *string `type:"string" json:",omitempty"`
+
 	SecurityIntelligenceResult *string `type:"string" json:",omitempty"`
+
+	SecurityIntelligenceStatus *string `type:"string" json:",omitempty"`
 
 	Sid *string `type:"string" json:",omitempty"`
 
@@ -615,9 +619,21 @@ func (s *DataForListHidsAlarmsOutput) SetSecurityIntelligenceComplete(v bool) *D
 	return s
 }
 
+// SetSecurityIntelligenceError sets the SecurityIntelligenceError field's value.
+func (s *DataForListHidsAlarmsOutput) SetSecurityIntelligenceError(v string) *DataForListHidsAlarmsOutput {
+	s.SecurityIntelligenceError = &v
+	return s
+}
+
 // SetSecurityIntelligenceResult sets the SecurityIntelligenceResult field's value.
 func (s *DataForListHidsAlarmsOutput) SetSecurityIntelligenceResult(v string) *DataForListHidsAlarmsOutput {
 	s.SecurityIntelligenceResult = &v
+	return s
+}
+
+// SetSecurityIntelligenceStatus sets the SecurityIntelligenceStatus field's value.
+func (s *DataForListHidsAlarmsOutput) SetSecurityIntelligenceStatus(v string) *DataForListHidsAlarmsOutput {
+	s.SecurityIntelligenceStatus = &v
 	return s
 }
 

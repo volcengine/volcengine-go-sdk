@@ -246,6 +246,8 @@ type DownloadVulListByPodInput struct {
 
 	Conditions *ConditionsForDownloadVulListByPodInput `type:"structure" json:",omitempty"`
 
+	ExportJobType *string `type:"string" json:",omitempty"`
+
 	IDList []*string `type:"list" json:",omitempty"`
 
 	// Namespace is a required field
@@ -330,6 +332,12 @@ func (s *DownloadVulListByPodInput) SetClusterName(v string) *DownloadVulListByP
 // SetConditions sets the Conditions field's value.
 func (s *DownloadVulListByPodInput) SetConditions(v *ConditionsForDownloadVulListByPodInput) *DownloadVulListByPodInput {
 	s.Conditions = v
+	return s
+}
+
+// SetExportJobType sets the ExportJobType field's value.
+func (s *DownloadVulListByPodInput) SetExportJobType(v string) *DownloadVulListByPodInput {
+	s.ExportJobType = &v
 	return s
 }
 

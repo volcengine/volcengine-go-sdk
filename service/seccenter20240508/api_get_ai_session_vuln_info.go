@@ -200,6 +200,10 @@ type AffectForGetAISessionVulnInfoOutput struct {
 
 	VulnAffectVersion *string `type:"string" json:",omitempty"`
 
+	VulnName *string `type:"string" json:",omitempty"`
+
+	VulnNameEn *string `type:"string" json:",omitempty"`
+
 	WorkloadID *string `type:"string" json:",omitempty"`
 
 	WorkloadName *string `type:"string" json:",omitempty"`
@@ -377,6 +381,18 @@ func (s *AffectForGetAISessionVulnInfoOutput) SetVulnAffectVersion(v string) *Af
 	return s
 }
 
+// SetVulnName sets the VulnName field's value.
+func (s *AffectForGetAISessionVulnInfoOutput) SetVulnName(v string) *AffectForGetAISessionVulnInfoOutput {
+	s.VulnName = &v
+	return s
+}
+
+// SetVulnNameEn sets the VulnNameEn field's value.
+func (s *AffectForGetAISessionVulnInfoOutput) SetVulnNameEn(v string) *AffectForGetAISessionVulnInfoOutput {
+	s.VulnNameEn = &v
+	return s
+}
+
 // SetWorkloadID sets the WorkloadID field's value.
 func (s *AffectForGetAISessionVulnInfoOutput) SetWorkloadID(v string) *AffectForGetAISessionVulnInfoOutput {
 	s.WorkloadID = &v
@@ -437,6 +453,10 @@ type GetAISessionVulnInfoOutput struct {
 	SessionName *string `type:"string" json:",omitempty"`
 
 	Suggest *string `type:"string" json:",omitempty"`
+
+	ToolID *string `type:"string" json:",omitempty"`
+
+	ToolName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -488,6 +508,18 @@ func (s *GetAISessionVulnInfoOutput) SetSessionName(v string) *GetAISessionVulnI
 // SetSuggest sets the Suggest field's value.
 func (s *GetAISessionVulnInfoOutput) SetSuggest(v string) *GetAISessionVulnInfoOutput {
 	s.Suggest = &v
+	return s
+}
+
+// SetToolID sets the ToolID field's value.
+func (s *GetAISessionVulnInfoOutput) SetToolID(v string) *GetAISessionVulnInfoOutput {
+	s.ToolID = &v
+	return s
+}
+
+// SetToolName sets the ToolName field's value.
+func (s *GetAISessionVulnInfoOutput) SetToolName(v string) *GetAISessionVulnInfoOutput {
+	s.ToolName = &v
 	return s
 }
 

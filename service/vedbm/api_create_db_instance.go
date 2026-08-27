@@ -184,6 +184,8 @@ type CreateDBInstanceInput struct {
 
 	StorageChargeType *string `type:"string" json:",omitempty" enum:"EnumOfStorageChargeTypeForCreateDBInstanceInput"`
 
+	StorageType *string `type:"string" json:",omitempty" enum:"EnumOfStorageTypeForCreateDBInstanceInput"`
+
 	// SubnetId is a required field
 	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -342,6 +344,12 @@ func (s *CreateDBInstanceInput) SetProjectName(v string) *CreateDBInstanceInput 
 // SetStorageChargeType sets the StorageChargeType field's value.
 func (s *CreateDBInstanceInput) SetStorageChargeType(v string) *CreateDBInstanceInput {
 	s.StorageChargeType = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *CreateDBInstanceInput) SetStorageType(v string) *CreateDBInstanceInput {
+	s.StorageType = &v
 	return s
 }
 
@@ -562,4 +570,12 @@ const (
 
 	// EnumOfStorageChargeTypeForCreateDBInstanceInputPrePaid is a EnumOfStorageChargeTypeForCreateDBInstanceInput enum value
 	EnumOfStorageChargeTypeForCreateDBInstanceInputPrePaid = "PrePaid"
+)
+
+const (
+	// EnumOfStorageTypeForCreateDBInstanceInputIooptimizedStorage is a EnumOfStorageTypeForCreateDBInstanceInput enum value
+	EnumOfStorageTypeForCreateDBInstanceInputIooptimizedStorage = "IOOptimizedStorage"
+
+	// EnumOfStorageTypeForCreateDBInstanceInputSmartCompressedStorage is a EnumOfStorageTypeForCreateDBInstanceInput enum value
+	EnumOfStorageTypeForCreateDBInstanceInputSmartCompressedStorage = "SmartCompressedStorage"
 )

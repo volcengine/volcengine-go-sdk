@@ -148,7 +148,8 @@ type ModifyLayeredGroupInput struct {
 
 	AgentIds []*string `type:"list" json:",omitempty"`
 
-	GroupID *string `type:"string" json:",omitempty"`
+	// GroupID is a required field
+	GroupID *string `type:"string" json:",omitempty" required:"true"`
 
 	GroupName *string `type:"string" json:",omitempty"`
 
@@ -169,6 +170,19 @@ func (s ModifyLayeredGroupInput) String() string {
 // GoString returns the string representation
 func (s ModifyLayeredGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyLayeredGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyLayeredGroupInput"}
+	if s.GroupID == nil {
+		invalidParams.Add(request.NewErrParamRequired("GroupID"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAgentIds sets the AgentIds field's value.

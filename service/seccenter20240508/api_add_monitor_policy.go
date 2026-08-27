@@ -291,6 +291,8 @@ type AddMonitorPolicyOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	Data *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -301,6 +303,12 @@ func (s AddMonitorPolicyOutput) String() string {
 // GoString returns the string representation
 func (s AddMonitorPolicyOutput) GoString() string {
 	return s.String()
+}
+
+// SetData sets the Data field's value.
+func (s *AddMonitorPolicyOutput) SetData(v string) *AddMonitorPolicyOutput {
+	s.Data = &v
+	return s
 }
 
 type DirectoryListForAddMonitorPolicyInput struct {

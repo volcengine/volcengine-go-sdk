@@ -272,7 +272,7 @@ type ScheduleTasksInfoForDescribeScheduleEventsOutput struct {
 
 	EventId *string `type:"string" json:",omitempty"`
 
-	EventKind *string `type:"string" json:",omitempty" enum:"EnumOfEventKindForDescribeScheduleEventsOutput"`
+	EventKind *string `type:"string" json:",omitempty"`
 
 	InstanceID *string `type:"string" json:",omitempty"`
 
@@ -286,9 +286,9 @@ type ScheduleTasksInfoForDescribeScheduleEventsOutput struct {
 
 	RequestId *string `type:"string" json:",omitempty"`
 
-	ScheduleType *string `type:"string" json:",omitempty" enum:"EnumOfScheduleTypeForDescribeScheduleEventsOutput"`
+	ScheduleType *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeScheduleEventsOutput"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -380,26 +380,6 @@ func (s *ScheduleTasksInfoForDescribeScheduleEventsOutput) SetStatus(v string) *
 }
 
 const (
-	// EnumOfEventKindForDescribeScheduleEventsOutputInspection is a EnumOfEventKindForDescribeScheduleEventsOutput enum value
-	EnumOfEventKindForDescribeScheduleEventsOutputInspection = "Inspection"
-
-	// EnumOfEventKindForDescribeScheduleEventsOutputModifyClusterParams is a EnumOfEventKindForDescribeScheduleEventsOutput enum value
-	EnumOfEventKindForDescribeScheduleEventsOutputModifyClusterParams = "ModifyClusterParams"
-
-	// EnumOfEventKindForDescribeScheduleEventsOutputModifyDbinstanceParameters is a EnumOfEventKindForDescribeScheduleEventsOutput enum value
-	EnumOfEventKindForDescribeScheduleEventsOutputModifyDbinstanceParameters = "ModifyDBInstanceParameters"
-
-	// EnumOfEventKindForDescribeScheduleEventsOutputModifyDbinstanceSpec is a EnumOfEventKindForDescribeScheduleEventsOutput enum value
-	EnumOfEventKindForDescribeScheduleEventsOutputModifyDbinstanceSpec = "ModifyDBInstanceSpec"
-
-	// EnumOfEventKindForDescribeScheduleEventsOutputRestartDbinstance is a EnumOfEventKindForDescribeScheduleEventsOutput enum value
-	EnumOfEventKindForDescribeScheduleEventsOutputRestartDbinstance = "RestartDBInstance"
-
-	// EnumOfEventKindForDescribeScheduleEventsOutputUpgradeInstance is a EnumOfEventKindForDescribeScheduleEventsOutput enum value
-	EnumOfEventKindForDescribeScheduleEventsOutputUpgradeInstance = "UpgradeInstance"
-)
-
-const (
 	// EnumOfEventKindListForDescribeScheduleEventsInputModifyDbinstanceParameters is a EnumOfEventKindListForDescribeScheduleEventsInput enum value
 	EnumOfEventKindListForDescribeScheduleEventsInputModifyDbinstanceParameters = "ModifyDBInstanceParameters"
 
@@ -411,34 +391,6 @@ const (
 
 	// EnumOfEventKindListForDescribeScheduleEventsInputUpgradeInstance is a EnumOfEventKindListForDescribeScheduleEventsInput enum value
 	EnumOfEventKindListForDescribeScheduleEventsInputUpgradeInstance = "UpgradeInstance"
-)
-
-const (
-	// EnumOfScheduleTypeForDescribeScheduleEventsOutputImmediate is a EnumOfScheduleTypeForDescribeScheduleEventsOutput enum value
-	EnumOfScheduleTypeForDescribeScheduleEventsOutputImmediate = "Immediate"
-
-	// EnumOfScheduleTypeForDescribeScheduleEventsOutputMaintainTime is a EnumOfScheduleTypeForDescribeScheduleEventsOutput enum value
-	EnumOfScheduleTypeForDescribeScheduleEventsOutputMaintainTime = "MaintainTime"
-
-	// EnumOfScheduleTypeForDescribeScheduleEventsOutputSpecifiedTime is a EnumOfScheduleTypeForDescribeScheduleEventsOutput enum value
-	EnumOfScheduleTypeForDescribeScheduleEventsOutputSpecifiedTime = "SpecifiedTime"
-)
-
-const (
-	// EnumOfStatusForDescribeScheduleEventsOutputCancel is a EnumOfStatusForDescribeScheduleEventsOutput enum value
-	EnumOfStatusForDescribeScheduleEventsOutputCancel = "cancel"
-
-	// EnumOfStatusForDescribeScheduleEventsOutputExecuting is a EnumOfStatusForDescribeScheduleEventsOutput enum value
-	EnumOfStatusForDescribeScheduleEventsOutputExecuting = "executing"
-
-	// EnumOfStatusForDescribeScheduleEventsOutputFailure is a EnumOfStatusForDescribeScheduleEventsOutput enum value
-	EnumOfStatusForDescribeScheduleEventsOutputFailure = "failure"
-
-	// EnumOfStatusForDescribeScheduleEventsOutputFinish is a EnumOfStatusForDescribeScheduleEventsOutput enum value
-	EnumOfStatusForDescribeScheduleEventsOutputFinish = "finish"
-
-	// EnumOfStatusForDescribeScheduleEventsOutputPending is a EnumOfStatusForDescribeScheduleEventsOutput enum value
-	EnumOfStatusForDescribeScheduleEventsOutputPending = "pending"
 )
 
 const (

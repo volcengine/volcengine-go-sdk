@@ -159,7 +159,11 @@ type CreateGroupAsyncInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
+	MessageModel *string `type:"string" json:",omitempty"`
+
 	RetryMaxTimes *int32 `type:"int32" json:",omitempty"`
+
+	TopicName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -221,9 +225,21 @@ func (s *CreateGroupAsyncInput) SetInstanceId(v string) *CreateGroupAsyncInput {
 	return s
 }
 
+// SetMessageModel sets the MessageModel field's value.
+func (s *CreateGroupAsyncInput) SetMessageModel(v string) *CreateGroupAsyncInput {
+	s.MessageModel = &v
+	return s
+}
+
 // SetRetryMaxTimes sets the RetryMaxTimes field's value.
 func (s *CreateGroupAsyncInput) SetRetryMaxTimes(v int32) *CreateGroupAsyncInput {
 	s.RetryMaxTimes = &v
+	return s
+}
+
+// SetTopicName sets the TopicName field's value.
+func (s *CreateGroupAsyncInput) SetTopicName(v string) *CreateGroupAsyncInput {
+	s.TopicName = &v
 	return s
 }
 
