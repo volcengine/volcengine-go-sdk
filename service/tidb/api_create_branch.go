@@ -441,6 +441,8 @@ type CreateBranchOutput struct {
 	Metadata *response.ResponseMetadata
 
 	BranchId *string `type:"string" json:",omitempty"`
+
+	ClusterId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -456,6 +458,12 @@ func (s CreateBranchOutput) GoString() string {
 // SetBranchId sets the BranchId field's value.
 func (s *CreateBranchOutput) SetBranchId(v string) *CreateBranchOutput {
 	s.BranchId = &v
+	return s
+}
+
+// SetClusterId sets the ClusterId field's value.
+func (s *CreateBranchOutput) SetClusterId(v string) *CreateBranchOutput {
+	s.ClusterId = &v
 	return s
 }
 
