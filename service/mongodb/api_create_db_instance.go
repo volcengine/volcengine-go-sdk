@@ -181,6 +181,8 @@ type CreateDBInstanceInput struct {
 
 	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForCreateDBInstanceInput"`
 
+	Port *string `type:"string" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	ShardNumber *int32 `type:"int32" json:",omitempty"`
@@ -338,6 +340,12 @@ func (s *CreateDBInstanceInput) SetPeriod(v int32) *CreateDBInstanceInput {
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *CreateDBInstanceInput) SetPeriodUnit(v string) *CreateDBInstanceInput {
 	s.PeriodUnit = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *CreateDBInstanceInput) SetPort(v string) *CreateDBInstanceInput {
+	s.Port = &v
 	return s
 }
 
@@ -521,6 +529,12 @@ const (
 
 	// EnumOfDBEngineVersionForCreateDBInstanceInputMongoDbInner40 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
 	EnumOfDBEngineVersionForCreateDBInstanceInputMongoDbInner40 = "MongoDB_Inner_4_0"
+
+	// EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb70 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
+	EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb70 = "MongoDB_7_0"
+
+	// EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb80 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
+	EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb80 = "MongoDB_8_0"
 )
 
 const (

@@ -209,6 +209,8 @@ type RestoreToNewInstanceInput struct {
 
 	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForRestoreToNewInstanceInput"`
 
+	Port *string `type:"string" json:",omitempty"`
+
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RestoreTime *string `type:"string" json:",omitempty"`
@@ -368,6 +370,12 @@ func (s *RestoreToNewInstanceInput) SetPeriod(v int32) *RestoreToNewInstanceInpu
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *RestoreToNewInstanceInput) SetPeriodUnit(v string) *RestoreToNewInstanceInput {
 	s.PeriodUnit = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *RestoreToNewInstanceInput) SetPort(v string) *RestoreToNewInstanceInput {
+	s.Port = &v
 	return s
 }
 
@@ -533,6 +541,12 @@ const (
 
 	// EnumOfDBEngineVersionForRestoreToNewInstanceInputMongoDbInner40 is a EnumOfDBEngineVersionForRestoreToNewInstanceInput enum value
 	EnumOfDBEngineVersionForRestoreToNewInstanceInputMongoDbInner40 = "MongoDB_Inner_4_0"
+
+	// EnumOfDBEngineVersionForRestoreToNewInstanceInputMongoDb70 is a EnumOfDBEngineVersionForRestoreToNewInstanceInput enum value
+	EnumOfDBEngineVersionForRestoreToNewInstanceInputMongoDb70 = "MongoDB_7_0"
+
+	// EnumOfDBEngineVersionForRestoreToNewInstanceInputMongoDb80 is a EnumOfDBEngineVersionForRestoreToNewInstanceInput enum value
+	EnumOfDBEngineVersionForRestoreToNewInstanceInputMongoDb80 = "MongoDB_8_0"
 )
 
 const (

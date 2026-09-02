@@ -191,6 +191,8 @@ type DescribeDBInstanceBackupPolicyOutput struct {
 	DataFullBackupPeriods []*string `type:"list" json:",omitempty"`
 
 	DataFullBackupTime *string `type:"string" json:",omitempty"`
+
+	EnableBackupEncrypt *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,5 +226,11 @@ func (s *DescribeDBInstanceBackupPolicyOutput) SetDataFullBackupPeriods(v []*str
 // SetDataFullBackupTime sets the DataFullBackupTime field's value.
 func (s *DescribeDBInstanceBackupPolicyOutput) SetDataFullBackupTime(v string) *DescribeDBInstanceBackupPolicyOutput {
 	s.DataFullBackupTime = &v
+	return s
+}
+
+// SetEnableBackupEncrypt sets the EnableBackupEncrypt field's value.
+func (s *DescribeDBInstanceBackupPolicyOutput) SetEnableBackupEncrypt(v bool) *DescribeDBInstanceBackupPolicyOutput {
+	s.EnableBackupEncrypt = &v
 	return s
 }
