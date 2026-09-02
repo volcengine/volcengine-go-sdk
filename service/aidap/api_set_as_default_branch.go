@@ -322,6 +322,12 @@ type BranchUsageForSetAsDefaultBranchOutput struct {
 
 	StorageSizeUsedBytes *int64 `type:"int64" json:",omitempty"`
 
+	VectorReadVCU *float64 `type:"double" json:",omitempty"`
+
+	VectorStorageSizeUsedBytes *int64 `type:"int64" json:",omitempty"`
+
+	VectorWriteVCU *float64 `type:"double" json:",omitempty"`
+
 	WorkspaceId *string `type:"string" json:",omitempty"`
 }
 
@@ -386,6 +392,24 @@ func (s *BranchUsageForSetAsDefaultBranchOutput) SetStatTime(v string) *BranchUs
 // SetStorageSizeUsedBytes sets the StorageSizeUsedBytes field's value.
 func (s *BranchUsageForSetAsDefaultBranchOutput) SetStorageSizeUsedBytes(v int64) *BranchUsageForSetAsDefaultBranchOutput {
 	s.StorageSizeUsedBytes = &v
+	return s
+}
+
+// SetVectorReadVCU sets the VectorReadVCU field's value.
+func (s *BranchUsageForSetAsDefaultBranchOutput) SetVectorReadVCU(v float64) *BranchUsageForSetAsDefaultBranchOutput {
+	s.VectorReadVCU = &v
+	return s
+}
+
+// SetVectorStorageSizeUsedBytes sets the VectorStorageSizeUsedBytes field's value.
+func (s *BranchUsageForSetAsDefaultBranchOutput) SetVectorStorageSizeUsedBytes(v int64) *BranchUsageForSetAsDefaultBranchOutput {
+	s.VectorStorageSizeUsedBytes = &v
+	return s
+}
+
+// SetVectorWriteVCU sets the VectorWriteVCU field's value.
+func (s *BranchUsageForSetAsDefaultBranchOutput) SetVectorWriteVCU(v float64) *BranchUsageForSetAsDefaultBranchOutput {
+	s.VectorWriteVCU = &v
 	return s
 }
 

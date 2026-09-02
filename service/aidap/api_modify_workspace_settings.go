@@ -689,6 +689,12 @@ type WorkspaceUsageForModifyWorkspaceSettingsOutput struct {
 	StatTime *string `type:"string" json:",omitempty"`
 
 	StorageSizeUsedBytes *int64 `type:"int64" json:",omitempty"`
+
+	VectorReadVCU *float64 `type:"double" json:",omitempty"`
+
+	VectorStorageSizeUsedBytes *int64 `type:"int64" json:",omitempty"`
+
+	VectorWriteVCU *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -752,6 +758,24 @@ func (s *WorkspaceUsageForModifyWorkspaceSettingsOutput) SetStatTime(v string) *
 // SetStorageSizeUsedBytes sets the StorageSizeUsedBytes field's value.
 func (s *WorkspaceUsageForModifyWorkspaceSettingsOutput) SetStorageSizeUsedBytes(v int64) *WorkspaceUsageForModifyWorkspaceSettingsOutput {
 	s.StorageSizeUsedBytes = &v
+	return s
+}
+
+// SetVectorReadVCU sets the VectorReadVCU field's value.
+func (s *WorkspaceUsageForModifyWorkspaceSettingsOutput) SetVectorReadVCU(v float64) *WorkspaceUsageForModifyWorkspaceSettingsOutput {
+	s.VectorReadVCU = &v
+	return s
+}
+
+// SetVectorStorageSizeUsedBytes sets the VectorStorageSizeUsedBytes field's value.
+func (s *WorkspaceUsageForModifyWorkspaceSettingsOutput) SetVectorStorageSizeUsedBytes(v int64) *WorkspaceUsageForModifyWorkspaceSettingsOutput {
+	s.VectorStorageSizeUsedBytes = &v
+	return s
+}
+
+// SetVectorWriteVCU sets the VectorWriteVCU field's value.
+func (s *WorkspaceUsageForModifyWorkspaceSettingsOutput) SetVectorWriteVCU(v float64) *WorkspaceUsageForModifyWorkspaceSettingsOutput {
+	s.VectorWriteVCU = &v
 	return s
 }
 

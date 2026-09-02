@@ -218,6 +218,8 @@ func (s ModifyBaasAIGlobalQuotaOutput) GoString() string {
 type UserDefaultQuotaForModifyBaasAIGlobalQuotaInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	DailyImageLimit *int64 `type:"int64" json:",omitempty"`
+
 	DailyTokenLimit *int64 `type:"int64" json:",omitempty"`
 }
 
@@ -229,6 +231,12 @@ func (s UserDefaultQuotaForModifyBaasAIGlobalQuotaInput) String() string {
 // GoString returns the string representation
 func (s UserDefaultQuotaForModifyBaasAIGlobalQuotaInput) GoString() string {
 	return s.String()
+}
+
+// SetDailyImageLimit sets the DailyImageLimit field's value.
+func (s *UserDefaultQuotaForModifyBaasAIGlobalQuotaInput) SetDailyImageLimit(v int64) *UserDefaultQuotaForModifyBaasAIGlobalQuotaInput {
+	s.DailyImageLimit = &v
+	return s
 }
 
 // SetDailyTokenLimit sets the DailyTokenLimit field's value.

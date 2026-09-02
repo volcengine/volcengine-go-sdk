@@ -305,6 +305,8 @@ type ModifyComputeSpecInput struct {
 	// ComputeId is a required field
 	ComputeId *string `type:"string" json:",omitempty" required:"true"`
 
+	EffectType *string `type:"string" json:",omitempty" enum:"EnumOfEffectTypeForModifyComputeSpecInput"`
+
 	// WorkspaceId is a required field
 	WorkspaceId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -356,6 +358,12 @@ func (s *ModifyComputeSpecInput) SetAutoScalingLimitMinCU(v float64) *ModifyComp
 // SetComputeId sets the ComputeId field's value.
 func (s *ModifyComputeSpecInput) SetComputeId(v string) *ModifyComputeSpecInput {
 	s.ComputeId = &v
+	return s
+}
+
+// SetEffectType sets the EffectType field's value.
+func (s *ModifyComputeSpecInput) SetEffectType(v string) *ModifyComputeSpecInput {
+	s.EffectType = &v
 	return s
 }
 
@@ -478,6 +486,14 @@ const (
 
 	// EnumOfCreationSourceForModifyComputeSpecOutputUitool is a EnumOfCreationSourceForModifyComputeSpecOutput enum value
 	EnumOfCreationSourceForModifyComputeSpecOutputUitool = "UITool"
+)
+
+const (
+	// EnumOfEffectTypeForModifyComputeSpecInputImmediate is a EnumOfEffectTypeForModifyComputeSpecInput enum value
+	EnumOfEffectTypeForModifyComputeSpecInputImmediate = "Immediate"
+
+	// EnumOfEffectTypeForModifyComputeSpecInputNextWakeUp is a EnumOfEffectTypeForModifyComputeSpecInput enum value
+	EnumOfEffectTypeForModifyComputeSpecInputNextWakeUp = "NextWakeUp"
 )
 
 const (
