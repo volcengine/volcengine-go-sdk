@@ -272,6 +272,8 @@ type DescribeWorkspacesInput struct {
 
 	Limit *int32 `type:"int32" json:",omitempty"`
 
+	NextToken *string `type:"string" json:",omitempty"`
+
 	Offset *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
@@ -304,6 +306,12 @@ func (s *DescribeWorkspacesInput) SetFilters(v []*FilterForDescribeWorkspacesInp
 // SetLimit sets the Limit field's value.
 func (s *DescribeWorkspacesInput) SetLimit(v int32) *DescribeWorkspacesInput {
 	s.Limit = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeWorkspacesInput) SetNextToken(v string) *DescribeWorkspacesInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -348,6 +356,10 @@ type DescribeWorkspacesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	HasMore *bool `type:"boolean" json:",omitempty"`
+
+	NextToken *string `type:"string" json:",omitempty"`
+
 	Total *int32 `type:"int32" json:",omitempty"`
 
 	Workspaces []*WorkspaceForDescribeWorkspacesOutput `type:"list" json:",omitempty"`
@@ -361,6 +373,18 @@ func (s DescribeWorkspacesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeWorkspacesOutput) GoString() string {
 	return s.String()
+}
+
+// SetHasMore sets the HasMore field's value.
+func (s *DescribeWorkspacesOutput) SetHasMore(v bool) *DescribeWorkspacesOutput {
+	s.HasMore = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeWorkspacesOutput) SetNextToken(v string) *DescribeWorkspacesOutput {
+	s.NextToken = &v
+	return s
 }
 
 // SetTotal sets the Total field's value.
@@ -761,6 +785,12 @@ type WorkspaceUsageForDescribeWorkspacesOutput struct {
 	StatTime *string `type:"string" json:",omitempty"`
 
 	StorageSizeUsedBytes *int64 `type:"int64" json:",omitempty"`
+
+	VectorReadVCU *float64 `type:"double" json:",omitempty"`
+
+	VectorStorageSizeUsedBytes *int64 `type:"int64" json:",omitempty"`
+
+	VectorWriteVCU *float64 `type:"double" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -824,6 +854,24 @@ func (s *WorkspaceUsageForDescribeWorkspacesOutput) SetStatTime(v string) *Works
 // SetStorageSizeUsedBytes sets the StorageSizeUsedBytes field's value.
 func (s *WorkspaceUsageForDescribeWorkspacesOutput) SetStorageSizeUsedBytes(v int64) *WorkspaceUsageForDescribeWorkspacesOutput {
 	s.StorageSizeUsedBytes = &v
+	return s
+}
+
+// SetVectorReadVCU sets the VectorReadVCU field's value.
+func (s *WorkspaceUsageForDescribeWorkspacesOutput) SetVectorReadVCU(v float64) *WorkspaceUsageForDescribeWorkspacesOutput {
+	s.VectorReadVCU = &v
+	return s
+}
+
+// SetVectorStorageSizeUsedBytes sets the VectorStorageSizeUsedBytes field's value.
+func (s *WorkspaceUsageForDescribeWorkspacesOutput) SetVectorStorageSizeUsedBytes(v int64) *WorkspaceUsageForDescribeWorkspacesOutput {
+	s.VectorStorageSizeUsedBytes = &v
+	return s
+}
+
+// SetVectorWriteVCU sets the VectorWriteVCU field's value.
+func (s *WorkspaceUsageForDescribeWorkspacesOutput) SetVectorWriteVCU(v float64) *WorkspaceUsageForDescribeWorkspacesOutput {
+	s.VectorWriteVCU = &v
 	return s
 }
 

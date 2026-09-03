@@ -126,6 +126,14 @@ type AIDAPAPI interface {
 	CreateEndpointPublicAddressWithContext(volcengine.Context, *CreateEndpointPublicAddressInput, ...request.Option) (*CreateEndpointPublicAddressOutput, error)
 	CreateEndpointPublicAddressRequest(*CreateEndpointPublicAddressInput) (*request.Request, *CreateEndpointPublicAddressOutput)
 
+	CreateSQLConcurrencyControlRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSQLConcurrencyControlRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSQLConcurrencyControlRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSQLConcurrencyControlRule(*CreateSQLConcurrencyControlRuleInput) (*CreateSQLConcurrencyControlRuleOutput, error)
+	CreateSQLConcurrencyControlRuleWithContext(volcengine.Context, *CreateSQLConcurrencyControlRuleInput, ...request.Option) (*CreateSQLConcurrencyControlRuleOutput, error)
+	CreateSQLConcurrencyControlRuleRequest(*CreateSQLConcurrencyControlRuleInput) (*request.Request, *CreateSQLConcurrencyControlRuleOutput)
+
 	CreateSchemaDiffCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSchemaDiffCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateSchemaDiffCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -189,6 +197,14 @@ type AIDAPAPI interface {
 	DeleteEndpointPublicAddress(*DeleteEndpointPublicAddressInput) (*DeleteEndpointPublicAddressOutput, error)
 	DeleteEndpointPublicAddressWithContext(volcengine.Context, *DeleteEndpointPublicAddressInput, ...request.Option) (*DeleteEndpointPublicAddressOutput, error)
 	DeleteEndpointPublicAddressRequest(*DeleteEndpointPublicAddressInput) (*request.Request, *DeleteEndpointPublicAddressOutput)
+
+	DeleteSQLConcurrencyControlRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSQLConcurrencyControlRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSQLConcurrencyControlRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSQLConcurrencyControlRule(*DeleteSQLConcurrencyControlRuleInput) (*DeleteSQLConcurrencyControlRuleOutput, error)
+	DeleteSQLConcurrencyControlRuleWithContext(volcengine.Context, *DeleteSQLConcurrencyControlRuleInput, ...request.Option) (*DeleteSQLConcurrencyControlRuleOutput, error)
+	DeleteSQLConcurrencyControlRuleRequest(*DeleteSQLConcurrencyControlRuleInput) (*request.Request, *DeleteSQLConcurrencyControlRuleOutput)
 
 	DeleteWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -374,6 +390,14 @@ type AIDAPAPI interface {
 	DescribeRestorableBranchesWithContext(volcengine.Context, *DescribeRestorableBranchesInput, ...request.Option) (*DescribeRestorableBranchesOutput, error)
 	DescribeRestorableBranchesRequest(*DescribeRestorableBranchesInput) (*request.Request, *DescribeRestorableBranchesOutput)
 
+	DescribeSQLConcurrencyControlRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSQLConcurrencyControlRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSQLConcurrencyControlRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSQLConcurrencyControlRules(*DescribeSQLConcurrencyControlRulesInput) (*DescribeSQLConcurrencyControlRulesOutput, error)
+	DescribeSQLConcurrencyControlRulesWithContext(volcengine.Context, *DescribeSQLConcurrencyControlRulesInput, ...request.Option) (*DescribeSQLConcurrencyControlRulesOutput, error)
+	DescribeSQLConcurrencyControlRulesRequest(*DescribeSQLConcurrencyControlRulesInput) (*request.Request, *DescribeSQLConcurrencyControlRulesOutput)
+
 	DescribeSchemaDiffJobStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSchemaDiffJobStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeSchemaDiffJobStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -550,6 +574,14 @@ type AIDAPAPI interface {
 	ModifyComputeNameWithContext(volcengine.Context, *ModifyComputeNameInput, ...request.Option) (*ModifyComputeNameOutput, error)
 	ModifyComputeNameRequest(*ModifyComputeNameInput) (*request.Request, *ModifyComputeNameOutput)
 
+	ModifyComputeParametersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyComputeParametersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyComputeParametersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyComputeParameters(*ModifyComputeParametersInput) (*ModifyComputeParametersOutput, error)
+	ModifyComputeParametersWithContext(volcengine.Context, *ModifyComputeParametersInput, ...request.Option) (*ModifyComputeParametersOutput, error)
+	ModifyComputeParametersRequest(*ModifyComputeParametersInput) (*request.Request, *ModifyComputeParametersOutput)
+
 	ModifyComputeSettingsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyComputeSettingsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyComputeSettingsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -565,6 +597,14 @@ type AIDAPAPI interface {
 	ModifyComputeSpec(*ModifyComputeSpecInput) (*ModifyComputeSpecOutput, error)
 	ModifyComputeSpecWithContext(volcengine.Context, *ModifyComputeSpecInput, ...request.Option) (*ModifyComputeSpecOutput, error)
 	ModifyComputeSpecRequest(*ModifyComputeSpecInput) (*request.Request, *ModifyComputeSpecOutput)
+
+	ModifySQLConcurrencyControlRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySQLConcurrencyControlRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySQLConcurrencyControlRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySQLConcurrencyControlRule(*ModifySQLConcurrencyControlRuleInput) (*ModifySQLConcurrencyControlRuleOutput, error)
+	ModifySQLConcurrencyControlRuleWithContext(volcengine.Context, *ModifySQLConcurrencyControlRuleInput, ...request.Option) (*ModifySQLConcurrencyControlRuleOutput, error)
+	ModifySQLConcurrencyControlRuleRequest(*ModifySQLConcurrencyControlRuleInput) (*request.Request, *ModifySQLConcurrencyControlRuleOutput)
 
 	ModifyVpcSettingsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyVpcSettingsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -669,6 +709,22 @@ type AIDAPAPI interface {
 	StopWorkspace(*StopWorkspaceInput) (*StopWorkspaceOutput, error)
 	StopWorkspaceWithContext(volcengine.Context, *StopWorkspaceInput, ...request.Option) (*StopWorkspaceOutput, error)
 	StopWorkspaceRequest(*StopWorkspaceInput) (*request.Request, *StopWorkspaceOutput)
+
+	SuspendWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SuspendWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SuspendWorkspaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SuspendWorkspace(*SuspendWorkspaceInput) (*SuspendWorkspaceOutput, error)
+	SuspendWorkspaceWithContext(volcengine.Context, *SuspendWorkspaceInput, ...request.Option) (*SuspendWorkspaceOutput, error)
+	SuspendWorkspaceRequest(*SuspendWorkspaceInput) (*request.Request, *SuspendWorkspaceOutput)
+
+	SwitchSQLConcurrencyControlRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SwitchSQLConcurrencyControlRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SwitchSQLConcurrencyControlRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SwitchSQLConcurrencyControlRule(*SwitchSQLConcurrencyControlRuleInput) (*SwitchSQLConcurrencyControlRuleOutput, error)
+	SwitchSQLConcurrencyControlRuleWithContext(volcengine.Context, *SwitchSQLConcurrencyControlRuleInput, ...request.Option) (*SwitchSQLConcurrencyControlRuleOutput, error)
+	SwitchSQLConcurrencyControlRuleRequest(*SwitchSQLConcurrencyControlRuleInput) (*request.Request, *SwitchSQLConcurrencyControlRuleOutput)
 
 	SyncPagesDeployEnvVarsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SyncPagesDeployEnvVarsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

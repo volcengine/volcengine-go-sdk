@@ -146,6 +146,8 @@ func (c *AIDAP) DescribeBaasAIUserSummariesWithContext(ctx volcengine.Context, i
 type CustomQuotaForDescribeBaasAIUserSummariesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	DailyImageLimit *int64 `type:"int64" json:",omitempty"`
+
 	DailyTokenLimit *int64 `type:"int64" json:",omitempty"`
 }
 
@@ -157,6 +159,12 @@ func (s CustomQuotaForDescribeBaasAIUserSummariesOutput) String() string {
 // GoString returns the string representation
 func (s CustomQuotaForDescribeBaasAIUserSummariesOutput) GoString() string {
 	return s.String()
+}
+
+// SetDailyImageLimit sets the DailyImageLimit field's value.
+func (s *CustomQuotaForDescribeBaasAIUserSummariesOutput) SetDailyImageLimit(v int64) *CustomQuotaForDescribeBaasAIUserSummariesOutput {
+	s.DailyImageLimit = &v
+	return s
 }
 
 // SetDailyTokenLimit sets the DailyTokenLimit field's value.
@@ -264,7 +272,11 @@ func (s *DescribeBaasAIUserSummariesOutput) SetUserSummaryItems(v []*UserSummary
 type UsageForDescribeBaasAIUserSummariesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	LastDailyImages *int64 `type:"int64" json:",omitempty"`
+
 	LastDailyTokens *int64 `type:"int64" json:",omitempty"`
+
+	TotalImages *int64 `type:"int64" json:",omitempty"`
 
 	TotalTokens *int64 `type:"int64" json:",omitempty"`
 }
@@ -279,9 +291,21 @@ func (s UsageForDescribeBaasAIUserSummariesOutput) GoString() string {
 	return s.String()
 }
 
+// SetLastDailyImages sets the LastDailyImages field's value.
+func (s *UsageForDescribeBaasAIUserSummariesOutput) SetLastDailyImages(v int64) *UsageForDescribeBaasAIUserSummariesOutput {
+	s.LastDailyImages = &v
+	return s
+}
+
 // SetLastDailyTokens sets the LastDailyTokens field's value.
 func (s *UsageForDescribeBaasAIUserSummariesOutput) SetLastDailyTokens(v int64) *UsageForDescribeBaasAIUserSummariesOutput {
 	s.LastDailyTokens = &v
+	return s
+}
+
+// SetTotalImages sets the TotalImages field's value.
+func (s *UsageForDescribeBaasAIUserSummariesOutput) SetTotalImages(v int64) *UsageForDescribeBaasAIUserSummariesOutput {
+	s.TotalImages = &v
 	return s
 }
 
