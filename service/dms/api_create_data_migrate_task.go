@@ -609,6 +609,10 @@ type ObjectSourceConfigForCreateDataMigrateTaskInput struct {
 
 	KeyListFile *string `type:"string" json:",omitempty"`
 
+	ListEndTime *int64 `type:"int64" json:",omitempty"`
+
+	ListStartTime *int64 `type:"int64" json:",omitempty"`
+
 	PrefixList []*string `type:"list" json:",omitempty"`
 
 	PrefixListFile *string `type:"string" json:",omitempty"`
@@ -643,6 +647,18 @@ func (s *ObjectSourceConfigForCreateDataMigrateTaskInput) SetIsExcluded(v bool) 
 // SetKeyListFile sets the KeyListFile field's value.
 func (s *ObjectSourceConfigForCreateDataMigrateTaskInput) SetKeyListFile(v string) *ObjectSourceConfigForCreateDataMigrateTaskInput {
 	s.KeyListFile = &v
+	return s
+}
+
+// SetListEndTime sets the ListEndTime field's value.
+func (s *ObjectSourceConfigForCreateDataMigrateTaskInput) SetListEndTime(v int64) *ObjectSourceConfigForCreateDataMigrateTaskInput {
+	s.ListEndTime = &v
+	return s
+}
+
+// SetListStartTime sets the ListStartTime field's value.
+func (s *ObjectSourceConfigForCreateDataMigrateTaskInput) SetListStartTime(v int64) *ObjectSourceConfigForCreateDataMigrateTaskInput {
+	s.ListStartTime = &v
 	return s
 }
 

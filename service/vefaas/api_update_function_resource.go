@@ -149,6 +149,8 @@ type UpdateFunctionResourceInput struct {
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
+	IdleInstance *int32 `type:"int32" json:",omitempty"`
+
 	MaxInstance *int32 `type:"int32" json:",omitempty"`
 
 	MinInstance *int32 `type:"int32" json:",omitempty"`
@@ -185,6 +187,12 @@ func (s *UpdateFunctionResourceInput) SetFunctionId(v string) *UpdateFunctionRes
 	return s
 }
 
+// SetIdleInstance sets the IdleInstance field's value.
+func (s *UpdateFunctionResourceInput) SetIdleInstance(v int32) *UpdateFunctionResourceInput {
+	s.IdleInstance = &v
+	return s
+}
+
 // SetMaxInstance sets the MaxInstance field's value.
 func (s *UpdateFunctionResourceInput) SetMaxInstance(v int32) *UpdateFunctionResourceInput {
 	s.MaxInstance = &v
@@ -210,6 +218,8 @@ type UpdateFunctionResourceOutput struct {
 
 	Id *string `type:"string" json:",omitempty"`
 
+	IdleInstance *int32 `type:"int32" json:",omitempty"`
+
 	MaxInstance *int32 `type:"int32" json:",omitempty"`
 
 	MinInstance *int32 `type:"int32" json:",omitempty"`
@@ -230,6 +240,12 @@ func (s UpdateFunctionResourceOutput) GoString() string {
 // SetId sets the Id field's value.
 func (s *UpdateFunctionResourceOutput) SetId(v string) *UpdateFunctionResourceOutput {
 	s.Id = &v
+	return s
+}
+
+// SetIdleInstance sets the IdleInstance field's value.
+func (s *UpdateFunctionResourceOutput) SetIdleInstance(v int32) *UpdateFunctionResourceOutput {
+	s.IdleInstance = &v
 	return s
 }
 

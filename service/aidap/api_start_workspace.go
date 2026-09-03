@@ -146,6 +146,8 @@ func (c *AIDAP) StartWorkspaceWithContext(ctx volcengine.Context, input *StartWo
 type StartWorkspaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	StartAsSuspended *bool `type:"boolean" json:",omitempty"`
+
 	// WorkspaceId is a required field
 	WorkspaceId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -171,6 +173,12 @@ func (s *StartWorkspaceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetStartAsSuspended sets the StartAsSuspended field's value.
+func (s *StartWorkspaceInput) SetStartAsSuspended(v bool) *StartWorkspaceInput {
+	s.StartAsSuspended = &v
+	return s
 }
 
 // SetWorkspaceId sets the WorkspaceId field's value.

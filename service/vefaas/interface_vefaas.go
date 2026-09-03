@@ -102,6 +102,14 @@ type VEFAASAPI interface {
 	CreateTimerWithContext(volcengine.Context, *CreateTimerInput, ...request.Option) (*CreateTimerOutput, error)
 	CreateTimerRequest(*CreateTimerInput) (*request.Request, *CreateTimerOutput)
 
+	DeleteE2BAPIKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteE2BAPIKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteE2BAPIKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteE2BAPIKey(*DeleteE2BAPIKeyInput) (*DeleteE2BAPIKeyOutput, error)
+	DeleteE2BAPIKeyWithContext(volcengine.Context, *DeleteE2BAPIKeyInput, ...request.Option) (*DeleteE2BAPIKeyOutput, error)
+	DeleteE2BAPIKeyRequest(*DeleteE2BAPIKeyInput) (*request.Request, *DeleteE2BAPIKeyOutput)
+
 	DeleteFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteFunctionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

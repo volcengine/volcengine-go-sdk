@@ -146,6 +146,8 @@ func (c *AIDAP) ModifyBaasAIUserQuotasWithContext(ctx volcengine.Context, input 
 type CustomQuotaForModifyBaasAIUserQuotasInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	DailyImageLimit *int64 `type:"int64" json:",omitempty"`
+
 	DailyTokenLimit *int64 `type:"int64" json:",omitempty"`
 }
 
@@ -157,6 +159,12 @@ func (s CustomQuotaForModifyBaasAIUserQuotasInput) String() string {
 // GoString returns the string representation
 func (s CustomQuotaForModifyBaasAIUserQuotasInput) GoString() string {
 	return s.String()
+}
+
+// SetDailyImageLimit sets the DailyImageLimit field's value.
+func (s *CustomQuotaForModifyBaasAIUserQuotasInput) SetDailyImageLimit(v int64) *CustomQuotaForModifyBaasAIUserQuotasInput {
+	s.DailyImageLimit = &v
+	return s
 }
 
 // SetDailyTokenLimit sets the DailyTokenLimit field's value.

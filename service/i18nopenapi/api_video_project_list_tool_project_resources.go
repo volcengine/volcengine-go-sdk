@@ -176,7 +176,7 @@ type ToolResourceForVideoProjectListToolProjectResourcesOutput struct {
 
 	Name *string `type:"string" json:"name"`
 
-	ResourceID *string `type:"string" json:"resourceID"`
+	ResourceId *string `type:"string" json:"resourceId"`
 
 	ResourceType *int32 `type:"int32" json:"resourceType"`
 
@@ -207,9 +207,9 @@ func (s *ToolResourceForVideoProjectListToolProjectResourcesOutput) SetName(v st
 	return s
 }
 
-// SetResourceID sets the ResourceID field's value.
-func (s *ToolResourceForVideoProjectListToolProjectResourcesOutput) SetResourceID(v string) *ToolResourceForVideoProjectListToolProjectResourcesOutput {
-	s.ResourceID = &v
+// SetResourceId sets the ResourceId field's value.
+func (s *ToolResourceForVideoProjectListToolProjectResourcesOutput) SetResourceId(v string) *ToolResourceForVideoProjectListToolProjectResourcesOutput {
+	s.ResourceId = &v
 	return s
 }
 

@@ -204,7 +204,7 @@ type CreateProjectOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AccountID *int32 `type:"int32"`
+	AccountID *int64 `type:"int64"`
 
 	CreateDate *string `type:"string"`
 
@@ -234,7 +234,7 @@ func (s CreateProjectOutput) GoString() string {
 }
 
 // SetAccountID sets the AccountID field's value.
-func (s *CreateProjectOutput) SetAccountID(v int32) *CreateProjectOutput {
+func (s *CreateProjectOutput) SetAccountID(v int64) *CreateProjectOutput {
 	s.AccountID = &v
 	return s
 }

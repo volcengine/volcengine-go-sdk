@@ -206,6 +206,14 @@ type TIDBAPI interface {
 	GetMetricsWithContext(volcengine.Context, *GetMetricsInput, ...request.Option) (*GetMetricsOutput, error)
 	GetMetricsRequest(*GetMetricsInput) (*request.Request, *GetMetricsOutput)
 
+	GetPrivateEndpointAllowlistRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPrivateEndpointAllowlistRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPrivateEndpointAllowlistRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPrivateEndpointAllowlistRule(*GetPrivateEndpointAllowlistRuleInput) (*GetPrivateEndpointAllowlistRuleOutput, error)
+	GetPrivateEndpointAllowlistRuleWithContext(volcengine.Context, *GetPrivateEndpointAllowlistRuleInput, ...request.Option) (*GetPrivateEndpointAllowlistRuleOutput, error)
+	GetPrivateEndpointAllowlistRuleRequest(*GetPrivateEndpointAllowlistRuleInput) (*request.Request, *GetPrivateEndpointAllowlistRuleOutput)
+
 	GetRestoreProgressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetRestoreProgressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetRestoreProgressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

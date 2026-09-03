@@ -226,6 +226,8 @@ func (s *BranchRestoreOutput) SetBackupBranchID(v string) *BranchRestoreOutput {
 type RestoreSettingsForBranchRestoreInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	SkipDBRolesAndCredentialsRollback *bool `type:"boolean" json:",omitempty"`
+
 	SourceBranchId *string `type:"string" json:",omitempty"`
 
 	Time *string `type:"string" json:",omitempty"`
@@ -239,6 +241,12 @@ func (s RestoreSettingsForBranchRestoreInput) String() string {
 // GoString returns the string representation
 func (s RestoreSettingsForBranchRestoreInput) GoString() string {
 	return s.String()
+}
+
+// SetSkipDBRolesAndCredentialsRollback sets the SkipDBRolesAndCredentialsRollback field's value.
+func (s *RestoreSettingsForBranchRestoreInput) SetSkipDBRolesAndCredentialsRollback(v bool) *RestoreSettingsForBranchRestoreInput {
+	s.SkipDBRolesAndCredentialsRollback = &v
+	return s
 }
 
 // SetSourceBranchId sets the SourceBranchId field's value.
