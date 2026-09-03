@@ -106,6 +106,8 @@ type ModerateV2Request struct {
 	History []*MessageV2 `thrift:"history,6,optional" form:"History" json:"History,omitempty"`
 	// 扩展字段，如HookName
 	Extensions map[string]string `thrift:"Extensions,7,optional" form:"Extensions" json:"Extensions,omitempty"`
+	// 命中优化回答时是否同步触发代答
+	CallGenerateOnOptimize *bool `thrift:"callGenerateOnOptimize,8,optional" form:"CallGenerateOnOptimize" json:"CallGenerateOnOptimize,omitempty"`
 }
 
 type Error struct {
@@ -199,7 +201,26 @@ type RiskMatchV2 struct {
 	Source MatchSource `thrift:"source,3" form:"Source" json:"Source"`
 	// 规则ID
 	RuleID string `thrift:"ruleID,4" form:"RuleID" json:"RuleID,omitempty"`
+	// 命中位置
+	Position *PositionInfo `thrift:"position,5,optional" form:"Position" json:"Position,omitempty"`
 }
+
+type PositionInfo struct {
+	// 图片信息
+	ImagePosition *ImagePositionInfo `thrift:"ImagePosition,1,optional" form:"ImagePosition" json:"ImagePosition,omitempty"`
+}
+
+type ImagePositionInfo struct {
+	// XStart
+	XStart string `thrift:"XStart,1" form:"xStart" json:"xStart"`
+	// YStart
+	YStart string `thrift:"YStart,2" form:"yStart" json:"yStart"`
+	// XEnd
+	XEnd string `thrift:"XEnd,3" form:"xEnd" json:"xEnd"`
+	// YEnd
+	YEnd string `thrift:"YEnd,4" form:"yEnd" json:"yEnd"`
+}
+
 type PermitMatchV2 struct {
 	// 命中词
 	Word string `thrift:"word,1" form:"Word" json:"Word"`
@@ -220,10 +241,20 @@ type RiskV2 struct {
 	Prob *float64 `thrift:"prob,3,optional" form:"Prob" json:"Prob,omitempty"`
 	// 命中词表信息
 	Matches []*RiskMatchV2 `thrift:"matches,4,optional" form:"Matches" json:"Matches,omitempty"`
+	// 来源信息
+	SourceInfos []*SourceInfoV2 `thrift:"sourceInfos,5,optional" form:"SourceInfos" json:"SourceInfos,omitempty"`
 }
+
 type RiskInfoV2 struct {
 	// 风险信息
 	Risks []*RiskV2 `thrift:"risks,1" form:"Risks" json:"Risks"`
+}
+
+type SourceInfoV2 struct {
+	// 风险来源
+	Source string `thrift:"source,1" form:"Source" json:"Source"`
+	// 风险来源详情
+	SourceDetail map[string]string `thrift:"sourceDetail,2" form:"SourceDetail" json:"SourceDetail"`
 }
 
 type PermitV2 struct {
@@ -340,6 +371,7 @@ type GenerateSummarizeV2 struct {
 
 type Client struct {
 	url        string
+	rewriteUrl string
 	region     string
 	ak         string
 	sk         string

@@ -19,9 +19,9 @@ import (
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/hex"
-	"fmt"
 	"log"
 	"net/http"
+	"net/url"
 	"strings"
 	"time"
 )
@@ -61,14 +61,15 @@ func hashSHA256(data []byte) []byte {
 
 func (c *Client) DoRequestSign(request *http.Request, body []byte) error {
 	queries := request.URL.Query()
-	// 1. 构建请求
-	_ = fmt.Sprintf("%s%s?%s", request.URL.Host, request.URL.Path, queries.Encode())
-	//log.Printf("request addr: %s\n", requestAddr)
 
-	//request, err := http.NewRequest(method, requestAddr, bytes.NewBuffer(body))
-	//if err != nil {
-	//	return nil, fmt.Errorf("bad request: %w", err)
-	//}
+	// 如果配置了 rewriteUrl，则使用 rewriteUrl 的 host 作为签名时的 host，
+	// 用于解决反向代理场景下 host 被修改导致签名校验失败的问题
+	signHost := request.Host
+	if c.rewriteUrl != "" {
+		if parsed, err := url.Parse(c.rewriteUrl); err == nil && parsed.Host != "" {
+			signHost = parsed.Host
+		}
+	}
 
 	// 2. 构建签名材料
 	now := time.Now()
@@ -88,7 +89,7 @@ func (c *Client) DoRequestSign(request *http.Request, body []byte) error {
 	var headerList []string
 	for _, header := range signedHeaders {
 		if header == "host" {
-			headerList = append(headerList, header+":"+request.Host)
+			headerList = append(headerList, header+":"+signHost)
 		} else {
 			v := request.Header.Get(header)
 			headerList = append(headerList, header+":"+strings.TrimSpace(v))
