@@ -233,11 +233,47 @@ func (s EnvsForListSandboxSnapshotsOutput) GoString() string {
 	return s.String()
 }
 
+type FilterForListSandboxSnapshotsInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s FilterForListSandboxSnapshotsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FilterForListSandboxSnapshotsInput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *FilterForListSandboxSnapshotsInput) SetName(v string) *FilterForListSandboxSnapshotsInput {
+	s.Name = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *FilterForListSandboxSnapshotsInput) SetValues(v []*string) *FilterForListSandboxSnapshotsInput {
+	s.Values = v
+	return s
+}
+
 type ListSandboxSnapshotsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Filters []*FilterForListSandboxSnapshotsInput `type:"list" json:",omitempty"`
+
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
+
+	PageNumber *int32 `type:"int32" json:",omitempty"`
+
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	SandboxId *string `type:"string" json:",omitempty"`
 }
@@ -265,9 +301,27 @@ func (s *ListSandboxSnapshotsInput) Validate() error {
 	return nil
 }
 
+// SetFilters sets the Filters field's value.
+func (s *ListSandboxSnapshotsInput) SetFilters(v []*FilterForListSandboxSnapshotsInput) *ListSandboxSnapshotsInput {
+	s.Filters = v
+	return s
+}
+
 // SetFunctionId sets the FunctionId field's value.
 func (s *ListSandboxSnapshotsInput) SetFunctionId(v string) *ListSandboxSnapshotsInput {
 	s.FunctionId = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *ListSandboxSnapshotsInput) SetPageNumber(v int32) *ListSandboxSnapshotsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListSandboxSnapshotsInput) SetPageSize(v int32) *ListSandboxSnapshotsInput {
+	s.PageSize = &v
 	return s
 }
 
