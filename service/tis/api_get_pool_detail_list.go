@@ -200,7 +200,7 @@ func (s *GetPoolDetailListOutput) SetPoolList(v []*PoolListForGetPoolDetailListO
 type PoolListForGetPoolDetailListOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AvailableAmount *int32 `type:"int32" json:",omitempty"`
+	AvailableAmount *int64 `type:"int64" json:",omitempty"`
 
 	BeginTime *int64 `type:"int64" json:",omitempty"`
 
@@ -220,7 +220,7 @@ type PoolListForGetPoolDetailListOutput struct {
 
 	TcOrderID *string `type:"string" json:",omitempty"`
 
-	TotalAmount *int32 `type:"int32" json:",omitempty"`
+	TotalAmount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -234,7 +234,7 @@ func (s PoolListForGetPoolDetailListOutput) GoString() string {
 }
 
 // SetAvailableAmount sets the AvailableAmount field's value.
-func (s *PoolListForGetPoolDetailListOutput) SetAvailableAmount(v int32) *PoolListForGetPoolDetailListOutput {
+func (s *PoolListForGetPoolDetailListOutput) SetAvailableAmount(v int64) *PoolListForGetPoolDetailListOutput {
 	s.AvailableAmount = &v
 	return s
 }
@@ -294,7 +294,7 @@ func (s *PoolListForGetPoolDetailListOutput) SetTcOrderID(v string) *PoolListFor
 }
 
 // SetTotalAmount sets the TotalAmount field's value.
-func (s *PoolListForGetPoolDetailListOutput) SetTotalAmount(v int32) *PoolListForGetPoolDetailListOutput {
+func (s *PoolListForGetPoolDetailListOutput) SetTotalAmount(v int64) *PoolListForGetPoolDetailListOutput {
 	s.TotalAmount = &v
 	return s
 }

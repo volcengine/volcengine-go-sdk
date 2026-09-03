@@ -184,7 +184,7 @@ type GetPoolQuotaInfoOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	QuotaInfoList []*QuotaInfoListForGetPoolQuotaInfoOutput `type:"list" json:",omitempty"`
+	QuotaInfoList []*QuotaInfoListForGetPoolQuotaInfoOutput `type:"list" json:"quotaInfoList,omitempty"`
 }
 
 // String returns the string representation
@@ -206,13 +206,13 @@ func (s *GetPoolQuotaInfoOutput) SetQuotaInfoList(v []*QuotaInfoListForGetPoolQu
 type QuotaInfoListForGetPoolQuotaInfoOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AvailableAmount *int32 `type:"int32" json:"availableAmount,omitempty"`
+	AvailableAmount *int64 `type:"int64" json:",omitempty"`
 
-	ConfigurationCode *string `type:"string" json:"configurationCode,omitempty"`
+	ConfigurationCode *string `type:"string" json:",omitempty"`
 
-	PackageName *string `type:"string" json:"packageName,omitempty"`
+	PackageName *string `type:"string" json:",omitempty"`
 
-	TotalAmount *int32 `type:"int32" json:"totalAmount,omitempty"`
+	TotalAmount *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -226,7 +226,7 @@ func (s QuotaInfoListForGetPoolQuotaInfoOutput) GoString() string {
 }
 
 // SetAvailableAmount sets the AvailableAmount field's value.
-func (s *QuotaInfoListForGetPoolQuotaInfoOutput) SetAvailableAmount(v int32) *QuotaInfoListForGetPoolQuotaInfoOutput {
+func (s *QuotaInfoListForGetPoolQuotaInfoOutput) SetAvailableAmount(v int64) *QuotaInfoListForGetPoolQuotaInfoOutput {
 	s.AvailableAmount = &v
 	return s
 }
@@ -244,7 +244,7 @@ func (s *QuotaInfoListForGetPoolQuotaInfoOutput) SetPackageName(v string) *Quota
 }
 
 // SetTotalAmount sets the TotalAmount field's value.
-func (s *QuotaInfoListForGetPoolQuotaInfoOutput) SetTotalAmount(v int32) *QuotaInfoListForGetPoolQuotaInfoOutput {
+func (s *QuotaInfoListForGetPoolQuotaInfoOutput) SetTotalAmount(v int64) *QuotaInfoListForGetPoolQuotaInfoOutput {
 	s.TotalAmount = &v
 	return s
 }
