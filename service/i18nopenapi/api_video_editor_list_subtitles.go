@@ -144,10 +144,6 @@ type DataForVideoEditorListSubtitlesOutput struct {
 
 	AiVoiceId *string `type:"string" json:"aiVoiceId"`
 
-	AssistText *string `type:"string" json:"assistText"`
-
-	AssistTextType *int32 `type:"int32" json:"assistTextType"`
-
 	CreateTime *string `type:"string" json:"createTime"`
 
 	EffectType *int32 `type:"int32" json:"effectType"`
@@ -156,11 +152,7 @@ type DataForVideoEditorListSubtitlesOutput struct {
 
 	EndTime *string `type:"string" json:"endTime"`
 
-	Extra *string `type:"string" json:"extra"`
-
 	Operator *string `type:"string" json:"operator"`
-
-	RelatedSegmentId *string `type:"string" json:"relatedSegmentId"`
 
 	SegmentId *string `type:"string" json:"segmentId"`
 
@@ -199,18 +191,6 @@ func (s *DataForVideoEditorListSubtitlesOutput) SetAiVoiceId(v string) *DataForV
 	return s
 }
 
-// SetAssistText sets the AssistText field's value.
-func (s *DataForVideoEditorListSubtitlesOutput) SetAssistText(v string) *DataForVideoEditorListSubtitlesOutput {
-	s.AssistText = &v
-	return s
-}
-
-// SetAssistTextType sets the AssistTextType field's value.
-func (s *DataForVideoEditorListSubtitlesOutput) SetAssistTextType(v int32) *DataForVideoEditorListSubtitlesOutput {
-	s.AssistTextType = &v
-	return s
-}
-
 // SetCreateTime sets the CreateTime field's value.
 func (s *DataForVideoEditorListSubtitlesOutput) SetCreateTime(v string) *DataForVideoEditorListSubtitlesOutput {
 	s.CreateTime = &v
@@ -235,21 +215,9 @@ func (s *DataForVideoEditorListSubtitlesOutput) SetEndTime(v string) *DataForVid
 	return s
 }
 
-// SetExtra sets the Extra field's value.
-func (s *DataForVideoEditorListSubtitlesOutput) SetExtra(v string) *DataForVideoEditorListSubtitlesOutput {
-	s.Extra = &v
-	return s
-}
-
 // SetOperator sets the Operator field's value.
 func (s *DataForVideoEditorListSubtitlesOutput) SetOperator(v string) *DataForVideoEditorListSubtitlesOutput {
 	s.Operator = &v
-	return s
-}
-
-// SetRelatedSegmentId sets the RelatedSegmentId field's value.
-func (s *DataForVideoEditorListSubtitlesOutput) SetRelatedSegmentId(v string) *DataForVideoEditorListSubtitlesOutput {
-	s.RelatedSegmentId = &v
 	return s
 }
 
@@ -316,8 +284,6 @@ func (s *DataForVideoEditorListSubtitlesOutput) SetVoiceTosUrl(v string) *DataFo
 type SourceForVideoEditorListSubtitlesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Style *string `type:"string" json:"style"`
-
 	Text *string `type:"string" json:"text"`
 }
 
@@ -331,12 +297,6 @@ func (s SourceForVideoEditorListSubtitlesOutput) GoString() string {
 	return s.String()
 }
 
-// SetStyle sets the Style field's value.
-func (s *SourceForVideoEditorListSubtitlesOutput) SetStyle(v string) *SourceForVideoEditorListSubtitlesOutput {
-	s.Style = &v
-	return s
-}
-
 // SetText sets the Text field's value.
 func (s *SourceForVideoEditorListSubtitlesOutput) SetText(v string) *SourceForVideoEditorListSubtitlesOutput {
 	s.Text = &v
@@ -345,8 +305,6 @@ func (s *SourceForVideoEditorListSubtitlesOutput) SetText(v string) *SourceForVi
 
 type TargetForVideoEditorListSubtitlesOutput struct {
 	_ struct{} `type:"structure"`
-
-	Style *string `type:"string" json:"style"`
 
 	Text *string `type:"string" json:"text"`
 }
@@ -359,12 +317,6 @@ func (s TargetForVideoEditorListSubtitlesOutput) String() string {
 // GoString returns the string representation
 func (s TargetForVideoEditorListSubtitlesOutput) GoString() string {
 	return s.String()
-}
-
-// SetStyle sets the Style field's value.
-func (s *TargetForVideoEditorListSubtitlesOutput) SetStyle(v string) *TargetForVideoEditorListSubtitlesOutput {
-	s.Style = &v
-	return s
 }
 
 // SetText sets the Text field's value.

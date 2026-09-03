@@ -248,6 +248,8 @@ func (s *PaginationForVideoProjectTaskListOutput) SetOffset(v int32) *Pagination
 type TaskForVideoProjectTaskListOutput struct {
 	_ struct{} `type:"structure"`
 
+	CanExpedite *bool `type:"boolean" json:"canExpedite"`
+
 	Comment *string `type:"string" json:"comment"`
 
 	CreatedAt *string `type:"string" json:"createdAt"`
@@ -257,6 +259,8 @@ type TaskForVideoProjectTaskListOutput struct {
 	Deadline *string `type:"string" json:"deadline"`
 
 	DramaTaskWorkflow *int32 `type:"int32" json:"dramaTaskWorkflow"`
+
+	IsExpedited *bool `type:"boolean" json:"isExpedited"`
 
 	Name *string `type:"string" json:"name"`
 
@@ -281,6 +285,12 @@ func (s TaskForVideoProjectTaskListOutput) String() string {
 // GoString returns the string representation
 func (s TaskForVideoProjectTaskListOutput) GoString() string {
 	return s.String()
+}
+
+// SetCanExpedite sets the CanExpedite field's value.
+func (s *TaskForVideoProjectTaskListOutput) SetCanExpedite(v bool) *TaskForVideoProjectTaskListOutput {
+	s.CanExpedite = &v
+	return s
 }
 
 // SetComment sets the Comment field's value.
@@ -310,6 +320,12 @@ func (s *TaskForVideoProjectTaskListOutput) SetDeadline(v string) *TaskForVideoP
 // SetDramaTaskWorkflow sets the DramaTaskWorkflow field's value.
 func (s *TaskForVideoProjectTaskListOutput) SetDramaTaskWorkflow(v int32) *TaskForVideoProjectTaskListOutput {
 	s.DramaTaskWorkflow = &v
+	return s
+}
+
+// SetIsExpedited sets the IsExpedited field's value.
+func (s *TaskForVideoProjectTaskListOutput) SetIsExpedited(v bool) *TaskForVideoProjectTaskListOutput {
+	s.IsExpedited = &v
 	return s
 }
 
@@ -361,6 +377,8 @@ type VideoProjectTaskListInput struct {
 	DramaId *string `locationName:"dramaId" type:"string"`
 
 	EndTime *int32 `locationName:"endTime" type:"int32"`
+
+	IsExpedited *string `locationName:"isExpedited" type:"string"`
 
 	Limit *int32 `locationName:"limit" type:"int32"`
 
@@ -420,6 +438,12 @@ func (s *VideoProjectTaskListInput) SetDramaId(v string) *VideoProjectTaskListIn
 // SetEndTime sets the EndTime field's value.
 func (s *VideoProjectTaskListInput) SetEndTime(v int32) *VideoProjectTaskListInput {
 	s.EndTime = &v
+	return s
+}
+
+// SetIsExpedited sets the IsExpedited field's value.
+func (s *VideoProjectTaskListInput) SetIsExpedited(v string) *VideoProjectTaskListInput {
+	s.IsExpedited = &v
 	return s
 }
 

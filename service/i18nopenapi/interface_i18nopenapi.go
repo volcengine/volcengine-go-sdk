@@ -926,6 +926,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectSuppressionStartWithContext(volcengine.Context, *VideoProjectSuppressionStartInput, ...request.Option) (*VideoProjectSuppressionStartOutput, error)
 	VideoProjectSuppressionStartRequest(*VideoProjectSuppressionStartInput) (*request.Request, *VideoProjectSuppressionStartOutput)
 
+	VideoProjectTaskBatchSetExpeditedCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectTaskBatchSetExpeditedCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectTaskBatchSetExpeditedCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectTaskBatchSetExpedited(*VideoProjectTaskBatchSetExpeditedInput) (*VideoProjectTaskBatchSetExpeditedOutput, error)
+	VideoProjectTaskBatchSetExpeditedWithContext(volcengine.Context, *VideoProjectTaskBatchSetExpeditedInput, ...request.Option) (*VideoProjectTaskBatchSetExpeditedOutput, error)
+	VideoProjectTaskBatchSetExpeditedRequest(*VideoProjectTaskBatchSetExpeditedInput) (*request.Request, *VideoProjectTaskBatchSetExpeditedOutput)
+
 	VideoProjectTaskBatchStartAIFlowCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectTaskBatchStartAIFlowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectTaskBatchStartAIFlowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

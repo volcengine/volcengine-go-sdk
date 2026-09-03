@@ -146,7 +146,7 @@ func (c *I18NOPENAPI) VideoProjectCreateToolTaskWithContext(ctx volcengine.Conte
 type DataForVideoProjectCreateToolTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	TaskID *string `type:"string" json:"taskID,omitempty"`
+	TaskId *string `type:"string" json:"taskId,omitempty"`
 }
 
 // String returns the string representation
@@ -159,9 +159,9 @@ func (s DataForVideoProjectCreateToolTaskOutput) GoString() string {
 	return s.String()
 }
 
-// SetTaskID sets the TaskID field's value.
-func (s *DataForVideoProjectCreateToolTaskOutput) SetTaskID(v string) *DataForVideoProjectCreateToolTaskOutput {
-	s.TaskID = &v
+// SetTaskId sets the TaskId field's value.
+func (s *DataForVideoProjectCreateToolTaskOutput) SetTaskId(v string) *DataForVideoProjectCreateToolTaskOutput {
+	s.TaskId = &v
 	return s
 }
 

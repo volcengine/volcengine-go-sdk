@@ -364,7 +364,7 @@ type ToolResourceForVideoProjectListToolTaskByResourceIDsOutput struct {
 
 	Name *string `type:"string" json:"name"`
 
-	ResourceID *string `type:"string" json:"resourceID"`
+	ResourceId *string `type:"string" json:"resourceId"`
 
 	ResourceType *int32 `type:"int32" json:"resourceType"`
 
@@ -395,9 +395,9 @@ func (s *ToolResourceForVideoProjectListToolTaskByResourceIDsOutput) SetName(v s
 	return s
 }
 
-// SetResourceID sets the ResourceID field's value.
-func (s *ToolResourceForVideoProjectListToolTaskByResourceIDsOutput) SetResourceID(v string) *ToolResourceForVideoProjectListToolTaskByResourceIDsOutput {
-	s.ResourceID = &v
+// SetResourceId sets the ResourceId field's value.
+func (s *ToolResourceForVideoProjectListToolTaskByResourceIDsOutput) SetResourceId(v string) *ToolResourceForVideoProjectListToolTaskByResourceIDsOutput {
+	s.ResourceId = &v
 	return s
 }
 
@@ -423,10 +423,6 @@ type ToolTaskForVideoProjectListToolTaskByResourceIDsOutput struct {
 	_ struct{} `type:"structure"`
 
 	CreateTime *string `type:"string" json:"createTime"`
-
-	InputVid *string `type:"string" json:"inputVid"`
-
-	OutputVid *string `type:"string" json:"outputVid"`
 
 	ProjectId *string `type:"string" json:"projectId"`
 
@@ -464,18 +460,6 @@ func (s ToolTaskForVideoProjectListToolTaskByResourceIDsOutput) GoString() strin
 // SetCreateTime sets the CreateTime field's value.
 func (s *ToolTaskForVideoProjectListToolTaskByResourceIDsOutput) SetCreateTime(v string) *ToolTaskForVideoProjectListToolTaskByResourceIDsOutput {
 	s.CreateTime = &v
-	return s
-}
-
-// SetInputVid sets the InputVid field's value.
-func (s *ToolTaskForVideoProjectListToolTaskByResourceIDsOutput) SetInputVid(v string) *ToolTaskForVideoProjectListToolTaskByResourceIDsOutput {
-	s.InputVid = &v
-	return s
-}
-
-// SetOutputVid sets the OutputVid field's value.
-func (s *ToolTaskForVideoProjectListToolTaskByResourceIDsOutput) SetOutputVid(v string) *ToolTaskForVideoProjectListToolTaskByResourceIDsOutput {
-	s.OutputVid = &v
 	return s
 }
 
