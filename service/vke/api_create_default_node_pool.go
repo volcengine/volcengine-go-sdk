@@ -364,7 +364,13 @@ type KubeletConfigForCreateDefaultNodePoolInput struct {
 
 	EvictionHard []*EvictionHardForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
 
+	FailSwapOn *bool `type:"boolean" json:",omitempty"`
+
 	FeatureGates *FeatureGatesForCreateDefaultNodePoolInput `type:"structure" json:",omitempty"`
+
+	ImageGCHighThresholdPercent *int32 `type:"int32" json:",omitempty"`
+
+	ImageGCLowThresholdPercent *int32 `type:"int32" json:",omitempty"`
 
 	KubeApiBurst *int32 `type:"int32" json:",omitempty"`
 
@@ -415,9 +421,27 @@ func (s *KubeletConfigForCreateDefaultNodePoolInput) SetEvictionHard(v []*Evicti
 	return s
 }
 
+// SetFailSwapOn sets the FailSwapOn field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetFailSwapOn(v bool) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.FailSwapOn = &v
+	return s
+}
+
 // SetFeatureGates sets the FeatureGates field's value.
 func (s *KubeletConfigForCreateDefaultNodePoolInput) SetFeatureGates(v *FeatureGatesForCreateDefaultNodePoolInput) *KubeletConfigForCreateDefaultNodePoolInput {
 	s.FeatureGates = v
+	return s
+}
+
+// SetImageGCHighThresholdPercent sets the ImageGCHighThresholdPercent field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetImageGCHighThresholdPercent(v int32) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.ImageGCHighThresholdPercent = &v
+	return s
+}
+
+// SetImageGCLowThresholdPercent sets the ImageGCLowThresholdPercent field's value.
+func (s *KubeletConfigForCreateDefaultNodePoolInput) SetImageGCLowThresholdPercent(v int32) *KubeletConfigForCreateDefaultNodePoolInput {
+	s.ImageGCLowThresholdPercent = &v
 	return s
 }
 

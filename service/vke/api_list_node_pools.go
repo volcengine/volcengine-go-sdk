@@ -338,6 +338,8 @@ type DataVolumeForListNodePoolsOutput struct {
 
 	BurstEnabled *bool `type:"boolean" json:",omitempty"`
 
+	Encrypted *bool `type:"boolean" json:",omitempty"`
+
 	ExtraPerformanceIops *int32 `type:"int32" json:",omitempty"`
 
 	ExtraPerformanceThroughputMb *int32 `type:"int32" json:",omitempty"`
@@ -345,6 +347,8 @@ type DataVolumeForListNodePoolsOutput struct {
 	ExtraPerformanceTypeId *string `type:"string" json:",omitempty" enum:"EnumOfExtraPerformanceTypeIdForListNodePoolsOutput"`
 
 	FileSystem *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemForListNodePoolsOutput"`
+
+	KmsKeyId *string `type:"string" json:",omitempty"`
 
 	MountPoint *string `type:"string" json:",omitempty"`
 
@@ -375,6 +379,12 @@ func (s *DataVolumeForListNodePoolsOutput) SetBurstEnabled(v bool) *DataVolumeFo
 	return s
 }
 
+// SetEncrypted sets the Encrypted field's value.
+func (s *DataVolumeForListNodePoolsOutput) SetEncrypted(v bool) *DataVolumeForListNodePoolsOutput {
+	s.Encrypted = &v
+	return s
+}
+
 // SetExtraPerformanceIops sets the ExtraPerformanceIops field's value.
 func (s *DataVolumeForListNodePoolsOutput) SetExtraPerformanceIops(v int32) *DataVolumeForListNodePoolsOutput {
 	s.ExtraPerformanceIops = &v
@@ -396,6 +406,12 @@ func (s *DataVolumeForListNodePoolsOutput) SetExtraPerformanceTypeId(v string) *
 // SetFileSystem sets the FileSystem field's value.
 func (s *DataVolumeForListNodePoolsOutput) SetFileSystem(v string) *DataVolumeForListNodePoolsOutput {
 	s.FileSystem = &v
+	return s
+}
+
+// SetKmsKeyId sets the KmsKeyId field's value.
+func (s *DataVolumeForListNodePoolsOutput) SetKmsKeyId(v string) *DataVolumeForListNodePoolsOutput {
+	s.KmsKeyId = &v
 	return s
 }
 
@@ -776,7 +792,13 @@ type KubeletConfigForListNodePoolsOutput struct {
 
 	EvictionHard []*EvictionHardForListNodePoolsOutput `type:"list" json:",omitempty"`
 
+	FailSwapOn *bool `type:"boolean" json:",omitempty"`
+
 	FeatureGates *FeatureGatesForListNodePoolsOutput `type:"structure" json:",omitempty"`
+
+	ImageGCHighThresholdPercent *int32 `type:"int32" json:",omitempty"`
+
+	ImageGCLowThresholdPercent *int32 `type:"int32" json:",omitempty"`
 
 	KubeApiBurst *int32 `type:"int32" json:",omitempty"`
 
@@ -827,9 +849,27 @@ func (s *KubeletConfigForListNodePoolsOutput) SetEvictionHard(v []*EvictionHardF
 	return s
 }
 
+// SetFailSwapOn sets the FailSwapOn field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetFailSwapOn(v bool) *KubeletConfigForListNodePoolsOutput {
+	s.FailSwapOn = &v
+	return s
+}
+
 // SetFeatureGates sets the FeatureGates field's value.
 func (s *KubeletConfigForListNodePoolsOutput) SetFeatureGates(v *FeatureGatesForListNodePoolsOutput) *KubeletConfigForListNodePoolsOutput {
 	s.FeatureGates = v
+	return s
+}
+
+// SetImageGCHighThresholdPercent sets the ImageGCHighThresholdPercent field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetImageGCHighThresholdPercent(v int32) *KubeletConfigForListNodePoolsOutput {
+	s.ImageGCHighThresholdPercent = &v
+	return s
+}
+
+// SetImageGCLowThresholdPercent sets the ImageGCLowThresholdPercent field's value.
+func (s *KubeletConfigForListNodePoolsOutput) SetImageGCLowThresholdPercent(v int32) *KubeletConfigForListNodePoolsOutput {
+	s.ImageGCLowThresholdPercent = &v
 	return s
 }
 
@@ -1222,6 +1262,8 @@ type NodeConfigForListNodePoolsOutput struct {
 
 	Security *SecurityForListNodePoolsOutput `type:"structure" json:",omitempty"`
 
+	SpotPriceLimits []*SpotPriceLimitForListNodePoolsOutput `type:"list" json:",omitempty"`
+
 	SpotStrategy *string `type:"string" json:",omitempty" enum:"EnumOfSpotStrategyForListNodePoolsOutput"`
 
 	SubnetIds []*string `type:"list" json:",omitempty"`
@@ -1382,6 +1424,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetPublicAccessEnabled(v bool) *NodeC
 // SetSecurity sets the Security field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetSecurity(v *SecurityForListNodePoolsOutput) *NodeConfigForListNodePoolsOutput {
 	s.Security = v
+	return s
+}
+
+// SetSpotPriceLimits sets the SpotPriceLimits field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetSpotPriceLimits(v []*SpotPriceLimitForListNodePoolsOutput) *NodeConfigForListNodePoolsOutput {
+	s.SpotPriceLimits = v
 	return s
 }
 
@@ -1650,6 +1698,36 @@ func (s *SecurityForListNodePoolsOutput) SetSecurityStrategies(v []*string) *Sec
 // SetSecurityStrategyEnabled sets the SecurityStrategyEnabled field's value.
 func (s *SecurityForListNodePoolsOutput) SetSecurityStrategyEnabled(v bool) *SecurityForListNodePoolsOutput {
 	s.SecurityStrategyEnabled = &v
+	return s
+}
+
+type SpotPriceLimitForListNodePoolsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InstanceTypeId *string `type:"string" json:",omitempty"`
+
+	SpotPriceLimit *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SpotPriceLimitForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SpotPriceLimitForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *SpotPriceLimitForListNodePoolsOutput) SetInstanceTypeId(v string) *SpotPriceLimitForListNodePoolsOutput {
+	s.InstanceTypeId = &v
+	return s
+}
+
+// SetSpotPriceLimit sets the SpotPriceLimit field's value.
+func (s *SpotPriceLimitForListNodePoolsOutput) SetSpotPriceLimit(v float64) *SpotPriceLimitForListNodePoolsOutput {
+	s.SpotPriceLimit = &v
 	return s
 }
 
@@ -2181,6 +2259,9 @@ const (
 
 	// EnumOfSpotStrategyForListNodePoolsOutputSpotAsPriceGo is a EnumOfSpotStrategyForListNodePoolsOutput enum value
 	EnumOfSpotStrategyForListNodePoolsOutputSpotAsPriceGo = "SpotAsPriceGo"
+
+	// EnumOfSpotStrategyForListNodePoolsOutputSpotWithPriceLimit is a EnumOfSpotStrategyForListNodePoolsOutput enum value
+	EnumOfSpotStrategyForListNodePoolsOutputSpotWithPriceLimit = "SpotWithPriceLimit"
 )
 
 const (

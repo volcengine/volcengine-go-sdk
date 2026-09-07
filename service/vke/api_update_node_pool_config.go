@@ -270,6 +270,8 @@ type DataVolumeForUpdateNodePoolConfigInput struct {
 
 	BurstEnabled *bool `type:"boolean" json:",omitempty"`
 
+	Encrypted *bool `type:"boolean" json:",omitempty"`
+
 	ExtraPerformanceIops *int32 `type:"int32" json:",omitempty"`
 
 	ExtraPerformanceThroughputMb *int32 `type:"int32" json:",omitempty"`
@@ -277,6 +279,8 @@ type DataVolumeForUpdateNodePoolConfigInput struct {
 	ExtraPerformanceTypeId *string `type:"string" json:",omitempty" enum:"EnumOfExtraPerformanceTypeIdForUpdateNodePoolConfigInput"`
 
 	FileSystem *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemForUpdateNodePoolConfigInput"`
+
+	KmsKeyId *string `type:"string" json:",omitempty"`
 
 	MountPoint *string `type:"string" json:",omitempty"`
 
@@ -307,6 +311,12 @@ func (s *DataVolumeForUpdateNodePoolConfigInput) SetBurstEnabled(v bool) *DataVo
 	return s
 }
 
+// SetEncrypted sets the Encrypted field's value.
+func (s *DataVolumeForUpdateNodePoolConfigInput) SetEncrypted(v bool) *DataVolumeForUpdateNodePoolConfigInput {
+	s.Encrypted = &v
+	return s
+}
+
 // SetExtraPerformanceIops sets the ExtraPerformanceIops field's value.
 func (s *DataVolumeForUpdateNodePoolConfigInput) SetExtraPerformanceIops(v int32) *DataVolumeForUpdateNodePoolConfigInput {
 	s.ExtraPerformanceIops = &v
@@ -328,6 +338,12 @@ func (s *DataVolumeForUpdateNodePoolConfigInput) SetExtraPerformanceTypeId(v str
 // SetFileSystem sets the FileSystem field's value.
 func (s *DataVolumeForUpdateNodePoolConfigInput) SetFileSystem(v string) *DataVolumeForUpdateNodePoolConfigInput {
 	s.FileSystem = &v
+	return s
+}
+
+// SetKmsKeyId sets the KmsKeyId field's value.
+func (s *DataVolumeForUpdateNodePoolConfigInput) SetKmsKeyId(v string) *DataVolumeForUpdateNodePoolConfigInput {
+	s.KmsKeyId = &v
 	return s
 }
 
@@ -542,7 +558,13 @@ type KubeletConfigForUpdateNodePoolConfigInput struct {
 
 	EvictionHard []*EvictionHardForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
 
+	FailSwapOn *bool `type:"boolean" json:",omitempty"`
+
 	FeatureGates *FeatureGatesForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
+
+	ImageGCHighThresholdPercent *int32 `type:"int32" json:",omitempty"`
+
+	ImageGCLowThresholdPercent *int32 `type:"int32" json:",omitempty"`
 
 	KubeApiBurst *int32 `type:"int32" json:",omitempty"`
 
@@ -593,9 +615,27 @@ func (s *KubeletConfigForUpdateNodePoolConfigInput) SetEvictionHard(v []*Evictio
 	return s
 }
 
+// SetFailSwapOn sets the FailSwapOn field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetFailSwapOn(v bool) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.FailSwapOn = &v
+	return s
+}
+
 // SetFeatureGates sets the FeatureGates field's value.
 func (s *KubeletConfigForUpdateNodePoolConfigInput) SetFeatureGates(v *FeatureGatesForUpdateNodePoolConfigInput) *KubeletConfigForUpdateNodePoolConfigInput {
 	s.FeatureGates = v
+	return s
+}
+
+// SetImageGCHighThresholdPercent sets the ImageGCHighThresholdPercent field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetImageGCHighThresholdPercent(v int32) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.ImageGCHighThresholdPercent = &v
+	return s
+}
+
+// SetImageGCLowThresholdPercent sets the ImageGCLowThresholdPercent field's value.
+func (s *KubeletConfigForUpdateNodePoolConfigInput) SetImageGCLowThresholdPercent(v int32) *KubeletConfigForUpdateNodePoolConfigInput {
+	s.ImageGCLowThresholdPercent = &v
 	return s
 }
 
@@ -894,6 +934,10 @@ type NodeConfigForUpdateNodePoolConfigInput struct {
 
 	Security *SecurityForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
 
+	SpotPriceLimits []*SpotPriceLimitForUpdateNodePoolConfigInput `type:"list" json:",omitempty"`
+
+	SpotStrategy *string `type:"string" json:",omitempty" enum:"EnumOfSpotStrategyForUpdateNodePoolConfigInput"`
+
 	SubnetIds []*string `type:"list" json:",omitempty"`
 
 	SystemVolume *SystemVolumeForUpdateNodePoolConfigInput `type:"structure" json:",omitempty"`
@@ -1052,6 +1096,18 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetPublicAccessEnabled(v bool) 
 // SetSecurity sets the Security field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetSecurity(v *SecurityForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
 	s.Security = v
+	return s
+}
+
+// SetSpotPriceLimits sets the SpotPriceLimits field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetSpotPriceLimits(v []*SpotPriceLimitForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
+	s.SpotPriceLimits = v
+	return s
+}
+
+// SetSpotStrategy sets the SpotStrategy field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetSpotStrategy(v string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.SpotStrategy = &v
 	return s
 }
 
@@ -1244,6 +1300,36 @@ func (s *SecurityForUpdateNodePoolConfigInput) SetSecurityGroupIds(v []*string) 
 // SetSecurityStrategies sets the SecurityStrategies field's value.
 func (s *SecurityForUpdateNodePoolConfigInput) SetSecurityStrategies(v []*string) *SecurityForUpdateNodePoolConfigInput {
 	s.SecurityStrategies = v
+	return s
+}
+
+type SpotPriceLimitForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	InstanceTypeId *string `type:"string" json:",omitempty"`
+
+	SpotPriceLimit *float64 `type:"double" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SpotPriceLimitForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SpotPriceLimitForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *SpotPriceLimitForUpdateNodePoolConfigInput) SetInstanceTypeId(v string) *SpotPriceLimitForUpdateNodePoolConfigInput {
+	s.InstanceTypeId = &v
+	return s
+}
+
+// SetSpotPriceLimit sets the SpotPriceLimit field's value.
+func (s *SpotPriceLimitForUpdateNodePoolConfigInput) SetSpotPriceLimit(v float64) *SpotPriceLimitForUpdateNodePoolConfigInput {
+	s.SpotPriceLimit = &v
 	return s
 }
 
@@ -1655,6 +1741,17 @@ const (
 const (
 	// EnumOfSecurityStrategyListForUpdateNodePoolConfigInputHids is a EnumOfSecurityStrategyListForUpdateNodePoolConfigInput enum value
 	EnumOfSecurityStrategyListForUpdateNodePoolConfigInputHids = "Hids"
+)
+
+const (
+	// EnumOfSpotStrategyForUpdateNodePoolConfigInputNoSpot is a EnumOfSpotStrategyForUpdateNodePoolConfigInput enum value
+	EnumOfSpotStrategyForUpdateNodePoolConfigInputNoSpot = "NoSpot"
+
+	// EnumOfSpotStrategyForUpdateNodePoolConfigInputSpotAsPriceGo is a EnumOfSpotStrategyForUpdateNodePoolConfigInput enum value
+	EnumOfSpotStrategyForUpdateNodePoolConfigInputSpotAsPriceGo = "SpotAsPriceGo"
+
+	// EnumOfSpotStrategyForUpdateNodePoolConfigInputSpotWithPriceLimit is a EnumOfSpotStrategyForUpdateNodePoolConfigInput enum value
+	EnumOfSpotStrategyForUpdateNodePoolConfigInputSpotWithPriceLimit = "SpotWithPriceLimit"
 )
 
 const (
