@@ -118,7 +118,7 @@ func main() {
 			//     o.RetryInterval = 1 * time.Second // Sleep between retries; <= 0 falls back to 1s
 			//     o.ProxyURL = "http://user:pass@10.0.0.1:8080" // Forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
 			//     o.CAFile = "/path/to/ca.pem"      // Custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
-			//     o.InsecureSkipVerify = false      // Skip STS TLS verification, for debugging only (self-signed cert / proxy interception); never enable in production
+			//     o.InsecureSkipVerify = false      // Set to true to skip STS TLS verification (default false), for debugging only (self-signed cert / proxy interception); never enable in production
 			// },
 		))
 
@@ -161,7 +161,7 @@ func main() {
 			RetryInterval: 1 * time.Second,   // optional sleep between retries; <= 0 falls back to 1s
 			// ProxyURL:           "http://user:pass@10.0.0.1:8080", // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
 			// CAFile:             "/path/to/ca.pem",                // optional: custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
-			// InsecureSkipVerify: false,                            // optional: skip STS TLS verification, for debugging only (self-signed cert / proxy interception); never enable in production
+			// InsecureSkipVerify: false,                            // optional: set to true to skip STS TLS verification (default false), for debugging only (self-signed cert / proxy interception); never enable in production
 		}))
 
 	sess, err := session.NewSession(config)
@@ -208,7 +208,7 @@ func main() {
 			// o.RetryInterval = 1 * time.Second               // optional: sleep between retries; <= 0 falls back to 1s
 			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"  // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
 			// o.CAFile = "/path/to/ca.pem"                   // optional: custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
-			// o.InsecureSkipVerify = false                   // optional: skip STS TLS verification, for debugging only; never enable in production
+			// o.InsecureSkipVerify = false                   // optional: set to true to skip STS TLS verification (default false), for debugging only; never enable in production
 		},
 	)
 
@@ -259,7 +259,7 @@ func main() {
 		RetryInterval:     1 * time.Second,            // optional sleep between retries; <= 0 falls back to 1s
 		// ProxyURL:           "http://user:pass@10.0.0.1:8080", // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
 		// CAFile:             "/path/to/ca.pem",                // optional: custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
-		// InsecureSkipVerify: false,                            // optional: skip STS TLS verification, for debugging only; never enable in production
+		// InsecureSkipVerify: false,                            // optional: set to true to skip STS TLS verification (default false), for debugging only; never enable in production
 	}
 
 	config := volcengine.NewConfig().
@@ -312,7 +312,7 @@ func main() {
 			// o.RetryInterval = 1 * time.Second                        // optional: sleep between retries; <= 0 falls back to 1s
 			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"            // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
 			// o.CAFile = "/path/to/ca.pem"                             // optional: custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
-			// o.InsecureSkipVerify = false                             // optional: skip STS TLS verification, for debugging only; never enable in production
+			// o.InsecureSkipVerify = false                             // optional: set to true to skip STS TLS verification (default false), for debugging only; never enable in production
 		},
 	)
 
@@ -351,7 +351,7 @@ func main() {
 	p.RetryInterval = 1 * time.Second // optional sleep between retries; <= 0 falls back to 1s
 	// p.ProxyURL = "http://user:pass@10.0.0.1:8080" // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
 	// p.CAFile = "/path/to/ca.pem"                  // optional: custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
-	// p.InsecureSkipVerify = false                  // optional: skip STS TLS verification, for debugging only; never enable in production
+	// p.InsecureSkipVerify = false                  // optional: set to true to skip STS TLS verification (default false), for debugging only; never enable in production
 
 	config := volcengine.NewConfig().
 		WithRegion("cn-beijing").

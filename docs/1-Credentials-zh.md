@@ -116,7 +116,7 @@ func main() {
 			//     o.RetryInterval = 1 * time.Second // 重试间隔；<= 0 回退到 1s
 			//     o.ProxyURL = "http://user:pass@10.0.0.1:8080" // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
 			//     o.CAFile = "/path/to/ca.pem"      // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
-			//     o.InsecureSkipVerify = false      // 跳过 STS TLS 证书校验，仅限联调（自签证书 / 代理拦截），生产禁用
+			//     o.InsecureSkipVerify = false      // 传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调（自签证书 / 代理拦截），生产禁用
 			// },
 		))
 
@@ -149,7 +149,7 @@ func main() {
 			RetryInterval: 1 * time.Second,   // 可选：重试间隔；<= 0 时回退到 1s
 			// ProxyURL:           "http://user:pass@10.0.0.1:8080", // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
 			// CAFile:             "/path/to/ca.pem",                // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
-			// InsecureSkipVerify: false,                            // 可选：跳过 STS TLS 证书校验，仅限联调（自签证书 / 代理拦截），生产禁用
+			// InsecureSkipVerify: false,                            // 可选：传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调（自签证书 / 代理拦截），生产禁用
 		}))
 
 	sess, err := session.NewSession(config)
@@ -185,7 +185,7 @@ func main() {
 			// o.RetryInterval = 1 * time.Second              // 可选：重试间隔；<= 0 时回退到 1s
 			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"  // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
 			// o.CAFile = "/path/to/ca.pem"                   // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
-			// o.InsecureSkipVerify = false                   // 可选：跳过 STS TLS 证书校验，仅限联调，生产禁用
+			// o.InsecureSkipVerify = false                   // 可选：传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调，生产禁用
 		},
 	)
 
@@ -224,7 +224,7 @@ func main() {
 		RetryInterval:     1 * time.Second,            // 可选：重试间隔；<= 0 时回退到 1s
 		// ProxyURL:           "http://user:pass@10.0.0.1:8080", // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
 		// CAFile:             "/path/to/ca.pem",                // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
-		// InsecureSkipVerify: false,                            // 可选：跳过 STS TLS 证书校验，仅限联调，生产禁用
+		// InsecureSkipVerify: false,                            // 可选：传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调，生产禁用
 	}
 
 	config := volcengine.NewConfig().
@@ -277,7 +277,7 @@ func main() {
 			// o.RetryInterval = 1 * time.Second                        // 可选：重试间隔；<= 0 时回退到 1s
 			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"            // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
 			// o.CAFile = "/path/to/ca.pem"                             // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
-			// o.InsecureSkipVerify = false                             // 可选：跳过 STS TLS 证书校验，仅限联调，生产禁用
+			// o.InsecureSkipVerify = false                             // 可选：传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调，生产禁用
 		},
 	)
 
@@ -316,7 +316,7 @@ func main() {
 	p.RetryInterval = 1 * time.Second // 可选：重试间隔；<= 0 时回退到 1s
 	// p.ProxyURL = "http://user:pass@10.0.0.1:8080" // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
 	// p.CAFile = "/path/to/ca.pem"                  // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
-	// p.InsecureSkipVerify = false                  // 可选：跳过 STS TLS 证书校验，仅限联调，生产禁用
+	// p.InsecureSkipVerify = false                  // 可选：传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调，生产禁用
 
 	config := volcengine.NewConfig().
 		WithRegion("cn-beijing").
