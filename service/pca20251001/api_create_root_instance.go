@@ -399,7 +399,7 @@ func (s *CsrCommonForCreateRootInstanceInput) SetSubject(v *SubjectForCreateRoot
 	return s
 }
 
-type CustomExtensionsForCreateRootInstanceInput struct {
+type CustomExtensionForCreateRootInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Critical *bool `type:"boolean" json:",omitempty"`
@@ -407,33 +407,41 @@ type CustomExtensionsForCreateRootInstanceInput struct {
 	ObjectIdentifier *string `type:"string" json:",omitempty"`
 
 	Value *string `type:"string" json:",omitempty"`
+
+	ValueBytes *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s CustomExtensionsForCreateRootInstanceInput) String() string {
+func (s CustomExtensionForCreateRootInstanceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s CustomExtensionsForCreateRootInstanceInput) GoString() string {
+func (s CustomExtensionForCreateRootInstanceInput) GoString() string {
 	return s.String()
 }
 
 // SetCritical sets the Critical field's value.
-func (s *CustomExtensionsForCreateRootInstanceInput) SetCritical(v bool) *CustomExtensionsForCreateRootInstanceInput {
+func (s *CustomExtensionForCreateRootInstanceInput) SetCritical(v bool) *CustomExtensionForCreateRootInstanceInput {
 	s.Critical = &v
 	return s
 }
 
 // SetObjectIdentifier sets the ObjectIdentifier field's value.
-func (s *CustomExtensionsForCreateRootInstanceInput) SetObjectIdentifier(v string) *CustomExtensionsForCreateRootInstanceInput {
+func (s *CustomExtensionForCreateRootInstanceInput) SetObjectIdentifier(v string) *CustomExtensionForCreateRootInstanceInput {
 	s.ObjectIdentifier = &v
 	return s
 }
 
 // SetValue sets the Value field's value.
-func (s *CustomExtensionsForCreateRootInstanceInput) SetValue(v string) *CustomExtensionsForCreateRootInstanceInput {
+func (s *CustomExtensionForCreateRootInstanceInput) SetValue(v string) *CustomExtensionForCreateRootInstanceInput {
 	s.Value = &v
+	return s
+}
+
+// SetValueBytes sets the ValueBytes field's value.
+func (s *CustomExtensionForCreateRootInstanceInput) SetValueBytes(v string) *CustomExtensionForCreateRootInstanceInput {
+	s.ValueBytes = &v
 	return s
 }
 
@@ -502,7 +510,7 @@ func (s *ExtendedKeyUsagesForCreateRootInstanceInput) SetTimeStamping(v bool) *E
 type ExtensionsForCreateRootInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomExtensions *CustomExtensionsForCreateRootInstanceInput `type:"structure" json:",omitempty"`
+	CustomExtensions []*CustomExtensionForCreateRootInstanceInput `type:"list" json:",omitempty"`
 
 	ExtendedKeyUsages *ExtendedKeyUsagesForCreateRootInstanceInput `type:"structure" json:",omitempty"`
 
@@ -520,7 +528,7 @@ func (s ExtensionsForCreateRootInstanceInput) GoString() string {
 }
 
 // SetCustomExtensions sets the CustomExtensions field's value.
-func (s *ExtensionsForCreateRootInstanceInput) SetCustomExtensions(v *CustomExtensionsForCreateRootInstanceInput) *ExtensionsForCreateRootInstanceInput {
+func (s *ExtensionsForCreateRootInstanceInput) SetCustomExtensions(v []*CustomExtensionForCreateRootInstanceInput) *ExtensionsForCreateRootInstanceInput {
 	s.CustomExtensions = v
 	return s
 }

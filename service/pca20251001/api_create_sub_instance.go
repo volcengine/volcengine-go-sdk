@@ -435,7 +435,7 @@ func (s *CsrCommonForCreateSubInstanceInput) SetSubject(v *SubjectForCreateSubIn
 	return s
 }
 
-type CustomExtensionsForCreateSubInstanceInput struct {
+type CustomExtensionForCreateSubInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Critical *bool `type:"boolean" json:",omitempty"`
@@ -443,33 +443,41 @@ type CustomExtensionsForCreateSubInstanceInput struct {
 	ObjectIdentifier *string `type:"string" json:",omitempty"`
 
 	Value *string `type:"string" json:",omitempty"`
+
+	ValueBytes *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s CustomExtensionsForCreateSubInstanceInput) String() string {
+func (s CustomExtensionForCreateSubInstanceInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s CustomExtensionsForCreateSubInstanceInput) GoString() string {
+func (s CustomExtensionForCreateSubInstanceInput) GoString() string {
 	return s.String()
 }
 
 // SetCritical sets the Critical field's value.
-func (s *CustomExtensionsForCreateSubInstanceInput) SetCritical(v bool) *CustomExtensionsForCreateSubInstanceInput {
+func (s *CustomExtensionForCreateSubInstanceInput) SetCritical(v bool) *CustomExtensionForCreateSubInstanceInput {
 	s.Critical = &v
 	return s
 }
 
 // SetObjectIdentifier sets the ObjectIdentifier field's value.
-func (s *CustomExtensionsForCreateSubInstanceInput) SetObjectIdentifier(v string) *CustomExtensionsForCreateSubInstanceInput {
+func (s *CustomExtensionForCreateSubInstanceInput) SetObjectIdentifier(v string) *CustomExtensionForCreateSubInstanceInput {
 	s.ObjectIdentifier = &v
 	return s
 }
 
 // SetValue sets the Value field's value.
-func (s *CustomExtensionsForCreateSubInstanceInput) SetValue(v string) *CustomExtensionsForCreateSubInstanceInput {
+func (s *CustomExtensionForCreateSubInstanceInput) SetValue(v string) *CustomExtensionForCreateSubInstanceInput {
 	s.Value = &v
+	return s
+}
+
+// SetValueBytes sets the ValueBytes field's value.
+func (s *CustomExtensionForCreateSubInstanceInput) SetValueBytes(v string) *CustomExtensionForCreateSubInstanceInput {
+	s.ValueBytes = &v
 	return s
 }
 
@@ -538,7 +546,7 @@ func (s *ExtendedKeyUsagesForCreateSubInstanceInput) SetTimeStamping(v bool) *Ex
 type ExtensionsForCreateSubInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomExtensions *CustomExtensionsForCreateSubInstanceInput `type:"structure" json:",omitempty"`
+	CustomExtensions []*CustomExtensionForCreateSubInstanceInput `type:"list" json:",omitempty"`
 
 	ExtendedKeyUsages *ExtendedKeyUsagesForCreateSubInstanceInput `type:"structure" json:",omitempty"`
 
@@ -556,7 +564,7 @@ func (s ExtensionsForCreateSubInstanceInput) GoString() string {
 }
 
 // SetCustomExtensions sets the CustomExtensions field's value.
-func (s *ExtensionsForCreateSubInstanceInput) SetCustomExtensions(v *CustomExtensionsForCreateSubInstanceInput) *ExtensionsForCreateSubInstanceInput {
+func (s *ExtensionsForCreateSubInstanceInput) SetCustomExtensions(v []*CustomExtensionForCreateSubInstanceInput) *ExtensionsForCreateSubInstanceInput {
 	s.CustomExtensions = v
 	return s
 }
