@@ -32,6 +32,20 @@ func (s *StsProvider) Retrieve() (Value, error) {
 	if s.Timeout > 0 {
 		ins.Client.SetTimeout(s.Timeout)
 	}
+	// 仅当显式配置了代理/TLS 时才覆盖传输层：浅拷贝底层 http.Client 并只替换
+	// Transport，保留 _GlobalClient 的其余设置（连接池等），且不污染全局实例。
+	if transport, err := buildProxyTransport(ProxyConfig{
+		ProxyURL:           s.ProxyURL,
+		CAFile:             s.CAFile,
+		InsecureSkipVerify: s.InsecureSkipVerify,
+	}); err != nil {
+		return Value{}, err
+	} else if transport != nil {
+		httpClient := *ins.Client.Client
+		httpClient.Transport = transport
+		ins.Client.Client = &httpClient
+	}
+
 	if s.DurationSeconds < 900 {
 		return Value{}, fmt.Errorf("DurationSeconds must greater than 900 seconds ")
 	}
@@ -93,19 +107,22 @@ func NewStsCredentialsWithOptions(accessKey, securityKey, roleName, accountId st
 		fn(&opts)
 	}
 	cfg := StsAssumeRoleProvider{
-		AccessKey:       accessKey,
-		SecurityKey:     securityKey,
-		SessionToken:    opts.SessionToken,
-		RoleName:        roleName,
-		AccountId:       accountId,
-		Host:            opts.Host,
-		Region:          opts.Region,
-		Schema:          opts.Schema,
-		Timeout:         opts.Timeout,
-		DurationSeconds: opts.DurationSeconds,
-		Policy:          opts.Policy,
-		MaxRetries:      opts.MaxRetries,
-		RetryInterval:   opts.RetryInterval,
+		AccessKey:          accessKey,
+		SecurityKey:        securityKey,
+		SessionToken:       opts.SessionToken,
+		RoleName:           roleName,
+		AccountId:          accountId,
+		Host:               opts.Host,
+		Region:             opts.Region,
+		Schema:             opts.Schema,
+		Timeout:            opts.Timeout,
+		DurationSeconds:    opts.DurationSeconds,
+		Policy:             opts.Policy,
+		MaxRetries:         opts.MaxRetries,
+		RetryInterval:      opts.RetryInterval,
+		ProxyURL:           opts.ProxyURL,
+		CAFile:             opts.CAFile,
+		InsecureSkipVerify: opts.InsecureSkipVerify,
 	}
 	p := &StsProvider{
 		StsValue: StsValue(cfg),

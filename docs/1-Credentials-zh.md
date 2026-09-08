@@ -114,6 +114,9 @@ func main() {
 			//     o.Policy = `{"Statement":[...]}`  // session policy JSON
 			//     o.MaxRetries = 3                   // 重试次数；0 或负数回退到 DefaultRetryerMaxNumRetries（默认 3）
 			//     o.RetryInterval = 1 * time.Second // 重试间隔；<= 0 回退到 1s
+			//     o.ProxyURL = "http://user:pass@10.0.0.1:8080" // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
+			//     o.CAFile = "/path/to/ca.pem"      // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+			//     o.InsecureSkipVerify = false      // 跳过 STS TLS 证书校验，仅限联调（自签证书 / 代理拦截），生产禁用
 			// },
 		))
 
@@ -144,6 +147,9 @@ func main() {
 			// Policy: 可选的 session policy JSON，用于进一步收窄临时凭证的权限，例如：`{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`,
 			MaxRetries:    3,                 // 可选：AssumeRole 失败时的额外重试次数；0 或负数回退到 DefaultRetryerMaxNumRetries（默认 3）
 			RetryInterval: 1 * time.Second,   // 可选：重试间隔；<= 0 时回退到 1s
+			// ProxyURL:           "http://user:pass@10.0.0.1:8080", // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
+			// CAFile:             "/path/to/ca.pem",                // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+			// InsecureSkipVerify: false,                            // 可选：跳过 STS TLS 证书校验，仅限联调（自签证书 / 代理拦截），生产禁用
 		}))
 
 	sess, err := session.NewSession(config)
@@ -177,6 +183,9 @@ func main() {
 			// o.DurationSeconds = 3600                       // 有效期，默认 3600
 			// o.MaxRetries = volcengine.Int(3)               // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
 			// o.RetryInterval = 1 * time.Second              // 可选：重试间隔；<= 0 时回退到 1s
+			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"  // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
+			// o.CAFile = "/path/to/ca.pem"                   // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+			// o.InsecureSkipVerify = false                   // 可选：跳过 STS TLS 证书校验，仅限联调，生产禁用
 		},
 	)
 
@@ -213,6 +222,9 @@ func main() {
 		DurationSeconds:   3600,                       // 有效期
 		MaxRetries:        volcengine.Int(3),          // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
 		RetryInterval:     1 * time.Second,            // 可选：重试间隔；<= 0 时回退到 1s
+		// ProxyURL:           "http://user:pass@10.0.0.1:8080", // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
+		// CAFile:             "/path/to/ca.pem",                // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+		// InsecureSkipVerify: false,                            // 可选：跳过 STS TLS 证书校验，仅限联调，生产禁用
 	}
 
 	config := volcengine.NewConfig().
@@ -263,6 +275,9 @@ func main() {
 			// o.DurationSeconds = 3600                                 // 有效期，默认 3600
 			// o.MaxRetries = volcengine.Int(3)                         // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
 			// o.RetryInterval = 1 * time.Second                        // 可选：重试间隔；<= 0 时回退到 1s
+			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"            // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
+			// o.CAFile = "/path/to/ca.pem"                             // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+			// o.InsecureSkipVerify = false                             // 可选：跳过 STS TLS 证书校验，仅限联调，生产禁用
 		},
 	)
 
@@ -299,6 +314,9 @@ func main() {
 	p.DurationSeconds = 3600
 	p.MaxRetries = volcengine.Int(3)  // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
 	p.RetryInterval = 1 * time.Second // 可选：重试间隔；<= 0 时回退到 1s
+	// p.ProxyURL = "http://user:pass@10.0.0.1:8080" // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
+	// p.CAFile = "/path/to/ca.pem"                  // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+	// p.InsecureSkipVerify = false                  // 可选：跳过 STS TLS 证书校验，仅限联调，生产禁用
 
 	config := volcengine.NewConfig().
 		WithRegion("cn-beijing").

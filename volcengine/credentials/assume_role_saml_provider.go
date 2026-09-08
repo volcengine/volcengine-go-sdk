@@ -2,7 +2,6 @@ package credentials
 
 import (
 	"fmt"
-	"net/http"
 	"net/url"
 	"time"
 
@@ -41,6 +40,16 @@ type SAMLCredentialsProvider struct {
 	expirationTimestamp int64
 	sessionValue        *Value
 	httpOptions         *HttpOptions
+	// ProxyURL 指定访问 STS 端点时使用的正向代理地址，格式
+	// scheme://[user:password@]host:port。留空时回退到环境变量
+	// HTTP_PROXY / HTTPS_PROXY / NO_PROXY。
+	ProxyURL string
+	// CAFile 指定用于校验 STS 服务端证书的自定义 CA 证书文件路径（PEM 格式）。
+	// 留空时使用操作系统默认根证书信任库。
+	CAFile string
+	// InsecureSkipVerify 控制是否跳过 STS 服务端 TLS 证书校验。
+	// 仅限联调（如自签证书 / 代理拦截），生产环境禁用，会导致中间人攻击风险。
+	InsecureSkipVerify bool
 }
 
 // SAMLProviderOptions contains optional configuration for SAMLCredentialsProvider.
@@ -52,6 +61,12 @@ type SAMLProviderOptions struct {
 	MaxRetries      *int
 	RetryInterval   time.Duration
 	HttpOptions     *HttpOptions
+	// ProxyURL 正向代理地址，格式 scheme://[user:password@]host:port。
+	ProxyURL string
+	// CAFile 自定义 CA 证书文件路径（PEM 格式）。
+	CAFile string
+	// InsecureSkipVerify 跳过 TLS 证书校验，仅限联调，生产禁用。
+	InsecureSkipVerify bool
 }
 
 // NewSAMLCredentialsProviderWithOptions constructs a SAMLCredentialsProvider
@@ -66,16 +81,19 @@ func NewSAMLCredentialsProviderWithOptions(roleTrn, samlProviderTrn, samlAsserti
 		fn(&opts)
 	}
 	return &SAMLCredentialsProvider{
-		RoleTrn:         roleTrn,
-		SAMLProviderTrn: samlProviderTrn,
-		SAMLAssertion:   samlAssertion,
-		DurationSeconds: opts.DurationSeconds,
-		Policy:          opts.Policy,
-		Schema:          opts.Schema,
-		Endpoint:        opts.Endpoint,
-		MaxRetries:      opts.MaxRetries,
-		RetryInterval:   opts.RetryInterval,
-		httpOptions:     opts.HttpOptions,
+		RoleTrn:            roleTrn,
+		SAMLProviderTrn:    samlProviderTrn,
+		SAMLAssertion:      samlAssertion,
+		DurationSeconds:    opts.DurationSeconds,
+		Policy:             opts.Policy,
+		Schema:             opts.Schema,
+		Endpoint:           opts.Endpoint,
+		MaxRetries:         opts.MaxRetries,
+		RetryInterval:      opts.RetryInterval,
+		httpOptions:        opts.HttpOptions,
+		ProxyURL:           opts.ProxyURL,
+		CAFile:             opts.CAFile,
+		InsecureSkipVerify: opts.InsecureSkipVerify,
 	}
 }
 
@@ -124,11 +142,17 @@ func (p *SAMLCredentialsProvider) fetchOnce() (Value, error) {
 		scheme = p.Schema
 	}
 
-	var client *http.Client
+	var timeout time.Duration
 	if p.httpOptions != nil {
-		client = &http.Client{Timeout: p.httpOptions.Timeout}
-	} else {
-		client = &http.Client{}
+		timeout = p.httpOptions.Timeout
+	}
+	client, err := buildProxyHTTPClient(ProxyConfig{
+		ProxyURL:           p.ProxyURL,
+		CAFile:             p.CAFile,
+		InsecureSkipVerify: p.InsecureSkipVerify,
+	}, timeout)
+	if err != nil {
+		return Value{}, err
 	}
 
 	var stsResp AssumeRoleWithSAMLResponse
