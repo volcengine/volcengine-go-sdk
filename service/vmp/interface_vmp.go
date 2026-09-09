@@ -46,6 +46,22 @@ type VMPAPI interface {
 	CreateAlertingRuleWithContext(volcengine.Context, *CreateAlertingRuleInput, ...request.Option) (*CreateAlertingRuleOutput, error)
 	CreateAlertingRuleRequest(*CreateAlertingRuleInput) (*request.Request, *CreateAlertingRuleOutput)
 
+	CreateAlertingRuleGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAlertingRuleGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAlertingRuleGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAlertingRuleGroup(*CreateAlertingRuleGroupInput) (*CreateAlertingRuleGroupOutput, error)
+	CreateAlertingRuleGroupWithContext(volcengine.Context, *CreateAlertingRuleGroupInput, ...request.Option) (*CreateAlertingRuleGroupOutput, error)
+	CreateAlertingRuleGroupRequest(*CreateAlertingRuleGroupInput) (*request.Request, *CreateAlertingRuleGroupOutput)
+
+	CreateAlertingRuleTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAlertingRuleTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAlertingRuleTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAlertingRuleTemplate(*CreateAlertingRuleTemplateInput) (*CreateAlertingRuleTemplateOutput, error)
+	CreateAlertingRuleTemplateWithContext(volcengine.Context, *CreateAlertingRuleTemplateInput, ...request.Option) (*CreateAlertingRuleTemplateOutput, error)
+	CreateAlertingRuleTemplateRequest(*CreateAlertingRuleTemplateInput) (*request.Request, *CreateAlertingRuleTemplateOutput)
+
 	CreateContactCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateContactCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateContactCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +149,22 @@ type VMPAPI interface {
 	DeleteAggregateWorkspace(*DeleteAggregateWorkspaceInput) (*DeleteAggregateWorkspaceOutput, error)
 	DeleteAggregateWorkspaceWithContext(volcengine.Context, *DeleteAggregateWorkspaceInput, ...request.Option) (*DeleteAggregateWorkspaceOutput, error)
 	DeleteAggregateWorkspaceRequest(*DeleteAggregateWorkspaceInput) (*request.Request, *DeleteAggregateWorkspaceOutput)
+
+	DeleteAlertingRuleGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAlertingRuleGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAlertingRuleGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAlertingRuleGroup(*DeleteAlertingRuleGroupInput) (*DeleteAlertingRuleGroupOutput, error)
+	DeleteAlertingRuleGroupWithContext(volcengine.Context, *DeleteAlertingRuleGroupInput, ...request.Option) (*DeleteAlertingRuleGroupOutput, error)
+	DeleteAlertingRuleGroupRequest(*DeleteAlertingRuleGroupInput) (*request.Request, *DeleteAlertingRuleGroupOutput)
+
+	DeleteAlertingRuleTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAlertingRuleTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAlertingRuleTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAlertingRuleTemplate(*DeleteAlertingRuleTemplateInput) (*DeleteAlertingRuleTemplateOutput, error)
+	DeleteAlertingRuleTemplateWithContext(volcengine.Context, *DeleteAlertingRuleTemplateInput, ...request.Option) (*DeleteAlertingRuleTemplateOutput, error)
+	DeleteAlertingRuleTemplateRequest(*DeleteAlertingRuleTemplateInput) (*request.Request, *DeleteAlertingRuleTemplateOutput)
 
 	DeleteAlertingRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAlertingRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -294,6 +326,14 @@ type VMPAPI interface {
 	GetAlertingRuleWithContext(volcengine.Context, *GetAlertingRuleInput, ...request.Option) (*GetAlertingRuleOutput, error)
 	GetAlertingRuleRequest(*GetAlertingRuleInput) (*request.Request, *GetAlertingRuleOutput)
 
+	GetAlertingRuleTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAlertingRuleTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAlertingRuleTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAlertingRuleTemplate(*GetAlertingRuleTemplateInput) (*GetAlertingRuleTemplateOutput, error)
+	GetAlertingRuleTemplateWithContext(volcengine.Context, *GetAlertingRuleTemplateInput, ...request.Option) (*GetAlertingRuleTemplateOutput, error)
+	GetAlertingRuleTemplateRequest(*GetAlertingRuleTemplateInput) (*request.Request, *GetAlertingRuleTemplateOutput)
+
 	GetContactCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetContactCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetContactCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -373,6 +413,22 @@ type VMPAPI interface {
 	ListAlertSamples(*ListAlertSamplesInput) (*ListAlertSamplesOutput, error)
 	ListAlertSamplesWithContext(volcengine.Context, *ListAlertSamplesInput, ...request.Option) (*ListAlertSamplesOutput, error)
 	ListAlertSamplesRequest(*ListAlertSamplesInput) (*request.Request, *ListAlertSamplesOutput)
+
+	ListAlertingRuleGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAlertingRuleGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAlertingRuleGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAlertingRuleGroups(*ListAlertingRuleGroupsInput) (*ListAlertingRuleGroupsOutput, error)
+	ListAlertingRuleGroupsWithContext(volcengine.Context, *ListAlertingRuleGroupsInput, ...request.Option) (*ListAlertingRuleGroupsOutput, error)
+	ListAlertingRuleGroupsRequest(*ListAlertingRuleGroupsInput) (*request.Request, *ListAlertingRuleGroupsOutput)
+
+	ListAlertingRuleTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAlertingRuleTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAlertingRuleTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAlertingRuleTemplates(*ListAlertingRuleTemplatesInput) (*ListAlertingRuleTemplatesOutput, error)
+	ListAlertingRuleTemplatesWithContext(volcengine.Context, *ListAlertingRuleTemplatesInput, ...request.Option) (*ListAlertingRuleTemplatesOutput, error)
+	ListAlertingRuleTemplatesRequest(*ListAlertingRuleTemplatesInput) (*request.Request, *ListAlertingRuleTemplatesOutput)
 
 	ListAlertingRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAlertingRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -542,6 +598,14 @@ type VMPAPI interface {
 	TestWebhookWithContext(volcengine.Context, *TestWebhookInput, ...request.Option) (*TestWebhookOutput, error)
 	TestWebhookRequest(*TestWebhookInput) (*request.Request, *TestWebhookOutput)
 
+	UnbindAlertingRuleGroupTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnbindAlertingRuleGroupTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnbindAlertingRuleGroupTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnbindAlertingRuleGroupTemplate(*UnbindAlertingRuleGroupTemplateInput) (*UnbindAlertingRuleGroupTemplateOutput, error)
+	UnbindAlertingRuleGroupTemplateWithContext(volcengine.Context, *UnbindAlertingRuleGroupTemplateInput, ...request.Option) (*UnbindAlertingRuleGroupTemplateOutput, error)
+	UnbindAlertingRuleGroupTemplateRequest(*UnbindAlertingRuleGroupTemplateInput) (*request.Request, *UnbindAlertingRuleGroupTemplateOutput)
+
 	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -565,6 +629,22 @@ type VMPAPI interface {
 	UpdateAlertingRule(*UpdateAlertingRuleInput) (*UpdateAlertingRuleOutput, error)
 	UpdateAlertingRuleWithContext(volcengine.Context, *UpdateAlertingRuleInput, ...request.Option) (*UpdateAlertingRuleOutput, error)
 	UpdateAlertingRuleRequest(*UpdateAlertingRuleInput) (*request.Request, *UpdateAlertingRuleOutput)
+
+	UpdateAlertingRuleGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAlertingRuleGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAlertingRuleGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAlertingRuleGroup(*UpdateAlertingRuleGroupInput) (*UpdateAlertingRuleGroupOutput, error)
+	UpdateAlertingRuleGroupWithContext(volcengine.Context, *UpdateAlertingRuleGroupInput, ...request.Option) (*UpdateAlertingRuleGroupOutput, error)
+	UpdateAlertingRuleGroupRequest(*UpdateAlertingRuleGroupInput) (*request.Request, *UpdateAlertingRuleGroupOutput)
+
+	UpdateAlertingRuleTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAlertingRuleTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAlertingRuleTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAlertingRuleTemplate(*UpdateAlertingRuleTemplateInput) (*UpdateAlertingRuleTemplateOutput, error)
+	UpdateAlertingRuleTemplateWithContext(volcengine.Context, *UpdateAlertingRuleTemplateInput, ...request.Option) (*UpdateAlertingRuleTemplateOutput, error)
+	UpdateAlertingRuleTemplateRequest(*UpdateAlertingRuleTemplateInput) (*request.Request, *UpdateAlertingRuleTemplateOutput)
 
 	UpdateContactCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateContactCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -645,6 +725,14 @@ type VMPAPI interface {
 	UpdateWorkspace(*UpdateWorkspaceInput) (*UpdateWorkspaceOutput, error)
 	UpdateWorkspaceWithContext(volcengine.Context, *UpdateWorkspaceInput, ...request.Option) (*UpdateWorkspaceOutput, error)
 	UpdateWorkspaceRequest(*UpdateWorkspaceInput) (*request.Request, *UpdateWorkspaceOutput)
+
+	UpgradeAlertingRuleGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpgradeAlertingRuleGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpgradeAlertingRuleGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpgradeAlertingRuleGroups(*UpgradeAlertingRuleGroupsInput) (*UpgradeAlertingRuleGroupsOutput, error)
+	UpgradeAlertingRuleGroupsWithContext(volcengine.Context, *UpgradeAlertingRuleGroupsInput, ...request.Option) (*UpgradeAlertingRuleGroupsOutput, error)
+	UpgradeAlertingRuleGroupsRequest(*UpgradeAlertingRuleGroupsInput) (*request.Request, *UpgradeAlertingRuleGroupsOutput)
 }
 
 var _ VMPAPI = (*VMP)(nil)
