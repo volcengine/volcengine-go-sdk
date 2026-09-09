@@ -247,6 +247,8 @@ type DataForListCustomBotConfigOutput struct {
 	RuleTag *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
+
+	VerificationExemptionTime *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -310,6 +312,12 @@ func (s *DataForListCustomBotConfigOutput) SetRuleTag(v string) *DataForListCust
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DataForListCustomBotConfigOutput) SetUpdateTime(v string) *DataForListCustomBotConfigOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetVerificationExemptionTime sets the VerificationExemptionTime field's value.
+func (s *DataForListCustomBotConfigOutput) SetVerificationExemptionTime(v int32) *DataForListCustomBotConfigOutput {
+	s.VerificationExemptionTime = &v
 	return s
 }
 
