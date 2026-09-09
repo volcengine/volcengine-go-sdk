@@ -36,11 +36,31 @@ func (cfg ProxyConfig) IsZero() bool {
 	return cfg.ProxyURL == "" && cfg.CAFile == "" && !cfg.InsecureSkipVerify
 }
 
+// newDefaultProxyTransport 克隆 http.DefaultTransport 并叠加 SDK 的连接池调优。
+//
+// 直接 new 一个仅设置少量字段的 &http.Transport{} 会丢失标准库的关键默认值
+// （DialContext 拨号超时、TLSHandshakeTimeout、ExpectContinueTimeout、
+// ForceAttemptHTTP2 等）。特别是一旦显式设置了非 nil 的 TLSClientConfig，
+// 若 ForceAttemptHTTP2 未置真，net/http 将不再自动协商 HTTP/2 而静默降级到
+// HTTP/1.1。因此这里以 Clone() 为基准，既保留标准库默认，又只覆盖需要定制的
+// 连接池参数（代理与 TLS 由调用方在此基础上覆盖）。
+func newDefaultProxyTransport() *http.Transport {
+	transport := http.DefaultTransport.(*http.Transport).Clone()
+	transport.MaxIdleConns = 1000
+	transport.MaxIdleConnsPerHost = 100
+	transport.IdleConnTimeout = 10 * time.Second
+	return transport
+}
+
 // buildProxyTransport 根据代理与 TLS 配置构建 *http.Transport。
 //
 // 仅当 cfg 中至少显式配置了一项（ProxyURL / CAFile / InsecureSkipVerify）
 // 时才返回非 nil 的 transport；三者全空时返回 (nil, nil)，由调用方保留
 // 原有传输层配置。
+//
+// transport 以 http.DefaultTransport.Clone() 为基准，保留标准库的超时与
+// 协议默认值（TLSHandshakeTimeout / ExpectContinueTimeout / ForceAttemptHTTP2
+// 等），再覆盖代理与 TLS，避免出现握手挂起或 HTTP/2 静默降级。
 //
 // 代理优先级：
 //  1. 若 cfg.ProxyURL 非空，则使用该地址作为 HTTP/HTTPS 代理；
@@ -71,6 +91,9 @@ func buildProxyTransport(cfg ProxyConfig) (*http.Transport, error) {
 		if err != nil {
 			return nil, fmt.Errorf("read CAFile %q: %w", cfg.CAFile, err)
 		}
+		// 显式指定 CAFile 时以该 CA 单独构建信任池（不追加系统根证书），
+		// 与对外契约“设置后以此 CA 校验、留空才用系统信任库”保持一致；
+		// 这正是代理做 TLS 拦截、用私有 CA 重签证书场景所需的语义。
 		pool := x509.NewCertPool()
 		if !pool.AppendCertsFromPEM(pemBytes) {
 			return nil, fmt.Errorf("append CA cert from %q failed", cfg.CAFile)
@@ -78,13 +101,10 @@ func buildProxyTransport(cfg ProxyConfig) (*http.Transport, error) {
 		tlsCfg.RootCAs = pool
 	}
 
-	return &http.Transport{
-		Proxy:               proxyFunc,
-		TLSClientConfig:     tlsCfg,
-		MaxIdleConns:        1000,
-		MaxIdleConnsPerHost: 100,
-		IdleConnTimeout:     10 * time.Second,
-	}, nil
+	transport := newDefaultProxyTransport()
+	transport.Proxy = proxyFunc
+	transport.TLSClientConfig = tlsCfg
+	return transport, nil
 }
 
 // buildProxyHTTPClient 根据代理与 TLS 配置构建独立的 *http.Client。
@@ -100,15 +120,12 @@ func buildProxyHTTPClient(cfg ProxyConfig, timeout time.Duration) (*http.Client,
 		return nil, err
 	}
 	if transport == nil {
-		// cfg 为空时也需要一个可用 transport（含连接池与环境变量代理回退），
-		// 并保留一个默认 TLS 配置以维持原有行为。
-		transport = &http.Transport{
-			Proxy:               http.ProxyFromEnvironment,
-			TLSClientConfig:     &tls.Config{},
-			MaxIdleConns:        1000,
-			MaxIdleConnsPerHost: 100,
-			IdleConnTimeout:     10 * time.Second,
-		}
+		// cfg 为空时也需要一个可用 transport（含连接池与环境变量代理回退）。
+		// 同样以 http.DefaultTransport.Clone() 为基准，保留标准库超时与 HTTP/2
+		// 默认，仅显式设置代理回退与一个默认 TLS 配置以维持原有行为。
+		transport = newDefaultProxyTransport()
+		transport.Proxy = http.ProxyFromEnvironment
+		transport.TLSClientConfig = &tls.Config{}
 	}
 
 	client := &http.Client{Transport: transport}
