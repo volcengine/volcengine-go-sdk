@@ -143,33 +143,33 @@ func (c *TIDB) UpdateClusterWithContext(ctx volcengine.Context, input *UpdateClu
 	return out, req.Send()
 }
 
-type AlicloudForUpdateClusterInput struct {
+type AnnotationForUpdateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AvailabilityZone []*string `type:"list"`
+	Key *string `type:"string" json:",omitempty"`
 
-	ServiceName *string `type:"string" json:",omitempty"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s AlicloudForUpdateClusterInput) String() string {
+func (s AnnotationForUpdateClusterInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AlicloudForUpdateClusterInput) GoString() string {
+func (s AnnotationForUpdateClusterInput) GoString() string {
 	return s.String()
 }
 
-// SetAvailabilityZone sets the AvailabilityZone field's value.
-func (s *AlicloudForUpdateClusterInput) SetAvailabilityZone(v []*string) *AlicloudForUpdateClusterInput {
-	s.AvailabilityZone = v
+// SetKey sets the Key field's value.
+func (s *AnnotationForUpdateClusterInput) SetKey(v string) *AnnotationForUpdateClusterInput {
+	s.Key = &v
 	return s
 }
 
-// SetServiceName sets the ServiceName field's value.
-func (s *AlicloudForUpdateClusterInput) SetServiceName(v string) *AlicloudForUpdateClusterInput {
-	s.ServiceName = &v
+// SetValue sets the Value field's value.
+func (s *AnnotationForUpdateClusterInput) SetValue(v string) *AnnotationForUpdateClusterInput {
+	s.Value = &v
 	return s
 }
 
@@ -208,9 +208,11 @@ type AuthorizedNetworkForUpdateClusterInput struct {
 
 	DisplayName *string `type:"string" json:",omitempty"`
 
-	EndIpAddress *string `type:"string" json:",omitempty"`
+	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
-	StartIpAddress *string `type:"string" json:",omitempty"`
+	VpcEndpointId *string `type:"string" json:",omitempty"`
+
+	VpcEndpointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -229,15 +231,21 @@ func (s *AuthorizedNetworkForUpdateClusterInput) SetDisplayName(v string) *Autho
 	return s
 }
 
-// SetEndIpAddress sets the EndIpAddress field's value.
-func (s *AuthorizedNetworkForUpdateClusterInput) SetEndIpAddress(v string) *AuthorizedNetworkForUpdateClusterInput {
-	s.EndIpAddress = &v
+// SetSecurityGroupCount sets the SecurityGroupCount field's value.
+func (s *AuthorizedNetworkForUpdateClusterInput) SetSecurityGroupCount(v int32) *AuthorizedNetworkForUpdateClusterInput {
+	s.SecurityGroupCount = &v
 	return s
 }
 
-// SetStartIpAddress sets the StartIpAddress field's value.
-func (s *AuthorizedNetworkForUpdateClusterInput) SetStartIpAddress(v string) *AuthorizedNetworkForUpdateClusterInput {
-	s.StartIpAddress = &v
+// SetVpcEndpointId sets the VpcEndpointId field's value.
+func (s *AuthorizedNetworkForUpdateClusterInput) SetVpcEndpointId(v string) *AuthorizedNetworkForUpdateClusterInput {
+	s.VpcEndpointId = &v
+	return s
+}
+
+// SetVpcEndpointName sets the VpcEndpointName field's value.
+func (s *AuthorizedNetworkForUpdateClusterInput) SetVpcEndpointName(v string) *AuthorizedNetworkForUpdateClusterInput {
+	s.VpcEndpointName = &v
 	return s
 }
 
@@ -301,40 +309,10 @@ func (s *AutomatedBackupPolicyForUpdateClusterInput) SetStartTime(v string) *Aut
 	return s
 }
 
-type AwsForUpdateClusterInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AvailabilityZone []*string `type:"list"`
-
-	ServiceName *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AwsForUpdateClusterInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AwsForUpdateClusterInput) GoString() string {
-	return s.String()
-}
-
-// SetAvailabilityZone sets the AvailabilityZone field's value.
-func (s *AwsForUpdateClusterInput) SetAvailabilityZone(v []*string) *AwsForUpdateClusterInput {
-	s.AvailabilityZone = v
-	return s
-}
-
-// SetServiceName sets the ServiceName field's value.
-func (s *AwsForUpdateClusterInput) SetServiceName(v string) *AwsForUpdateClusterInput {
-	s.ServiceName = &v
-	return s
-}
-
 type ClusterForUpdateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Annotations *string `type:"string" json:",omitempty"`
+	Annotations []*AnnotationForUpdateClusterInput `type:"list"`
 
 	AuditLogConfig *AuditLogConfigForUpdateClusterInput `type:"structure" json:",omitempty"`
 
@@ -354,7 +332,7 @@ type ClusterForUpdateClusterInput struct {
 
 	HighAvailabilityType *string `type:"string" json:",omitempty" enum:"EnumOfHighAvailabilityTypeForUpdateClusterInput"`
 
-	Labels *string `type:"string" json:",omitempty"`
+	Labels []*LabelForUpdateClusterInput `type:"list"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -367,6 +345,8 @@ type ClusterForUpdateClusterInput struct {
 	SpendingLimit *SpendingLimitForUpdateClusterInput `type:"structure" json:",omitempty"`
 
 	State *string `type:"string" json:",omitempty" enum:"EnumOfStateForUpdateClusterInput"`
+
+	Tags []*TagForUpdateClusterInput `type:"list"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 
@@ -390,8 +370,8 @@ func (s ClusterForUpdateClusterInput) GoString() string {
 }
 
 // SetAnnotations sets the Annotations field's value.
-func (s *ClusterForUpdateClusterInput) SetAnnotations(v string) *ClusterForUpdateClusterInput {
-	s.Annotations = &v
+func (s *ClusterForUpdateClusterInput) SetAnnotations(v []*AnnotationForUpdateClusterInput) *ClusterForUpdateClusterInput {
+	s.Annotations = v
 	return s
 }
 
@@ -450,8 +430,8 @@ func (s *ClusterForUpdateClusterInput) SetHighAvailabilityType(v string) *Cluste
 }
 
 // SetLabels sets the Labels field's value.
-func (s *ClusterForUpdateClusterInput) SetLabels(v string) *ClusterForUpdateClusterInput {
-	s.Labels = &v
+func (s *ClusterForUpdateClusterInput) SetLabels(v []*LabelForUpdateClusterInput) *ClusterForUpdateClusterInput {
+	s.Labels = v
 	return s
 }
 
@@ -491,6 +471,12 @@ func (s *ClusterForUpdateClusterInput) SetState(v string) *ClusterForUpdateClust
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ClusterForUpdateClusterInput) SetTags(v []*TagForUpdateClusterInput) *ClusterForUpdateClusterInput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ClusterForUpdateClusterInput) SetUpdateTime(v string) *ClusterForUpdateClusterInput {
 	s.UpdateTime = &v
@@ -518,6 +504,44 @@ func (s *ClusterForUpdateClusterInput) SetVpcId(v string) *ClusterForUpdateClust
 // SetZones sets the Zones field's value.
 func (s *ClusterForUpdateClusterInput) SetZones(v []*ZoneForUpdateClusterInput) *ClusterForUpdateClusterInput {
 	s.Zones = v
+	return s
+}
+
+type ConvertAuthorizedNetworkForUpdateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DisplayName *string `type:"string" json:",omitempty"`
+
+	EndIpAddress *string `type:"string" json:",omitempty"`
+
+	StartIpAddress *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertAuthorizedNetworkForUpdateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertAuthorizedNetworkForUpdateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *ConvertAuthorizedNetworkForUpdateClusterInput) SetDisplayName(v string) *ConvertAuthorizedNetworkForUpdateClusterInput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetEndIpAddress sets the EndIpAddress field's value.
+func (s *ConvertAuthorizedNetworkForUpdateClusterInput) SetEndIpAddress(v string) *ConvertAuthorizedNetworkForUpdateClusterInput {
+	s.EndIpAddress = &v
+	return s
+}
+
+// SetStartIpAddress sets the StartIpAddress field's value.
+func (s *ConvertAuthorizedNetworkForUpdateClusterInput) SetStartIpAddress(v string) *ConvertAuthorizedNetworkForUpdateClusterInput {
+	s.StartIpAddress = &v
 	return s
 }
 
@@ -573,16 +597,54 @@ func (s *EndpointsForUpdateClusterInput) SetPublicEndpoint(v *PublicEndpointForU
 	return s
 }
 
+type LabelForUpdateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LabelForUpdateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LabelForUpdateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *LabelForUpdateClusterInput) SetKey(v string) *LabelForUpdateClusterInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *LabelForUpdateClusterInput) SetValue(v string) *LabelForUpdateClusterInput {
+	s.Value = &v
+	return s
+}
+
 type PrivateEndpointForUpdateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Alicloud *AlicloudForUpdateClusterInput `type:"structure" json:",omitempty"`
+	AuthorizedNetworks []*AuthorizedNetworkForUpdateClusterInput `type:"list"`
 
-	Aws *AwsForUpdateClusterInput `type:"structure" json:",omitempty"`
+	Disabled *bool `type:"boolean" json:",omitempty"`
 
 	Host *string `type:"string" json:",omitempty"`
 
 	Port *int32 `type:"int32" json:",omitempty"`
+
+	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
+
+	ServiceName *string `type:"string" json:",omitempty"`
+
+	VpcEndpointId *string `type:"string" json:",omitempty"`
+
+	VpcEndpointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -595,15 +657,15 @@ func (s PrivateEndpointForUpdateClusterInput) GoString() string {
 	return s.String()
 }
 
-// SetAlicloud sets the Alicloud field's value.
-func (s *PrivateEndpointForUpdateClusterInput) SetAlicloud(v *AlicloudForUpdateClusterInput) *PrivateEndpointForUpdateClusterInput {
-	s.Alicloud = v
+// SetAuthorizedNetworks sets the AuthorizedNetworks field's value.
+func (s *PrivateEndpointForUpdateClusterInput) SetAuthorizedNetworks(v []*AuthorizedNetworkForUpdateClusterInput) *PrivateEndpointForUpdateClusterInput {
+	s.AuthorizedNetworks = v
 	return s
 }
 
-// SetAws sets the Aws field's value.
-func (s *PrivateEndpointForUpdateClusterInput) SetAws(v *AwsForUpdateClusterInput) *PrivateEndpointForUpdateClusterInput {
-	s.Aws = v
+// SetDisabled sets the Disabled field's value.
+func (s *PrivateEndpointForUpdateClusterInput) SetDisabled(v bool) *PrivateEndpointForUpdateClusterInput {
+	s.Disabled = &v
 	return s
 }
 
@@ -619,10 +681,34 @@ func (s *PrivateEndpointForUpdateClusterInput) SetPort(v int32) *PrivateEndpoint
 	return s
 }
 
+// SetSecurityGroupCount sets the SecurityGroupCount field's value.
+func (s *PrivateEndpointForUpdateClusterInput) SetSecurityGroupCount(v int32) *PrivateEndpointForUpdateClusterInput {
+	s.SecurityGroupCount = &v
+	return s
+}
+
+// SetServiceName sets the ServiceName field's value.
+func (s *PrivateEndpointForUpdateClusterInput) SetServiceName(v string) *PrivateEndpointForUpdateClusterInput {
+	s.ServiceName = &v
+	return s
+}
+
+// SetVpcEndpointId sets the VpcEndpointId field's value.
+func (s *PrivateEndpointForUpdateClusterInput) SetVpcEndpointId(v string) *PrivateEndpointForUpdateClusterInput {
+	s.VpcEndpointId = &v
+	return s
+}
+
+// SetVpcEndpointName sets the VpcEndpointName field's value.
+func (s *PrivateEndpointForUpdateClusterInput) SetVpcEndpointName(v string) *PrivateEndpointForUpdateClusterInput {
+	s.VpcEndpointName = &v
+	return s
+}
+
 type PublicEndpointForUpdateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthorizedNetworks []*AuthorizedNetworkForUpdateClusterInput `type:"list"`
+	AuthorizedNetworks []*ConvertAuthorizedNetworkForUpdateClusterInput `type:"list"`
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
@@ -642,7 +728,7 @@ func (s PublicEndpointForUpdateClusterInput) GoString() string {
 }
 
 // SetAuthorizedNetworks sets the AuthorizedNetworks field's value.
-func (s *PublicEndpointForUpdateClusterInput) SetAuthorizedNetworks(v []*AuthorizedNetworkForUpdateClusterInput) *PublicEndpointForUpdateClusterInput {
+func (s *PublicEndpointForUpdateClusterInput) SetAuthorizedNetworks(v []*ConvertAuthorizedNetworkForUpdateClusterInput) *PublicEndpointForUpdateClusterInput {
 	s.AuthorizedNetworks = v
 	return s
 }
@@ -684,6 +770,36 @@ func (s SpendingLimitForUpdateClusterInput) GoString() string {
 // SetMonthly sets the Monthly field's value.
 func (s *SpendingLimitForUpdateClusterInput) SetMonthly(v int32) *SpendingLimitForUpdateClusterInput {
 	s.Monthly = &v
+	return s
+}
+
+type TagForUpdateClusterInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForUpdateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForUpdateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForUpdateClusterInput) SetKey(v string) *TagForUpdateClusterInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForUpdateClusterInput) SetValue(v string) *TagForUpdateClusterInput {
+	s.Value = &v
 	return s
 }
 

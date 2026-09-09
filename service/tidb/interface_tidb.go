@@ -134,6 +134,14 @@ type TIDBAPI interface {
 	DeletePrivateEndpointAllowlistRuleWithContext(volcengine.Context, *DeletePrivateEndpointAllowlistRuleInput, ...request.Option) (*DeletePrivateEndpointAllowlistRuleOutput, error)
 	DeletePrivateEndpointAllowlistRuleRequest(*DeletePrivateEndpointAllowlistRuleInput) (*request.Request, *DeletePrivateEndpointAllowlistRuleOutput)
 
+	DeleteRecycledInstanceBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteRecycledInstanceBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteRecycledInstanceBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteRecycledInstanceBackup(*DeleteRecycledInstanceBackupInput) (*DeleteRecycledInstanceBackupOutput, error)
+	DeleteRecycledInstanceBackupWithContext(volcengine.Context, *DeleteRecycledInstanceBackupInput, ...request.Option) (*DeleteRecycledInstanceBackupOutput, error)
+	DeleteRecycledInstanceBackupRequest(*DeleteRecycledInstanceBackupInput) (*request.Request, *DeleteRecycledInstanceBackupOutput)
+
 	DescribePriceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribePriceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribePriceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -213,6 +221,14 @@ type TIDBAPI interface {
 	GetPrivateEndpointAllowlistRule(*GetPrivateEndpointAllowlistRuleInput) (*GetPrivateEndpointAllowlistRuleOutput, error)
 	GetPrivateEndpointAllowlistRuleWithContext(volcengine.Context, *GetPrivateEndpointAllowlistRuleInput, ...request.Option) (*GetPrivateEndpointAllowlistRuleOutput, error)
 	GetPrivateEndpointAllowlistRuleRequest(*GetPrivateEndpointAllowlistRuleInput) (*request.Request, *GetPrivateEndpointAllowlistRuleOutput)
+
+	GetRecycledInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetRecycledInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetRecycledInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetRecycledInstance(*GetRecycledInstanceInput) (*GetRecycledInstanceOutput, error)
+	GetRecycledInstanceWithContext(volcengine.Context, *GetRecycledInstanceInput, ...request.Option) (*GetRecycledInstanceOutput, error)
+	GetRecycledInstanceRequest(*GetRecycledInstanceInput) (*request.Request, *GetRecycledInstanceOutput)
 
 	GetRestoreProgressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetRestoreProgressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -325,6 +341,22 @@ type TIDBAPI interface {
 	ListPrivateEndpointAllowlist(*ListPrivateEndpointAllowlistInput) (*ListPrivateEndpointAllowlistOutput, error)
 	ListPrivateEndpointAllowlistWithContext(volcengine.Context, *ListPrivateEndpointAllowlistInput, ...request.Option) (*ListPrivateEndpointAllowlistOutput, error)
 	ListPrivateEndpointAllowlistRequest(*ListPrivateEndpointAllowlistInput) (*request.Request, *ListPrivateEndpointAllowlistOutput)
+
+	ListRecycledInstanceBackupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRecycledInstanceBackupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRecycledInstanceBackupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRecycledInstanceBackups(*ListRecycledInstanceBackupsInput) (*ListRecycledInstanceBackupsOutput, error)
+	ListRecycledInstanceBackupsWithContext(volcengine.Context, *ListRecycledInstanceBackupsInput, ...request.Option) (*ListRecycledInstanceBackupsOutput, error)
+	ListRecycledInstanceBackupsRequest(*ListRecycledInstanceBackupsInput) (*request.Request, *ListRecycledInstanceBackupsOutput)
+
+	ListRecycledInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRecycledInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRecycledInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRecycledInstances(*ListRecycledInstancesInput) (*ListRecycledInstancesOutput, error)
+	ListRecycledInstancesWithContext(volcengine.Context, *ListRecycledInstancesInput, ...request.Option) (*ListRecycledInstancesOutput, error)
+	ListRecycledInstancesRequest(*ListRecycledInstancesInput) (*request.Request, *ListRecycledInstancesOutput)
 
 	ListRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

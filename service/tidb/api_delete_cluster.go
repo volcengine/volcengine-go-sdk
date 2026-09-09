@@ -143,33 +143,33 @@ func (c *TIDB) DeleteClusterWithContext(ctx volcengine.Context, input *DeleteClu
 	return out, req.Send()
 }
 
-type AlicloudForDeleteClusterOutput struct {
+type AnnotationForDeleteClusterOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AvailabilityZone []*string `type:"list"`
+	Key *string `type:"string" json:",omitempty"`
 
-	ServiceName *string `type:"string" json:",omitempty"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s AlicloudForDeleteClusterOutput) String() string {
+func (s AnnotationForDeleteClusterOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AlicloudForDeleteClusterOutput) GoString() string {
+func (s AnnotationForDeleteClusterOutput) GoString() string {
 	return s.String()
 }
 
-// SetAvailabilityZone sets the AvailabilityZone field's value.
-func (s *AlicloudForDeleteClusterOutput) SetAvailabilityZone(v []*string) *AlicloudForDeleteClusterOutput {
-	s.AvailabilityZone = v
+// SetKey sets the Key field's value.
+func (s *AnnotationForDeleteClusterOutput) SetKey(v string) *AnnotationForDeleteClusterOutput {
+	s.Key = &v
 	return s
 }
 
-// SetServiceName sets the ServiceName field's value.
-func (s *AlicloudForDeleteClusterOutput) SetServiceName(v string) *AlicloudForDeleteClusterOutput {
-	s.ServiceName = &v
+// SetValue sets the Value field's value.
+func (s *AnnotationForDeleteClusterOutput) SetValue(v string) *AnnotationForDeleteClusterOutput {
+	s.Value = &v
 	return s
 }
 
@@ -208,9 +208,11 @@ type AuthorizedNetworkForDeleteClusterOutput struct {
 
 	DisplayName *string `type:"string" json:",omitempty"`
 
-	EndIpAddress *string `type:"string" json:",omitempty"`
+	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
-	StartIpAddress *string `type:"string" json:",omitempty"`
+	VpcEndpointId *string `type:"string" json:",omitempty"`
+
+	VpcEndpointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -229,15 +231,21 @@ func (s *AuthorizedNetworkForDeleteClusterOutput) SetDisplayName(v string) *Auth
 	return s
 }
 
-// SetEndIpAddress sets the EndIpAddress field's value.
-func (s *AuthorizedNetworkForDeleteClusterOutput) SetEndIpAddress(v string) *AuthorizedNetworkForDeleteClusterOutput {
-	s.EndIpAddress = &v
+// SetSecurityGroupCount sets the SecurityGroupCount field's value.
+func (s *AuthorizedNetworkForDeleteClusterOutput) SetSecurityGroupCount(v int32) *AuthorizedNetworkForDeleteClusterOutput {
+	s.SecurityGroupCount = &v
 	return s
 }
 
-// SetStartIpAddress sets the StartIpAddress field's value.
-func (s *AuthorizedNetworkForDeleteClusterOutput) SetStartIpAddress(v string) *AuthorizedNetworkForDeleteClusterOutput {
-	s.StartIpAddress = &v
+// SetVpcEndpointId sets the VpcEndpointId field's value.
+func (s *AuthorizedNetworkForDeleteClusterOutput) SetVpcEndpointId(v string) *AuthorizedNetworkForDeleteClusterOutput {
+	s.VpcEndpointId = &v
+	return s
+}
+
+// SetVpcEndpointName sets the VpcEndpointName field's value.
+func (s *AuthorizedNetworkForDeleteClusterOutput) SetVpcEndpointName(v string) *AuthorizedNetworkForDeleteClusterOutput {
+	s.VpcEndpointName = &v
 	return s
 }
 
@@ -301,40 +309,10 @@ func (s *AutomatedBackupPolicyForDeleteClusterOutput) SetStartTime(v string) *Au
 	return s
 }
 
-type AwsForDeleteClusterOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AvailabilityZone []*string `type:"list"`
-
-	ServiceName *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AwsForDeleteClusterOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AwsForDeleteClusterOutput) GoString() string {
-	return s.String()
-}
-
-// SetAvailabilityZone sets the AvailabilityZone field's value.
-func (s *AwsForDeleteClusterOutput) SetAvailabilityZone(v []*string) *AwsForDeleteClusterOutput {
-	s.AvailabilityZone = v
-	return s
-}
-
-// SetServiceName sets the ServiceName field's value.
-func (s *AwsForDeleteClusterOutput) SetServiceName(v string) *AwsForDeleteClusterOutput {
-	s.ServiceName = &v
-	return s
-}
-
 type ClusterForDeleteClusterOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Annotations *string `type:"string" json:",omitempty"`
+	Annotations []*AnnotationForDeleteClusterOutput `type:"list"`
 
 	AuditLogConfig *AuditLogConfigForDeleteClusterOutput `type:"structure" json:",omitempty"`
 
@@ -354,7 +332,7 @@ type ClusterForDeleteClusterOutput struct {
 
 	HighAvailabilityType *string `type:"string" json:",omitempty" enum:"EnumOfHighAvailabilityTypeForDeleteClusterOutput"`
 
-	Labels *string `type:"string" json:",omitempty"`
+	Labels []*LabelForDeleteClusterOutput `type:"list"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -367,6 +345,8 @@ type ClusterForDeleteClusterOutput struct {
 	SpendingLimit *SpendingLimitForDeleteClusterOutput `type:"structure" json:",omitempty"`
 
 	State *string `type:"string" json:",omitempty" enum:"EnumOfStateForDeleteClusterOutput"`
+
+	Tags []*TagForDeleteClusterOutput `type:"list"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 
@@ -390,8 +370,8 @@ func (s ClusterForDeleteClusterOutput) GoString() string {
 }
 
 // SetAnnotations sets the Annotations field's value.
-func (s *ClusterForDeleteClusterOutput) SetAnnotations(v string) *ClusterForDeleteClusterOutput {
-	s.Annotations = &v
+func (s *ClusterForDeleteClusterOutput) SetAnnotations(v []*AnnotationForDeleteClusterOutput) *ClusterForDeleteClusterOutput {
+	s.Annotations = v
 	return s
 }
 
@@ -450,8 +430,8 @@ func (s *ClusterForDeleteClusterOutput) SetHighAvailabilityType(v string) *Clust
 }
 
 // SetLabels sets the Labels field's value.
-func (s *ClusterForDeleteClusterOutput) SetLabels(v string) *ClusterForDeleteClusterOutput {
-	s.Labels = &v
+func (s *ClusterForDeleteClusterOutput) SetLabels(v []*LabelForDeleteClusterOutput) *ClusterForDeleteClusterOutput {
+	s.Labels = v
 	return s
 }
 
@@ -491,6 +471,12 @@ func (s *ClusterForDeleteClusterOutput) SetState(v string) *ClusterForDeleteClus
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ClusterForDeleteClusterOutput) SetTags(v []*TagForDeleteClusterOutput) *ClusterForDeleteClusterOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ClusterForDeleteClusterOutput) SetUpdateTime(v string) *ClusterForDeleteClusterOutput {
 	s.UpdateTime = &v
@@ -518,6 +504,44 @@ func (s *ClusterForDeleteClusterOutput) SetVpcId(v string) *ClusterForDeleteClus
 // SetZones sets the Zones field's value.
 func (s *ClusterForDeleteClusterOutput) SetZones(v []*ZoneForDeleteClusterOutput) *ClusterForDeleteClusterOutput {
 	s.Zones = v
+	return s
+}
+
+type ConvertAuthorizedNetworkForDeleteClusterOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DisplayName *string `type:"string" json:",omitempty"`
+
+	EndIpAddress *string `type:"string" json:",omitempty"`
+
+	StartIpAddress *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertAuthorizedNetworkForDeleteClusterOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertAuthorizedNetworkForDeleteClusterOutput) GoString() string {
+	return s.String()
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *ConvertAuthorizedNetworkForDeleteClusterOutput) SetDisplayName(v string) *ConvertAuthorizedNetworkForDeleteClusterOutput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetEndIpAddress sets the EndIpAddress field's value.
+func (s *ConvertAuthorizedNetworkForDeleteClusterOutput) SetEndIpAddress(v string) *ConvertAuthorizedNetworkForDeleteClusterOutput {
+	s.EndIpAddress = &v
+	return s
+}
+
+// SetStartIpAddress sets the StartIpAddress field's value.
+func (s *ConvertAuthorizedNetworkForDeleteClusterOutput) SetStartIpAddress(v string) *ConvertAuthorizedNetworkForDeleteClusterOutput {
+	s.StartIpAddress = &v
 	return s
 }
 
@@ -641,16 +665,54 @@ func (s *EndpointsForDeleteClusterOutput) SetPublicEndpoint(v *PublicEndpointFor
 	return s
 }
 
+type LabelForDeleteClusterOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LabelForDeleteClusterOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LabelForDeleteClusterOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *LabelForDeleteClusterOutput) SetKey(v string) *LabelForDeleteClusterOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *LabelForDeleteClusterOutput) SetValue(v string) *LabelForDeleteClusterOutput {
+	s.Value = &v
+	return s
+}
+
 type PrivateEndpointForDeleteClusterOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Alicloud *AlicloudForDeleteClusterOutput `type:"structure" json:",omitempty"`
+	AuthorizedNetworks []*AuthorizedNetworkForDeleteClusterOutput `type:"list"`
 
-	Aws *AwsForDeleteClusterOutput `type:"structure" json:",omitempty"`
+	Disabled *bool `type:"boolean" json:",omitempty"`
 
 	Host *string `type:"string" json:",omitempty"`
 
 	Port *int32 `type:"int32" json:",omitempty"`
+
+	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
+
+	ServiceName *string `type:"string" json:",omitempty"`
+
+	VpcEndpointId *string `type:"string" json:",omitempty"`
+
+	VpcEndpointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -663,15 +725,15 @@ func (s PrivateEndpointForDeleteClusterOutput) GoString() string {
 	return s.String()
 }
 
-// SetAlicloud sets the Alicloud field's value.
-func (s *PrivateEndpointForDeleteClusterOutput) SetAlicloud(v *AlicloudForDeleteClusterOutput) *PrivateEndpointForDeleteClusterOutput {
-	s.Alicloud = v
+// SetAuthorizedNetworks sets the AuthorizedNetworks field's value.
+func (s *PrivateEndpointForDeleteClusterOutput) SetAuthorizedNetworks(v []*AuthorizedNetworkForDeleteClusterOutput) *PrivateEndpointForDeleteClusterOutput {
+	s.AuthorizedNetworks = v
 	return s
 }
 
-// SetAws sets the Aws field's value.
-func (s *PrivateEndpointForDeleteClusterOutput) SetAws(v *AwsForDeleteClusterOutput) *PrivateEndpointForDeleteClusterOutput {
-	s.Aws = v
+// SetDisabled sets the Disabled field's value.
+func (s *PrivateEndpointForDeleteClusterOutput) SetDisabled(v bool) *PrivateEndpointForDeleteClusterOutput {
+	s.Disabled = &v
 	return s
 }
 
@@ -687,10 +749,34 @@ func (s *PrivateEndpointForDeleteClusterOutput) SetPort(v int32) *PrivateEndpoin
 	return s
 }
 
+// SetSecurityGroupCount sets the SecurityGroupCount field's value.
+func (s *PrivateEndpointForDeleteClusterOutput) SetSecurityGroupCount(v int32) *PrivateEndpointForDeleteClusterOutput {
+	s.SecurityGroupCount = &v
+	return s
+}
+
+// SetServiceName sets the ServiceName field's value.
+func (s *PrivateEndpointForDeleteClusterOutput) SetServiceName(v string) *PrivateEndpointForDeleteClusterOutput {
+	s.ServiceName = &v
+	return s
+}
+
+// SetVpcEndpointId sets the VpcEndpointId field's value.
+func (s *PrivateEndpointForDeleteClusterOutput) SetVpcEndpointId(v string) *PrivateEndpointForDeleteClusterOutput {
+	s.VpcEndpointId = &v
+	return s
+}
+
+// SetVpcEndpointName sets the VpcEndpointName field's value.
+func (s *PrivateEndpointForDeleteClusterOutput) SetVpcEndpointName(v string) *PrivateEndpointForDeleteClusterOutput {
+	s.VpcEndpointName = &v
+	return s
+}
+
 type PublicEndpointForDeleteClusterOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthorizedNetworks []*AuthorizedNetworkForDeleteClusterOutput `type:"list"`
+	AuthorizedNetworks []*ConvertAuthorizedNetworkForDeleteClusterOutput `type:"list"`
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
@@ -710,7 +796,7 @@ func (s PublicEndpointForDeleteClusterOutput) GoString() string {
 }
 
 // SetAuthorizedNetworks sets the AuthorizedNetworks field's value.
-func (s *PublicEndpointForDeleteClusterOutput) SetAuthorizedNetworks(v []*AuthorizedNetworkForDeleteClusterOutput) *PublicEndpointForDeleteClusterOutput {
+func (s *PublicEndpointForDeleteClusterOutput) SetAuthorizedNetworks(v []*ConvertAuthorizedNetworkForDeleteClusterOutput) *PublicEndpointForDeleteClusterOutput {
 	s.AuthorizedNetworks = v
 	return s
 }
@@ -752,6 +838,36 @@ func (s SpendingLimitForDeleteClusterOutput) GoString() string {
 // SetMonthly sets the Monthly field's value.
 func (s *SpendingLimitForDeleteClusterOutput) SetMonthly(v int32) *SpendingLimitForDeleteClusterOutput {
 	s.Monthly = &v
+	return s
+}
+
+type TagForDeleteClusterOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForDeleteClusterOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDeleteClusterOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDeleteClusterOutput) SetKey(v string) *TagForDeleteClusterOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDeleteClusterOutput) SetValue(v string) *TagForDeleteClusterOutput {
+	s.Value = &v
 	return s
 }
 

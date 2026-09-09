@@ -159,6 +159,8 @@ type BackupForGetBackupOutput struct {
 	Name *string `type:"string" json:",omitempty"`
 
 	State *string `type:"string" json:",omitempty" enum:"EnumOfStateForGetBackupOutput"`
+
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -210,6 +212,12 @@ func (s *BackupForGetBackupOutput) SetName(v string) *BackupForGetBackupOutput {
 // SetState sets the State field's value.
 func (s *BackupForGetBackupOutput) SetState(v string) *BackupForGetBackupOutput {
 	s.State = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *BackupForGetBackupOutput) SetType(v string) *BackupForGetBackupOutput {
+	s.Type = &v
 	return s
 }
 

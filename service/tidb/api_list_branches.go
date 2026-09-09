@@ -143,33 +143,33 @@ func (c *TIDB) ListBranchesWithContext(ctx volcengine.Context, input *ListBranch
 	return out, req.Send()
 }
 
-type AlicloudForListBranchesOutput struct {
+type AnnotationForListBranchesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AvailabilityZone []*string `type:"list"`
+	Key *string `type:"string" json:",omitempty"`
 
-	ServiceName *string `type:"string" json:",omitempty"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s AlicloudForListBranchesOutput) String() string {
+func (s AnnotationForListBranchesOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AlicloudForListBranchesOutput) GoString() string {
+func (s AnnotationForListBranchesOutput) GoString() string {
 	return s.String()
 }
 
-// SetAvailabilityZone sets the AvailabilityZone field's value.
-func (s *AlicloudForListBranchesOutput) SetAvailabilityZone(v []*string) *AlicloudForListBranchesOutput {
-	s.AvailabilityZone = v
+// SetKey sets the Key field's value.
+func (s *AnnotationForListBranchesOutput) SetKey(v string) *AnnotationForListBranchesOutput {
+	s.Key = &v
 	return s
 }
 
-// SetServiceName sets the ServiceName field's value.
-func (s *AlicloudForListBranchesOutput) SetServiceName(v string) *AlicloudForListBranchesOutput {
-	s.ServiceName = &v
+// SetValue sets the Value field's value.
+func (s *AnnotationForListBranchesOutput) SetValue(v string) *AnnotationForListBranchesOutput {
+	s.Value = &v
 	return s
 }
 
@@ -178,9 +178,11 @@ type AuthorizedNetworkForListBranchesOutput struct {
 
 	DisplayName *string `type:"string" json:",omitempty"`
 
-	EndIpAddress *string `type:"string" json:",omitempty"`
+	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
-	StartIpAddress *string `type:"string" json:",omitempty"`
+	VpcEndpointId *string `type:"string" json:",omitempty"`
+
+	VpcEndpointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -199,52 +201,28 @@ func (s *AuthorizedNetworkForListBranchesOutput) SetDisplayName(v string) *Autho
 	return s
 }
 
-// SetEndIpAddress sets the EndIpAddress field's value.
-func (s *AuthorizedNetworkForListBranchesOutput) SetEndIpAddress(v string) *AuthorizedNetworkForListBranchesOutput {
-	s.EndIpAddress = &v
+// SetSecurityGroupCount sets the SecurityGroupCount field's value.
+func (s *AuthorizedNetworkForListBranchesOutput) SetSecurityGroupCount(v int32) *AuthorizedNetworkForListBranchesOutput {
+	s.SecurityGroupCount = &v
 	return s
 }
 
-// SetStartIpAddress sets the StartIpAddress field's value.
-func (s *AuthorizedNetworkForListBranchesOutput) SetStartIpAddress(v string) *AuthorizedNetworkForListBranchesOutput {
-	s.StartIpAddress = &v
+// SetVpcEndpointId sets the VpcEndpointId field's value.
+func (s *AuthorizedNetworkForListBranchesOutput) SetVpcEndpointId(v string) *AuthorizedNetworkForListBranchesOutput {
+	s.VpcEndpointId = &v
 	return s
 }
 
-type AwsForListBranchesOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AvailabilityZone []*string `type:"list"`
-
-	ServiceName *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AwsForListBranchesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AwsForListBranchesOutput) GoString() string {
-	return s.String()
-}
-
-// SetAvailabilityZone sets the AvailabilityZone field's value.
-func (s *AwsForListBranchesOutput) SetAvailabilityZone(v []*string) *AwsForListBranchesOutput {
-	s.AvailabilityZone = v
-	return s
-}
-
-// SetServiceName sets the ServiceName field's value.
-func (s *AwsForListBranchesOutput) SetServiceName(v string) *AwsForListBranchesOutput {
-	s.ServiceName = &v
+// SetVpcEndpointName sets the VpcEndpointName field's value.
+func (s *AuthorizedNetworkForListBranchesOutput) SetVpcEndpointName(v string) *AuthorizedNetworkForListBranchesOutput {
+	s.VpcEndpointName = &v
 	return s
 }
 
 type BranchForListBranchesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Annotations *string `type:"string" json:",omitempty"`
+	Annotations []*AnnotationForListBranchesOutput `type:"list"`
 
 	BranchId *string `type:"string" json:",omitempty"`
 
@@ -268,6 +246,8 @@ type BranchForListBranchesOutput struct {
 
 	ParentTimestamp *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	State *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
@@ -288,8 +268,8 @@ func (s BranchForListBranchesOutput) GoString() string {
 }
 
 // SetAnnotations sets the Annotations field's value.
-func (s *BranchForListBranchesOutput) SetAnnotations(v string) *BranchForListBranchesOutput {
-	s.Annotations = &v
+func (s *BranchForListBranchesOutput) SetAnnotations(v []*AnnotationForListBranchesOutput) *BranchForListBranchesOutput {
+	s.Annotations = v
 	return s
 }
 
@@ -359,6 +339,12 @@ func (s *BranchForListBranchesOutput) SetParentTimestamp(v string) *BranchForLis
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *BranchForListBranchesOutput) SetProjectName(v string) *BranchForListBranchesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetState sets the State field's value.
 func (s *BranchForListBranchesOutput) SetState(v string) *BranchForListBranchesOutput {
 	s.State = &v
@@ -380,6 +366,44 @@ func (s *BranchForListBranchesOutput) SetUsages(v *UsagesForListBranchesOutput) 
 // SetUserPrefix sets the UserPrefix field's value.
 func (s *BranchForListBranchesOutput) SetUserPrefix(v string) *BranchForListBranchesOutput {
 	s.UserPrefix = &v
+	return s
+}
+
+type ConvertAuthorizedNetworkForListBranchesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DisplayName *string `type:"string" json:",omitempty"`
+
+	EndIpAddress *string `type:"string" json:",omitempty"`
+
+	StartIpAddress *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertAuthorizedNetworkForListBranchesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertAuthorizedNetworkForListBranchesOutput) GoString() string {
+	return s.String()
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *ConvertAuthorizedNetworkForListBranchesOutput) SetDisplayName(v string) *ConvertAuthorizedNetworkForListBranchesOutput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetEndIpAddress sets the EndIpAddress field's value.
+func (s *ConvertAuthorizedNetworkForListBranchesOutput) SetEndIpAddress(v string) *ConvertAuthorizedNetworkForListBranchesOutput {
+	s.EndIpAddress = &v
+	return s
+}
+
+// SetStartIpAddress sets the StartIpAddress field's value.
+func (s *ConvertAuthorizedNetworkForListBranchesOutput) SetStartIpAddress(v string) *ConvertAuthorizedNetworkForListBranchesOutput {
+	s.StartIpAddress = &v
 	return s
 }
 
@@ -516,13 +540,21 @@ func (s *ListBranchesOutput) SetTotalSize(v int32) *ListBranchesOutput {
 type PrivateEndpointForListBranchesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Alicloud *AlicloudForListBranchesOutput `type:"structure" json:",omitempty"`
+	AuthorizedNetworks []*AuthorizedNetworkForListBranchesOutput `type:"list"`
 
-	Aws *AwsForListBranchesOutput `type:"structure" json:",omitempty"`
+	Disabled *bool `type:"boolean" json:",omitempty"`
 
 	Host *string `type:"string" json:",omitempty"`
 
 	Port *int32 `type:"int32" json:",omitempty"`
+
+	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
+
+	ServiceName *string `type:"string" json:",omitempty"`
+
+	VpcEndpointId *string `type:"string" json:",omitempty"`
+
+	VpcEndpointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -535,15 +567,15 @@ func (s PrivateEndpointForListBranchesOutput) GoString() string {
 	return s.String()
 }
 
-// SetAlicloud sets the Alicloud field's value.
-func (s *PrivateEndpointForListBranchesOutput) SetAlicloud(v *AlicloudForListBranchesOutput) *PrivateEndpointForListBranchesOutput {
-	s.Alicloud = v
+// SetAuthorizedNetworks sets the AuthorizedNetworks field's value.
+func (s *PrivateEndpointForListBranchesOutput) SetAuthorizedNetworks(v []*AuthorizedNetworkForListBranchesOutput) *PrivateEndpointForListBranchesOutput {
+	s.AuthorizedNetworks = v
 	return s
 }
 
-// SetAws sets the Aws field's value.
-func (s *PrivateEndpointForListBranchesOutput) SetAws(v *AwsForListBranchesOutput) *PrivateEndpointForListBranchesOutput {
-	s.Aws = v
+// SetDisabled sets the Disabled field's value.
+func (s *PrivateEndpointForListBranchesOutput) SetDisabled(v bool) *PrivateEndpointForListBranchesOutput {
+	s.Disabled = &v
 	return s
 }
 
@@ -559,10 +591,34 @@ func (s *PrivateEndpointForListBranchesOutput) SetPort(v int32) *PrivateEndpoint
 	return s
 }
 
+// SetSecurityGroupCount sets the SecurityGroupCount field's value.
+func (s *PrivateEndpointForListBranchesOutput) SetSecurityGroupCount(v int32) *PrivateEndpointForListBranchesOutput {
+	s.SecurityGroupCount = &v
+	return s
+}
+
+// SetServiceName sets the ServiceName field's value.
+func (s *PrivateEndpointForListBranchesOutput) SetServiceName(v string) *PrivateEndpointForListBranchesOutput {
+	s.ServiceName = &v
+	return s
+}
+
+// SetVpcEndpointId sets the VpcEndpointId field's value.
+func (s *PrivateEndpointForListBranchesOutput) SetVpcEndpointId(v string) *PrivateEndpointForListBranchesOutput {
+	s.VpcEndpointId = &v
+	return s
+}
+
+// SetVpcEndpointName sets the VpcEndpointName field's value.
+func (s *PrivateEndpointForListBranchesOutput) SetVpcEndpointName(v string) *PrivateEndpointForListBranchesOutput {
+	s.VpcEndpointName = &v
+	return s
+}
+
 type PublicEndpointForListBranchesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthorizedNetworks []*AuthorizedNetworkForListBranchesOutput `type:"list"`
+	AuthorizedNetworks []*ConvertAuthorizedNetworkForListBranchesOutput `type:"list"`
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
@@ -582,7 +638,7 @@ func (s PublicEndpointForListBranchesOutput) GoString() string {
 }
 
 // SetAuthorizedNetworks sets the AuthorizedNetworks field's value.
-func (s *PublicEndpointForListBranchesOutput) SetAuthorizedNetworks(v []*AuthorizedNetworkForListBranchesOutput) *PublicEndpointForListBranchesOutput {
+func (s *PublicEndpointForListBranchesOutput) SetAuthorizedNetworks(v []*ConvertAuthorizedNetworkForListBranchesOutput) *PublicEndpointForListBranchesOutput {
 	s.AuthorizedNetworks = v
 	return s
 }

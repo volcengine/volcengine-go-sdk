@@ -346,6 +346,8 @@ type CreateReqForDescribePriceDetailInput struct {
 
 	ServicePlan *string `type:"string" json:",omitempty" enum:"EnumOfServicePlanForDescribePriceDetailInput"`
 
+	Tags []*TagForDescribePriceDetailInput `type:"list"`
+
 	VpcId *string `type:"string" json:",omitempty"`
 
 	Zones []*ZoneForDescribePriceDetailInput `type:"list"`
@@ -400,6 +402,12 @@ func (s *CreateReqForDescribePriceDetailInput) SetRegionId(v string) *CreateReqF
 // SetServicePlan sets the ServicePlan field's value.
 func (s *CreateReqForDescribePriceDetailInput) SetServicePlan(v string) *CreateReqForDescribePriceDetailInput {
 	s.ServicePlan = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateReqForDescribePriceDetailInput) SetTags(v []*TagForDescribePriceDetailInput) *CreateReqForDescribePriceDetailInput {
+	s.Tags = v
 	return s
 }
 
@@ -568,6 +576,36 @@ func (s EncryptionConfigForDescribePriceDetailInput) GoString() string {
 // SetEnhancedEncryptionEnabled sets the EnhancedEncryptionEnabled field's value.
 func (s *EncryptionConfigForDescribePriceDetailInput) SetEnhancedEncryptionEnabled(v bool) *EncryptionConfigForDescribePriceDetailInput {
 	s.EnhancedEncryptionEnabled = &v
+	return s
+}
+
+type TagForDescribePriceDetailInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForDescribePriceDetailInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribePriceDetailInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribePriceDetailInput) SetKey(v string) *TagForDescribePriceDetailInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribePriceDetailInput) SetValue(v string) *TagForDescribePriceDetailInput {
+	s.Value = &v
 	return s
 }
 
