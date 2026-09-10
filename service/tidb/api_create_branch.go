@@ -143,33 +143,33 @@ func (c *TIDB) CreateBranchWithContext(ctx volcengine.Context, input *CreateBran
 	return out, req.Send()
 }
 
-type AlicloudForCreateBranchInput struct {
+type AnnotationForCreateBranchInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AvailabilityZone []*string `type:"list"`
+	Key *string `type:"string" json:",omitempty"`
 
-	ServiceName *string `type:"string" json:",omitempty"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s AlicloudForCreateBranchInput) String() string {
+func (s AnnotationForCreateBranchInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AlicloudForCreateBranchInput) GoString() string {
+func (s AnnotationForCreateBranchInput) GoString() string {
 	return s.String()
 }
 
-// SetAvailabilityZone sets the AvailabilityZone field's value.
-func (s *AlicloudForCreateBranchInput) SetAvailabilityZone(v []*string) *AlicloudForCreateBranchInput {
-	s.AvailabilityZone = v
+// SetKey sets the Key field's value.
+func (s *AnnotationForCreateBranchInput) SetKey(v string) *AnnotationForCreateBranchInput {
+	s.Key = &v
 	return s
 }
 
-// SetServiceName sets the ServiceName field's value.
-func (s *AlicloudForCreateBranchInput) SetServiceName(v string) *AlicloudForCreateBranchInput {
-	s.ServiceName = &v
+// SetValue sets the Value field's value.
+func (s *AnnotationForCreateBranchInput) SetValue(v string) *AnnotationForCreateBranchInput {
+	s.Value = &v
 	return s
 }
 
@@ -178,9 +178,11 @@ type AuthorizedNetworkForCreateBranchInput struct {
 
 	DisplayName *string `type:"string" json:",omitempty"`
 
-	EndIpAddress *string `type:"string" json:",omitempty"`
+	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
-	StartIpAddress *string `type:"string" json:",omitempty"`
+	VpcEndpointId *string `type:"string" json:",omitempty"`
+
+	VpcEndpointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -199,52 +201,28 @@ func (s *AuthorizedNetworkForCreateBranchInput) SetDisplayName(v string) *Author
 	return s
 }
 
-// SetEndIpAddress sets the EndIpAddress field's value.
-func (s *AuthorizedNetworkForCreateBranchInput) SetEndIpAddress(v string) *AuthorizedNetworkForCreateBranchInput {
-	s.EndIpAddress = &v
+// SetSecurityGroupCount sets the SecurityGroupCount field's value.
+func (s *AuthorizedNetworkForCreateBranchInput) SetSecurityGroupCount(v int32) *AuthorizedNetworkForCreateBranchInput {
+	s.SecurityGroupCount = &v
 	return s
 }
 
-// SetStartIpAddress sets the StartIpAddress field's value.
-func (s *AuthorizedNetworkForCreateBranchInput) SetStartIpAddress(v string) *AuthorizedNetworkForCreateBranchInput {
-	s.StartIpAddress = &v
+// SetVpcEndpointId sets the VpcEndpointId field's value.
+func (s *AuthorizedNetworkForCreateBranchInput) SetVpcEndpointId(v string) *AuthorizedNetworkForCreateBranchInput {
+	s.VpcEndpointId = &v
 	return s
 }
 
-type AwsForCreateBranchInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AvailabilityZone []*string `type:"list"`
-
-	ServiceName *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AwsForCreateBranchInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AwsForCreateBranchInput) GoString() string {
-	return s.String()
-}
-
-// SetAvailabilityZone sets the AvailabilityZone field's value.
-func (s *AwsForCreateBranchInput) SetAvailabilityZone(v []*string) *AwsForCreateBranchInput {
-	s.AvailabilityZone = v
-	return s
-}
-
-// SetServiceName sets the ServiceName field's value.
-func (s *AwsForCreateBranchInput) SetServiceName(v string) *AwsForCreateBranchInput {
-	s.ServiceName = &v
+// SetVpcEndpointName sets the VpcEndpointName field's value.
+func (s *AuthorizedNetworkForCreateBranchInput) SetVpcEndpointName(v string) *AuthorizedNetworkForCreateBranchInput {
+	s.VpcEndpointName = &v
 	return s
 }
 
 type BranchForCreateBranchInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Annotations *string `type:"string" json:",omitempty"`
+	Annotations []*AnnotationForCreateBranchInput `type:"list"`
 
 	BranchId *string `type:"string" json:",omitempty"`
 
@@ -268,6 +246,8 @@ type BranchForCreateBranchInput struct {
 
 	ParentTimestamp *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	State *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
@@ -288,8 +268,8 @@ func (s BranchForCreateBranchInput) GoString() string {
 }
 
 // SetAnnotations sets the Annotations field's value.
-func (s *BranchForCreateBranchInput) SetAnnotations(v string) *BranchForCreateBranchInput {
-	s.Annotations = &v
+func (s *BranchForCreateBranchInput) SetAnnotations(v []*AnnotationForCreateBranchInput) *BranchForCreateBranchInput {
+	s.Annotations = v
 	return s
 }
 
@@ -359,6 +339,12 @@ func (s *BranchForCreateBranchInput) SetParentTimestamp(v string) *BranchForCrea
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *BranchForCreateBranchInput) SetProjectName(v string) *BranchForCreateBranchInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetState sets the State field's value.
 func (s *BranchForCreateBranchInput) SetState(v string) *BranchForCreateBranchInput {
 	s.State = &v
@@ -380,6 +366,44 @@ func (s *BranchForCreateBranchInput) SetUsages(v *UsagesForCreateBranchInput) *B
 // SetUserPrefix sets the UserPrefix field's value.
 func (s *BranchForCreateBranchInput) SetUserPrefix(v string) *BranchForCreateBranchInput {
 	s.UserPrefix = &v
+	return s
+}
+
+type ConvertAuthorizedNetworkForCreateBranchInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DisplayName *string `type:"string" json:",omitempty"`
+
+	EndIpAddress *string `type:"string" json:",omitempty"`
+
+	StartIpAddress *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertAuthorizedNetworkForCreateBranchInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertAuthorizedNetworkForCreateBranchInput) GoString() string {
+	return s.String()
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *ConvertAuthorizedNetworkForCreateBranchInput) SetDisplayName(v string) *ConvertAuthorizedNetworkForCreateBranchInput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetEndIpAddress sets the EndIpAddress field's value.
+func (s *ConvertAuthorizedNetworkForCreateBranchInput) SetEndIpAddress(v string) *ConvertAuthorizedNetworkForCreateBranchInput {
+	s.EndIpAddress = &v
+	return s
+}
+
+// SetStartIpAddress sets the StartIpAddress field's value.
+func (s *ConvertAuthorizedNetworkForCreateBranchInput) SetStartIpAddress(v string) *ConvertAuthorizedNetworkForCreateBranchInput {
+	s.StartIpAddress = &v
 	return s
 }
 
@@ -500,13 +524,21 @@ func (s *EndpointsForCreateBranchInput) SetPublicEndpoint(v *PublicEndpointForCr
 type PrivateEndpointForCreateBranchInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Alicloud *AlicloudForCreateBranchInput `type:"structure" json:",omitempty"`
+	AuthorizedNetworks []*AuthorizedNetworkForCreateBranchInput `type:"list"`
 
-	Aws *AwsForCreateBranchInput `type:"structure" json:",omitempty"`
+	Disabled *bool `type:"boolean" json:",omitempty"`
 
 	Host *string `type:"string" json:",omitempty"`
 
 	Port *int32 `type:"int32" json:",omitempty"`
+
+	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
+
+	ServiceName *string `type:"string" json:",omitempty"`
+
+	VpcEndpointId *string `type:"string" json:",omitempty"`
+
+	VpcEndpointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -519,15 +551,15 @@ func (s PrivateEndpointForCreateBranchInput) GoString() string {
 	return s.String()
 }
 
-// SetAlicloud sets the Alicloud field's value.
-func (s *PrivateEndpointForCreateBranchInput) SetAlicloud(v *AlicloudForCreateBranchInput) *PrivateEndpointForCreateBranchInput {
-	s.Alicloud = v
+// SetAuthorizedNetworks sets the AuthorizedNetworks field's value.
+func (s *PrivateEndpointForCreateBranchInput) SetAuthorizedNetworks(v []*AuthorizedNetworkForCreateBranchInput) *PrivateEndpointForCreateBranchInput {
+	s.AuthorizedNetworks = v
 	return s
 }
 
-// SetAws sets the Aws field's value.
-func (s *PrivateEndpointForCreateBranchInput) SetAws(v *AwsForCreateBranchInput) *PrivateEndpointForCreateBranchInput {
-	s.Aws = v
+// SetDisabled sets the Disabled field's value.
+func (s *PrivateEndpointForCreateBranchInput) SetDisabled(v bool) *PrivateEndpointForCreateBranchInput {
+	s.Disabled = &v
 	return s
 }
 
@@ -543,10 +575,34 @@ func (s *PrivateEndpointForCreateBranchInput) SetPort(v int32) *PrivateEndpointF
 	return s
 }
 
+// SetSecurityGroupCount sets the SecurityGroupCount field's value.
+func (s *PrivateEndpointForCreateBranchInput) SetSecurityGroupCount(v int32) *PrivateEndpointForCreateBranchInput {
+	s.SecurityGroupCount = &v
+	return s
+}
+
+// SetServiceName sets the ServiceName field's value.
+func (s *PrivateEndpointForCreateBranchInput) SetServiceName(v string) *PrivateEndpointForCreateBranchInput {
+	s.ServiceName = &v
+	return s
+}
+
+// SetVpcEndpointId sets the VpcEndpointId field's value.
+func (s *PrivateEndpointForCreateBranchInput) SetVpcEndpointId(v string) *PrivateEndpointForCreateBranchInput {
+	s.VpcEndpointId = &v
+	return s
+}
+
+// SetVpcEndpointName sets the VpcEndpointName field's value.
+func (s *PrivateEndpointForCreateBranchInput) SetVpcEndpointName(v string) *PrivateEndpointForCreateBranchInput {
+	s.VpcEndpointName = &v
+	return s
+}
+
 type PublicEndpointForCreateBranchInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthorizedNetworks []*AuthorizedNetworkForCreateBranchInput `type:"list"`
+	AuthorizedNetworks []*ConvertAuthorizedNetworkForCreateBranchInput `type:"list"`
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
@@ -566,7 +622,7 @@ func (s PublicEndpointForCreateBranchInput) GoString() string {
 }
 
 // SetAuthorizedNetworks sets the AuthorizedNetworks field's value.
-func (s *PublicEndpointForCreateBranchInput) SetAuthorizedNetworks(v []*AuthorizedNetworkForCreateBranchInput) *PublicEndpointForCreateBranchInput {
+func (s *PublicEndpointForCreateBranchInput) SetAuthorizedNetworks(v []*ConvertAuthorizedNetworkForCreateBranchInput) *PublicEndpointForCreateBranchInput {
 	s.AuthorizedNetworks = v
 	return s
 }

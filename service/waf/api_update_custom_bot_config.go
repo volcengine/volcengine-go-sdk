@@ -250,6 +250,8 @@ type UpdateCustomBotConfigInput struct {
 	Id *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	VerificationExemptionTime *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -332,6 +334,12 @@ func (s *UpdateCustomBotConfigInput) SetId(v int32) *UpdateCustomBotConfigInput 
 // SetProjectName sets the ProjectName field's value.
 func (s *UpdateCustomBotConfigInput) SetProjectName(v string) *UpdateCustomBotConfigInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetVerificationExemptionTime sets the VerificationExemptionTime field's value.
+func (s *UpdateCustomBotConfigInput) SetVerificationExemptionTime(v int32) *UpdateCustomBotConfigInput {
+	s.VerificationExemptionTime = &v
 	return s
 }
 
