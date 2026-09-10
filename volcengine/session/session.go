@@ -138,12 +138,30 @@ func NewSession(cfgs ...*volcengine.Config) (*Session, error) {
 	//merge config region and endpoint info to sts
 	if opts.Config.Credentials == nil {
 		return NewSessionWithOptions(opts)
-	} else if sts, ok := opts.Config.Credentials.GetProvider().(*credentials.StsProvider); ok {
-		if sts.Region == "" && opts.Config.Region != nil {
-			sts.Region = *(opts.Config.Region)
+	}
+	// 当凭证 Provider 未显式配置 ProxyURL 时，回退到 Config 上的
+	// WithHTTPProxy / WithHTTPSProxy（及对应环境变量），使取凭证的
+	// STS/OIDC/SAML 请求与业务 API 客户端复用同一套代理解析规则。
+	// 优先级：Provider.ProxyURL > Config 代理字段 > HTTP(S)_PROXY 环境变量。
+	proxyFallback := resolveCredsProxyFromConfig(&opts.Config)
+	switch provider := opts.Config.Credentials.GetProvider().(type) {
+	case *credentials.StsProvider:
+		if provider.Region == "" && opts.Config.Region != nil {
+			provider.Region = *(opts.Config.Region)
 		}
-		if sts.Host == "" && opts.Config.Endpoint != nil {
-			sts.Host = *(opts.Config.Endpoint)
+		if provider.Host == "" && opts.Config.Endpoint != nil {
+			provider.Host = *(opts.Config.Endpoint)
+		}
+		if provider.ProxyURL == "" {
+			provider.ProxyURL = proxyFallback
+		}
+	case *credentials.OIDCCredentialsProvider:
+		if provider.ProxyURL == "" {
+			provider.ProxyURL = proxyFallback
+		}
+	case *credentials.SAMLCredentialsProvider:
+		if provider.ProxyURL == "" {
+			provider.ProxyURL = proxyFallback
 		}
 	}
 	return NewSessionWithOptions(opts)
@@ -760,4 +778,38 @@ func getNoProxy(noProxy *string) []string {
 	}
 
 	return urls
+}
+
+// resolveCredsProxyFromConfig 解析用于取凭证（STS/OIDC/SAML）请求的代理地址。
+//
+// 取值规则与业务 API 客户端严格对齐（见 clientConfigWithErr 中的 proxy 解析）：
+// 按 DisableSSL 选择 scheme 分支——DisableSSL 为 true 用 HTTP 分支，否则用
+// HTTPS 分支；分支内依次回退 Config 字段（非空）> 大写环境变量 > 小写环境变量。
+// 全部未命中时返回空串，由各 Provider 按自身规则处理。
+func resolveCredsProxyFromConfig(cfg *volcengine.Config) string {
+	if cfg == nil {
+		return ""
+	}
+	if cfg.DisableSSL != nil && *cfg.DisableSSL {
+		if cfg.HTTPProxy != nil && *cfg.HTTPProxy != "" {
+			return *cfg.HTTPProxy
+		}
+		if r := os.Getenv("HTTP_PROXY"); r != "" {
+			return r
+		}
+		if r := os.Getenv("http_proxy"); r != "" {
+			return r
+		}
+		return ""
+	}
+	if cfg.HTTPSProxy != nil && *cfg.HTTPSProxy != "" {
+		return *cfg.HTTPSProxy
+	}
+	if r := os.Getenv("HTTPS_PROXY"); r != "" {
+		return r
+	}
+	if r := os.Getenv("https_proxy"); r != "" {
+		return r
+	}
+	return ""
 }
