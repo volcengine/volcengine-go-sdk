@@ -206,6 +206,14 @@ type KMSAPI interface {
 	DeleteKeyringWithContext(volcengine.Context, *DeleteKeyringInput, ...request.Option) (*DeleteKeyringOutput, error)
 	DeleteKeyringRequest(*DeleteKeyringInput) (*request.Request, *DeleteKeyringOutput)
 
+	DeriveSharedSecretCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeriveSharedSecretCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeriveSharedSecretCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeriveSharedSecret(*DeriveSharedSecretInput) (*DeriveSharedSecretOutput, error)
+	DeriveSharedSecretWithContext(volcengine.Context, *DeriveSharedSecretInput, ...request.Option) (*DeriveSharedSecretOutput, error)
+	DeriveSharedSecretRequest(*DeriveSharedSecretInput) (*request.Request, *DeriveSharedSecretOutput)
+
 	DescribeCustomKeyStoresCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCustomKeyStoresCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeCustomKeyStoresCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
