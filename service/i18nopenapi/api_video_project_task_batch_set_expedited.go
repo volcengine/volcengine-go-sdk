@@ -271,7 +271,7 @@ type VideoProjectTaskBatchSetExpeditedInput struct {
 	// ProjectId is a required field
 	ProjectId *string `type:"string" json:"projectId,omitempty" required:"true"`
 
-	TaskIds []*int32 `type:"list" json:"taskIds,omitempty"`
+	TaskIds []*string `type:"list" json:"taskIds,omitempty"`
 }
 
 // String returns the string representation
@@ -304,7 +304,7 @@ func (s *VideoProjectTaskBatchSetExpeditedInput) SetProjectId(v string) *VideoPr
 }
 
 // SetTaskIds sets the TaskIds field's value.
-func (s *VideoProjectTaskBatchSetExpeditedInput) SetTaskIds(v []*int32) *VideoProjectTaskBatchSetExpeditedInput {
+func (s *VideoProjectTaskBatchSetExpeditedInput) SetTaskIds(v []*string) *VideoProjectTaskBatchSetExpeditedInput {
 	s.TaskIds = v
 	return s
 }
