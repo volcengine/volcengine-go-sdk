@@ -10,3 +10,7 @@ require (
 	google.golang.org/protobuf v1.31.0
 	gopkg.in/yaml.v2 v2.2.8
 )
+
+// Responses API decoding rejects unknown response fields and can fail on
+// otherwise valid responses.
+retract [v1.1.51, v1.1.55]
