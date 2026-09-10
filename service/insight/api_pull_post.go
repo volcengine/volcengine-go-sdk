@@ -154,13 +154,17 @@ type ItemDocForPullPostOutput struct {
 
 	DedupID *string `type:"string" json:",omitempty"`
 
-	DocStatus *string `type:"string" json:",omitempty"`
+	DocStatus *int32 `type:"int32" json:",omitempty"`
 
 	Emotion *string `type:"string" json:",omitempty"`
 
 	FansCount *int32 `type:"int32" json:",omitempty"`
 
 	IsFollow *bool `type:"boolean" json:",omitempty"`
+
+	Keywords []*string `type:"list" json:",omitempty"`
+
+	LevelName *string `type:"string" json:",omitempty"`
 
 	Locations []*LocationForPullPostOutput `type:"list" json:"locations,omitempty"`
 
@@ -187,6 +191,8 @@ type ItemDocForPullPostOutput struct {
 	Title *string `type:"string" json:",omitempty"`
 
 	Url *string `type:"string" json:",omitempty"`
+
+	WarnLevel *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,7 +230,7 @@ func (s *ItemDocForPullPostOutput) SetDedupID(v string) *ItemDocForPullPostOutpu
 }
 
 // SetDocStatus sets the DocStatus field's value.
-func (s *ItemDocForPullPostOutput) SetDocStatus(v string) *ItemDocForPullPostOutput {
+func (s *ItemDocForPullPostOutput) SetDocStatus(v int32) *ItemDocForPullPostOutput {
 	s.DocStatus = &v
 	return s
 }
@@ -244,6 +250,18 @@ func (s *ItemDocForPullPostOutput) SetFansCount(v int32) *ItemDocForPullPostOutp
 // SetIsFollow sets the IsFollow field's value.
 func (s *ItemDocForPullPostOutput) SetIsFollow(v bool) *ItemDocForPullPostOutput {
 	s.IsFollow = &v
+	return s
+}
+
+// SetKeywords sets the Keywords field's value.
+func (s *ItemDocForPullPostOutput) SetKeywords(v []*string) *ItemDocForPullPostOutput {
+	s.Keywords = v
+	return s
+}
+
+// SetLevelName sets the LevelName field's value.
+func (s *ItemDocForPullPostOutput) SetLevelName(v string) *ItemDocForPullPostOutput {
+	s.LevelName = &v
 	return s
 }
 
@@ -322,6 +340,12 @@ func (s *ItemDocForPullPostOutput) SetTitle(v string) *ItemDocForPullPostOutput 
 // SetUrl sets the Url field's value.
 func (s *ItemDocForPullPostOutput) SetUrl(v string) *ItemDocForPullPostOutput {
 	s.Url = &v
+	return s
+}
+
+// SetWarnLevel sets the WarnLevel field's value.
+func (s *ItemDocForPullPostOutput) SetWarnLevel(v int32) *ItemDocForPullPostOutput {
+	s.WarnLevel = &v
 	return s
 }
 
