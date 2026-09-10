@@ -1,0 +1,28 @@
+{
+  "actions": [
+    "GetRecycledInstance",
+    "GetPrivateEndpointAllowlistRule",
+    "CreateBranch",
+    "ListBranches",
+    "ListClusters",
+    "DescribePriceDetail",
+    "GetClusterDetails",
+    "GetBranchDetails",
+    "ListBackups",
+    "UpdateCluster",
+    "DeleteRecycledInstanceBackup",
+    "DeleteCluster",
+    "UpdateBranch",
+    "CreateCluster",
+    "ListPrivateEndpointAllowlist",
+    "UpdatePrivateEndpointAllowlistRule",
+    "ListRecycledInstanceBackups",
+    "ListRecycledInstances",
+    "GetBackup",
+    "CreatePrivateEndpointAllowlistRule",
+    "DeletePrivateEndpointAllowlistRule"
+  ],
+  "description": "TIDB: 新增 DeleteRecycledInstanceBackup, GetRecycledInstance, ListRecycledInstanceBackups, ListRecycledInstances；修改 GetBackup, GetClusterDetails, DeleteCluster, UpdateBranch, CreatePrivateEndpointAllowlistRule, GetPrivateEndpointAllowlistRule, CreateBranch, ListBranches, ListClusters, CreateCluster, DeletePrivateEndpointAllowlistRule, DescribePriceDetail, ListPrivateEndpointAllowlist, UpdatePrivateEndpointAllowlistRule, GetBranchDetails, ListBackups, UpdateCluster",
+  "modules": "service/tidb",
+  "type": "breaking-change"
+}

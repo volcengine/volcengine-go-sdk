@@ -151,6 +151,8 @@ type AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput struct {
 	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
 	VpcEndpointId *string `type:"string" json:",omitempty"`
+
+	VpcEndpointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -178,6 +180,12 @@ func (s *AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput) SetSecurityG
 // SetVpcEndpointId sets the VpcEndpointId field's value.
 func (s *AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput) SetVpcEndpointId(v string) *AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput {
 	s.VpcEndpointId = &v
+	return s
+}
+
+// SetVpcEndpointName sets the VpcEndpointName field's value.
+func (s *AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput) SetVpcEndpointName(v string) *AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput {
+	s.VpcEndpointName = &v
 	return s
 }
 

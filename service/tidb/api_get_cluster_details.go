@@ -143,33 +143,33 @@ func (c *TIDB) GetClusterDetailsWithContext(ctx volcengine.Context, input *GetCl
 	return out, req.Send()
 }
 
-type AlicloudForGetClusterDetailsOutput struct {
+type AnnotationForGetClusterDetailsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AvailabilityZone []*string `type:"list"`
+	Key *string `type:"string" json:",omitempty"`
 
-	ServiceName *string `type:"string" json:",omitempty"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
-func (s AlicloudForGetClusterDetailsOutput) String() string {
+func (s AnnotationForGetClusterDetailsOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AlicloudForGetClusterDetailsOutput) GoString() string {
+func (s AnnotationForGetClusterDetailsOutput) GoString() string {
 	return s.String()
 }
 
-// SetAvailabilityZone sets the AvailabilityZone field's value.
-func (s *AlicloudForGetClusterDetailsOutput) SetAvailabilityZone(v []*string) *AlicloudForGetClusterDetailsOutput {
-	s.AvailabilityZone = v
+// SetKey sets the Key field's value.
+func (s *AnnotationForGetClusterDetailsOutput) SetKey(v string) *AnnotationForGetClusterDetailsOutput {
+	s.Key = &v
 	return s
 }
 
-// SetServiceName sets the ServiceName field's value.
-func (s *AlicloudForGetClusterDetailsOutput) SetServiceName(v string) *AlicloudForGetClusterDetailsOutput {
-	s.ServiceName = &v
+// SetValue sets the Value field's value.
+func (s *AnnotationForGetClusterDetailsOutput) SetValue(v string) *AnnotationForGetClusterDetailsOutput {
+	s.Value = &v
 	return s
 }
 
@@ -208,9 +208,11 @@ type AuthorizedNetworkForGetClusterDetailsOutput struct {
 
 	DisplayName *string `type:"string" json:",omitempty"`
 
-	EndIpAddress *string `type:"string" json:",omitempty"`
+	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
-	StartIpAddress *string `type:"string" json:",omitempty"`
+	VpcEndpointId *string `type:"string" json:",omitempty"`
+
+	VpcEndpointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -229,15 +231,21 @@ func (s *AuthorizedNetworkForGetClusterDetailsOutput) SetDisplayName(v string) *
 	return s
 }
 
-// SetEndIpAddress sets the EndIpAddress field's value.
-func (s *AuthorizedNetworkForGetClusterDetailsOutput) SetEndIpAddress(v string) *AuthorizedNetworkForGetClusterDetailsOutput {
-	s.EndIpAddress = &v
+// SetSecurityGroupCount sets the SecurityGroupCount field's value.
+func (s *AuthorizedNetworkForGetClusterDetailsOutput) SetSecurityGroupCount(v int32) *AuthorizedNetworkForGetClusterDetailsOutput {
+	s.SecurityGroupCount = &v
 	return s
 }
 
-// SetStartIpAddress sets the StartIpAddress field's value.
-func (s *AuthorizedNetworkForGetClusterDetailsOutput) SetStartIpAddress(v string) *AuthorizedNetworkForGetClusterDetailsOutput {
-	s.StartIpAddress = &v
+// SetVpcEndpointId sets the VpcEndpointId field's value.
+func (s *AuthorizedNetworkForGetClusterDetailsOutput) SetVpcEndpointId(v string) *AuthorizedNetworkForGetClusterDetailsOutput {
+	s.VpcEndpointId = &v
+	return s
+}
+
+// SetVpcEndpointName sets the VpcEndpointName field's value.
+func (s *AuthorizedNetworkForGetClusterDetailsOutput) SetVpcEndpointName(v string) *AuthorizedNetworkForGetClusterDetailsOutput {
+	s.VpcEndpointName = &v
 	return s
 }
 
@@ -301,40 +309,10 @@ func (s *AutomatedBackupPolicyForGetClusterDetailsOutput) SetStartTime(v string)
 	return s
 }
 
-type AwsForGetClusterDetailsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AvailabilityZone []*string `type:"list"`
-
-	ServiceName *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AwsForGetClusterDetailsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AwsForGetClusterDetailsOutput) GoString() string {
-	return s.String()
-}
-
-// SetAvailabilityZone sets the AvailabilityZone field's value.
-func (s *AwsForGetClusterDetailsOutput) SetAvailabilityZone(v []*string) *AwsForGetClusterDetailsOutput {
-	s.AvailabilityZone = v
-	return s
-}
-
-// SetServiceName sets the ServiceName field's value.
-func (s *AwsForGetClusterDetailsOutput) SetServiceName(v string) *AwsForGetClusterDetailsOutput {
-	s.ServiceName = &v
-	return s
-}
-
 type ClusterForGetClusterDetailsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Annotations *string `type:"string" json:",omitempty"`
+	Annotations []*AnnotationForGetClusterDetailsOutput `type:"list"`
 
 	AuditLogConfig *AuditLogConfigForGetClusterDetailsOutput `type:"structure" json:",omitempty"`
 
@@ -354,7 +332,7 @@ type ClusterForGetClusterDetailsOutput struct {
 
 	HighAvailabilityType *string `type:"string" json:",omitempty" enum:"EnumOfHighAvailabilityTypeForGetClusterDetailsOutput"`
 
-	Labels *string `type:"string" json:",omitempty"`
+	Labels []*LabelForGetClusterDetailsOutput `type:"list"`
 
 	Name *string `type:"string" json:",omitempty"`
 
@@ -367,6 +345,8 @@ type ClusterForGetClusterDetailsOutput struct {
 	SpendingLimit *SpendingLimitForGetClusterDetailsOutput `type:"structure" json:",omitempty"`
 
 	State *string `type:"string" json:",omitempty" enum:"EnumOfStateForGetClusterDetailsOutput"`
+
+	Tags []*TagForGetClusterDetailsOutput `type:"list"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 
@@ -390,8 +370,8 @@ func (s ClusterForGetClusterDetailsOutput) GoString() string {
 }
 
 // SetAnnotations sets the Annotations field's value.
-func (s *ClusterForGetClusterDetailsOutput) SetAnnotations(v string) *ClusterForGetClusterDetailsOutput {
-	s.Annotations = &v
+func (s *ClusterForGetClusterDetailsOutput) SetAnnotations(v []*AnnotationForGetClusterDetailsOutput) *ClusterForGetClusterDetailsOutput {
+	s.Annotations = v
 	return s
 }
 
@@ -450,8 +430,8 @@ func (s *ClusterForGetClusterDetailsOutput) SetHighAvailabilityType(v string) *C
 }
 
 // SetLabels sets the Labels field's value.
-func (s *ClusterForGetClusterDetailsOutput) SetLabels(v string) *ClusterForGetClusterDetailsOutput {
-	s.Labels = &v
+func (s *ClusterForGetClusterDetailsOutput) SetLabels(v []*LabelForGetClusterDetailsOutput) *ClusterForGetClusterDetailsOutput {
+	s.Labels = v
 	return s
 }
 
@@ -491,6 +471,12 @@ func (s *ClusterForGetClusterDetailsOutput) SetState(v string) *ClusterForGetClu
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ClusterForGetClusterDetailsOutput) SetTags(v []*TagForGetClusterDetailsOutput) *ClusterForGetClusterDetailsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ClusterForGetClusterDetailsOutput) SetUpdateTime(v string) *ClusterForGetClusterDetailsOutput {
 	s.UpdateTime = &v
@@ -518,6 +504,44 @@ func (s *ClusterForGetClusterDetailsOutput) SetVpcId(v string) *ClusterForGetClu
 // SetZones sets the Zones field's value.
 func (s *ClusterForGetClusterDetailsOutput) SetZones(v []*ZoneForGetClusterDetailsOutput) *ClusterForGetClusterDetailsOutput {
 	s.Zones = v
+	return s
+}
+
+type ConvertAuthorizedNetworkForGetClusterDetailsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DisplayName *string `type:"string" json:",omitempty"`
+
+	EndIpAddress *string `type:"string" json:",omitempty"`
+
+	StartIpAddress *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertAuthorizedNetworkForGetClusterDetailsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertAuthorizedNetworkForGetClusterDetailsOutput) GoString() string {
+	return s.String()
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *ConvertAuthorizedNetworkForGetClusterDetailsOutput) SetDisplayName(v string) *ConvertAuthorizedNetworkForGetClusterDetailsOutput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetEndIpAddress sets the EndIpAddress field's value.
+func (s *ConvertAuthorizedNetworkForGetClusterDetailsOutput) SetEndIpAddress(v string) *ConvertAuthorizedNetworkForGetClusterDetailsOutput {
+	s.EndIpAddress = &v
+	return s
+}
+
+// SetStartIpAddress sets the StartIpAddress field's value.
+func (s *ConvertAuthorizedNetworkForGetClusterDetailsOutput) SetStartIpAddress(v string) *ConvertAuthorizedNetworkForGetClusterDetailsOutput {
+	s.StartIpAddress = &v
 	return s
 }
 
@@ -649,16 +673,54 @@ func (s *GetClusterDetailsOutput) SetCluster(v *ClusterForGetClusterDetailsOutpu
 	return s
 }
 
+type LabelForGetClusterDetailsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LabelForGetClusterDetailsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LabelForGetClusterDetailsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *LabelForGetClusterDetailsOutput) SetKey(v string) *LabelForGetClusterDetailsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *LabelForGetClusterDetailsOutput) SetValue(v string) *LabelForGetClusterDetailsOutput {
+	s.Value = &v
+	return s
+}
+
 type PrivateEndpointForGetClusterDetailsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Alicloud *AlicloudForGetClusterDetailsOutput `type:"structure" json:",omitempty"`
+	AuthorizedNetworks []*AuthorizedNetworkForGetClusterDetailsOutput `type:"list"`
 
-	Aws *AwsForGetClusterDetailsOutput `type:"structure" json:",omitempty"`
+	Disabled *bool `type:"boolean" json:",omitempty"`
 
 	Host *string `type:"string" json:",omitempty"`
 
 	Port *int32 `type:"int32" json:",omitempty"`
+
+	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
+
+	ServiceName *string `type:"string" json:",omitempty"`
+
+	VpcEndpointId *string `type:"string" json:",omitempty"`
+
+	VpcEndpointName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -671,15 +733,15 @@ func (s PrivateEndpointForGetClusterDetailsOutput) GoString() string {
 	return s.String()
 }
 
-// SetAlicloud sets the Alicloud field's value.
-func (s *PrivateEndpointForGetClusterDetailsOutput) SetAlicloud(v *AlicloudForGetClusterDetailsOutput) *PrivateEndpointForGetClusterDetailsOutput {
-	s.Alicloud = v
+// SetAuthorizedNetworks sets the AuthorizedNetworks field's value.
+func (s *PrivateEndpointForGetClusterDetailsOutput) SetAuthorizedNetworks(v []*AuthorizedNetworkForGetClusterDetailsOutput) *PrivateEndpointForGetClusterDetailsOutput {
+	s.AuthorizedNetworks = v
 	return s
 }
 
-// SetAws sets the Aws field's value.
-func (s *PrivateEndpointForGetClusterDetailsOutput) SetAws(v *AwsForGetClusterDetailsOutput) *PrivateEndpointForGetClusterDetailsOutput {
-	s.Aws = v
+// SetDisabled sets the Disabled field's value.
+func (s *PrivateEndpointForGetClusterDetailsOutput) SetDisabled(v bool) *PrivateEndpointForGetClusterDetailsOutput {
+	s.Disabled = &v
 	return s
 }
 
@@ -695,10 +757,34 @@ func (s *PrivateEndpointForGetClusterDetailsOutput) SetPort(v int32) *PrivateEnd
 	return s
 }
 
+// SetSecurityGroupCount sets the SecurityGroupCount field's value.
+func (s *PrivateEndpointForGetClusterDetailsOutput) SetSecurityGroupCount(v int32) *PrivateEndpointForGetClusterDetailsOutput {
+	s.SecurityGroupCount = &v
+	return s
+}
+
+// SetServiceName sets the ServiceName field's value.
+func (s *PrivateEndpointForGetClusterDetailsOutput) SetServiceName(v string) *PrivateEndpointForGetClusterDetailsOutput {
+	s.ServiceName = &v
+	return s
+}
+
+// SetVpcEndpointId sets the VpcEndpointId field's value.
+func (s *PrivateEndpointForGetClusterDetailsOutput) SetVpcEndpointId(v string) *PrivateEndpointForGetClusterDetailsOutput {
+	s.VpcEndpointId = &v
+	return s
+}
+
+// SetVpcEndpointName sets the VpcEndpointName field's value.
+func (s *PrivateEndpointForGetClusterDetailsOutput) SetVpcEndpointName(v string) *PrivateEndpointForGetClusterDetailsOutput {
+	s.VpcEndpointName = &v
+	return s
+}
+
 type PublicEndpointForGetClusterDetailsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AuthorizedNetworks []*AuthorizedNetworkForGetClusterDetailsOutput `type:"list"`
+	AuthorizedNetworks []*ConvertAuthorizedNetworkForGetClusterDetailsOutput `type:"list"`
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
@@ -718,7 +804,7 @@ func (s PublicEndpointForGetClusterDetailsOutput) GoString() string {
 }
 
 // SetAuthorizedNetworks sets the AuthorizedNetworks field's value.
-func (s *PublicEndpointForGetClusterDetailsOutput) SetAuthorizedNetworks(v []*AuthorizedNetworkForGetClusterDetailsOutput) *PublicEndpointForGetClusterDetailsOutput {
+func (s *PublicEndpointForGetClusterDetailsOutput) SetAuthorizedNetworks(v []*ConvertAuthorizedNetworkForGetClusterDetailsOutput) *PublicEndpointForGetClusterDetailsOutput {
 	s.AuthorizedNetworks = v
 	return s
 }
@@ -760,6 +846,36 @@ func (s SpendingLimitForGetClusterDetailsOutput) GoString() string {
 // SetMonthly sets the Monthly field's value.
 func (s *SpendingLimitForGetClusterDetailsOutput) SetMonthly(v int32) *SpendingLimitForGetClusterDetailsOutput {
 	s.Monthly = &v
+	return s
+}
+
+type TagForGetClusterDetailsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagForGetClusterDetailsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForGetClusterDetailsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForGetClusterDetailsOutput) SetKey(v string) *TagForGetClusterDetailsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForGetClusterDetailsOutput) SetValue(v string) *TagForGetClusterDetailsOutput {
+	s.Value = &v
 	return s
 }
 
