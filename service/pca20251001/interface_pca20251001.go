@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // PCA20251001.
 //    func myFunc(svc PCA20251001API) bool {
-//        // Make svc.CreateLeafInstance request
+//        // Make svc.C2PASign request
 //    }
 //
 //    func main() {
@@ -30,6 +30,22 @@ import (
 //    }
 //
 type PCA20251001API interface {
+	C2PASignCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	C2PASignCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	C2PASignCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	C2PASign(*C2PASignInput) (*C2PASignOutput, error)
+	C2PASignWithContext(volcengine.Context, *C2PASignInput, ...request.Option) (*C2PASignOutput, error)
+	C2PASignRequest(*C2PASignInput) (*request.Request, *C2PASignOutput)
+
+	C2PAVerifyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	C2PAVerifyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	C2PAVerifyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	C2PAVerify(*C2PAVerifyInput) (*C2PAVerifyOutput, error)
+	C2PAVerifyWithContext(volcengine.Context, *C2PAVerifyInput, ...request.Option) (*C2PAVerifyOutput, error)
+	C2PAVerifyRequest(*C2PAVerifyInput) (*request.Request, *C2PAVerifyOutput)
+
 	CreateLeafInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateLeafInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateLeafInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -78,6 +94,14 @@ type PCA20251001API interface {
 	DeleteSubInstanceWithContext(volcengine.Context, *DeleteSubInstanceInput, ...request.Option) (*DeleteSubInstanceOutput, error)
 	DeleteSubInstanceRequest(*DeleteSubInstanceInput) (*request.Request, *DeleteSubInstanceOutput)
 
+	DescribeC2PAInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeC2PAInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeC2PAInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeC2PAInstance(*DescribeC2PAInstanceInput) (*DescribeC2PAInstanceOutput, error)
+	DescribeC2PAInstanceWithContext(volcengine.Context, *DescribeC2PAInstanceInput, ...request.Option) (*DescribeC2PAInstanceOutput, error)
+	DescribeC2PAInstanceRequest(*DescribeC2PAInstanceInput) (*request.Request, *DescribeC2PAInstanceOutput)
+
 	DisableRootInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisableRootInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisableRootInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -118,6 +142,14 @@ type PCA20251001API interface {
 	EnableSubInstanceWithContext(volcengine.Context, *EnableSubInstanceInput, ...request.Option) (*EnableSubInstanceOutput, error)
 	EnableSubInstanceRequest(*EnableSubInstanceInput) (*request.Request, *EnableSubInstanceOutput)
 
+	GetC2PAInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetC2PAInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetC2PAInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetC2PAInstance(*GetC2PAInstanceInput) (*GetC2PAInstanceOutput, error)
+	GetC2PAInstanceWithContext(volcengine.Context, *GetC2PAInstanceInput, ...request.Option) (*GetC2PAInstanceOutput, error)
+	GetC2PAInstanceRequest(*GetC2PAInstanceInput) (*request.Request, *GetC2PAInstanceOutput)
+
 	GetLeafInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetLeafInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetLeafInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -149,6 +181,14 @@ type PCA20251001API interface {
 	GetSubInstance(*GetSubInstanceInput) (*GetSubInstanceOutput, error)
 	GetSubInstanceWithContext(volcengine.Context, *GetSubInstanceInput, ...request.Option) (*GetSubInstanceOutput, error)
 	GetSubInstanceRequest(*GetSubInstanceInput) (*request.Request, *GetSubInstanceOutput)
+
+	ListC2PAInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListC2PAInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListC2PAInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListC2PAInstances(*ListC2PAInstancesInput) (*ListC2PAInstancesOutput, error)
+	ListC2PAInstancesWithContext(volcengine.Context, *ListC2PAInstancesInput, ...request.Option) (*ListC2PAInstancesOutput, error)
+	ListC2PAInstancesRequest(*ListC2PAInstancesInput) (*request.Request, *ListC2PAInstancesOutput)
 
 	ListLeafInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListLeafInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
