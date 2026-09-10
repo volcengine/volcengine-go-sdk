@@ -336,6 +336,8 @@ type GetMetricDataInput struct {
 
 	Period *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	StartTime *int32 `type:"int32" json:",omitempty"`
 
 	StatisticsMethods []*string `type:"list" json:",omitempty"`
@@ -406,6 +408,12 @@ func (s *GetMetricDataInput) SetNamespace(v string) *GetMetricDataInput {
 // SetPeriod sets the Period field's value.
 func (s *GetMetricDataInput) SetPeriod(v string) *GetMetricDataInput {
 	s.Period = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *GetMetricDataInput) SetProjectName(v string) *GetMetricDataInput {
+	s.ProjectName = &v
 	return s
 }
 

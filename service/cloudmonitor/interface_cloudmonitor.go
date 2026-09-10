@@ -70,6 +70,14 @@ type CLOUDMONITORAPI interface {
 	CreateEventRuleWithContext(volcengine.Context, *CreateEventRuleInput, ...request.Option) (*CreateEventRuleOutput, error)
 	CreateEventRuleRequest(*CreateEventRuleInput) (*request.Request, *CreateEventRuleOutput)
 
+	CreateIntegrationCenterIntegrationConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateIntegrationCenterIntegrationConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateIntegrationCenterIntegrationConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateIntegrationCenterIntegrationConfig(*CreateIntegrationCenterIntegrationConfigInput) (*CreateIntegrationCenterIntegrationConfigOutput, error)
+	CreateIntegrationCenterIntegrationConfigWithContext(volcengine.Context, *CreateIntegrationCenterIntegrationConfigInput, ...request.Option) (*CreateIntegrationCenterIntegrationConfigOutput, error)
+	CreateIntegrationCenterIntegrationConfigRequest(*CreateIntegrationCenterIntegrationConfigInput) (*request.Request, *CreateIntegrationCenterIntegrationConfigOutput)
+
 	CreateNotificationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNotificationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateNotificationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -158,6 +166,14 @@ type CLOUDMONITORAPI interface {
 	DeleteEventRuleWithContext(volcengine.Context, *DeleteEventRuleInput, ...request.Option) (*DeleteEventRuleOutput, error)
 	DeleteEventRuleRequest(*DeleteEventRuleInput) (*request.Request, *DeleteEventRuleOutput)
 
+	DeleteIntegrationCenterIntegrationConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIntegrationCenterIntegrationConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIntegrationCenterIntegrationConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIntegrationCenterIntegrationConfig(*DeleteIntegrationCenterIntegrationConfigInput) (*DeleteIntegrationCenterIntegrationConfigOutput, error)
+	DeleteIntegrationCenterIntegrationConfigWithContext(volcengine.Context, *DeleteIntegrationCenterIntegrationConfigInput, ...request.Option) (*DeleteIntegrationCenterIntegrationConfigOutput, error)
+	DeleteIntegrationCenterIntegrationConfigRequest(*DeleteIntegrationCenterIntegrationConfigInput) (*request.Request, *DeleteIntegrationCenterIntegrationConfigOutput)
+
 	DeleteNotificationsByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteNotificationsByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteNotificationsByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -237,6 +253,14 @@ type CLOUDMONITORAPI interface {
 	EnablePresetAlertTemplate(*EnablePresetAlertTemplateInput) (*EnablePresetAlertTemplateOutput, error)
 	EnablePresetAlertTemplateWithContext(volcengine.Context, *EnablePresetAlertTemplateInput, ...request.Option) (*EnablePresetAlertTemplateOutput, error)
 	EnablePresetAlertTemplateRequest(*EnablePresetAlertTemplateInput) (*request.Request, *EnablePresetAlertTemplateOutput)
+
+	GetIntegrationCenterIntegrationConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetIntegrationCenterIntegrationConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetIntegrationCenterIntegrationConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetIntegrationCenterIntegrationConfig(*GetIntegrationCenterIntegrationConfigInput) (*GetIntegrationCenterIntegrationConfigOutput, error)
+	GetIntegrationCenterIntegrationConfigWithContext(volcengine.Context, *GetIntegrationCenterIntegrationConfigInput, ...request.Option) (*GetIntegrationCenterIntegrationConfigOutput, error)
+	GetIntegrationCenterIntegrationConfigRequest(*GetIntegrationCenterIntegrationConfigInput) (*request.Request, *GetIntegrationCenterIntegrationConfigOutput)
 
 	GetMetricDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetMetricDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -341,6 +365,14 @@ type CLOUDMONITORAPI interface {
 	ListEvents(*ListEventsInput) (*ListEventsOutput, error)
 	ListEventsWithContext(volcengine.Context, *ListEventsInput, ...request.Option) (*ListEventsOutput, error)
 	ListEventsRequest(*ListEventsInput) (*request.Request, *ListEventsOutput)
+
+	ListIntegrationCenterIntegrationConfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListIntegrationCenterIntegrationConfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListIntegrationCenterIntegrationConfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListIntegrationCenterIntegrationConfigs(*ListIntegrationCenterIntegrationConfigsInput) (*ListIntegrationCenterIntegrationConfigsOutput, error)
+	ListIntegrationCenterIntegrationConfigsWithContext(volcengine.Context, *ListIntegrationCenterIntegrationConfigsInput, ...request.Option) (*ListIntegrationCenterIntegrationConfigsOutput, error)
+	ListIntegrationCenterIntegrationConfigsRequest(*ListIntegrationCenterIntegrationConfigsInput) (*request.Request, *ListIntegrationCenterIntegrationConfigsOutput)
 
 	ListNotificationsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListNotificationsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -462,6 +494,14 @@ type CLOUDMONITORAPI interface {
 	ModifyStateOfSilencePolicyByIdsWithContext(volcengine.Context, *ModifyStateOfSilencePolicyByIdsInput, ...request.Option) (*ModifyStateOfSilencePolicyByIdsOutput, error)
 	ModifyStateOfSilencePolicyByIdsRequest(*ModifyStateOfSilencePolicyByIdsInput) (*request.Request, *ModifyStateOfSilencePolicyByIdsOutput)
 
+	PerformIntegrationCenterIntegrationConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PerformIntegrationCenterIntegrationConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PerformIntegrationCenterIntegrationConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PerformIntegrationCenterIntegrationConfig(*PerformIntegrationCenterIntegrationConfigInput) (*PerformIntegrationCenterIntegrationConfigOutput, error)
+	PerformIntegrationCenterIntegrationConfigWithContext(volcengine.Context, *PerformIntegrationCenterIntegrationConfigInput, ...request.Option) (*PerformIntegrationCenterIntegrationConfigOutput, error)
+	PerformIntegrationCenterIntegrationConfigRequest(*PerformIntegrationCenterIntegrationConfigInput) (*request.Request, *PerformIntegrationCenterIntegrationConfigOutput)
+
 	PerformO11yAgentECSDeployTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	PerformO11yAgentECSDeployTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	PerformO11yAgentECSDeployTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -541,6 +581,14 @@ type CLOUDMONITORAPI interface {
 	UpdateEventRule(*UpdateEventRuleInput) (*UpdateEventRuleOutput, error)
 	UpdateEventRuleWithContext(volcengine.Context, *UpdateEventRuleInput, ...request.Option) (*UpdateEventRuleOutput, error)
 	UpdateEventRuleRequest(*UpdateEventRuleInput) (*request.Request, *UpdateEventRuleOutput)
+
+	UpdateIntegrationCenterIntegrationConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateIntegrationCenterIntegrationConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateIntegrationCenterIntegrationConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateIntegrationCenterIntegrationConfig(*UpdateIntegrationCenterIntegrationConfigInput) (*UpdateIntegrationCenterIntegrationConfigOutput, error)
+	UpdateIntegrationCenterIntegrationConfigWithContext(volcengine.Context, *UpdateIntegrationCenterIntegrationConfigInput, ...request.Option) (*UpdateIntegrationCenterIntegrationConfigOutput, error)
+	UpdateIntegrationCenterIntegrationConfigRequest(*UpdateIntegrationCenterIntegrationConfigInput) (*request.Request, *UpdateIntegrationCenterIntegrationConfigOutput)
 
 	UpdateNotificationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateNotificationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
