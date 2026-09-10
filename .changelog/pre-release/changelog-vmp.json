@@ -1,0 +1,18 @@
+{
+  "actions": [
+    "UpdateAlertingRuleGroup",
+    "DeleteAlertingRuleGroup",
+    "GetAlertingRuleTemplate",
+    "ListAlertingRuleTemplates",
+    "UnbindAlertingRuleGroupTemplate",
+    "ListAlertingRuleGroups",
+    "UpgradeAlertingRuleGroups",
+    "CreateAlertingRuleGroup",
+    "UpdateAlertingRuleTemplate",
+    "CreateAlertingRuleTemplate",
+    "DeleteAlertingRuleTemplate"
+  ],
+  "description": "VMP: 新增 GetAlertingRuleTemplate, ListAlertingRuleTemplates, UnbindAlertingRuleGroupTemplate, UpdateAlertingRuleGroup, UpdateAlertingRuleTemplate, DeleteAlertingRuleGroup, CreateAlertingRuleTemplate, DeleteAlertingRuleTemplate, ListAlertingRuleGroups, UpgradeAlertingRuleGroups, CreateAlertingRuleGroup",
+  "modules": "service/vmp",
+  "type": "feature"
+}
