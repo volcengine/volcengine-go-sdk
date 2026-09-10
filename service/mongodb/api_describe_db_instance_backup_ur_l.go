@@ -205,6 +205,8 @@ type DescribeDBInstanceBackupURLOutput struct {
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	LinkExpiredTime *string `type:"string" json:",omitempty"`
+
+	PrivateDownloadLink *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,5 +246,11 @@ func (s *DescribeDBInstanceBackupURLOutput) SetInstanceId(v string) *DescribeDBI
 // SetLinkExpiredTime sets the LinkExpiredTime field's value.
 func (s *DescribeDBInstanceBackupURLOutput) SetLinkExpiredTime(v string) *DescribeDBInstanceBackupURLOutput {
 	s.LinkExpiredTime = &v
+	return s
+}
+
+// SetPrivateDownloadLink sets the PrivateDownloadLink field's value.
+func (s *DescribeDBInstanceBackupURLOutput) SetPrivateDownloadLink(v string) *DescribeDBInstanceBackupURLOutput {
+	s.PrivateDownloadLink = &v
 	return s
 }
