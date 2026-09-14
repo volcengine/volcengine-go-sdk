@@ -146,6 +146,8 @@ type DescribeReservedStorageCapacityInput struct {
 
 	PageSize *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	// ReservedStorageCapacityIds is a required field
 	ReservedStorageCapacityIds []*string `type:"list" required:"true"`
 
@@ -190,6 +192,12 @@ func (s *DescribeReservedStorageCapacityInput) SetPageNumber(v string) *Describe
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeReservedStorageCapacityInput) SetPageSize(v string) *DescribeReservedStorageCapacityInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeReservedStorageCapacityInput) SetProjectName(v string) *DescribeReservedStorageCapacityInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -276,11 +284,15 @@ type RscInfoForDescribeReservedStorageCapacityOutput struct {
 
 	AccountId *string `type:"string"`
 
+	CreatedAt *string `type:"string"`
+
 	ExpiredTime *string `type:"string"`
 
 	Id *string `type:"string"`
 
 	Name *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	RemainingSize *int32 `type:"int32"`
 
@@ -311,6 +323,12 @@ func (s *RscInfoForDescribeReservedStorageCapacityOutput) SetAccountId(v string)
 	return s
 }
 
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *RscInfoForDescribeReservedStorageCapacityOutput) SetCreatedAt(v string) *RscInfoForDescribeReservedStorageCapacityOutput {
+	s.CreatedAt = &v
+	return s
+}
+
 // SetExpiredTime sets the ExpiredTime field's value.
 func (s *RscInfoForDescribeReservedStorageCapacityOutput) SetExpiredTime(v string) *RscInfoForDescribeReservedStorageCapacityOutput {
 	s.ExpiredTime = &v
@@ -326,6 +344,12 @@ func (s *RscInfoForDescribeReservedStorageCapacityOutput) SetId(v string) *RscIn
 // SetName sets the Name field's value.
 func (s *RscInfoForDescribeReservedStorageCapacityOutput) SetName(v string) *RscInfoForDescribeReservedStorageCapacityOutput {
 	s.Name = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *RscInfoForDescribeReservedStorageCapacityOutput) SetProjectName(v string) *RscInfoForDescribeReservedStorageCapacityOutput {
+	s.ProjectName = &v
 	return s
 }
 
