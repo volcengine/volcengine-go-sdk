@@ -176,11 +176,17 @@ func (s *DataForVideoProjectAddTargetLangsToExistingDramaOutput) SetTaskIDs(v []
 type SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Arrangement *int32 `type:"int32" json:"arrangement,omitempty"`
+
+	EffectType *int32 `type:"int32" json:"effectType,omitempty"`
+
 	FileName *string `type:"string" json:"fileName,omitempty"`
 
 	FileType *int32 `type:"int32" json:"fileType,omitempty"`
 
 	FileUrl *string `type:"string" json:"fileUrl,omitempty"`
+
+	SubtitleId *string `type:"string" json:"subtitleId,omitempty"`
 
 	SubtitleLang *int32 `type:"int32" json:"subtitleLang,omitempty"`
 }
@@ -193,6 +199,18 @@ func (s SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput) Strin
 // GoString returns the string representation
 func (s SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput) GoString() string {
 	return s.String()
+}
+
+// SetArrangement sets the Arrangement field's value.
+func (s *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput) SetArrangement(v int32) *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Arrangement = &v
+	return s
+}
+
+// SetEffectType sets the EffectType field's value.
+func (s *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput) SetEffectType(v int32) *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.EffectType = &v
+	return s
 }
 
 // SetFileName sets the FileName field's value.
@@ -210,6 +228,12 @@ func (s *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput) SetF
 // SetFileUrl sets the FileUrl field's value.
 func (s *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput) SetFileUrl(v string) *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput {
 	s.FileUrl = &v
+	return s
+}
+
+// SetSubtitleId sets the SubtitleId field's value.
+func (s *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput) SetSubtitleId(v string) *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.SubtitleId = &v
 	return s
 }
 

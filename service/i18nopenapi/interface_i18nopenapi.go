@@ -790,6 +790,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectAddTargetLangsToExistingDramaWithContext(volcengine.Context, *VideoProjectAddTargetLangsToExistingDramaInput, ...request.Option) (*VideoProjectAddTargetLangsToExistingDramaOutput, error)
 	VideoProjectAddTargetLangsToExistingDramaRequest(*VideoProjectAddTargetLangsToExistingDramaInput) (*request.Request, *VideoProjectAddTargetLangsToExistingDramaOutput)
 
+	VideoProjectBatchReuploadForSubtasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectBatchReuploadForSubtasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectBatchReuploadForSubtasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectBatchReuploadForSubtasks(*VideoProjectBatchReuploadForSubtasksInput) (*VideoProjectBatchReuploadForSubtasksOutput, error)
+	VideoProjectBatchReuploadForSubtasksWithContext(volcengine.Context, *VideoProjectBatchReuploadForSubtasksInput, ...request.Option) (*VideoProjectBatchReuploadForSubtasksOutput, error)
+	VideoProjectBatchReuploadForSubtasksRequest(*VideoProjectBatchReuploadForSubtasksInput) (*request.Request, *VideoProjectBatchReuploadForSubtasksOutput)
+
 	VideoProjectCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectCreateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

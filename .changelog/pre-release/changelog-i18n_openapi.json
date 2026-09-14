@@ -1,0 +1,11 @@
+{
+  "actions": [
+    "VideoProjectBatchReuploadForSubtasks",
+    "VideoProjectSerialTaskCreate",
+    "VideoProjectAddTargetLangsToExistingDrama",
+    "VideoProjectSerialDubTaskCreate"
+  ],
+  "description": "I18N_OPENAPI: 新增 VideoProjectBatchReuploadForSubtasks；修改 VideoProjectSerialTaskCreate, VideoProjectAddTargetLangsToExistingDrama, VideoProjectSerialDubTaskCreate",
+  "modules": "service/i18n_openapi",
+  "type": "feature"
+}
