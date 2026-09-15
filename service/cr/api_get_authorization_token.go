@@ -146,6 +146,8 @@ func (c *CR) GetAuthorizationTokenWithContext(ctx volcengine.Context, input *Get
 type GetAuthorizationTokenInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ExpiresAt *int64 `type:"int64" json:",omitempty"`
+
 	// Registry is a required field
 	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`
 }
@@ -177,6 +179,12 @@ func (s *GetAuthorizationTokenInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetExpiresAt sets the ExpiresAt field's value.
+func (s *GetAuthorizationTokenInput) SetExpiresAt(v int64) *GetAuthorizationTokenInput {
+	s.ExpiresAt = &v
+	return s
 }
 
 // SetRegistry sets the Registry field's value.
