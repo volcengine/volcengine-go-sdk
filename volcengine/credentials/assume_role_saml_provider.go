@@ -41,15 +41,16 @@ type SAMLCredentialsProvider struct {
 	sessionValue        *Value
 	httpOptions         *HttpOptions
 	// ProxyURL 指定访问 STS 端点时使用的正向代理地址，格式
-	// scheme://[user:password@]host:port。留空时回退到环境变量
-	// HTTP_PROXY / HTTPS_PROXY / NO_PROXY。
+	// scheme://[user:password@]host:port。留空时先使用绑定客户端中与 STS
+	// 协议对应的 HTTPProxy/HTTPSProxy，再保留原传输层代理行为。
 	ProxyURL string
 	// CAFile 指定用于校验 STS 服务端证书的自定义 CA 证书文件路径（PEM 格式）。
-	// 留空时使用操作系统默认根证书信任库。
+	// 留空时保留原传输层的根证书配置，标准默认值使用系统根证书。
 	CAFile string
 	// InsecureSkipVerify 控制是否跳过 STS 服务端 TLS 证书校验。
 	// 仅限联调（如自签证书 / 代理拦截），生产环境禁用，会导致中间人攻击风险。
 	InsecureSkipVerify bool
+	stsConfig          STSConfig
 }
 
 // SAMLProviderOptions contains optional configuration for SAMLCredentialsProvider.
@@ -150,9 +151,14 @@ func (p *SAMLCredentialsProvider) fetchOnce() (Value, error) {
 		ProxyURL:           p.ProxyURL,
 		CAFile:             p.CAFile,
 		InsecureSkipVerify: p.InsecureSkipVerify,
+		httpProxy:          p.stsConfig.HTTPProxy,
+		httpsProxy:         p.stsConfig.HTTPSProxy,
 	}, timeout)
 	if err != nil {
 		return Value{}, err
+	}
+	if client.Transport != nil {
+		defer client.CloseIdleConnections()
 	}
 
 	var stsResp AssumeRoleWithSAMLResponse

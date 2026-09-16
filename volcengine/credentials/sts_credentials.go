@@ -40,7 +40,9 @@ type StsAssumeRoleProvider struct {
 	// 代理认证信息（用户名/密码）以 Basic 方式随请求发送。若含特殊字符，
 	// 请按 RFC 3986 进行百分号编码。
 	//
-	// 留空时，SDK 回退到标准环境变量 HTTP_PROXY / HTTPS_PROXY / NO_PROXY。
+	// 留空时先使用绑定客户端中与 STS 协议对应的 HTTPProxy/HTTPSProxy，
+	// 再保留原传输层代理行为（标准默认传输层处理 HTTP_PROXY/HTTPS_PROXY/NO_PROXY）。
+	// 直接调用 StsAssumeRole 不包含客户端配置兜底层。
 	ProxyURL string
 
 	// CAFile 指定用于校验 STS 服务端证书的自定义 CA 证书文件路径（PEM 格式）。
@@ -48,7 +50,7 @@ type StsAssumeRoleProvider struct {
 	// 适用于企业代理对 HTTPS 流量做 TLS 拦截（中间人）、使用私有 CA 重新签发证书，
 	// 且该 CA 未安装到操作系统信任库的场景。设置后，SDK 将以此 CA 校验证书链。
 	//
-	// 留空时，使用操作系统默认的根证书信任库。
+	// 留空时保留原传输层的根证书配置，标准默认值使用系统根证书。
 	CAFile string
 
 	// InsecureSkipVerify 控制是否跳过 STS 服务端 TLS 证书校验。
@@ -80,8 +82,9 @@ type StsAssumeRoleOptions struct {
 	RetryInterval time.Duration
 
 	// ProxyURL 指定访问 STS 端点时使用的正向代理地址，格式
-	// scheme://[user:password@]host:port。留空时回退到环境变量
-	// HTTP_PROXY / HTTPS_PROXY / NO_PROXY。
+	// scheme://[user:password@]host:port。留空时先使用绑定客户端中与 STS
+	// 协议对应的 HTTPProxy/HTTPSProxy，再保留原传输层代理行为。
+	// 直接调用 StsAssumeRoleWithOptions 不包含客户端配置兜底层。
 	ProxyURL string
 	// CAFile 指定用于校验 STS 服务端证书的自定义 CA 证书文件路径（PEM 格式）。
 	CAFile string
@@ -142,17 +145,19 @@ func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRo
 		ins.Client.SetTimeout(p.Timeout)
 	}
 	// 仅当显式配置了代理/TLS 时才覆盖传输层：浅拷贝底层 http.Client 并只替换
-	// Transport，保留 _GlobalClient 的其余设置（连接池等），且不污染全局实例。
+	// Transport，保留 _GlobalClient 的超时等设置，且不污染全局实例。
 	if transport, err := buildProxyTransport(ProxyConfig{
 		ProxyURL:           p.ProxyURL,
 		CAFile:             p.CAFile,
 		InsecureSkipVerify: p.InsecureSkipVerify,
+		base:               ins.Client.Client.Transport,
 	}); err != nil {
 		return nil, nil, err
 	} else if transport != nil {
 		httpClient := *ins.Client.Client
 		httpClient.Transport = transport
 		ins.Client.Client = &httpClient
+		defer transport.CloseIdleConnections()
 	}
 
 	ins.Client.SetAccessKey(p.AccessKey)

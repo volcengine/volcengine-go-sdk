@@ -29,6 +29,29 @@ Supported environment variables:
 
 Priority: code > environment variables.
 
+### STS / OIDC / SAML credential requests
+
+`NewSession`, `NewSessionWithOptions`, and `Session.Copy` (including service-client
+construction) bind built-in providers to independent configuration snapshots,
+credential caches and refresh locks. The source provider is not modified. Finish
+configuration before constructing the session/client; subsequent source-provider
+changes do not affect existing bindings.
+
+Priority: explicit provider `ProxyURL` > `WithHTTPProxy` / `WithHTTPSProxy` matching
+the **STS request's scheme** > the original transport's proxy behavior. Environment
+values are never stored in `ProxyURL`; the standard default transport continues
+to honor `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY`. Explicit proxies take precedence
+over environment `NO_PROXY`; unspecified schemes retain the original proxy rule.
+For HTTPS STS through an HTTP CONNECT proxy, use
+`WithHTTPSProxy("http://proxy:8080")`, independently of business API `DisableSSL`.
+
+With no overrides, OIDC/SAML retain a nil `http.Client.Transport` and use the caller's
+`http.DefaultTransport`; AssumeRole retains its upstream client transport. Explicit
+overrides clone supported `*http.Transport` values, preserving unspecified TLS settings.
+Unsupported custom RoundTripper overrides return an error instead of panicking.
+These rules cover explicitly supplied built-in providers, not arbitrary providers
+or children of aggregate credential chains.
+
 ---
 
 [← Transport](3-Transport.md) | Proxy[(中文)](4-Proxy-zh.md) | [Timeout →](5-Timeout.md)

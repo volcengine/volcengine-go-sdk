@@ -6,6 +6,14 @@
 
 Volcengine Go SDK supports multiple authentication mechanisms. Choose the one that best matches your scenario.
 
+For built-in STS/OIDC/SAML providers attached to a session, proxy priority is explicit
+provider `ProxyURL`, then the client's `HTTPProxy`/`HTTPSProxy` matching the STS
+request scheme, then the original transport behavior. The examples below omit
+client proxies, so their fallback is the standard environment behavior. Session
+and service-client construction bind independent provider snapshots and caches;
+later source-provider changes do not change existing bindings. Direct one-shot
+STS calls have no client fallback. See [Proxy configuration](4-Proxy.md).
+
 ### Credential Providers Overview
 
 | Provider | Purpose | Refresh Support | Typical Scenario |

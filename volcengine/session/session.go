@@ -134,36 +134,6 @@ func New(cfgs ...*volcengine.Config) *Session {
 func NewSession(cfgs ...*volcengine.Config) (*Session, error) {
 	opts := Options{}
 	opts.Config.MergeIn(cfgs...)
-
-	//merge config region and endpoint info to sts
-	if opts.Config.Credentials == nil {
-		return NewSessionWithOptions(opts)
-	}
-	// 当凭证 Provider 未显式配置 ProxyURL 时，回退到 Config 上的
-	// WithHTTPProxy / WithHTTPSProxy（及对应环境变量），使取凭证的
-	// STS/OIDC/SAML 请求与业务 API 客户端复用同一套代理解析规则。
-	// 优先级：Provider.ProxyURL > Config 代理字段 > HTTP(S)_PROXY 环境变量。
-	proxyFallback := resolveCredsProxyFromConfig(&opts.Config)
-	switch provider := opts.Config.Credentials.GetProvider().(type) {
-	case *credentials.StsProvider:
-		if provider.Region == "" && opts.Config.Region != nil {
-			provider.Region = *(opts.Config.Region)
-		}
-		if provider.Host == "" && opts.Config.Endpoint != nil {
-			provider.Host = *(opts.Config.Endpoint)
-		}
-		if provider.ProxyURL == "" {
-			provider.ProxyURL = proxyFallback
-		}
-	case *credentials.OIDCCredentialsProvider:
-		if provider.ProxyURL == "" {
-			provider.ProxyURL = proxyFallback
-		}
-	case *credentials.SAMLCredentialsProvider:
-		if provider.ProxyURL == "" {
-			provider.ProxyURL = proxyFallback
-		}
-	}
 	return NewSessionWithOptions(opts)
 }
 
@@ -357,6 +327,7 @@ func deprecatedNewSession(cfgs ...*volcengine.Config) *Session {
 
 	// Reapply any passed in configs to override credentials if set
 	cfg.MergeIn(cfgs...)
+	bindSTSCredentials(cfg)
 
 	s := &Session{
 		Config:   cfg,
@@ -412,6 +383,7 @@ func newSession(opts Options, envCfg envConfig, cfgs ...*volcengine.Config) (*Se
 	if err := mergeConfigSrcs(cfg, userCfg, envCfg, sharedCfg, handlers, opts); err != nil {
 		return nil, err
 	}
+	bindSTSCredentials(cfg)
 
 	if volcengine.BoolValue(cfg.EndpointConfigState) && cfg.EndpointResolver == nil {
 		resolver := &endpoints.FileEndpointConfigResolver{
@@ -643,6 +615,7 @@ func (s *Session) Copy(cfgs ...*volcengine.Config) *Session {
 		Config:   s.Config.Copy(cfgs...),
 		Handlers: s.Handlers.Copy(),
 	}
+	bindSTSCredentials(newSession.Config)
 
 	initHandlers(newSession)
 
@@ -780,36 +753,14 @@ func getNoProxy(noProxy *string) []string {
 	return urls
 }
 
-// resolveCredsProxyFromConfig 解析用于取凭证（STS/OIDC/SAML）请求的代理地址。
-//
-// 取值规则与业务 API 客户端严格对齐（见 clientConfigWithErr 中的 proxy 解析）：
-// 按 DisableSSL 选择 scheme 分支——DisableSSL 为 true 用 HTTP 分支，否则用
-// HTTPS 分支；分支内依次回退 Config 字段（非空）> 大写环境变量 > 小写环境变量。
-// 全部未命中时返回空串，由各 Provider 按自身规则处理。
-func resolveCredsProxyFromConfig(cfg *volcengine.Config) string {
-	if cfg == nil {
-		return ""
-	}
-	if cfg.DisableSSL != nil && *cfg.DisableSSL {
-		if cfg.HTTPProxy != nil && *cfg.HTTPProxy != "" {
-			return *cfg.HTTPProxy
-		}
-		if r := os.Getenv("HTTP_PROXY"); r != "" {
-			return r
-		}
-		if r := os.Getenv("http_proxy"); r != "" {
-			return r
-		}
-		return ""
-	}
-	if cfg.HTTPSProxy != nil && *cfg.HTTPSProxy != "" {
-		return *cfg.HTTPSProxy
-	}
-	if r := os.Getenv("HTTPS_PROXY"); r != "" {
-		return r
-	}
-	if r := os.Getenv("https_proxy"); r != "" {
-		return r
-	}
-	return ""
+// Bind a private credential cache after config merging. Only explicit defaults
+// are copied: STS chooses its own scheme and the transport resolves environment
+// proxies per request, retaining NO_PROXY.
+func bindSTSCredentials(cfg *volcengine.Config) {
+	cfg.Credentials = cfg.Credentials.WithSTSConfig(credentials.STSConfig{
+		Region:     volcengine.StringValue(cfg.Region),
+		Host:       volcengine.StringValue(cfg.Endpoint),
+		HTTPProxy:  volcengine.StringValue(cfg.HTTPProxy),
+		HTTPSProxy: volcengine.StringValue(cfg.HTTPSProxy),
+	})
 }

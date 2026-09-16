@@ -25,15 +25,21 @@ type ProxyConfig struct {
 	// InsecureSkipVerify 为 true 时跳过 TLS 证书链与主机名校验。
 	// 仅限联调，生产环境禁用。
 	InsecureSkipVerify bool
+	// Client fallback and the original transport are kept separate from the
+	// explicitly configured ProxyURL. Environment proxies are never copied here.
+	httpProxy  string
+	httpsProxy string
+	base       http.RoundTripper
 }
 
-// IsZero 判断三个对外参数是否都为空。
+// IsZero 判断显式代理/TLS 参数和客户端代理兜底是否都为空。
 //
 // 为 true 时表示调用方未显式配置任何代理/TLS 选项，此时应保持底层
 // http.Client 原样（例如上游 base.Client 复用的 _GlobalClient 及其
 // VOLC_ 环境变量代理），避免无意义地覆盖 Transport。
 func (cfg ProxyConfig) IsZero() bool {
-	return cfg.ProxyURL == "" && cfg.CAFile == "" && !cfg.InsecureSkipVerify
+	return cfg.ProxyURL == "" && cfg.CAFile == "" && !cfg.InsecureSkipVerify &&
+		cfg.httpProxy == "" && cfg.httpsProxy == ""
 }
 
 // newDefaultProxyTransport 克隆 http.DefaultTransport 并叠加 SDK 的连接池调优。
@@ -44,12 +50,19 @@ func (cfg ProxyConfig) IsZero() bool {
 // 若 ForceAttemptHTTP2 未置真，net/http 将不再自动协商 HTTP/2 而静默降级到
 // HTTP/1.1。因此这里以 Clone() 为基准，既保留标准库默认，又只覆盖需要定制的
 // 连接池参数（代理与 TLS 由调用方在此基础上覆盖）。
-func newDefaultProxyTransport() *http.Transport {
-	transport := http.DefaultTransport.(*http.Transport).Clone()
+func newDefaultProxyTransport(base http.RoundTripper) (*http.Transport, error) {
+	if base == nil {
+		base = http.DefaultTransport
+	}
+	source, ok := base.(*http.Transport)
+	if !ok || source == nil {
+		return nil, fmt.Errorf("cannot apply STS proxy/TLS options to transport %T", base)
+	}
+	transport := source.Clone()
 	transport.MaxIdleConns = 1000
 	transport.MaxIdleConnsPerHost = 100
 	transport.IdleConnTimeout = 10 * time.Second
-	return transport
+	return transport, nil
 }
 
 // buildProxyTransport 根据代理与 TLS 配置构建 *http.Transport。
@@ -64,7 +77,8 @@ func newDefaultProxyTransport() *http.Transport {
 //
 // 代理优先级：
 //  1. 若 cfg.ProxyURL 非空，则使用该地址作为 HTTP/HTTPS 代理；
-//  2. 否则回退到环境变量（HTTP_PROXY / HTTPS_PROXY / NO_PROXY）。
+//  2. 否则按实际请求 scheme 选择客户端显式代理；
+//  3. 未命中时保留原 transport.Proxy（标准默认值支持环境变量和 NO_PROXY）。
 //
 // TLS 处理：
 //   - 若 cfg.CAFile 非空，则以该 CA 校验 STS 服务端证书链；
@@ -74,18 +88,54 @@ func buildProxyTransport(cfg ProxyConfig) (*http.Transport, error) {
 		return nil, nil
 	}
 
-	proxyFunc := http.ProxyFromEnvironment
+	transport, err := newDefaultProxyTransport(cfg.base)
+	if err != nil {
+		return nil, err
+	}
 	if cfg.ProxyURL != "" {
-		parsed, err := url.Parse(cfg.ProxyURL)
+		parsed, err := parseSTSProxy(cfg.ProxyURL)
 		if err != nil {
-			return nil, fmt.Errorf("invalid proxy url %q: %w", cfg.ProxyURL, err)
+			return nil, err
 		}
-		proxyFunc = http.ProxyURL(parsed)
+		transport.Proxy = http.ProxyURL(parsed)
+	} else if cfg.httpProxy != "" || cfg.httpsProxy != "" {
+		var httpProxy, httpsProxy *url.URL
+		if cfg.httpProxy != "" {
+			httpProxy, err = parseSTSProxy(cfg.httpProxy)
+			if err != nil {
+				return nil, err
+			}
+		}
+		if cfg.httpsProxy != "" {
+			httpsProxy, err = parseSTSProxy(cfg.httpsProxy)
+			if err != nil {
+				return nil, err
+			}
+		}
+		baseProxy := transport.Proxy
+		transport.Proxy = func(req *http.Request) (*url.URL, error) {
+			if req.URL.Scheme == "http" && httpProxy != nil {
+				return httpProxy, nil
+			}
+			if req.URL.Scheme == "https" && httpsProxy != nil {
+				return httpsProxy, nil
+			}
+			if baseProxy != nil {
+				return baseProxy(req)
+			}
+			return nil, nil
+		}
 	}
 
-	tlsCfg := &tls.Config{
-		InsecureSkipVerify: cfg.InsecureSkipVerify,
+	// Clone preserves caller TLS settings, including mTLS and ServerName.
+	if cfg.CAFile == "" && !cfg.InsecureSkipVerify {
+		return transport, nil
 	}
+	tlsCfg := transport.TLSClientConfig
+	if tlsCfg == nil {
+		tlsCfg = &tls.Config{}
+	}
+	tlsCfg.InsecureSkipVerify = cfg.InsecureSkipVerify
 	if cfg.CAFile != "" {
 		pemBytes, err := ioutil.ReadFile(cfg.CAFile)
 		if err != nil {
@@ -101,17 +151,28 @@ func buildProxyTransport(cfg ProxyConfig) (*http.Transport, error) {
 		tlsCfg.RootCAs = pool
 	}
 
-	transport := newDefaultProxyTransport()
-	transport.Proxy = proxyFunc
 	transport.TLSClientConfig = tlsCfg
 	return transport, nil
+}
+
+func parseSTSProxy(value string) (*url.URL, error) {
+	parsed, err := url.Parse(value)
+	if err != nil || parsed.Hostname() == "" {
+		// Parser errors may contain proxy passwords.
+		return nil, fmt.Errorf("invalid STS proxy URL")
+	}
+	switch parsed.Scheme {
+	case "http", "https", "socks5", "socks5h":
+		return parsed, nil
+	default:
+		return nil, fmt.Errorf("unsupported STS proxy scheme %q", parsed.Scheme)
+	}
 }
 
 // buildProxyHTTPClient 根据代理与 TLS 配置构建独立的 *http.Client。
 //
 // 适用于没有可复用底层 client 的独立请求路径（如 OIDC 的
-// doSTSFormRequest）。即便 cfg 为空也会返回一个带默认 transport 的
-// client，其代理回退到标准环境变量（HTTP_PROXY / HTTPS_PROXY / NO_PROXY）。
+// doSTSFormRequest）。cfg 为空时保留 nil Transport，沿用原 http.DefaultTransport。
 //
 // 当 timeout > 0 时，会设置到返回的 http.Client 上。
 func buildProxyHTTPClient(cfg ProxyConfig, timeout time.Duration) (*http.Client, error) {
@@ -119,16 +180,10 @@ func buildProxyHTTPClient(cfg ProxyConfig, timeout time.Duration) (*http.Client,
 	if err != nil {
 		return nil, err
 	}
-	if transport == nil {
-		// cfg 为空时也需要一个可用 transport（含连接池与环境变量代理回退）。
-		// 同样以 http.DefaultTransport.Clone() 为基准，保留标准库超时与 HTTP/2
-		// 默认，仅显式设置代理回退与一个默认 TLS 配置以维持原有行为。
-		transport = newDefaultProxyTransport()
-		transport.Proxy = http.ProxyFromEnvironment
-		transport.TLSClientConfig = &tls.Config{}
+	client := &http.Client{}
+	if transport != nil {
+		client.Transport = transport
 	}
-
-	client := &http.Client{Transport: transport}
 	if timeout > 0 {
 		client.Timeout = timeout
 	}
