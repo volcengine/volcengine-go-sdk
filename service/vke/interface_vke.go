@@ -62,6 +62,22 @@ type VKEAPI interface {
 	CreateDefaultNodePoolWithContext(volcengine.Context, *CreateDefaultNodePoolInput, ...request.Option) (*CreateDefaultNodePoolOutput, error)
 	CreateDefaultNodePoolRequest(*CreateDefaultNodePoolInput) (*request.Request, *CreateDefaultNodePoolOutput)
 
+	CreateDiagnosticTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDiagnosticTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDiagnosticTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDiagnosticTask(*CreateDiagnosticTaskInput) (*CreateDiagnosticTaskOutput, error)
+	CreateDiagnosticTaskWithContext(volcengine.Context, *CreateDiagnosticTaskInput, ...request.Option) (*CreateDiagnosticTaskOutput, error)
+	CreateDiagnosticTaskRequest(*CreateDiagnosticTaskInput) (*request.Request, *CreateDiagnosticTaskOutput)
+
+	CreateInspectionPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateInspectionPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateInspectionPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateInspectionPolicy(*CreateInspectionPolicyInput) (*CreateInspectionPolicyOutput, error)
+	CreateInspectionPolicyWithContext(volcengine.Context, *CreateInspectionPolicyInput, ...request.Option) (*CreateInspectionPolicyOutput, error)
+	CreateInspectionPolicyRequest(*CreateInspectionPolicyInput) (*request.Request, *CreateInspectionPolicyOutput)
+
 	CreateKubeconfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateKubeconfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateKubeconfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,6 +101,14 @@ type VKEAPI interface {
 	CreateNodes(*CreateNodesInput) (*CreateNodesOutput, error)
 	CreateNodesWithContext(volcengine.Context, *CreateNodesInput, ...request.Option) (*CreateNodesOutput, error)
 	CreateNodesRequest(*CreateNodesInput) (*request.Request, *CreateNodesOutput)
+
+	CreateRemedyRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateRemedyRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateRemedyRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateRemedyRule(*CreateRemedyRuleInput) (*CreateRemedyRuleOutput, error)
+	CreateRemedyRuleWithContext(volcengine.Context, *CreateRemedyRuleInput, ...request.Option) (*CreateRemedyRuleOutput, error)
+	CreateRemedyRuleRequest(*CreateRemedyRuleInput) (*request.Request, *CreateRemedyRuleOutput)
 
 	CreateScalingPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateScalingPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -118,6 +142,14 @@ type VKEAPI interface {
 	DeleteClusterWithContext(volcengine.Context, *DeleteClusterInput, ...request.Option) (*DeleteClusterOutput, error)
 	DeleteClusterRequest(*DeleteClusterInput) (*request.Request, *DeleteClusterOutput)
 
+	DeleteInspectionPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteInspectionPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteInspectionPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteInspectionPolicy(*DeleteInspectionPolicyInput) (*DeleteInspectionPolicyOutput, error)
+	DeleteInspectionPolicyWithContext(volcengine.Context, *DeleteInspectionPolicyInput, ...request.Option) (*DeleteInspectionPolicyOutput, error)
+	DeleteInspectionPolicyRequest(*DeleteInspectionPolicyInput) (*request.Request, *DeleteInspectionPolicyOutput)
+
 	DeleteKubeconfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteKubeconfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteKubeconfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -141,6 +173,14 @@ type VKEAPI interface {
 	DeleteNodes(*DeleteNodesInput) (*DeleteNodesOutput, error)
 	DeleteNodesWithContext(volcengine.Context, *DeleteNodesInput, ...request.Option) (*DeleteNodesOutput, error)
 	DeleteNodesRequest(*DeleteNodesInput) (*request.Request, *DeleteNodesOutput)
+
+	DeleteRemedyRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteRemedyRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteRemedyRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteRemedyRule(*DeleteRemedyRuleInput) (*DeleteRemedyRuleOutput, error)
+	DeleteRemedyRuleWithContext(volcengine.Context, *DeleteRemedyRuleInput, ...request.Option) (*DeleteRemedyRuleOutput, error)
+	DeleteRemedyRuleRequest(*DeleteRemedyRuleInput) (*request.Request, *DeleteRemedyRuleOutput)
 
 	DeleteScalingPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteScalingPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -221,6 +261,30 @@ type VKEAPI interface {
 	ListClusters(*ListClustersInput) (*ListClustersOutput, error)
 	ListClustersWithContext(volcengine.Context, *ListClustersInput, ...request.Option) (*ListClustersOutput, error)
 	ListClustersRequest(*ListClustersInput) (*request.Request, *ListClustersOutput)
+
+	ListDiagnosticTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDiagnosticTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDiagnosticTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDiagnosticTask(*ListDiagnosticTaskInput) (*ListDiagnosticTaskOutput, error)
+	ListDiagnosticTaskWithContext(volcengine.Context, *ListDiagnosticTaskInput, ...request.Option) (*ListDiagnosticTaskOutput, error)
+	ListDiagnosticTaskRequest(*ListDiagnosticTaskInput) (*request.Request, *ListDiagnosticTaskOutput)
+
+	ListDiagnosticTaskResultsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListDiagnosticTaskResultsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListDiagnosticTaskResultsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListDiagnosticTaskResults(*ListDiagnosticTaskResultsInput) (*ListDiagnosticTaskResultsOutput, error)
+	ListDiagnosticTaskResultsWithContext(volcengine.Context, *ListDiagnosticTaskResultsInput, ...request.Option) (*ListDiagnosticTaskResultsOutput, error)
+	ListDiagnosticTaskResultsRequest(*ListDiagnosticTaskResultsInput) (*request.Request, *ListDiagnosticTaskResultsOutput)
+
+	ListInspectionPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListInspectionPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListInspectionPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListInspectionPolicies(*ListInspectionPoliciesInput) (*ListInspectionPoliciesOutput, error)
+	ListInspectionPoliciesWithContext(volcengine.Context, *ListInspectionPoliciesInput, ...request.Option) (*ListInspectionPoliciesOutput, error)
+	ListInspectionPoliciesRequest(*ListInspectionPoliciesInput) (*request.Request, *ListInspectionPoliciesOutput)
 
 	ListInstanceTypeLabelsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListInstanceTypeLabelsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -406,6 +470,22 @@ type VKEAPI interface {
 	UpdateClusterConfigWithContext(volcengine.Context, *UpdateClusterConfigInput, ...request.Option) (*UpdateClusterConfigOutput, error)
 	UpdateClusterConfigRequest(*UpdateClusterConfigInput) (*request.Request, *UpdateClusterConfigOutput)
 
+	UpdateClusterVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateClusterVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateClusterVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateClusterVersion(*UpdateClusterVersionInput) (*UpdateClusterVersionOutput, error)
+	UpdateClusterVersionWithContext(volcengine.Context, *UpdateClusterVersionInput, ...request.Option) (*UpdateClusterVersionOutput, error)
+	UpdateClusterVersionRequest(*UpdateClusterVersionInput) (*request.Request, *UpdateClusterVersionOutput)
+
+	UpdateInspectionPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateInspectionPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateInspectionPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateInspectionPolicy(*UpdateInspectionPolicyInput) (*UpdateInspectionPolicyOutput, error)
+	UpdateInspectionPolicyWithContext(volcengine.Context, *UpdateInspectionPolicyInput, ...request.Option) (*UpdateInspectionPolicyOutput, error)
+	UpdateInspectionPolicyRequest(*UpdateInspectionPolicyInput) (*request.Request, *UpdateInspectionPolicyOutput)
+
 	UpdateKubernetesObservabilityComponentConfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateKubernetesObservabilityComponentConfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateKubernetesObservabilityComponentConfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -422,6 +502,14 @@ type VKEAPI interface {
 	UpdateNodePoolConfigWithContext(volcengine.Context, *UpdateNodePoolConfigInput, ...request.Option) (*UpdateNodePoolConfigOutput, error)
 	UpdateNodePoolConfigRequest(*UpdateNodePoolConfigInput) (*request.Request, *UpdateNodePoolConfigOutput)
 
+	UpdateRemedyRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateRemedyRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateRemedyRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateRemedyRule(*UpdateRemedyRuleInput) (*UpdateRemedyRuleOutput, error)
+	UpdateRemedyRuleWithContext(volcengine.Context, *UpdateRemedyRuleInput, ...request.Option) (*UpdateRemedyRuleOutput, error)
+	UpdateRemedyRuleRequest(*UpdateRemedyRuleInput) (*request.Request, *UpdateRemedyRuleOutput)
+
 	UpdateScalingPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateScalingPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateScalingPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -429,6 +517,14 @@ type VKEAPI interface {
 	UpdateScalingPolicy(*UpdateScalingPolicyInput) (*UpdateScalingPolicyOutput, error)
 	UpdateScalingPolicyWithContext(volcengine.Context, *UpdateScalingPolicyInput, ...request.Option) (*UpdateScalingPolicyOutput, error)
 	UpdateScalingPolicyRequest(*UpdateScalingPolicyInput) (*request.Request, *UpdateScalingPolicyOutput)
+
+	UpgradeNodePoolsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpgradeNodePoolsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpgradeNodePoolsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpgradeNodePools(*UpgradeNodePoolsInput) (*UpgradeNodePoolsOutput, error)
+	UpgradeNodePoolsWithContext(volcengine.Context, *UpgradeNodePoolsInput, ...request.Option) (*UpgradeNodePoolsOutput, error)
+	UpgradeNodePoolsRequest(*UpgradeNodePoolsInput) (*request.Request, *UpgradeNodePoolsOutput)
 }
 
 var _ VKEAPI = (*VKE)(nil)
