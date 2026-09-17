@@ -410,8 +410,6 @@ type ListForListAmortizedCostBillDailyOutput struct {
 
 	DailyAmortizedOriginalBillAmount *string `type:"string" json:",omitempty"`
 
-	DailyAmortizedPaidAmount *string `type:"string" json:",omitempty"`
-
 	DailyAmortizedPayableAmount *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedPointDeductAmount *string `type:"string" json:",omitempty"`
@@ -480,8 +478,6 @@ type ListForListAmortizedCostBillDailyOutput struct {
 
 	NowAmortizedOriginalBillAmount *string `type:"string" json:",omitempty"`
 
-	NowAmortizedPaidAmount *string `type:"string" json:",omitempty"`
-
 	NowAmortizedPayableAmount *string `type:"string" json:",omitempty"`
 
 	NowAmortizedPointDeductAmount *string `type:"string" json:",omitempty"`
@@ -527,8 +523,6 @@ type ListForListAmortizedCostBillDailyOutput struct {
 	OwnerID *string `type:"string" json:",omitempty"`
 
 	OwnerUserName *string `type:"string" json:",omitempty"`
-
-	PaidAmount *string `type:"string" json:",omitempty"`
 
 	PayableAmount *string `type:"string" json:",omitempty"`
 
@@ -771,12 +765,6 @@ func (s *ListForListAmortizedCostBillDailyOutput) SetDailyAmortizedOriginalBillA
 	return s
 }
 
-// SetDailyAmortizedPaidAmount sets the DailyAmortizedPaidAmount field's value.
-func (s *ListForListAmortizedCostBillDailyOutput) SetDailyAmortizedPaidAmount(v string) *ListForListAmortizedCostBillDailyOutput {
-	s.DailyAmortizedPaidAmount = &v
-	return s
-}
-
 // SetDailyAmortizedPayableAmount sets the DailyAmortizedPayableAmount field's value.
 func (s *ListForListAmortizedCostBillDailyOutput) SetDailyAmortizedPayableAmount(v string) *ListForListAmortizedCostBillDailyOutput {
 	s.DailyAmortizedPayableAmount = &v
@@ -981,12 +969,6 @@ func (s *ListForListAmortizedCostBillDailyOutput) SetNowAmortizedOriginalBillAmo
 	return s
 }
 
-// SetNowAmortizedPaidAmount sets the NowAmortizedPaidAmount field's value.
-func (s *ListForListAmortizedCostBillDailyOutput) SetNowAmortizedPaidAmount(v string) *ListForListAmortizedCostBillDailyOutput {
-	s.NowAmortizedPaidAmount = &v
-	return s
-}
-
 // SetNowAmortizedPayableAmount sets the NowAmortizedPayableAmount field's value.
 func (s *ListForListAmortizedCostBillDailyOutput) SetNowAmortizedPayableAmount(v string) *ListForListAmortizedCostBillDailyOutput {
 	s.NowAmortizedPayableAmount = &v
@@ -1122,12 +1104,6 @@ func (s *ListForListAmortizedCostBillDailyOutput) SetOwnerID(v string) *ListForL
 // SetOwnerUserName sets the OwnerUserName field's value.
 func (s *ListForListAmortizedCostBillDailyOutput) SetOwnerUserName(v string) *ListForListAmortizedCostBillDailyOutput {
 	s.OwnerUserName = &v
-	return s
-}
-
-// SetPaidAmount sets the PaidAmount field's value.
-func (s *ListForListAmortizedCostBillDailyOutput) SetPaidAmount(v string) *ListForListAmortizedCostBillDailyOutput {
-	s.PaidAmount = &v
 	return s
 }
 
