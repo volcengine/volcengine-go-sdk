@@ -164,7 +164,7 @@ type CalculatePriceInfoForCalculatePriceV2Input struct {
 
 	Region *string `type:"string" json:",omitempty"`
 
-	Size *float64 `type:"float" json:",omitempty"`
+	Size *float32 `type:"float" json:",omitempty"`
 
 	Times *int32 `type:"int32" json:",omitempty"`
 
@@ -173,6 +173,8 @@ type CalculatePriceInfoForCalculatePriceV2Input struct {
 	VolumeKind *string `type:"string" json:",omitempty"`
 
 	VolumeType *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -240,7 +242,7 @@ func (s *CalculatePriceInfoForCalculatePriceV2Input) SetRegion(v string) *Calcul
 }
 
 // SetSize sets the Size field's value.
-func (s *CalculatePriceInfoForCalculatePriceV2Input) SetSize(v float64) *CalculatePriceInfoForCalculatePriceV2Input {
+func (s *CalculatePriceInfoForCalculatePriceV2Input) SetSize(v float32) *CalculatePriceInfoForCalculatePriceV2Input {
 	s.Size = &v
 	return s
 }
@@ -266,6 +268,12 @@ func (s *CalculatePriceInfoForCalculatePriceV2Input) SetVolumeKind(v string) *Ca
 // SetVolumeType sets the VolumeType field's value.
 func (s *CalculatePriceInfoForCalculatePriceV2Input) SetVolumeType(v string) *CalculatePriceInfoForCalculatePriceV2Input {
 	s.VolumeType = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *CalculatePriceInfoForCalculatePriceV2Input) SetZoneId(v string) *CalculatePriceInfoForCalculatePriceV2Input {
+	s.ZoneId = &v
 	return s
 }
 

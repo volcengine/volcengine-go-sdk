@@ -3,8 +3,6 @@
 package storageebs
 
 import (
-	"encoding/json"
-
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -527,7 +525,7 @@ type VolumeForDescribeVolumesOutput struct {
 
 	RenewType *int32 `type:"int32"`
 
-	Size *json.Number `type:"json_number"`
+	Size *string `type:"string"`
 
 	SnapshotCount *int32 `type:"int32"`
 
@@ -703,7 +701,7 @@ func (s *VolumeForDescribeVolumesOutput) SetRenewType(v int32) *VolumeForDescrib
 }
 
 // SetSize sets the Size field's value.
-func (s *VolumeForDescribeVolumesOutput) SetSize(v json.Number) *VolumeForDescribeVolumesOutput {
+func (s *VolumeForDescribeVolumesOutput) SetSize(v string) *VolumeForDescribeVolumesOutput {
 	s.Size = &v
 	return s
 }

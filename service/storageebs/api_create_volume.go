@@ -343,6 +343,8 @@ type CreateVolumeOutput struct {
 	Metadata *response.ResponseMetadata
 
 	VolumeId *string `type:"string"`
+
+	VolumeIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -358,6 +360,12 @@ func (s CreateVolumeOutput) GoString() string {
 // SetVolumeId sets the VolumeId field's value.
 func (s *CreateVolumeOutput) SetVolumeId(v string) *CreateVolumeOutput {
 	s.VolumeId = &v
+	return s
+}
+
+// SetVolumeIds sets the VolumeIds field's value.
+func (s *CreateVolumeOutput) SetVolumeIds(v []*string) *CreateVolumeOutput {
+	s.VolumeIds = v
 	return s
 }
 
