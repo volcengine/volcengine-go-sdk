@@ -17,10 +17,11 @@ import (
 // 复用同一套构建逻辑。
 type ProxyConfig struct {
 	// ProxyURL 正向代理地址，格式 scheme://[user:password@]host:port。
-	// 为空时回退到环境变量 HTTP_PROXY / HTTPS_PROXY / NO_PROXY。
+	// 为空时保留原 Transport 的代理行为；标准默认 Transport 会处理
+	// HTTP_PROXY / HTTPS_PROXY / NO_PROXY。
 	ProxyURL string
 	// CAFile 自定义 CA 证书文件路径（PEM 格式），用于校验 STS 服务端证书。
-	// 为空时使用操作系统默认根证书信任库。
+	// 为空时保留原 Transport 的 TLS 根配置；未自定义时使用系统根证书。
 	CAFile string
 	// InsecureSkipVerify 为 true 时跳过 TLS 证书链与主机名校验。
 	// 仅限联调，生产环境禁用。
@@ -141,9 +142,8 @@ func buildProxyTransport(cfg ProxyConfig) (*http.Transport, error) {
 		if err != nil {
 			return nil, fmt.Errorf("read CAFile %q: %w", cfg.CAFile, err)
 		}
-		// 显式指定 CAFile 时以该 CA 单独构建信任池（不追加系统根证书），
-		// 与对外契约“设置后以此 CA 校验、留空才用系统信任库”保持一致；
-		// 这正是代理做 TLS 拦截、用私有 CA 重签证书场景所需的语义。
+		// 显式指定 CAFile 时以该 CA 单独构建信任池（不追加系统根证书）；
+		// 留空时保留原 Transport 的 TLS 根配置。
 		pool := x509.NewCertPool()
 		if !pool.AppendCertsFromPEM(pemBytes) {
 			return nil, fmt.Errorf("append CA cert from %q failed", cfg.CAFile)

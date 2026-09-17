@@ -9,8 +9,9 @@ Volcengine Go SDK supports multiple authentication mechanisms. Choose the one th
 For built-in STS/OIDC/SAML providers attached to a session, proxy priority is explicit
 provider `ProxyURL`, then the client's `HTTPProxy`/`HTTPSProxy` matching the STS
 request scheme, then the original transport behavior. The examples below omit
-client proxies, so their fallback is the standard environment behavior. Session
-and service-client construction bind independent provider snapshots and caches;
+client proxies. Zero-config OIDC/SAML uses the standard default transport and honors
+environment proxy variables; AssumeRole retains its upstream transport, whose proxy
+and TLS behavior may differ. Session and service-client construction bind independent provider snapshots and caches;
 later source-provider changes do not change existing bindings. Direct one-shot
 STS calls have no client fallback. See [Proxy configuration](4-Proxy.md).
 
@@ -124,8 +125,8 @@ func main() {
 			//     o.Policy = `{"Statement":[...]}`  // Session policy JSON
 			//     o.MaxRetries = 3                  // Retry attempts; 0 or negative falls back to DefaultRetryerMaxNumRetries (3)
 			//     o.RetryInterval = 1 * time.Second // Sleep between retries; <= 0 falls back to 1s
-			//     o.ProxyURL = "http://user:pass@10.0.0.1:8080" // Forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
-			//     o.CAFile = "/path/to/ca.pem"      // Custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
+			//     o.ProxyURL = "http://user:pass@10.0.0.1:8080" // Forward proxy for reaching STS, format scheme://[user:password@]host:port; empty preserves the original transport proxy behavior
+			//     o.CAFile = "/path/to/ca.pem"      // Custom CA cert (PEM) to verify the STS server certificate; empty preserves the original transport root configuration
 			//     o.InsecureSkipVerify = false      // Set to true to skip STS TLS verification (default false), for debugging only (self-signed cert / proxy interception); never enable in production
 			// },
 		))
@@ -167,8 +168,8 @@ func main() {
 			// Policy: optional session policy JSON, e.g. `{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`
 			MaxRetries:    3,                 // optional extra retry attempts; 0 or negative falls back to DefaultRetryerMaxNumRetries (3)
 			RetryInterval: 1 * time.Second,   // optional sleep between retries; <= 0 falls back to 1s
-			// ProxyURL:           "http://user:pass@10.0.0.1:8080", // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
-			// CAFile:             "/path/to/ca.pem",                // optional: custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
+			// ProxyURL:           "http://user:pass@10.0.0.1:8080", // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty preserves the original transport proxy behavior
+			// CAFile:             "/path/to/ca.pem",                // optional: custom CA cert (PEM) to verify the STS server certificate; empty preserves the original transport root configuration
 			// InsecureSkipVerify: false,                            // optional: set to true to skip STS TLS verification (default false), for debugging only (self-signed cert / proxy interception); never enable in production
 		}))
 
@@ -214,8 +215,8 @@ func main() {
 			// o.DurationSeconds = 3600                       // Validity period, default 3600
 			// o.MaxRetries = volcengine.Int(3)               // optional: retry attempts; nil defaults to 3, 0 disables
 			// o.RetryInterval = 1 * time.Second               // optional: sleep between retries; <= 0 falls back to 1s
-			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"  // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
-			// o.CAFile = "/path/to/ca.pem"                   // optional: custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
+			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"  // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty preserves the original transport proxy behavior
+			// o.CAFile = "/path/to/ca.pem"                   // optional: custom CA cert (PEM) to verify the STS server certificate; empty preserves the original transport root configuration
 			// o.InsecureSkipVerify = false                   // optional: set to true to skip STS TLS verification (default false), for debugging only; never enable in production
 		},
 	)
@@ -265,8 +266,8 @@ func main() {
 		DurationSeconds:   3600,                       // Validity period
 		MaxRetries:        volcengine.Int(3),          // optional extra retry attempts; nil defaults to 3, 0 disables retries
 		RetryInterval:     1 * time.Second,            // optional sleep between retries; <= 0 falls back to 1s
-		// ProxyURL:           "http://user:pass@10.0.0.1:8080", // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
-		// CAFile:             "/path/to/ca.pem",                // optional: custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
+		// ProxyURL:           "http://user:pass@10.0.0.1:8080", // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty preserves the original transport proxy behavior
+		// CAFile:             "/path/to/ca.pem",                // optional: custom CA cert (PEM) to verify the STS server certificate; empty preserves the original transport root configuration
 		// InsecureSkipVerify: false,                            // optional: set to true to skip STS TLS verification (default false), for debugging only; never enable in production
 	}
 
@@ -318,8 +319,8 @@ func main() {
 			// o.DurationSeconds = 3600                                 // Validity period, default 3600
 			// o.MaxRetries = volcengine.Int(3)                         // optional: retry attempts; nil defaults to 3, 0 disables
 			// o.RetryInterval = 1 * time.Second                        // optional: sleep between retries; <= 0 falls back to 1s
-			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"            // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
-			// o.CAFile = "/path/to/ca.pem"                             // optional: custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
+			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"            // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty preserves the original transport proxy behavior
+			// o.CAFile = "/path/to/ca.pem"                             // optional: custom CA cert (PEM) to verify the STS server certificate; empty preserves the original transport root configuration
 			// o.InsecureSkipVerify = false                             // optional: set to true to skip STS TLS verification (default false), for debugging only; never enable in production
 		},
 	)
@@ -357,8 +358,8 @@ func main() {
 	p.DurationSeconds = 3600
 	p.MaxRetries = volcengine.Int(3)  // optional extra retry attempts; nil defaults to 3, 0 disables retries
 	p.RetryInterval = 1 * time.Second // optional sleep between retries; <= 0 falls back to 1s
-	// p.ProxyURL = "http://user:pass@10.0.0.1:8080" // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY / NO_PROXY
-	// p.CAFile = "/path/to/ca.pem"                  // optional: custom CA cert (PEM) to verify the STS server certificate; empty uses the system root store
+	// p.ProxyURL = "http://user:pass@10.0.0.1:8080" // optional: forward proxy for reaching STS, format scheme://[user:password@]host:port; empty preserves the original transport proxy behavior
+	// p.CAFile = "/path/to/ca.pem"                  // optional: custom CA cert (PEM) to verify the STS server certificate; empty preserves the original transport root configuration
 	// p.InsecureSkipVerify = false                  // optional: set to true to skip STS TLS verification (default false), for debugging only; never enable in production
 
 	config := volcengine.NewConfig().

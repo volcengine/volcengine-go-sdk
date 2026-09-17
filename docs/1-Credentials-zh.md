@@ -8,8 +8,9 @@
 
 绑定到 session 的内置 STS/OIDC/SAML Provider 按以下顺序选择代理：显式
 `ProxyURL` > 与 STS 请求协议对应的客户端 `HTTPProxy`/`HTTPSProxy` > 原传输层行为。
-下方示例未配置客户端代理，因此其兜底为标准环境变量行为。Session 和服务客户端
-构造时绑定独立 Provider 快照与缓存，之后修改源 Provider 不影响已有绑定。
+下方示例未配置客户端代理。零配置 OIDC/SAML 使用标准默认 Transport，并遵循环境
+代理变量；AssumeRole 保留上游 Transport，其代理与 TLS 行为可能不同。Session 和
+服务客户端构造时绑定独立 Provider 快照与缓存，之后修改源 Provider 不影响已有绑定。
 独立调用 STS 的一次性接口没有客户端代理兜底层，详见[代理配置](4-Proxy-zh.md)。
 
 ### 凭证提供者概览
@@ -120,8 +121,8 @@ func main() {
 			//     o.Policy = `{"Statement":[...]}`  // session policy JSON
 			//     o.MaxRetries = 3                   // 重试次数；0 或负数回退到 DefaultRetryerMaxNumRetries（默认 3）
 			//     o.RetryInterval = 1 * time.Second // 重试间隔；<= 0 回退到 1s
-			//     o.ProxyURL = "http://user:pass@10.0.0.1:8080" // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
-			//     o.CAFile = "/path/to/ca.pem"      // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+			//     o.ProxyURL = "http://user:pass@10.0.0.1:8080" // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空保留原 Transport 的代理行为
+			//     o.CAFile = "/path/to/ca.pem"      // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空保留原 Transport 的根证书配置
 			//     o.InsecureSkipVerify = false      // 传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调（自签证书 / 代理拦截），生产禁用
 			// },
 		))
@@ -153,8 +154,8 @@ func main() {
 			// Policy: 可选的 session policy JSON，用于进一步收窄临时凭证的权限，例如：`{"Statement":[{"Effect":"Allow","Action":["vpc:DescribeVpcs"],"Resource":["*"]}]}`,
 			MaxRetries:    3,                 // 可选：AssumeRole 失败时的额外重试次数；0 或负数回退到 DefaultRetryerMaxNumRetries（默认 3）
 			RetryInterval: 1 * time.Second,   // 可选：重试间隔；<= 0 时回退到 1s
-			// ProxyURL:           "http://user:pass@10.0.0.1:8080", // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
-			// CAFile:             "/path/to/ca.pem",                // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+			// ProxyURL:           "http://user:pass@10.0.0.1:8080", // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空保留原 Transport 的代理行为
+			// CAFile:             "/path/to/ca.pem",                // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空保留原 Transport 的根证书配置
 			// InsecureSkipVerify: false,                            // 可选：传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调（自签证书 / 代理拦截），生产禁用
 		}))
 
@@ -189,8 +190,8 @@ func main() {
 			// o.DurationSeconds = 3600                       // 有效期，默认 3600
 			// o.MaxRetries = volcengine.Int(3)               // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
 			// o.RetryInterval = 1 * time.Second              // 可选：重试间隔；<= 0 时回退到 1s
-			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"  // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
-			// o.CAFile = "/path/to/ca.pem"                   // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"  // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空保留原 Transport 的代理行为
+			// o.CAFile = "/path/to/ca.pem"                   // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空保留原 Transport 的根证书配置
 			// o.InsecureSkipVerify = false                   // 可选：传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调，生产禁用
 		},
 	)
@@ -228,8 +229,8 @@ func main() {
 		DurationSeconds:   3600,                       // 有效期
 		MaxRetries:        volcengine.Int(3),          // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
 		RetryInterval:     1 * time.Second,            // 可选：重试间隔；<= 0 时回退到 1s
-		// ProxyURL:           "http://user:pass@10.0.0.1:8080", // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
-		// CAFile:             "/path/to/ca.pem",                // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+		// ProxyURL:           "http://user:pass@10.0.0.1:8080", // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空保留原 Transport 的代理行为
+		// CAFile:             "/path/to/ca.pem",                // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空保留原 Transport 的根证书配置
 		// InsecureSkipVerify: false,                            // 可选：传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调，生产禁用
 	}
 
@@ -281,8 +282,8 @@ func main() {
 			// o.DurationSeconds = 3600                                 // 有效期，默认 3600
 			// o.MaxRetries = volcengine.Int(3)                         // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
 			// o.RetryInterval = 1 * time.Second                        // 可选：重试间隔；<= 0 时回退到 1s
-			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"            // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
-			// o.CAFile = "/path/to/ca.pem"                             // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+			// o.ProxyURL = "http://user:pass@10.0.0.1:8080"            // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空保留原 Transport 的代理行为
+			// o.CAFile = "/path/to/ca.pem"                             // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空保留原 Transport 的根证书配置
 			// o.InsecureSkipVerify = false                             // 可选：传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调，生产禁用
 		},
 	)
@@ -320,8 +321,8 @@ func main() {
 	p.DurationSeconds = 3600
 	p.MaxRetries = volcengine.Int(3)  // 可选：失败时额外重试次数；nil 默认 3，0 表示关闭重试
 	p.RetryInterval = 1 * time.Second // 可选：重试间隔；<= 0 时回退到 1s
-	// p.ProxyURL = "http://user:pass@10.0.0.1:8080" // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY / NO_PROXY 环境变量
-	// p.CAFile = "/path/to/ca.pem"                  // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用系统根证书
+	// p.ProxyURL = "http://user:pass@10.0.0.1:8080" // 可选：访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空保留原 Transport 的代理行为
+	// p.CAFile = "/path/to/ca.pem"                  // 可选：自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空保留原 Transport 的根证书配置
 	// p.InsecureSkipVerify = false                  // 可选：传 true 才会跳过 STS TLS 证书校验（默认 false），仅限联调，生产禁用
 
 	config := volcengine.NewConfig().
