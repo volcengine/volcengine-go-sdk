@@ -158,9 +158,9 @@ type BudgetListForListBudgetOutput struct {
 
 	BudgetStartTime *string `type:"string" json:",omitempty"`
 
-	BudgetType *string `type:"string" json:",omitempty" enum:"EnumOfBudgetTypeForListBudgetOutput"`
+	BudgetType *string `type:"string" json:",omitempty"`
 
-	Period *string `type:"string" json:",omitempty" enum:"EnumOfPeriodForListBudgetOutput"`
+	Period *string `type:"string" json:",omitempty"`
 
 	Ratio *string `type:"string" json:",omitempty"`
 
@@ -379,11 +379,6 @@ const (
 )
 
 const (
-	// EnumOfBudgetTypeForListBudgetOutputCostBudget is a EnumOfBudgetTypeForListBudgetOutput enum value
-	EnumOfBudgetTypeForListBudgetOutputCostBudget = "cost_budget"
-)
-
-const (
 	// EnumOfOrderByForListBudgetInputRatio is a EnumOfOrderByForListBudgetInput enum value
 	EnumOfOrderByForListBudgetInputRatio = "ratio"
 )
@@ -394,15 +389,4 @@ const (
 
 	// EnumOfOrderTypeForListBudgetInputDesc is a EnumOfOrderTypeForListBudgetInput enum value
 	EnumOfOrderTypeForListBudgetInputDesc = "desc"
-)
-
-const (
-	// EnumOfPeriodForListBudgetOutputMonth is a EnumOfPeriodForListBudgetOutput enum value
-	EnumOfPeriodForListBudgetOutputMonth = "month"
-
-	// EnumOfPeriodForListBudgetOutputQuarter is a EnumOfPeriodForListBudgetOutput enum value
-	EnumOfPeriodForListBudgetOutputQuarter = "quarter"
-
-	// EnumOfPeriodForListBudgetOutputYear is a EnumOfPeriodForListBudgetOutput enum value
-	EnumOfPeriodForListBudgetOutputYear = "year"
 )

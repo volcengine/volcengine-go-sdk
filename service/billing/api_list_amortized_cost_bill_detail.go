@@ -422,8 +422,6 @@ type ListForListAmortizedCostBillDetailOutput struct {
 
 	DailyAmortizedOriginalBillAmount *string `type:"string" json:",omitempty"`
 
-	DailyAmortizedPaidAmount *string `type:"string" json:",omitempty"`
-
 	DailyAmortizedPayableAmount *string `type:"string" json:",omitempty"`
 
 	DailyAmortizedPointDeductAmount *string `type:"string" json:",omitempty"`
@@ -507,8 +505,6 @@ type ListForListAmortizedCostBillDetailOutput struct {
 	OwnerID *string `type:"string" json:",omitempty"`
 
 	OwnerUserName *string `type:"string" json:",omitempty"`
-
-	PaidAmount *string `type:"string" json:",omitempty"`
 
 	PayableAmount *string `type:"string" json:",omitempty"`
 
@@ -773,12 +769,6 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedOriginalBill
 	return s
 }
 
-// SetDailyAmortizedPaidAmount sets the DailyAmortizedPaidAmount field's value.
-func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedPaidAmount(v string) *ListForListAmortizedCostBillDetailOutput {
-	s.DailyAmortizedPaidAmount = &v
-	return s
-}
-
 // SetDailyAmortizedPayableAmount sets the DailyAmortizedPayableAmount field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetDailyAmortizedPayableAmount(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.DailyAmortizedPayableAmount = &v
@@ -1028,12 +1018,6 @@ func (s *ListForListAmortizedCostBillDetailOutput) SetOwnerID(v string) *ListFor
 // SetOwnerUserName sets the OwnerUserName field's value.
 func (s *ListForListAmortizedCostBillDetailOutput) SetOwnerUserName(v string) *ListForListAmortizedCostBillDetailOutput {
 	s.OwnerUserName = &v
-	return s
-}
-
-// SetPaidAmount sets the PaidAmount field's value.
-func (s *ListForListAmortizedCostBillDetailOutput) SetPaidAmount(v string) *ListForListAmortizedCostBillDetailOutput {
-	s.PaidAmount = &v
 	return s
 }
 

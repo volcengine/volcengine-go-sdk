@@ -216,13 +216,13 @@ func (s *BudgetAlertMessageDetailListForQueryBudgetDetailOutput) SetRecipientNam
 type BudgetAlertRuleListForQueryBudgetDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BudgetAlertItem *string `type:"string" json:",omitempty" enum:"EnumOfBudgetAlertItemForQueryBudgetDetailOutput"`
+	BudgetAlertItem *string `type:"string" json:",omitempty"`
 
 	BudgetAlertRuleID *string `type:"string" json:",omitempty"`
 
 	BudgetAlertThreshold *string `type:"string" json:",omitempty"`
 
-	BudgetAlertThresholdType *string `type:"string" json:",omitempty" enum:"EnumOfBudgetAlertThresholdTypeForQueryBudgetDetailOutput"`
+	BudgetAlertThresholdType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -266,13 +266,13 @@ type BudgetForQueryBudgetDetailOutput struct {
 
 	BudgetName *string `type:"string" json:",omitempty"`
 
-	BudgetPlanType *string `type:"string" json:",omitempty" enum:"EnumOfBudgetPlanTypeForQueryBudgetDetailOutput"`
+	BudgetPlanType *string `type:"string" json:",omitempty"`
 
 	BudgetStartTime *string `type:"string" json:",omitempty"`
 
-	BudgetType *string `type:"string" json:",omitempty" enum:"EnumOfBudgetTypeForQueryBudgetDetailOutput"`
+	BudgetType *string `type:"string" json:",omitempty"`
 
-	Period *string `type:"string" json:",omitempty" enum:"EnumOfPeriodForQueryBudgetDetailOutput"`
+	Period *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -700,40 +700,3 @@ func (s *QueryBudgetDetailOutput) SetBudgetRangeInfo(v *BudgetRangeInfoForQueryB
 	s.BudgetRangeInfo = v
 	return s
 }
-
-const (
-	// EnumOfBudgetAlertItemForQueryBudgetDetailOutputActualAmount is a EnumOfBudgetAlertItemForQueryBudgetDetailOutput enum value
-	EnumOfBudgetAlertItemForQueryBudgetDetailOutputActualAmount = "actual_amount"
-)
-
-const (
-	// EnumOfBudgetAlertThresholdTypeForQueryBudgetDetailOutputAmount is a EnumOfBudgetAlertThresholdTypeForQueryBudgetDetailOutput enum value
-	EnumOfBudgetAlertThresholdTypeForQueryBudgetDetailOutputAmount = "amount"
-
-	// EnumOfBudgetAlertThresholdTypeForQueryBudgetDetailOutputRatio is a EnumOfBudgetAlertThresholdTypeForQueryBudgetDetailOutput enum value
-	EnumOfBudgetAlertThresholdTypeForQueryBudgetDetailOutputRatio = "ratio"
-)
-
-const (
-	// EnumOfBudgetPlanTypeForQueryBudgetDetailOutputFixedAmount is a EnumOfBudgetPlanTypeForQueryBudgetDetailOutput enum value
-	EnumOfBudgetPlanTypeForQueryBudgetDetailOutputFixedAmount = "fixed_amount"
-
-	// EnumOfBudgetPlanTypeForQueryBudgetDetailOutputPlanning is a EnumOfBudgetPlanTypeForQueryBudgetDetailOutput enum value
-	EnumOfBudgetPlanTypeForQueryBudgetDetailOutputPlanning = "planning"
-)
-
-const (
-	// EnumOfBudgetTypeForQueryBudgetDetailOutputCostBudget is a EnumOfBudgetTypeForQueryBudgetDetailOutput enum value
-	EnumOfBudgetTypeForQueryBudgetDetailOutputCostBudget = "cost_budget"
-)
-
-const (
-	// EnumOfPeriodForQueryBudgetDetailOutputMonth is a EnumOfPeriodForQueryBudgetDetailOutput enum value
-	EnumOfPeriodForQueryBudgetDetailOutputMonth = "month"
-
-	// EnumOfPeriodForQueryBudgetDetailOutputQuarter is a EnumOfPeriodForQueryBudgetDetailOutput enum value
-	EnumOfPeriodForQueryBudgetDetailOutputQuarter = "quarter"
-
-	// EnumOfPeriodForQueryBudgetDetailOutputYear is a EnumOfPeriodForQueryBudgetDetailOutput enum value
-	EnumOfPeriodForQueryBudgetDetailOutputYear = "year"
-)
