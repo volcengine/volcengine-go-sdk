@@ -153,6 +153,8 @@ type CreateNodesInput struct {
 	// ClusterId is a required field
 	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
+	ContainerStorageMountPoint *string `type:"string" json:",omitempty"`
+
 	ContainerStoragePath *string `type:"string" json:",omitempty"`
 
 	GpuDriverConfig *GpuDriverConfigForCreateNodesInput `type:"structure" json:",omitempty"`
@@ -214,6 +216,12 @@ func (s *CreateNodesInput) SetClientToken(v string) *CreateNodesInput {
 // SetClusterId sets the ClusterId field's value.
 func (s *CreateNodesInput) SetClusterId(v string) *CreateNodesInput {
 	s.ClusterId = &v
+	return s
+}
+
+// SetContainerStorageMountPoint sets the ContainerStorageMountPoint field's value.
+func (s *CreateNodesInput) SetContainerStorageMountPoint(v string) *CreateNodesInput {
+	s.ContainerStorageMountPoint = &v
 	return s
 }
 

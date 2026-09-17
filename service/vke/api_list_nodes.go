@@ -268,6 +268,8 @@ type ItemForListNodesOutput struct {
 
 	ClusterId *string `type:"string" json:",omitempty"`
 
+	ContainerStorageMountPoint *string `type:"string" json:",omitempty"`
+
 	ContainerStoragePath *string `type:"string" json:",omitempty"`
 
 	CreateClientToken *string `type:"string" json:",omitempty"`
@@ -330,6 +332,12 @@ func (s *ItemForListNodesOutput) SetAffinityGroupId(v string) *ItemForListNodesO
 // SetClusterId sets the ClusterId field's value.
 func (s *ItemForListNodesOutput) SetClusterId(v string) *ItemForListNodesOutput {
 	s.ClusterId = &v
+	return s
+}
+
+// SetContainerStorageMountPoint sets the ContainerStorageMountPoint field's value.
+func (s *ItemForListNodesOutput) SetContainerStorageMountPoint(v string) *ItemForListNodesOutput {
+	s.ContainerStorageMountPoint = &v
 	return s
 }
 
