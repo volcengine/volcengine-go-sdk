@@ -320,6 +320,8 @@ type DataForVideoProjectSerialDubTaskCreateOutput struct {
 
 	DubTaskIDs []*string `type:"list" json:",omitempty"`
 
+	EffectSubtitleFileCheckReports []*EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput `type:"list" json:",omitempty"`
+
 	SubtitleFileCheckReports []*SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput `type:"list" json:",omitempty"`
 
 	TaskIDs []*string `type:"list" json:",omitempty"`
@@ -347,6 +349,12 @@ func (s *DataForVideoProjectSerialDubTaskCreateOutput) SetDubTaskIDs(v []*string
 	return s
 }
 
+// SetEffectSubtitleFileCheckReports sets the EffectSubtitleFileCheckReports field's value.
+func (s *DataForVideoProjectSerialDubTaskCreateOutput) SetEffectSubtitleFileCheckReports(v []*EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput) *DataForVideoProjectSerialDubTaskCreateOutput {
+	s.EffectSubtitleFileCheckReports = v
+	return s
+}
+
 // SetSubtitleFileCheckReports sets the SubtitleFileCheckReports field's value.
 func (s *DataForVideoProjectSerialDubTaskCreateOutput) SetSubtitleFileCheckReports(v []*SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput) *DataForVideoProjectSerialDubTaskCreateOutput {
 	s.SubtitleFileCheckReports = v
@@ -356,6 +364,52 @@ func (s *DataForVideoProjectSerialDubTaskCreateOutput) SetSubtitleFileCheckRepor
 // SetTaskIDs sets the TaskIDs field's value.
 func (s *DataForVideoProjectSerialDubTaskCreateOutput) SetTaskIDs(v []*string) *DataForVideoProjectSerialDubTaskCreateOutput {
 	s.TaskIDs = v
+	return s
+}
+
+type EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EpisodeNum *string `type:"string" json:",omitempty"`
+
+	Issues []*IssueForVideoProjectSerialDubTaskCreateOutput `type:"list" json:",omitempty"`
+
+	SourceLanguage *string `type:"string" json:",omitempty"`
+
+	TargetLanguage *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput) GoString() string {
+	return s.String()
+}
+
+// SetEpisodeNum sets the EpisodeNum field's value.
+func (s *EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput) SetEpisodeNum(v string) *EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput {
+	s.EpisodeNum = &v
+	return s
+}
+
+// SetIssues sets the Issues field's value.
+func (s *EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput) SetIssues(v []*IssueForVideoProjectSerialDubTaskCreateOutput) *EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput {
+	s.Issues = v
+	return s
+}
+
+// SetSourceLanguage sets the SourceLanguage field's value.
+func (s *EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput) SetSourceLanguage(v string) *EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput {
+	s.SourceLanguage = &v
+	return s
+}
+
+// SetTargetLanguage sets the TargetLanguage field's value.
+func (s *EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput) SetTargetLanguage(v string) *EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput {
+	s.TargetLanguage = &v
 	return s
 }
 
