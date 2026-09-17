@@ -268,9 +268,11 @@ type ListCostAnalysisOpenApiInput struct {
 
 	Filters []*FilterForListCostAnalysisOpenApiInput `type:"list" json:",omitempty"`
 
-	Limit *int32 `type:"int32" json:",omitempty"`
+	// Limit is a required field
+	Limit *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	Offset *int32 `type:"int32" json:",omitempty"`
+	// Offset is a required field
+	Offset *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// TimeGranularity is a required field
 	TimeGranularity *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -300,6 +302,12 @@ func (s *ListCostAnalysisOpenApiInput) Validate() error {
 	}
 	if s.EndTimeStr == nil {
 		invalidParams.Add(request.NewErrParamRequired("EndTimeStr"))
+	}
+	if s.Limit == nil {
+		invalidParams.Add(request.NewErrParamRequired("Limit"))
+	}
+	if s.Offset == nil {
+		invalidParams.Add(request.NewErrParamRequired("Offset"))
 	}
 	if s.TimeGranularity == nil {
 		invalidParams.Add(request.NewErrParamRequired("TimeGranularity"))

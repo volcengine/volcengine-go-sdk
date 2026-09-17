@@ -169,6 +169,8 @@ type ListBillInput struct {
 	PayerID []*int64 `type:"list" json:",omitempty"`
 
 	Product []*string `type:"list" json:",omitempty"`
+
+	SalesChannel []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,6 +262,12 @@ func (s *ListBillInput) SetPayerID(v []*int64) *ListBillInput {
 // SetProduct sets the Product field's value.
 func (s *ListBillInput) SetProduct(v []*string) *ListBillInput {
 	s.Product = v
+	return s
+}
+
+// SetSalesChannel sets the SalesChannel field's value.
+func (s *ListBillInput) SetSalesChannel(v []*string) *ListBillInput {
+	s.SalesChannel = v
 	return s
 }
 
@@ -385,6 +393,8 @@ type ListForListBillOutput struct {
 	RealValue *string `type:"string" json:",omitempty"`
 
 	RoundBillAmount *string `type:"string" json:",omitempty"`
+
+	SalesChannel *string `type:"string" json:",omitempty"`
 
 	SavingPlanOriginalAmount *string `type:"string" json:",omitempty"`
 
@@ -644,6 +654,12 @@ func (s *ListForListBillOutput) SetRealValue(v string) *ListForListBillOutput {
 // SetRoundBillAmount sets the RoundBillAmount field's value.
 func (s *ListForListBillOutput) SetRoundBillAmount(v string) *ListForListBillOutput {
 	s.RoundBillAmount = &v
+	return s
+}
+
+// SetSalesChannel sets the SalesChannel field's value.
+func (s *ListForListBillOutput) SetSalesChannel(v string) *ListForListBillOutput {
+	s.SalesChannel = &v
 	return s
 }
 

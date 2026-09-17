@@ -151,6 +151,8 @@ type DeleteNodesInput struct {
 	// ClusterId is a required field
 	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
+	Drain *bool `type:"boolean" json:",omitempty"`
+
 	Ids []*string `type:"list" json:",omitempty"`
 
 	NodePoolId *string `type:"string" json:",omitempty"`
@@ -190,6 +192,12 @@ func (s *DeleteNodesInput) SetCascadingDeleteResources(v []*string) *DeleteNodes
 // SetClusterId sets the ClusterId field's value.
 func (s *DeleteNodesInput) SetClusterId(v string) *DeleteNodesInput {
 	s.ClusterId = &v
+	return s
+}
+
+// SetDrain sets the Drain field's value.
+func (s *DeleteNodesInput) SetDrain(v bool) *DeleteNodesInput {
+	s.Drain = &v
 	return s
 }
 

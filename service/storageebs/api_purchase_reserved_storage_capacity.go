@@ -150,6 +150,8 @@ type PurchaseReservedStorageCapacityInput struct {
 
 	PeriodUnit *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	ReservedCapacity *int32 `type:"int32"`
 
 	ReservedStorageCapacityName *string `type:"string"`
@@ -190,6 +192,12 @@ func (s *PurchaseReservedStorageCapacityInput) SetPeriod(v int32) *PurchaseReser
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *PurchaseReservedStorageCapacityInput) SetPeriodUnit(v string) *PurchaseReservedStorageCapacityInput {
 	s.PeriodUnit = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *PurchaseReservedStorageCapacityInput) SetProjectName(v string) *PurchaseReservedStorageCapacityInput {
+	s.ProjectName = &v
 	return s
 }
 

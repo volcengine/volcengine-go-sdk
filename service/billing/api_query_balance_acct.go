@@ -172,6 +172,8 @@ type QueryBalanceAcctOutput struct {
 
 	CreditLimit *string `type:"string" json:",omitempty"`
 
+	Currency *string `type:"string" json:",omitempty"`
+
 	FreezeAmount *string `type:"string" json:",omitempty"`
 }
 
@@ -212,6 +214,12 @@ func (s *QueryBalanceAcctOutput) SetCashBalance(v string) *QueryBalanceAcctOutpu
 // SetCreditLimit sets the CreditLimit field's value.
 func (s *QueryBalanceAcctOutput) SetCreditLimit(v string) *QueryBalanceAcctOutput {
 	s.CreditLimit = &v
+	return s
+}
+
+// SetCurrency sets the Currency field's value.
+func (s *QueryBalanceAcctOutput) SetCurrency(v string) *QueryBalanceAcctOutput {
+	s.Currency = &v
 	return s
 }
 

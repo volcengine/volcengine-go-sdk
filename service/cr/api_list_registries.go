@@ -150,6 +150,8 @@ type FilterForListRegistriesInput struct {
 
 	Projects []*string `type:"list"`
 
+	ProxyCacheEnabled *bool `type:"boolean" json:",omitempty"`
+
 	Statuses []*StatusForListRegistriesInput `type:"list"`
 
 	Types []*string `type:"list"`
@@ -174,6 +176,12 @@ func (s *FilterForListRegistriesInput) SetNames(v []*string) *FilterForListRegis
 // SetProjects sets the Projects field's value.
 func (s *FilterForListRegistriesInput) SetProjects(v []*string) *FilterForListRegistriesInput {
 	s.Projects = v
+	return s
+}
+
+// SetProxyCacheEnabled sets the ProxyCacheEnabled field's value.
+func (s *FilterForListRegistriesInput) SetProxyCacheEnabled(v bool) *FilterForListRegistriesInput {
+	s.ProxyCacheEnabled = &v
 	return s
 }
 
@@ -404,7 +412,13 @@ func (s *ListRegistriesOutput) SetTotalCount(v int64) *ListRegistriesOutput {
 type ProxyCacheForListRegistriesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	Endpoint *string `type:"string" json:",omitempty"`
+
+	SkipSSLVerify *bool `type:"boolean" json:",omitempty"`
+
 	Type *string `type:"string" json:",omitempty"`
+
+	Username *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -417,9 +431,27 @@ func (s ProxyCacheForListRegistriesOutput) GoString() string {
 	return s.String()
 }
 
+// SetEndpoint sets the Endpoint field's value.
+func (s *ProxyCacheForListRegistriesOutput) SetEndpoint(v string) *ProxyCacheForListRegistriesOutput {
+	s.Endpoint = &v
+	return s
+}
+
+// SetSkipSSLVerify sets the SkipSSLVerify field's value.
+func (s *ProxyCacheForListRegistriesOutput) SetSkipSSLVerify(v bool) *ProxyCacheForListRegistriesOutput {
+	s.SkipSSLVerify = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *ProxyCacheForListRegistriesOutput) SetType(v string) *ProxyCacheForListRegistriesOutput {
 	s.Type = &v
+	return s
+}
+
+// SetUsername sets the Username field's value.
+func (s *ProxyCacheForListRegistriesOutput) SetUsername(v string) *ProxyCacheForListRegistriesOutput {
+	s.Username = &v
 	return s
 }
 

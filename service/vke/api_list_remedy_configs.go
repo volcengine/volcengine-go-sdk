@@ -143,120 +143,6 @@ func (c *VKE) ListRemedyConfigsWithContext(ctx volcengine.Context, input *ListRe
 	return out, req.Send()
 }
 
-type ActionForListRemedyConfigsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	RebootEcs *bool `type:"boolean" json:",omitempty"`
-
-	WaitFor *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ActionForListRemedyConfigsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ActionForListRemedyConfigsOutput) GoString() string {
-	return s.String()
-}
-
-// SetRebootEcs sets the RebootEcs field's value.
-func (s *ActionForListRemedyConfigsOutput) SetRebootEcs(v bool) *ActionForListRemedyConfigsOutput {
-	s.RebootEcs = &v
-	return s
-}
-
-// SetWaitFor sets the WaitFor field's value.
-func (s *ActionForListRemedyConfigsOutput) SetWaitFor(v int32) *ActionForListRemedyConfigsOutput {
-	s.WaitFor = &v
-	return s
-}
-
-type ConfigForListRemedyConfigsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Action *ActionForListRemedyConfigsOutput `type:"structure" json:",omitempty"`
-
-	AutoRestoreSchedule *bool `type:"boolean" json:",omitempty"`
-
-	Drain *DrainForListRemedyConfigsOutput `type:"structure" json:",omitempty"`
-
-	IaasEvents []*string `type:"list" json:",omitempty"`
-
-	InterveneCordon *InterveneCordonForListRemedyConfigsOutput `type:"structure" json:",omitempty"`
-
-	InterveneDrain *InterveneDrainForListRemedyConfigsOutput `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ConfigForListRemedyConfigsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ConfigForListRemedyConfigsOutput) GoString() string {
-	return s.String()
-}
-
-// SetAction sets the Action field's value.
-func (s *ConfigForListRemedyConfigsOutput) SetAction(v *ActionForListRemedyConfigsOutput) *ConfigForListRemedyConfigsOutput {
-	s.Action = v
-	return s
-}
-
-// SetAutoRestoreSchedule sets the AutoRestoreSchedule field's value.
-func (s *ConfigForListRemedyConfigsOutput) SetAutoRestoreSchedule(v bool) *ConfigForListRemedyConfigsOutput {
-	s.AutoRestoreSchedule = &v
-	return s
-}
-
-// SetDrain sets the Drain field's value.
-func (s *ConfigForListRemedyConfigsOutput) SetDrain(v *DrainForListRemedyConfigsOutput) *ConfigForListRemedyConfigsOutput {
-	s.Drain = v
-	return s
-}
-
-// SetIaasEvents sets the IaasEvents field's value.
-func (s *ConfigForListRemedyConfigsOutput) SetIaasEvents(v []*string) *ConfigForListRemedyConfigsOutput {
-	s.IaasEvents = v
-	return s
-}
-
-// SetInterveneCordon sets the InterveneCordon field's value.
-func (s *ConfigForListRemedyConfigsOutput) SetInterveneCordon(v *InterveneCordonForListRemedyConfigsOutput) *ConfigForListRemedyConfigsOutput {
-	s.InterveneCordon = v
-	return s
-}
-
-// SetInterveneDrain sets the InterveneDrain field's value.
-func (s *ConfigForListRemedyConfigsOutput) SetInterveneDrain(v *InterveneDrainForListRemedyConfigsOutput) *ConfigForListRemedyConfigsOutput {
-	s.InterveneDrain = v
-	return s
-}
-
-type DrainForListRemedyConfigsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	WaitFor *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s DrainForListRemedyConfigsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DrainForListRemedyConfigsOutput) GoString() string {
-	return s.String()
-}
-
-// SetWaitFor sets the WaitFor field's value.
-func (s *DrainForListRemedyConfigsOutput) SetWaitFor(v int32) *DrainForListRemedyConfigsOutput {
-	s.WaitFor = &v
-	return s
-}
-
 type FilterForListRemedyConfigsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -308,66 +194,6 @@ func (s *FilterForListRemedyConfigsInput) SetResourceIds(v []*string) *FilterFor
 // SetResourceType sets the ResourceType field's value.
 func (s *FilterForListRemedyConfigsInput) SetResourceType(v string) *FilterForListRemedyConfigsInput {
 	s.ResourceType = &v
-	return s
-}
-
-type InterveneCordonForListRemedyConfigsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Enabled *bool `type:"boolean" json:",omitempty"`
-
-	Label *LabelForListRemedyConfigsOutput `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s InterveneCordonForListRemedyConfigsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InterveneCordonForListRemedyConfigsOutput) GoString() string {
-	return s.String()
-}
-
-// SetEnabled sets the Enabled field's value.
-func (s *InterveneCordonForListRemedyConfigsOutput) SetEnabled(v bool) *InterveneCordonForListRemedyConfigsOutput {
-	s.Enabled = &v
-	return s
-}
-
-// SetLabel sets the Label field's value.
-func (s *InterveneCordonForListRemedyConfigsOutput) SetLabel(v *LabelForListRemedyConfigsOutput) *InterveneCordonForListRemedyConfigsOutput {
-	s.Label = v
-	return s
-}
-
-type InterveneDrainForListRemedyConfigsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Enabled *bool `type:"boolean" json:",omitempty"`
-
-	Label *LabelForListRemedyConfigsOutput `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s InterveneDrainForListRemedyConfigsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InterveneDrainForListRemedyConfigsOutput) GoString() string {
-	return s.String()
-}
-
-// SetEnabled sets the Enabled field's value.
-func (s *InterveneDrainForListRemedyConfigsOutput) SetEnabled(v bool) *InterveneDrainForListRemedyConfigsOutput {
-	s.Enabled = &v
-	return s
-}
-
-// SetLabel sets the Label field's value.
-func (s *InterveneDrainForListRemedyConfigsOutput) SetLabel(v *LabelForListRemedyConfigsOutput) *InterveneDrainForListRemedyConfigsOutput {
-	s.Label = v
 	return s
 }
 
@@ -446,36 +272,6 @@ func (s *ItemForListRemedyConfigsOutput) SetRules(v []*RuleForListRemedyConfigsO
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ItemForListRemedyConfigsOutput) SetUpdateTime(v string) *ItemForListRemedyConfigsOutput {
 	s.UpdateTime = &v
-	return s
-}
-
-type LabelForListRemedyConfigsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Value *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s LabelForListRemedyConfigsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s LabelForListRemedyConfigsOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *LabelForListRemedyConfigsOutput) SetKey(v string) *LabelForListRemedyConfigsOutput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *LabelForListRemedyConfigsOutput) SetValue(v string) *LabelForListRemedyConfigsOutput {
-	s.Value = &v
 	return s
 }
 
@@ -568,9 +364,7 @@ func (s *ListRemedyConfigsOutput) SetTotalCount(v int32) *ListRemedyConfigsOutpu
 type RemedyStrategyForListRemedyConfigsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Config *ConfigForListRemedyConfigsOutput `type:"structure" json:",omitempty"`
-
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForListRemedyConfigsOutput"`
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -583,12 +377,6 @@ func (s RemedyStrategyForListRemedyConfigsOutput) GoString() string {
 	return s.String()
 }
 
-// SetConfig sets the Config field's value.
-func (s *RemedyStrategyForListRemedyConfigsOutput) SetConfig(v *ConfigForListRemedyConfigsOutput) *RemedyStrategyForListRemedyConfigsOutput {
-	s.Config = v
-	return s
-}
-
 // SetType sets the Type field's value.
 func (s *RemedyStrategyForListRemedyConfigsOutput) SetType(v string) *RemedyStrategyForListRemedyConfigsOutput {
 	s.Type = &v
@@ -598,7 +386,7 @@ func (s *RemedyStrategyForListRemedyConfigsOutput) SetType(v string) *RemedyStra
 type RuleForListRemedyConfigsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	FaultType *string `type:"string" json:",omitempty" enum:"EnumOfFaultTypeForListRemedyConfigsOutput"`
+	FaultType *string `type:"string" json:",omitempty"`
 
 	IncidentTypes []*string `type:"list" json:",omitempty"`
 
@@ -634,17 +422,6 @@ func (s *RuleForListRemedyConfigsOutput) SetRemedyStrategy(v *RemedyStrategyForL
 }
 
 const (
-	// EnumOfFaultTypeForListRemedyConfigsOutputGpufault is a EnumOfFaultTypeForListRemedyConfigsOutput enum value
-	EnumOfFaultTypeForListRemedyConfigsOutputGpufault = "GPUFault"
-
-	// EnumOfFaultTypeForListRemedyConfigsOutputNodeFault is a EnumOfFaultTypeForListRemedyConfigsOutput enum value
-	EnumOfFaultTypeForListRemedyConfigsOutputNodeFault = "NodeFault"
-
-	// EnumOfFaultTypeForListRemedyConfigsOutputSystemFault is a EnumOfFaultTypeForListRemedyConfigsOutput enum value
-	EnumOfFaultTypeForListRemedyConfigsOutputSystemFault = "SystemFault"
-)
-
-const (
 	// EnumOfResourceTypeForListRemedyConfigsInputVkeNodePool is a EnumOfResourceTypeForListRemedyConfigsInput enum value
 	EnumOfResourceTypeForListRemedyConfigsInputVkeNodePool = "VkeNodePool"
 )
@@ -652,18 +429,4 @@ const (
 const (
 	// EnumOfResourceTypeForListRemedyConfigsOutputVkeNodePool is a EnumOfResourceTypeForListRemedyConfigsOutput enum value
 	EnumOfResourceTypeForListRemedyConfigsOutputVkeNodePool = "VkeNodePool"
-)
-
-const (
-	// EnumOfTypeForListRemedyConfigsOutputNotify is a EnumOfTypeForListRemedyConfigsOutput enum value
-	EnumOfTypeForListRemedyConfigsOutputNotify = "Notify"
-
-	// EnumOfTypeForListRemedyConfigsOutputCordonNode is a EnumOfTypeForListRemedyConfigsOutput enum value
-	EnumOfTypeForListRemedyConfigsOutputCordonNode = "CordonNode"
-
-	// EnumOfTypeForListRemedyConfigsOutputDrainNode is a EnumOfTypeForListRemedyConfigsOutput enum value
-	EnumOfTypeForListRemedyConfigsOutputDrainNode = "DrainNode"
-
-	// EnumOfTypeForListRemedyConfigsOutputRemedy is a EnumOfTypeForListRemedyConfigsOutput enum value
-	EnumOfTypeForListRemedyConfigsOutputRemedy = "Remedy"
 )

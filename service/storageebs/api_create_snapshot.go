@@ -153,6 +153,8 @@ type CreateSnapshotInput struct {
 	// SnapshotName is a required field
 	SnapshotName *string `type:"string" required:"true"`
 
+	Source *SourceForCreateSnapshotInput `type:"structure"`
+
 	Tags []*TagForCreateSnapshotInput `type:"list"`
 
 	// VolumeId is a required field
@@ -215,6 +217,12 @@ func (s *CreateSnapshotInput) SetSnapshotName(v string) *CreateSnapshotInput {
 	return s
 }
 
+// SetSource sets the Source field's value.
+func (s *CreateSnapshotInput) SetSource(v *SourceForCreateSnapshotInput) *CreateSnapshotInput {
+	s.Source = v
+	return s
+}
+
 // SetTags sets the Tags field's value.
 func (s *CreateSnapshotInput) SetTags(v []*TagForCreateSnapshotInput) *CreateSnapshotInput {
 	s.Tags = v
@@ -248,6 +256,66 @@ func (s CreateSnapshotOutput) GoString() string {
 // SetSnapshotId sets the SnapshotId field's value.
 func (s *CreateSnapshotOutput) SetSnapshotId(v string) *CreateSnapshotOutput {
 	s.SnapshotId = &v
+	return s
+}
+
+type OptionsForCreateSnapshotInput struct {
+	_ struct{} `type:"structure"`
+
+	Bucket *string `type:"string"`
+
+	Prefix *string `type:"string"`
+}
+
+// String returns the string representation
+func (s OptionsForCreateSnapshotInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OptionsForCreateSnapshotInput) GoString() string {
+	return s.String()
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *OptionsForCreateSnapshotInput) SetBucket(v string) *OptionsForCreateSnapshotInput {
+	s.Bucket = &v
+	return s
+}
+
+// SetPrefix sets the Prefix field's value.
+func (s *OptionsForCreateSnapshotInput) SetPrefix(v string) *OptionsForCreateSnapshotInput {
+	s.Prefix = &v
+	return s
+}
+
+type SourceForCreateSnapshotInput struct {
+	_ struct{} `type:"structure"`
+
+	Options *OptionsForCreateSnapshotInput `type:"structure"`
+
+	Type *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SourceForCreateSnapshotInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceForCreateSnapshotInput) GoString() string {
+	return s.String()
+}
+
+// SetOptions sets the Options field's value.
+func (s *SourceForCreateSnapshotInput) SetOptions(v *OptionsForCreateSnapshotInput) *SourceForCreateSnapshotInput {
+	s.Options = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *SourceForCreateSnapshotInput) SetType(v string) *SourceForCreateSnapshotInput {
+	s.Type = &v
 	return s
 }
 

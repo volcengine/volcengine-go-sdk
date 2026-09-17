@@ -194,7 +194,7 @@ type ListForListPackageUsageDetailsOutput struct {
 
 	OwnerID *string `type:"string" json:",omitempty"`
 
-	PackageType *string `type:"string" json:",omitempty" enum:"EnumOfPackageTypeForListPackageUsageDetailsOutput"`
+	PackageType *string `type:"string" json:",omitempty"`
 
 	Product *string `type:"string" json:",omitempty"`
 
@@ -556,17 +556,6 @@ func (s *ListPackageUsageDetailsOutput) SetNextToken(v string) *ListPackageUsage
 	s.NextToken = &v
 	return s
 }
-
-const (
-	// EnumOfPackageTypeForListPackageUsageDetailsOutputPeriodic is a EnumOfPackageTypeForListPackageUsageDetailsOutput enum value
-	EnumOfPackageTypeForListPackageUsageDetailsOutputPeriodic = "Periodic"
-
-	// EnumOfPackageTypeForListPackageUsageDetailsOutputDiminishing is a EnumOfPackageTypeForListPackageUsageDetailsOutput enum value
-	EnumOfPackageTypeForListPackageUsageDetailsOutputDiminishing = "Diminishing"
-
-	// EnumOfPackageTypeForListPackageUsageDetailsOutputHybrid is a EnumOfPackageTypeForListPackageUsageDetailsOutput enum value
-	EnumOfPackageTypeForListPackageUsageDetailsOutputHybrid = "Hybrid"
-)
 
 const (
 	// EnumOfResourceTypeForListPackageUsageDetailsInputPackage is a EnumOfResourceTypeForListPackageUsageDetailsInput enum value

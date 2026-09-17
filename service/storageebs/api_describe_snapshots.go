@@ -275,6 +275,8 @@ type DescribeSnapshotsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	NextToken *string `type:"string"`
+
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
@@ -292,6 +294,12 @@ func (s DescribeSnapshotsOutput) String() string {
 // GoString returns the string representation
 func (s DescribeSnapshotsOutput) GoString() string {
 	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeSnapshotsOutput) SetNextToken(v string) *DescribeSnapshotsOutput {
+	s.NextToken = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.

@@ -182,7 +182,7 @@ type ListForListResourcePackagesOutput struct {
 
 	SpecificationUnit *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForListResourcePackagesOutput"`
+	Status *string `type:"string" json:",omitempty"`
 
 	SubjectNo *string `type:"string" json:",omitempty"`
 
@@ -498,24 +498,4 @@ const (
 
 	// EnumOfStatusForListResourcePackagesInputRefunded is a EnumOfStatusForListResourcePackagesInput enum value
 	EnumOfStatusForListResourcePackagesInputRefunded = "Refunded"
-)
-
-const (
-	// EnumOfStatusForListResourcePackagesOutputEffective is a EnumOfStatusForListResourcePackagesOutput enum value
-	EnumOfStatusForListResourcePackagesOutputEffective = "Effective"
-
-	// EnumOfStatusForListResourcePackagesOutputNotEffective is a EnumOfStatusForListResourcePackagesOutput enum value
-	EnumOfStatusForListResourcePackagesOutputNotEffective = "NotEffective"
-
-	// EnumOfStatusForListResourcePackagesOutputFailedToCreate is a EnumOfStatusForListResourcePackagesOutput enum value
-	EnumOfStatusForListResourcePackagesOutputFailedToCreate = "FailedToCreate"
-
-	// EnumOfStatusForListResourcePackagesOutputUsedUp is a EnumOfStatusForListResourcePackagesOutput enum value
-	EnumOfStatusForListResourcePackagesOutputUsedUp = "UsedUp"
-
-	// EnumOfStatusForListResourcePackagesOutputExpired is a EnumOfStatusForListResourcePackagesOutput enum value
-	EnumOfStatusForListResourcePackagesOutputExpired = "Expired"
-
-	// EnumOfStatusForListResourcePackagesOutputRefunded is a EnumOfStatusForListResourcePackagesOutput enum value
-	EnumOfStatusForListResourcePackagesOutputRefunded = "Refunded"
 )

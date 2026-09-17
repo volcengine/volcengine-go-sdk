@@ -146,6 +146,8 @@ func (c *CR) UpdatePublicEndpointWithContext(ctx volcengine.Context, input *Upda
 type UpdatePublicEndpointInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	ClientToken *string `type:"string" json:",omitempty"`
+
 	Enabled *bool `type:"boolean" json:",omitempty"`
 
 	// Registry is a required field
@@ -179,6 +181,12 @@ func (s *UpdatePublicEndpointInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *UpdatePublicEndpointInput) SetClientToken(v string) *UpdatePublicEndpointInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetEnabled sets the Enabled field's value.

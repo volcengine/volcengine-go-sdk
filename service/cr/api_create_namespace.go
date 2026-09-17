@@ -146,6 +146,8 @@ func (c *CR) CreateNamespaceWithContext(ctx volcengine.Context, input *CreateNam
 type CreateNamespaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AutoCreateRepositoryDisabled *bool `type:"boolean" json:",omitempty"`
+
 	ClientToken *string `type:"string" json:",omitempty"`
 
 	// Name is a required field
@@ -155,6 +157,8 @@ type CreateNamespaceInput struct {
 
 	// Registry is a required field
 	Registry *string `min:"3" max:"30" type:"string" json:",omitempty" required:"true"`
+
+	RepositoryDefaultAccessLevel *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -189,6 +193,12 @@ func (s *CreateNamespaceInput) Validate() error {
 	return nil
 }
 
+// SetAutoCreateRepositoryDisabled sets the AutoCreateRepositoryDisabled field's value.
+func (s *CreateNamespaceInput) SetAutoCreateRepositoryDisabled(v bool) *CreateNamespaceInput {
+	s.AutoCreateRepositoryDisabled = &v
+	return s
+}
+
 // SetClientToken sets the ClientToken field's value.
 func (s *CreateNamespaceInput) SetClientToken(v string) *CreateNamespaceInput {
 	s.ClientToken = &v
@@ -210,6 +220,12 @@ func (s *CreateNamespaceInput) SetProject(v string) *CreateNamespaceInput {
 // SetRegistry sets the Registry field's value.
 func (s *CreateNamespaceInput) SetRegistry(v string) *CreateNamespaceInput {
 	s.Registry = &v
+	return s
+}
+
+// SetRepositoryDefaultAccessLevel sets the RepositoryDefaultAccessLevel field's value.
+func (s *CreateNamespaceInput) SetRepositoryDefaultAccessLevel(v string) *CreateNamespaceInput {
+	s.RepositoryDefaultAccessLevel = &v
 	return s
 }
 

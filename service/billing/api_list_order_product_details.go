@@ -249,6 +249,16 @@ type OrderFailRefundInfoForListOrderProductDetailsOutput struct {
 	PaidAmount *string `type:"string" json:",omitempty"`
 
 	PayableAmount *string `type:"string" json:",omitempty"`
+
+	PointDeductAmount *string `type:"string" json:",omitempty"`
+
+	PreTaxPayableAmount *string `type:"string" json:",omitempty"`
+
+	SettlePayableAmount *string `type:"string" json:",omitempty"`
+
+	SettleTax *string `type:"string" json:",omitempty"`
+
+	Tax *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -297,6 +307,36 @@ func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetPayableAmount(v
 	return s
 }
 
+// SetPointDeductAmount sets the PointDeductAmount field's value.
+func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetPointDeductAmount(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
+	s.PointDeductAmount = &v
+	return s
+}
+
+// SetPreTaxPayableAmount sets the PreTaxPayableAmount field's value.
+func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetPreTaxPayableAmount(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
+	s.PreTaxPayableAmount = &v
+	return s
+}
+
+// SetSettlePayableAmount sets the SettlePayableAmount field's value.
+func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetSettlePayableAmount(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
+	s.SettlePayableAmount = &v
+	return s
+}
+
+// SetSettleTax sets the SettleTax field's value.
+func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetSettleTax(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
+	s.SettleTax = &v
+	return s
+}
+
+// SetTax sets the Tax field's value.
+func (s *OrderFailRefundInfoForListOrderProductDetailsOutput) SetTax(v string) *OrderFailRefundInfoForListOrderProductDetailsOutput {
+	s.Tax = &v
+	return s
+}
+
 type OrderProductInfoForListOrderProductDetailsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -306,6 +346,8 @@ type OrderProductInfoForListOrderProductDetailsOutput struct {
 
 	CouponAmount *string `type:"string" json:",omitempty"`
 
+	CurrencySettlement *string `type:"string" json:",omitempty"`
+
 	DeductionCount *string `type:"string" json:",omitempty"`
 
 	DeductionCountUnit *string `type:"string" json:",omitempty"`
@@ -313,6 +355,8 @@ type OrderProductInfoForListOrderProductDetailsOutput struct {
 	DiscountAmount *string `type:"string" json:",omitempty"`
 
 	EndTime *string `type:"string" json:",omitempty"`
+
+	ExchangeRate *string `type:"string" json:",omitempty"`
 
 	InstanceID *string `type:"string" json:",omitempty"`
 
@@ -334,9 +378,23 @@ type OrderProductInfoForListOrderProductDetailsOutput struct {
 
 	PickupVoucherID *string `type:"string" json:",omitempty"`
 
+	PointDeductAmount *string `type:"string" json:",omitempty"`
+
+	Points *string `type:"string" json:",omitempty"`
+
+	PreTaxPayableAmount *string `type:"string" json:",omitempty"`
+
 	Product *string `type:"string" json:",omitempty"`
 
+	SettlePayableAmount *string `type:"string" json:",omitempty"`
+
+	SettleTax *string `type:"string" json:",omitempty"`
+
 	Status *string `type:"string" json:",omitempty"`
+
+	Tax *string `type:"string" json:",omitempty"`
+
+	TaxRate *string `type:"string" json:",omitempty"`
 
 	Times *string `type:"string" json:",omitempty"`
 }
@@ -369,6 +427,12 @@ func (s *OrderProductInfoForListOrderProductDetailsOutput) SetCouponAmount(v str
 	return s
 }
 
+// SetCurrencySettlement sets the CurrencySettlement field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetCurrencySettlement(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.CurrencySettlement = &v
+	return s
+}
+
 // SetDeductionCount sets the DeductionCount field's value.
 func (s *OrderProductInfoForListOrderProductDetailsOutput) SetDeductionCount(v string) *OrderProductInfoForListOrderProductDetailsOutput {
 	s.DeductionCount = &v
@@ -390,6 +454,12 @@ func (s *OrderProductInfoForListOrderProductDetailsOutput) SetDiscountAmount(v s
 // SetEndTime sets the EndTime field's value.
 func (s *OrderProductInfoForListOrderProductDetailsOutput) SetEndTime(v string) *OrderProductInfoForListOrderProductDetailsOutput {
 	s.EndTime = &v
+	return s
+}
+
+// SetExchangeRate sets the ExchangeRate field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetExchangeRate(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.ExchangeRate = &v
 	return s
 }
 
@@ -453,15 +523,57 @@ func (s *OrderProductInfoForListOrderProductDetailsOutput) SetPickupVoucherID(v 
 	return s
 }
 
+// SetPointDeductAmount sets the PointDeductAmount field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetPointDeductAmount(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.PointDeductAmount = &v
+	return s
+}
+
+// SetPoints sets the Points field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetPoints(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.Points = &v
+	return s
+}
+
+// SetPreTaxPayableAmount sets the PreTaxPayableAmount field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetPreTaxPayableAmount(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.PreTaxPayableAmount = &v
+	return s
+}
+
 // SetProduct sets the Product field's value.
 func (s *OrderProductInfoForListOrderProductDetailsOutput) SetProduct(v string) *OrderProductInfoForListOrderProductDetailsOutput {
 	s.Product = &v
 	return s
 }
 
+// SetSettlePayableAmount sets the SettlePayableAmount field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetSettlePayableAmount(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.SettlePayableAmount = &v
+	return s
+}
+
+// SetSettleTax sets the SettleTax field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetSettleTax(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.SettleTax = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *OrderProductInfoForListOrderProductDetailsOutput) SetStatus(v string) *OrderProductInfoForListOrderProductDetailsOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTax sets the Tax field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetTax(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.Tax = &v
+	return s
+}
+
+// SetTaxRate sets the TaxRate field's value.
+func (s *OrderProductInfoForListOrderProductDetailsOutput) SetTaxRate(v string) *OrderProductInfoForListOrderProductDetailsOutput {
+	s.TaxRate = &v
 	return s
 }
 

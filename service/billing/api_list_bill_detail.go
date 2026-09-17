@@ -178,6 +178,8 @@ type ListBillDetailInput struct {
 
 	Project []*string `type:"list" json:",omitempty"`
 
+	SalesChannel []*string `type:"list" json:",omitempty"`
+
 	TagKV []*TagKVForListBillDetailInput `type:"list" json:",omitempty"`
 
 	TagKVFilterMode *int32 `type:"int32" json:",omitempty"`
@@ -299,6 +301,12 @@ func (s *ListBillDetailInput) SetProject(v []*string) *ListBillDetailInput {
 	return s
 }
 
+// SetSalesChannel sets the SalesChannel field's value.
+func (s *ListBillDetailInput) SetSalesChannel(v []*string) *ListBillDetailInput {
+	s.SalesChannel = v
+	return s
+}
+
 // SetTagKV sets the TagKV field's value.
 func (s *ListBillDetailInput) SetTagKV(v []*TagKVForListBillDetailInput) *ListBillDetailInput {
 	s.TagKV = v
@@ -400,8 +408,6 @@ type ListForListBillDetailOutput struct {
 
 	CouponAmount *string `type:"string" json:",omitempty"`
 
-	CreditCarriedAmount *string `type:"string" json:",omitempty"`
-
 	Currency *string `type:"string" json:",omitempty"`
 
 	CurrencySettlement *string `type:"string" json:",omitempty"`
@@ -464,8 +470,6 @@ type ListForListBillDetailOutput struct {
 
 	OwnerUserName *string `type:"string" json:",omitempty"`
 
-	PaidAmount *string `type:"string" json:",omitempty"`
-
 	PayableAmount *string `type:"string" json:",omitempty"`
 
 	PayerCustomerName *string `type:"string" json:",omitempty"`
@@ -522,6 +526,8 @@ type ListForListBillDetailOutput struct {
 
 	RoundAmount *float64 `type:"double" json:",omitempty"`
 
+	SalesChannel *string `type:"string" json:",omitempty"`
+
 	SavingPlanDeductionDiscountAmount *string `type:"string" json:",omitempty"`
 
 	SavingPlanDeductionDiscountTotalAmount *string `type:"string" json:",omitempty"`
@@ -569,8 +575,6 @@ type ListForListBillDetailOutput struct {
 	TradeTime *string `type:"string" json:",omitempty"`
 
 	Unit *string `type:"string" json:",omitempty"`
-
-	UnpaidAmount *string `type:"string" json:",omitempty"`
 
 	UseDuration *string `type:"string" json:",omitempty"`
 
@@ -678,12 +682,6 @@ func (s *ListForListBillDetailOutput) SetCountryRegion(v string) *ListForListBil
 // SetCouponAmount sets the CouponAmount field's value.
 func (s *ListForListBillDetailOutput) SetCouponAmount(v string) *ListForListBillDetailOutput {
 	s.CouponAmount = &v
-	return s
-}
-
-// SetCreditCarriedAmount sets the CreditCarriedAmount field's value.
-func (s *ListForListBillDetailOutput) SetCreditCarriedAmount(v string) *ListForListBillDetailOutput {
-	s.CreditCarriedAmount = &v
 	return s
 }
 
@@ -873,12 +871,6 @@ func (s *ListForListBillDetailOutput) SetOwnerUserName(v string) *ListForListBil
 	return s
 }
 
-// SetPaidAmount sets the PaidAmount field's value.
-func (s *ListForListBillDetailOutput) SetPaidAmount(v string) *ListForListBillDetailOutput {
-	s.PaidAmount = &v
-	return s
-}
-
 // SetPayableAmount sets the PayableAmount field's value.
 func (s *ListForListBillDetailOutput) SetPayableAmount(v string) *ListForListBillDetailOutput {
 	s.PayableAmount = &v
@@ -1047,6 +1039,12 @@ func (s *ListForListBillDetailOutput) SetRoundAmount(v float64) *ListForListBill
 	return s
 }
 
+// SetSalesChannel sets the SalesChannel field's value.
+func (s *ListForListBillDetailOutput) SetSalesChannel(v string) *ListForListBillDetailOutput {
+	s.SalesChannel = &v
+	return s
+}
+
 // SetSavingPlanDeductionDiscountAmount sets the SavingPlanDeductionDiscountAmount field's value.
 func (s *ListForListBillDetailOutput) SetSavingPlanDeductionDiscountAmount(v string) *ListForListBillDetailOutput {
 	s.SavingPlanDeductionDiscountAmount = &v
@@ -1188,12 +1186,6 @@ func (s *ListForListBillDetailOutput) SetTradeTime(v string) *ListForListBillDet
 // SetUnit sets the Unit field's value.
 func (s *ListForListBillDetailOutput) SetUnit(v string) *ListForListBillDetailOutput {
 	s.Unit = &v
-	return s
-}
-
-// SetUnpaidAmount sets the UnpaidAmount field's value.
-func (s *ListForListBillDetailOutput) SetUnpaidAmount(v string) *ListForListBillDetailOutput {
-	s.UnpaidAmount = &v
 	return s
 }
 
