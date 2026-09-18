@@ -42,6 +42,11 @@ the **STS request's scheme** > the original transport's proxy behavior. Environm
 values are never stored in `ProxyURL`; the standard default transport continues
 to honor `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY`. Explicit proxies take precedence
 over environment `NO_PROXY`; unspecified schemes retain the original proxy rule.
+Only the client proxy selected for the current STS request's scheme is parsed
+and validated. An invalid proxy for the other scheme does not block the request.
+An invalid selected proxy still returns an error instead of silently bypassing
+the proxy. An explicit provider `ProxyURL` covers both schemes and is still
+validated when constructing the transport.
 For HTTPS STS through an HTTP CONNECT proxy, use
 `WithHTTPSProxy("http://proxy:8080")`, independently of business API `DisableSSL`.
 

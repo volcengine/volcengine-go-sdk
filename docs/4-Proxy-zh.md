@@ -39,6 +39,9 @@ client = ecs.New(sess)
 `WithHTTPProxy` / `WithHTTPSProxy` > 原传输层代理行为。环境变量不会被转存到
 `ProxyURL`，标准默认传输层继续处理 `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY`。
 显式代理不受环境 `NO_PROXY` 覆盖。未覆盖的协议继续使用原代理规则。
+只有当前 STS 请求协议选中的客户端代理才会被解析和校验；另一协议的非法配置
+不会阻断当前请求。选中的非法代理仍会报错，不会静默绕过代理。
+Provider 的显式 `ProxyURL` 同时覆盖两种协议，仍在构建传输层时校验。
 例如 HTTPS STS 通过 HTTP CONNECT 代理时，应配置
 `WithHTTPSProxy("http://proxy:8080")`，与业务 API 的 `DisableSSL` 无关。
 

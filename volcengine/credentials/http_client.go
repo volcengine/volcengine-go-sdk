@@ -68,9 +68,8 @@ func newDefaultProxyTransport(base http.RoundTripper) (*http.Transport, error) {
 
 // buildProxyTransport 根据代理与 TLS 配置构建 *http.Transport。
 //
-// 仅当 cfg 中至少显式配置了一项（ProxyURL / CAFile / InsecureSkipVerify）
-// 时才返回非 nil 的 transport；三者全空时返回 (nil, nil)，由调用方保留
-// 原有传输层配置。
+// 仅当 cfg 中配置了代理/TLS 选项或客户端代理兜底时才返回非 nil 的
+// transport；cfg.IsZero() 时返回 (nil, nil)，由调用方保留原有传输层配置。
 //
 // transport 以 http.DefaultTransport.Clone() 为基准，保留标准库的超时与
 // 协议默认值（TLSHandshakeTimeout / ExpectContinueTimeout / ForceAttemptHTTP2
@@ -78,7 +77,7 @@ func newDefaultProxyTransport(base http.RoundTripper) (*http.Transport, error) {
 //
 // 代理优先级：
 //  1. 若 cfg.ProxyURL 非空，则使用该地址作为 HTTP/HTTPS 代理；
-//  2. 否则按实际请求 scheme 选择客户端显式代理；
+//  2. 否则按实际请求 scheme 选择并校验客户端显式代理；
 //  3. 未命中时保留原 transport.Proxy（标准默认值支持环境变量和 NO_PROXY）。
 //
 // TLS 处理：
@@ -100,26 +99,17 @@ func buildProxyTransport(cfg ProxyConfig) (*http.Transport, error) {
 		}
 		transport.Proxy = http.ProxyURL(parsed)
 	} else if cfg.httpProxy != "" || cfg.httpsProxy != "" {
-		var httpProxy, httpsProxy *url.URL
-		if cfg.httpProxy != "" {
-			httpProxy, err = parseSTSProxy(cfg.httpProxy)
-			if err != nil {
-				return nil, err
-			}
-		}
-		if cfg.httpsProxy != "" {
-			httpsProxy, err = parseSTSProxy(cfg.httpsProxy)
-			if err != nil {
-				return nil, err
-			}
-		}
 		baseProxy := transport.Proxy
 		transport.Proxy = func(req *http.Request) (*url.URL, error) {
-			if req.URL.Scheme == "http" && httpProxy != nil {
-				return httpProxy, nil
+			var proxy string
+			switch req.URL.Scheme {
+			case "http":
+				proxy = cfg.httpProxy
+			case "https":
+				proxy = cfg.httpsProxy
 			}
-			if req.URL.Scheme == "https" && httpsProxy != nil {
-				return httpsProxy, nil
+			if proxy != "" {
+				return parseSTSProxy(proxy)
 			}
 			if baseProxy != nil {
 				return baseProxy(req)

@@ -755,11 +755,11 @@ func getNoProxy(noProxy *string) []string {
 
 // Bind a private credential cache after config merging. Only explicit defaults
 // are copied: STS chooses its own scheme and the transport resolves environment
-// proxies per request, retaining NO_PROXY.
+// proxies per request, retaining NO_PROXY. The business service Endpoint must
+// not override the STS endpoint.
 func bindSTSCredentials(cfg *volcengine.Config) {
 	cfg.Credentials = cfg.Credentials.WithSTSConfig(credentials.STSConfig{
 		Region:     volcengine.StringValue(cfg.Region),
-		Host:       volcengine.StringValue(cfg.Endpoint),
 		HTTPProxy:  volcengine.StringValue(cfg.HTTPProxy),
 		HTTPSProxy: volcengine.StringValue(cfg.HTTPSProxy),
 	})
