@@ -31,11 +31,26 @@ Priority: code > environment variables.
 
 ### STS / OIDC / SAML credential requests
 
-`NewSession`, `NewSessionWithOptions`, and `Session.Copy` (including service-client
-construction) bind built-in providers to independent configuration snapshots,
-credential caches and refresh locks. The source provider is not modified. Finish
-configuration before constructing the session/client; subsequent source-provider
-changes do not affect existing bindings.
+`NewSession`, `NewSessionWithOptions`, and the deprecated `New` bind explicitly
+supplied built-in providers to independent configuration snapshots, credential
+caches and refresh locks. The source provider is not modified.
+
+`Session.Copy` (including service-client construction) reuses the session's bound
+`Credentials`, cache and refresh lock when the credentials pointer and the values
+of `Region`, `HTTPProxy`, and `HTTPSProxy` match the last binding. No overrides,
+nil/empty configs, equal values in new pointers, and business-only changes such as
+`Endpoint` retain this sharing. Changing any binding field or replacing the
+credentials creates an independent binding without modifying the source session.
+Clients subsequently derived from that binding with the same defaults share it.
+Separate sessions and direct `Credentials.WithSTSConfig` calls remain independent;
+a manually constructed `Session` without a binding record binds on its first copy.
+
+Finish provider and session configuration before creating clients, and do not
+modify it concurrently with use. Later source-provider changes do not affect
+existing bindings; changes to session defaults are detected on the next copy or
+client construction, but do not reconfigure existing clients. Calling `Expire()`
+on shared credentials invalidates the cache for all clients sharing that binding;
+the next retrieval refreshes it under the shared lock.
 
 Priority: explicit provider `ProxyURL` > `WithHTTPProxy` / `WithHTTPSProxy` matching
 the **STS request's scheme** > the original transport's proxy behavior. Environment

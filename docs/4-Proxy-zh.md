@@ -31,9 +31,21 @@ client = ecs.New(sess)
 
 ### STS / OIDC / SAML 凭证请求
 
-内置凭证 Provider 在 `NewSession`、`NewSessionWithOptions` 和 `Session.Copy`
-（包括服务客户端创建）时绑定独立的配置快照、凭证缓存和刷新锁，源 Provider 不会被回写。
-请在创建 session 或服务客户端之前完成配置；之后修改源 Provider 不影响已经绑定的实例。
+显式传入的内置凭证 Provider 在 `NewSession`、`NewSessionWithOptions` 和已弃用的 `New`
+中绑定独立的配置快照、凭证缓存和刷新锁，源 Provider 不会被回写。
+
+`Session.Copy`（包括服务客户端创建）在凭证指针以及 `Region`、`HTTPProxy`、`HTTPSProxy`
+的值与上次绑定一致时，复用 Session 已绑定的 `Credentials`、缓存和刷新锁。
+无配置覆盖、nil/空配置、使用新指针但值相等的配置，以及仅修改业务 `Endpoint` 等无关字段，
+都保留共享。任一绑定字段变化或替换凭证时，创建独立绑定，不回写源 Session。
+从新绑定继续派生且默认配置相同的客户端共享该绑定。
+不同 Session、直接调用 `Credentials.WithSTSConfig` 仍各自独立；
+手工构造且没有绑定记录的 `Session` 在首次 Copy 时执行绑定。
+
+请在创建客户端之前完成 Provider 和 Session 配置，不要在使用过程中并发修改。
+之后修改源 Provider 不影响已绑定实例；Session 默认配置变化会在下一次 Copy 或创建客户端时
+被识别，但不会重新配置已有客户端。对共享凭证调用 `Expire()` 会使所有共享该绑定的客户端
+缓存一同失效，下一次获取凭证时通过共享锁协调刷新。
 
 代理优先级：Provider 的显式 `ProxyURL` > 与 **STS 请求自身协议** 对应的
 `WithHTTPProxy` / `WithHTTPSProxy` > 原传输层代理行为。环境变量不会被转存到
