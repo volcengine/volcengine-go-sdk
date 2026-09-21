@@ -60,6 +60,11 @@ func newDefaultProxyTransport(base http.RoundTripper) (*http.Transport, error) {
 		return nil, fmt.Errorf("cannot apply STS proxy/TLS options to transport %T", base)
 	}
 	transport := source.Clone()
+	// Clone may copy the h2 ALPN protocol initialized on the source while
+	// leaving TLSNextProto to be configured on the clone. Opt in explicitly:
+	// otherwise its non-nil TLSClientConfig can disable automatic HTTP/2,
+	// causing HTTP/1 requests to be sent over an h2-negotiated connection.
+	transport.ForceAttemptHTTP2 = true
 	transport.MaxIdleConns = 1000
 	transport.MaxIdleConnsPerHost = 100
 	transport.IdleConnTimeout = 10 * time.Second
