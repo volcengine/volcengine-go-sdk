@@ -1,0 +1,8 @@
+{
+  "actions": [
+    "CreateDropShippingOrder"
+  ],
+  "description": "BILLING: 修改 CreateDropShippingOrder",
+  "modules": "service/billing",
+  "type": "feature"
+}
