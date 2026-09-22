@@ -1,0 +1,24 @@
+{
+  "actions": [
+    "RestartInstance",
+    "DescribeInstancePriceInfo",
+    "DescribeConsumedTopics",
+    "AllowAutoUseTopic",
+    "ImportGroups",
+    "DescribeTopicAuditInfo",
+    "DescribeInstanceDetail",
+    "CreateTopic",
+    "DescribeAllowListDetail",
+    "DescribeAllowLists",
+    "DescribeGroups",
+    "DeleteConsumedTopicOffsets",
+    "VerifyImportGroups",
+    "DescribeInstances",
+    "CreateAllowList",
+    "ModifyInstanceReadWriteRatio",
+    "ProhibitAutoUseTopic"
+  ],
+  "description": "KAFKA: 新增 RestartInstance, AllowAutoUseTopic, DeleteConsumedTopicOffsets, ImportGroups, ModifyInstanceReadWriteRatio, ProhibitAutoUseTopic, VerifyImportGroups, DescribeInstancePriceInfo, DescribeTopicAuditInfo；删除 ModifyTopicAccessPolicies, QueryMessageByOffsets, UpdateMigrateTaskStatus, CreateMigrateSubTasks, DeletePrivateDomainFromPublic；修改 DescribeInstanceDetail, DescribeInstances, CreateTopic, CreateAllowList, DescribeAllowListDetail, DescribeAllowLists, DescribeConsumedTopics, DescribeGroups",
+  "modules": "service/Kafka",
+  "type": "breaking-change"
+}

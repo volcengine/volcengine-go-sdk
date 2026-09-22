@@ -159,7 +159,7 @@ type DescribeTopicsInput struct {
 
 	ReplicaNumber *int32 `type:"int32" json:",omitempty"`
 
-	TagFilters []*TagFilterForDescribeTopicsInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForDescribeTopicsInput `type:"list"`
 
 	TopicName *string `type:"string" json:",omitempty"`
 }
@@ -242,7 +242,7 @@ type DescribeTopicsOutput struct {
 
 	InstanceId *string `type:"string" json:",omitempty"`
 
-	TopicsInfo []*TopicsInfoForDescribeTopicsOutput `type:"list" json:",omitempty"`
+	TopicsInfo []*TopicsInfoForDescribeTopicsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
@@ -338,7 +338,7 @@ func (s *TagForDescribeTopicsOutput) SetValue(v string) *TagForDescribeTopicsOut
 type TopicsInfoForDescribeTopicsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CleanupPolicy []*string `type:"list" json:",omitempty"`
+	CleanupPolicy []*string `type:"list"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
@@ -352,7 +352,7 @@ type TopicsInfoForDescribeTopicsOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForDescribeTopicsOutput `type:"list" json:",omitempty"`
+	Tags []*TagForDescribeTopicsOutput `type:"list"`
 
 	TopicName *string `type:"string" json:",omitempty"`
 

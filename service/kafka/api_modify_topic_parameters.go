@@ -146,6 +146,8 @@ func (c *KAFKA) ModifyTopicParametersWithContext(ctx volcengine.Context, input *
 type ModifyTopicParametersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	CleanupPolicy []*string `type:"list"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -187,6 +189,12 @@ func (s *ModifyTopicParametersInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetCleanupPolicy sets the CleanupPolicy field's value.
+func (s *ModifyTopicParametersInput) SetCleanupPolicy(v []*string) *ModifyTopicParametersInput {
+	s.CleanupPolicy = v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

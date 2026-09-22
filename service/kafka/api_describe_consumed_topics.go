@@ -188,6 +188,10 @@ type DescribeConsumedTopicsInput struct {
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	SortBy *string `type:"string" json:",omitempty"`
+
+	SortOrder *string `type:"string" json:",omitempty"`
+
 	TopicName *string `type:"string" json:",omitempty"`
 }
 
@@ -247,6 +251,18 @@ func (s *DescribeConsumedTopicsInput) SetPageSize(v int32) *DescribeConsumedTopi
 	return s
 }
 
+// SetSortBy sets the SortBy field's value.
+func (s *DescribeConsumedTopicsInput) SetSortBy(v string) *DescribeConsumedTopicsInput {
+	s.SortBy = &v
+	return s
+}
+
+// SetSortOrder sets the SortOrder field's value.
+func (s *DescribeConsumedTopicsInput) SetSortOrder(v string) *DescribeConsumedTopicsInput {
+	s.SortOrder = &v
+	return s
+}
+
 // SetTopicName sets the TopicName field's value.
 func (s *DescribeConsumedTopicsInput) SetTopicName(v string) *DescribeConsumedTopicsInput {
 	s.TopicName = &v
@@ -260,7 +276,7 @@ type DescribeConsumedTopicsOutput struct {
 
 	Accumulation *int64 `type:"int64" json:",omitempty"`
 
-	ConsumedTopicsInfo []*ConsumedTopicsInfoForDescribeConsumedTopicsOutput `type:"list" json:",omitempty"`
+	ConsumedTopicsInfo []*ConsumedTopicsInfoForDescribeConsumedTopicsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

@@ -146,9 +146,9 @@ func (c *KAFKA) DisassociateAllowListWithContext(ctx volcengine.Context, input *
 type DisassociateAllowListInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list" json:",omitempty"`
+	AllowListIds []*string `type:"list"`
 
-	InstanceIds []*string `type:"list" json:",omitempty"`
+	InstanceIds []*string `type:"list"`
 }
 
 // String returns the string representation

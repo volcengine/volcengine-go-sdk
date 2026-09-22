@@ -155,7 +155,7 @@ type DescribeTopicPartitionsInput struct {
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	PartitionIds []*int32 `type:"list" json:",omitempty"`
+	PartitionIds []*int32 `type:"list"`
 
 	// TopicName is a required field
 	TopicName *string `type:"string" json:",omitempty" required:"true"`
@@ -236,7 +236,7 @@ type DescribeTopicPartitionsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PartitionsInfo []*PartitionsInfoForDescribeTopicPartitionsOutput `type:"list" json:",omitempty"`
+	PartitionsInfo []*PartitionsInfoForDescribeTopicPartitionsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
@@ -268,7 +268,7 @@ type PartitionsInfoForDescribeTopicPartitionsOutput struct {
 
 	EndOffset *int64 `type:"int64" json:",omitempty"`
 
-	InsyncReplicas []*int32 `type:"list" json:",omitempty"`
+	InsyncReplicas []*int32 `type:"list"`
 
 	Leader *int32 `type:"int32" json:",omitempty"`
 
@@ -276,11 +276,11 @@ type PartitionsInfoForDescribeTopicPartitionsOutput struct {
 
 	PartitionId *int32 `type:"int32" json:",omitempty"`
 
-	Replicas []*int32 `type:"list" json:",omitempty"`
+	Replicas []*int32 `type:"list"`
 
 	StartOffset *int64 `type:"int64" json:",omitempty"`
 
-	UnderInsyncReplicas []*int32 `type:"list" json:",omitempty"`
+	UnderInsyncReplicas []*int32 `type:"list"`
 }
 
 // String returns the string representation

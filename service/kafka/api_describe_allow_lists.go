@@ -202,6 +202,8 @@ type DescribeAllowListsInput struct {
 
 	InstanceId *string `type:"string" json:",omitempty"`
 
+	ProjectName *string `type:"string" json:",omitempty"`
+
 	// RegionId is a required field
 	RegionId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -235,6 +237,12 @@ func (s *DescribeAllowListsInput) SetInstanceId(v string) *DescribeAllowListsInp
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeAllowListsInput) SetProjectName(v string) *DescribeAllowListsInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRegionId sets the RegionId field's value.
 func (s *DescribeAllowListsInput) SetRegionId(v string) *DescribeAllowListsInput {
 	s.RegionId = &v
@@ -246,7 +254,7 @@ type DescribeAllowListsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list" json:",omitempty"`
+	AllowLists []*AllowListForDescribeAllowListsOutput `type:"list"`
 }
 
 // String returns the string representation
