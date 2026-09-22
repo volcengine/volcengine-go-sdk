@@ -226,6 +226,8 @@ type CreateDropShippingOrderInput struct {
 
 	BizNo *string `type:"string" json:",omitempty"`
 
+	BizOrderBeginTime *string `type:"string" json:",omitempty"`
+
 	ConfigItems []*ConfigItemForCreateDropShippingOrderInput `type:"list" json:",omitempty"`
 
 	SecurityTel *string `type:"string" json:",omitempty"`
@@ -252,6 +254,12 @@ func (s *CreateDropShippingOrderInput) SetAccountID(v int64) *CreateDropShipping
 // SetBizNo sets the BizNo field's value.
 func (s *CreateDropShippingOrderInput) SetBizNo(v string) *CreateDropShippingOrderInput {
 	s.BizNo = &v
+	return s
+}
+
+// SetBizOrderBeginTime sets the BizOrderBeginTime field's value.
+func (s *CreateDropShippingOrderInput) SetBizOrderBeginTime(v string) *CreateDropShippingOrderInput {
+	s.BizOrderBeginTime = &v
 	return s
 }
 
