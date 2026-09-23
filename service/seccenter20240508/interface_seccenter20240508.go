@@ -1070,6 +1070,14 @@ type SECCENTER20240508API interface {
 	GetClustersPermissionResultWithContext(volcengine.Context, *GetClustersPermissionResultInput, ...request.Option) (*GetClustersPermissionResultOutput, error)
 	GetClustersPermissionResultRequest(*GetClustersPermissionResultInput) (*request.Request, *GetClustersPermissionResultOutput)
 
+	GetCntrQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetCntrQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetCntrQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetCntrQuota(*GetCntrQuotaInput) (*GetCntrQuotaOutput, error)
+	GetCntrQuotaWithContext(volcengine.Context, *GetCntrQuotaInput, ...request.Option) (*GetCntrQuotaOutput, error)
+	GetCntrQuotaRequest(*GetCntrQuotaInput) (*request.Request, *GetCntrQuotaOutput)
+
 	GetCustomWeakPasswordsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetCustomWeakPasswordsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetCustomWeakPasswordsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1725,6 +1733,14 @@ type SECCENTER20240508API interface {
 	GetTenantQuota(*GetTenantQuotaInput) (*GetTenantQuotaOutput, error)
 	GetTenantQuotaWithContext(volcengine.Context, *GetTenantQuotaInput, ...request.Option) (*GetTenantQuotaOutput, error)
 	GetTenantQuotaRequest(*GetTenantQuotaInput) (*request.Request, *GetTenantQuotaOutput)
+
+	GetTenantStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTenantStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTenantStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTenantStatus(*GetTenantStatusInput) (*GetTenantStatusOutput, error)
+	GetTenantStatusWithContext(volcengine.Context, *GetTenantStatusInput, ...request.Option) (*GetTenantStatusOutput, error)
+	GetTenantStatusRequest(*GetTenantStatusInput) (*request.Request, *GetTenantStatusOutput)
 
 	GetUserBatchScanStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetUserBatchScanStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -2413,6 +2429,14 @@ type SECCENTER20240508API interface {
 	ListMLPAssetTasks(*ListMLPAssetTasksInput) (*ListMLPAssetTasksOutput, error)
 	ListMLPAssetTasksWithContext(volcengine.Context, *ListMLPAssetTasksInput, ...request.Option) (*ListMLPAssetTasksOutput, error)
 	ListMLPAssetTasksRequest(*ListMLPAssetTasksInput) (*request.Request, *ListMLPAssetTasksOutput)
+
+	ListManagedAccountsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListManagedAccountsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListManagedAccountsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListManagedAccounts(*ListManagedAccountsInput) (*ListManagedAccountsOutput, error)
+	ListManagedAccountsWithContext(volcengine.Context, *ListManagedAccountsInput, ...request.Option) (*ListManagedAccountsOutput, error)
+	ListManagedAccountsRequest(*ListManagedAccountsInput) (*request.Request, *ListManagedAccountsOutput)
 
 	ListMlpAlarmTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListMlpAlarmTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
