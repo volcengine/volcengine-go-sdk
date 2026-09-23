@@ -526,6 +526,14 @@ type WAFAPI interface {
 	ListVulnerabilityRuleWithContext(volcengine.Context, *ListVulnerabilityRuleInput, ...request.Option) (*ListVulnerabilityRuleOutput, error)
 	ListVulnerabilityRuleRequest(*ListVulnerabilityRuleInput) (*request.Request, *ListVulnerabilityRuleOutput)
 
+	ListWafInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListWafInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListWafInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListWafInstances(*ListWafInstancesInput) (*ListWafInstancesOutput, error)
+	ListWafInstancesWithContext(volcengine.Context, *ListWafInstancesInput, ...request.Option) (*ListWafInstancesOutput, error)
+	ListWafInstancesRequest(*ListWafInstancesInput) (*request.Request, *ListWafInstancesOutput)
+
 	ListWafServiceCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListWafServiceCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListWafServiceCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
