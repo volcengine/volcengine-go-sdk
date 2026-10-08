@@ -143,6 +143,36 @@ func (c *VEFAAS) DescribeSandboxWithContext(ctx volcengine.Context, input *Descr
 	return out, req.Send()
 }
 
+type AuthForDescribeSandboxOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+
+	RoleTrn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AuthForDescribeSandboxOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AuthForDescribeSandboxOutput) GoString() string {
+	return s.String()
+}
+
+// SetMode sets the Mode field's value.
+func (s *AuthForDescribeSandboxOutput) SetMode(v string) *AuthForDescribeSandboxOutput {
+	s.Mode = &v
+	return s
+}
+
+// SetRoleTrn sets the RoleTrn field's value.
+func (s *AuthForDescribeSandboxOutput) SetRoleTrn(v string) *AuthForDescribeSandboxOutput {
+	s.RoleTrn = &v
+	return s
+}
+
 type AutoPauseConfigForDescribeSandboxOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -384,7 +414,7 @@ type DescribeSandboxOutput struct {
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 
-	Envs []*EnvForDescribeSandboxOutput `type:"list" json:",omitempty"`
+	Envs []*EnvForDescribeSandboxOutput `type:"list"`
 
 	ErrorCode *string `type:"string" json:",omitempty"`
 
@@ -410,7 +440,7 @@ type DescribeSandboxOutput struct {
 
 	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
-	MetadataList []*MetadataListForDescribeSandboxOutput `type:"list" json:",omitempty"`
+	MetadataList []*MetadataListForDescribeSandboxOutput `type:"list"`
 
 	PausedAt *string `type:"string" json:",omitempty"`
 
@@ -420,13 +450,13 @@ type DescribeSandboxOutput struct {
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
-	RoleChainTrn []*string `type:"list" json:",omitempty"`
+	RoleChainTrn []*string `type:"list"`
 
 	RoleTrn *string `type:"string" json:",omitempty"`
 
 	SessionId *string `type:"string" json:",omitempty"`
 
-	Sidecars []*SidecarForDescribeSandboxOutput `type:"list" json:",omitempty"`
+	Sidecars []*SidecarForDescribeSandboxOutput `type:"list"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -816,7 +846,9 @@ func (s *ImageInfoForDescribeSandboxOutput) SetSourceImageUrl(v string) *ImageIn
 type InstanceEfsMountConfigForDescribeSandboxOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForDescribeSandboxOutput `type:"list" json:",omitempty"`
+	Auth *AuthForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+
+	MountPoints []*MountPointForDescribeSandboxOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -827,6 +859,12 @@ func (s InstanceEfsMountConfigForDescribeSandboxOutput) String() string {
 // GoString returns the string representation
 func (s InstanceEfsMountConfigForDescribeSandboxOutput) GoString() string {
 	return s.String()
+}
+
+// SetAuth sets the Auth field's value.
+func (s *InstanceEfsMountConfigForDescribeSandboxOutput) SetAuth(v *AuthForDescribeSandboxOutput) *InstanceEfsMountConfigForDescribeSandboxOutput {
+	s.Auth = v
+	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.
@@ -840,7 +878,7 @@ type InstanceNasMountConfigForDescribeSandboxOutput struct {
 
 	Enable *bool `type:"boolean" json:",omitempty"`
 
-	NasMountPoints []*NasMountPointForDescribeSandboxOutput `type:"list" json:",omitempty"`
+	NasMountPoints []*NasMountPointForDescribeSandboxOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -876,7 +914,7 @@ type InstanceTosMountConfigForDescribeSandboxOutput struct {
 
 	Mode *string `type:"string" json:",omitempty"`
 
-	TosMountPoints []*TosMountPointForDescribeSandboxOutput `type:"list" json:",omitempty"`
+	TosMountPoints []*TosMountPointForDescribeSandboxOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -1048,13 +1086,13 @@ func (s *NasMountPointForDescribeSandboxOutput) SetRemotePath(v string) *NasMoun
 type SidecarForDescribeSandboxOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Args []*string `type:"list" json:",omitempty"`
+	Args []*string `type:"list"`
 
-	Command []*string `type:"list" json:",omitempty"`
+	Command []*string `type:"list"`
 
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
-	EmptyDirVolume []*EmptyDirVolumeForDescribeSandboxOutput `type:"list" json:",omitempty"`
+	EmptyDirVolume []*EmptyDirVolumeForDescribeSandboxOutput `type:"list"`
 
 	Envs *EnvsForDescribeSandboxOutput `type:"structure" json:",omitempty"`
 

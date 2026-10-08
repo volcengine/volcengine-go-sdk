@@ -184,7 +184,7 @@ type ListFunctionElasticScaleStrategyOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ScaleStrategies []*ScaleStrategyForListFunctionElasticScaleStrategyOutput `type:"list" json:",omitempty"`
+	ScaleStrategies []*ScaleStrategyForListFunctionElasticScaleStrategyOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -270,7 +270,7 @@ type ScaleStrategyForListFunctionElasticScaleStrategyOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	Rules []*RuleForListFunctionElasticScaleStrategyOutput `type:"list" json:",omitempty"`
+	Rules []*RuleForListFunctionElasticScaleStrategyOutput `type:"list"`
 
 	Type *string `type:"string" json:",omitempty"`
 

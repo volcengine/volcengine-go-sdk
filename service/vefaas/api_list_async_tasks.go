@@ -218,7 +218,7 @@ type FilterForListAsyncTasksInput struct {
 
 	RequestId *string `type:"string" json:",omitempty"`
 
-	Statuses []*string `type:"list" json:",omitempty"`
+	Statuses []*string `type:"list"`
 
 	SubmitTimeBegin *int64 `type:"int64" json:",omitempty"`
 
@@ -264,7 +264,7 @@ type ItemForListAsyncTasksOutput struct {
 
 	EndTime *string `type:"string" json:",omitempty"`
 
-	ExecutionRecords []*ExecutionRecordForListAsyncTasksOutput `type:"list" json:",omitempty"`
+	ExecutionRecords []*ExecutionRecordForListAsyncTasksOutput `type:"list"`
 
 	RequestId *string `type:"string" json:",omitempty"`
 
@@ -386,7 +386,7 @@ type ListAsyncTasksOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListAsyncTasksOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListAsyncTasksOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
