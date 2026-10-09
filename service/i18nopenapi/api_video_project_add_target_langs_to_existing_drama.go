@@ -925,10 +925,6 @@ type VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput struct {
 	EpisodeNum *int32 `type:"int32" json:"episodeNum,omitempty"`
 
 	TargetLang2Subtitle []*TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput `type:"list" json:"targetLang2Subtitle,omitempty"`
-
-	VideoId *string `type:"string" json:"videoId,omitempty"`
-
-	VideoName *string `type:"string" json:"videoName,omitempty"`
 }
 
 // String returns the string representation
@@ -950,18 +946,6 @@ func (s *VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput) SetEp
 // SetTargetLang2Subtitle sets the TargetLang2Subtitle field's value.
 func (s *VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput) SetTargetLang2Subtitle(v []*TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput) *VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
 	s.TargetLang2Subtitle = v
-	return s
-}
-
-// SetVideoId sets the VideoId field's value.
-func (s *VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput) SetVideoId(v string) *VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
-	s.VideoId = &v
-	return s
-}
-
-// SetVideoName sets the VideoName field's value.
-func (s *VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput) SetVideoName(v string) *VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
-	s.VideoName = &v
 	return s
 }
 

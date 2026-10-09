@@ -1,0 +1,12 @@
+{
+  "actions": [
+    "VideoEditorSaveSubtitle",
+    "VideoProjectSerialDubTaskCreateFromTranslation",
+    "VideoProjectAddTargetLangsToExistingDrama",
+    "VideoEditorAddSubtitle",
+    "VideoEditorListSubtitles"
+  ],
+  "description": "I18N_OPENAPI: 新增 VideoProjectSerialDubTaskCreateFromTranslation；修改 VideoProjectAddTargetLangsToExistingDrama, VideoEditorAddSubtitle, VideoEditorListSubtitles, VideoEditorSaveSubtitle",
+  "modules": "service/i18n_openapi",
+  "type": "breaking-change"
+}
