@@ -178,7 +178,7 @@ type GetAvailabilityZonesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AvailabilityZones []*string `type:"list" json:",omitempty"`
+	AvailabilityZones []*string `type:"list"`
 }
 
 // String returns the string representation

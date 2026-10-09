@@ -286,7 +286,7 @@ type ListTriggersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListTriggersOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListTriggersOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

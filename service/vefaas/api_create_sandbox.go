@@ -143,6 +143,96 @@ func (c *VEFAAS) CreateSandboxWithContext(ctx volcengine.Context, input *CreateS
 	return out, req.Send()
 }
 
+type AllowEgressForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DomainRule *DomainRuleForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	IpRule *IpRuleForCreateSandboxInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AllowEgressForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AllowEgressForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetDomainRule sets the DomainRule field's value.
+func (s *AllowEgressForCreateSandboxInput) SetDomainRule(v *DomainRuleForCreateSandboxInput) *AllowEgressForCreateSandboxInput {
+	s.DomainRule = v
+	return s
+}
+
+// SetIpRule sets the IpRule field's value.
+func (s *AllowEgressForCreateSandboxInput) SetIpRule(v *IpRuleForCreateSandboxInput) *AllowEgressForCreateSandboxInput {
+	s.IpRule = v
+	return s
+}
+
+type AllowForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Cidrs []*string `type:"list"`
+
+	Ports []*PortForCreateSandboxInput `type:"list"`
+}
+
+// String returns the string representation
+func (s AllowForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AllowForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetCidrs sets the Cidrs field's value.
+func (s *AllowForCreateSandboxInput) SetCidrs(v []*string) *AllowForCreateSandboxInput {
+	s.Cidrs = v
+	return s
+}
+
+// SetPorts sets the Ports field's value.
+func (s *AllowForCreateSandboxInput) SetPorts(v []*PortForCreateSandboxInput) *AllowForCreateSandboxInput {
+	s.Ports = v
+	return s
+}
+
+type AuthForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+
+	RoleTrn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AuthForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AuthForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetMode sets the Mode field's value.
+func (s *AuthForCreateSandboxInput) SetMode(v string) *AuthForCreateSandboxInput {
+	s.Mode = &v
+	return s
+}
+
+// SetRoleTrn sets the RoleTrn field's value.
+func (s *AuthForCreateSandboxInput) SetRoleTrn(v string) *AuthForCreateSandboxInput {
+	s.RoleTrn = &v
+	return s
+}
+
 type AutoPauseConfigForCreateSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -284,11 +374,11 @@ type CreateSandboxInput struct {
 
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
-	EBSVolumes []*EBSVolumeForCreateSandboxInput `type:"list" json:",omitempty"`
+	EBSVolumes []*EBSVolumeForCreateSandboxInput `type:"list"`
 
-	EmptyDirVolume []*EmptyDirVolumeForCreateSandboxInput `type:"list" json:",omitempty"`
+	EmptyDirVolume []*EmptyDirVolumeForCreateSandboxInput `type:"list"`
 
-	Envs []*EnvForCreateSandboxInput `type:"list" json:",omitempty"`
+	Envs []*EnvForCreateSandboxInput `type:"list"`
 
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
@@ -307,15 +397,17 @@ type CreateSandboxInput struct {
 
 	Metadata map[string]*string `type:"map" json:",omitempty"`
 
+	NetworkRules *NetworkRulesForCreateSandboxInput `type:"structure" json:",omitempty"`
+
 	RequestTimeout *int32 `type:"int32" json:",omitempty"`
 
-	RoleChainTrn []*string `type:"list" json:",omitempty"`
+	RoleChainTrn []*string `type:"list"`
 
 	RoleTrn *string `type:"string" json:",omitempty"`
 
 	SessionId *string `type:"string" json:",omitempty"`
 
-	Sidecars []*SidecarForCreateSandboxInput `type:"list" json:",omitempty"`
+	Sidecars []*SidecarForCreateSandboxInput `type:"list"`
 
 	SnapshotId *string `type:"string" json:",omitempty"`
 
@@ -437,6 +529,12 @@ func (s *CreateSandboxInput) SetMetadata(v map[string]*string) *CreateSandboxInp
 	return s
 }
 
+// SetNetworkRules sets the NetworkRules field's value.
+func (s *CreateSandboxInput) SetNetworkRules(v *NetworkRulesForCreateSandboxInput) *CreateSandboxInput {
+	s.NetworkRules = v
+	return s
+}
+
 // SetRequestTimeout sets the RequestTimeout field's value.
 func (s *CreateSandboxInput) SetRequestTimeout(v int32) *CreateSandboxInput {
 	s.RequestTimeout = &v
@@ -494,6 +592,8 @@ type CreateSandboxOutput struct {
 
 	AssignStatus *string `type:"string" json:",omitempty"`
 
+	LatencyMs *int64 `type:"int64" json:",omitempty"`
+
 	SandboxId *string `type:"string" json:",omitempty"`
 }
 
@@ -516,6 +616,12 @@ func (s *CreateSandboxOutput) SetAssignMissedReason(v string) *CreateSandboxOutp
 // SetAssignStatus sets the AssignStatus field's value.
 func (s *CreateSandboxOutput) SetAssignStatus(v string) *CreateSandboxOutput {
 	s.AssignStatus = &v
+	return s
+}
+
+// SetLatencyMs sets the LatencyMs field's value.
+func (s *CreateSandboxOutput) SetLatencyMs(v int64) *CreateSandboxOutput {
+	s.LatencyMs = &v
 	return s
 }
 
@@ -563,6 +669,88 @@ func (s *CredentialsForCreateSandboxInput) SetSessionToken(v string) *Credential
 	return s
 }
 
+type DenyEgressForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DomainRule *DomainRuleForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	IpRule *IpRuleForCreateSandboxInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DenyEgressForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DenyEgressForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetDomainRule sets the DomainRule field's value.
+func (s *DenyEgressForCreateSandboxInput) SetDomainRule(v *DomainRuleForCreateSandboxInput) *DenyEgressForCreateSandboxInput {
+	s.DomainRule = v
+	return s
+}
+
+// SetIpRule sets the IpRule field's value.
+func (s *DenyEgressForCreateSandboxInput) SetIpRule(v *IpRuleForCreateSandboxInput) *DenyEgressForCreateSandboxInput {
+	s.IpRule = v
+	return s
+}
+
+type DenyForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Cidrs []*string `type:"list"`
+
+	Ports []*PortForCreateSandboxInput `type:"list"`
+}
+
+// String returns the string representation
+func (s DenyForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DenyForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetCidrs sets the Cidrs field's value.
+func (s *DenyForCreateSandboxInput) SetCidrs(v []*string) *DenyForCreateSandboxInput {
+	s.Cidrs = v
+	return s
+}
+
+// SetPorts sets the Ports field's value.
+func (s *DenyForCreateSandboxInput) SetPorts(v []*PortForCreateSandboxInput) *DenyForCreateSandboxInput {
+	s.Ports = v
+	return s
+}
+
+type DomainRuleForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Domains []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s DomainRuleForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DomainRuleForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetDomains sets the Domains field's value.
+func (s *DomainRuleForCreateSandboxInput) SetDomains(v []*string) *DomainRuleForCreateSandboxInput {
+	s.Domains = v
+	return s
+}
+
 type EBSVolumeForCreateSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -598,6 +786,82 @@ func (s *EBSVolumeForCreateSandboxInput) SetReadOnly(v bool) *EBSVolumeForCreate
 // SetVolumeID sets the VolumeID field's value.
 func (s *EBSVolumeForCreateSandboxInput) SetVolumeID(v string) *EBSVolumeForCreateSandboxInput {
 	s.VolumeID = &v
+	return s
+}
+
+type EgressDomainRulesForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Allow []*string `type:"list"`
+
+	Deny []*string `type:"list"`
+
+	Policy *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EgressDomainRulesForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EgressDomainRulesForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetAllow sets the Allow field's value.
+func (s *EgressDomainRulesForCreateSandboxInput) SetAllow(v []*string) *EgressDomainRulesForCreateSandboxInput {
+	s.Allow = v
+	return s
+}
+
+// SetDeny sets the Deny field's value.
+func (s *EgressDomainRulesForCreateSandboxInput) SetDeny(v []*string) *EgressDomainRulesForCreateSandboxInput {
+	s.Deny = v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *EgressDomainRulesForCreateSandboxInput) SetPolicy(v string) *EgressDomainRulesForCreateSandboxInput {
+	s.Policy = &v
+	return s
+}
+
+type EgressIPRulesForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Allow []*AllowForCreateSandboxInput `type:"list"`
+
+	Deny []*DenyForCreateSandboxInput `type:"list"`
+
+	Policy *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s EgressIPRulesForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EgressIPRulesForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetAllow sets the Allow field's value.
+func (s *EgressIPRulesForCreateSandboxInput) SetAllow(v []*AllowForCreateSandboxInput) *EgressIPRulesForCreateSandboxInput {
+	s.Allow = v
+	return s
+}
+
+// SetDeny sets the Deny field's value.
+func (s *EgressIPRulesForCreateSandboxInput) SetDeny(v []*DenyForCreateSandboxInput) *EgressIPRulesForCreateSandboxInput {
+	s.Deny = v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *EgressIPRulesForCreateSandboxInput) SetPolicy(v string) *EgressIPRulesForCreateSandboxInput {
+	s.Policy = &v
 	return s
 }
 
@@ -745,10 +1009,64 @@ func (s EnvsForCreateSandboxInput) GoString() string {
 	return s.String()
 }
 
+type HeadersForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HeadersForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HeadersForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+type HttpProxyForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Address *string `type:"string" json:",omitempty"`
+
+	Headers *HeadersForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HttpProxyForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HttpProxyForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *HttpProxyForCreateSandboxInput) SetAddress(v string) *HttpProxyForCreateSandboxInput {
+	s.Address = &v
+	return s
+}
+
+// SetHeaders sets the Headers field's value.
+func (s *HttpProxyForCreateSandboxInput) SetHeaders(v *HeadersForCreateSandboxInput) *HttpProxyForCreateSandboxInput {
+	s.Headers = v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *HttpProxyForCreateSandboxInput) SetMode(v string) *HttpProxyForCreateSandboxInput {
+	s.Mode = &v
+	return s
+}
+
 type InstanceEfsMountConfigForCreateSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForCreateSandboxInput `type:"list" json:",omitempty"`
+	Auth *AuthForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	MountPoints []*MountPointForCreateSandboxInput `type:"list"`
 }
 
 // String returns the string representation
@@ -759,6 +1077,12 @@ func (s InstanceEfsMountConfigForCreateSandboxInput) String() string {
 // GoString returns the string representation
 func (s InstanceEfsMountConfigForCreateSandboxInput) GoString() string {
 	return s.String()
+}
+
+// SetAuth sets the Auth field's value.
+func (s *InstanceEfsMountConfigForCreateSandboxInput) SetAuth(v *AuthForCreateSandboxInput) *InstanceEfsMountConfigForCreateSandboxInput {
+	s.Auth = v
+	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.
@@ -826,7 +1150,7 @@ type InstanceNasMountConfigForCreateSandboxInput struct {
 
 	Enable *bool `type:"boolean" json:",omitempty"`
 
-	NasMountPoints []*NasMountPointForCreateSandboxInput `type:"list" json:",omitempty"`
+	NasMountPoints []*NasMountPointForCreateSandboxInput `type:"list"`
 }
 
 // String returns the string representation
@@ -862,7 +1186,7 @@ type InstanceTosMountConfigForCreateSandboxInput struct {
 
 	Mode *string `type:"string" json:",omitempty"`
 
-	TosMountPoints []*TosMountPointForCreateSandboxInput `type:"list" json:",omitempty"`
+	TosMountPoints []*TosMountPointForCreateSandboxInput `type:"list"`
 }
 
 // String returns the string representation
@@ -902,6 +1226,36 @@ func (s *InstanceTosMountConfigForCreateSandboxInput) SetMode(v string) *Instanc
 // SetTosMountPoints sets the TosMountPoints field's value.
 func (s *InstanceTosMountConfigForCreateSandboxInput) SetTosMountPoints(v []*TosMountPointForCreateSandboxInput) *InstanceTosMountConfigForCreateSandboxInput {
 	s.TosMountPoints = v
+	return s
+}
+
+type IpRuleForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Cidrs []*string `type:"list"`
+
+	Ports []*PortForCreateSandboxInput `type:"list"`
+}
+
+// String returns the string representation
+func (s IpRuleForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IpRuleForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetCidrs sets the Cidrs field's value.
+func (s *IpRuleForCreateSandboxInput) SetCidrs(v []*string) *IpRuleForCreateSandboxInput {
+	s.Cidrs = v
+	return s
+}
+
+// SetPorts sets the Ports field's value.
+func (s *IpRuleForCreateSandboxInput) SetPorts(v []*PortForCreateSandboxInput) *IpRuleForCreateSandboxInput {
+	s.Ports = v
 	return s
 }
 
@@ -987,16 +1341,124 @@ func (s *NasMountPointForCreateSandboxInput) SetRemotePath(v string) *NasMountPo
 	return s
 }
 
+type NetworkRulesForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AllowEgress []*AllowEgressForCreateSandboxInput `type:"list"`
+
+	AllowEgressAccess *bool `type:"boolean" json:",omitempty"`
+
+	DenyEgress []*DenyEgressForCreateSandboxInput `type:"list"`
+
+	EgressDomainRules *EgressDomainRulesForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	EgressIPRules *EgressIPRulesForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	HttpProxy *HttpProxyForCreateSandboxInput `type:"structure" json:",omitempty"`
+
+	MaxEgressCps *int64 `type:"int64" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NetworkRulesForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkRulesForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetAllowEgress sets the AllowEgress field's value.
+func (s *NetworkRulesForCreateSandboxInput) SetAllowEgress(v []*AllowEgressForCreateSandboxInput) *NetworkRulesForCreateSandboxInput {
+	s.AllowEgress = v
+	return s
+}
+
+// SetAllowEgressAccess sets the AllowEgressAccess field's value.
+func (s *NetworkRulesForCreateSandboxInput) SetAllowEgressAccess(v bool) *NetworkRulesForCreateSandboxInput {
+	s.AllowEgressAccess = &v
+	return s
+}
+
+// SetDenyEgress sets the DenyEgress field's value.
+func (s *NetworkRulesForCreateSandboxInput) SetDenyEgress(v []*DenyEgressForCreateSandboxInput) *NetworkRulesForCreateSandboxInput {
+	s.DenyEgress = v
+	return s
+}
+
+// SetEgressDomainRules sets the EgressDomainRules field's value.
+func (s *NetworkRulesForCreateSandboxInput) SetEgressDomainRules(v *EgressDomainRulesForCreateSandboxInput) *NetworkRulesForCreateSandboxInput {
+	s.EgressDomainRules = v
+	return s
+}
+
+// SetEgressIPRules sets the EgressIPRules field's value.
+func (s *NetworkRulesForCreateSandboxInput) SetEgressIPRules(v *EgressIPRulesForCreateSandboxInput) *NetworkRulesForCreateSandboxInput {
+	s.EgressIPRules = v
+	return s
+}
+
+// SetHttpProxy sets the HttpProxy field's value.
+func (s *NetworkRulesForCreateSandboxInput) SetHttpProxy(v *HttpProxyForCreateSandboxInput) *NetworkRulesForCreateSandboxInput {
+	s.HttpProxy = v
+	return s
+}
+
+// SetMaxEgressCps sets the MaxEgressCps field's value.
+func (s *NetworkRulesForCreateSandboxInput) SetMaxEgressCps(v int64) *NetworkRulesForCreateSandboxInput {
+	s.MaxEgressCps = &v
+	return s
+}
+
+type PortForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EndPort *int32 `type:"int32" json:",omitempty"`
+
+	Port *int32 `type:"int32" json:",omitempty"`
+
+	Protocol *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PortForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PortForCreateSandboxInput) GoString() string {
+	return s.String()
+}
+
+// SetEndPort sets the EndPort field's value.
+func (s *PortForCreateSandboxInput) SetEndPort(v int32) *PortForCreateSandboxInput {
+	s.EndPort = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *PortForCreateSandboxInput) SetPort(v int32) *PortForCreateSandboxInput {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *PortForCreateSandboxInput) SetProtocol(v string) *PortForCreateSandboxInput {
+	s.Protocol = &v
+	return s
+}
+
 type SidecarForCreateSandboxInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Args []*string `type:"list" json:",omitempty"`
+	Args []*string `type:"list"`
 
-	Command []*string `type:"list" json:",omitempty"`
+	Command []*string `type:"list"`
 
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
-	EmptyDirVolume []*EmptyDirVolumeForCreateSandboxInput `type:"list" json:",omitempty"`
+	EmptyDirVolume []*EmptyDirVolumeForCreateSandboxInput `type:"list"`
 
 	Envs *EnvsForCreateSandboxInput `type:"structure" json:",omitempty"`
 

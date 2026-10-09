@@ -502,6 +502,14 @@ type VEFAASAPI interface {
 	UpdateKafkaTriggerWithContext(volcengine.Context, *UpdateKafkaTriggerInput, ...request.Option) (*UpdateKafkaTriggerOutput, error)
 	UpdateKafkaTriggerRequest(*UpdateKafkaTriggerInput) (*request.Request, *UpdateKafkaTriggerOutput)
 
+	UpdateNetworkRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateNetworkRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateNetworkRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateNetworkRules(*UpdateNetworkRulesInput) (*UpdateNetworkRulesOutput, error)
+	UpdateNetworkRulesWithContext(volcengine.Context, *UpdateNetworkRulesInput, ...request.Option) (*UpdateNetworkRulesOutput, error)
+	UpdateNetworkRulesRequest(*UpdateNetworkRulesInput) (*request.Request, *UpdateNetworkRulesOutput)
+
 	UpdateReleaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateReleaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateReleaseCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
