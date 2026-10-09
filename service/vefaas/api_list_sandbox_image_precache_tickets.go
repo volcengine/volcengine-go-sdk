@@ -148,7 +148,7 @@ type FilterForListSandboxImagePrecacheTicketsInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -176,7 +176,7 @@ func (s *FilterForListSandboxImagePrecacheTicketsInput) SetValues(v []*string) *
 type ListSandboxImagePrecacheTicketsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filters []*FilterForListSandboxImagePrecacheTicketsInput `type:"list" json:",omitempty"`
+	Filters []*FilterForListSandboxImagePrecacheTicketsInput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -216,7 +216,7 @@ type ListSandboxImagePrecacheTicketsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Tickets []*TicketForListSandboxImagePrecacheTicketsOutput `type:"list" json:",omitempty"`
+	Tickets []*TicketForListSandboxImagePrecacheTicketsOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }

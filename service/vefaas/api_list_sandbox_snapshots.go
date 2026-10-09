@@ -238,7 +238,7 @@ type FilterForListSandboxSnapshotsInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -266,7 +266,7 @@ func (s *FilterForListSandboxSnapshotsInput) SetValues(v []*string) *FilterForLi
 type ListSandboxSnapshotsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filters []*FilterForListSandboxSnapshotsInput `type:"list" json:",omitempty"`
+	Filters []*FilterForListSandboxSnapshotsInput `type:"list"`
 
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
@@ -336,7 +336,7 @@ type ListSandboxSnapshotsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Snapshots []*SnapshotForListSandboxSnapshotsOutput `type:"list" json:",omitempty"`
+	Snapshots []*SnapshotForListSandboxSnapshotsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
@@ -388,7 +388,7 @@ type SandboxInfoForListSandboxSnapshotsOutput struct {
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 
-	EBSVolumes []*EBSVolumeForListSandboxSnapshotsOutput `type:"list" json:",omitempty"`
+	EBSVolumes []*EBSVolumeForListSandboxSnapshotsOutput `type:"list"`
 
 	ErrorCode *string `type:"string" json:",omitempty"`
 
@@ -414,13 +414,13 @@ type SandboxInfoForListSandboxSnapshotsOutput struct {
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
-	RoleChainTrn []*string `type:"list" json:",omitempty"`
+	RoleChainTrn []*string `type:"list"`
 
 	RoleTrn *string `type:"string" json:",omitempty"`
 
 	SessionId *string `type:"string" json:",omitempty"`
 
-	Sidecars []*SidecarForListSandboxSnapshotsOutput `type:"list" json:",omitempty"`
+	Sidecars []*SidecarForListSandboxSnapshotsOutput `type:"list"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -570,13 +570,13 @@ func (s *SandboxInfoForListSandboxSnapshotsOutput) SetStatus(v string) *SandboxI
 type SidecarForListSandboxSnapshotsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Args []*string `type:"list" json:",omitempty"`
+	Args []*string `type:"list"`
 
-	Command []*string `type:"list" json:",omitempty"`
+	Command []*string `type:"list"`
 
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
-	EmptyDirVolume []*EmptyDirVolumeForListSandboxSnapshotsOutput `type:"list" json:",omitempty"`
+	EmptyDirVolume []*EmptyDirVolumeForListSandboxSnapshotsOutput `type:"list"`
 
 	Envs *EnvsForListSandboxSnapshotsOutput `type:"structure" json:",omitempty"`
 

@@ -216,7 +216,7 @@ type ListE2BAPIKeysOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListE2BAPIKeysOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListE2BAPIKeysOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

@@ -219,6 +219,66 @@ func (s *AsyncTaskConfigForCreateFunctionOutput) SetMaxRetry(v int32) *AsyncTask
 	return s
 }
 
+type AuthForCreateFunctionInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+
+	RoleTrn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AuthForCreateFunctionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AuthForCreateFunctionInput) GoString() string {
+	return s.String()
+}
+
+// SetMode sets the Mode field's value.
+func (s *AuthForCreateFunctionInput) SetMode(v string) *AuthForCreateFunctionInput {
+	s.Mode = &v
+	return s
+}
+
+// SetRoleTrn sets the RoleTrn field's value.
+func (s *AuthForCreateFunctionInput) SetRoleTrn(v string) *AuthForCreateFunctionInput {
+	s.RoleTrn = &v
+	return s
+}
+
+type AuthForCreateFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+
+	RoleTrn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AuthForCreateFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AuthForCreateFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetMode sets the Mode field's value.
+func (s *AuthForCreateFunctionOutput) SetMode(v string) *AuthForCreateFunctionOutput {
+	s.Mode = &v
+	return s
+}
+
+// SetRoleTrn sets the RoleTrn field's value.
+func (s *AuthForCreateFunctionOutput) SetRoleTrn(v string) *AuthForCreateFunctionOutput {
+	s.RoleTrn = &v
+	return s
+}
+
 type BackendForCreateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -424,7 +484,7 @@ type CreateFunctionInput struct {
 
 	EnableZTIToken *string `type:"string" json:",omitempty"`
 
-	Envs []*EnvForCreateFunctionInput `type:"list" json:",omitempty"`
+	Envs []*EnvForCreateFunctionInput `type:"list"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
@@ -458,7 +518,7 @@ type CreateFunctionInput struct {
 
 	SourceType *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateFunctionInput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateFunctionInput `type:"list"`
 
 	TlsConfig *TlsConfigForCreateFunctionInput `type:"structure" json:",omitempty"`
 
@@ -694,7 +754,7 @@ type CreateFunctionOutput struct {
 
 	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
-	Envs []*EnvForCreateFunctionOutput `type:"list" json:",omitempty"`
+	Envs []*EnvForCreateFunctionOutput `type:"list"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
@@ -734,7 +794,7 @@ type CreateFunctionOutput struct {
 
 	SourceType *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForCreateFunctionOutput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateFunctionOutput `type:"list"`
 
 	TlsConfig *TlsConfigForCreateFunctionOutput `type:"structure" json:",omitempty"`
 
@@ -1094,7 +1154,9 @@ func (s *DestinationConfigForCreateFunctionOutput) SetOnSuccess(v *OnSuccessForC
 type EfsMountConfigForCreateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForCreateFunctionInput `type:"list" json:",omitempty"`
+	Auth *AuthForCreateFunctionInput `type:"structure" json:",omitempty"`
+
+	MountPoints []*MountPointForCreateFunctionInput `type:"list"`
 }
 
 // String returns the string representation
@@ -1107,6 +1169,12 @@ func (s EfsMountConfigForCreateFunctionInput) GoString() string {
 	return s.String()
 }
 
+// SetAuth sets the Auth field's value.
+func (s *EfsMountConfigForCreateFunctionInput) SetAuth(v *AuthForCreateFunctionInput) *EfsMountConfigForCreateFunctionInput {
+	s.Auth = v
+	return s
+}
+
 // SetMountPoints sets the MountPoints field's value.
 func (s *EfsMountConfigForCreateFunctionInput) SetMountPoints(v []*MountPointForCreateFunctionInput) *EfsMountConfigForCreateFunctionInput {
 	s.MountPoints = v
@@ -1116,7 +1184,9 @@ func (s *EfsMountConfigForCreateFunctionInput) SetMountPoints(v []*MountPointFor
 type EfsMountConfigForCreateFunctionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForCreateFunctionOutput `type:"list" json:",omitempty"`
+	Auth *AuthForCreateFunctionOutput `type:"structure" json:",omitempty"`
+
+	MountPoints []*MountPointForCreateFunctionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -1127,6 +1197,12 @@ func (s EfsMountConfigForCreateFunctionOutput) String() string {
 // GoString returns the string representation
 func (s EfsMountConfigForCreateFunctionOutput) GoString() string {
 	return s.String()
+}
+
+// SetAuth sets the Auth field's value.
+func (s *EfsMountConfigForCreateFunctionOutput) SetAuth(v *AuthForCreateFunctionOutput) *EfsMountConfigForCreateFunctionOutput {
+	s.Auth = v
+	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.
@@ -1492,7 +1568,7 @@ type NasStorageForCreateFunctionInput struct {
 
 	EnableNas *bool `type:"boolean" json:",omitempty"`
 
-	NasConfigs []*NasConfigForCreateFunctionInput `type:"list" json:",omitempty"`
+	NasConfigs []*NasConfigForCreateFunctionInput `type:"list"`
 }
 
 // String returns the string representation
@@ -1522,7 +1598,7 @@ type NasStorageForCreateFunctionOutput struct {
 
 	EnableNas *bool `type:"boolean" json:",omitempty"`
 
-	NasConfigs []*NasConfigForCreateFunctionOutput `type:"list" json:",omitempty"`
+	NasConfigs []*NasConfigForCreateFunctionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -1810,7 +1886,7 @@ type TosMountConfigForCreateFunctionInput struct {
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*ConvertMountPointForCreateFunctionInput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForCreateFunctionInput `type:"list"`
 }
 
 // String returns the string representation
@@ -1856,7 +1932,7 @@ type TosMountConfigForCreateFunctionOutput struct {
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*ConvertMountPointForCreateFunctionOutput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForCreateFunctionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -1900,9 +1976,9 @@ type VpcConfigForCreateFunctionInput struct {
 
 	EnableVpc *bool `type:"boolean" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list" json:",omitempty"`
+	SecurityGroupIds []*string `type:"list"`
 
-	SubnetIds []*string `type:"list" json:",omitempty"`
+	SubnetIds []*string `type:"list"`
 
 	VpcId *string `type:"string" json:",omitempty"`
 }
@@ -1954,9 +2030,9 @@ type VpcConfigForCreateFunctionOutput struct {
 
 	EnableVpc *bool `type:"boolean" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list" json:",omitempty"`
+	SecurityGroupIds []*string `type:"list"`
 
-	SubnetIds []*string `type:"list" json:",omitempty"`
+	SubnetIds []*string `type:"list"`
 
 	VpcId *string `type:"string" json:",omitempty"`
 }

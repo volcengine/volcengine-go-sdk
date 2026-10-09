@@ -162,7 +162,7 @@ type GetPublicSandboxImageGroupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ImageGroups []*string `type:"list" json:",omitempty"`
+	ImageGroups []*string `type:"list"`
 }
 
 // String returns the string representation

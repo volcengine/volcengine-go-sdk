@@ -181,6 +181,36 @@ func (s *AsyncTaskConfigForGetRevisionOutput) SetMaxRetry(v int32) *AsyncTaskCon
 	return s
 }
 
+type AuthForGetRevisionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+
+	RoleTrn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AuthForGetRevisionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AuthForGetRevisionOutput) GoString() string {
+	return s.String()
+}
+
+// SetMode sets the Mode field's value.
+func (s *AuthForGetRevisionOutput) SetMode(v string) *AuthForGetRevisionOutput {
+	s.Mode = &v
+	return s
+}
+
+// SetRoleTrn sets the RoleTrn field's value.
+func (s *AuthForGetRevisionOutput) SetRoleTrn(v string) *AuthForGetRevisionOutput {
+	s.RoleTrn = &v
+	return s
+}
+
 type BackendForGetRevisionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -328,7 +358,9 @@ func (s *DestinationConfigForGetRevisionOutput) SetOnSuccess(v *OnSuccessForGetR
 type EfsMountConfigForGetRevisionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForGetRevisionOutput `type:"list" json:",omitempty"`
+	Auth *AuthForGetRevisionOutput `type:"structure" json:",omitempty"`
+
+	MountPoints []*MountPointForGetRevisionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -339,6 +371,12 @@ func (s EfsMountConfigForGetRevisionOutput) String() string {
 // GoString returns the string representation
 func (s EfsMountConfigForGetRevisionOutput) GoString() string {
 	return s.String()
+}
+
+// SetAuth sets the Auth field's value.
+func (s *EfsMountConfigForGetRevisionOutput) SetAuth(v *AuthForGetRevisionOutput) *EfsMountConfigForGetRevisionOutput {
+	s.Auth = v
+	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.
@@ -442,7 +480,7 @@ type GetRevisionOutput struct {
 
 	EfsMountConfig *EfsMountConfigForGetRevisionOutput `type:"structure" json:",omitempty"`
 
-	Envs []*EnvForGetRevisionOutput `type:"list" json:",omitempty"`
+	Envs []*EnvForGetRevisionOutput `type:"list"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
@@ -676,7 +714,7 @@ func (s *GetRevisionOutput) SetVpcConfig(v *VpcConfigForGetRevisionOutput) *GetR
 type HTTPGetForGetRevisionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	HTTPHeaders []*HTTPHeaderForGetRevisionOutput `type:"list" json:",omitempty"`
+	HTTPHeaders []*HTTPHeaderForGetRevisionOutput `type:"list"`
 
 	Path *string `type:"string" json:",omitempty"`
 
@@ -924,7 +962,7 @@ type NasStorageForGetRevisionOutput struct {
 
 	EnableNas *bool `type:"boolean" json:",omitempty"`
 
-	NasConfigs []*NasConfigForGetRevisionOutput `type:"list" json:",omitempty"`
+	NasConfigs []*NasConfigForGetRevisionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -1090,7 +1128,7 @@ type TosMountConfigForGetRevisionOutput struct {
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*ConvertMountPointForGetRevisionOutput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForGetRevisionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -1128,9 +1166,9 @@ type VpcConfigForGetRevisionOutput struct {
 
 	EnableVpc *bool `type:"boolean" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list" json:",omitempty"`
+	SecurityGroupIds []*string `type:"list"`
 
-	SubnetIds []*string `type:"list" json:",omitempty"`
+	SubnetIds []*string `type:"list"`
 
 	VpcId *string `type:"string" json:",omitempty"`
 }

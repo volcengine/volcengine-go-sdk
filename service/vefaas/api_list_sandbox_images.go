@@ -148,7 +148,7 @@ type FilterForListSandboxImagesInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -184,7 +184,7 @@ type ImageForListSandboxImagesOutput struct {
 
 	PrecacheStatus *string `type:"string" json:",omitempty"`
 
-	RelatedSandboxApplications []*string `type:"list" json:",omitempty"`
+	RelatedSandboxApplications []*string `type:"list"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 }
@@ -238,7 +238,7 @@ func (s *ImageForListSandboxImagesOutput) SetUpdateTime(v string) *ImageForListS
 type ListSandboxImagesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filters []*FilterForListSandboxImagesInput `type:"list" json:",omitempty"`
+	Filters []*FilterForListSandboxImagesInput `type:"list"`
 
 	// ImageType is a required field
 	ImageType *string `type:"string" json:",omitempty" required:"true"`
@@ -300,7 +300,7 @@ type ListSandboxImagesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Images []*ImageForListSandboxImagesOutput `type:"list" json:",omitempty"`
+	Images []*ImageForListSandboxImagesOutput `type:"list"`
 
 	TotalCount *int32 `type:"int32" json:",omitempty"`
 }

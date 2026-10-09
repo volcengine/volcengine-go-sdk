@@ -143,6 +143,36 @@ func (c *VEFAAS) ListFunctionsWithContext(ctx volcengine.Context, input *ListFun
 	return out, req.Send()
 }
 
+type AuthForListFunctionsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+
+	RoleTrn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AuthForListFunctionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AuthForListFunctionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetMode sets the Mode field's value.
+func (s *AuthForListFunctionsOutput) SetMode(v string) *AuthForListFunctionsOutput {
+	s.Mode = &v
+	return s
+}
+
+// SetRoleTrn sets the RoleTrn field's value.
+func (s *AuthForListFunctionsOutput) SetRoleTrn(v string) *AuthForListFunctionsOutput {
+	s.RoleTrn = &v
+	return s
+}
+
 type BackendForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -260,7 +290,9 @@ func (s *CredentialsForListFunctionsOutput) SetSecretAccessKey(v string) *Creden
 type EfsMountConfigForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForListFunctionsOutput `type:"list" json:",omitempty"`
+	Auth *AuthForListFunctionsOutput `type:"structure" json:",omitempty"`
+
+	MountPoints []*MountPointForListFunctionsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -271,6 +303,12 @@ func (s EfsMountConfigForListFunctionsOutput) String() string {
 // GoString returns the string representation
 func (s EfsMountConfigForListFunctionsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAuth sets the Auth field's value.
+func (s *EfsMountConfigForListFunctionsOutput) SetAuth(v *AuthForListFunctionsOutput) *EfsMountConfigForListFunctionsOutput {
+	s.Auth = v
+	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.
@@ -314,7 +352,7 @@ type FilterForListFunctionsInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -362,7 +400,7 @@ type ItemForListFunctionsOutput struct {
 
 	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
-	Envs []*EnvForListFunctionsOutput `type:"list" json:",omitempty"`
+	Envs []*EnvForListFunctionsOutput `type:"list"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
@@ -402,7 +440,7 @@ type ItemForListFunctionsOutput struct {
 
 	SourceType *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForListFunctionsOutput `type:"list" json:",omitempty"`
+	Tags []*TagForListFunctionsOutput `type:"list"`
 
 	TlsConfig *TlsConfigForListFunctionsOutput `type:"structure" json:",omitempty"`
 
@@ -636,13 +674,13 @@ func (s *ItemForListFunctionsOutput) SetVpcConfig(v *VpcConfigForListFunctionsOu
 type ListFunctionsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filters []*FilterForListFunctionsInput `type:"list" json:",omitempty"`
+	Filters []*FilterForListFunctionsInput `type:"list"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TagFilters []*TagFilterForListFunctionsInput `type:"list" json:",omitempty"`
+	TagFilters []*TagFilterForListFunctionsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -684,7 +722,7 @@ type ListFunctionsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListFunctionsOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListFunctionsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
@@ -816,7 +854,7 @@ type NasStorageForListFunctionsOutput struct {
 
 	EnableNas *bool `type:"boolean" json:",omitempty"`
 
-	NasConfigs []*NasConfigForListFunctionsOutput `type:"list" json:",omitempty"`
+	NasConfigs []*NasConfigForListFunctionsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -846,7 +884,7 @@ type TagFilterForListFunctionsInput struct {
 
 	Key *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -946,7 +984,7 @@ type TosMountConfigForListFunctionsOutput struct {
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*ConvertMountPointForListFunctionsOutput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForListFunctionsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -984,9 +1022,9 @@ type VpcConfigForListFunctionsOutput struct {
 
 	EnableVpc *bool `type:"boolean" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list" json:",omitempty"`
+	SecurityGroupIds []*string `type:"list"`
 
-	SubnetIds []*string `type:"list" json:",omitempty"`
+	SubnetIds []*string `type:"list"`
 
 	VpcId *string `type:"string" json:",omitempty"`
 }

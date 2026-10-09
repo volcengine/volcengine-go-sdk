@@ -181,6 +181,36 @@ func (s *AsyncTaskConfigForGetFunctionOutput) SetMaxRetry(v int32) *AsyncTaskCon
 	return s
 }
 
+type AuthForGetFunctionOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Mode *string `type:"string" json:",omitempty"`
+
+	RoleTrn *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s AuthForGetFunctionOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AuthForGetFunctionOutput) GoString() string {
+	return s.String()
+}
+
+// SetMode sets the Mode field's value.
+func (s *AuthForGetFunctionOutput) SetMode(v string) *AuthForGetFunctionOutput {
+	s.Mode = &v
+	return s
+}
+
+// SetRoleTrn sets the RoleTrn field's value.
+func (s *AuthForGetFunctionOutput) SetRoleTrn(v string) *AuthForGetFunctionOutput {
+	s.RoleTrn = &v
+	return s
+}
+
 type BackendForGetFunctionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -328,7 +358,9 @@ func (s *DestinationConfigForGetFunctionOutput) SetOnSuccess(v *OnSuccessForGetF
 type EfsMountConfigForGetFunctionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForGetFunctionOutput `type:"list" json:",omitempty"`
+	Auth *AuthForGetFunctionOutput `type:"structure" json:",omitempty"`
+
+	MountPoints []*MountPointForGetFunctionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -339,6 +371,12 @@ func (s EfsMountConfigForGetFunctionOutput) String() string {
 // GoString returns the string representation
 func (s EfsMountConfigForGetFunctionOutput) GoString() string {
 	return s.String()
+}
+
+// SetAuth sets the Auth field's value.
+func (s *EfsMountConfigForGetFunctionOutput) SetAuth(v *AuthForGetFunctionOutput) *EfsMountConfigForGetFunctionOutput {
+	s.Auth = v
+	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.
@@ -438,7 +476,7 @@ type GetFunctionOutput struct {
 
 	EnableApmplus *bool `type:"boolean" json:",omitempty"`
 
-	Envs []*EnvForGetFunctionOutput `type:"list" json:",omitempty"`
+	Envs []*EnvForGetFunctionOutput `type:"list"`
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
@@ -798,7 +836,7 @@ type NasStorageForGetFunctionOutput struct {
 
 	EnableNas *bool `type:"boolean" json:",omitempty"`
 
-	NasConfigs []*NasConfigForGetFunctionOutput `type:"list" json:",omitempty"`
+	NasConfigs []*NasConfigForGetFunctionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -912,7 +950,7 @@ type TosMountConfigForGetFunctionOutput struct {
 
 	EnableTos *bool `type:"boolean" json:",omitempty"`
 
-	MountPoints []*ConvertMountPointForGetFunctionOutput `type:"list" json:",omitempty"`
+	MountPoints []*ConvertMountPointForGetFunctionOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -950,9 +988,9 @@ type VpcConfigForGetFunctionOutput struct {
 
 	EnableVpc *bool `type:"boolean" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list" json:",omitempty"`
+	SecurityGroupIds []*string `type:"list"`
 
-	SubnetIds []*string `type:"list" json:",omitempty"`
+	SubnetIds []*string `type:"list"`
 
 	VpcId *string `type:"string" json:",omitempty"`
 }

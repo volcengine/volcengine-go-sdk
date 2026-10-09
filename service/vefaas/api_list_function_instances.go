@@ -300,7 +300,7 @@ type ListFunctionInstancesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListFunctionInstancesOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListFunctionInstancesOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

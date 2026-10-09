@@ -330,7 +330,7 @@ type SandboxInfoForDescribeSandboxSnapshotOutput struct {
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 
-	EBSVolumes []*EBSVolumeForDescribeSandboxSnapshotOutput `type:"list" json:",omitempty"`
+	EBSVolumes []*EBSVolumeForDescribeSandboxSnapshotOutput `type:"list"`
 
 	ErrorCode *string `type:"string" json:",omitempty"`
 
@@ -356,13 +356,13 @@ type SandboxInfoForDescribeSandboxSnapshotOutput struct {
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
-	RoleChainTrn []*string `type:"list" json:",omitempty"`
+	RoleChainTrn []*string `type:"list"`
 
 	RoleTrn *string `type:"string" json:",omitempty"`
 
 	SessionId *string `type:"string" json:",omitempty"`
 
-	Sidecars []*SidecarForDescribeSandboxSnapshotOutput `type:"list" json:",omitempty"`
+	Sidecars []*SidecarForDescribeSandboxSnapshotOutput `type:"list"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -512,13 +512,13 @@ func (s *SandboxInfoForDescribeSandboxSnapshotOutput) SetStatus(v string) *Sandb
 type SidecarForDescribeSandboxSnapshotOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Args []*string `type:"list" json:",omitempty"`
+	Args []*string `type:"list"`
 
-	Command []*string `type:"list" json:",omitempty"`
+	Command []*string `type:"list"`
 
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
-	EmptyDirVolume []*EmptyDirVolumeForDescribeSandboxSnapshotOutput `type:"list" json:",omitempty"`
+	EmptyDirVolume []*EmptyDirVolumeForDescribeSandboxSnapshotOutput `type:"list"`
 
 	Envs *EnvsForDescribeSandboxSnapshotOutput `type:"structure" json:",omitempty"`
 

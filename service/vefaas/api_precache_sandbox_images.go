@@ -143,12 +143,64 @@ func (c *VEFAAS) PrecacheSandboxImagesWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
+type NetworkConfigForPrecacheSandboxImagesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessType *string `type:"string" json:",omitempty"`
+
+	SecurityGroupIds []*string `type:"list"`
+
+	SubnetId *string `type:"string" json:",omitempty"`
+
+	VpcId *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s NetworkConfigForPrecacheSandboxImagesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkConfigForPrecacheSandboxImagesInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessType sets the AccessType field's value.
+func (s *NetworkConfigForPrecacheSandboxImagesInput) SetAccessType(v string) *NetworkConfigForPrecacheSandboxImagesInput {
+	s.AccessType = &v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *NetworkConfigForPrecacheSandboxImagesInput) SetSecurityGroupIds(v []*string) *NetworkConfigForPrecacheSandboxImagesInput {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *NetworkConfigForPrecacheSandboxImagesInput) SetSubnetId(v string) *NetworkConfigForPrecacheSandboxImagesInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *NetworkConfigForPrecacheSandboxImagesInput) SetVpcId(v string) *NetworkConfigForPrecacheSandboxImagesInput {
+	s.VpcId = &v
+	return s
+}
+
 type PrecacheSandboxImagesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ImageUrls []*string `type:"list" json:",omitempty"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
-	RegistryId *string `type:"string" json:",omitempty"`
+	ImageUrls []*string `type:"list"`
+
+	NetworkConfig *NetworkConfigForPrecacheSandboxImagesInput `type:"structure" json:",omitempty"`
+
+	RegistryAuthConfig *RegistryAuthConfigForPrecacheSandboxImagesInput `type:"structure" json:",omitempty"`
+
+	RegistryType *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -161,15 +213,33 @@ func (s PrecacheSandboxImagesInput) GoString() string {
 	return s.String()
 }
 
+// SetClientToken sets the ClientToken field's value.
+func (s *PrecacheSandboxImagesInput) SetClientToken(v string) *PrecacheSandboxImagesInput {
+	s.ClientToken = &v
+	return s
+}
+
 // SetImageUrls sets the ImageUrls field's value.
 func (s *PrecacheSandboxImagesInput) SetImageUrls(v []*string) *PrecacheSandboxImagesInput {
 	s.ImageUrls = v
 	return s
 }
 
-// SetRegistryId sets the RegistryId field's value.
-func (s *PrecacheSandboxImagesInput) SetRegistryId(v string) *PrecacheSandboxImagesInput {
-	s.RegistryId = &v
+// SetNetworkConfig sets the NetworkConfig field's value.
+func (s *PrecacheSandboxImagesInput) SetNetworkConfig(v *NetworkConfigForPrecacheSandboxImagesInput) *PrecacheSandboxImagesInput {
+	s.NetworkConfig = v
+	return s
+}
+
+// SetRegistryAuthConfig sets the RegistryAuthConfig field's value.
+func (s *PrecacheSandboxImagesInput) SetRegistryAuthConfig(v *RegistryAuthConfigForPrecacheSandboxImagesInput) *PrecacheSandboxImagesInput {
+	s.RegistryAuthConfig = v
+	return s
+}
+
+// SetRegistryType sets the RegistryType field's value.
+func (s *PrecacheSandboxImagesInput) SetRegistryType(v string) *PrecacheSandboxImagesInput {
+	s.RegistryType = &v
 	return s
 }
 
@@ -194,5 +264,67 @@ func (s PrecacheSandboxImagesOutput) GoString() string {
 // SetTicketId sets the TicketId field's value.
 func (s *PrecacheSandboxImagesOutput) SetTicketId(v string) *PrecacheSandboxImagesOutput {
 	s.TicketId = &v
+	return s
+}
+
+type RegistryAuthConfigForPrecacheSandboxImagesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AuthType *string `type:"string" json:",omitempty"`
+
+	Password *string `type:"string" json:",omitempty"`
+
+	SkipCertVerification *bool `type:"boolean" json:",omitempty"`
+
+	Token *string `type:"string" json:",omitempty"`
+
+	UsePlainHTTP *bool `type:"boolean" json:",omitempty"`
+
+	Username *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RegistryAuthConfigForPrecacheSandboxImagesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RegistryAuthConfigForPrecacheSandboxImagesInput) GoString() string {
+	return s.String()
+}
+
+// SetAuthType sets the AuthType field's value.
+func (s *RegistryAuthConfigForPrecacheSandboxImagesInput) SetAuthType(v string) *RegistryAuthConfigForPrecacheSandboxImagesInput {
+	s.AuthType = &v
+	return s
+}
+
+// SetPassword sets the Password field's value.
+func (s *RegistryAuthConfigForPrecacheSandboxImagesInput) SetPassword(v string) *RegistryAuthConfigForPrecacheSandboxImagesInput {
+	s.Password = &v
+	return s
+}
+
+// SetSkipCertVerification sets the SkipCertVerification field's value.
+func (s *RegistryAuthConfigForPrecacheSandboxImagesInput) SetSkipCertVerification(v bool) *RegistryAuthConfigForPrecacheSandboxImagesInput {
+	s.SkipCertVerification = &v
+	return s
+}
+
+// SetToken sets the Token field's value.
+func (s *RegistryAuthConfigForPrecacheSandboxImagesInput) SetToken(v string) *RegistryAuthConfigForPrecacheSandboxImagesInput {
+	s.Token = &v
+	return s
+}
+
+// SetUsePlainHTTP sets the UsePlainHTTP field's value.
+func (s *RegistryAuthConfigForPrecacheSandboxImagesInput) SetUsePlainHTTP(v bool) *RegistryAuthConfigForPrecacheSandboxImagesInput {
+	s.UsePlainHTTP = &v
+	return s
+}
+
+// SetUsername sets the Username field's value.
+func (s *RegistryAuthConfigForPrecacheSandboxImagesInput) SetUsername(v string) *RegistryAuthConfigForPrecacheSandboxImagesInput {
+	s.Username = &v
 	return s
 }

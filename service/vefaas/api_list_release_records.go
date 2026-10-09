@@ -148,7 +148,7 @@ type FilterForListReleaseRecordsInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -262,7 +262,7 @@ func (s *ItemForListReleaseRecordsOutput) SetTargetRevisionNumber(v int32) *Item
 type ListReleaseRecordsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filters []*FilterForListReleaseRecordsInput `type:"list" json:",omitempty"`
+	Filters []*FilterForListReleaseRecordsInput `type:"list"`
 
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
@@ -332,7 +332,7 @@ type ListReleaseRecordsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Items []*ItemForListReleaseRecordsOutput `type:"list" json:",omitempty"`
+	Items []*ItemForListReleaseRecordsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
