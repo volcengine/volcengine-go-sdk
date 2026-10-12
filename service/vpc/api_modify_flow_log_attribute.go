@@ -153,6 +153,8 @@ type ModifyFlowLogAttributeInput struct {
 
 	FlowLogName *string `min:"1" max:"128" type:"string"`
 
+	FlowLogVersion *int64 `type:"integer"`
+
 	TrafficPath []*string `type:"list"`
 }
 
@@ -218,6 +220,12 @@ func (s *ModifyFlowLogAttributeInput) SetFlowLogName(v string) *ModifyFlowLogAtt
 	return s
 }
 
+// SetFlowLogVersion sets the FlowLogVersion field's value.
+func (s *ModifyFlowLogAttributeInput) SetFlowLogVersion(v int64) *ModifyFlowLogAttributeInput {
+	s.FlowLogVersion = &v
+	return s
+}
+
 // SetTrafficPath sets the TrafficPath field's value.
 func (s *ModifyFlowLogAttributeInput) SetTrafficPath(v []*string) *ModifyFlowLogAttributeInput {
 	s.TrafficPath = v
@@ -232,6 +240,8 @@ type ModifyFlowLogAttributeOutput struct {
 	AsyncTaskId *string `type:"string"`
 
 	RequestId *string `type:"string"`
+
+	Version *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -253,5 +263,11 @@ func (s *ModifyFlowLogAttributeOutput) SetAsyncTaskId(v string) *ModifyFlowLogAt
 // SetRequestId sets the RequestId field's value.
 func (s *ModifyFlowLogAttributeOutput) SetRequestId(v string) *ModifyFlowLogAttributeOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *ModifyFlowLogAttributeOutput) SetVersion(v int64) *ModifyFlowLogAttributeOutput {
+	s.Version = &v
 	return s
 }

@@ -154,6 +154,8 @@ type CreateFlowLogInput struct {
 	// FlowLogName is a required field
 	FlowLogName *string `min:"1" max:"128" type:"string" required:"true"`
 
+	FlowLogVersion *int64 `type:"integer"`
+
 	// LogProjectName is a required field
 	LogProjectName *string `type:"string" required:"true"`
 
@@ -256,6 +258,12 @@ func (s *CreateFlowLogInput) SetFlowLogName(v string) *CreateFlowLogInput {
 	return s
 }
 
+// SetFlowLogVersion sets the FlowLogVersion field's value.
+func (s *CreateFlowLogInput) SetFlowLogVersion(v int64) *CreateFlowLogInput {
+	s.FlowLogVersion = &v
+	return s
+}
+
 // SetLogProjectName sets the LogProjectName field's value.
 func (s *CreateFlowLogInput) SetLogProjectName(v string) *CreateFlowLogInput {
 	s.LogProjectName = &v
@@ -314,6 +322,8 @@ type CreateFlowLogOutput struct {
 	FlowLogId *string `type:"string"`
 
 	RequestId *string `type:"string"`
+
+	Version *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -341,6 +351,12 @@ func (s *CreateFlowLogOutput) SetFlowLogId(v string) *CreateFlowLogOutput {
 // SetRequestId sets the RequestId field's value.
 func (s *CreateFlowLogOutput) SetRequestId(v string) *CreateFlowLogOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *CreateFlowLogOutput) SetVersion(v int64) *CreateFlowLogOutput {
+	s.Version = &v
 	return s
 }
 

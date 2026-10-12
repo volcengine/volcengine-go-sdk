@@ -166,6 +166,14 @@ type VPCAPI interface {
 	AuthorizeSecurityGroupEgressWithContext(volcengine.Context, *AuthorizeSecurityGroupEgressInput, ...request.Option) (*AuthorizeSecurityGroupEgressOutput, error)
 	AuthorizeSecurityGroupEgressRequest(*AuthorizeSecurityGroupEgressInput) (*request.Request, *AuthorizeSecurityGroupEgressOutput)
 
+	AuthorizeSecurityGroupEgressBatchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AuthorizeSecurityGroupEgressBatchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AuthorizeSecurityGroupEgressBatchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AuthorizeSecurityGroupEgressBatch(*AuthorizeSecurityGroupEgressBatchInput) (*AuthorizeSecurityGroupEgressBatchOutput, error)
+	AuthorizeSecurityGroupEgressBatchWithContext(volcengine.Context, *AuthorizeSecurityGroupEgressBatchInput, ...request.Option) (*AuthorizeSecurityGroupEgressBatchOutput, error)
+	AuthorizeSecurityGroupEgressBatchRequest(*AuthorizeSecurityGroupEgressBatchInput) (*request.Request, *AuthorizeSecurityGroupEgressBatchOutput)
+
 	AuthorizeSecurityGroupIngressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AuthorizeSecurityGroupIngressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AuthorizeSecurityGroupIngressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -173,6 +181,14 @@ type VPCAPI interface {
 	AuthorizeSecurityGroupIngress(*AuthorizeSecurityGroupIngressInput) (*AuthorizeSecurityGroupIngressOutput, error)
 	AuthorizeSecurityGroupIngressWithContext(volcengine.Context, *AuthorizeSecurityGroupIngressInput, ...request.Option) (*AuthorizeSecurityGroupIngressOutput, error)
 	AuthorizeSecurityGroupIngressRequest(*AuthorizeSecurityGroupIngressInput) (*request.Request, *AuthorizeSecurityGroupIngressOutput)
+
+	AuthorizeSecurityGroupIngressBatchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AuthorizeSecurityGroupIngressBatchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AuthorizeSecurityGroupIngressBatchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AuthorizeSecurityGroupIngressBatch(*AuthorizeSecurityGroupIngressBatchInput) (*AuthorizeSecurityGroupIngressBatchOutput, error)
+	AuthorizeSecurityGroupIngressBatchWithContext(volcengine.Context, *AuthorizeSecurityGroupIngressBatchInput, ...request.Option) (*AuthorizeSecurityGroupIngressBatchOutput, error)
+	AuthorizeSecurityGroupIngressBatchRequest(*AuthorizeSecurityGroupIngressBatchInput) (*request.Request, *AuthorizeSecurityGroupIngressBatchOutput)
 
 	CancelBandwidthPackageEipBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CancelBandwidthPackageEipBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -1326,6 +1342,22 @@ type VPCAPI interface {
 	ModifySecurityGroupAttributesWithContext(volcengine.Context, *ModifySecurityGroupAttributesInput, ...request.Option) (*ModifySecurityGroupAttributesOutput, error)
 	ModifySecurityGroupAttributesRequest(*ModifySecurityGroupAttributesInput) (*request.Request, *ModifySecurityGroupAttributesOutput)
 
+	ModifySecurityGroupEgressBatchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySecurityGroupEgressBatchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySecurityGroupEgressBatchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySecurityGroupEgressBatch(*ModifySecurityGroupEgressBatchInput) (*ModifySecurityGroupEgressBatchOutput, error)
+	ModifySecurityGroupEgressBatchWithContext(volcengine.Context, *ModifySecurityGroupEgressBatchInput, ...request.Option) (*ModifySecurityGroupEgressBatchOutput, error)
+	ModifySecurityGroupEgressBatchRequest(*ModifySecurityGroupEgressBatchInput) (*request.Request, *ModifySecurityGroupEgressBatchOutput)
+
+	ModifySecurityGroupIngressBatchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySecurityGroupIngressBatchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySecurityGroupIngressBatchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySecurityGroupIngressBatch(*ModifySecurityGroupIngressBatchInput) (*ModifySecurityGroupIngressBatchOutput, error)
+	ModifySecurityGroupIngressBatchWithContext(volcengine.Context, *ModifySecurityGroupIngressBatchInput, ...request.Option) (*ModifySecurityGroupIngressBatchOutput, error)
+	ModifySecurityGroupIngressBatchRequest(*ModifySecurityGroupIngressBatchInput) (*request.Request, *ModifySecurityGroupIngressBatchOutput)
+
 	ModifySecurityGroupRuleDescriptionsEgressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifySecurityGroupRuleDescriptionsEgressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifySecurityGroupRuleDescriptionsEgressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1438,6 +1470,14 @@ type VPCAPI interface {
 	RevokeSecurityGroupEgressWithContext(volcengine.Context, *RevokeSecurityGroupEgressInput, ...request.Option) (*RevokeSecurityGroupEgressOutput, error)
 	RevokeSecurityGroupEgressRequest(*RevokeSecurityGroupEgressInput) (*request.Request, *RevokeSecurityGroupEgressOutput)
 
+	RevokeSecurityGroupEgressBatchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RevokeSecurityGroupEgressBatchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RevokeSecurityGroupEgressBatchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RevokeSecurityGroupEgressBatch(*RevokeSecurityGroupEgressBatchInput) (*RevokeSecurityGroupEgressBatchOutput, error)
+	RevokeSecurityGroupEgressBatchWithContext(volcengine.Context, *RevokeSecurityGroupEgressBatchInput, ...request.Option) (*RevokeSecurityGroupEgressBatchOutput, error)
+	RevokeSecurityGroupEgressBatchRequest(*RevokeSecurityGroupEgressBatchInput) (*request.Request, *RevokeSecurityGroupEgressBatchOutput)
+
 	RevokeSecurityGroupIngressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RevokeSecurityGroupIngressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RevokeSecurityGroupIngressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -1445,6 +1485,14 @@ type VPCAPI interface {
 	RevokeSecurityGroupIngress(*RevokeSecurityGroupIngressInput) (*RevokeSecurityGroupIngressOutput, error)
 	RevokeSecurityGroupIngressWithContext(volcengine.Context, *RevokeSecurityGroupIngressInput, ...request.Option) (*RevokeSecurityGroupIngressOutput, error)
 	RevokeSecurityGroupIngressRequest(*RevokeSecurityGroupIngressInput) (*request.Request, *RevokeSecurityGroupIngressOutput)
+
+	RevokeSecurityGroupIngressBatchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RevokeSecurityGroupIngressBatchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RevokeSecurityGroupIngressBatchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RevokeSecurityGroupIngressBatch(*RevokeSecurityGroupIngressBatchInput) (*RevokeSecurityGroupIngressBatchOutput, error)
+	RevokeSecurityGroupIngressBatchWithContext(volcengine.Context, *RevokeSecurityGroupIngressBatchInput, ...request.Option) (*RevokeSecurityGroupIngressBatchOutput, error)
+	RevokeSecurityGroupIngressBatchRequest(*RevokeSecurityGroupIngressBatchInput) (*request.Request, *RevokeSecurityGroupIngressBatchOutput)
 
 	TagIpamResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagIpamResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

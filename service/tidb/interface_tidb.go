@@ -54,6 +54,14 @@ type TIDBAPI interface {
 	ChangeBranchPasswordWithContext(volcengine.Context, *ChangeBranchPasswordInput, ...request.Option) (*ChangeBranchPasswordOutput, error)
 	ChangeBranchPasswordRequest(*ChangeBranchPasswordInput) (*request.Request, *ChangeBranchPasswordOutput)
 
+	CreateAuditLogFilterRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAuditLogFilterRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAuditLogFilterRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAuditLogFilterRule(*CreateAuditLogFilterRuleInput) (*CreateAuditLogFilterRuleOutput, error)
+	CreateAuditLogFilterRuleWithContext(volcengine.Context, *CreateAuditLogFilterRuleInput, ...request.Option) (*CreateAuditLogFilterRuleOutput, error)
+	CreateAuditLogFilterRuleRequest(*CreateAuditLogFilterRuleInput) (*request.Request, *CreateAuditLogFilterRuleOutput)
+
 	CreateBranchCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBranchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateBranchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -102,6 +110,14 @@ type TIDBAPI interface {
 	CreatePrivateEndpointAllowlistRuleWithContext(volcengine.Context, *CreatePrivateEndpointAllowlistRuleInput, ...request.Option) (*CreatePrivateEndpointAllowlistRuleOutput, error)
 	CreatePrivateEndpointAllowlistRuleRequest(*CreatePrivateEndpointAllowlistRuleInput) (*request.Request, *CreatePrivateEndpointAllowlistRuleOutput)
 
+	DeleteAuditLogFilterRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAuditLogFilterRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAuditLogFilterRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAuditLogFilterRule(*DeleteAuditLogFilterRuleInput) (*DeleteAuditLogFilterRuleOutput, error)
+	DeleteAuditLogFilterRuleWithContext(volcengine.Context, *DeleteAuditLogFilterRuleInput, ...request.Option) (*DeleteAuditLogFilterRuleOutput, error)
+	DeleteAuditLogFilterRuleRequest(*DeleteAuditLogFilterRuleInput) (*request.Request, *DeleteAuditLogFilterRuleOutput)
+
 	DeleteBranchCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteBranchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteBranchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -149,6 +165,30 @@ type TIDBAPI interface {
 	DescribePriceDetail(*DescribePriceDetailInput) (*DescribePriceDetailOutput, error)
 	DescribePriceDetailWithContext(volcengine.Context, *DescribePriceDetailInput, ...request.Option) (*DescribePriceDetailOutput, error)
 	DescribePriceDetailRequest(*DescribePriceDetailInput) (*request.Request, *DescribePriceDetailOutput)
+
+	DownloadAuditLogFilesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DownloadAuditLogFilesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DownloadAuditLogFilesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DownloadAuditLogFiles(*DownloadAuditLogFilesInput) (*DownloadAuditLogFilesOutput, error)
+	DownloadAuditLogFilesWithContext(volcengine.Context, *DownloadAuditLogFilesInput, ...request.Option) (*DownloadAuditLogFilesOutput, error)
+	DownloadAuditLogFilesRequest(*DownloadAuditLogFilesInput) (*request.Request, *DownloadAuditLogFilesOutput)
+
+	GetAuditLogConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAuditLogConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAuditLogConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAuditLogConfig(*GetAuditLogConfigInput) (*GetAuditLogConfigOutput, error)
+	GetAuditLogConfigWithContext(volcengine.Context, *GetAuditLogConfigInput, ...request.Option) (*GetAuditLogConfigOutput, error)
+	GetAuditLogConfigRequest(*GetAuditLogConfigInput) (*request.Request, *GetAuditLogConfigOutput)
+
+	GetAuditLogFilterRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetAuditLogFilterRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetAuditLogFilterRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetAuditLogFilterRule(*GetAuditLogFilterRuleInput) (*GetAuditLogFilterRuleOutput, error)
+	GetAuditLogFilterRuleWithContext(volcengine.Context, *GetAuditLogFilterRuleInput, ...request.Option) (*GetAuditLogFilterRuleOutput, error)
+	GetAuditLogFilterRuleRequest(*GetAuditLogFilterRuleInput) (*request.Request, *GetAuditLogFilterRuleOutput)
 
 	GetBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -253,6 +293,22 @@ type TIDBAPI interface {
 	GetStatementPlanDetails(*GetStatementPlanDetailsInput) (*GetStatementPlanDetailsOutput, error)
 	GetStatementPlanDetailsWithContext(volcengine.Context, *GetStatementPlanDetailsInput, ...request.Option) (*GetStatementPlanDetailsOutput, error)
 	GetStatementPlanDetailsRequest(*GetStatementPlanDetailsInput) (*request.Request, *GetStatementPlanDetailsOutput)
+
+	ListAuditLogFilesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAuditLogFilesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAuditLogFilesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAuditLogFiles(*ListAuditLogFilesInput) (*ListAuditLogFilesOutput, error)
+	ListAuditLogFilesWithContext(volcengine.Context, *ListAuditLogFilesInput, ...request.Option) (*ListAuditLogFilesOutput, error)
+	ListAuditLogFilesRequest(*ListAuditLogFilesInput) (*request.Request, *ListAuditLogFilesOutput)
+
+	ListAuditLogFilterRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAuditLogFilterRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAuditLogFilterRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAuditLogFilterRules(*ListAuditLogFilterRulesInput) (*ListAuditLogFilterRulesOutput, error)
+	ListAuditLogFilterRulesWithContext(volcengine.Context, *ListAuditLogFilterRulesInput, ...request.Option) (*ListAuditLogFilterRulesOutput, error)
+	ListAuditLogFilterRulesRequest(*ListAuditLogFilterRulesInput) (*request.Request, *ListAuditLogFilterRulesOutput)
 
 	ListBackupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListBackupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -477,6 +533,22 @@ type TIDBAPI interface {
 	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
 	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
 	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
+	UpdateAuditLogConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAuditLogConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAuditLogConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAuditLogConfig(*UpdateAuditLogConfigInput) (*UpdateAuditLogConfigOutput, error)
+	UpdateAuditLogConfigWithContext(volcengine.Context, *UpdateAuditLogConfigInput, ...request.Option) (*UpdateAuditLogConfigOutput, error)
+	UpdateAuditLogConfigRequest(*UpdateAuditLogConfigInput) (*request.Request, *UpdateAuditLogConfigOutput)
+
+	UpdateAuditLogFilterRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAuditLogFilterRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAuditLogFilterRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAuditLogFilterRule(*UpdateAuditLogFilterRuleInput) (*UpdateAuditLogFilterRuleOutput, error)
+	UpdateAuditLogFilterRuleWithContext(volcengine.Context, *UpdateAuditLogFilterRuleInput, ...request.Option) (*UpdateAuditLogFilterRuleOutput, error)
+	UpdateAuditLogFilterRuleRequest(*UpdateAuditLogFilterRuleInput) (*request.Request, *UpdateAuditLogFilterRuleOutput)
 
 	UpdateBranchCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateBranchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

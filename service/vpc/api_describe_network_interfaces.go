@@ -489,7 +489,13 @@ type NetworkInterfaceSetForDescribeNetworkInterfacesOutput struct {
 
 	Tags []*TagForDescribeNetworkInterfacesOutput `type:"list"`
 
+	TcpClosedAndTimeWaitTimeout *int64 `type:"integer"`
+
+	TcpEstablishedTimeout *int64 `type:"integer"`
+
 	Type *string `type:"string"`
+
+	UdpTimeout *int64 `type:"integer"`
 
 	UpdatedAt *string `type:"string"`
 
@@ -624,9 +630,27 @@ func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetTags(v []*Tag
 	return s
 }
 
+// SetTcpClosedAndTimeWaitTimeout sets the TcpClosedAndTimeWaitTimeout field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetTcpClosedAndTimeWaitTimeout(v int64) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.TcpClosedAndTimeWaitTimeout = &v
+	return s
+}
+
+// SetTcpEstablishedTimeout sets the TcpEstablishedTimeout field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetTcpEstablishedTimeout(v int64) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.TcpEstablishedTimeout = &v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetType(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 	s.Type = &v
+	return s
+}
+
+// SetUdpTimeout sets the UdpTimeout field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetUdpTimeout(v int64) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.UdpTimeout = &v
 	return s
 }
 

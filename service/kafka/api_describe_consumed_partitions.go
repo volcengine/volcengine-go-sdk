@@ -294,7 +294,7 @@ type DescribeConsumedPartitionsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ConsumedPartitionsInfo []*ConsumedPartitionsInfoForDescribeConsumedPartitionsOutput `type:"list" json:",omitempty"`
+	ConsumedPartitionsInfo []*ConsumedPartitionsInfoForDescribeConsumedPartitionsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

@@ -146,8 +146,7 @@ type CreateIpamInput struct {
 
 	IpamName *string `min:"1" max:"128" type:"string"`
 
-	// OperatingRegions is a required field
-	OperatingRegions []*string `type:"list" required:"true"`
+	OperatingRegions []*string `type:"list"`
 
 	ProjectName *string `type:"string"`
 
@@ -175,9 +174,6 @@ func (s *CreateIpamInput) Validate() error {
 	}
 	if s.IpamName != nil && len(*s.IpamName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("IpamName", 128, *s.IpamName))
-	}
-	if s.OperatingRegions == nil {
-		invalidParams.Add(request.NewErrParamRequired("OperatingRegions"))
 	}
 
 	if invalidParams.Len() > 0 {

@@ -142,8 +142,7 @@ func (c *VPC) ModifyIpamWithContext(ctx volcengine.Context, input *ModifyIpamInp
 type ModifyIpamInput struct {
 	_ struct{} `type:"structure"`
 
-	// AddOperatingRegions is a required field
-	AddOperatingRegions []*string `type:"list" required:"true"`
+	AddOperatingRegions []*string `type:"list"`
 
 	Description *string `max:"255" type:"string"`
 
@@ -168,9 +167,6 @@ func (s ModifyIpamInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyIpamInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyIpamInput"}
-	if s.AddOperatingRegions == nil {
-		invalidParams.Add(request.NewErrParamRequired("AddOperatingRegions"))
-	}
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}

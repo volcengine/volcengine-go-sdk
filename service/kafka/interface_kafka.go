@@ -38,6 +38,14 @@ type KAFKAAPI interface {
 	AddTagsToResourceWithContext(volcengine.Context, *AddTagsToResourceInput, ...request.Option) (*AddTagsToResourceOutput, error)
 	AddTagsToResourceRequest(*AddTagsToResourceInput) (*request.Request, *AddTagsToResourceOutput)
 
+	AllowAutoUseTopicCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AllowAutoUseTopicCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AllowAutoUseTopicCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AllowAutoUseTopic(*AllowAutoUseTopicInput) (*AllowAutoUseTopicOutput, error)
+	AllowAutoUseTopicWithContext(volcengine.Context, *AllowAutoUseTopicInput, ...request.Option) (*AllowAutoUseTopicOutput, error)
+	AllowAutoUseTopicRequest(*AllowAutoUseTopicInput) (*request.Request, *AllowAutoUseTopicOutput)
+
 	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -78,14 +86,6 @@ type KAFKAAPI interface {
 	CreateInstanceWithContext(volcengine.Context, *CreateInstanceInput, ...request.Option) (*CreateInstanceOutput, error)
 	CreateInstanceRequest(*CreateInstanceInput) (*request.Request, *CreateInstanceOutput)
 
-	CreateMigrateSubTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateMigrateSubTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateMigrateSubTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateMigrateSubTasks(*CreateMigrateSubTasksInput) (*CreateMigrateSubTasksOutput, error)
-	CreateMigrateSubTasksWithContext(volcengine.Context, *CreateMigrateSubTasksInput, ...request.Option) (*CreateMigrateSubTasksOutput, error)
-	CreateMigrateSubTasksRequest(*CreateMigrateSubTasksInput) (*request.Request, *CreateMigrateSubTasksOutput)
-
 	CreatePublicAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreatePublicAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreatePublicAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -125,6 +125,14 @@ type KAFKAAPI interface {
 	DeleteAllowList(*DeleteAllowListInput) (*DeleteAllowListOutput, error)
 	DeleteAllowListWithContext(volcengine.Context, *DeleteAllowListInput, ...request.Option) (*DeleteAllowListOutput, error)
 	DeleteAllowListRequest(*DeleteAllowListInput) (*request.Request, *DeleteAllowListOutput)
+
+	DeleteConsumedTopicOffsetsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteConsumedTopicOffsetsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteConsumedTopicOffsetsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteConsumedTopicOffsets(*DeleteConsumedTopicOffsetsInput) (*DeleteConsumedTopicOffsetsOutput, error)
+	DeleteConsumedTopicOffsetsWithContext(volcengine.Context, *DeleteConsumedTopicOffsetsInput, ...request.Option) (*DeleteConsumedTopicOffsetsOutput, error)
+	DeleteConsumedTopicOffsetsRequest(*DeleteConsumedTopicOffsetsInput) (*request.Request, *DeleteConsumedTopicOffsetsOutput)
 
 	DeleteGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -230,6 +238,14 @@ type KAFKAAPI interface {
 	DescribeInstanceDetailWithContext(volcengine.Context, *DescribeInstanceDetailInput, ...request.Option) (*DescribeInstanceDetailOutput, error)
 	DescribeInstanceDetailRequest(*DescribeInstanceDetailInput) (*request.Request, *DescribeInstanceDetailOutput)
 
+	DescribeInstancePriceInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeInstancePriceInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeInstancePriceInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeInstancePriceInfo(*DescribeInstancePriceInfoInput) (*DescribeInstancePriceInfoOutput, error)
+	DescribeInstancePriceInfoWithContext(volcengine.Context, *DescribeInstancePriceInfoInput, ...request.Option) (*DescribeInstancePriceInfoOutput, error)
+	DescribeInstancePriceInfoRequest(*DescribeInstancePriceInfoInput) (*request.Request, *DescribeInstancePriceInfoOutput)
+
 	DescribeInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -261,6 +277,14 @@ type KAFKAAPI interface {
 	DescribeTopicAccessPolicies(*DescribeTopicAccessPoliciesInput) (*DescribeTopicAccessPoliciesOutput, error)
 	DescribeTopicAccessPoliciesWithContext(volcengine.Context, *DescribeTopicAccessPoliciesInput, ...request.Option) (*DescribeTopicAccessPoliciesOutput, error)
 	DescribeTopicAccessPoliciesRequest(*DescribeTopicAccessPoliciesInput) (*request.Request, *DescribeTopicAccessPoliciesOutput)
+
+	DescribeTopicAuditInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTopicAuditInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTopicAuditInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTopicAuditInfo(*DescribeTopicAuditInfoInput) (*DescribeTopicAuditInfoOutput, error)
+	DescribeTopicAuditInfoWithContext(volcengine.Context, *DescribeTopicAuditInfoInput, ...request.Option) (*DescribeTopicAuditInfoOutput, error)
+	DescribeTopicAuditInfoRequest(*DescribeTopicAuditInfoInput) (*request.Request, *DescribeTopicAuditInfoOutput)
 
 	DescribeTopicParametersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeTopicParametersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -302,6 +326,14 @@ type KAFKAAPI interface {
 	DisassociateAllowListWithContext(volcengine.Context, *DisassociateAllowListInput, ...request.Option) (*DisassociateAllowListOutput, error)
 	DisassociateAllowListRequest(*DisassociateAllowListInput) (*request.Request, *DisassociateAllowListOutput)
 
+	ImportGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ImportGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ImportGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ImportGroups(*ImportGroupsInput) (*ImportGroupsOutput, error)
+	ImportGroupsWithContext(volcengine.Context, *ImportGroupsInput, ...request.Option) (*ImportGroupsOutput, error)
+	ImportGroupsRequest(*ImportGroupsInput) (*request.Request, *ImportGroupsOutput)
+
 	ModifyAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -342,6 +374,14 @@ type KAFKAAPI interface {
 	ModifyInstanceParametersWithContext(volcengine.Context, *ModifyInstanceParametersInput, ...request.Option) (*ModifyInstanceParametersOutput, error)
 	ModifyInstanceParametersRequest(*ModifyInstanceParametersInput) (*request.Request, *ModifyInstanceParametersOutput)
 
+	ModifyInstanceReadWriteRatioCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyInstanceReadWriteRatioCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyInstanceReadWriteRatioCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyInstanceReadWriteRatio(*ModifyInstanceReadWriteRatioInput) (*ModifyInstanceReadWriteRatioOutput, error)
+	ModifyInstanceReadWriteRatioWithContext(volcengine.Context, *ModifyInstanceReadWriteRatioInput, ...request.Option) (*ModifyInstanceReadWriteRatioOutput, error)
+	ModifyInstanceReadWriteRatioRequest(*ModifyInstanceReadWriteRatioInput) (*request.Request, *ModifyInstanceReadWriteRatioOutput)
+
 	ModifyInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyInstanceSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -349,14 +389,6 @@ type KAFKAAPI interface {
 	ModifyInstanceSpec(*ModifyInstanceSpecInput) (*ModifyInstanceSpecOutput, error)
 	ModifyInstanceSpecWithContext(volcengine.Context, *ModifyInstanceSpecInput, ...request.Option) (*ModifyInstanceSpecOutput, error)
 	ModifyInstanceSpecRequest(*ModifyInstanceSpecInput) (*request.Request, *ModifyInstanceSpecOutput)
-
-	ModifyTopicAccessPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyTopicAccessPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyTopicAccessPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyTopicAccessPolicies(*ModifyTopicAccessPoliciesInput) (*ModifyTopicAccessPoliciesOutput, error)
-	ModifyTopicAccessPoliciesWithContext(volcengine.Context, *ModifyTopicAccessPoliciesInput, ...request.Option) (*ModifyTopicAccessPoliciesOutput, error)
-	ModifyTopicAccessPoliciesRequest(*ModifyTopicAccessPoliciesInput) (*request.Request, *ModifyTopicAccessPoliciesOutput)
 
 	ModifyTopicAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyTopicAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -382,6 +414,30 @@ type KAFKAAPI interface {
 	ModifyUserAuthorityWithContext(volcengine.Context, *ModifyUserAuthorityInput, ...request.Option) (*ModifyUserAuthorityOutput, error)
 	ModifyUserAuthorityRequest(*ModifyUserAuthorityInput) (*request.Request, *ModifyUserAuthorityOutput)
 
+	ModifyUserPasswordCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyUserPasswordCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyUserPasswordCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyUserPassword(*ModifyUserPasswordInput) (*ModifyUserPasswordOutput, error)
+	ModifyUserPasswordWithContext(volcengine.Context, *ModifyUserPasswordInput, ...request.Option) (*ModifyUserPasswordOutput, error)
+	ModifyUserPasswordRequest(*ModifyUserPasswordInput) (*request.Request, *ModifyUserPasswordOutput)
+
+	ProhibitAutoUseTopicCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProhibitAutoUseTopicCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProhibitAutoUseTopicCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProhibitAutoUseTopic(*ProhibitAutoUseTopicInput) (*ProhibitAutoUseTopicOutput, error)
+	ProhibitAutoUseTopicWithContext(volcengine.Context, *ProhibitAutoUseTopicInput, ...request.Option) (*ProhibitAutoUseTopicOutput, error)
+	ProhibitAutoUseTopicRequest(*ProhibitAutoUseTopicInput) (*request.Request, *ProhibitAutoUseTopicOutput)
+
+	PublishPrivateDomainToPublicCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PublishPrivateDomainToPublicCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PublishPrivateDomainToPublicCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PublishPrivateDomainToPublic(*PublishPrivateDomainToPublicInput) (*PublishPrivateDomainToPublicOutput, error)
+	PublishPrivateDomainToPublicWithContext(volcengine.Context, *PublishPrivateDomainToPublicInput, ...request.Option) (*PublishPrivateDomainToPublicOutput, error)
+	PublishPrivateDomainToPublicRequest(*PublishPrivateDomainToPublicInput) (*request.Request, *PublishPrivateDomainToPublicOutput)
+
 	QueryMessageByTimestampCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryMessageByTimestampCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	QueryMessageByTimestampCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -406,13 +462,21 @@ type KAFKAAPI interface {
 	ResetConsumedOffsetsWithContext(volcengine.Context, *ResetConsumedOffsetsInput, ...request.Option) (*ResetConsumedOffsetsOutput, error)
 	ResetConsumedOffsetsRequest(*ResetConsumedOffsetsInput) (*request.Request, *ResetConsumedOffsetsOutput)
 
-	UpdateMigrateTaskStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UpdateMigrateTaskStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UpdateMigrateTaskStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	RestartInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestartInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestartInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	UpdateMigrateTaskStatus(*UpdateMigrateTaskStatusInput) (*UpdateMigrateTaskStatusOutput, error)
-	UpdateMigrateTaskStatusWithContext(volcengine.Context, *UpdateMigrateTaskStatusInput, ...request.Option) (*UpdateMigrateTaskStatusOutput, error)
-	UpdateMigrateTaskStatusRequest(*UpdateMigrateTaskStatusInput) (*request.Request, *UpdateMigrateTaskStatusOutput)
+	RestartInstance(*RestartInstanceInput) (*RestartInstanceOutput, error)
+	RestartInstanceWithContext(volcengine.Context, *RestartInstanceInput, ...request.Option) (*RestartInstanceOutput, error)
+	RestartInstanceRequest(*RestartInstanceInput) (*request.Request, *RestartInstanceOutput)
+
+	VerifyImportGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VerifyImportGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VerifyImportGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VerifyImportGroups(*VerifyImportGroupsInput) (*VerifyImportGroupsOutput, error)
+	VerifyImportGroupsWithContext(volcengine.Context, *VerifyImportGroupsInput, ...request.Option) (*VerifyImportGroupsOutput, error)
+	VerifyImportGroupsRequest(*VerifyImportGroupsInput) (*request.Request, *VerifyImportGroupsOutput)
 
 	VerifyMigrateSubTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VerifyMigrateSubTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

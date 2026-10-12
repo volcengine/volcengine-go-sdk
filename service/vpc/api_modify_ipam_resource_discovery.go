@@ -142,12 +142,16 @@ func (c *VPC) ModifyIpamResourceDiscoveryWithContext(ctx volcengine.Context, inp
 type ModifyIpamResourceDiscoveryInput struct {
 	_ struct{} `type:"structure"`
 
+	AddOperatingRegions []*string `type:"list"`
+
 	Description *string `max:"255" type:"string"`
 
 	// IpamResourceDiscoveryId is a required field
 	IpamResourceDiscoveryId *string `type:"string" required:"true"`
 
 	IpamResourceDiscoveryName *string `min:"1" max:"128" type:"string"`
+
+	RemoveOperatingRegions []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -182,6 +186,12 @@ func (s *ModifyIpamResourceDiscoveryInput) Validate() error {
 	return nil
 }
 
+// SetAddOperatingRegions sets the AddOperatingRegions field's value.
+func (s *ModifyIpamResourceDiscoveryInput) SetAddOperatingRegions(v []*string) *ModifyIpamResourceDiscoveryInput {
+	s.AddOperatingRegions = v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *ModifyIpamResourceDiscoveryInput) SetDescription(v string) *ModifyIpamResourceDiscoveryInput {
 	s.Description = &v
@@ -200,10 +210,18 @@ func (s *ModifyIpamResourceDiscoveryInput) SetIpamResourceDiscoveryName(v string
 	return s
 }
 
+// SetRemoveOperatingRegions sets the RemoveOperatingRegions field's value.
+func (s *ModifyIpamResourceDiscoveryInput) SetRemoveOperatingRegions(v []*string) *ModifyIpamResourceDiscoveryInput {
+	s.RemoveOperatingRegions = v
+	return s
+}
+
 type ModifyIpamResourceDiscoveryOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	AsyncTaskId *string `type:"string"`
 
 	RequestId *string `type:"string"`
 }
@@ -216,6 +234,12 @@ func (s ModifyIpamResourceDiscoveryOutput) String() string {
 // GoString returns the string representation
 func (s ModifyIpamResourceDiscoveryOutput) GoString() string {
 	return s.String()
+}
+
+// SetAsyncTaskId sets the AsyncTaskId field's value.
+func (s *ModifyIpamResourceDiscoveryOutput) SetAsyncTaskId(v string) *ModifyIpamResourceDiscoveryOutput {
+	s.AsyncTaskId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.
