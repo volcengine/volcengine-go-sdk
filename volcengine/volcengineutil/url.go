@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
 )
 
 // Copy from https://github.com/aws/aws-sdk-go
@@ -241,6 +242,14 @@ func GetDefaultEndpointByServiceInfo(service string, regionCode string,
 	debug(logger, fmt.Sprintf("GetDefaultEndpointByServiceInfo start, service: %s, region: %s", service, regionCode))
 
 	resultEndpoint := endpoint
+
+	// service and region are concatenated into the host name below, reject
+	// anything that could alter the host structure and fall back to the
+	// fixed default endpoint.
+	if err := endpoints.ValidateServiceAndRegion(service, regionCode); err != nil {
+		debug(logger, fmt.Sprintf("invalid service or region, use default endpoint: %s, err: %v", resultEndpoint, err))
+		return &resultEndpoint
+	}
 
 	if !inBootstrapRegionList(regionCode, customBootstrapRegion) {
 		debug(logger, fmt.Sprintf("region %s not in bootstrap region list, use default endpoint: %s", regionCode, resultEndpoint))

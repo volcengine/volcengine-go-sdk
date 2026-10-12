@@ -79,6 +79,10 @@ func (p partition) canResolveEndpoint(service, region string, strictMatch bool) 
 }
 
 func (p partition) EndpointFor(service, region string, opts ...func(*Options)) (resolved ResolvedEndpoint, err error) {
+	if err = ValidateServiceAndRegion(service, region); err != nil {
+		return resolved, err
+	}
+
 	var opt Options
 	opt.Set(opts...)
 

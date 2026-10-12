@@ -178,3 +178,13 @@ func TestBuildAuthToken(t *testing.T) {
 		})
 	}
 }
+
+func TestBuildAuthTokenInvalidRegionReturnsError(t *testing.T) {
+	for _, region := range []string{"cn-beijing@127.0.0.1", "cn/beijing", "cn beijing", "cn\x00beijing", "evil.com"} {
+		sess := newTestSession(t, "ak", "sk", region, nil)
+		token, err := BuildAuthToken(context.Background(), sess, "user", "mysql-xxx", 0)
+		if err == nil {
+			t.Fatalf("region %q: expect error, got token %q", region, token)
+		}
+	}
+}

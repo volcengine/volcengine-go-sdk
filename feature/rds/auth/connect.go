@@ -74,6 +74,14 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 
 	req.SetContext(ctx)
 
+	// ClientConfig can not return an error, when the config can not be resolved
+	// (e.g. invalid region) the error is carried by its Validate handlers. Run
+	// them so that no token is built from an unresolved endpoint.
+	clientCfg.Handlers.Validate.Run(req)
+	if req.Error != nil {
+		return "", fmt.Errorf("unable to resolve client config: %w", req.Error)
+	}
+
 	// Set query params
 	q := req.HTTPRequest.URL.Query()
 	q.Set("Action", defaultAPI)

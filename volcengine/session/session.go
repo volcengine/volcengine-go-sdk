@@ -640,11 +640,39 @@ func (s *Session) Copy(cfgs ...*volcengine.Config) *Session {
 // configure the service client instances. Passing the Session to the service
 // client's constructor (New) will use this method to configure the client.
 func (s *Session) ClientConfig(serviceName string, cfgs ...*volcengine.Config) client.Config {
-	// Backwards compatibility, the error will be eaten if user calls ClientConfig
-	// directly. All SDK services will use ClientconfigWithError.
+	// The error can not be returned from this method, so it is carried by the
+	// returned client.Config instead: when the config can not be resolved, the
+	// returned Config is still safe to dereference and every request built from
+	// it fails with that error before anything is sent over the network.
 	cfg, _ := s.clientConfigWithErr(serviceName, cfgs...)
 
 	return cfg
+}
+
+// failedClientConfigHandlerName is the name of the handler which makes requests
+// fail with the error produced while resolving the client config.
+const failedClientConfigHandlerName = "session.FailedClientConfigHandler"
+
+// failedClientConfig returns a client.Config for the case that the config can
+// not be resolved. Generated service clients and the universal client
+// dereference client.Config.Config unconditionally, so returning an empty
+// client.Config would make them panic. Instead the returned config carries the
+// session config and a Validate handler, placed before any other one, that
+// fails every request with err. As the Validate handlers run before the Sign
+// and Send handlers, no request is sent over the network.
+func failedClientConfig(s *Session, err error) client.Config {
+	handlers := s.Handlers.Copy()
+	handlers.Validate.PushFrontNamed(request.NamedHandler{
+		Name: failedClientConfigHandlerName,
+		Fn: func(r *request.Request) {
+			r.Error = err
+		},
+	})
+
+	return client.Config{
+		Config:   s.Config,
+		Handlers: handlers,
+	}
 }
 
 func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Config) (client.Config, error) {
@@ -655,6 +683,12 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 	region := volcengine.StringValue(s.Config.Region)
 
 	if s.Config.Endpoint == nil {
+		// region and service are used to build the endpoint host, make sure
+		// they can not be used to inject a different host (SSRF).
+		if err := endpoints.ValidateServiceAndRegion(serviceName, region); err != nil {
+			return failedClientConfig(s, err), err
+		}
+
 		var endpoint *string
 		if s.Config.EndpointResolver != nil {
 			var opts []func(*endpoints.Options)
@@ -672,7 +706,7 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 			}
 			endpointFor, err := s.Config.EndpointResolver.EndpointFor(serviceName, region, opts...)
 			if err != nil {
-				return client.Config{}, err
+				return failedClientConfig(s, err), err
 			}
 			endpoint = &endpointFor.URL
 		} else {
@@ -710,7 +744,7 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 		}
 	}
 	if err != nil {
-		return client.Config{}, err
+		return failedClientConfig(s, err), err
 	}
 	if s.Config.HTTPClient.Transport == nil {
 		s.Config.HTTPClient.Transport = http.DefaultTransport.(*http.Transport).Clone()

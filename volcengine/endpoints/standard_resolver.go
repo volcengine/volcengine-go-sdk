@@ -309,6 +309,10 @@ func (r *StandardEndpointResolver) EndpointFor(service, region string,
 	var options Options
 	options.Set(opts...)
 
+	if err = ValidateServiceAndRegion(service, region); err != nil {
+		return resolvedEndpoint, err
+	}
+
 	if !regionMatcher.Validate(region) {
 		return resolvedEndpoint, volcengineerr.New("InvalidRegion",
 			fmt.Sprintf("invalid region %s for standard endpoint resolver, "+
