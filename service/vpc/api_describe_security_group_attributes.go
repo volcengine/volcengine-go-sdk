@@ -368,6 +368,8 @@ type PermissionForDescribeSecurityGroupAttributesOutput struct {
 
 	Protocol *string `type:"string"`
 
+	SecurityGroupRuleId *string `type:"string"`
+
 	SourceGroupId *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -446,6 +448,12 @@ func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPriority(v int64
 // SetProtocol sets the Protocol field's value.
 func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetProtocol(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
 	s.Protocol = &v
+	return s
+}
+
+// SetSecurityGroupRuleId sets the SecurityGroupRuleId field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetSecurityGroupRuleId(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.SecurityGroupRuleId = &v
 	return s
 }
 
