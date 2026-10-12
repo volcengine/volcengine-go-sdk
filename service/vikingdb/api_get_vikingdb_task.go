@@ -366,6 +366,8 @@ type TaskProcessInfoForGetVikingdbTaskOutput struct {
 
 	ErrorMessage *string `type:"string" json:",omitempty"`
 
+	EstimatedRemainingTime *string `type:"string" json:",omitempty"`
+
 	SampleData []interface{} `type:"list" json:",omitempty"`
 
 	SampleTimestamp *int64 `type:"int64" json:",omitempty"`
@@ -392,6 +394,12 @@ func (s TaskProcessInfoForGetVikingdbTaskOutput) GoString() string {
 // SetErrorMessage sets the ErrorMessage field's value.
 func (s *TaskProcessInfoForGetVikingdbTaskOutput) SetErrorMessage(v string) *TaskProcessInfoForGetVikingdbTaskOutput {
 	s.ErrorMessage = &v
+	return s
+}
+
+// SetEstimatedRemainingTime sets the EstimatedRemainingTime field's value.
+func (s *TaskProcessInfoForGetVikingdbTaskOutput) SetEstimatedRemainingTime(v string) *TaskProcessInfoForGetVikingdbTaskOutput {
+	s.EstimatedRemainingTime = &v
 	return s
 }
 
