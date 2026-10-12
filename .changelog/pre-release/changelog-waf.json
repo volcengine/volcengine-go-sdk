@@ -1,0 +1,8 @@
+{
+  "actions": [
+    "ListWafInstances"
+  ],
+  "description": "WAF: 新增 ListWafInstances",
+  "modules": "service/waf",
+  "type": "feature"
+}
