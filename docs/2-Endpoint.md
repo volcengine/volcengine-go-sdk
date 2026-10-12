@@ -10,6 +10,15 @@
 
 ### Custom Endpoint
 
+`volcengine.Config.Endpoint` (`WithEndpoint`) configures the business service address;
+it does not configure the STS address used to obtain credentials. STS AssumeRole
+defaults to `sts.volcengineapi.com`. Set the provider's `Host` or an independent
+`credentials.STSConfig.Host` to override it. The provider's `Host` takes precedence,
+and an empty `STSConfig.Host` preserves the previously bound STS host.
+OIDC/SAML use their own provider's `Endpoint`. Overriding the business endpoint
+when creating a session, copying it, or creating a service client does not change
+these STS addresses.
+
 ```go
 func main() {
 	region := "cn-beijing"
