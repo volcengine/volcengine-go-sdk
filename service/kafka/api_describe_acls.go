@@ -318,7 +318,7 @@ type DescribeAclsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Acls []*AclForDescribeAclsOutput `type:"list" json:",omitempty"`
+	Acls []*AclForDescribeAclsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }

@@ -154,7 +154,7 @@ type CreateGroupInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Tags []*TagForCreateGroupInput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateGroupInput `type:"list"`
 }
 
 // String returns the string representation

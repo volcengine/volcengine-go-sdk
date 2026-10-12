@@ -238,6 +238,8 @@ type DescribeInstancesInput struct {
 
 	Project *string `type:"string" json:",omitempty"`
 
+	TagFilters []*TagFilterForDescribeInstancesInput `type:"list"`
+
 	Tags map[string][]*string `type:"map" json:",omitempty"`
 
 	ZoneId *string `type:"string" json:",omitempty"`
@@ -305,6 +307,12 @@ func (s *DescribeInstancesInput) SetProject(v string) *DescribeInstancesInput {
 	return s
 }
 
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeInstancesInput) SetTagFilters(v []*TagFilterForDescribeInstancesInput) *DescribeInstancesInput {
+	s.TagFilters = v
+	return s
+}
+
 // SetTags sets the Tags field's value.
 func (s *DescribeInstancesInput) SetTags(v map[string][]*string) *DescribeInstancesInput {
 	s.Tags = v
@@ -322,7 +330,7 @@ type DescribeInstancesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InstancesInfo []*InstancesInfoForDescribeInstancesOutput `type:"list" json:",omitempty"`
+	InstancesInfo []*InstancesInfoForDescribeInstancesOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
@@ -354,13 +362,29 @@ type InstancesInfoForDescribeInstancesOutput struct {
 
 	AccountId *string `type:"string" json:",omitempty"`
 
+	AutoUseGroup *bool `type:"boolean" json:",omitempty"`
+
+	AutoUseTopic *bool `type:"boolean" json:",omitempty"`
+
 	ChargeDetail *ChargeDetailForDescribeInstancesOutput `type:"structure" json:",omitempty"`
 
 	ComputeSpec *string `type:"string" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
+	DefaultPartitionNumber *int32 `type:"int32" json:",omitempty"`
+
+	DefaultReplicaFactor *int32 `type:"int32" json:",omitempty"`
+
+	DiskEncrypted *bool `type:"boolean" json:",omitempty"`
+
+	DynamicModifyAutoTopicParameter *bool `type:"boolean" json:",omitempty"`
+
+	DynamicPlainUser *bool `type:"boolean" json:",omitempty"`
+
 	EipId *string `type:"string" json:",omitempty"`
+
+	HighRead *bool `type:"boolean" json:",omitempty"`
 
 	InstanceDescription *string `type:"string" json:",omitempty"`
 
@@ -370,9 +394,17 @@ type InstancesInfoForDescribeInstancesOutput struct {
 
 	InstanceStatus *string `type:"string" json:",omitempty"`
 
+	IsNewService *bool `type:"boolean" json:",omitempty"`
+
+	MinorVersion *int32 `type:"int32" json:",omitempty"`
+
 	PrivateDomainOnPublic *bool `type:"boolean" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	ReadBandwidth *int32 `type:"int32" json:",omitempty"`
+
+	ReadWriteRatio *int32 `type:"int32" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
 
@@ -382,11 +414,15 @@ type InstancesInfoForDescribeInstancesOutput struct {
 
 	SubnetId *string `type:"string" json:",omitempty"`
 
+	TagInfos []*TagInfoForDescribeInstancesOutput `type:"list"`
+
 	Tags map[string]*string `type:"map" json:",omitempty"`
 
 	UsableGroupNumber *int32 `type:"int32" json:",omitempty"`
 
 	UsablePartitionNumber *int32 `type:"int32" json:",omitempty"`
+
+	UsableTopicNumber *int32 `type:"int32" json:",omitempty"`
 
 	UsedGroupNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -399,6 +435,8 @@ type InstancesInfoForDescribeInstancesOutput struct {
 	Version *string `type:"string" json:",omitempty"`
 
 	VpcId *string `type:"string" json:",omitempty"`
+
+	WriteBandwidth *int32 `type:"int32" json:",omitempty"`
 
 	ZoneId *string `type:"string" json:",omitempty"`
 }
@@ -416,6 +454,18 @@ func (s InstancesInfoForDescribeInstancesOutput) GoString() string {
 // SetAccountId sets the AccountId field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetAccountId(v string) *InstancesInfoForDescribeInstancesOutput {
 	s.AccountId = &v
+	return s
+}
+
+// SetAutoUseGroup sets the AutoUseGroup field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetAutoUseGroup(v bool) *InstancesInfoForDescribeInstancesOutput {
+	s.AutoUseGroup = &v
+	return s
+}
+
+// SetAutoUseTopic sets the AutoUseTopic field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetAutoUseTopic(v bool) *InstancesInfoForDescribeInstancesOutput {
+	s.AutoUseTopic = &v
 	return s
 }
 
@@ -437,9 +487,45 @@ func (s *InstancesInfoForDescribeInstancesOutput) SetCreateTime(v string) *Insta
 	return s
 }
 
+// SetDefaultPartitionNumber sets the DefaultPartitionNumber field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetDefaultPartitionNumber(v int32) *InstancesInfoForDescribeInstancesOutput {
+	s.DefaultPartitionNumber = &v
+	return s
+}
+
+// SetDefaultReplicaFactor sets the DefaultReplicaFactor field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetDefaultReplicaFactor(v int32) *InstancesInfoForDescribeInstancesOutput {
+	s.DefaultReplicaFactor = &v
+	return s
+}
+
+// SetDiskEncrypted sets the DiskEncrypted field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetDiskEncrypted(v bool) *InstancesInfoForDescribeInstancesOutput {
+	s.DiskEncrypted = &v
+	return s
+}
+
+// SetDynamicModifyAutoTopicParameter sets the DynamicModifyAutoTopicParameter field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetDynamicModifyAutoTopicParameter(v bool) *InstancesInfoForDescribeInstancesOutput {
+	s.DynamicModifyAutoTopicParameter = &v
+	return s
+}
+
+// SetDynamicPlainUser sets the DynamicPlainUser field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetDynamicPlainUser(v bool) *InstancesInfoForDescribeInstancesOutput {
+	s.DynamicPlainUser = &v
+	return s
+}
+
 // SetEipId sets the EipId field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetEipId(v string) *InstancesInfoForDescribeInstancesOutput {
 	s.EipId = &v
+	return s
+}
+
+// SetHighRead sets the HighRead field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetHighRead(v bool) *InstancesInfoForDescribeInstancesOutput {
+	s.HighRead = &v
 	return s
 }
 
@@ -467,6 +553,18 @@ func (s *InstancesInfoForDescribeInstancesOutput) SetInstanceStatus(v string) *I
 	return s
 }
 
+// SetIsNewService sets the IsNewService field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetIsNewService(v bool) *InstancesInfoForDescribeInstancesOutput {
+	s.IsNewService = &v
+	return s
+}
+
+// SetMinorVersion sets the MinorVersion field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetMinorVersion(v int32) *InstancesInfoForDescribeInstancesOutput {
+	s.MinorVersion = &v
+	return s
+}
+
 // SetPrivateDomainOnPublic sets the PrivateDomainOnPublic field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetPrivateDomainOnPublic(v bool) *InstancesInfoForDescribeInstancesOutput {
 	s.PrivateDomainOnPublic = &v
@@ -476,6 +574,18 @@ func (s *InstancesInfoForDescribeInstancesOutput) SetPrivateDomainOnPublic(v boo
 // SetProjectName sets the ProjectName field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetProjectName(v string) *InstancesInfoForDescribeInstancesOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetReadBandwidth sets the ReadBandwidth field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetReadBandwidth(v int32) *InstancesInfoForDescribeInstancesOutput {
+	s.ReadBandwidth = &v
+	return s
+}
+
+// SetReadWriteRatio sets the ReadWriteRatio field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetReadWriteRatio(v int32) *InstancesInfoForDescribeInstancesOutput {
+	s.ReadWriteRatio = &v
 	return s
 }
 
@@ -503,6 +613,12 @@ func (s *InstancesInfoForDescribeInstancesOutput) SetSubnetId(v string) *Instanc
 	return s
 }
 
+// SetTagInfos sets the TagInfos field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetTagInfos(v []*TagInfoForDescribeInstancesOutput) *InstancesInfoForDescribeInstancesOutput {
+	s.TagInfos = v
+	return s
+}
+
 // SetTags sets the Tags field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetTags(v map[string]*string) *InstancesInfoForDescribeInstancesOutput {
 	s.Tags = v
@@ -518,6 +634,12 @@ func (s *InstancesInfoForDescribeInstancesOutput) SetUsableGroupNumber(v int32) 
 // SetUsablePartitionNumber sets the UsablePartitionNumber field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetUsablePartitionNumber(v int32) *InstancesInfoForDescribeInstancesOutput {
 	s.UsablePartitionNumber = &v
+	return s
+}
+
+// SetUsableTopicNumber sets the UsableTopicNumber field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetUsableTopicNumber(v int32) *InstancesInfoForDescribeInstancesOutput {
+	s.UsableTopicNumber = &v
 	return s
 }
 
@@ -557,8 +679,74 @@ func (s *InstancesInfoForDescribeInstancesOutput) SetVpcId(v string) *InstancesI
 	return s
 }
 
+// SetWriteBandwidth sets the WriteBandwidth field's value.
+func (s *InstancesInfoForDescribeInstancesOutput) SetWriteBandwidth(v int32) *InstancesInfoForDescribeInstancesOutput {
+	s.WriteBandwidth = &v
+	return s
+}
+
 // SetZoneId sets the ZoneId field's value.
 func (s *InstancesInfoForDescribeInstancesOutput) SetZoneId(v string) *InstancesInfoForDescribeInstancesOutput {
 	s.ZoneId = &v
+	return s
+}
+
+type TagFilterForDescribeInstancesInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeInstancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeInstancesInput) SetKey(v string) *TagFilterForDescribeInstancesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeInstancesInput) SetValues(v []*string) *TagFilterForDescribeInstancesInput {
+	s.Values = v
+	return s
+}
+
+type TagInfoForDescribeInstancesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TagInfoForDescribeInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagInfoForDescribeInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagInfoForDescribeInstancesOutput) SetKey(v string) *TagInfoForDescribeInstancesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagInfoForDescribeInstancesOutput) SetValue(v string) *TagInfoForDescribeInstancesOutput {
+	s.Value = &v
 	return s
 }

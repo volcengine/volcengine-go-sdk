@@ -153,6 +153,8 @@ type CreateAllowListInput struct {
 
 	// AllowListName is a required field
 	AllowListName *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,6 +198,12 @@ func (s *CreateAllowListInput) SetAllowListDesc(v string) *CreateAllowListInput 
 // SetAllowListName sets the AllowListName field's value.
 func (s *CreateAllowListInput) SetAllowListName(v string) *CreateAllowListInput {
 	s.AllowListName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateAllowListInput) SetProjectName(v string) *CreateAllowListInput {
+	s.ProjectName = &v
 	return s
 }
 

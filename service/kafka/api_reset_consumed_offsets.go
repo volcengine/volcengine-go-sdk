@@ -152,7 +152,7 @@ type ResetConsumedOffsetsInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ResetOffsetsInfo []*ResetOffsetsInfoForResetConsumedOffsetsInput `type:"list" json:",omitempty"`
+	ResetOffsetsInfo []*ResetOffsetsInfoForResetConsumedOffsetsInput `type:"list"`
 }
 
 // String returns the string representation

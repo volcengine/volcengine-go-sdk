@@ -157,7 +157,15 @@ type DescribeGroupsInput struct {
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	TagFilters []*TagFilterForDescribeGroupsInput `type:"list" json:",omitempty"`
+	SortBy *string `type:"string" json:",omitempty"`
+
+	SortOrder *string `type:"string" json:",omitempty"`
+
+	State *string `type:"string" json:",omitempty"`
+
+	TagFilters []*TagFilterForDescribeGroupsInput `type:"list"`
+
+	Topic *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -213,9 +221,33 @@ func (s *DescribeGroupsInput) SetPageSize(v int32) *DescribeGroupsInput {
 	return s
 }
 
+// SetSortBy sets the SortBy field's value.
+func (s *DescribeGroupsInput) SetSortBy(v string) *DescribeGroupsInput {
+	s.SortBy = &v
+	return s
+}
+
+// SetSortOrder sets the SortOrder field's value.
+func (s *DescribeGroupsInput) SetSortOrder(v string) *DescribeGroupsInput {
+	s.SortOrder = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *DescribeGroupsInput) SetState(v string) *DescribeGroupsInput {
+	s.State = &v
+	return s
+}
+
 // SetTagFilters sets the TagFilters field's value.
 func (s *DescribeGroupsInput) SetTagFilters(v []*TagFilterForDescribeGroupsInput) *DescribeGroupsInput {
 	s.TagFilters = v
+	return s
+}
+
+// SetTopic sets the Topic field's value.
+func (s *DescribeGroupsInput) SetTopic(v string) *DescribeGroupsInput {
+	s.Topic = &v
 	return s
 }
 
@@ -224,7 +256,7 @@ type DescribeGroupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	GroupsInfo []*GroupsInfoForDescribeGroupsOutput `type:"list" json:",omitempty"`
+	GroupsInfo []*GroupsInfoForDescribeGroupsOutput `type:"list"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
 }
@@ -264,7 +296,7 @@ type GroupsInfoForDescribeGroupsOutput struct {
 
 	State *string `type:"string" json:",omitempty"`
 
-	Tags []*TagForDescribeGroupsOutput `type:"list" json:",omitempty"`
+	Tags []*TagForDescribeGroupsOutput `type:"list"`
 }
 
 // String returns the string representation
