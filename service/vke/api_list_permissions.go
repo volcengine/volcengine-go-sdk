@@ -467,8 +467,8 @@ const (
 	// EnumOfGranteeTypeForListPermissionsInputRole is a EnumOfGranteeTypeForListPermissionsInput enum value
 	EnumOfGranteeTypeForListPermissionsInputRole = "Role"
 
-	// EnumOfGranteeTypeForListPermissionsInputAccount is a EnumOfGranteeTypeForListPermissionsInput enum value
-	EnumOfGranteeTypeForListPermissionsInputAccount = "Account"
+	// EnumOfGranteeTypeForListPermissionsInputAll is a EnumOfGranteeTypeForListPermissionsInput enum value
+	EnumOfGranteeTypeForListPermissionsInputAll = "All"
 )
 
 const (

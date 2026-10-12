@@ -268,9 +268,13 @@ func (s *ConditionForListNodePoolsOutput) SetType(v string) *ConditionForListNod
 type ContainerdConfigForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InsecureRegistries []*string `type:"list" json:",omitempty"`
+	ConcurrentLayerFetchBuffer *int32 `type:"int32" json:",omitempty"`
 
-	RegistryProxyConfigs []*RegistryProxyConfigForListNodePoolsOutput `type:"list" json:",omitempty"`
+	MaxConcurrentDownloads *int32 `type:"int32" json:",omitempty"`
+
+	MaxConcurrentUnpacks *int32 `type:"int32" json:",omitempty"`
+
+	UseLocalImagePull *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -283,15 +287,27 @@ func (s ContainerdConfigForListNodePoolsOutput) GoString() string {
 	return s.String()
 }
 
-// SetInsecureRegistries sets the InsecureRegistries field's value.
-func (s *ContainerdConfigForListNodePoolsOutput) SetInsecureRegistries(v []*string) *ContainerdConfigForListNodePoolsOutput {
-	s.InsecureRegistries = v
+// SetConcurrentLayerFetchBuffer sets the ConcurrentLayerFetchBuffer field's value.
+func (s *ContainerdConfigForListNodePoolsOutput) SetConcurrentLayerFetchBuffer(v int32) *ContainerdConfigForListNodePoolsOutput {
+	s.ConcurrentLayerFetchBuffer = &v
 	return s
 }
 
-// SetRegistryProxyConfigs sets the RegistryProxyConfigs field's value.
-func (s *ContainerdConfigForListNodePoolsOutput) SetRegistryProxyConfigs(v []*RegistryProxyConfigForListNodePoolsOutput) *ContainerdConfigForListNodePoolsOutput {
-	s.RegistryProxyConfigs = v
+// SetMaxConcurrentDownloads sets the MaxConcurrentDownloads field's value.
+func (s *ContainerdConfigForListNodePoolsOutput) SetMaxConcurrentDownloads(v int32) *ContainerdConfigForListNodePoolsOutput {
+	s.MaxConcurrentDownloads = &v
+	return s
+}
+
+// SetMaxConcurrentUnpacks sets the MaxConcurrentUnpacks field's value.
+func (s *ContainerdConfigForListNodePoolsOutput) SetMaxConcurrentUnpacks(v int32) *ContainerdConfigForListNodePoolsOutput {
+	s.MaxConcurrentUnpacks = &v
+	return s
+}
+
+// SetUseLocalImagePull sets the UseLocalImagePull field's value.
+func (s *ContainerdConfigForListNodePoolsOutput) SetUseLocalImagePull(v bool) *ContainerdConfigForListNodePoolsOutput {
+	s.UseLocalImagePull = &v
 	return s
 }
 
@@ -1565,36 +1581,6 @@ func (s *PublicAccessConfigForListNodePoolsOutput) SetIsp(v string) *PublicAcces
 	return s
 }
 
-type RegistryProxyConfigForListNodePoolsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	ProxyEndpoints []*string `type:"list" json:",omitempty"`
-
-	Registry *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s RegistryProxyConfigForListNodePoolsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s RegistryProxyConfigForListNodePoolsOutput) GoString() string {
-	return s.String()
-}
-
-// SetProxyEndpoints sets the ProxyEndpoints field's value.
-func (s *RegistryProxyConfigForListNodePoolsOutput) SetProxyEndpoints(v []*string) *RegistryProxyConfigForListNodePoolsOutput {
-	s.ProxyEndpoints = v
-	return s
-}
-
-// SetRegistry sets the Registry field's value.
-func (s *RegistryProxyConfigForListNodePoolsOutput) SetRegistry(v string) *RegistryProxyConfigForListNodePoolsOutput {
-	s.Registry = &v
-	return s
-}
-
 type RemedyConfigForListNodePoolsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1826,6 +1812,12 @@ type SystemVolumeForListNodePoolsOutput struct {
 
 	BurstEnabled *bool `type:"boolean" json:",omitempty"`
 
+	ExtraPerformanceIops *int32 `type:"int32" json:",omitempty"`
+
+	ExtraPerformanceThroughputMb *int32 `type:"int32" json:",omitempty"`
+
+	ExtraPerformanceTypeId *string `type:"string" json:",omitempty" enum:"EnumOfExtraPerformanceTypeIdForListNodePoolsOutput"`
+
 	PlacementGroupId *string `type:"string" json:",omitempty"`
 
 	Size *int32 `type:"int32" json:",omitempty"`
@@ -1848,6 +1840,24 @@ func (s SystemVolumeForListNodePoolsOutput) GoString() string {
 // SetBurstEnabled sets the BurstEnabled field's value.
 func (s *SystemVolumeForListNodePoolsOutput) SetBurstEnabled(v bool) *SystemVolumeForListNodePoolsOutput {
 	s.BurstEnabled = &v
+	return s
+}
+
+// SetExtraPerformanceIops sets the ExtraPerformanceIops field's value.
+func (s *SystemVolumeForListNodePoolsOutput) SetExtraPerformanceIops(v int32) *SystemVolumeForListNodePoolsOutput {
+	s.ExtraPerformanceIops = &v
+	return s
+}
+
+// SetExtraPerformanceThroughputMb sets the ExtraPerformanceThroughputMb field's value.
+func (s *SystemVolumeForListNodePoolsOutput) SetExtraPerformanceThroughputMb(v int32) *SystemVolumeForListNodePoolsOutput {
+	s.ExtraPerformanceThroughputMb = &v
+	return s
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *SystemVolumeForListNodePoolsOutput) SetExtraPerformanceTypeId(v string) *SystemVolumeForListNodePoolsOutput {
+	s.ExtraPerformanceTypeId = &v
 	return s
 }
 
