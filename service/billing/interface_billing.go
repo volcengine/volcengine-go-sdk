@@ -222,6 +222,14 @@ type BILLINGAPI interface {
 	ListBudgetFilterBillingModeWithContext(volcengine.Context, *ListBudgetFilterBillingModeInput, ...request.Option) (*ListBudgetFilterBillingModeOutput, error)
 	ListBudgetFilterBillingModeRequest(*ListBudgetFilterBillingModeInput) (*request.Request, *ListBudgetFilterBillingModeOutput)
 
+	ListBudgetFilterConfigurationInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBudgetFilterConfigurationInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBudgetFilterConfigurationInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBudgetFilterConfigurationInfo(*ListBudgetFilterConfigurationInfoInput) (*ListBudgetFilterConfigurationInfoOutput, error)
+	ListBudgetFilterConfigurationInfoWithContext(volcengine.Context, *ListBudgetFilterConfigurationInfoInput, ...request.Option) (*ListBudgetFilterConfigurationInfoOutput, error)
+	ListBudgetFilterConfigurationInfoRequest(*ListBudgetFilterConfigurationInfoInput) (*request.Request, *ListBudgetFilterConfigurationInfoOutput)
+
 	ListBudgetFilterOwnerIDCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListBudgetFilterOwnerIDCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListBudgetFilterOwnerIDCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -413,6 +421,22 @@ type BILLINGAPI interface {
 	QueryBudgetDetail(*QueryBudgetDetailInput) (*QueryBudgetDetailOutput, error)
 	QueryBudgetDetailWithContext(volcengine.Context, *QueryBudgetDetailInput, ...request.Option) (*QueryBudgetDetailOutput, error)
 	QueryBudgetDetailRequest(*QueryBudgetDetailInput) (*request.Request, *QueryBudgetDetailOutput)
+
+	QueryBudgetSplitItemIDCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryBudgetSplitItemIDCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryBudgetSplitItemIDCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryBudgetSplitItemID(*QueryBudgetSplitItemIDInput) (*QueryBudgetSplitItemIDOutput, error)
+	QueryBudgetSplitItemIDWithContext(volcengine.Context, *QueryBudgetSplitItemIDInput, ...request.Option) (*QueryBudgetSplitItemIDOutput, error)
+	QueryBudgetSplitItemIDRequest(*QueryBudgetSplitItemIDInput) (*request.Request, *QueryBudgetSplitItemIDOutput)
+
+	QueryBudgetSplitItemNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryBudgetSplitItemNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryBudgetSplitItemNameCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryBudgetSplitItemName(*QueryBudgetSplitItemNameInput) (*QueryBudgetSplitItemNameOutput, error)
+	QueryBudgetSplitItemNameWithContext(volcengine.Context, *QueryBudgetSplitItemNameInput, ...request.Option) (*QueryBudgetSplitItemNameOutput, error)
+	QueryBudgetSplitItemNameRequest(*QueryBudgetSplitItemNameInput) (*request.Request, *QueryBudgetSplitItemNameOutput)
 
 	QueryPriceForPayAsYouGoCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryPriceForPayAsYouGoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
