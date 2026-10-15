@@ -209,9 +209,9 @@ type CreateExportTaskInput struct {
 	// ClusterId is a required field
 	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
 	ExportOptions *ExportOptionsForCreateExportTaskInput `type:"structure" json:",omitempty"`
+
+	ExportTaskName *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -247,15 +247,15 @@ func (s *CreateExportTaskInput) SetClusterId(v string) *CreateExportTaskInput {
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *CreateExportTaskInput) SetDisplayName(v string) *CreateExportTaskInput {
-	s.DisplayName = &v
-	return s
-}
-
 // SetExportOptions sets the ExportOptions field's value.
 func (s *CreateExportTaskInput) SetExportOptions(v *ExportOptionsForCreateExportTaskInput) *CreateExportTaskInput {
 	s.ExportOptions = v
+	return s
+}
+
+// SetExportTaskName sets the ExportTaskName field's value.
+func (s *CreateExportTaskInput) SetExportTaskName(v string) *CreateExportTaskInput {
+	s.ExportTaskName = &v
 	return s
 }
 
@@ -504,15 +504,13 @@ type Export_ForCreateExportTaskOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
 	ExpireTime *string `type:"string" json:",omitempty"`
 
 	ExportId *string `type:"string" json:",omitempty"`
 
 	ExportOptions *ExportOptionsForCreateExportTaskOutput `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
+	ExportTaskName *string `type:"string" json:",omitempty"`
 
 	Reason *string `type:"string" json:",omitempty"`
 
@@ -553,12 +551,6 @@ func (s *Export_ForCreateExportTaskOutput) SetCreateTime(v string) *Export_ForCr
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *Export_ForCreateExportTaskOutput) SetDisplayName(v string) *Export_ForCreateExportTaskOutput {
-	s.DisplayName = &v
-	return s
-}
-
 // SetExpireTime sets the ExpireTime field's value.
 func (s *Export_ForCreateExportTaskOutput) SetExpireTime(v string) *Export_ForCreateExportTaskOutput {
 	s.ExpireTime = &v
@@ -577,9 +569,9 @@ func (s *Export_ForCreateExportTaskOutput) SetExportOptions(v *ExportOptionsForC
 	return s
 }
 
-// SetName sets the Name field's value.
-func (s *Export_ForCreateExportTaskOutput) SetName(v string) *Export_ForCreateExportTaskOutput {
-	s.Name = &v
+// SetExportTaskName sets the ExportTaskName field's value.
+func (s *Export_ForCreateExportTaskOutput) SetExportTaskName(v string) *Export_ForCreateExportTaskOutput {
+	s.ExportTaskName = &v
 	return s
 }
 

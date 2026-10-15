@@ -362,15 +362,13 @@ type Export_ForCancelExportTaskOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
 	ExpireTime *string `type:"string" json:",omitempty"`
 
 	ExportId *string `type:"string" json:",omitempty"`
 
 	ExportOptions *ExportOptionsForCancelExportTaskOutput `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
+	ExportTaskName *string `type:"string" json:",omitempty"`
 
 	Reason *string `type:"string" json:",omitempty"`
 
@@ -411,12 +409,6 @@ func (s *Export_ForCancelExportTaskOutput) SetCreateTime(v string) *Export_ForCa
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *Export_ForCancelExportTaskOutput) SetDisplayName(v string) *Export_ForCancelExportTaskOutput {
-	s.DisplayName = &v
-	return s
-}
-
 // SetExpireTime sets the ExpireTime field's value.
 func (s *Export_ForCancelExportTaskOutput) SetExpireTime(v string) *Export_ForCancelExportTaskOutput {
 	s.ExpireTime = &v
@@ -435,9 +427,9 @@ func (s *Export_ForCancelExportTaskOutput) SetExportOptions(v *ExportOptionsForC
 	return s
 }
 
-// SetName sets the Name field's value.
-func (s *Export_ForCancelExportTaskOutput) SetName(v string) *Export_ForCancelExportTaskOutput {
-	s.Name = &v
+// SetExportTaskName sets the ExportTaskName field's value.
+func (s *Export_ForCancelExportTaskOutput) SetExportTaskName(v string) *Export_ForCancelExportTaskOutput {
+	s.ExportTaskName = &v
 	return s
 }
 

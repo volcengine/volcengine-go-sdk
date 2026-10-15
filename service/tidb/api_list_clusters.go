@@ -206,7 +206,7 @@ func (s *AuditLogConfigForListClustersOutput) SetUnredacted(v bool) *AuditLogCon
 type AuthorizedNetworkForListClustersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
@@ -225,9 +225,9 @@ func (s AuthorizedNetworkForListClustersOutput) GoString() string {
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *AuthorizedNetworkForListClustersOutput) SetDisplayName(v string) *AuthorizedNetworkForListClustersOutput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *AuthorizedNetworkForListClustersOutput) SetAuthorizedNetworkName(v string) *AuthorizedNetworkForListClustersOutput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 
@@ -312,6 +312,8 @@ func (s *AutomatedBackupPolicyForListClustersOutput) SetStartTime(v string) *Aut
 type ClusterForListClustersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccountId *string `type:"string" json:",omitempty"`
+
 	Annotations []*AnnotationForListClustersOutput `type:"list"`
 
 	AuditLogConfig *AuditLogConfigForListClustersOutput `type:"structure" json:",omitempty"`
@@ -322,9 +324,9 @@ type ClusterForListClustersOutput struct {
 
 	ClusterId *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string" json:",omitempty"`
+	ClusterName *string `type:"string" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
 	EncryptionConfig *EncryptionConfigForListClustersOutput `type:"structure" json:",omitempty"`
 
@@ -333,8 +335,6 @@ type ClusterForListClustersOutput struct {
 	HighAvailabilityType *string `type:"string" json:",omitempty" enum:"EnumOfHighAvailabilityTypeForListClustersOutput"`
 
 	Labels []*LabelForListClustersOutput `type:"list"`
-
-	Name *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -369,6 +369,12 @@ func (s ClusterForListClustersOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *ClusterForListClustersOutput) SetAccountId(v string) *ClusterForListClustersOutput {
+	s.AccountId = &v
+	return s
+}
+
 // SetAnnotations sets the Annotations field's value.
 func (s *ClusterForListClustersOutput) SetAnnotations(v []*AnnotationForListClustersOutput) *ClusterForListClustersOutput {
 	s.Annotations = v
@@ -399,15 +405,15 @@ func (s *ClusterForListClustersOutput) SetClusterId(v string) *ClusterForListClu
 	return s
 }
 
-// SetCreateTime sets the CreateTime field's value.
-func (s *ClusterForListClustersOutput) SetCreateTime(v string) *ClusterForListClustersOutput {
-	s.CreateTime = &v
+// SetClusterName sets the ClusterName field's value.
+func (s *ClusterForListClustersOutput) SetClusterName(v string) *ClusterForListClustersOutput {
+	s.ClusterName = &v
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ClusterForListClustersOutput) SetDisplayName(v string) *ClusterForListClustersOutput {
-	s.DisplayName = &v
+// SetCreateTime sets the CreateTime field's value.
+func (s *ClusterForListClustersOutput) SetCreateTime(v string) *ClusterForListClustersOutput {
+	s.CreateTime = &v
 	return s
 }
 
@@ -432,12 +438,6 @@ func (s *ClusterForListClustersOutput) SetHighAvailabilityType(v string) *Cluste
 // SetLabels sets the Labels field's value.
 func (s *ClusterForListClustersOutput) SetLabels(v []*LabelForListClustersOutput) *ClusterForListClustersOutput {
 	s.Labels = v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *ClusterForListClustersOutput) SetName(v string) *ClusterForListClustersOutput {
-	s.Name = &v
 	return s
 }
 
@@ -510,7 +510,7 @@ func (s *ClusterForListClustersOutput) SetZones(v []*ZoneForListClustersOutput) 
 type ConvertAuthorizedNetworkForListClustersOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	EndIpAddress *string `type:"string" json:",omitempty"`
 
@@ -527,9 +527,9 @@ func (s ConvertAuthorizedNetworkForListClustersOutput) GoString() string {
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ConvertAuthorizedNetworkForListClustersOutput) SetDisplayName(v string) *ConvertAuthorizedNetworkForListClustersOutput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *ConvertAuthorizedNetworkForListClustersOutput) SetAuthorizedNetworkName(v string) *ConvertAuthorizedNetworkForListClustersOutput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 

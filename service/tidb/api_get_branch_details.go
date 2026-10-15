@@ -176,7 +176,7 @@ func (s *AnnotationForGetBranchDetailsOutput) SetValue(v string) *AnnotationForG
 type AuthorizedNetworkForGetBranchDetailsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
@@ -195,9 +195,9 @@ func (s AuthorizedNetworkForGetBranchDetailsOutput) GoString() string {
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *AuthorizedNetworkForGetBranchDetailsOutput) SetDisplayName(v string) *AuthorizedNetworkForGetBranchDetailsOutput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *AuthorizedNetworkForGetBranchDetailsOutput) SetAuthorizedNetworkName(v string) *AuthorizedNetworkForGetBranchDetailsOutput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 
@@ -237,8 +237,6 @@ type BranchForGetBranchDetailsOutput struct {
 	Endpoints *EndpointsForGetBranchDetailsOutput `type:"structure" json:",omitempty"`
 
 	HasSetPwd *bool `type:"boolean" json:",omitempty"`
-
-	Name *string `type:"string" json:",omitempty"`
 
 	ParentDisplayName *string `type:"string" json:",omitempty"`
 
@@ -315,12 +313,6 @@ func (s *BranchForGetBranchDetailsOutput) SetHasSetPwd(v bool) *BranchForGetBran
 	return s
 }
 
-// SetName sets the Name field's value.
-func (s *BranchForGetBranchDetailsOutput) SetName(v string) *BranchForGetBranchDetailsOutput {
-	s.Name = &v
-	return s
-}
-
 // SetParentDisplayName sets the ParentDisplayName field's value.
 func (s *BranchForGetBranchDetailsOutput) SetParentDisplayName(v string) *BranchForGetBranchDetailsOutput {
 	s.ParentDisplayName = &v
@@ -369,50 +361,10 @@ func (s *BranchForGetBranchDetailsOutput) SetUserPrefix(v string) *BranchForGetB
 	return s
 }
 
-type ConvertAuthorizedNetworkForGetBranchDetailsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	DisplayName *string `type:"string" json:",omitempty"`
-
-	EndIpAddress *string `type:"string" json:",omitempty"`
-
-	StartIpAddress *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s ConvertAuthorizedNetworkForGetBranchDetailsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ConvertAuthorizedNetworkForGetBranchDetailsOutput) GoString() string {
-	return s.String()
-}
-
-// SetDisplayName sets the DisplayName field's value.
-func (s *ConvertAuthorizedNetworkForGetBranchDetailsOutput) SetDisplayName(v string) *ConvertAuthorizedNetworkForGetBranchDetailsOutput {
-	s.DisplayName = &v
-	return s
-}
-
-// SetEndIpAddress sets the EndIpAddress field's value.
-func (s *ConvertAuthorizedNetworkForGetBranchDetailsOutput) SetEndIpAddress(v string) *ConvertAuthorizedNetworkForGetBranchDetailsOutput {
-	s.EndIpAddress = &v
-	return s
-}
-
-// SetStartIpAddress sets the StartIpAddress field's value.
-func (s *ConvertAuthorizedNetworkForGetBranchDetailsOutput) SetStartIpAddress(v string) *ConvertAuthorizedNetworkForGetBranchDetailsOutput {
-	s.StartIpAddress = &v
-	return s
-}
-
 type EndpointsForGetBranchDetailsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	PrivateEndpoint *PrivateEndpointForGetBranchDetailsOutput `type:"structure" json:",omitempty"`
-
-	PublicEndpoint *PublicEndpointForGetBranchDetailsOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -428,12 +380,6 @@ func (s EndpointsForGetBranchDetailsOutput) GoString() string {
 // SetPrivateEndpoint sets the PrivateEndpoint field's value.
 func (s *EndpointsForGetBranchDetailsOutput) SetPrivateEndpoint(v *PrivateEndpointForGetBranchDetailsOutput) *EndpointsForGetBranchDetailsOutput {
 	s.PrivateEndpoint = v
-	return s
-}
-
-// SetPublicEndpoint sets the PublicEndpoint field's value.
-func (s *EndpointsForGetBranchDetailsOutput) SetPublicEndpoint(v *PublicEndpointForGetBranchDetailsOutput) *EndpointsForGetBranchDetailsOutput {
-	s.PublicEndpoint = v
 	return s
 }
 
@@ -600,52 +546,6 @@ func (s *PrivateEndpointForGetBranchDetailsOutput) SetVpcEndpointId(v string) *P
 // SetVpcEndpointName sets the VpcEndpointName field's value.
 func (s *PrivateEndpointForGetBranchDetailsOutput) SetVpcEndpointName(v string) *PrivateEndpointForGetBranchDetailsOutput {
 	s.VpcEndpointName = &v
-	return s
-}
-
-type PublicEndpointForGetBranchDetailsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	AuthorizedNetworks []*ConvertAuthorizedNetworkForGetBranchDetailsOutput `type:"list"`
-
-	Disabled *bool `type:"boolean" json:",omitempty"`
-
-	Host *string `type:"string" json:",omitempty"`
-
-	Port *int32 `type:"int32" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s PublicEndpointForGetBranchDetailsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s PublicEndpointForGetBranchDetailsOutput) GoString() string {
-	return s.String()
-}
-
-// SetAuthorizedNetworks sets the AuthorizedNetworks field's value.
-func (s *PublicEndpointForGetBranchDetailsOutput) SetAuthorizedNetworks(v []*ConvertAuthorizedNetworkForGetBranchDetailsOutput) *PublicEndpointForGetBranchDetailsOutput {
-	s.AuthorizedNetworks = v
-	return s
-}
-
-// SetDisabled sets the Disabled field's value.
-func (s *PublicEndpointForGetBranchDetailsOutput) SetDisabled(v bool) *PublicEndpointForGetBranchDetailsOutput {
-	s.Disabled = &v
-	return s
-}
-
-// SetHost sets the Host field's value.
-func (s *PublicEndpointForGetBranchDetailsOutput) SetHost(v string) *PublicEndpointForGetBranchDetailsOutput {
-	s.Host = &v
-	return s
-}
-
-// SetPort sets the Port field's value.
-func (s *PublicEndpointForGetBranchDetailsOutput) SetPort(v int32) *PublicEndpointForGetBranchDetailsOutput {
-	s.Port = &v
 	return s
 }
 

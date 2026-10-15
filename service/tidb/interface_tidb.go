@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // TIDB.
 //    func myFunc(svc TIDBAPI) bool {
-//        // Make svc.CancelExportTask request
+//        // Make svc.AttachPrivateLinkConnectionDomains request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type TIDBAPI interface {
+	AttachPrivateLinkConnectionDomainsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AttachPrivateLinkConnectionDomainsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AttachPrivateLinkConnectionDomainsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AttachPrivateLinkConnectionDomains(*AttachPrivateLinkConnectionDomainsInput) (*AttachPrivateLinkConnectionDomainsOutput, error)
+	AttachPrivateLinkConnectionDomainsWithContext(volcengine.Context, *AttachPrivateLinkConnectionDomainsInput, ...request.Option) (*AttachPrivateLinkConnectionDomainsOutput, error)
+	AttachPrivateLinkConnectionDomainsRequest(*AttachPrivateLinkConnectionDomainsInput) (*request.Request, *AttachPrivateLinkConnectionDomainsOutput)
+
 	CancelExportTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CancelExportTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CancelExportTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -69,6 +77,14 @@ type TIDBAPI interface {
 	CreateBranch(*CreateBranchInput) (*CreateBranchOutput, error)
 	CreateBranchWithContext(volcengine.Context, *CreateBranchInput, ...request.Option) (*CreateBranchOutput, error)
 	CreateBranchRequest(*CreateBranchInput) (*request.Request, *CreateBranchOutput)
+
+	CreateChangefeedCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateChangefeedCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateChangefeedCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateChangefeed(*CreateChangefeedInput) (*CreateChangefeedOutput, error)
+	CreateChangefeedWithContext(volcengine.Context, *CreateChangefeedInput, ...request.Option) (*CreateChangefeedOutput, error)
+	CreateChangefeedRequest(*CreateChangefeedInput) (*request.Request, *CreateChangefeedOutput)
 
 	CreateClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -110,6 +126,14 @@ type TIDBAPI interface {
 	CreatePrivateEndpointAllowlistRuleWithContext(volcengine.Context, *CreatePrivateEndpointAllowlistRuleInput, ...request.Option) (*CreatePrivateEndpointAllowlistRuleOutput, error)
 	CreatePrivateEndpointAllowlistRuleRequest(*CreatePrivateEndpointAllowlistRuleInput) (*request.Request, *CreatePrivateEndpointAllowlistRuleOutput)
 
+	CreatePrivateLinkConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePrivateLinkConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePrivateLinkConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePrivateLinkConnection(*CreatePrivateLinkConnectionInput) (*CreatePrivateLinkConnectionOutput, error)
+	CreatePrivateLinkConnectionWithContext(volcengine.Context, *CreatePrivateLinkConnectionInput, ...request.Option) (*CreatePrivateLinkConnectionOutput, error)
+	CreatePrivateLinkConnectionRequest(*CreatePrivateLinkConnectionInput) (*request.Request, *CreatePrivateLinkConnectionOutput)
+
 	DeleteAuditLogFilterRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAuditLogFilterRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteAuditLogFilterRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -125,6 +149,14 @@ type TIDBAPI interface {
 	DeleteBranch(*DeleteBranchInput) (*DeleteBranchOutput, error)
 	DeleteBranchWithContext(volcengine.Context, *DeleteBranchInput, ...request.Option) (*DeleteBranchOutput, error)
 	DeleteBranchRequest(*DeleteBranchInput) (*request.Request, *DeleteBranchOutput)
+
+	DeleteChangefeedCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteChangefeedCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteChangefeedCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteChangefeed(*DeleteChangefeedInput) (*DeleteChangefeedOutput, error)
+	DeleteChangefeedWithContext(volcengine.Context, *DeleteChangefeedInput, ...request.Option) (*DeleteChangefeedOutput, error)
+	DeleteChangefeedRequest(*DeleteChangefeedInput) (*request.Request, *DeleteChangefeedOutput)
 
 	DeleteClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -150,6 +182,14 @@ type TIDBAPI interface {
 	DeletePrivateEndpointAllowlistRuleWithContext(volcengine.Context, *DeletePrivateEndpointAllowlistRuleInput, ...request.Option) (*DeletePrivateEndpointAllowlistRuleOutput, error)
 	DeletePrivateEndpointAllowlistRuleRequest(*DeletePrivateEndpointAllowlistRuleInput) (*request.Request, *DeletePrivateEndpointAllowlistRuleOutput)
 
+	DeletePrivateLinkConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeletePrivateLinkConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeletePrivateLinkConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeletePrivateLinkConnection(*DeletePrivateLinkConnectionInput) (*DeletePrivateLinkConnectionOutput, error)
+	DeletePrivateLinkConnectionWithContext(volcengine.Context, *DeletePrivateLinkConnectionInput, ...request.Option) (*DeletePrivateLinkConnectionOutput, error)
+	DeletePrivateLinkConnectionRequest(*DeletePrivateLinkConnectionInput) (*request.Request, *DeletePrivateLinkConnectionOutput)
+
 	DeleteRecycledInstanceBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteRecycledInstanceBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteRecycledInstanceBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -166,6 +206,22 @@ type TIDBAPI interface {
 	DescribePriceDetailWithContext(volcengine.Context, *DescribePriceDetailInput, ...request.Option) (*DescribePriceDetailOutput, error)
 	DescribePriceDetailRequest(*DescribePriceDetailInput) (*request.Request, *DescribePriceDetailOutput)
 
+	DescribeSchemaTableCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSchemaTableCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSchemaTableCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSchemaTable(*DescribeSchemaTableInput) (*DescribeSchemaTableOutput, error)
+	DescribeSchemaTableWithContext(volcengine.Context, *DescribeSchemaTableInput, ...request.Option) (*DescribeSchemaTableOutput, error)
+	DescribeSchemaTableRequest(*DescribeSchemaTableInput) (*request.Request, *DescribeSchemaTableOutput)
+
+	DetachPrivateLinkConnectionDomainsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetachPrivateLinkConnectionDomainsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetachPrivateLinkConnectionDomainsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DetachPrivateLinkConnectionDomains(*DetachPrivateLinkConnectionDomainsInput) (*DetachPrivateLinkConnectionDomainsOutput, error)
+	DetachPrivateLinkConnectionDomainsWithContext(volcengine.Context, *DetachPrivateLinkConnectionDomainsInput, ...request.Option) (*DetachPrivateLinkConnectionDomainsOutput, error)
+	DetachPrivateLinkConnectionDomainsRequest(*DetachPrivateLinkConnectionDomainsInput) (*request.Request, *DetachPrivateLinkConnectionDomainsOutput)
+
 	DownloadAuditLogFilesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DownloadAuditLogFilesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DownloadAuditLogFilesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -173,6 +229,14 @@ type TIDBAPI interface {
 	DownloadAuditLogFiles(*DownloadAuditLogFilesInput) (*DownloadAuditLogFilesOutput, error)
 	DownloadAuditLogFilesWithContext(volcengine.Context, *DownloadAuditLogFilesInput, ...request.Option) (*DownloadAuditLogFilesOutput, error)
 	DownloadAuditLogFilesRequest(*DownloadAuditLogFilesInput) (*request.Request, *DownloadAuditLogFilesOutput)
+
+	EditChangefeedCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EditChangefeedCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EditChangefeedCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EditChangefeed(*EditChangefeedInput) (*EditChangefeedOutput, error)
+	EditChangefeedWithContext(volcengine.Context, *EditChangefeedInput, ...request.Option) (*EditChangefeedOutput, error)
+	EditChangefeedRequest(*EditChangefeedInput) (*request.Request, *EditChangefeedOutput)
 
 	GetAuditLogConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetAuditLogConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -213,6 +277,14 @@ type TIDBAPI interface {
 	GetBranchDetails(*GetBranchDetailsInput) (*GetBranchDetailsOutput, error)
 	GetBranchDetailsWithContext(volcengine.Context, *GetBranchDetailsInput, ...request.Option) (*GetBranchDetailsOutput, error)
 	GetBranchDetailsRequest(*GetBranchDetailsInput) (*request.Request, *GetBranchDetailsOutput)
+
+	GetChangefeedCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetChangefeedCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetChangefeedCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetChangefeed(*GetChangefeedInput) (*GetChangefeedOutput, error)
+	GetChangefeedWithContext(volcengine.Context, *GetChangefeedInput, ...request.Option) (*GetChangefeedOutput, error)
+	GetChangefeedRequest(*GetChangefeedInput) (*request.Request, *GetChangefeedOutput)
 
 	GetClusterDetailsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetClusterDetailsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -261,6 +333,22 @@ type TIDBAPI interface {
 	GetPrivateEndpointAllowlistRule(*GetPrivateEndpointAllowlistRuleInput) (*GetPrivateEndpointAllowlistRuleOutput, error)
 	GetPrivateEndpointAllowlistRuleWithContext(volcengine.Context, *GetPrivateEndpointAllowlistRuleInput, ...request.Option) (*GetPrivateEndpointAllowlistRuleOutput, error)
 	GetPrivateEndpointAllowlistRuleRequest(*GetPrivateEndpointAllowlistRuleInput) (*request.Request, *GetPrivateEndpointAllowlistRuleOutput)
+
+	GetPrivateLinkConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPrivateLinkConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPrivateLinkConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPrivateLinkConnection(*GetPrivateLinkConnectionInput) (*GetPrivateLinkConnectionOutput, error)
+	GetPrivateLinkConnectionWithContext(volcengine.Context, *GetPrivateLinkConnectionInput, ...request.Option) (*GetPrivateLinkConnectionOutput, error)
+	GetPrivateLinkConnectionRequest(*GetPrivateLinkConnectionInput) (*request.Request, *GetPrivateLinkConnectionOutput)
+
+	GetPrivateLinkConnectionAvailabilityZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPrivateLinkConnectionAvailabilityZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPrivateLinkConnectionAvailabilityZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPrivateLinkConnectionAvailabilityZones(*GetPrivateLinkConnectionAvailabilityZonesInput) (*GetPrivateLinkConnectionAvailabilityZonesOutput, error)
+	GetPrivateLinkConnectionAvailabilityZonesWithContext(volcengine.Context, *GetPrivateLinkConnectionAvailabilityZonesInput, ...request.Option) (*GetPrivateLinkConnectionAvailabilityZonesOutput, error)
+	GetPrivateLinkConnectionAvailabilityZonesRequest(*GetPrivateLinkConnectionAvailabilityZonesInput) (*request.Request, *GetPrivateLinkConnectionAvailabilityZonesOutput)
 
 	GetRecycledInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetRecycledInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -334,6 +422,22 @@ type TIDBAPI interface {
 	ListBranchesWithContext(volcengine.Context, *ListBranchesInput, ...request.Option) (*ListBranchesOutput, error)
 	ListBranchesRequest(*ListBranchesInput) (*request.Request, *ListBranchesOutput)
 
+	ListChangefeedSpecificationsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListChangefeedSpecificationsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListChangefeedSpecificationsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListChangefeedSpecifications(*ListChangefeedSpecificationsInput) (*ListChangefeedSpecificationsOutput, error)
+	ListChangefeedSpecificationsWithContext(volcengine.Context, *ListChangefeedSpecificationsInput, ...request.Option) (*ListChangefeedSpecificationsOutput, error)
+	ListChangefeedSpecificationsRequest(*ListChangefeedSpecificationsInput) (*request.Request, *ListChangefeedSpecificationsOutput)
+
+	ListChangefeedsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListChangefeedsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListChangefeedsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListChangefeeds(*ListChangefeedsInput) (*ListChangefeedsOutput, error)
+	ListChangefeedsWithContext(volcengine.Context, *ListChangefeedsInput, ...request.Option) (*ListChangefeedsOutput, error)
+	ListChangefeedsRequest(*ListChangefeedsInput) (*request.Request, *ListChangefeedsOutput)
+
 	ListClusterDatabasesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListClusterDatabasesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListClusterDatabasesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -397,6 +501,14 @@ type TIDBAPI interface {
 	ListPrivateEndpointAllowlist(*ListPrivateEndpointAllowlistInput) (*ListPrivateEndpointAllowlistOutput, error)
 	ListPrivateEndpointAllowlistWithContext(volcengine.Context, *ListPrivateEndpointAllowlistInput, ...request.Option) (*ListPrivateEndpointAllowlistOutput, error)
 	ListPrivateEndpointAllowlistRequest(*ListPrivateEndpointAllowlistInput) (*request.Request, *ListPrivateEndpointAllowlistOutput)
+
+	ListPrivateLinkConnectionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListPrivateLinkConnectionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListPrivateLinkConnectionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListPrivateLinkConnections(*ListPrivateLinkConnectionsInput) (*ListPrivateLinkConnectionsOutput, error)
+	ListPrivateLinkConnectionsWithContext(volcengine.Context, *ListPrivateLinkConnectionsInput, ...request.Option) (*ListPrivateLinkConnectionsOutput, error)
+	ListPrivateLinkConnectionsRequest(*ListPrivateLinkConnectionsInput) (*request.Request, *ListPrivateLinkConnectionsOutput)
 
 	ListRecycledInstanceBackupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListRecycledInstanceBackupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -478,6 +590,14 @@ type TIDBAPI interface {
 	ListZonesWithContext(volcengine.Context, *ListZonesInput, ...request.Option) (*ListZonesOutput, error)
 	ListZonesRequest(*ListZonesInput) (*request.Request, *ListZonesOutput)
 
+	OpsListClustersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	OpsListClustersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	OpsListClustersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	OpsListClusters(*OpsListClustersInput) (*OpsListClustersOutput, error)
+	OpsListClustersWithContext(volcengine.Context, *OpsListClustersInput, ...request.Option) (*OpsListClustersOutput, error)
+	OpsListClustersRequest(*OpsListClustersInput) (*request.Request, *OpsListClustersOutput)
+
 	PrecheckImportTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	PrecheckImportTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	PrecheckImportTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -518,6 +638,30 @@ type TIDBAPI interface {
 	RestoreClusterWithContext(volcengine.Context, *RestoreClusterInput, ...request.Option) (*RestoreClusterOutput, error)
 	RestoreClusterRequest(*RestoreClusterInput) (*request.Request, *RestoreClusterOutput)
 
+	ScaleChangefeedCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ScaleChangefeedCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ScaleChangefeedCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ScaleChangefeed(*ScaleChangefeedInput) (*ScaleChangefeedOutput, error)
+	ScaleChangefeedWithContext(volcengine.Context, *ScaleChangefeedInput, ...request.Option) (*ScaleChangefeedOutput, error)
+	ScaleChangefeedRequest(*ScaleChangefeedInput) (*request.Request, *ScaleChangefeedOutput)
+
+	StartChangefeedCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartChangefeedCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartChangefeedCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartChangefeed(*StartChangefeedInput) (*StartChangefeedOutput, error)
+	StartChangefeedWithContext(volcengine.Context, *StartChangefeedInput, ...request.Option) (*StartChangefeedOutput, error)
+	StartChangefeedRequest(*StartChangefeedInput) (*request.Request, *StartChangefeedOutput)
+
+	StopChangefeedCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopChangefeedCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopChangefeedCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopChangefeed(*StopChangefeedInput) (*StopChangefeedOutput, error)
+	StopChangefeedWithContext(volcengine.Context, *StopChangefeedInput, ...request.Option) (*StopChangefeedOutput, error)
+	StopChangefeedRequest(*StopChangefeedInput) (*request.Request, *StopChangefeedOutput)
+
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -525,6 +669,14 @@ type TIDBAPI interface {
 	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
 	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
 	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	TestChangefeedCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TestChangefeedCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TestChangefeedCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TestChangefeed(*TestChangefeedInput) (*TestChangefeedOutput, error)
+	TestChangefeedWithContext(volcengine.Context, *TestChangefeedInput, ...request.Option) (*TestChangefeedOutput, error)
+	TestChangefeedRequest(*TestChangefeedInput) (*request.Request, *TestChangefeedOutput)
 
 	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
