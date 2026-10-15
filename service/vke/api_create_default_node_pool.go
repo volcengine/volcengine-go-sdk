@@ -146,9 +146,13 @@ func (c *VKE) CreateDefaultNodePoolWithContext(ctx volcengine.Context, input *Cr
 type ContainerdConfigForCreateDefaultNodePoolInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	InsecureRegistries []*string `type:"list" json:",omitempty"`
+	ConcurrentLayerFetchBuffer *int32 `type:"int32" json:",omitempty"`
 
-	RegistryProxyConfigs []*RegistryProxyConfigForCreateDefaultNodePoolInput `type:"list" json:",omitempty"`
+	MaxConcurrentDownloads *int32 `type:"int32" json:",omitempty"`
+
+	MaxConcurrentUnpacks *int32 `type:"int32" json:",omitempty"`
+
+	UseLocalImagePull *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -161,15 +165,27 @@ func (s ContainerdConfigForCreateDefaultNodePoolInput) GoString() string {
 	return s.String()
 }
 
-// SetInsecureRegistries sets the InsecureRegistries field's value.
-func (s *ContainerdConfigForCreateDefaultNodePoolInput) SetInsecureRegistries(v []*string) *ContainerdConfigForCreateDefaultNodePoolInput {
-	s.InsecureRegistries = v
+// SetConcurrentLayerFetchBuffer sets the ConcurrentLayerFetchBuffer field's value.
+func (s *ContainerdConfigForCreateDefaultNodePoolInput) SetConcurrentLayerFetchBuffer(v int32) *ContainerdConfigForCreateDefaultNodePoolInput {
+	s.ConcurrentLayerFetchBuffer = &v
 	return s
 }
 
-// SetRegistryProxyConfigs sets the RegistryProxyConfigs field's value.
-func (s *ContainerdConfigForCreateDefaultNodePoolInput) SetRegistryProxyConfigs(v []*RegistryProxyConfigForCreateDefaultNodePoolInput) *ContainerdConfigForCreateDefaultNodePoolInput {
-	s.RegistryProxyConfigs = v
+// SetMaxConcurrentDownloads sets the MaxConcurrentDownloads field's value.
+func (s *ContainerdConfigForCreateDefaultNodePoolInput) SetMaxConcurrentDownloads(v int32) *ContainerdConfigForCreateDefaultNodePoolInput {
+	s.MaxConcurrentDownloads = &v
+	return s
+}
+
+// SetMaxConcurrentUnpacks sets the MaxConcurrentUnpacks field's value.
+func (s *ContainerdConfigForCreateDefaultNodePoolInput) SetMaxConcurrentUnpacks(v int32) *ContainerdConfigForCreateDefaultNodePoolInput {
+	s.MaxConcurrentUnpacks = &v
+	return s
+}
+
+// SetUseLocalImagePull sets the UseLocalImagePull field's value.
+func (s *ContainerdConfigForCreateDefaultNodePoolInput) SetUseLocalImagePull(v bool) *ContainerdConfigForCreateDefaultNodePoolInput {
+	s.UseLocalImagePull = &v
 	return s
 }
 
@@ -710,36 +726,6 @@ func (s *NodeConfigForCreateDefaultNodePoolInput) SetSecurity(v *SecurityForCrea
 // SetTags sets the Tags field's value.
 func (s *NodeConfigForCreateDefaultNodePoolInput) SetTags(v []*TagForCreateDefaultNodePoolInput) *NodeConfigForCreateDefaultNodePoolInput {
 	s.Tags = v
-	return s
-}
-
-type RegistryProxyConfigForCreateDefaultNodePoolInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	ProxyEndpoints []*string `type:"list" json:",omitempty"`
-
-	Registry *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s RegistryProxyConfigForCreateDefaultNodePoolInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s RegistryProxyConfigForCreateDefaultNodePoolInput) GoString() string {
-	return s.String()
-}
-
-// SetProxyEndpoints sets the ProxyEndpoints field's value.
-func (s *RegistryProxyConfigForCreateDefaultNodePoolInput) SetProxyEndpoints(v []*string) *RegistryProxyConfigForCreateDefaultNodePoolInput {
-	s.ProxyEndpoints = v
-	return s
-}
-
-// SetRegistry sets the Registry field's value.
-func (s *RegistryProxyConfigForCreateDefaultNodePoolInput) SetRegistry(v string) *RegistryProxyConfigForCreateDefaultNodePoolInput {
-	s.Registry = &v
 	return s
 }
 

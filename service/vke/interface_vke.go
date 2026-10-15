@@ -86,6 +86,14 @@ type VKEAPI interface {
 	CreateKubeconfigWithContext(volcengine.Context, *CreateKubeconfigInput, ...request.Option) (*CreateKubeconfigOutput, error)
 	CreateKubeconfigRequest(*CreateKubeconfigInput) (*request.Request, *CreateKubeconfigOutput)
 
+	CreateKubernetesObservabilityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateKubernetesObservabilityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateKubernetesObservabilityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateKubernetesObservability(*CreateKubernetesObservabilityInput) (*CreateKubernetesObservabilityOutput, error)
+	CreateKubernetesObservabilityWithContext(volcengine.Context, *CreateKubernetesObservabilityInput, ...request.Option) (*CreateKubernetesObservabilityOutput, error)
+	CreateKubernetesObservabilityRequest(*CreateKubernetesObservabilityInput) (*request.Request, *CreateKubernetesObservabilityOutput)
+
 	CreateNodePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNodePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateNodePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -301,6 +309,14 @@ type VKEAPI interface {
 	ListKubeconfigs(*ListKubeconfigsInput) (*ListKubeconfigsOutput, error)
 	ListKubeconfigsWithContext(volcengine.Context, *ListKubeconfigsInput, ...request.Option) (*ListKubeconfigsOutput, error)
 	ListKubeconfigsRequest(*ListKubeconfigsInput) (*request.Request, *ListKubeconfigsOutput)
+
+	ListKubernetesObservabilityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListKubernetesObservabilityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListKubernetesObservabilityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListKubernetesObservability(*ListKubernetesObservabilityInput) (*ListKubernetesObservabilityOutput, error)
+	ListKubernetesObservabilityWithContext(volcengine.Context, *ListKubernetesObservabilityInput, ...request.Option) (*ListKubernetesObservabilityOutput, error)
+	ListKubernetesObservabilityRequest(*ListKubernetesObservabilityInput) (*request.Request, *ListKubernetesObservabilityOutput)
 
 	ListNodePoolsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListNodePoolsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
