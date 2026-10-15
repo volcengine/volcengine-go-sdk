@@ -228,15 +228,13 @@ type ExportForListExportTasksOutput struct {
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
 	ExpireTime *string `type:"string" json:",omitempty"`
 
 	ExportId *string `type:"string" json:",omitempty"`
 
 	ExportOptions *ExportOptionsForListExportTasksOutput `type:"structure" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
+	ExportTaskName *string `type:"string" json:",omitempty"`
 
 	Reason *string `type:"string" json:",omitempty"`
 
@@ -277,12 +275,6 @@ func (s *ExportForListExportTasksOutput) SetCreateTime(v string) *ExportForListE
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ExportForListExportTasksOutput) SetDisplayName(v string) *ExportForListExportTasksOutput {
-	s.DisplayName = &v
-	return s
-}
-
 // SetExpireTime sets the ExpireTime field's value.
 func (s *ExportForListExportTasksOutput) SetExpireTime(v string) *ExportForListExportTasksOutput {
 	s.ExpireTime = &v
@@ -301,9 +293,9 @@ func (s *ExportForListExportTasksOutput) SetExportOptions(v *ExportOptionsForLis
 	return s
 }
 
-// SetName sets the Name field's value.
-func (s *ExportForListExportTasksOutput) SetName(v string) *ExportForListExportTasksOutput {
-	s.Name = &v
+// SetExportTaskName sets the ExportTaskName field's value.
+func (s *ExportForListExportTasksOutput) SetExportTaskName(v string) *ExportForListExportTasksOutput {
+	s.ExportTaskName = &v
 	return s
 }
 

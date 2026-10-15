@@ -305,10 +305,10 @@ type UpdateAuditLogFilterRuleInput struct {
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
 	// FilterRuleId is a required field
 	FilterRuleId *string `type:"string" json:",omitempty" required:"true"`
+
+	FilterRuleName *string `type:"string" json:",omitempty"`
 
 	Filters []*FilterForUpdateAuditLogFilterRuleInput `type:"list"`
 
@@ -355,15 +355,15 @@ func (s *UpdateAuditLogFilterRuleInput) SetDisabled(v bool) *UpdateAuditLogFilte
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *UpdateAuditLogFilterRuleInput) SetDisplayName(v string) *UpdateAuditLogFilterRuleInput {
-	s.DisplayName = &v
-	return s
-}
-
 // SetFilterRuleId sets the FilterRuleId field's value.
 func (s *UpdateAuditLogFilterRuleInput) SetFilterRuleId(v string) *UpdateAuditLogFilterRuleInput {
 	s.FilterRuleId = &v
+	return s
+}
+
+// SetFilterRuleName sets the FilterRuleName field's value.
+func (s *UpdateAuditLogFilterRuleInput) SetFilterRuleName(v string) *UpdateAuditLogFilterRuleInput {
+	s.FilterRuleName = &v
 	return s
 }
 

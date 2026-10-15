@@ -146,7 +146,7 @@ func (c *TIDB) UpdatePrivateEndpointAllowlistRuleWithContext(ctx volcengine.Cont
 type AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
@@ -165,9 +165,9 @@ func (s AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput) GoString()
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput) SetDisplayName(v string) *AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput) SetAuthorizedNetworkName(v string) *AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 
@@ -192,13 +192,13 @@ func (s *AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput) SetVpcEnd
 type UpdatePrivateEndpointAllowlistRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
+
 	// ClusterId is a required field
 	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
 	// CurrentVpcEndpointId is a required field
 	CurrentVpcEndpointId *string `type:"string" json:",omitempty" required:"true"`
-
-	DisplayName *string `type:"string" json:",omitempty"`
 
 	NewVpcEndpointId *string `type:"string" json:",omitempty"`
 
@@ -231,6 +231,12 @@ func (s *UpdatePrivateEndpointAllowlistRuleInput) Validate() error {
 	return nil
 }
 
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *UpdatePrivateEndpointAllowlistRuleInput) SetAuthorizedNetworkName(v string) *UpdatePrivateEndpointAllowlistRuleInput {
+	s.AuthorizedNetworkName = &v
+	return s
+}
+
 // SetClusterId sets the ClusterId field's value.
 func (s *UpdatePrivateEndpointAllowlistRuleInput) SetClusterId(v string) *UpdatePrivateEndpointAllowlistRuleInput {
 	s.ClusterId = &v
@@ -240,12 +246,6 @@ func (s *UpdatePrivateEndpointAllowlistRuleInput) SetClusterId(v string) *Update
 // SetCurrentVpcEndpointId sets the CurrentVpcEndpointId field's value.
 func (s *UpdatePrivateEndpointAllowlistRuleInput) SetCurrentVpcEndpointId(v string) *UpdatePrivateEndpointAllowlistRuleInput {
 	s.CurrentVpcEndpointId = &v
-	return s
-}
-
-// SetDisplayName sets the DisplayName field's value.
-func (s *UpdatePrivateEndpointAllowlistRuleInput) SetDisplayName(v string) *UpdatePrivateEndpointAllowlistRuleInput {
-	s.DisplayName = &v
 	return s
 }
 

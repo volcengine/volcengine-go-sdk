@@ -156,8 +156,6 @@ type BackupForGetBackupOutput struct {
 
 	ExpireTime *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
-
 	State *string `type:"string" json:",omitempty" enum:"EnumOfStateForGetBackupOutput"`
 
 	Type *string `type:"string" json:",omitempty"`
@@ -200,12 +198,6 @@ func (s *BackupForGetBackupOutput) SetCreateTime(v string) *BackupForGetBackupOu
 // SetExpireTime sets the ExpireTime field's value.
 func (s *BackupForGetBackupOutput) SetExpireTime(v string) *BackupForGetBackupOutput {
 	s.ExpireTime = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *BackupForGetBackupOutput) SetName(v string) *BackupForGetBackupOutput {
-	s.Name = &v
 	return s
 }
 

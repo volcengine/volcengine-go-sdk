@@ -178,7 +178,7 @@ type CreateClusterInput struct {
 
 	AutoScaling *AutoScalingForCreateClusterInput `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	ClusterName *string `type:"string" json:",omitempty"`
 
 	EncryptionConfig *EncryptionConfigForCreateClusterInput `type:"structure" json:",omitempty"`
 
@@ -227,9 +227,9 @@ func (s *CreateClusterInput) SetAutoScaling(v *AutoScalingForCreateClusterInput)
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *CreateClusterInput) SetDisplayName(v string) *CreateClusterInput {
-	s.DisplayName = &v
+// SetClusterName sets the ClusterName field's value.
+func (s *CreateClusterInput) SetClusterName(v string) *CreateClusterInput {
+	s.ClusterName = &v
 	return s
 }
 

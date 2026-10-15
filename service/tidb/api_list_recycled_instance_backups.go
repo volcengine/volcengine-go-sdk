@@ -156,8 +156,6 @@ type BackupForListRecycledInstanceBackupsOutput struct {
 
 	ExpireTime *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
-
 	State *string `type:"string" json:",omitempty" enum:"EnumOfStateForListRecycledInstanceBackupsOutput"`
 
 	Type *string `type:"string" json:",omitempty"`
@@ -200,12 +198,6 @@ func (s *BackupForListRecycledInstanceBackupsOutput) SetCreateTime(v string) *Ba
 // SetExpireTime sets the ExpireTime field's value.
 func (s *BackupForListRecycledInstanceBackupsOutput) SetExpireTime(v string) *BackupForListRecycledInstanceBackupsOutput {
 	s.ExpireTime = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *BackupForListRecycledInstanceBackupsOutput) SetName(v string) *BackupForListRecycledInstanceBackupsOutput {
-	s.Name = &v
 	return s
 }
 

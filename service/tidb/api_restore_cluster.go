@@ -178,7 +178,7 @@ type ClusterForRestoreClusterInput struct {
 
 	AutoScaling *AutoScalingForRestoreClusterInput `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	ClusterName *string `type:"string" json:",omitempty"`
 
 	HighAvailabilityType *string `type:"string" json:",omitempty" enum:"EnumOfHighAvailabilityTypeForRestoreClusterInput"`
 
@@ -201,9 +201,9 @@ func (s *ClusterForRestoreClusterInput) SetAutoScaling(v *AutoScalingForRestoreC
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ClusterForRestoreClusterInput) SetDisplayName(v string) *ClusterForRestoreClusterInput {
-	s.DisplayName = &v
+// SetClusterName sets the ClusterName field's value.
+func (s *ClusterForRestoreClusterInput) SetClusterName(v string) *ClusterForRestoreClusterInput {
+	s.ClusterName = &v
 	return s
 }
 

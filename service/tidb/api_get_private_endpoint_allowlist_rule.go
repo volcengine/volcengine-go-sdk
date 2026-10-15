@@ -146,7 +146,7 @@ func (c *TIDB) GetPrivateEndpointAllowlistRuleWithContext(ctx volcengine.Context
 type AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
@@ -165,9 +165,9 @@ func (s AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput) GoString() st
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput) SetDisplayName(v string) *AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput) SetAuthorizedNetworkName(v string) *AuthorizedNetworkForGetPrivateEndpointAllowlistRuleOutput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 
