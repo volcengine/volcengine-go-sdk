@@ -206,7 +206,7 @@ func (s *AuditLogConfigForDeleteClusterOutput) SetUnredacted(v bool) *AuditLogCo
 type AuthorizedNetworkForDeleteClusterOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
@@ -225,9 +225,9 @@ func (s AuthorizedNetworkForDeleteClusterOutput) GoString() string {
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *AuthorizedNetworkForDeleteClusterOutput) SetDisplayName(v string) *AuthorizedNetworkForDeleteClusterOutput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *AuthorizedNetworkForDeleteClusterOutput) SetAuthorizedNetworkName(v string) *AuthorizedNetworkForDeleteClusterOutput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 
@@ -312,6 +312,8 @@ func (s *AutomatedBackupPolicyForDeleteClusterOutput) SetStartTime(v string) *Au
 type ClusterForDeleteClusterOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccountId *string `type:"string" json:",omitempty"`
+
 	Annotations []*AnnotationForDeleteClusterOutput `type:"list"`
 
 	AuditLogConfig *AuditLogConfigForDeleteClusterOutput `type:"structure" json:",omitempty"`
@@ -322,9 +324,9 @@ type ClusterForDeleteClusterOutput struct {
 
 	ClusterId *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string" json:",omitempty"`
+	ClusterName *string `type:"string" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
 	EncryptionConfig *EncryptionConfigForDeleteClusterOutput `type:"structure" json:",omitempty"`
 
@@ -333,8 +335,6 @@ type ClusterForDeleteClusterOutput struct {
 	HighAvailabilityType *string `type:"string" json:",omitempty" enum:"EnumOfHighAvailabilityTypeForDeleteClusterOutput"`
 
 	Labels []*LabelForDeleteClusterOutput `type:"list"`
-
-	Name *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -369,6 +369,12 @@ func (s ClusterForDeleteClusterOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *ClusterForDeleteClusterOutput) SetAccountId(v string) *ClusterForDeleteClusterOutput {
+	s.AccountId = &v
+	return s
+}
+
 // SetAnnotations sets the Annotations field's value.
 func (s *ClusterForDeleteClusterOutput) SetAnnotations(v []*AnnotationForDeleteClusterOutput) *ClusterForDeleteClusterOutput {
 	s.Annotations = v
@@ -399,15 +405,15 @@ func (s *ClusterForDeleteClusterOutput) SetClusterId(v string) *ClusterForDelete
 	return s
 }
 
-// SetCreateTime sets the CreateTime field's value.
-func (s *ClusterForDeleteClusterOutput) SetCreateTime(v string) *ClusterForDeleteClusterOutput {
-	s.CreateTime = &v
+// SetClusterName sets the ClusterName field's value.
+func (s *ClusterForDeleteClusterOutput) SetClusterName(v string) *ClusterForDeleteClusterOutput {
+	s.ClusterName = &v
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ClusterForDeleteClusterOutput) SetDisplayName(v string) *ClusterForDeleteClusterOutput {
-	s.DisplayName = &v
+// SetCreateTime sets the CreateTime field's value.
+func (s *ClusterForDeleteClusterOutput) SetCreateTime(v string) *ClusterForDeleteClusterOutput {
+	s.CreateTime = &v
 	return s
 }
 
@@ -432,12 +438,6 @@ func (s *ClusterForDeleteClusterOutput) SetHighAvailabilityType(v string) *Clust
 // SetLabels sets the Labels field's value.
 func (s *ClusterForDeleteClusterOutput) SetLabels(v []*LabelForDeleteClusterOutput) *ClusterForDeleteClusterOutput {
 	s.Labels = v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *ClusterForDeleteClusterOutput) SetName(v string) *ClusterForDeleteClusterOutput {
-	s.Name = &v
 	return s
 }
 
@@ -510,7 +510,7 @@ func (s *ClusterForDeleteClusterOutput) SetZones(v []*ZoneForDeleteClusterOutput
 type ConvertAuthorizedNetworkForDeleteClusterOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	EndIpAddress *string `type:"string" json:",omitempty"`
 
@@ -527,9 +527,9 @@ func (s ConvertAuthorizedNetworkForDeleteClusterOutput) GoString() string {
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ConvertAuthorizedNetworkForDeleteClusterOutput) SetDisplayName(v string) *ConvertAuthorizedNetworkForDeleteClusterOutput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *ConvertAuthorizedNetworkForDeleteClusterOutput) SetAuthorizedNetworkName(v string) *ConvertAuthorizedNetworkForDeleteClusterOutput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 

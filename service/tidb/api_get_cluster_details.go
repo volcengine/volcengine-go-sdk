@@ -206,7 +206,7 @@ func (s *AuditLogConfigForGetClusterDetailsOutput) SetUnredacted(v bool) *AuditL
 type AuthorizedNetworkForGetClusterDetailsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
@@ -225,9 +225,9 @@ func (s AuthorizedNetworkForGetClusterDetailsOutput) GoString() string {
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *AuthorizedNetworkForGetClusterDetailsOutput) SetDisplayName(v string) *AuthorizedNetworkForGetClusterDetailsOutput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *AuthorizedNetworkForGetClusterDetailsOutput) SetAuthorizedNetworkName(v string) *AuthorizedNetworkForGetClusterDetailsOutput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 
@@ -312,6 +312,8 @@ func (s *AutomatedBackupPolicyForGetClusterDetailsOutput) SetStartTime(v string)
 type ClusterForGetClusterDetailsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccountId *string `type:"string" json:",omitempty"`
+
 	Annotations []*AnnotationForGetClusterDetailsOutput `type:"list"`
 
 	AuditLogConfig *AuditLogConfigForGetClusterDetailsOutput `type:"structure" json:",omitempty"`
@@ -322,9 +324,9 @@ type ClusterForGetClusterDetailsOutput struct {
 
 	ClusterId *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string" json:",omitempty"`
+	ClusterName *string `type:"string" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
 	EncryptionConfig *EncryptionConfigForGetClusterDetailsOutput `type:"structure" json:",omitempty"`
 
@@ -333,8 +335,6 @@ type ClusterForGetClusterDetailsOutput struct {
 	HighAvailabilityType *string `type:"string" json:",omitempty" enum:"EnumOfHighAvailabilityTypeForGetClusterDetailsOutput"`
 
 	Labels []*LabelForGetClusterDetailsOutput `type:"list"`
-
-	Name *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -369,6 +369,12 @@ func (s ClusterForGetClusterDetailsOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *ClusterForGetClusterDetailsOutput) SetAccountId(v string) *ClusterForGetClusterDetailsOutput {
+	s.AccountId = &v
+	return s
+}
+
 // SetAnnotations sets the Annotations field's value.
 func (s *ClusterForGetClusterDetailsOutput) SetAnnotations(v []*AnnotationForGetClusterDetailsOutput) *ClusterForGetClusterDetailsOutput {
 	s.Annotations = v
@@ -399,15 +405,15 @@ func (s *ClusterForGetClusterDetailsOutput) SetClusterId(v string) *ClusterForGe
 	return s
 }
 
-// SetCreateTime sets the CreateTime field's value.
-func (s *ClusterForGetClusterDetailsOutput) SetCreateTime(v string) *ClusterForGetClusterDetailsOutput {
-	s.CreateTime = &v
+// SetClusterName sets the ClusterName field's value.
+func (s *ClusterForGetClusterDetailsOutput) SetClusterName(v string) *ClusterForGetClusterDetailsOutput {
+	s.ClusterName = &v
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ClusterForGetClusterDetailsOutput) SetDisplayName(v string) *ClusterForGetClusterDetailsOutput {
-	s.DisplayName = &v
+// SetCreateTime sets the CreateTime field's value.
+func (s *ClusterForGetClusterDetailsOutput) SetCreateTime(v string) *ClusterForGetClusterDetailsOutput {
+	s.CreateTime = &v
 	return s
 }
 
@@ -432,12 +438,6 @@ func (s *ClusterForGetClusterDetailsOutput) SetHighAvailabilityType(v string) *C
 // SetLabels sets the Labels field's value.
 func (s *ClusterForGetClusterDetailsOutput) SetLabels(v []*LabelForGetClusterDetailsOutput) *ClusterForGetClusterDetailsOutput {
 	s.Labels = v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *ClusterForGetClusterDetailsOutput) SetName(v string) *ClusterForGetClusterDetailsOutput {
-	s.Name = &v
 	return s
 }
 
@@ -510,7 +510,7 @@ func (s *ClusterForGetClusterDetailsOutput) SetZones(v []*ZoneForGetClusterDetai
 type ConvertAuthorizedNetworkForGetClusterDetailsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	EndIpAddress *string `type:"string" json:",omitempty"`
 
@@ -527,9 +527,9 @@ func (s ConvertAuthorizedNetworkForGetClusterDetailsOutput) GoString() string {
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ConvertAuthorizedNetworkForGetClusterDetailsOutput) SetDisplayName(v string) *ConvertAuthorizedNetworkForGetClusterDetailsOutput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *ConvertAuthorizedNetworkForGetClusterDetailsOutput) SetAuthorizedNetworkName(v string) *ConvertAuthorizedNetworkForGetClusterDetailsOutput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 

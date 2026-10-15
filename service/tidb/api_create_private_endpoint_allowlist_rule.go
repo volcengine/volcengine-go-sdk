@@ -146,7 +146,7 @@ func (c *TIDB) CreatePrivateEndpointAllowlistRuleWithContext(ctx volcengine.Cont
 type AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
@@ -165,9 +165,9 @@ func (s AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput) GoString()
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput) SetDisplayName(v string) *AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput) SetAuthorizedNetworkName(v string) *AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 
@@ -192,10 +192,10 @@ func (s *AuthorizedNetworkForCreatePrivateEndpointAllowlistRuleOutput) SetVpcEnd
 type CreatePrivateEndpointAllowlistRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
+
 	// ClusterId is a required field
 	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
-	DisplayName *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -229,15 +229,15 @@ func (s *CreatePrivateEndpointAllowlistRuleInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *CreatePrivateEndpointAllowlistRuleInput) SetClusterId(v string) *CreatePrivateEndpointAllowlistRuleInput {
-	s.ClusterId = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *CreatePrivateEndpointAllowlistRuleInput) SetAuthorizedNetworkName(v string) *CreatePrivateEndpointAllowlistRuleInput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *CreatePrivateEndpointAllowlistRuleInput) SetDisplayName(v string) *CreatePrivateEndpointAllowlistRuleInput {
-	s.DisplayName = &v
+// SetClusterId sets the ClusterId field's value.
+func (s *CreatePrivateEndpointAllowlistRuleInput) SetClusterId(v string) *CreatePrivateEndpointAllowlistRuleInput {
+	s.ClusterId = &v
 	return s
 }
 

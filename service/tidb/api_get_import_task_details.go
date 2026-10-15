@@ -498,8 +498,6 @@ type Import_ForGetImportTaskDetailsOutput struct {
 
 	Message *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string" json:",omitempty"`
-
 	PostImportCompletedPercent *int32 `type:"int32" json:",omitempty"`
 
 	StartTime *string `type:"string" json:",omitempty"`
@@ -578,12 +576,6 @@ func (s *Import_ForGetImportTaskDetailsOutput) SetImportId(v string) *Import_For
 // SetMessage sets the Message field's value.
 func (s *Import_ForGetImportTaskDetailsOutput) SetMessage(v string) *Import_ForGetImportTaskDetailsOutput {
 	s.Message = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *Import_ForGetImportTaskDetailsOutput) SetName(v string) *Import_ForGetImportTaskDetailsOutput {
-	s.Name = &v
 	return s
 }
 

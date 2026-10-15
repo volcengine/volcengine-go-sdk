@@ -148,6 +148,8 @@ type BudgetListForListBudgetOutput struct {
 
 	ActualAmount *string `type:"string" json:",omitempty"`
 
+	AmountType *string `type:"string" json:",omitempty"`
+
 	BudgetAmount *string `type:"string" json:",omitempty"`
 
 	BudgetEndTime *string `type:"string" json:",omitempty"`
@@ -159,6 +161,8 @@ type BudgetListForListBudgetOutput struct {
 	BudgetStartTime *string `type:"string" json:",omitempty"`
 
 	BudgetType *string `type:"string" json:",omitempty"`
+
+	CurrencySettlement *string `type:"string" json:",omitempty"`
 
 	Period *string `type:"string" json:",omitempty"`
 
@@ -180,6 +184,12 @@ func (s BudgetListForListBudgetOutput) GoString() string {
 // SetActualAmount sets the ActualAmount field's value.
 func (s *BudgetListForListBudgetOutput) SetActualAmount(v string) *BudgetListForListBudgetOutput {
 	s.ActualAmount = &v
+	return s
+}
+
+// SetAmountType sets the AmountType field's value.
+func (s *BudgetListForListBudgetOutput) SetAmountType(v string) *BudgetListForListBudgetOutput {
+	s.AmountType = &v
 	return s
 }
 
@@ -216,6 +226,12 @@ func (s *BudgetListForListBudgetOutput) SetBudgetStartTime(v string) *BudgetList
 // SetBudgetType sets the BudgetType field's value.
 func (s *BudgetListForListBudgetOutput) SetBudgetType(v string) *BudgetListForListBudgetOutput {
 	s.BudgetType = &v
+	return s
+}
+
+// SetCurrencySettlement sets the CurrencySettlement field's value.
+func (s *BudgetListForListBudgetOutput) SetCurrencySettlement(v string) *BudgetListForListBudgetOutput {
+	s.CurrencySettlement = &v
 	return s
 }
 

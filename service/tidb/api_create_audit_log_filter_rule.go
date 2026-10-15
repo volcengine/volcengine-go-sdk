@@ -149,8 +149,8 @@ type CreateAuditLogFilterRuleInput struct {
 	// ClusterId is a required field
 	ClusterId *string `type:"string" json:",omitempty" required:"true"`
 
-	// DisplayName is a required field
-	DisplayName *string `type:"string" json:",omitempty" required:"true"`
+	// FilterRuleName is a required field
+	FilterRuleName *string `type:"string" json:",omitempty" required:"true"`
 
 	Filters []*FilterForCreateAuditLogFilterRuleInput `type:"list"`
 
@@ -175,8 +175,8 @@ func (s *CreateAuditLogFilterRuleInput) Validate() error {
 	if s.ClusterId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
 	}
-	if s.DisplayName == nil {
-		invalidParams.Add(request.NewErrParamRequired("DisplayName"))
+	if s.FilterRuleName == nil {
+		invalidParams.Add(request.NewErrParamRequired("FilterRuleName"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -191,9 +191,9 @@ func (s *CreateAuditLogFilterRuleInput) SetClusterId(v string) *CreateAuditLogFi
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *CreateAuditLogFilterRuleInput) SetDisplayName(v string) *CreateAuditLogFilterRuleInput {
-	s.DisplayName = &v
+// SetFilterRuleName sets the FilterRuleName field's value.
+func (s *CreateAuditLogFilterRuleInput) SetFilterRuleName(v string) *CreateAuditLogFilterRuleInput {
+	s.FilterRuleName = &v
 	return s
 }
 

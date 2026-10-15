@@ -184,11 +184,9 @@ func (s *ListRegionsOutput) SetRegions(v []*RegionForListRegionsOutput) *ListReg
 type RegionForListRegionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
-	Name *string `type:"string" json:",omitempty"`
-
 	RegionId *string `type:"string" json:",omitempty"`
+
+	RegionName *string `type:"string" json:",omitempty"`
 
 	ServicePlans []*string `type:"list"`
 
@@ -205,21 +203,15 @@ func (s RegionForListRegionsOutput) GoString() string {
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *RegionForListRegionsOutput) SetDisplayName(v string) *RegionForListRegionsOutput {
-	s.DisplayName = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *RegionForListRegionsOutput) SetName(v string) *RegionForListRegionsOutput {
-	s.Name = &v
-	return s
-}
-
 // SetRegionId sets the RegionId field's value.
 func (s *RegionForListRegionsOutput) SetRegionId(v string) *RegionForListRegionsOutput {
 	s.RegionId = &v
+	return s
+}
+
+// SetRegionName sets the RegionName field's value.
+func (s *RegionForListRegionsOutput) SetRegionName(v string) *RegionForListRegionsOutput {
+	s.RegionName = &v
 	return s
 }
 

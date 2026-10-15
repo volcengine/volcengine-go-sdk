@@ -334,7 +334,7 @@ type CreateReqForDescribePriceDetailInput struct {
 
 	AutoScaling *AutoScalingForDescribePriceDetailInput `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	ClusterName *string `type:"string" json:",omitempty"`
 
 	EncryptionConfig *EncryptionConfigForDescribePriceDetailInput `type:"structure" json:",omitempty"`
 
@@ -369,9 +369,9 @@ func (s *CreateReqForDescribePriceDetailInput) SetAutoScaling(v *AutoScalingForD
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *CreateReqForDescribePriceDetailInput) SetDisplayName(v string) *CreateReqForDescribePriceDetailInput {
-	s.DisplayName = &v
+// SetClusterName sets the ClusterName field's value.
+func (s *CreateReqForDescribePriceDetailInput) SetClusterName(v string) *CreateReqForDescribePriceDetailInput {
+	s.ClusterName = &v
 	return s
 }
 

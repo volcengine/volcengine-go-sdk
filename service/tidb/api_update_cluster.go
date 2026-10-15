@@ -206,7 +206,7 @@ func (s *AuditLogConfigForUpdateClusterInput) SetUnredacted(v bool) *AuditLogCon
 type AuthorizedNetworkForUpdateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
@@ -225,9 +225,9 @@ func (s AuthorizedNetworkForUpdateClusterInput) GoString() string {
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *AuthorizedNetworkForUpdateClusterInput) SetDisplayName(v string) *AuthorizedNetworkForUpdateClusterInput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *AuthorizedNetworkForUpdateClusterInput) SetAuthorizedNetworkName(v string) *AuthorizedNetworkForUpdateClusterInput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 
@@ -312,6 +312,8 @@ func (s *AutomatedBackupPolicyForUpdateClusterInput) SetStartTime(v string) *Aut
 type ClusterForUpdateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccountId *string `type:"string" json:",omitempty"`
+
 	Annotations []*AnnotationForUpdateClusterInput `type:"list"`
 
 	AuditLogConfig *AuditLogConfigForUpdateClusterInput `type:"structure" json:",omitempty"`
@@ -322,9 +324,9 @@ type ClusterForUpdateClusterInput struct {
 
 	ClusterId *string `type:"string" json:",omitempty"`
 
-	CreateTime *string `type:"string" json:",omitempty"`
+	ClusterName *string `type:"string" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
 	EncryptionConfig *EncryptionConfigForUpdateClusterInput `type:"structure" json:",omitempty"`
 
@@ -333,8 +335,6 @@ type ClusterForUpdateClusterInput struct {
 	HighAvailabilityType *string `type:"string" json:",omitempty" enum:"EnumOfHighAvailabilityTypeForUpdateClusterInput"`
 
 	Labels []*LabelForUpdateClusterInput `type:"list"`
-
-	Name *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -369,6 +369,12 @@ func (s ClusterForUpdateClusterInput) GoString() string {
 	return s.String()
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *ClusterForUpdateClusterInput) SetAccountId(v string) *ClusterForUpdateClusterInput {
+	s.AccountId = &v
+	return s
+}
+
 // SetAnnotations sets the Annotations field's value.
 func (s *ClusterForUpdateClusterInput) SetAnnotations(v []*AnnotationForUpdateClusterInput) *ClusterForUpdateClusterInput {
 	s.Annotations = v
@@ -399,15 +405,15 @@ func (s *ClusterForUpdateClusterInput) SetClusterId(v string) *ClusterForUpdateC
 	return s
 }
 
-// SetCreateTime sets the CreateTime field's value.
-func (s *ClusterForUpdateClusterInput) SetCreateTime(v string) *ClusterForUpdateClusterInput {
-	s.CreateTime = &v
+// SetClusterName sets the ClusterName field's value.
+func (s *ClusterForUpdateClusterInput) SetClusterName(v string) *ClusterForUpdateClusterInput {
+	s.ClusterName = &v
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ClusterForUpdateClusterInput) SetDisplayName(v string) *ClusterForUpdateClusterInput {
-	s.DisplayName = &v
+// SetCreateTime sets the CreateTime field's value.
+func (s *ClusterForUpdateClusterInput) SetCreateTime(v string) *ClusterForUpdateClusterInput {
+	s.CreateTime = &v
 	return s
 }
 
@@ -432,12 +438,6 @@ func (s *ClusterForUpdateClusterInput) SetHighAvailabilityType(v string) *Cluste
 // SetLabels sets the Labels field's value.
 func (s *ClusterForUpdateClusterInput) SetLabels(v []*LabelForUpdateClusterInput) *ClusterForUpdateClusterInput {
 	s.Labels = v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *ClusterForUpdateClusterInput) SetName(v string) *ClusterForUpdateClusterInput {
-	s.Name = &v
 	return s
 }
 
@@ -510,7 +510,7 @@ func (s *ClusterForUpdateClusterInput) SetZones(v []*ZoneForUpdateClusterInput) 
 type ConvertAuthorizedNetworkForUpdateClusterInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	EndIpAddress *string `type:"string" json:",omitempty"`
 
@@ -527,9 +527,9 @@ func (s ConvertAuthorizedNetworkForUpdateClusterInput) GoString() string {
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ConvertAuthorizedNetworkForUpdateClusterInput) SetDisplayName(v string) *ConvertAuthorizedNetworkForUpdateClusterInput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *ConvertAuthorizedNetworkForUpdateClusterInput) SetAuthorizedNetworkName(v string) *ConvertAuthorizedNetworkForUpdateClusterInput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 
@@ -982,6 +982,6 @@ const (
 	// EnumOfUpdateMaskForUpdateClusterInputAutomatedBackupPolicy is a EnumOfUpdateMaskForUpdateClusterInput enum value
 	EnumOfUpdateMaskForUpdateClusterInputAutomatedBackupPolicy = "automatedBackupPolicy"
 
-	// EnumOfUpdateMaskForUpdateClusterInputDisplayName is a EnumOfUpdateMaskForUpdateClusterInput enum value
-	EnumOfUpdateMaskForUpdateClusterInputDisplayName = "displayName"
+	// EnumOfUpdateMaskForUpdateClusterInputClusterName is a EnumOfUpdateMaskForUpdateClusterInput enum value
+	EnumOfUpdateMaskForUpdateClusterInputClusterName = "clusterName"
 )

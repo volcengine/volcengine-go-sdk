@@ -202,3 +202,73 @@ func (s *DescribeEDXOutput) SetEDX(v *ForDescribeEDXOutput) *DescribeEDXOutput {
 	s.EDX = v
 	return s
 }
+
+type ForDescribeEDXOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ASNumber *string `type:"string" json:",omitempty"`
+
+	Area *string `type:"string" json:",omitempty"`
+
+	CreateTime *string `type:"string" json:",omitempty"`
+
+	Description *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	Name *string `type:"string" json:",omitempty"`
+
+	State *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ForDescribeEDXOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ForDescribeEDXOutput) GoString() string {
+	return s.String()
+}
+
+// SetASNumber sets the ASNumber field's value.
+func (s *ForDescribeEDXOutput) SetASNumber(v string) *ForDescribeEDXOutput {
+	s.ASNumber = &v
+	return s
+}
+
+// SetArea sets the Area field's value.
+func (s *ForDescribeEDXOutput) SetArea(v string) *ForDescribeEDXOutput {
+	s.Area = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ForDescribeEDXOutput) SetCreateTime(v string) *ForDescribeEDXOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ForDescribeEDXOutput) SetDescription(v string) *ForDescribeEDXOutput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ForDescribeEDXOutput) SetInstanceId(v string) *ForDescribeEDXOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ForDescribeEDXOutput) SetName(v string) *ForDescribeEDXOutput {
+	s.Name = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *ForDescribeEDXOutput) SetState(v string) *ForDescribeEDXOutput {
+	s.State = &v
+	return s
+}

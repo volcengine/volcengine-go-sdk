@@ -262,6 +262,8 @@ func (s *BudgetAlertRuleListForQueryBudgetDetailOutput) SetBudgetAlertThresholdT
 type BudgetForQueryBudgetDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AmountType *string `type:"string" json:",omitempty"`
+
 	BudgetEndTime *string `type:"string" json:",omitempty"`
 
 	BudgetName *string `type:"string" json:",omitempty"`
@@ -271,6 +273,8 @@ type BudgetForQueryBudgetDetailOutput struct {
 	BudgetStartTime *string `type:"string" json:",omitempty"`
 
 	BudgetType *string `type:"string" json:",omitempty"`
+
+	CurrencySettlement *string `type:"string" json:",omitempty"`
 
 	Period *string `type:"string" json:",omitempty"`
 }
@@ -283,6 +287,12 @@ func (s BudgetForQueryBudgetDetailOutput) String() string {
 // GoString returns the string representation
 func (s BudgetForQueryBudgetDetailOutput) GoString() string {
 	return s.String()
+}
+
+// SetAmountType sets the AmountType field's value.
+func (s *BudgetForQueryBudgetDetailOutput) SetAmountType(v string) *BudgetForQueryBudgetDetailOutput {
+	s.AmountType = &v
+	return s
 }
 
 // SetBudgetEndTime sets the BudgetEndTime field's value.
@@ -312,6 +322,12 @@ func (s *BudgetForQueryBudgetDetailOutput) SetBudgetStartTime(v string) *BudgetF
 // SetBudgetType sets the BudgetType field's value.
 func (s *BudgetForQueryBudgetDetailOutput) SetBudgetType(v string) *BudgetForQueryBudgetDetailOutput {
 	s.BudgetType = &v
+	return s
+}
+
+// SetCurrencySettlement sets the CurrencySettlement field's value.
+func (s *BudgetForQueryBudgetDetailOutput) SetCurrencySettlement(v string) *BudgetForQueryBudgetDetailOutput {
+	s.CurrencySettlement = &v
 	return s
 }
 
@@ -351,10 +367,50 @@ func (s *BudgetRangeBillingModeForQueryBudgetDetailOutput) SetBillingModeName(v 
 	return s
 }
 
+type BudgetRangeConfigurationCodeForQueryBudgetDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ConfigCode *string `type:"string" json:",omitempty"`
+
+	ConfigName *string `type:"string" json:",omitempty"`
+
+	ProductCode *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s BudgetRangeConfigurationCodeForQueryBudgetDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BudgetRangeConfigurationCodeForQueryBudgetDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetConfigCode sets the ConfigCode field's value.
+func (s *BudgetRangeConfigurationCodeForQueryBudgetDetailOutput) SetConfigCode(v string) *BudgetRangeConfigurationCodeForQueryBudgetDetailOutput {
+	s.ConfigCode = &v
+	return s
+}
+
+// SetConfigName sets the ConfigName field's value.
+func (s *BudgetRangeConfigurationCodeForQueryBudgetDetailOutput) SetConfigName(v string) *BudgetRangeConfigurationCodeForQueryBudgetDetailOutput {
+	s.ConfigName = &v
+	return s
+}
+
+// SetProductCode sets the ProductCode field's value.
+func (s *BudgetRangeConfigurationCodeForQueryBudgetDetailOutput) SetProductCode(v string) *BudgetRangeConfigurationCodeForQueryBudgetDetailOutput {
+	s.ProductCode = &v
+	return s
+}
+
 type BudgetRangeInfoForQueryBudgetDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	BudgetRangeBillingMode []*BudgetRangeBillingModeForQueryBudgetDetailOutput `type:"list" json:",omitempty"`
+
+	BudgetRangeConfigurationCode []*BudgetRangeConfigurationCodeForQueryBudgetDetailOutput `type:"list" json:",omitempty"`
 
 	BudgetRangeOwner []*BudgetRangeOwnerForQueryBudgetDetailOutput `type:"list" json:",omitempty"`
 
@@ -365,6 +421,10 @@ type BudgetRangeInfoForQueryBudgetDetailOutput struct {
 	BudgetRangeProject []*string `type:"list" json:",omitempty"`
 
 	BudgetRangeRegion []*BudgetRangeRegionForQueryBudgetDetailOutput `type:"list" json:",omitempty"`
+
+	BudgetRangeSplitItemID []*string `type:"list" json:",omitempty"`
+
+	BudgetRangeSplitItemName []*string `type:"list" json:",omitempty"`
 
 	BudgetRangeSubject []*BudgetRangeSubjectForQueryBudgetDetailOutput `type:"list" json:",omitempty"`
 
@@ -386,6 +446,12 @@ func (s BudgetRangeInfoForQueryBudgetDetailOutput) GoString() string {
 // SetBudgetRangeBillingMode sets the BudgetRangeBillingMode field's value.
 func (s *BudgetRangeInfoForQueryBudgetDetailOutput) SetBudgetRangeBillingMode(v []*BudgetRangeBillingModeForQueryBudgetDetailOutput) *BudgetRangeInfoForQueryBudgetDetailOutput {
 	s.BudgetRangeBillingMode = v
+	return s
+}
+
+// SetBudgetRangeConfigurationCode sets the BudgetRangeConfigurationCode field's value.
+func (s *BudgetRangeInfoForQueryBudgetDetailOutput) SetBudgetRangeConfigurationCode(v []*BudgetRangeConfigurationCodeForQueryBudgetDetailOutput) *BudgetRangeInfoForQueryBudgetDetailOutput {
+	s.BudgetRangeConfigurationCode = v
 	return s
 }
 
@@ -416,6 +482,18 @@ func (s *BudgetRangeInfoForQueryBudgetDetailOutput) SetBudgetRangeProject(v []*s
 // SetBudgetRangeRegion sets the BudgetRangeRegion field's value.
 func (s *BudgetRangeInfoForQueryBudgetDetailOutput) SetBudgetRangeRegion(v []*BudgetRangeRegionForQueryBudgetDetailOutput) *BudgetRangeInfoForQueryBudgetDetailOutput {
 	s.BudgetRangeRegion = v
+	return s
+}
+
+// SetBudgetRangeSplitItemID sets the BudgetRangeSplitItemID field's value.
+func (s *BudgetRangeInfoForQueryBudgetDetailOutput) SetBudgetRangeSplitItemID(v []*string) *BudgetRangeInfoForQueryBudgetDetailOutput {
+	s.BudgetRangeSplitItemID = v
+	return s
+}
+
+// SetBudgetRangeSplitItemName sets the BudgetRangeSplitItemName field's value.
+func (s *BudgetRangeInfoForQueryBudgetDetailOutput) SetBudgetRangeSplitItemName(v []*string) *BudgetRangeInfoForQueryBudgetDetailOutput {
+	s.BudgetRangeSplitItemName = v
 	return s
 }
 
