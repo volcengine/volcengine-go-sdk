@@ -243,7 +243,4 @@ const (
 
 	// EnumOfGranteeTypeForGrantPermissionInputRole is a EnumOfGranteeTypeForGrantPermissionInput enum value
 	EnumOfGranteeTypeForGrantPermissionInputRole = "Role"
-
-	// EnumOfGranteeTypeForGrantPermissionInputAccount is a EnumOfGranteeTypeForGrantPermissionInput enum value
-	EnumOfGranteeTypeForGrantPermissionInputAccount = "Account"
 )

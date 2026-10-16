@@ -3,6 +3,8 @@
 package billing
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -276,6 +278,8 @@ func (s *BudgetAmountForUpdateBudgetInput) SetBudgetPeriod(v string) *BudgetAmou
 type BudgetForUpdateBudgetInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AmountType *string `type:"string" json:",omitempty" enum:"EnumOfAmountTypeForUpdateBudgetInput"`
+
 	BudgetEndTime *string `type:"string" json:",omitempty"`
 
 	BudgetName *string `type:"string" json:",omitempty"`
@@ -285,6 +289,8 @@ type BudgetForUpdateBudgetInput struct {
 	BudgetStartTime *string `type:"string" json:",omitempty"`
 
 	BudgetType *string `type:"string" json:",omitempty" enum:"EnumOfBudgetTypeForUpdateBudgetInput"`
+
+	CurrencySettlement *string `type:"string" json:",omitempty"`
 
 	Period *string `type:"string" json:",omitempty" enum:"EnumOfPeriodForUpdateBudgetInput"`
 }
@@ -297,6 +303,12 @@ func (s BudgetForUpdateBudgetInput) String() string {
 // GoString returns the string representation
 func (s BudgetForUpdateBudgetInput) GoString() string {
 	return s.String()
+}
+
+// SetAmountType sets the AmountType field's value.
+func (s *BudgetForUpdateBudgetInput) SetAmountType(v string) *BudgetForUpdateBudgetInput {
+	s.AmountType = &v
+	return s
 }
 
 // SetBudgetEndTime sets the BudgetEndTime field's value.
@@ -329,6 +341,12 @@ func (s *BudgetForUpdateBudgetInput) SetBudgetType(v string) *BudgetForUpdateBud
 	return s
 }
 
+// SetCurrencySettlement sets the CurrencySettlement field's value.
+func (s *BudgetForUpdateBudgetInput) SetCurrencySettlement(v string) *BudgetForUpdateBudgetInput {
+	s.CurrencySettlement = &v
+	return s
+}
+
 // SetPeriod sets the Period field's value.
 func (s *BudgetForUpdateBudgetInput) SetPeriod(v string) *BudgetForUpdateBudgetInput {
 	s.Period = &v
@@ -340,6 +358,8 @@ type BudgetRangeForUpdateBudgetInput struct {
 
 	BillingMode []*string `type:"list" json:",omitempty"`
 
+	ConfigurationCode []*ConfigurationCodeForUpdateBudgetInput `type:"list" json:",omitempty"`
+
 	OwnerID []*int64 `type:"list" json:",omitempty"`
 
 	PayerID []*int64 `type:"list" json:",omitempty"`
@@ -349,6 +369,10 @@ type BudgetRangeForUpdateBudgetInput struct {
 	Project []*string `type:"list" json:",omitempty"`
 
 	Region []*string `type:"list" json:",omitempty"`
+
+	SplitItemID []*string `type:"list" json:",omitempty"`
+
+	SplitItemName []*string `type:"list" json:",omitempty"`
 
 	SubjectNo []*string `type:"list" json:",omitempty"`
 
@@ -367,9 +391,35 @@ func (s BudgetRangeForUpdateBudgetInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BudgetRangeForUpdateBudgetInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BudgetRangeForUpdateBudgetInput"}
+	if s.ConfigurationCode != nil {
+		for i, v := range s.ConfigurationCode {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "ConfigurationCode", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetBillingMode sets the BillingMode field's value.
 func (s *BudgetRangeForUpdateBudgetInput) SetBillingMode(v []*string) *BudgetRangeForUpdateBudgetInput {
 	s.BillingMode = v
+	return s
+}
+
+// SetConfigurationCode sets the ConfigurationCode field's value.
+func (s *BudgetRangeForUpdateBudgetInput) SetConfigurationCode(v []*ConfigurationCodeForUpdateBudgetInput) *BudgetRangeForUpdateBudgetInput {
+	s.ConfigurationCode = v
 	return s
 }
 
@@ -403,6 +453,18 @@ func (s *BudgetRangeForUpdateBudgetInput) SetRegion(v []*string) *BudgetRangeFor
 	return s
 }
 
+// SetSplitItemID sets the SplitItemID field's value.
+func (s *BudgetRangeForUpdateBudgetInput) SetSplitItemID(v []*string) *BudgetRangeForUpdateBudgetInput {
+	s.SplitItemID = v
+	return s
+}
+
+// SetSplitItemName sets the SplitItemName field's value.
+func (s *BudgetRangeForUpdateBudgetInput) SetSplitItemName(v []*string) *BudgetRangeForUpdateBudgetInput {
+	s.SplitItemName = v
+	return s
+}
+
 // SetSubjectNo sets the SubjectNo field's value.
 func (s *BudgetRangeForUpdateBudgetInput) SetSubjectNo(v []*string) *BudgetRangeForUpdateBudgetInput {
 	s.SubjectNo = v
@@ -418,6 +480,52 @@ func (s *BudgetRangeForUpdateBudgetInput) SetTag(v []*string) *BudgetRangeForUpd
 // SetZone sets the Zone field's value.
 func (s *BudgetRangeForUpdateBudgetInput) SetZone(v []*string) *BudgetRangeForUpdateBudgetInput {
 	s.Zone = v
+	return s
+}
+
+type ConfigurationCodeForUpdateBudgetInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ConfigCode *string `min:"1" type:"string" json:",omitempty"`
+
+	ProductCode *string `min:"1" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConfigurationCodeForUpdateBudgetInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfigurationCodeForUpdateBudgetInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConfigurationCodeForUpdateBudgetInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConfigurationCodeForUpdateBudgetInput"}
+	if s.ConfigCode != nil && len(*s.ConfigCode) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ConfigCode", 1))
+	}
+	if s.ProductCode != nil && len(*s.ProductCode) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ProductCode", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetConfigCode sets the ConfigCode field's value.
+func (s *ConfigurationCodeForUpdateBudgetInput) SetConfigCode(v string) *ConfigurationCodeForUpdateBudgetInput {
+	s.ConfigCode = &v
+	return s
+}
+
+// SetProductCode sets the ProductCode field's value.
+func (s *ConfigurationCodeForUpdateBudgetInput) SetProductCode(v string) *ConfigurationCodeForUpdateBudgetInput {
+	s.ProductCode = &v
 	return s
 }
 
@@ -453,6 +561,11 @@ func (s *UpdateBudgetInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateBudgetInput"}
 	if s.BudgetID == nil {
 		invalidParams.Add(request.NewErrParamRequired("BudgetID"))
+	}
+	if s.BudgetRange != nil {
+		if err := s.BudgetRange.Validate(); err != nil {
+			invalidParams.AddNested("BudgetRange", err.(request.ErrInvalidParams))
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -512,6 +625,14 @@ func (s UpdateBudgetOutput) String() string {
 func (s UpdateBudgetOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfAmountTypeForUpdateBudgetInputPreTaxPayable is a EnumOfAmountTypeForUpdateBudgetInput enum value
+	EnumOfAmountTypeForUpdateBudgetInputPreTaxPayable = "pre_tax_payable"
+
+	// EnumOfAmountTypeForUpdateBudgetInputPostTaxPayable is a EnumOfAmountTypeForUpdateBudgetInput enum value
+	EnumOfAmountTypeForUpdateBudgetInputPostTaxPayable = "post_tax_payable"
+)
 
 const (
 	// EnumOfBudgetAlertItemForUpdateBudgetInputActualAmount is a EnumOfBudgetAlertItemForUpdateBudgetInput enum value

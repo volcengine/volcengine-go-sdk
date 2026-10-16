@@ -155,6 +155,8 @@ type DescribeIpamResourceCidrsInput struct {
 
 	ResourceName *string `type:"string"`
 
+	ResourceRegionId *string `type:"string"`
+
 	ResourceType *string `type:"string"`
 
 	// VpcId is a required field
@@ -220,6 +222,12 @@ func (s *DescribeIpamResourceCidrsInput) SetResourceId(v string) *DescribeIpamRe
 // SetResourceName sets the ResourceName field's value.
 func (s *DescribeIpamResourceCidrsInput) SetResourceName(v string) *DescribeIpamResourceCidrsInput {
 	s.ResourceName = &v
+	return s
+}
+
+// SetResourceRegionId sets the ResourceRegionId field's value.
+func (s *DescribeIpamResourceCidrsInput) SetResourceRegionId(v string) *DescribeIpamResourceCidrsInput {
+	s.ResourceRegionId = &v
 	return s
 }
 
@@ -292,6 +300,8 @@ type IpamResourceCidrForDescribeIpamResourceCidrsOutput struct {
 
 	ManagementStatus *string `type:"string"`
 
+	OverlapDetails []*OverlapDetailForDescribeIpamResourceCidrsOutput `type:"list"`
+
 	OverlapStatus *string `type:"string"`
 
 	ResourceCidr *string `type:"string"`
@@ -299,6 +309,8 @@ type IpamResourceCidrForDescribeIpamResourceCidrsOutput struct {
 	ResourceId *string `type:"string"`
 
 	ResourceName *string `type:"string"`
+
+	ResourceRegionId *string `type:"string"`
 
 	ResourceType *string `type:"string"`
 
@@ -357,6 +369,12 @@ func (s *IpamResourceCidrForDescribeIpamResourceCidrsOutput) SetManagementStatus
 	return s
 }
 
+// SetOverlapDetails sets the OverlapDetails field's value.
+func (s *IpamResourceCidrForDescribeIpamResourceCidrsOutput) SetOverlapDetails(v []*OverlapDetailForDescribeIpamResourceCidrsOutput) *IpamResourceCidrForDescribeIpamResourceCidrsOutput {
+	s.OverlapDetails = v
+	return s
+}
+
 // SetOverlapStatus sets the OverlapStatus field's value.
 func (s *IpamResourceCidrForDescribeIpamResourceCidrsOutput) SetOverlapStatus(v string) *IpamResourceCidrForDescribeIpamResourceCidrsOutput {
 	s.OverlapStatus = &v
@@ -381,6 +399,12 @@ func (s *IpamResourceCidrForDescribeIpamResourceCidrsOutput) SetResourceName(v s
 	return s
 }
 
+// SetResourceRegionId sets the ResourceRegionId field's value.
+func (s *IpamResourceCidrForDescribeIpamResourceCidrsOutput) SetResourceRegionId(v string) *IpamResourceCidrForDescribeIpamResourceCidrsOutput {
+	s.ResourceRegionId = &v
+	return s
+}
+
 // SetResourceType sets the ResourceType field's value.
 func (s *IpamResourceCidrForDescribeIpamResourceCidrsOutput) SetResourceType(v string) *IpamResourceCidrForDescribeIpamResourceCidrsOutput {
 	s.ResourceType = &v
@@ -390,5 +414,43 @@ func (s *IpamResourceCidrForDescribeIpamResourceCidrsOutput) SetResourceType(v s
 // SetVpcId sets the VpcId field's value.
 func (s *IpamResourceCidrForDescribeIpamResourceCidrsOutput) SetVpcId(v string) *IpamResourceCidrForDescribeIpamResourceCidrsOutput {
 	s.VpcId = &v
+	return s
+}
+
+type OverlapDetailForDescribeIpamResourceCidrsOutput struct {
+	_ struct{} `type:"structure"`
+
+	ResourceCidr *string `type:"string"`
+
+	ResourceId *string `type:"string"`
+
+	ResourceRegionId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s OverlapDetailForDescribeIpamResourceCidrsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OverlapDetailForDescribeIpamResourceCidrsOutput) GoString() string {
+	return s.String()
+}
+
+// SetResourceCidr sets the ResourceCidr field's value.
+func (s *OverlapDetailForDescribeIpamResourceCidrsOutput) SetResourceCidr(v string) *OverlapDetailForDescribeIpamResourceCidrsOutput {
+	s.ResourceCidr = &v
+	return s
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *OverlapDetailForDescribeIpamResourceCidrsOutput) SetResourceId(v string) *OverlapDetailForDescribeIpamResourceCidrsOutput {
+	s.ResourceId = &v
+	return s
+}
+
+// SetResourceRegionId sets the ResourceRegionId field's value.
+func (s *OverlapDetailForDescribeIpamResourceCidrsOutput) SetResourceRegionId(v string) *OverlapDetailForDescribeIpamResourceCidrsOutput {
+	s.ResourceRegionId = &v
 	return s
 }

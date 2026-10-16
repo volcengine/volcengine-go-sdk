@@ -176,11 +176,11 @@ func (s *AccessPolicyForCreateTopicInput) SetUserName(v string) *AccessPolicyFor
 type CreateTopicInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPolicies []*AccessPolicyForCreateTopicInput `type:"list" json:",omitempty"`
+	AccessPolicies []*AccessPolicyForCreateTopicInput `type:"list"`
 
 	AllAuthority *bool `type:"boolean" json:",omitempty"`
 
-	CleanupPolicy []*string `type:"list" json:",omitempty"`
+	CleanupPolicy []*string `type:"list"`
 
 	Description *string `type:"string" json:",omitempty"`
 
@@ -192,9 +192,10 @@ type CreateTopicInput struct {
 	// PartitionNumber is a required field
 	PartitionNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	ReplicaNumber *int32 `type:"int32" json:",omitempty"`
+	// ReplicaNumber is a required field
+	ReplicaNumber *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	Tags []*TagForCreateTopicInput `type:"list" json:",omitempty"`
+	Tags []*TagForCreateTopicInput `type:"list"`
 
 	// TopicName is a required field
 	TopicName *string `type:"string" json:",omitempty" required:"true"`
@@ -218,6 +219,9 @@ func (s *CreateTopicInput) Validate() error {
 	}
 	if s.PartitionNumber == nil {
 		invalidParams.Add(request.NewErrParamRequired("PartitionNumber"))
+	}
+	if s.ReplicaNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("ReplicaNumber"))
 	}
 	if s.TopicName == nil {
 		invalidParams.Add(request.NewErrParamRequired("TopicName"))
@@ -334,11 +338,3 @@ func (s *TagForCreateTopicInput) SetValue(v string) *TagForCreateTopicInput {
 	s.Value = &v
 	return s
 }
-
-const (
-	// EnumOfCleanupPolicyListForCreateTopicInputDelete is a EnumOfCleanupPolicyListForCreateTopicInput enum value
-	EnumOfCleanupPolicyListForCreateTopicInputDelete = "delete"
-
-	// EnumOfCleanupPolicyListForCreateTopicInputCompact is a EnumOfCleanupPolicyListForCreateTopicInput enum value
-	EnumOfCleanupPolicyListForCreateTopicInputCompact = "compact"
-)

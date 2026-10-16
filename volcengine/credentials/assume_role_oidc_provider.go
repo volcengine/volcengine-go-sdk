@@ -3,7 +3,6 @@ package credentials
 import (
 	"fmt"
 	"io/ioutil"
-	"net/http"
 	"net/url"
 	"os"
 	"strconv"
@@ -78,6 +77,17 @@ type OIDCCredentialsProvider struct {
 	sessionValue        *Value
 	// for http options
 	httpOptions *HttpOptions
+	// ProxyURL 指定访问 STS 端点时使用的正向代理地址，格式
+	// scheme://[user:password@]host:port。留空时先使用绑定客户端中与 STS
+	// 协议对应的 HTTPProxy/HTTPSProxy，再保留原传输层代理行为。
+	ProxyURL string
+	// CAFile 指定用于校验 STS 服务端证书的自定义 CA 证书文件路径（PEM 格式）。
+	// 留空时保留原传输层的根证书配置，标准默认值使用系统根证书。
+	CAFile string
+	// InsecureSkipVerify 控制是否跳过 STS 服务端 TLS 证书校验。
+	// 仅限联调（如自签证书 / 代理拦截），生产环境禁用，会导致中间人攻击风险。
+	InsecureSkipVerify bool
+	stsConfig          STSConfig
 }
 
 // OIDCProviderOptions contains optional configuration for OIDCCredentialsProvider.
@@ -90,6 +100,12 @@ type OIDCProviderOptions struct {
 	MaxRetries      *int
 	RetryInterval   time.Duration
 	HttpOptions     *HttpOptions
+	// ProxyURL 正向代理地址，格式 scheme://[user:password@]host:port。
+	ProxyURL string
+	// CAFile 自定义 CA 证书文件路径（PEM 格式）。
+	CAFile string
+	// InsecureSkipVerify 跳过 TLS 证书校验，仅限联调，生产禁用。
+	InsecureSkipVerify bool
 }
 
 // NewOIDCCredentialsProviderWithOptions constructs an OIDCCredentialsProvider
@@ -104,16 +120,19 @@ func NewOIDCCredentialsProviderWithOptions(tokenFilePath, roleTrn string, optFns
 		fn(&opts)
 	}
 	return &OIDCCredentialsProvider{
-		OIDCTokenFilePath: tokenFilePath,
-		RoleTrn:           roleTrn,
-		RoleSessionName:   opts.RoleSessionName,
-		DurationSeconds:   opts.DurationSeconds,
-		Policy:            opts.Policy,
-		Schema:            opts.Schema,
-		Endpoint:          opts.Endpoint,
-		MaxRetries:        opts.MaxRetries,
-		RetryInterval:     opts.RetryInterval,
-		httpOptions:       opts.HttpOptions,
+		OIDCTokenFilePath:  tokenFilePath,
+		RoleTrn:            roleTrn,
+		RoleSessionName:    opts.RoleSessionName,
+		DurationSeconds:    opts.DurationSeconds,
+		Policy:             opts.Policy,
+		Schema:             opts.Schema,
+		Endpoint:           opts.Endpoint,
+		MaxRetries:         opts.MaxRetries,
+		RetryInterval:      opts.RetryInterval,
+		httpOptions:        opts.HttpOptions,
+		ProxyURL:           opts.ProxyURL,
+		CAFile:             opts.CAFile,
+		InsecureSkipVerify: opts.InsecureSkipVerify,
 	}
 }
 
@@ -173,11 +192,22 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 		scheme = p.Schema
 	}
 
-	var client *http.Client
+	var timeout time.Duration
 	if p.httpOptions != nil {
-		client = &http.Client{Timeout: p.httpOptions.Timeout}
-	} else {
-		client = &http.Client{}
+		timeout = p.httpOptions.Timeout
+	}
+	client, err := buildProxyHTTPClient(ProxyConfig{
+		ProxyURL:           p.ProxyURL,
+		CAFile:             p.CAFile,
+		InsecureSkipVerify: p.InsecureSkipVerify,
+		httpProxy:          p.stsConfig.HTTPProxy,
+		httpsProxy:         p.stsConfig.HTTPSProxy,
+	}, timeout)
+	if err != nil {
+		return Value{}, err
+	}
+	if client.Transport != nil {
+		defer client.CloseIdleConnections()
 	}
 
 	var stsResp AssumeRoleWithOIDCResponse

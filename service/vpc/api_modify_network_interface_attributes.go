@@ -154,6 +154,12 @@ type ModifyNetworkInterfaceAttributesInput struct {
 	PortSecurityEnabled *bool `type:"boolean"`
 
 	SecurityGroupIds []*string `type:"list"`
+
+	TcpClosedAndTimeWaitTimeout *int64 `type:"integer"`
+
+	TcpEstablishedTimeout *int64 `type:"integer"`
+
+	UdpTimeout *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -224,6 +230,24 @@ func (s *ModifyNetworkInterfaceAttributesInput) SetPortSecurityEnabled(v bool) *
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
 func (s *ModifyNetworkInterfaceAttributesInput) SetSecurityGroupIds(v []*string) *ModifyNetworkInterfaceAttributesInput {
 	s.SecurityGroupIds = v
+	return s
+}
+
+// SetTcpClosedAndTimeWaitTimeout sets the TcpClosedAndTimeWaitTimeout field's value.
+func (s *ModifyNetworkInterfaceAttributesInput) SetTcpClosedAndTimeWaitTimeout(v int64) *ModifyNetworkInterfaceAttributesInput {
+	s.TcpClosedAndTimeWaitTimeout = &v
+	return s
+}
+
+// SetTcpEstablishedTimeout sets the TcpEstablishedTimeout field's value.
+func (s *ModifyNetworkInterfaceAttributesInput) SetTcpEstablishedTimeout(v int64) *ModifyNetworkInterfaceAttributesInput {
+	s.TcpEstablishedTimeout = &v
+	return s
+}
+
+// SetUdpTimeout sets the UdpTimeout field's value.
+func (s *ModifyNetworkInterfaceAttributesInput) SetUdpTimeout(v int64) *ModifyNetworkInterfaceAttributesInput {
+	s.UdpTimeout = &v
 	return s
 }
 

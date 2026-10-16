@@ -184,7 +184,7 @@ type DeleteSandboxImageOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	RelatedSandboxApplications []*string `type:"list" json:",omitempty"`
+	RelatedSandboxApplications []*string `type:"list"`
 
 	Status *string `type:"string" json:",omitempty"`
 }

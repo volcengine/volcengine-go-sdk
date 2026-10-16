@@ -153,6 +153,8 @@ type AnalyzerForUpdateVikingdbCollectionInput struct {
 	StopWordsFilters []*string `type:"list" json:",omitempty"`
 
 	Tokenizer *string `type:"string" json:",omitempty"`
+
+	Tokenizers []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -180,6 +182,12 @@ func (s *AnalyzerForUpdateVikingdbCollectionInput) SetStopWordsFilters(v []*stri
 // SetTokenizer sets the Tokenizer field's value.
 func (s *AnalyzerForUpdateVikingdbCollectionInput) SetTokenizer(v string) *AnalyzerForUpdateVikingdbCollectionInput {
 	s.Tokenizer = &v
+	return s
+}
+
+// SetTokenizers sets the Tokenizers field's value.
+func (s *AnalyzerForUpdateVikingdbCollectionInput) SetTokenizers(v []*string) *AnalyzerForUpdateVikingdbCollectionInput {
+	s.Tokenizers = v
 	return s
 }
 

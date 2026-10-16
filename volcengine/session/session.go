@@ -56,6 +56,15 @@ var ErrSharedConfigInvalidCredSource = volcengineerr.New(ErrCodeSharedConfig, "c
 type Session struct {
 	Config   *volcengine.Config
 	Handlers request.Handlers
+
+	stsBinding *stsCredentialsBinding
+}
+
+// stsCredentialsBinding is an immutable snapshot of the credentials and
+// explicit STS defaults used for a session's last binding.
+type stsCredentialsBinding struct {
+	credentials *credentials.Credentials
+	config      credentials.STSConfig
 }
 
 // New creates a new instance of the handlers merging in the provided configs
@@ -134,18 +143,6 @@ func New(cfgs ...*volcengine.Config) *Session {
 func NewSession(cfgs ...*volcengine.Config) (*Session, error) {
 	opts := Options{}
 	opts.Config.MergeIn(cfgs...)
-
-	//merge config region and endpoint info to sts
-	if opts.Config.Credentials == nil {
-		return NewSessionWithOptions(opts)
-	} else if sts, ok := opts.Config.Credentials.GetProvider().(*credentials.StsProvider); ok {
-		if sts.Region == "" && opts.Config.Region != nil {
-			sts.Region = *(opts.Config.Region)
-		}
-		if sts.Host == "" && opts.Config.Endpoint != nil {
-			sts.Host = *(opts.Config.Endpoint)
-		}
-	}
 	return NewSessionWithOptions(opts)
 }
 
@@ -339,10 +336,12 @@ func deprecatedNewSession(cfgs ...*volcengine.Config) *Session {
 
 	// Reapply any passed in configs to override credentials if set
 	cfg.MergeIn(cfgs...)
+	stsBinding := bindSTSCredentials(cfg, nil)
 
 	s := &Session{
-		Config:   cfg,
-		Handlers: handlers,
+		Config:     cfg,
+		Handlers:   handlers,
+		stsBinding: stsBinding,
 	}
 
 	initHandlers(s)
@@ -394,6 +393,7 @@ func newSession(opts Options, envCfg envConfig, cfgs ...*volcengine.Config) (*Se
 	if err := mergeConfigSrcs(cfg, userCfg, envCfg, sharedCfg, handlers, opts); err != nil {
 		return nil, err
 	}
+	stsBinding := bindSTSCredentials(cfg, nil)
 
 	if volcengine.BoolValue(cfg.EndpointConfigState) && cfg.EndpointResolver == nil {
 		resolver := &endpoints.FileEndpointConfigResolver{
@@ -406,8 +406,9 @@ func newSession(opts Options, envCfg envConfig, cfgs ...*volcengine.Config) (*Se
 	}
 
 	s := &Session{
-		Config:   cfg,
-		Handlers: handlers,
+		Config:     cfg,
+		Handlers:   handlers,
+		stsBinding: stsBinding,
 	}
 
 	logConfig(*cfg)
@@ -617,6 +618,9 @@ func initHandlers(s *Session) {
 // Copy creates and returns a copy of the current Session, copying the config
 // and handlers. If any additional configs are provided they will be merged
 // on top of the Session's copied config.
+// Built-in STS credentials share their cache and refresh lock while the
+// credentials and explicit Region, HTTPProxy, and HTTPSProxy defaults are
+// unchanged from the last binding. Changes create an independent binding.
 //
 //	// Create a copy of the current Session, configured for the us-west-2 region.
 //	sess.Copy(&volcengine.Config{Region: volcengine.String("us-west-2")})
@@ -625,6 +629,7 @@ func (s *Session) Copy(cfgs ...*volcengine.Config) *Session {
 		Config:   s.Config.Copy(cfgs...),
 		Handlers: s.Handlers.Copy(),
 	}
+	newSession.stsBinding = bindSTSCredentials(newSession.Config, s.stsBinding)
 
 	initHandlers(newSession)
 
@@ -760,4 +765,22 @@ func getNoProxy(noProxy *string) []string {
 	}
 
 	return urls
+}
+
+// Reuse an unchanged binding after config merging, or bind an independent
+// credential cache. Compare values with the last binding, since Config fields
+// may have been changed in place. Only explicit defaults are copied: STS chooses
+// its own scheme and the transport resolves environment proxies per request,
+// retaining NO_PROXY. The business service Endpoint must not override STS.
+func bindSTSCredentials(cfg *volcengine.Config, previous *stsCredentialsBinding) *stsCredentialsBinding {
+	stsConfig := credentials.STSConfig{
+		Region:     volcengine.StringValue(cfg.Region),
+		HTTPProxy:  volcengine.StringValue(cfg.HTTPProxy),
+		HTTPSProxy: volcengine.StringValue(cfg.HTTPSProxy),
+	}
+	if previous != nil && cfg.Credentials == previous.credentials && stsConfig == previous.config {
+		return previous
+	}
+	cfg.Credentials = cfg.Credentials.WithSTSConfig(stsConfig)
+	return &stsCredentialsBinding{credentials: cfg.Credentials, config: stsConfig}
 }

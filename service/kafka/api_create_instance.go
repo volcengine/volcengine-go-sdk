@@ -205,7 +205,7 @@ type CreateInstanceInput struct {
 
 	InstanceName *string `type:"string" json:",omitempty"`
 
-	IpWhiteList []*string `type:"list" json:",omitempty"`
+	IpWhiteList []*string `type:"list"`
 
 	Parameters *string `type:"string" json:",omitempty"`
 

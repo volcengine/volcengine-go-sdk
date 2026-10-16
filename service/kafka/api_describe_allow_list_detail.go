@@ -222,7 +222,15 @@ type DescribeAllowListDetailOutput struct {
 
 	AllowListName *string `type:"string" json:",omitempty"`
 
-	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
+	AssociatedInstanceNum *int32 `type:"int32" json:",omitempty"`
+
+	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list"`
+
+	AssociatedLBNum *int32 `type:"int32" json:",omitempty"`
+
+	ExceedLimit *bool `type:"boolean" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -259,8 +267,32 @@ func (s *DescribeAllowListDetailOutput) SetAllowListName(v string) *DescribeAllo
 	return s
 }
 
+// SetAssociatedInstanceNum sets the AssociatedInstanceNum field's value.
+func (s *DescribeAllowListDetailOutput) SetAssociatedInstanceNum(v int32) *DescribeAllowListDetailOutput {
+	s.AssociatedInstanceNum = &v
+	return s
+}
+
 // SetAssociatedInstances sets the AssociatedInstances field's value.
 func (s *DescribeAllowListDetailOutput) SetAssociatedInstances(v []*AssociatedInstanceForDescribeAllowListDetailOutput) *DescribeAllowListDetailOutput {
 	s.AssociatedInstances = v
+	return s
+}
+
+// SetAssociatedLBNum sets the AssociatedLBNum field's value.
+func (s *DescribeAllowListDetailOutput) SetAssociatedLBNum(v int32) *DescribeAllowListDetailOutput {
+	s.AssociatedLBNum = &v
+	return s
+}
+
+// SetExceedLimit sets the ExceedLimit field's value.
+func (s *DescribeAllowListDetailOutput) SetExceedLimit(v bool) *DescribeAllowListDetailOutput {
+	s.ExceedLimit = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeAllowListDetailOutput) SetProjectName(v string) *DescribeAllowListDetailOutput {
+	s.ProjectName = &v
 	return s
 }

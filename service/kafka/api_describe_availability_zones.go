@@ -186,7 +186,7 @@ type DescribeAvailabilityZonesOutput struct {
 
 	RegionId *string `type:"string" json:",omitempty"`
 
-	Zones []*ZoneForDescribeAvailabilityZonesOutput `type:"list" json:",omitempty"`
+	Zones []*ZoneForDescribeAvailabilityZonesOutput `type:"list"`
 }
 
 // String returns the string representation

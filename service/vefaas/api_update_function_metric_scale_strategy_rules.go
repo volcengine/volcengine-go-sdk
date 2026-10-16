@@ -179,7 +179,7 @@ type UpdateFunctionMetricScaleStrategyRulesInput struct {
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
-	Rules []*RuleForUpdateFunctionMetricScaleStrategyRulesInput `type:"list" json:",omitempty"`
+	Rules []*RuleForUpdateFunctionMetricScaleStrategyRulesInput `type:"list"`
 }
 
 // String returns the string representation

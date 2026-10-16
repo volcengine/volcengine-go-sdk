@@ -244,7 +244,7 @@ func (s *SummaryForVerifyMigrateSubTasksOutput) SetMessage(v string) *SummaryFor
 type VerifyMigrateSubTasksInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Items []*ItemForVerifyMigrateSubTasksInput `type:"list" json:",omitempty"`
+	Items []*ItemForVerifyMigrateSubTasksInput `type:"list"`
 
 	// TaskId is a required field
 	TaskId *string `type:"string" json:",omitempty" required:"true"`
@@ -290,7 +290,7 @@ type VerifyMigrateSubTasksOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	SubTaskResults []*SubTaskResultForVerifyMigrateSubTasksOutput `type:"list" json:",omitempty"`
+	SubTaskResults []*SubTaskResultForVerifyMigrateSubTasksOutput `type:"list"`
 
 	Summary *SummaryForVerifyMigrateSubTasksOutput `type:"structure" json:",omitempty"`
 }

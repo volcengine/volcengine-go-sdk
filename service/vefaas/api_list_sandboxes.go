@@ -268,7 +268,7 @@ type FilterForListSandboxesInput struct {
 
 	Name *string `type:"string" json:",omitempty"`
 
-	Values []*string `type:"list" json:",omitempty"`
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -296,7 +296,7 @@ func (s *FilterForListSandboxesInput) SetValues(v []*string) *FilterForListSandb
 type InstanceEfsMountConfigForListSandboxesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	MountPoints []*MountPointForListSandboxesOutput `type:"list" json:",omitempty"`
+	MountPoints []*MountPointForListSandboxesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -318,7 +318,7 @@ func (s *InstanceEfsMountConfigForListSandboxesOutput) SetMountPoints(v []*Mount
 type ListSandboxesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Filters []*FilterForListSandboxesInput `type:"list" json:",omitempty"`
+	Filters []*FilterForListSandboxesInput `type:"list"`
 
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
@@ -414,7 +414,7 @@ type ListSandboxesOutput struct {
 
 	RevisionCount *RevisionCountForListSandboxesOutput `type:"structure" json:",omitempty"`
 
-	Sandboxes []*SandboxForListSandboxesOutput `type:"list" json:",omitempty"`
+	Sandboxes []*SandboxForListSandboxesOutput `type:"list"`
 
 	StatusCount map[string]*int32 `type:"map" json:",omitempty"`
 
@@ -518,7 +518,7 @@ type SandboxForListSandboxesOutput struct {
 
 	CreatedAt *string `type:"string" json:",omitempty"`
 
-	EBSVolumes []*EBSVolumeForListSandboxesOutput `type:"list" json:",omitempty"`
+	EBSVolumes []*EBSVolumeForListSandboxesOutput `type:"list"`
 
 	ErrorCode *string `type:"string" json:",omitempty"`
 
@@ -546,13 +546,13 @@ type SandboxForListSandboxesOutput struct {
 
 	RevisionNumber *int32 `type:"int32" json:",omitempty"`
 
-	RoleChainTrn []*string `type:"list" json:",omitempty"`
+	RoleChainTrn []*string `type:"list"`
 
 	RoleTrn *string `type:"string" json:",omitempty"`
 
 	SessionId *string `type:"string" json:",omitempty"`
 
-	Sidecars []*SidecarForListSandboxesOutput `type:"list" json:",omitempty"`
+	Sidecars []*SidecarForListSandboxesOutput `type:"list"`
 
 	Status *string `type:"string" json:",omitempty"`
 }
@@ -708,13 +708,13 @@ func (s *SandboxForListSandboxesOutput) SetStatus(v string) *SandboxForListSandb
 type SidecarForListSandboxesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Args []*string `type:"list" json:",omitempty"`
+	Args []*string `type:"list"`
 
-	Command []*string `type:"list" json:",omitempty"`
+	Command []*string `type:"list"`
 
 	CpuMilli *int32 `type:"int32" json:",omitempty"`
 
-	EmptyDirVolume []*EmptyDirVolumeForListSandboxesOutput `type:"list" json:",omitempty"`
+	EmptyDirVolume []*EmptyDirVolumeForListSandboxesOutput `type:"list"`
 
 	Envs *EnvsForListSandboxesOutput `type:"structure" json:",omitempty"`
 

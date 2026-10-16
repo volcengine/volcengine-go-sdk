@@ -146,7 +146,7 @@ func (c *TIDB) DeletePrivateEndpointAllowlistRuleWithContext(ctx volcengine.Cont
 type AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
+	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
 	SecurityGroupCount *int32 `type:"int32" json:",omitempty"`
 
@@ -165,9 +165,9 @@ func (s AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput) GoString()
 	return s.String()
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput) SetDisplayName(v string) *AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput {
-	s.DisplayName = &v
+// SetAuthorizedNetworkName sets the AuthorizedNetworkName field's value.
+func (s *AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput) SetAuthorizedNetworkName(v string) *AuthorizedNetworkForDeletePrivateEndpointAllowlistRuleOutput {
+	s.AuthorizedNetworkName = &v
 	return s
 }
 

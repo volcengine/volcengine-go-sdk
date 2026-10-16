@@ -12,6 +12,12 @@
 
 用户可以通过在初始化客户端时指定 Endpoint：
 
+`volcengine.Config.Endpoint`（`WithEndpoint`）只配置业务服务地址，不会用作获取凭证的 STS 地址。
+STS AssumeRole 默认使用 `sts.volcengineapi.com`，可通过 Provider 的 `Host` 或独立的
+`credentials.STSConfig.Host` 指定；Provider 的 `Host` 优先，重新绑定时空的 `STSConfig.Host`
+保留已有 STS Host。OIDC/SAML 使用各自 Provider 的 `Endpoint`。
+在创建 Session、`Session.Copy` 或服务客户端时覆盖业务 Endpoint，不会改变这些 STS 地址。
+
 ```go
 func main() {
 	region := "cn-beijing"

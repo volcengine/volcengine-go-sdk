@@ -218,7 +218,7 @@ type DescribeUsersOutput struct {
 
 	Total *int32 `type:"int32" json:",omitempty"`
 
-	UsersInfo []*UsersInfoForDescribeUsersOutput `type:"list" json:",omitempty"`
+	UsersInfo []*UsersInfoForDescribeUsersOutput `type:"list"`
 }
 
 // String returns the string representation

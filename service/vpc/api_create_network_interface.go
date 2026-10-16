@@ -169,6 +169,12 @@ type CreateNetworkInterfaceInput struct {
 	SubnetId *string `type:"string" required:"true"`
 
 	Tags []*TagForCreateNetworkInterfaceInput `type:"list"`
+
+	TcpClosedAndTimeWaitTimeout *int64 `type:"integer"`
+
+	TcpEstablishedTimeout *int64 `type:"integer"`
+
+	UdpTimeout *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -284,6 +290,24 @@ func (s *CreateNetworkInterfaceInput) SetSubnetId(v string) *CreateNetworkInterf
 // SetTags sets the Tags field's value.
 func (s *CreateNetworkInterfaceInput) SetTags(v []*TagForCreateNetworkInterfaceInput) *CreateNetworkInterfaceInput {
 	s.Tags = v
+	return s
+}
+
+// SetTcpClosedAndTimeWaitTimeout sets the TcpClosedAndTimeWaitTimeout field's value.
+func (s *CreateNetworkInterfaceInput) SetTcpClosedAndTimeWaitTimeout(v int64) *CreateNetworkInterfaceInput {
+	s.TcpClosedAndTimeWaitTimeout = &v
+	return s
+}
+
+// SetTcpEstablishedTimeout sets the TcpEstablishedTimeout field's value.
+func (s *CreateNetworkInterfaceInput) SetTcpEstablishedTimeout(v int64) *CreateNetworkInterfaceInput {
+	s.TcpEstablishedTimeout = &v
+	return s
+}
+
+// SetUdpTimeout sets the UdpTimeout field's value.
+func (s *CreateNetworkInterfaceInput) SetUdpTimeout(v int64) *CreateNetworkInterfaceInput {
+	s.UdpTimeout = &v
 	return s
 }
 
