@@ -247,7 +247,9 @@ func GetDefaultEndpointByServiceInfo(service string, regionCode string,
 	// anything that could alter the host structure and fall back to the
 	// fixed default endpoint.
 	if err := endpoints.ValidateServiceAndRegion(service, regionCode); err != nil {
-		debug(logger, fmt.Sprintf("invalid service or region, use default endpoint: %s, err: %v", resultEndpoint, err))
+		if logger != nil {
+			logger.Warn(fmt.Sprintf("[Endpoint] invalid service %q or region %q, falling back to default endpoint %q: %v", service, regionCode, resultEndpoint, err))
+		}
 		return &resultEndpoint
 	}
 

@@ -2,12 +2,15 @@ package auth
 
 import (
 	"context"
+	"errors"
 	"strings"
 	"testing"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 func newTestSession(t *testing.T, ak, sk, region string, disableSSL *bool, endpoint ...string) *session.Session {
@@ -185,6 +188,18 @@ func TestBuildAuthTokenInvalidRegionReturnsError(t *testing.T) {
 		token, err := BuildAuthToken(context.Background(), sess, "user", "mysql-xxx", 0)
 		if err == nil {
 			t.Fatalf("region %q: expect error, got token %q", region, token)
+		}
+		if token != "" {
+			t.Fatalf("region %q: expect empty token, got %q", region, token)
+		}
+		// The prefix is only produced when the Validate handlers carried by the
+		// failed client config are run, i.e. no token is built from it.
+		if !strings.HasPrefix(err.Error(), "unable to resolve client config") {
+			t.Fatalf("region %q: unexpected error %v", region, err)
+		}
+		var vErr volcengineerr.Error
+		if !errors.As(err, &vErr) || vErr.Code() != endpoints.ErrCodeInvalidRegion {
+			t.Fatalf("region %q: expect error code %s, got %v", region, endpoints.ErrCodeInvalidRegion, err)
 		}
 	}
 }

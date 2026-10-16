@@ -11,6 +11,7 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/universal"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 // countingTransport fails the test if any request is sent over the network.
@@ -45,8 +46,25 @@ func newTestSession(t *testing.T, region string, tr http.RoundTripper, resolver 
 	return sess
 }
 
+// assertErrCode checks that err carries the error code of the endpoint label
+// check. Asserting err != nil is not enough: the failed client config has no
+// endpoint, so ValidateEndpointHandler would fail with MissingEndpoint even if
+// the label check error was lost.
+func assertErrCode(t *testing.T, name string, err error, code string) {
+	t.Helper()
+	if err == nil {
+		t.Fatalf("%s: expect error with code %s, got nil", name, code)
+	}
+	e, ok := err.(volcengineerr.Error)
+	if !ok || e.Code() != code {
+		t.Fatalf("%s: expect error with code %s, got %v", name, code, err)
+	}
+}
+
 // The public construction chain (service.New -> request -> Send) must not
 // panic for an invalid region, must return an error before anything is sent.
+// The "standard" case configures a custom EndpointResolver: the region is
+// rejected by the session level check before the resolver is called.
 func TestServiceClientInvalidRegionReturnsErrorWithoutPanicOrNetwork(t *testing.T) {
 	resolvers := map[string]endpoints.Resolver{
 		"default":  nil,
@@ -67,9 +85,7 @@ func TestServiceClientInvalidRegionReturnsErrorWithoutPanicOrNetwork(t *testing.
 
 				svc := ecs.New(sess)
 				_, err := svc.DescribeInstances(&ecs.DescribeInstancesInput{})
-				if err == nil {
-					t.Fatalf("[%s] region %q: expect error", name, region)
-				}
+				assertErrCode(t, "["+name+"] region "+region, err, endpoints.ErrCodeInvalidRegion)
 			}()
 
 			if n := atomic.LoadInt32(&tr.calls); n != 0 {
@@ -98,9 +114,7 @@ func TestUniversalClientInvalidRegionReturnsErrorWithoutPanicOrNetwork(t *testin
 				HttpMethod:  universal.GET,
 				ContentType: universal.Default,
 			}, &map[string]interface{}{})
-			if err == nil {
-				t.Fatalf("region %q: expect error", region)
-			}
+			assertErrCode(t, "region "+region, err, endpoints.ErrCodeInvalidRegion)
 		}()
 
 		if n := atomic.LoadInt32(&tr.calls); n != 0 {
@@ -126,9 +140,7 @@ func TestInvalidServiceNameReturnsErrorWithoutPanic(t *testing.T) {
 		HttpMethod:  universal.GET,
 		ContentType: universal.Default,
 	}, &map[string]interface{}{})
-	if err == nil {
-		t.Fatalf("expect error for invalid service")
-	}
+	assertErrCode(t, "invalid service", err, endpoints.ErrCodeInvalidService)
 	if n := atomic.LoadInt32(&tr.calls); n != 0 {
 		t.Fatalf("%d network request(s) were sent", n)
 	}

@@ -3,9 +3,11 @@ package session
 import (
 	"testing"
 
+	"github.com/volcengine/volcengine-go-sdk/volcengine/client"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/defaults"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 )
 
 func TestClientConfigWithErrRejectsInvalidRegionAndService(t *testing.T) {
@@ -28,16 +30,17 @@ func TestClientConfigWithErrRejectsInvalidRegionAndService(t *testing.T) {
 	}
 
 	for _, region := range invalid {
-		_, err := newSess(region).clientConfigWithErr("ecs")
-		if err == nil {
-			t.Fatalf("region %q should be rejected", region)
-		}
+		want := endpoints.ValidateRegion(region)
+		cfg, err := newSess(region).clientConfigWithErr("ecs")
+		assertSameError(t, "region "+region, err, want)
+		assertFailedClientConfig(t, "region "+region, cfg, want)
 	}
 
 	for _, svc := range invalid {
-		if _, err := newSess("cn-beijing").clientConfigWithErr(svc); err == nil {
-			t.Fatalf("service %q should be rejected", svc)
-		}
+		want := endpoints.ValidateService(svc)
+		cfg, err := newSess("cn-beijing").clientConfigWithErr(svc)
+		assertSameError(t, "service "+svc, err, want)
+		assertFailedClientConfig(t, "service "+svc, cfg, want)
 	}
 
 	// A user supplied endpoint is not built from region/service, keep it working.
@@ -47,10 +50,43 @@ func TestClientConfigWithErrRejectsInvalidRegionAndService(t *testing.T) {
 		t.Fatalf("custom endpoint should pass: %v", err)
 	}
 
-	// Also covers the standard resolver path.
+	// With a custom EndpointResolver the region is rejected by the session
+	// level check before the resolver is called, so a resolver that does not
+	// validate its input can not be used to inject a host either. The
+	// validation inside StandardEndpointResolver itself is covered by the
+	// endpoints package tests.
 	s = newSess("cn/beijing")
-	s.Config.WithEndpointResolver(endpoints.NewStandardEndpointResolver())
-	if _, err := s.clientConfigWithErr("ecs"); err == nil {
-		t.Fatalf("standard resolver should reject invalid region")
+	s.Config.WithEndpointResolver(endpoints.ResolverFunc(
+		func(service, region string, opts ...func(*endpoints.Options)) (endpoints.ResolvedEndpoint, error) {
+			t.Fatalf("resolver must not be called for invalid region %q", region)
+			return endpoints.ResolvedEndpoint{}, nil
+		}))
+	_, err := s.clientConfigWithErr("ecs")
+	assertSameError(t, "custom resolver", err, endpoints.ValidateRegion("cn/beijing"))
+}
+
+// assertSameError checks that got is the error produced by the label check.
+func assertSameError(t *testing.T, name string, got, want error) {
+	t.Helper()
+	if want == nil {
+		t.Fatalf("%s: test case is expected to be invalid", name)
 	}
+	if got == nil {
+		t.Fatalf("%s: expect error %q, got nil", name, want)
+	}
+	if got.Error() != want.Error() {
+		t.Fatalf("%s: expect error %q, got %q", name, want, got)
+	}
+}
+
+// assertFailedClientConfig checks that the config returned on failure can be
+// dereferenced and that its Validate handlers fail requests with want.
+func assertFailedClientConfig(t *testing.T, name string, cfg client.Config, want error) {
+	t.Helper()
+	if cfg.Config == nil {
+		t.Fatalf("%s: returned client.Config.Config must not be nil", name)
+	}
+	r := &request.Request{}
+	cfg.Handlers.Validate.Run(r)
+	assertSameError(t, name+": validate handler", r.Error, want)
 }
