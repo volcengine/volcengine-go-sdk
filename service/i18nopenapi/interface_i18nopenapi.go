@@ -894,6 +894,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectSerialDubTaskCreateWithContext(volcengine.Context, *VideoProjectSerialDubTaskCreateInput, ...request.Option) (*VideoProjectSerialDubTaskCreateOutput, error)
 	VideoProjectSerialDubTaskCreateRequest(*VideoProjectSerialDubTaskCreateInput) (*request.Request, *VideoProjectSerialDubTaskCreateOutput)
 
+	VideoProjectSerialDubTaskCreateFromTranslationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectSerialDubTaskCreateFromTranslationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectSerialDubTaskCreateFromTranslationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectSerialDubTaskCreateFromTranslation(*VideoProjectSerialDubTaskCreateFromTranslationInput) (*VideoProjectSerialDubTaskCreateFromTranslationOutput, error)
+	VideoProjectSerialDubTaskCreateFromTranslationWithContext(volcengine.Context, *VideoProjectSerialDubTaskCreateFromTranslationInput, ...request.Option) (*VideoProjectSerialDubTaskCreateFromTranslationOutput, error)
+	VideoProjectSerialDubTaskCreateFromTranslationRequest(*VideoProjectSerialDubTaskCreateFromTranslationInput) (*request.Request, *VideoProjectSerialDubTaskCreateFromTranslationOutput)
+
 	VideoProjectSerialTaskCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectSerialTaskCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectSerialTaskCreateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
