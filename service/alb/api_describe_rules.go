@@ -181,6 +181,8 @@ type ConvertRedirectConfigForDescribeRulesOutput struct {
 	Port *string `type:"string"`
 
 	Protocol *string `type:"string"`
+
+	Query *string `type:"string"`
 }
 
 // String returns the string representation
@@ -220,6 +222,12 @@ func (s *ConvertRedirectConfigForDescribeRulesOutput) SetPort(v string) *Convert
 // SetProtocol sets the Protocol field's value.
 func (s *ConvertRedirectConfigForDescribeRulesOutput) SetProtocol(v string) *ConvertRedirectConfigForDescribeRulesOutput {
 	s.Protocol = &v
+	return s
+}
+
+// SetQuery sets the Query field's value.
+func (s *ConvertRedirectConfigForDescribeRulesOutput) SetQuery(v string) *ConvertRedirectConfigForDescribeRulesOutput {
+	s.Query = &v
 	return s
 }
 
@@ -533,6 +541,44 @@ func (s *HostConfigForDescribeRulesOutput) SetValues(v []*string) *HostConfigFor
 	return s
 }
 
+type InsertHeaderConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+
+	ValueType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InsertHeaderConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InsertHeaderConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *InsertHeaderConfigForDescribeRulesOutput) SetKey(v string) *InsertHeaderConfigForDescribeRulesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *InsertHeaderConfigForDescribeRulesOutput) SetValue(v string) *InsertHeaderConfigForDescribeRulesOutput {
+	s.Value = &v
+	return s
+}
+
+// SetValueType sets the ValueType field's value.
+func (s *InsertHeaderConfigForDescribeRulesOutput) SetValueType(v string) *InsertHeaderConfigForDescribeRulesOutput {
+	s.ValueType = &v
+	return s
+}
+
 type MethodConfigForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -684,6 +730,8 @@ type RuleActionForDescribeRulesOutput struct {
 
 	ForwardGroupConfig *ConvertForwardGroupConfigForDescribeRulesOutput `type:"structure"`
 
+	InsertHeaderConfig *InsertHeaderConfigForDescribeRulesOutput `type:"structure"`
+
 	RedirectConfig *ConvertRedirectConfigForDescribeRulesOutput `type:"structure"`
 
 	RewriteConfig *ConvertRewriteConfigForDescribeRulesOutput `type:"structure"`
@@ -718,6 +766,12 @@ func (s *RuleActionForDescribeRulesOutput) SetFixedResponseConfig(v *FixedRespon
 // SetForwardGroupConfig sets the ForwardGroupConfig field's value.
 func (s *RuleActionForDescribeRulesOutput) SetForwardGroupConfig(v *ConvertForwardGroupConfigForDescribeRulesOutput) *RuleActionForDescribeRulesOutput {
 	s.ForwardGroupConfig = v
+	return s
+}
+
+// SetInsertHeaderConfig sets the InsertHeaderConfig field's value.
+func (s *RuleActionForDescribeRulesOutput) SetInsertHeaderConfig(v *InsertHeaderConfigForDescribeRulesOutput) *RuleActionForDescribeRulesOutput {
+	s.InsertHeaderConfig = v
 	return s
 }
 

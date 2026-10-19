@@ -278,6 +278,8 @@ type ModifyServerGroupAttributesInput struct {
 
 	ServerGroupName *string `type:"string"`
 
+	SlowStartConfig *SlowStartConfigForModifyServerGroupAttributesInput `type:"structure"`
+
 	StickySessionConfig *StickySessionConfigForModifyServerGroupAttributesInput `type:"structure"`
 }
 
@@ -345,6 +347,12 @@ func (s *ModifyServerGroupAttributesInput) SetServerGroupName(v string) *ModifyS
 	return s
 }
 
+// SetSlowStartConfig sets the SlowStartConfig field's value.
+func (s *ModifyServerGroupAttributesInput) SetSlowStartConfig(v *SlowStartConfigForModifyServerGroupAttributesInput) *ModifyServerGroupAttributesInput {
+	s.SlowStartConfig = v
+	return s
+}
+
 // SetStickySessionConfig sets the StickySessionConfig field's value.
 func (s *ModifyServerGroupAttributesInput) SetStickySessionConfig(v *StickySessionConfigForModifyServerGroupAttributesInput) *ModifyServerGroupAttributesInput {
 	s.StickySessionConfig = v
@@ -372,6 +380,36 @@ func (s ModifyServerGroupAttributesOutput) GoString() string {
 // SetRequestId sets the RequestId field's value.
 func (s *ModifyServerGroupAttributesOutput) SetRequestId(v string) *ModifyServerGroupAttributesOutput {
 	s.RequestId = &v
+	return s
+}
+
+type SlowStartConfigForModifyServerGroupAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	SlowStartDuration *int64 `type:"integer"`
+
+	SlowStartEnabled *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SlowStartConfigForModifyServerGroupAttributesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SlowStartConfigForModifyServerGroupAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetSlowStartDuration sets the SlowStartDuration field's value.
+func (s *SlowStartConfigForModifyServerGroupAttributesInput) SetSlowStartDuration(v int64) *SlowStartConfigForModifyServerGroupAttributesInput {
+	s.SlowStartDuration = &v
+	return s
+}
+
+// SetSlowStartEnabled sets the SlowStartEnabled field's value.
+func (s *SlowStartConfigForModifyServerGroupAttributesInput) SetSlowStartEnabled(v string) *SlowStartConfigForModifyServerGroupAttributesInput {
+	s.SlowStartEnabled = &v
 	return s
 }
 
