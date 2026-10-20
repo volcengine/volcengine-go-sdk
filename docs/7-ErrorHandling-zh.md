@@ -16,6 +16,16 @@
 | 3. 网络/超时错误 | DNS解析错误或请求超时                | volcengineerr.Error            | 同上                                                                           | 无                                                |
 | 4. 其它错误    | 未包含在前 3 类错误中的其它错误      | volcengineerr.Error或原生error | 同上                                                                           | 无                                                |
 
+### 非标准响应的错误诊断
+
+当 HTTP 状态码异常（如 504 等）时，响应体可能不是标准的 TOP 网关 JSON 结构。此类响应统一返回 `volcengineerr.RequestFailure`，便于排查问题：
+
+- **响应体非 JSON 格式**（如网关直接返回 HTML、纯文本或空响应）：返回 `RequestFailure`，`Code()` 为 `SerializationError`，`Message()` 中附带原始响应正文，并通过 `StatusCode()`、`RequestID()` 暴露 HTTP 状态码与请求 ID。
+- **响应体为合法 JSON 但不满足 TOP 网关标准**（缺少 `ResponseMetadata` 或缺少错误码）：返回 `RequestFailure`，`Code()` 为 `UnknownError`，同样保留 HTTP 状态码、请求 ID 与响应正文。
+- **响应体为标准 TOP JSON 错误**：行为保持不变，返回 `RequestFailure`，可解析出服务端的 `Code()`、`Message()`、`RequestID()`。
+
+其中请求 ID 依次从响应体的 `ResponseMetadata.RequestId`、请求上下文、以及 `X-Top-Requestid` / `X-Top-Request-Id` / `X-Tt-Logid` 响应头中解析，确保非标准响应也能拿到可用的请求 ID。
+
 ### 代码示例
 
 ```go

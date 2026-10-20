@@ -16,6 +16,16 @@ Error classification:
 | 3. Network/timeout error | DNS resolution error or request timeout | volcengineerr.Error | Same as above | None |
 | 4. Other errors | Other errors not covered by the above categories | volcengineerr.Error or native error | Same as above | None |
 
+### Error diagnostics for non-standard responses
+
+When the HTTP status code is abnormal (e.g. 504), the response body may not be a standard TOP gateway JSON structure. Such responses are consistently returned as `volcengineerr.RequestFailure` to make troubleshooting easier:
+
+- **Body is not JSON** (e.g. the gateway returns HTML, plain text, or an empty response): returns `RequestFailure` with `Code()` set to `SerializationError`, the raw response body attached to `Message()`, and the HTTP status code and request ID exposed via `StatusCode()` and `RequestID()`.
+- **Body is valid JSON but does not meet the TOP gateway standard** (missing `ResponseMetadata` or missing error code): returns `RequestFailure` with `Code()` set to `UnknownError`, also preserving the HTTP status code, request ID, and response body.
+- **Body is a standard TOP JSON error**: behavior is unchanged; returns `RequestFailure` from which the server-side `Code()`, `Message()`, and `RequestID()` can be parsed.
+
+The request ID is resolved in order from the body's `ResponseMetadata.RequestId`, then the request context, then the `X-Top-Requestid` / `X-Top-Request-Id` / `X-Tt-Logid` response headers, ensuring a usable request ID is available even for non-standard responses.
+
 ### Code Example
 
 ```go
