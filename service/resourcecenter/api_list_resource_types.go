@@ -181,8 +181,40 @@ func (s *ListResourceTypesOutput) SetResourceTypes(v []*ResourceTypeForListResou
 	return s
 }
 
+type RelatedTypeNameForListResourceTypesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	RelationType *string `type:"string" json:",omitempty"`
+
+	TypeName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RelatedTypeNameForListResourceTypesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RelatedTypeNameForListResourceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRelationType sets the RelationType field's value.
+func (s *RelatedTypeNameForListResourceTypesOutput) SetRelationType(v string) *RelatedTypeNameForListResourceTypesOutput {
+	s.RelationType = &v
+	return s
+}
+
+// SetTypeName sets the TypeName field's value.
+func (s *RelatedTypeNameForListResourceTypesOutput) SetTypeName(v string) *RelatedTypeNameForListResourceTypesOutput {
+	s.TypeName = &v
+	return s
+}
+
 type ResourceTypeForListResourceTypesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	RelatedTypeNames []*RelatedTypeNameForListResourceTypesOutput `type:"list" json:",omitempty"`
 
 	ResourceType *string `type:"string" json:",omitempty"`
 
@@ -191,6 +223,8 @@ type ResourceTypeForListResourceTypesOutput struct {
 	Service *string `type:"string" json:",omitempty"`
 
 	ServiceName *string `type:"string" json:",omitempty"`
+
+	TypeName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -201,6 +235,12 @@ func (s ResourceTypeForListResourceTypesOutput) String() string {
 // GoString returns the string representation
 func (s ResourceTypeForListResourceTypesOutput) GoString() string {
 	return s.String()
+}
+
+// SetRelatedTypeNames sets the RelatedTypeNames field's value.
+func (s *ResourceTypeForListResourceTypesOutput) SetRelatedTypeNames(v []*RelatedTypeNameForListResourceTypesOutput) *ResourceTypeForListResourceTypesOutput {
+	s.RelatedTypeNames = v
+	return s
 }
 
 // SetResourceType sets the ResourceType field's value.
@@ -224,5 +264,11 @@ func (s *ResourceTypeForListResourceTypesOutput) SetService(v string) *ResourceT
 // SetServiceName sets the ServiceName field's value.
 func (s *ResourceTypeForListResourceTypesOutput) SetServiceName(v string) *ResourceTypeForListResourceTypesOutput {
 	s.ServiceName = &v
+	return s
+}
+
+// SetTypeName sets the TypeName field's value.
+func (s *ResourceTypeForListResourceTypesOutput) SetTypeName(v string) *ResourceTypeForListResourceTypesOutput {
+	s.TypeName = &v
 	return s
 }
