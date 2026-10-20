@@ -95,6 +95,76 @@ func main() {
 }
 ```
 
+##### Region and service validation
+
+The service and region are concatenated into the endpoint host name. To prevent a crafted region or service from rewriting the request host (SSRF), the SDK checks that both are a valid single host name label before resolving the endpoint:
+
+- only ASCII letters, digits, `-` and `_`;
+- starts with a letter;
+- does not end with `-` or `_`.
+
+For example `cn-beijing` and `rds_mysql` are valid; `cn-beijing@127.0.0.1`, `cn-beijing:443`, `evil.com`, `cn beijing`, `1cn-beijing` and `cn-beijing-` are not. The service is checked first, then the region. An empty value is not checked here and is handled by the existing logic.
+
+When the check runs and what it covers:
+
+- When no endpoint is set explicitly (`Config.Endpoint` is nil), the session runs the check before any endpoint resolution, so generated service clients (e.g. `ecs.New(sess)`) and the `universal` client are covered. With a custom `EndpointResolver` the check still runs first, and an invalid value is never passed to the resolver.
+- On failure `ecs.New(sess)` and similar constructors do not panic; the error is returned in the request Validate stage, before signing and sending, so no network request is made.
+- `EndpointFor` of the standard resolver `endpoints.NewStandardEndpointResolver()` runs the same check itself, so calling it directly also returns the error.
+- `BuildAuthToken` in `feature/rds/auth` runs the check before building the token and returns the error without building a token.
+- When an endpoint is set explicitly (`WithEndpoint`), the host is not built from the region or service and the check is skipped.
+
+A failed check returns a `volcengineerr.Error` with the code `endpoints.ErrCodeInvalidRegion` (`"InvalidRegion"`) or `endpoints.ErrCodeInvalidService` (`"InvalidService"`), available via `Code()`. The message has the following format, where the reason is one of `illegal character at index N`, `must start with a letter` or `must not end with '-' or '_'`:
+
+```
+InvalidRegion: invalid region "cn-beijing@127.0.0.1": illegal character at index 10, region must start with a letter, end with a letter or digit, and contain only letters, digits, '-' and '_'
+```
+
+The error returned by `BuildAuthToken` is additionally wrapped as `unable to resolve client config: ...`, so use `errors.As` to check it:
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+
+	"github.com/volcengine/volcengine-go-sdk/service/ecs"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
+)
+
+func main() {
+	config := volcengine.NewConfig().
+		WithCredentials(credentials.NewEnvCredentials()).
+		WithRegion("cn-beijing@127.0.0.1") // invalid region
+	sess, err := session.NewSession(config)
+	if err != nil {
+		panic(err)
+	}
+
+	svc := ecs.New(sess)
+	_, err = svc.DescribeInstances(&ecs.DescribeInstancesInput{})
+
+	var vErr volcengineerr.Error
+	if errors.As(err, &vErr) {
+		switch vErr.Code() {
+		case endpoints.ErrCodeInvalidRegion, endpoints.ErrCodeInvalidService:
+			fmt.Println(vErr.Code(), vErr.Message())
+		}
+	}
+}
+```
+
+The exported functions `endpoints.ValidateRegion`, `endpoints.ValidateService` and `endpoints.ValidateServiceAndRegion` can be used to check values up front; they return the same errors.
+
+**Behavior change:**
+
+- A region with leading or trailing whitespace (e.g. `" cn-beijing "`) is no longer trimmed; the client request returns `InvalidRegion`. Previous versions only ignored the whitespace when matching the bootstrap region list, and always signed with the raw value including the whitespace.
+- The exported function `volcengineutil.GetDefaultEndpointByServiceInfo` has no error return. For an invalid service or region it does not fail; it logs a Warn message (when the given logger is not nil) and falls back to the default endpoint `open.volcengineapi.com`. Callers of this function that need to detect the error should call `endpoints.ValidateServiceAndRegion` first.
+
 #### Standard Endpoint Resolution
 
 ##### Resolution Rules

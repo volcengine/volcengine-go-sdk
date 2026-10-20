@@ -78,7 +78,7 @@ func TestGetDefaultEndpointByServiceInfoRejectsInjection(t *testing.T) {
 		if got := *GetDefaultEndpointByServiceInfo(svc, "cn-beijing", bootstrap, noDualStack, logger); got != endpoint {
 			t.Fatalf("service %q should fall back to default endpoint, got %s", svc, got)
 		}
-		if !logger.contains("invalid service or region") {
+		if !logger.contains(fmt.Sprintf("invalid service %q", svc)) {
 			t.Fatalf("service %q should be rejected by the label check, logs: %v", svc, logger.msgs)
 		}
 		if logger.contains("not found in default endpoint map") {
