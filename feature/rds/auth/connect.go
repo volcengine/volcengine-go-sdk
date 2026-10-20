@@ -50,7 +50,13 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 	resolverCfg := &volcengine.Config{
 		EndpointResolver: endpoints.NewStandardEndpointResolver(),
 	}
-	clientCfg := sess.ClientConfig(defaultService, resolverCfg)
+	clientCfg, err := sess.ClientConfigWithError(defaultService, resolverCfg)
+	if err != nil {
+		// Only the config resolution error is checked here, the Validate
+		// handlers of the session (including user registered ones) must not
+		// be run while building a token.
+		return "", fmt.Errorf("unable to resolve client config: %w", err)
+	}
 
 	// Set up handlers - only need Sign
 	var handlers request.Handlers
@@ -73,14 +79,6 @@ func BuildAuthToken(ctx context.Context, sess *session.Session, dbUser, instance
 	}, handlers, nil, op, nil, nil)
 
 	req.SetContext(ctx)
-
-	// ClientConfig can not return an error, when the config can not be resolved
-	// (e.g. invalid region) the error is carried by its Validate handlers. Run
-	// them so that no token is built from an unresolved endpoint.
-	clientCfg.Handlers.Validate.Run(req)
-	if req.Error != nil {
-		return "", fmt.Errorf("unable to resolve client config: %w", req.Error)
-	}
 
 	// Set query params
 	q := req.HTTPRequest.URL.Query()

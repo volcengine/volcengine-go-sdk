@@ -649,6 +649,14 @@ func (s *Session) ClientConfig(serviceName string, cfgs ...*volcengine.Config) c
 	return cfg
 }
 
+// ClientConfigWithError is the error-aware variant of ClientConfig. It returns
+// the error produced while resolving the client config (for example an invalid
+// region or service) directly, so that callers can fail fast without having to
+// run the Validate handlers of the returned config.
+func (s *Session) ClientConfigWithError(serviceName string, cfgs ...*volcengine.Config) (client.Config, error) {
+	return s.clientConfigWithErr(serviceName, cfgs...)
+}
+
 // failedClientConfigHandlerName is the name of the handler which makes requests
 // fail with the error produced while resolving the client config.
 const failedClientConfigHandlerName = "session.FailedClientConfigHandler"

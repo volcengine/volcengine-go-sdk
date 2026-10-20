@@ -9,6 +9,7 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
@@ -201,5 +202,30 @@ func TestBuildAuthTokenInvalidRegionReturnsError(t *testing.T) {
 		if !errors.As(err, &vErr) || vErr.Code() != endpoints.ErrCodeInvalidRegion {
 			t.Fatalf("region %q: expect error code %s, got %v", region, endpoints.ErrCodeInvalidRegion, err)
 		}
+	}
+}
+
+// BuildAuthToken must only check the config resolution error, it must not run
+// the Validate handlers registered on the session.
+func TestBuildAuthTokenDoesNotRunSessionValidateHandlers(t *testing.T) {
+	sess := newTestSession(t, "ak", "sk", "cn-beijing", nil)
+	calls := 0
+	sess.Handlers.Validate.PushBack(func(r *request.Request) { calls++ })
+
+	if _, err := BuildAuthToken(context.Background(), sess, "user", "mysql-xxx", 900); err != nil {
+		t.Fatalf("BuildAuthToken() unexpected error = %v", err)
+	}
+	if calls != 0 {
+		t.Errorf("session Validate handler was run %d times, want 0", calls)
+	}
+
+	// An invalid region still fails, and still without running the handlers.
+	bad := newTestSession(t, "ak", "sk", "evil.com/", nil)
+	bad.Handlers.Validate.PushBack(func(r *request.Request) { calls++ })
+	if _, err := BuildAuthToken(context.Background(), bad, "user", "mysql-xxx", 900); err == nil {
+		t.Fatal("BuildAuthToken() expected error for invalid region")
+	}
+	if calls != 0 {
+		t.Errorf("session Validate handler was run %d times, want 0", calls)
 	}
 }
