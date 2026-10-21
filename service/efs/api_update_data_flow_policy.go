@@ -297,6 +297,36 @@ func (s *AutoImportRuleForUpdateDataFlowPolicyInput) SetStatus(v string) *AutoIm
 	return s
 }
 
+type ExportIntervalForUpdateDataFlowPolicyInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Unit *string `type:"string" json:",omitempty" enum:"EnumOfUnitForUpdateDataFlowPolicyInput"`
+
+	Value *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ExportIntervalForUpdateDataFlowPolicyInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExportIntervalForUpdateDataFlowPolicyInput) GoString() string {
+	return s.String()
+}
+
+// SetUnit sets the Unit field's value.
+func (s *ExportIntervalForUpdateDataFlowPolicyInput) SetUnit(v string) *ExportIntervalForUpdateDataFlowPolicyInput {
+	s.Unit = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ExportIntervalForUpdateDataFlowPolicyInput) SetValue(v int32) *ExportIntervalForUpdateDataFlowPolicyInput {
+	s.Value = &v
+	return s
+}
+
 type ImmediateExportForUpdateDataFlowPolicyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -402,7 +432,7 @@ type PeriodExportForUpdateDataFlowPolicyInput struct {
 
 	ExcludePaths []*string `type:"list" json:",omitempty"`
 
-	ExportInterval *LastAccessTimeIntervalForUpdateDataFlowPolicyInput `type:"structure" json:",omitempty"`
+	ExportInterval *ExportIntervalForUpdateDataFlowPolicyInput `type:"structure" json:",omitempty"`
 
 	IncludePaths []*string `type:"list" json:",omitempty"`
 
@@ -432,7 +462,7 @@ func (s *PeriodExportForUpdateDataFlowPolicyInput) SetExcludePaths(v []*string) 
 }
 
 // SetExportInterval sets the ExportInterval field's value.
-func (s *PeriodExportForUpdateDataFlowPolicyInput) SetExportInterval(v *LastAccessTimeIntervalForUpdateDataFlowPolicyInput) *PeriodExportForUpdateDataFlowPolicyInput {
+func (s *PeriodExportForUpdateDataFlowPolicyInput) SetExportInterval(v *ExportIntervalForUpdateDataFlowPolicyInput) *PeriodExportForUpdateDataFlowPolicyInput {
 	s.ExportInterval = v
 	return s
 }
