@@ -167,6 +167,7 @@ func main() {
 **与旧版本不同：**
 
 - region 首尾带空白（如 `" cn-beijing "`）不会被 trim，客户端请求直接返回 `InvalidRegion`。旧版本只在判断是否属于自动寻址 Region 列表时忽略首尾空白，签名使用的始终是带空白的原值。
+- 上述规则只针对代码中设置的 region（如 `WithRegion`）。从环境变量 `VOLCSTACK_REGION` / `VOLCSTACK_DEFAULT_REGION` 或共享配置文件读取的 region 会在读取时去掉首尾空白（包括空格、Tab、换行等，带引号的值同样处理），纯空白的环境变量视为未设置；去掉空白后的值仍按同样的规则校验。
 - 导出函数 `volcengineutil.GetDefaultEndpointByServiceInfo` 没有 error 返回值，遇到非法 service / region 时不报错，而是记录 Warn 日志（传入的 logger 非 nil 时），并回退到默认 Endpoint `open.volcengineapi.com`。直接调用该函数且需要感知错误的调用方，请先调用 `endpoints.ValidateServiceAndRegion`。
 
 #### Endpoint 标准寻址

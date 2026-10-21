@@ -16,6 +16,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
@@ -56,7 +57,8 @@ func Get() Defaults {
 func Config() *volcengine.Config {
 	return volcengine.NewConfig().
 		WithCredentials(credentials.AnonymousCredentials).
-		WithRegion(os.Getenv("VOLCSTACK_REGION")).
+		// The region read from the environment is trimmed, see session.envConfigLoad.
+		WithRegion(strings.TrimSpace(os.Getenv("VOLCSTACK_REGION"))).
 		WithHTTPClient(http.DefaultClient).
 		WithMaxRetries(volcengine.UseServiceDefaultRetries).
 		WithLogger(volcengine.NewDefaultLogger()).

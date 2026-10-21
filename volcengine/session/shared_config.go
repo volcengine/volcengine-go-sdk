@@ -5,6 +5,7 @@ package session
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/volcengine/volcengine-go-sdk/internal/ini"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
@@ -249,7 +250,11 @@ func (cfg *sharedConfig) setFromIniFile(profile string, file sharedConfigFile, e
 		updateString(&cfg.SourceProfileName, section, sourceProfileKey)
 		updateString(&cfg.CredentialSource, section, credentialSourceKey)
 
+		// The shared config file is text input: surrounding white spaces of
+		// the region are trimmed, including inside quotes, like the region read
+		// from the environment. Regions set in code are not trimmed.
 		updateString(&cfg.Region, section, regionKey)
+		cfg.Region = strings.TrimSpace(cfg.Region)
 	}
 
 	updateString(&cfg.CredentialProcess, section, credentialProcessKey)

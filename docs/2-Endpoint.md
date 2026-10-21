@@ -163,6 +163,7 @@ The exported functions `endpoints.ValidateRegion`, `endpoints.ValidateService` a
 **Behavior change:**
 
 - A region with leading or trailing whitespace (e.g. `" cn-beijing "`) is no longer trimmed; the client request returns `InvalidRegion`. Previous versions only ignored the whitespace when matching the bootstrap region list, and always signed with the raw value including the whitespace.
+- This only applies to regions set in code (such as `WithRegion`). A region read from the `VOLCSTACK_REGION` / `VOLCSTACK_DEFAULT_REGION` environment variables or from the shared config file is trimmed when it is read (leading and trailing whitespace such as spaces, tabs and line breaks are removed, quoted values included), and a whitespace-only environment variable is treated as not set. The trimmed value is then validated like any other region.
 - The exported function `volcengineutil.GetDefaultEndpointByServiceInfo` has no error return. For an invalid service or region it does not fail; it logs a Warn message (when the given logger is not nil) and falls back to the default endpoint `open.volcengineapi.com`. Callers of this function that need to detect the error should call `endpoints.ValidateServiceAndRegion` first.
 
 #### Standard Endpoint Resolution
