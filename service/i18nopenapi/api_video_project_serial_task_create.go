@@ -465,6 +465,652 @@ func (s *SerialInfoForVideoProjectSerialTaskCreateInput) SetVideo(v *VideoForVid
 	return s
 }
 
+type SourceStyleMapForVideoProjectSerialTaskCreateInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Af *string `type:"string" json:"af,omitempty"`
+
+	AfZA *string `type:"string" json:"af-ZA,omitempty"`
+
+	Ar *string `type:"string" json:"ar,omitempty"`
+
+	ArAR *string `type:"string" json:"ar-AR,omitempty"`
+
+	ArDZ *string `type:"string" json:"ar-DZ,omitempty"`
+
+	ArSY *string `type:"string" json:"ar-SY,omitempty"`
+
+	ArYE *string `type:"string" json:"ar-YE,omitempty"`
+
+	Be *string `type:"string" json:"be,omitempty"`
+
+	Bn *string `type:"string" json:"bn,omitempty"`
+
+	BnBD *string `type:"string" json:"bn-BD,omitempty"`
+
+	Da *string `type:"string" json:"da,omitempty"`
+
+	De *string `type:"string" json:"de,omitempty"`
+
+	DeDE *string `type:"string" json:"de-DE,omitempty"`
+
+	En *string `type:"string" json:"en,omitempty"`
+
+	EnDA *string `type:"string" json:"en-DA,omitempty"`
+
+	EnGB *string `type:"string" json:"en-GB,omitempty"`
+
+	EnIN *string `type:"string" json:"en-IN,omitempty"`
+
+	EnPH *string `type:"string" json:"en-PH,omitempty"`
+
+	EnSG *string `type:"string" json:"en-SG,omitempty"`
+
+	EnUS *string `type:"string" json:"en-US,omitempty"`
+
+	Es *string `type:"string" json:"es,omitempty"`
+
+	Es419 *string `type:"string" json:"es-419,omitempty"`
+
+	EsES *string `type:"string" json:"es-ES,omitempty"`
+
+	EsUS *string `type:"string" json:"es-US,omitempty"`
+
+	FaIR *string `type:"string" json:"fa-IR,omitempty"`
+
+	Fil *string `type:"string" json:"fil,omitempty"`
+
+	FilPH *string `type:"string" json:"fil-PH,omitempty"`
+
+	Fr *string `type:"string" json:"fr,omitempty"`
+
+	FrFR *string `type:"string" json:"fr-FR,omitempty"`
+
+	Hi *string `type:"string" json:"hi,omitempty"`
+
+	HiIN *string `type:"string" json:"hi-IN,omitempty"`
+
+	Id *string `type:"string" json:"id,omitempty"`
+
+	IdID *string `type:"string" json:"id-ID,omitempty"`
+
+	It *string `type:"string" json:"it,omitempty"`
+
+	ItIT *string `type:"string" json:"it-IT,omitempty"`
+
+	Ja *string `type:"string" json:"ja,omitempty"`
+
+	JaJP *string `type:"string" json:"ja-JP,omitempty"`
+
+	Ka *string `type:"string" json:"ka,omitempty"`
+
+	KkKZ *string `type:"string" json:"kk-KZ,omitempty"`
+
+	Kl *string `type:"string" json:"kl,omitempty"`
+
+	Km *string `type:"string" json:"km,omitempty"`
+
+	KmKH *string `type:"string" json:"km-KH,omitempty"`
+
+	Ko *string `type:"string" json:"ko,omitempty"`
+
+	KoKR *string `type:"string" json:"ko-KR,omitempty"`
+
+	Mn *string `type:"string" json:"mn,omitempty"`
+
+	Ms *string `type:"string" json:"ms,omitempty"`
+
+	MsMY *string `type:"string" json:"ms-MY,omitempty"`
+
+	My *string `type:"string" json:"my,omitempty"`
+
+	Ne *string `type:"string" json:"ne,omitempty"`
+
+	Pl *string `type:"string" json:"pl,omitempty"`
+
+	PlPL *string `type:"string" json:"pl-PL,omitempty"`
+
+	Pt *string `type:"string" json:"pt,omitempty"`
+
+	PtBR *string `type:"string" json:"pt-BR,omitempty"`
+
+	PtPT *string `type:"string" json:"pt-PT,omitempty"`
+
+	Ro *string `type:"string" json:"ro,omitempty"`
+
+	Ru *string `type:"string" json:"ru,omitempty"`
+
+	RuRU *string `type:"string" json:"ru-RU,omitempty"`
+
+	Sk *string `type:"string" json:"sk,omitempty"`
+
+	Sl *string `type:"string" json:"sl,omitempty"`
+
+	Sr *string `type:"string" json:"sr,omitempty"`
+
+	Sv *string `type:"string" json:"sv,omitempty"`
+
+	Ta *string `type:"string" json:"ta,omitempty"`
+
+	Te *string `type:"string" json:"te,omitempty"`
+
+	Th *string `type:"string" json:"th,omitempty"`
+
+	ThTH *string `type:"string" json:"th-TH,omitempty"`
+
+	TlPH *string `type:"string" json:"tl-PH,omitempty"`
+
+	Tr *string `type:"string" json:"tr,omitempty"`
+
+	TrTR *string `type:"string" json:"tr-TR,omitempty"`
+
+	Ur *string `type:"string" json:"ur,omitempty"`
+
+	Uz *string `type:"string" json:"uz,omitempty"`
+
+	Vi *string `type:"string" json:"vi,omitempty"`
+
+	ViVN *string `type:"string" json:"vi-VN,omitempty"`
+
+	Zh *string `type:"string" json:"zh,omitempty"`
+
+	ZhCN *string `type:"string" json:"zh-CN,omitempty"`
+
+	ZhHK *string `type:"string" json:"zh-HK,omitempty"`
+
+	ZhHans *string `type:"string" json:"zh-Hans,omitempty"`
+
+	ZhHansCN *string `type:"string" json:"zh-Hans-CN,omitempty"`
+
+	ZhHant *string `type:"string" json:"zh-Hant,omitempty"`
+
+	ZhTW *string `type:"string" json:"zh-TW,omitempty"`
+}
+
+// String returns the string representation
+func (s SourceStyleMapForVideoProjectSerialTaskCreateInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceStyleMapForVideoProjectSerialTaskCreateInput) GoString() string {
+	return s.String()
+}
+
+// SetAf sets the Af field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetAf(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Af = &v
+	return s
+}
+
+// SetAfZA sets the AfZA field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetAfZA(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.AfZA = &v
+	return s
+}
+
+// SetAr sets the Ar field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetAr(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Ar = &v
+	return s
+}
+
+// SetArAR sets the ArAR field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetArAR(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ArAR = &v
+	return s
+}
+
+// SetArDZ sets the ArDZ field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetArDZ(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ArDZ = &v
+	return s
+}
+
+// SetArSY sets the ArSY field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetArSY(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ArSY = &v
+	return s
+}
+
+// SetArYE sets the ArYE field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetArYE(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ArYE = &v
+	return s
+}
+
+// SetBe sets the Be field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetBe(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Be = &v
+	return s
+}
+
+// SetBn sets the Bn field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetBn(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Bn = &v
+	return s
+}
+
+// SetBnBD sets the BnBD field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetBnBD(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.BnBD = &v
+	return s
+}
+
+// SetDa sets the Da field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetDa(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Da = &v
+	return s
+}
+
+// SetDe sets the De field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetDe(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.De = &v
+	return s
+}
+
+// SetDeDE sets the DeDE field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetDeDE(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.DeDE = &v
+	return s
+}
+
+// SetEn sets the En field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetEn(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.En = &v
+	return s
+}
+
+// SetEnDA sets the EnDA field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetEnDA(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.EnDA = &v
+	return s
+}
+
+// SetEnGB sets the EnGB field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetEnGB(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.EnGB = &v
+	return s
+}
+
+// SetEnIN sets the EnIN field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetEnIN(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.EnIN = &v
+	return s
+}
+
+// SetEnPH sets the EnPH field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetEnPH(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.EnPH = &v
+	return s
+}
+
+// SetEnSG sets the EnSG field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetEnSG(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.EnSG = &v
+	return s
+}
+
+// SetEnUS sets the EnUS field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetEnUS(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.EnUS = &v
+	return s
+}
+
+// SetEs sets the Es field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetEs(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Es = &v
+	return s
+}
+
+// SetEs419 sets the Es419 field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetEs419(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Es419 = &v
+	return s
+}
+
+// SetEsES sets the EsES field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetEsES(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.EsES = &v
+	return s
+}
+
+// SetEsUS sets the EsUS field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetEsUS(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.EsUS = &v
+	return s
+}
+
+// SetFaIR sets the FaIR field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetFaIR(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.FaIR = &v
+	return s
+}
+
+// SetFil sets the Fil field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetFil(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Fil = &v
+	return s
+}
+
+// SetFilPH sets the FilPH field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetFilPH(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.FilPH = &v
+	return s
+}
+
+// SetFr sets the Fr field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetFr(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Fr = &v
+	return s
+}
+
+// SetFrFR sets the FrFR field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetFrFR(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.FrFR = &v
+	return s
+}
+
+// SetHi sets the Hi field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetHi(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Hi = &v
+	return s
+}
+
+// SetHiIN sets the HiIN field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetHiIN(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.HiIN = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetId(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Id = &v
+	return s
+}
+
+// SetIdID sets the IdID field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetIdID(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.IdID = &v
+	return s
+}
+
+// SetIt sets the It field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetIt(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.It = &v
+	return s
+}
+
+// SetItIT sets the ItIT field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetItIT(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ItIT = &v
+	return s
+}
+
+// SetJa sets the Ja field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetJa(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Ja = &v
+	return s
+}
+
+// SetJaJP sets the JaJP field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetJaJP(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.JaJP = &v
+	return s
+}
+
+// SetKa sets the Ka field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetKa(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Ka = &v
+	return s
+}
+
+// SetKkKZ sets the KkKZ field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetKkKZ(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.KkKZ = &v
+	return s
+}
+
+// SetKl sets the Kl field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetKl(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Kl = &v
+	return s
+}
+
+// SetKm sets the Km field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetKm(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Km = &v
+	return s
+}
+
+// SetKmKH sets the KmKH field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetKmKH(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.KmKH = &v
+	return s
+}
+
+// SetKo sets the Ko field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetKo(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Ko = &v
+	return s
+}
+
+// SetKoKR sets the KoKR field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetKoKR(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.KoKR = &v
+	return s
+}
+
+// SetMn sets the Mn field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetMn(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Mn = &v
+	return s
+}
+
+// SetMs sets the Ms field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetMs(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Ms = &v
+	return s
+}
+
+// SetMsMY sets the MsMY field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetMsMY(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.MsMY = &v
+	return s
+}
+
+// SetMy sets the My field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetMy(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.My = &v
+	return s
+}
+
+// SetNe sets the Ne field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetNe(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Ne = &v
+	return s
+}
+
+// SetPl sets the Pl field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetPl(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Pl = &v
+	return s
+}
+
+// SetPlPL sets the PlPL field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetPlPL(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.PlPL = &v
+	return s
+}
+
+// SetPt sets the Pt field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetPt(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Pt = &v
+	return s
+}
+
+// SetPtBR sets the PtBR field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetPtBR(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.PtBR = &v
+	return s
+}
+
+// SetPtPT sets the PtPT field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetPtPT(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.PtPT = &v
+	return s
+}
+
+// SetRo sets the Ro field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetRo(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Ro = &v
+	return s
+}
+
+// SetRu sets the Ru field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetRu(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Ru = &v
+	return s
+}
+
+// SetRuRU sets the RuRU field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetRuRU(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.RuRU = &v
+	return s
+}
+
+// SetSk sets the Sk field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetSk(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Sk = &v
+	return s
+}
+
+// SetSl sets the Sl field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetSl(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Sl = &v
+	return s
+}
+
+// SetSr sets the Sr field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetSr(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Sr = &v
+	return s
+}
+
+// SetSv sets the Sv field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetSv(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Sv = &v
+	return s
+}
+
+// SetTa sets the Ta field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetTa(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Ta = &v
+	return s
+}
+
+// SetTe sets the Te field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetTe(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Te = &v
+	return s
+}
+
+// SetTh sets the Th field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetTh(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Th = &v
+	return s
+}
+
+// SetThTH sets the ThTH field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetThTH(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ThTH = &v
+	return s
+}
+
+// SetTlPH sets the TlPH field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetTlPH(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.TlPH = &v
+	return s
+}
+
+// SetTr sets the Tr field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetTr(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Tr = &v
+	return s
+}
+
+// SetTrTR sets the TrTR field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetTrTR(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.TrTR = &v
+	return s
+}
+
+// SetUr sets the Ur field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetUr(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Ur = &v
+	return s
+}
+
+// SetUz sets the Uz field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetUz(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Uz = &v
+	return s
+}
+
+// SetVi sets the Vi field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetVi(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Vi = &v
+	return s
+}
+
+// SetViVN sets the ViVN field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetViVN(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ViVN = &v
+	return s
+}
+
+// SetZh sets the Zh field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetZh(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.Zh = &v
+	return s
+}
+
+// SetZhCN sets the ZhCN field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetZhCN(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ZhCN = &v
+	return s
+}
+
+// SetZhHK sets the ZhHK field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetZhHK(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ZhHK = &v
+	return s
+}
+
+// SetZhHans sets the ZhHans field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetZhHans(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ZhHans = &v
+	return s
+}
+
+// SetZhHansCN sets the ZhHansCN field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetZhHansCN(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ZhHansCN = &v
+	return s
+}
+
+// SetZhHant sets the ZhHant field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetZhHant(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ZhHant = &v
+	return s
+}
+
+// SetZhTW sets the ZhTW field's value.
+func (s *SourceStyleMapForVideoProjectSerialTaskCreateInput) SetZhTW(v string) *SourceStyleMapForVideoProjectSerialTaskCreateInput {
+	s.ZhTW = &v
+	return s
+}
+
 type SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1288,6 +1934,8 @@ type TaskInfoForVideoProjectSerialTaskCreateInput struct {
 
 	SourceLang *string `type:"string" json:"sourceLang,omitempty"`
 
+	SourceStyleMap *SourceStyleMapForVideoProjectSerialTaskCreateInput `type:"structure" json:"sourceStyleMap,omitempty"`
+
 	SuppressionParams *SuppressionParamsForVideoProjectSerialTaskCreateInput `type:"structure" json:"suppressionParams,omitempty"`
 
 	TargetLangs []*string `type:"list" json:"targetLangs,omitempty"`
@@ -1438,6 +2086,12 @@ func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetSerialNumber(v int32) 
 // SetSourceLang sets the SourceLang field's value.
 func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetSourceLang(v string) *TaskInfoForVideoProjectSerialTaskCreateInput {
 	s.SourceLang = &v
+	return s
+}
+
+// SetSourceStyleMap sets the SourceStyleMap field's value.
+func (s *TaskInfoForVideoProjectSerialTaskCreateInput) SetSourceStyleMap(v *SourceStyleMapForVideoProjectSerialTaskCreateInput) *TaskInfoForVideoProjectSerialTaskCreateInput {
+	s.SourceStyleMap = v
 	return s
 }
 
