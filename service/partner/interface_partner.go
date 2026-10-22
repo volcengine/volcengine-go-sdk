@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // PARTNER.
 //    func myFunc(svc PARTNERAPI) bool {
-//        // Make svc.ListChildPartnerCustomer request
+//        // Make svc.ListChannelBillDetailByCursor request
 //    }
 //
 //    func main() {
@@ -30,6 +30,22 @@ import (
 //    }
 //
 type PARTNERAPI interface {
+	ListChannelBillDetailByCursorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListChannelBillDetailByCursorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListChannelBillDetailByCursorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListChannelBillDetailByCursor(*ListChannelBillDetailByCursorInput) (*ListChannelBillDetailByCursorOutput, error)
+	ListChannelBillDetailByCursorWithContext(volcengine.Context, *ListChannelBillDetailByCursorInput, ...request.Option) (*ListChannelBillDetailByCursorOutput, error)
+	ListChannelBillDetailByCursorRequest(*ListChannelBillDetailByCursorInput) (*request.Request, *ListChannelBillDetailByCursorOutput)
+
+	ListChildChannelBillDetailByCursorCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListChildChannelBillDetailByCursorCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListChildChannelBillDetailByCursorCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListChildChannelBillDetailByCursor(*ListChildChannelBillDetailByCursorInput) (*ListChildChannelBillDetailByCursorOutput, error)
+	ListChildChannelBillDetailByCursorWithContext(volcengine.Context, *ListChildChannelBillDetailByCursorInput, ...request.Option) (*ListChildChannelBillDetailByCursorOutput, error)
+	ListChildChannelBillDetailByCursorRequest(*ListChildChannelBillDetailByCursorInput) (*request.Request, *ListChildChannelBillDetailByCursorOutput)
+
 	ListChildPartnerCustomerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListChildPartnerCustomerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListChildPartnerCustomerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

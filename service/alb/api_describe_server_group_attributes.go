@@ -206,6 +206,10 @@ type DescribeServerGroupAttributesOutput struct {
 
 	Servers []*ServerForDescribeServerGroupAttributesOutput `type:"list"`
 
+	SlowStartConfig *SlowStartConfigForDescribeServerGroupAttributesOutput `type:"structure"`
+
+	SpaceNetworkId *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	StickySessionConfig *StickySessionConfigForDescribeServerGroupAttributesOutput `type:"structure"`
@@ -303,6 +307,18 @@ func (s *DescribeServerGroupAttributesOutput) SetServers(v []*ServerForDescribeS
 	return s
 }
 
+// SetSlowStartConfig sets the SlowStartConfig field's value.
+func (s *DescribeServerGroupAttributesOutput) SetSlowStartConfig(v *SlowStartConfigForDescribeServerGroupAttributesOutput) *DescribeServerGroupAttributesOutput {
+	s.SlowStartConfig = v
+	return s
+}
+
+// SetSpaceNetworkId sets the SpaceNetworkId field's value.
+func (s *DescribeServerGroupAttributesOutput) SetSpaceNetworkId(v string) *DescribeServerGroupAttributesOutput {
+	s.SpaceNetworkId = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DescribeServerGroupAttributesOutput) SetStatus(v string) *DescribeServerGroupAttributesOutput {
 	s.Status = &v
@@ -344,7 +360,7 @@ type HealthCheckForDescribeServerGroupAttributesOutput struct {
 
 	Method *string `type:"string"`
 
-	Port *int64 `max:"65535" type:"integer"`
+	Port *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
 
@@ -512,6 +528,36 @@ func (s *ServerForDescribeServerGroupAttributesOutput) SetType(v string) *Server
 // SetWeight sets the Weight field's value.
 func (s *ServerForDescribeServerGroupAttributesOutput) SetWeight(v int64) *ServerForDescribeServerGroupAttributesOutput {
 	s.Weight = &v
+	return s
+}
+
+type SlowStartConfigForDescribeServerGroupAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	SlowStartDuration *int64 `type:"integer"`
+
+	SlowStartEnabled *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SlowStartConfigForDescribeServerGroupAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SlowStartConfigForDescribeServerGroupAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetSlowStartDuration sets the SlowStartDuration field's value.
+func (s *SlowStartConfigForDescribeServerGroupAttributesOutput) SetSlowStartDuration(v int64) *SlowStartConfigForDescribeServerGroupAttributesOutput {
+	s.SlowStartDuration = &v
+	return s
+}
+
+// SetSlowStartEnabled sets the SlowStartEnabled field's value.
+func (s *SlowStartConfigForDescribeServerGroupAttributesOutput) SetSlowStartEnabled(v string) *SlowStartConfigForDescribeServerGroupAttributesOutput {
+	s.SlowStartEnabled = &v
 	return s
 }
 

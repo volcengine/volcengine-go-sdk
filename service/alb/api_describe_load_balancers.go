@@ -156,6 +156,8 @@ type DescribeLoadBalancersInput struct {
 
 	ProjectName *string `type:"string"`
 
+	SpaceNetworkId *string `type:"string"`
+
 	TagFilters []*TagFilterForDescribeLoadBalancersInput `type:"list"`
 
 	Type *string `type:"string"`
@@ -212,6 +214,12 @@ func (s *DescribeLoadBalancersInput) SetPageSize(v int64) *DescribeLoadBalancers
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeLoadBalancersInput) SetProjectName(v string) *DescribeLoadBalancersInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSpaceNetworkId sets the SpaceNetworkId field's value.
+func (s *DescribeLoadBalancersInput) SetSpaceNetworkId(v string) *DescribeLoadBalancersInput {
+	s.SpaceNetworkId = &v
 	return s
 }
 
@@ -504,6 +512,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	AddressIpVersion *string `type:"string"`
 
+	ArkClawEnabled *string `type:"string"`
+
 	BusinessStatus *string `type:"string"`
 
 	CreateTime *string `type:"string"`
@@ -550,6 +560,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	SniAutoMatch *string `type:"string"`
 
+	SpaceNetworkId *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
@@ -582,6 +594,12 @@ func (s LoadBalancerForDescribeLoadBalancersOutput) GoString() string {
 // SetAddressIpVersion sets the AddressIpVersion field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetAddressIpVersion(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.AddressIpVersion = &v
+	return s
+}
+
+// SetArkClawEnabled sets the ArkClawEnabled field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetArkClawEnabled(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.ArkClawEnabled = &v
 	return s
 }
 
@@ -720,6 +738,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetSecurityGroupIds(v []*st
 // SetSniAutoMatch sets the SniAutoMatch field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetSniAutoMatch(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.SniAutoMatch = &v
+	return s
+}
+
+// SetSpaceNetworkId sets the SpaceNetworkId field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetSpaceNetworkId(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.SpaceNetworkId = &v
 	return s
 }
 

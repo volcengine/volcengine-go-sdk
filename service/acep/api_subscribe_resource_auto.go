@@ -321,6 +321,10 @@ type SubscribeResourceAutoOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	HostIdList []*string `type:"list"`
+
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -331,6 +335,18 @@ func (s SubscribeResourceAutoOutput) String() string {
 // GoString returns the string representation
 func (s SubscribeResourceAutoOutput) GoString() string {
 	return s.String()
+}
+
+// SetHostIdList sets the HostIdList field's value.
+func (s *SubscribeResourceAutoOutput) SetHostIdList(v []*string) *SubscribeResourceAutoOutput {
+	s.HostIdList = v
+	return s
+}
+
+// SetOrderId sets the OrderId field's value.
+func (s *SubscribeResourceAutoOutput) SetOrderId(v string) *SubscribeResourceAutoOutput {
+	s.OrderId = &v
+	return s
 }
 
 type TagForSubscribeResourceAutoInput struct {

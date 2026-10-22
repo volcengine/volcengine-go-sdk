@@ -334,6 +334,14 @@ type ORGANIZATIONAPI interface {
 	ListTargetsForPolicyWithContext(volcengine.Context, *ListTargetsForPolicyInput, ...request.Option) (*ListTargetsForPolicyOutput, error)
 	ListTargetsForPolicyRequest(*ListTargetsForPolicyInput) (*request.Request, *ListTargetsForPolicyOutput)
 
+	ListTrustedServiceAdministratorsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTrustedServiceAdministratorsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTrustedServiceAdministratorsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTrustedServiceAdministrators(*ListTrustedServiceAdministratorsInput) (*ListTrustedServiceAdministratorsOutput, error)
+	ListTrustedServiceAdministratorsWithContext(volcengine.Context, *ListTrustedServiceAdministratorsInput, ...request.Option) (*ListTrustedServiceAdministratorsOutput, error)
+	ListTrustedServiceAdministratorsRequest(*ListTrustedServiceAdministratorsInput) (*request.Request, *ListTrustedServiceAdministratorsOutput)
+
 	ListTrustedServiceStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTrustedServiceStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListTrustedServiceStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

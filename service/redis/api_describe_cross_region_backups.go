@@ -152,9 +152,9 @@ type BackupForDescribeCrossRegionBackupsOutput struct {
 
 	BackupProgress *int32 `type:"int32" json:",omitempty"`
 
-	BackupStrategy *string `type:"string" json:",omitempty" enum:"EnumOfBackupStrategyForDescribeCrossRegionBackupsOutput"`
+	BackupStrategy *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string" json:",omitempty" enum:"EnumOfBackupTypeForDescribeCrossRegionBackupsOutput"`
+	BackupType *string `type:"string" json:",omitempty"`
 
 	EndTime *string `type:"string" json:",omitempty"`
 
@@ -170,7 +170,7 @@ type BackupForDescribeCrossRegionBackupsOutput struct {
 
 	StartTime *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeCrossRegionBackupsOutput"`
+	Status *string `type:"string" json:",omitempty"`
 
 	TTL *int32 `type:"int32" json:",omitempty"`
 
@@ -418,7 +418,7 @@ type InstanceInfoForDescribeCrossRegionBackupsOutput struct {
 
 	ArchType *string `type:"string" json:",omitempty"`
 
-	BlueGreenRole *string `type:"string" json:",omitempty" enum:"EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutput"`
+	BlueGreenRole *string `type:"string" json:",omitempty"`
 
 	ChargeType *string `type:"string" json:",omitempty"`
 
@@ -570,20 +570,6 @@ func (s *InstanceInfoForDescribeCrossRegionBackupsOutput) SetZoneIds(v []*string
 }
 
 const (
-	// EnumOfBackupStrategyForDescribeCrossRegionBackupsOutputManualBackup is a EnumOfBackupStrategyForDescribeCrossRegionBackupsOutput enum value
-	EnumOfBackupStrategyForDescribeCrossRegionBackupsOutputManualBackup = "ManualBackup"
-
-	// EnumOfBackupStrategyForDescribeCrossRegionBackupsOutputAutomatedBackup is a EnumOfBackupStrategyForDescribeCrossRegionBackupsOutput enum value
-	EnumOfBackupStrategyForDescribeCrossRegionBackupsOutputAutomatedBackup = "AutomatedBackup"
-
-	// EnumOfBackupStrategyForDescribeCrossRegionBackupsOutputDataFlashBack is a EnumOfBackupStrategyForDescribeCrossRegionBackupsOutput enum value
-	EnumOfBackupStrategyForDescribeCrossRegionBackupsOutputDataFlashBack = "DataFlashBack"
-
-	// EnumOfBackupStrategyForDescribeCrossRegionBackupsOutputAllStrategy is a EnumOfBackupStrategyForDescribeCrossRegionBackupsOutput enum value
-	EnumOfBackupStrategyForDescribeCrossRegionBackupsOutputAllStrategy = "AllStrategy"
-)
-
-const (
 	// EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputManualBackup is a EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInput enum value
 	EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputManualBackup = "ManualBackup"
 
@@ -595,28 +581,6 @@ const (
 
 	// EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputAllStrategy is a EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInput enum value
 	EnumOfBackupStrategyListListForDescribeCrossRegionBackupsInputAllStrategy = "AllStrategy"
-)
-
-const (
-	// EnumOfBackupTypeForDescribeCrossRegionBackupsOutputInvalid is a EnumOfBackupTypeForDescribeCrossRegionBackupsOutput enum value
-	EnumOfBackupTypeForDescribeCrossRegionBackupsOutputInvalid = "Invalid"
-
-	// EnumOfBackupTypeForDescribeCrossRegionBackupsOutputFull is a EnumOfBackupTypeForDescribeCrossRegionBackupsOutput enum value
-	EnumOfBackupTypeForDescribeCrossRegionBackupsOutputFull = "Full"
-
-	// EnumOfBackupTypeForDescribeCrossRegionBackupsOutputInc is a EnumOfBackupTypeForDescribeCrossRegionBackupsOutput enum value
-	EnumOfBackupTypeForDescribeCrossRegionBackupsOutputInc = "Inc"
-
-	// EnumOfBackupTypeForDescribeCrossRegionBackupsOutputAll is a EnumOfBackupTypeForDescribeCrossRegionBackupsOutput enum value
-	EnumOfBackupTypeForDescribeCrossRegionBackupsOutputAll = "All"
-)
-
-const (
-	// EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutputBlue is a EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutput enum value
-	EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutputBlue = "Blue"
-
-	// EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutputGreen is a EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutput enum value
-	EnumOfBlueGreenRoleForDescribeCrossRegionBackupsOutputGreen = "Green"
 )
 
 const (
@@ -642,18 +606,4 @@ const (
 
 	// EnumOfStatusForDescribeCrossRegionBackupsInputDeleting is a EnumOfStatusForDescribeCrossRegionBackupsInput enum value
 	EnumOfStatusForDescribeCrossRegionBackupsInputDeleting = "Deleting"
-)
-
-const (
-	// EnumOfStatusForDescribeCrossRegionBackupsOutputCreating is a EnumOfStatusForDescribeCrossRegionBackupsOutput enum value
-	EnumOfStatusForDescribeCrossRegionBackupsOutputCreating = "Creating"
-
-	// EnumOfStatusForDescribeCrossRegionBackupsOutputAvailable is a EnumOfStatusForDescribeCrossRegionBackupsOutput enum value
-	EnumOfStatusForDescribeCrossRegionBackupsOutputAvailable = "Available"
-
-	// EnumOfStatusForDescribeCrossRegionBackupsOutputUnavailable is a EnumOfStatusForDescribeCrossRegionBackupsOutput enum value
-	EnumOfStatusForDescribeCrossRegionBackupsOutputUnavailable = "Unavailable"
-
-	// EnumOfStatusForDescribeCrossRegionBackupsOutputDeleting is a EnumOfStatusForDescribeCrossRegionBackupsOutput enum value
-	EnumOfStatusForDescribeCrossRegionBackupsOutputDeleting = "Deleting"
 )

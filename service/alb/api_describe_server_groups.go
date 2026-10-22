@@ -154,6 +154,8 @@ type DescribeServerGroupsInput struct {
 
 	ServerGroupType *string `type:"string"`
 
+	SpaceNetworkId *string `type:"string"`
+
 	TagFilters []*TagFilterForDescribeServerGroupsInput `type:"list"`
 
 	VpcId *string `type:"string"`
@@ -202,6 +204,12 @@ func (s *DescribeServerGroupsInput) SetServerGroupNames(v []*string) *DescribeSe
 // SetServerGroupType sets the ServerGroupType field's value.
 func (s *DescribeServerGroupsInput) SetServerGroupType(v string) *DescribeServerGroupsInput {
 	s.ServerGroupType = &v
+	return s
+}
+
+// SetSpaceNetworkId sets the SpaceNetworkId field's value.
+func (s *DescribeServerGroupsInput) SetSpaceNetworkId(v string) *DescribeServerGroupsInput {
+	s.SpaceNetworkId = &v
 	return s
 }
 
@@ -290,7 +298,7 @@ type HealthCheckForDescribeServerGroupsOutput struct {
 
 	Method *string `type:"string"`
 
-	Port *int64 `max:"65535" type:"integer"`
+	Port *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
 
@@ -412,6 +420,8 @@ type ServerGroupForDescribeServerGroupsOutput struct {
 
 	ServerGroupType *string `type:"string"`
 
+	SlowStartConfig *SlowStartConfigForDescribeServerGroupsOutput `type:"structure"`
+
 	Status *string `type:"string"`
 
 	StickySessionConfig *StickySessionConfigForDescribeServerGroupsOutput `type:"structure"`
@@ -511,6 +521,12 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupType(v string) 
 	return s
 }
 
+// SetSlowStartConfig sets the SlowStartConfig field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetSlowStartConfig(v *SlowStartConfigForDescribeServerGroupsOutput) *ServerGroupForDescribeServerGroupsOutput {
+	s.SlowStartConfig = v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetStatus(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.Status = &v
@@ -538,6 +554,36 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetUpdateTime(v string) *Serv
 // SetVpcId sets the VpcId field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetVpcId(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.VpcId = &v
+	return s
+}
+
+type SlowStartConfigForDescribeServerGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	SlowStartDuration *int64 `type:"integer"`
+
+	SlowStartEnabled *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SlowStartConfigForDescribeServerGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SlowStartConfigForDescribeServerGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetSlowStartDuration sets the SlowStartDuration field's value.
+func (s *SlowStartConfigForDescribeServerGroupsOutput) SetSlowStartDuration(v int64) *SlowStartConfigForDescribeServerGroupsOutput {
+	s.SlowStartDuration = &v
+	return s
+}
+
+// SetSlowStartEnabled sets the SlowStartEnabled field's value.
+func (s *SlowStartConfigForDescribeServerGroupsOutput) SetSlowStartEnabled(v string) *SlowStartConfigForDescribeServerGroupsOutput {
+	s.SlowStartEnabled = &v
 	return s
 }
 

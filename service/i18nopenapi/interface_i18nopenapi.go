@@ -70,6 +70,14 @@ type I18NOPENAPIAPI interface {
 	DocumentTaskStopWithContext(volcengine.Context, *DocumentTaskStopInput, ...request.Option) (*DocumentTaskStopOutput, error)
 	DocumentTaskStopRequest(*DocumentTaskStopInput) (*request.Request, *DocumentTaskStopOutput)
 
+	ImportGetBytedUploaderTokenCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ImportGetBytedUploaderTokenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ImportGetBytedUploaderTokenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ImportGetBytedUploaderToken(*ImportGetBytedUploaderTokenInput) (*ImportGetBytedUploaderTokenOutput, error)
+	ImportGetBytedUploaderTokenWithContext(volcengine.Context, *ImportGetBytedUploaderTokenInput, ...request.Option) (*ImportGetBytedUploaderTokenOutput, error)
+	ImportGetBytedUploaderTokenRequest(*ImportGetBytedUploaderTokenInput) (*request.Request, *ImportGetBytedUploaderTokenOutput)
+
 	LanguagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	LanguagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	LanguagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -109,6 +117,14 @@ type I18NOPENAPIAPI interface {
 	ProjectDownloadTaskDelete(*ProjectDownloadTaskDeleteInput) (*ProjectDownloadTaskDeleteOutput, error)
 	ProjectDownloadTaskDeleteWithContext(volcengine.Context, *ProjectDownloadTaskDeleteInput, ...request.Option) (*ProjectDownloadTaskDeleteOutput, error)
 	ProjectDownloadTaskDeleteRequest(*ProjectDownloadTaskDeleteInput) (*request.Request, *ProjectDownloadTaskDeleteOutput)
+
+	ProjectDownloadTaskQueryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectDownloadTaskQueryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectDownloadTaskQueryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectDownloadTaskQuery(*ProjectDownloadTaskQueryInput) (*ProjectDownloadTaskQueryOutput, error)
+	ProjectDownloadTaskQueryWithContext(volcengine.Context, *ProjectDownloadTaskQueryInput, ...request.Option) (*ProjectDownloadTaskQueryOutput, error)
+	ProjectDownloadTaskQueryRequest(*ProjectDownloadTaskQueryInput) (*request.Request, *ProjectDownloadTaskQueryOutput)
 
 	ProjectMtDetectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ProjectMtDetectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -245,6 +261,14 @@ type I18NOPENAPIAPI interface {
 	ProjectNamespaceTargets(*ProjectNamespaceTargetsInput) (*ProjectNamespaceTargetsOutput, error)
 	ProjectNamespaceTargetsWithContext(volcengine.Context, *ProjectNamespaceTargetsInput, ...request.Option) (*ProjectNamespaceTargetsOutput, error)
 	ProjectNamespaceTargetsRequest(*ProjectNamespaceTargetsInput) (*request.Request, *ProjectNamespaceTargetsOutput)
+
+	ProjectNamespaceTextDownloadCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectNamespaceTextDownloadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectNamespaceTextDownloadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectNamespaceTextDownload(*ProjectNamespaceTextDownloadInput) (*ProjectNamespaceTextDownloadOutput, error)
+	ProjectNamespaceTextDownloadWithContext(volcengine.Context, *ProjectNamespaceTextDownloadInput, ...request.Option) (*ProjectNamespaceTextDownloadOutput, error)
+	ProjectNamespaceTextDownloadRequest(*ProjectNamespaceTextDownloadInput) (*request.Request, *ProjectNamespaceTextDownloadOutput)
 
 	ProjectNamespaceTextImportCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ProjectNamespaceTextImportCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -422,6 +446,14 @@ type I18NOPENAPIAPI interface {
 	ProjectTaskTargetDeleteByKeysWithContext(volcengine.Context, *ProjectTaskTargetDeleteByKeysInput, ...request.Option) (*ProjectTaskTargetDeleteByKeysOutput, error)
 	ProjectTaskTargetDeleteByKeysRequest(*ProjectTaskTargetDeleteByKeysInput) (*request.Request, *ProjectTaskTargetDeleteByKeysOutput)
 
+	ProjectTaskTargetDownloadCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTaskTargetDownloadCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTaskTargetDownloadCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTaskTargetDownload(*ProjectTaskTargetDownloadInput) (*ProjectTaskTargetDownloadOutput, error)
+	ProjectTaskTargetDownloadWithContext(volcengine.Context, *ProjectTaskTargetDownloadInput, ...request.Option) (*ProjectTaskTargetDownloadOutput, error)
+	ProjectTaskTargetDownloadRequest(*ProjectTaskTargetDownloadInput) (*request.Request, *ProjectTaskTargetDownloadOutput)
+
 	ProjectTaskTargetUpdateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ProjectTaskTargetUpdateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ProjectTaskTargetUpdateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -477,6 +509,14 @@ type I18NOPENAPIAPI interface {
 	ProjectTermDetail(*ProjectTermDetailInput) (*ProjectTermDetailOutput, error)
 	ProjectTermDetailWithContext(volcengine.Context, *ProjectTermDetailInput, ...request.Option) (*ProjectTermDetailOutput, error)
 	ProjectTermDetailRequest(*ProjectTermDetailInput) (*request.Request, *ProjectTermDetailOutput)
+
+	ProjectTermSourceAddCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ProjectTermSourceAddCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ProjectTermSourceAddCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ProjectTermSourceAdd(*ProjectTermSourceAddInput) (*ProjectTermSourceAddOutput, error)
+	ProjectTermSourceAddWithContext(volcengine.Context, *ProjectTermSourceAddInput, ...request.Option) (*ProjectTermSourceAddOutput, error)
+	ProjectTermSourceAddRequest(*ProjectTermSourceAddInput) (*request.Request, *ProjectTermSourceAddOutput)
 
 	ProjectTermSourceDeleteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ProjectTermSourceDeleteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -342,7 +342,7 @@ func (s *DescribeDBInstancesOutput) SetTotalInstancesNum(v int32) *DescribeDBIns
 type InstanceForDescribeDBInstancesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BlueGreenRole *string `type:"string" json:",omitempty" enum:"EnumOfBlueGreenRoleForDescribeDBInstancesOutput"`
+	BlueGreenRole *string `type:"string" json:",omitempty"`
 
 	Capacity *CapacityForDescribeDBInstancesOutput `type:"structure" json:",omitempty"`
 
@@ -628,11 +628,3 @@ func (s *TagForDescribeDBInstancesOutput) SetValue(v string) *TagForDescribeDBIn
 	s.Value = &v
 	return s
 }
-
-const (
-	// EnumOfBlueGreenRoleForDescribeDBInstancesOutputBlue is a EnumOfBlueGreenRoleForDescribeDBInstancesOutput enum value
-	EnumOfBlueGreenRoleForDescribeDBInstancesOutputBlue = "Blue"
-
-	// EnumOfBlueGreenRoleForDescribeDBInstancesOutputGreen is a EnumOfBlueGreenRoleForDescribeDBInstancesOutput enum value
-	EnumOfBlueGreenRoleForDescribeDBInstancesOutputGreen = "Green"
-)

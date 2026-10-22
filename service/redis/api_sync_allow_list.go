@@ -148,7 +148,7 @@ type ChangeObjectForSyncAllowListOutput struct {
 
 	AddedIpList []*string `type:"list"`
 
-	BindMode *string `type:"string" json:",omitempty" enum:"EnumOfBindModeForSyncAllowListOutput"`
+	BindMode *string `type:"string" json:",omitempty"`
 
 	HasChanged *bool `type:"boolean" json:",omitempty"`
 
@@ -327,12 +327,4 @@ const (
 
 	// EnumOfBindModeForSyncAllowListInputIngressDirectionIp is a EnumOfBindModeForSyncAllowListInput enum value
 	EnumOfBindModeForSyncAllowListInputIngressDirectionIp = "IngressDirectionIp"
-)
-
-const (
-	// EnumOfBindModeForSyncAllowListOutputAssociateEcsIp is a EnumOfBindModeForSyncAllowListOutput enum value
-	EnumOfBindModeForSyncAllowListOutputAssociateEcsIp = "AssociateEcsIp"
-
-	// EnumOfBindModeForSyncAllowListOutputIngressDirectionIp is a EnumOfBindModeForSyncAllowListOutput enum value
-	EnumOfBindModeForSyncAllowListOutputIngressDirectionIp = "IngressDirectionIp"
 )

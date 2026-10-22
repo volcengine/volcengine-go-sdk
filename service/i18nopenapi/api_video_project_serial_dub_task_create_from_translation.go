@@ -211,6 +211,652 @@ func (s *ResultForVideoProjectSerialDubTaskCreateFromTranslationOutput) SetTaskI
 	return s
 }
 
+type SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Af *string `type:"string" json:"af,omitempty"`
+
+	AfZA *string `type:"string" json:"af-ZA,omitempty"`
+
+	Ar *string `type:"string" json:"ar,omitempty"`
+
+	ArAR *string `type:"string" json:"ar-AR,omitempty"`
+
+	ArDZ *string `type:"string" json:"ar-DZ,omitempty"`
+
+	ArSY *string `type:"string" json:"ar-SY,omitempty"`
+
+	ArYE *string `type:"string" json:"ar-YE,omitempty"`
+
+	Be *string `type:"string" json:"be,omitempty"`
+
+	Bn *string `type:"string" json:"bn,omitempty"`
+
+	BnBD *string `type:"string" json:"bn-BD,omitempty"`
+
+	Da *string `type:"string" json:"da,omitempty"`
+
+	De *string `type:"string" json:"de,omitempty"`
+
+	DeDE *string `type:"string" json:"de-DE,omitempty"`
+
+	En *string `type:"string" json:"en,omitempty"`
+
+	EnDA *string `type:"string" json:"en-DA,omitempty"`
+
+	EnGB *string `type:"string" json:"en-GB,omitempty"`
+
+	EnIN *string `type:"string" json:"en-IN,omitempty"`
+
+	EnPH *string `type:"string" json:"en-PH,omitempty"`
+
+	EnSG *string `type:"string" json:"en-SG,omitempty"`
+
+	EnUS *string `type:"string" json:"en-US,omitempty"`
+
+	Es *string `type:"string" json:"es,omitempty"`
+
+	Es419 *string `type:"string" json:"es-419,omitempty"`
+
+	EsES *string `type:"string" json:"es-ES,omitempty"`
+
+	EsUS *string `type:"string" json:"es-US,omitempty"`
+
+	FaIR *string `type:"string" json:"fa-IR,omitempty"`
+
+	Fil *string `type:"string" json:"fil,omitempty"`
+
+	FilPH *string `type:"string" json:"fil-PH,omitempty"`
+
+	Fr *string `type:"string" json:"fr,omitempty"`
+
+	FrFR *string `type:"string" json:"fr-FR,omitempty"`
+
+	Hi *string `type:"string" json:"hi,omitempty"`
+
+	HiIN *string `type:"string" json:"hi-IN,omitempty"`
+
+	Id *string `type:"string" json:"id,omitempty"`
+
+	IdID *string `type:"string" json:"id-ID,omitempty"`
+
+	It *string `type:"string" json:"it,omitempty"`
+
+	ItIT *string `type:"string" json:"it-IT,omitempty"`
+
+	Ja *string `type:"string" json:"ja,omitempty"`
+
+	JaJP *string `type:"string" json:"ja-JP,omitempty"`
+
+	Ka *string `type:"string" json:"ka,omitempty"`
+
+	KkKZ *string `type:"string" json:"kk-KZ,omitempty"`
+
+	Kl *string `type:"string" json:"kl,omitempty"`
+
+	Km *string `type:"string" json:"km,omitempty"`
+
+	KmKH *string `type:"string" json:"km-KH,omitempty"`
+
+	Ko *string `type:"string" json:"ko,omitempty"`
+
+	KoKR *string `type:"string" json:"ko-KR,omitempty"`
+
+	Mn *string `type:"string" json:"mn,omitempty"`
+
+	Ms *string `type:"string" json:"ms,omitempty"`
+
+	MsMY *string `type:"string" json:"ms-MY,omitempty"`
+
+	My *string `type:"string" json:"my,omitempty"`
+
+	Ne *string `type:"string" json:"ne,omitempty"`
+
+	Pl *string `type:"string" json:"pl,omitempty"`
+
+	PlPL *string `type:"string" json:"pl-PL,omitempty"`
+
+	Pt *string `type:"string" json:"pt,omitempty"`
+
+	PtBR *string `type:"string" json:"pt-BR,omitempty"`
+
+	PtPT *string `type:"string" json:"pt-PT,omitempty"`
+
+	Ro *string `type:"string" json:"ro,omitempty"`
+
+	Ru *string `type:"string" json:"ru,omitempty"`
+
+	RuRU *string `type:"string" json:"ru-RU,omitempty"`
+
+	Sk *string `type:"string" json:"sk,omitempty"`
+
+	Sl *string `type:"string" json:"sl,omitempty"`
+
+	Sr *string `type:"string" json:"sr,omitempty"`
+
+	Sv *string `type:"string" json:"sv,omitempty"`
+
+	Ta *string `type:"string" json:"ta,omitempty"`
+
+	Te *string `type:"string" json:"te,omitempty"`
+
+	Th *string `type:"string" json:"th,omitempty"`
+
+	ThTH *string `type:"string" json:"th-TH,omitempty"`
+
+	TlPH *string `type:"string" json:"tl-PH,omitempty"`
+
+	Tr *string `type:"string" json:"tr,omitempty"`
+
+	TrTR *string `type:"string" json:"tr-TR,omitempty"`
+
+	Ur *string `type:"string" json:"ur,omitempty"`
+
+	Uz *string `type:"string" json:"uz,omitempty"`
+
+	Vi *string `type:"string" json:"vi,omitempty"`
+
+	ViVN *string `type:"string" json:"vi-VN,omitempty"`
+
+	Zh *string `type:"string" json:"zh,omitempty"`
+
+	ZhCN *string `type:"string" json:"zh-CN,omitempty"`
+
+	ZhHK *string `type:"string" json:"zh-HK,omitempty"`
+
+	ZhHans *string `type:"string" json:"zh-Hans,omitempty"`
+
+	ZhHansCN *string `type:"string" json:"zh-Hans-CN,omitempty"`
+
+	ZhHant *string `type:"string" json:"zh-Hant,omitempty"`
+
+	ZhTW *string `type:"string" json:"zh-TW,omitempty"`
+}
+
+// String returns the string representation
+func (s SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) GoString() string {
+	return s.String()
+}
+
+// SetAf sets the Af field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetAf(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Af = &v
+	return s
+}
+
+// SetAfZA sets the AfZA field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetAfZA(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.AfZA = &v
+	return s
+}
+
+// SetAr sets the Ar field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetAr(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Ar = &v
+	return s
+}
+
+// SetArAR sets the ArAR field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetArAR(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ArAR = &v
+	return s
+}
+
+// SetArDZ sets the ArDZ field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetArDZ(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ArDZ = &v
+	return s
+}
+
+// SetArSY sets the ArSY field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetArSY(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ArSY = &v
+	return s
+}
+
+// SetArYE sets the ArYE field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetArYE(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ArYE = &v
+	return s
+}
+
+// SetBe sets the Be field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetBe(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Be = &v
+	return s
+}
+
+// SetBn sets the Bn field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetBn(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Bn = &v
+	return s
+}
+
+// SetBnBD sets the BnBD field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetBnBD(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.BnBD = &v
+	return s
+}
+
+// SetDa sets the Da field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetDa(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Da = &v
+	return s
+}
+
+// SetDe sets the De field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetDe(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.De = &v
+	return s
+}
+
+// SetDeDE sets the DeDE field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetDeDE(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.DeDE = &v
+	return s
+}
+
+// SetEn sets the En field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetEn(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.En = &v
+	return s
+}
+
+// SetEnDA sets the EnDA field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetEnDA(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.EnDA = &v
+	return s
+}
+
+// SetEnGB sets the EnGB field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetEnGB(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.EnGB = &v
+	return s
+}
+
+// SetEnIN sets the EnIN field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetEnIN(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.EnIN = &v
+	return s
+}
+
+// SetEnPH sets the EnPH field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetEnPH(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.EnPH = &v
+	return s
+}
+
+// SetEnSG sets the EnSG field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetEnSG(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.EnSG = &v
+	return s
+}
+
+// SetEnUS sets the EnUS field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetEnUS(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.EnUS = &v
+	return s
+}
+
+// SetEs sets the Es field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetEs(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Es = &v
+	return s
+}
+
+// SetEs419 sets the Es419 field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetEs419(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Es419 = &v
+	return s
+}
+
+// SetEsES sets the EsES field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetEsES(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.EsES = &v
+	return s
+}
+
+// SetEsUS sets the EsUS field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetEsUS(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.EsUS = &v
+	return s
+}
+
+// SetFaIR sets the FaIR field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetFaIR(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.FaIR = &v
+	return s
+}
+
+// SetFil sets the Fil field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetFil(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Fil = &v
+	return s
+}
+
+// SetFilPH sets the FilPH field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetFilPH(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.FilPH = &v
+	return s
+}
+
+// SetFr sets the Fr field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetFr(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Fr = &v
+	return s
+}
+
+// SetFrFR sets the FrFR field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetFrFR(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.FrFR = &v
+	return s
+}
+
+// SetHi sets the Hi field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetHi(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Hi = &v
+	return s
+}
+
+// SetHiIN sets the HiIN field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetHiIN(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.HiIN = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetId(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Id = &v
+	return s
+}
+
+// SetIdID sets the IdID field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetIdID(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.IdID = &v
+	return s
+}
+
+// SetIt sets the It field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetIt(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.It = &v
+	return s
+}
+
+// SetItIT sets the ItIT field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetItIT(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ItIT = &v
+	return s
+}
+
+// SetJa sets the Ja field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetJa(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Ja = &v
+	return s
+}
+
+// SetJaJP sets the JaJP field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetJaJP(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.JaJP = &v
+	return s
+}
+
+// SetKa sets the Ka field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetKa(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Ka = &v
+	return s
+}
+
+// SetKkKZ sets the KkKZ field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetKkKZ(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.KkKZ = &v
+	return s
+}
+
+// SetKl sets the Kl field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetKl(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Kl = &v
+	return s
+}
+
+// SetKm sets the Km field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetKm(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Km = &v
+	return s
+}
+
+// SetKmKH sets the KmKH field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetKmKH(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.KmKH = &v
+	return s
+}
+
+// SetKo sets the Ko field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetKo(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Ko = &v
+	return s
+}
+
+// SetKoKR sets the KoKR field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetKoKR(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.KoKR = &v
+	return s
+}
+
+// SetMn sets the Mn field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetMn(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Mn = &v
+	return s
+}
+
+// SetMs sets the Ms field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetMs(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Ms = &v
+	return s
+}
+
+// SetMsMY sets the MsMY field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetMsMY(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.MsMY = &v
+	return s
+}
+
+// SetMy sets the My field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetMy(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.My = &v
+	return s
+}
+
+// SetNe sets the Ne field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetNe(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Ne = &v
+	return s
+}
+
+// SetPl sets the Pl field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetPl(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Pl = &v
+	return s
+}
+
+// SetPlPL sets the PlPL field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetPlPL(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.PlPL = &v
+	return s
+}
+
+// SetPt sets the Pt field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetPt(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Pt = &v
+	return s
+}
+
+// SetPtBR sets the PtBR field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetPtBR(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.PtBR = &v
+	return s
+}
+
+// SetPtPT sets the PtPT field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetPtPT(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.PtPT = &v
+	return s
+}
+
+// SetRo sets the Ro field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetRo(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Ro = &v
+	return s
+}
+
+// SetRu sets the Ru field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetRu(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Ru = &v
+	return s
+}
+
+// SetRuRU sets the RuRU field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetRuRU(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.RuRU = &v
+	return s
+}
+
+// SetSk sets the Sk field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetSk(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Sk = &v
+	return s
+}
+
+// SetSl sets the Sl field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetSl(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Sl = &v
+	return s
+}
+
+// SetSr sets the Sr field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetSr(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Sr = &v
+	return s
+}
+
+// SetSv sets the Sv field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetSv(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Sv = &v
+	return s
+}
+
+// SetTa sets the Ta field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetTa(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Ta = &v
+	return s
+}
+
+// SetTe sets the Te field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetTe(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Te = &v
+	return s
+}
+
+// SetTh sets the Th field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetTh(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Th = &v
+	return s
+}
+
+// SetThTH sets the ThTH field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetThTH(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ThTH = &v
+	return s
+}
+
+// SetTlPH sets the TlPH field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetTlPH(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.TlPH = &v
+	return s
+}
+
+// SetTr sets the Tr field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetTr(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Tr = &v
+	return s
+}
+
+// SetTrTR sets the TrTR field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetTrTR(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.TrTR = &v
+	return s
+}
+
+// SetUr sets the Ur field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetUr(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Ur = &v
+	return s
+}
+
+// SetUz sets the Uz field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetUz(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Uz = &v
+	return s
+}
+
+// SetVi sets the Vi field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetVi(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Vi = &v
+	return s
+}
+
+// SetViVN sets the ViVN field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetViVN(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ViVN = &v
+	return s
+}
+
+// SetZh sets the Zh field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetZh(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.Zh = &v
+	return s
+}
+
+// SetZhCN sets the ZhCN field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetZhCN(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ZhCN = &v
+	return s
+}
+
+// SetZhHK sets the ZhHK field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetZhHK(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ZhHK = &v
+	return s
+}
+
+// SetZhHans sets the ZhHans field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetZhHans(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ZhHans = &v
+	return s
+}
+
+// SetZhHansCN sets the ZhHansCN field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetZhHansCN(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ZhHansCN = &v
+	return s
+}
+
+// SetZhHant sets the ZhHant field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetZhHant(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ZhHant = &v
+	return s
+}
+
+// SetZhTW sets the ZhTW field's value.
+func (s *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) SetZhTW(v string) *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.ZhTW = &v
+	return s
+}
+
 type SuppressionParamsForVideoProjectSerialDubTaskCreateFromTranslationInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -897,6 +1543,8 @@ type VideoProjectSerialDubTaskCreateFromTranslationInput struct {
 	// ProjectId is a required field
 	ProjectId *string `type:"string" json:"projectId,omitempty" required:"true"`
 
+	SourceStyleMap *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput `type:"structure" json:"sourceStyleMap,omitempty"`
+
 	SuppressionParams *SuppressionParamsForVideoProjectSerialDubTaskCreateFromTranslationInput `type:"structure" json:"suppressionParams,omitempty"`
 
 	TargetStyleMap *TargetStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput `type:"structure" json:"targetStyleMap,omitempty"`
@@ -968,6 +1616,12 @@ func (s *VideoProjectSerialDubTaskCreateFromTranslationInput) SetNeedVideoSpeed(
 // SetProjectId sets the ProjectId field's value.
 func (s *VideoProjectSerialDubTaskCreateFromTranslationInput) SetProjectId(v string) *VideoProjectSerialDubTaskCreateFromTranslationInput {
 	s.ProjectId = &v
+	return s
+}
+
+// SetSourceStyleMap sets the SourceStyleMap field's value.
+func (s *VideoProjectSerialDubTaskCreateFromTranslationInput) SetSourceStyleMap(v *SourceStyleMapForVideoProjectSerialDubTaskCreateFromTranslationInput) *VideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.SourceStyleMap = v
 	return s
 }
 

@@ -160,12 +160,15 @@ type CreateServerGroupInput struct {
 
 	ServerGroupType *string `type:"string"`
 
+	SlowStartConfig *SlowStartConfigForCreateServerGroupInput `type:"structure"`
+
+	SpaceNetworkId *string `type:"string"`
+
 	StickySessionConfig *StickySessionConfigForCreateServerGroupInput `type:"structure"`
 
 	Tags []*TagForCreateServerGroupInput `type:"list"`
 
-	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -186,9 +189,6 @@ func (s *CreateServerGroupInput) Validate() error {
 	}
 	if s.ServerGroupName != nil && len(*s.ServerGroupName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("ServerGroupName", 128, *s.ServerGroupName))
-	}
-	if s.VpcId == nil {
-		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
 	if s.HealthCheck != nil {
 		if err := s.HealthCheck.Validate(); err != nil {
@@ -253,6 +253,18 @@ func (s *CreateServerGroupInput) SetServerGroupName(v string) *CreateServerGroup
 // SetServerGroupType sets the ServerGroupType field's value.
 func (s *CreateServerGroupInput) SetServerGroupType(v string) *CreateServerGroupInput {
 	s.ServerGroupType = &v
+	return s
+}
+
+// SetSlowStartConfig sets the SlowStartConfig field's value.
+func (s *CreateServerGroupInput) SetSlowStartConfig(v *SlowStartConfigForCreateServerGroupInput) *CreateServerGroupInput {
+	s.SlowStartConfig = v
+	return s
+}
+
+// SetSpaceNetworkId sets the SpaceNetworkId field's value.
+func (s *CreateServerGroupInput) SetSpaceNetworkId(v string) *CreateServerGroupInput {
+	s.SpaceNetworkId = &v
 	return s
 }
 
@@ -426,6 +438,36 @@ func (s *HealthCheckForCreateServerGroupInput) SetURI(v string) *HealthCheckForC
 // SetUnhealthyThreshold sets the UnhealthyThreshold field's value.
 func (s *HealthCheckForCreateServerGroupInput) SetUnhealthyThreshold(v int64) *HealthCheckForCreateServerGroupInput {
 	s.UnhealthyThreshold = &v
+	return s
+}
+
+type SlowStartConfigForCreateServerGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	SlowStartDuration *int64 `type:"integer"`
+
+	SlowStartEnabled *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SlowStartConfigForCreateServerGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SlowStartConfigForCreateServerGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetSlowStartDuration sets the SlowStartDuration field's value.
+func (s *SlowStartConfigForCreateServerGroupInput) SetSlowStartDuration(v int64) *SlowStartConfigForCreateServerGroupInput {
+	s.SlowStartDuration = &v
+	return s
+}
+
+// SetSlowStartEnabled sets the SlowStartEnabled field's value.
+func (s *SlowStartConfigForCreateServerGroupInput) SetSlowStartEnabled(v string) *SlowStartConfigForCreateServerGroupInput {
+	s.SlowStartEnabled = &v
 	return s
 }
 

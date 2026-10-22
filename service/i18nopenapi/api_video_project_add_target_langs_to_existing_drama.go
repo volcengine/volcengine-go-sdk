@@ -173,6 +173,652 @@ func (s *DataForVideoProjectAddTargetLangsToExistingDramaOutput) SetTaskIDs(v []
 	return s
 }
 
+type SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Af *string `type:"string" json:"af,omitempty"`
+
+	AfZA *string `type:"string" json:"af-ZA,omitempty"`
+
+	Ar *string `type:"string" json:"ar,omitempty"`
+
+	ArAR *string `type:"string" json:"ar-AR,omitempty"`
+
+	ArDZ *string `type:"string" json:"ar-DZ,omitempty"`
+
+	ArSY *string `type:"string" json:"ar-SY,omitempty"`
+
+	ArYE *string `type:"string" json:"ar-YE,omitempty"`
+
+	Be *string `type:"string" json:"be,omitempty"`
+
+	Bn *string `type:"string" json:"bn,omitempty"`
+
+	BnBD *string `type:"string" json:"bn-BD,omitempty"`
+
+	Da *string `type:"string" json:"da,omitempty"`
+
+	De *string `type:"string" json:"de,omitempty"`
+
+	DeDE *string `type:"string" json:"de-DE,omitempty"`
+
+	En *string `type:"string" json:"en,omitempty"`
+
+	EnDA *string `type:"string" json:"en-DA,omitempty"`
+
+	EnGB *string `type:"string" json:"en-GB,omitempty"`
+
+	EnIN *string `type:"string" json:"en-IN,omitempty"`
+
+	EnPH *string `type:"string" json:"en-PH,omitempty"`
+
+	EnSG *string `type:"string" json:"en-SG,omitempty"`
+
+	EnUS *string `type:"string" json:"en-US,omitempty"`
+
+	Es *string `type:"string" json:"es,omitempty"`
+
+	Es419 *string `type:"string" json:"es-419,omitempty"`
+
+	EsES *string `type:"string" json:"es-ES,omitempty"`
+
+	EsUS *string `type:"string" json:"es-US,omitempty"`
+
+	FaIR *string `type:"string" json:"fa-IR,omitempty"`
+
+	Fil *string `type:"string" json:"fil,omitempty"`
+
+	FilPH *string `type:"string" json:"fil-PH,omitempty"`
+
+	Fr *string `type:"string" json:"fr,omitempty"`
+
+	FrFR *string `type:"string" json:"fr-FR,omitempty"`
+
+	Hi *string `type:"string" json:"hi,omitempty"`
+
+	HiIN *string `type:"string" json:"hi-IN,omitempty"`
+
+	Id *string `type:"string" json:"id,omitempty"`
+
+	IdID *string `type:"string" json:"id-ID,omitempty"`
+
+	It *string `type:"string" json:"it,omitempty"`
+
+	ItIT *string `type:"string" json:"it-IT,omitempty"`
+
+	Ja *string `type:"string" json:"ja,omitempty"`
+
+	JaJP *string `type:"string" json:"ja-JP,omitempty"`
+
+	Ka *string `type:"string" json:"ka,omitempty"`
+
+	KkKZ *string `type:"string" json:"kk-KZ,omitempty"`
+
+	Kl *string `type:"string" json:"kl,omitempty"`
+
+	Km *string `type:"string" json:"km,omitempty"`
+
+	KmKH *string `type:"string" json:"km-KH,omitempty"`
+
+	Ko *string `type:"string" json:"ko,omitempty"`
+
+	KoKR *string `type:"string" json:"ko-KR,omitempty"`
+
+	Mn *string `type:"string" json:"mn,omitempty"`
+
+	Ms *string `type:"string" json:"ms,omitempty"`
+
+	MsMY *string `type:"string" json:"ms-MY,omitempty"`
+
+	My *string `type:"string" json:"my,omitempty"`
+
+	Ne *string `type:"string" json:"ne,omitempty"`
+
+	Pl *string `type:"string" json:"pl,omitempty"`
+
+	PlPL *string `type:"string" json:"pl-PL,omitempty"`
+
+	Pt *string `type:"string" json:"pt,omitempty"`
+
+	PtBR *string `type:"string" json:"pt-BR,omitempty"`
+
+	PtPT *string `type:"string" json:"pt-PT,omitempty"`
+
+	Ro *string `type:"string" json:"ro,omitempty"`
+
+	Ru *string `type:"string" json:"ru,omitempty"`
+
+	RuRU *string `type:"string" json:"ru-RU,omitempty"`
+
+	Sk *string `type:"string" json:"sk,omitempty"`
+
+	Sl *string `type:"string" json:"sl,omitempty"`
+
+	Sr *string `type:"string" json:"sr,omitempty"`
+
+	Sv *string `type:"string" json:"sv,omitempty"`
+
+	Ta *string `type:"string" json:"ta,omitempty"`
+
+	Te *string `type:"string" json:"te,omitempty"`
+
+	Th *string `type:"string" json:"th,omitempty"`
+
+	ThTH *string `type:"string" json:"th-TH,omitempty"`
+
+	TlPH *string `type:"string" json:"tl-PH,omitempty"`
+
+	Tr *string `type:"string" json:"tr,omitempty"`
+
+	TrTR *string `type:"string" json:"tr-TR,omitempty"`
+
+	Ur *string `type:"string" json:"ur,omitempty"`
+
+	Uz *string `type:"string" json:"uz,omitempty"`
+
+	Vi *string `type:"string" json:"vi,omitempty"`
+
+	ViVN *string `type:"string" json:"vi-VN,omitempty"`
+
+	Zh *string `type:"string" json:"zh,omitempty"`
+
+	ZhCN *string `type:"string" json:"zh-CN,omitempty"`
+
+	ZhHK *string `type:"string" json:"zh-HK,omitempty"`
+
+	ZhHans *string `type:"string" json:"zh-Hans,omitempty"`
+
+	ZhHansCN *string `type:"string" json:"zh-Hans-CN,omitempty"`
+
+	ZhHant *string `type:"string" json:"zh-Hant,omitempty"`
+
+	ZhTW *string `type:"string" json:"zh-TW,omitempty"`
+}
+
+// String returns the string representation
+func (s SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) GoString() string {
+	return s.String()
+}
+
+// SetAf sets the Af field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetAf(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Af = &v
+	return s
+}
+
+// SetAfZA sets the AfZA field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetAfZA(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.AfZA = &v
+	return s
+}
+
+// SetAr sets the Ar field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetAr(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Ar = &v
+	return s
+}
+
+// SetArAR sets the ArAR field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetArAR(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ArAR = &v
+	return s
+}
+
+// SetArDZ sets the ArDZ field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetArDZ(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ArDZ = &v
+	return s
+}
+
+// SetArSY sets the ArSY field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetArSY(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ArSY = &v
+	return s
+}
+
+// SetArYE sets the ArYE field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetArYE(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ArYE = &v
+	return s
+}
+
+// SetBe sets the Be field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetBe(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Be = &v
+	return s
+}
+
+// SetBn sets the Bn field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetBn(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Bn = &v
+	return s
+}
+
+// SetBnBD sets the BnBD field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetBnBD(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.BnBD = &v
+	return s
+}
+
+// SetDa sets the Da field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetDa(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Da = &v
+	return s
+}
+
+// SetDe sets the De field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetDe(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.De = &v
+	return s
+}
+
+// SetDeDE sets the DeDE field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetDeDE(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.DeDE = &v
+	return s
+}
+
+// SetEn sets the En field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetEn(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.En = &v
+	return s
+}
+
+// SetEnDA sets the EnDA field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetEnDA(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.EnDA = &v
+	return s
+}
+
+// SetEnGB sets the EnGB field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetEnGB(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.EnGB = &v
+	return s
+}
+
+// SetEnIN sets the EnIN field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetEnIN(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.EnIN = &v
+	return s
+}
+
+// SetEnPH sets the EnPH field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetEnPH(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.EnPH = &v
+	return s
+}
+
+// SetEnSG sets the EnSG field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetEnSG(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.EnSG = &v
+	return s
+}
+
+// SetEnUS sets the EnUS field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetEnUS(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.EnUS = &v
+	return s
+}
+
+// SetEs sets the Es field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetEs(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Es = &v
+	return s
+}
+
+// SetEs419 sets the Es419 field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetEs419(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Es419 = &v
+	return s
+}
+
+// SetEsES sets the EsES field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetEsES(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.EsES = &v
+	return s
+}
+
+// SetEsUS sets the EsUS field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetEsUS(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.EsUS = &v
+	return s
+}
+
+// SetFaIR sets the FaIR field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetFaIR(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.FaIR = &v
+	return s
+}
+
+// SetFil sets the Fil field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetFil(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Fil = &v
+	return s
+}
+
+// SetFilPH sets the FilPH field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetFilPH(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.FilPH = &v
+	return s
+}
+
+// SetFr sets the Fr field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetFr(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Fr = &v
+	return s
+}
+
+// SetFrFR sets the FrFR field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetFrFR(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.FrFR = &v
+	return s
+}
+
+// SetHi sets the Hi field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetHi(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Hi = &v
+	return s
+}
+
+// SetHiIN sets the HiIN field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetHiIN(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.HiIN = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetId(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Id = &v
+	return s
+}
+
+// SetIdID sets the IdID field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetIdID(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.IdID = &v
+	return s
+}
+
+// SetIt sets the It field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetIt(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.It = &v
+	return s
+}
+
+// SetItIT sets the ItIT field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetItIT(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ItIT = &v
+	return s
+}
+
+// SetJa sets the Ja field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetJa(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Ja = &v
+	return s
+}
+
+// SetJaJP sets the JaJP field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetJaJP(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.JaJP = &v
+	return s
+}
+
+// SetKa sets the Ka field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetKa(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Ka = &v
+	return s
+}
+
+// SetKkKZ sets the KkKZ field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetKkKZ(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.KkKZ = &v
+	return s
+}
+
+// SetKl sets the Kl field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetKl(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Kl = &v
+	return s
+}
+
+// SetKm sets the Km field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetKm(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Km = &v
+	return s
+}
+
+// SetKmKH sets the KmKH field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetKmKH(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.KmKH = &v
+	return s
+}
+
+// SetKo sets the Ko field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetKo(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Ko = &v
+	return s
+}
+
+// SetKoKR sets the KoKR field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetKoKR(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.KoKR = &v
+	return s
+}
+
+// SetMn sets the Mn field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetMn(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Mn = &v
+	return s
+}
+
+// SetMs sets the Ms field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetMs(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Ms = &v
+	return s
+}
+
+// SetMsMY sets the MsMY field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetMsMY(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.MsMY = &v
+	return s
+}
+
+// SetMy sets the My field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetMy(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.My = &v
+	return s
+}
+
+// SetNe sets the Ne field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetNe(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Ne = &v
+	return s
+}
+
+// SetPl sets the Pl field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetPl(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Pl = &v
+	return s
+}
+
+// SetPlPL sets the PlPL field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetPlPL(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.PlPL = &v
+	return s
+}
+
+// SetPt sets the Pt field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetPt(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Pt = &v
+	return s
+}
+
+// SetPtBR sets the PtBR field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetPtBR(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.PtBR = &v
+	return s
+}
+
+// SetPtPT sets the PtPT field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetPtPT(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.PtPT = &v
+	return s
+}
+
+// SetRo sets the Ro field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetRo(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Ro = &v
+	return s
+}
+
+// SetRu sets the Ru field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetRu(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Ru = &v
+	return s
+}
+
+// SetRuRU sets the RuRU field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetRuRU(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.RuRU = &v
+	return s
+}
+
+// SetSk sets the Sk field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetSk(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Sk = &v
+	return s
+}
+
+// SetSl sets the Sl field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetSl(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Sl = &v
+	return s
+}
+
+// SetSr sets the Sr field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetSr(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Sr = &v
+	return s
+}
+
+// SetSv sets the Sv field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetSv(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Sv = &v
+	return s
+}
+
+// SetTa sets the Ta field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetTa(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Ta = &v
+	return s
+}
+
+// SetTe sets the Te field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetTe(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Te = &v
+	return s
+}
+
+// SetTh sets the Th field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetTh(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Th = &v
+	return s
+}
+
+// SetThTH sets the ThTH field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetThTH(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ThTH = &v
+	return s
+}
+
+// SetTlPH sets the TlPH field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetTlPH(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.TlPH = &v
+	return s
+}
+
+// SetTr sets the Tr field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetTr(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Tr = &v
+	return s
+}
+
+// SetTrTR sets the TrTR field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetTrTR(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.TrTR = &v
+	return s
+}
+
+// SetUr sets the Ur field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetUr(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Ur = &v
+	return s
+}
+
+// SetUz sets the Uz field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetUz(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Uz = &v
+	return s
+}
+
+// SetVi sets the Vi field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetVi(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Vi = &v
+	return s
+}
+
+// SetViVN sets the ViVN field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetViVN(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ViVN = &v
+	return s
+}
+
+// SetZh sets the Zh field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetZh(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.Zh = &v
+	return s
+}
+
+// SetZhCN sets the ZhCN field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetZhCN(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ZhCN = &v
+	return s
+}
+
+// SetZhHK sets the ZhHK field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetZhHK(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ZhHK = &v
+	return s
+}
+
+// SetZhHans sets the ZhHans field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetZhHans(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ZhHans = &v
+	return s
+}
+
+// SetZhHansCN sets the ZhHansCN field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetZhHansCN(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ZhHansCN = &v
+	return s
+}
+
+// SetZhHant sets the ZhHant field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetZhHant(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ZhHant = &v
+	return s
+}
+
+// SetZhTW sets the ZhTW field's value.
+func (s *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) SetZhTW(v string) *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.ZhTW = &v
+	return s
+}
+
 type SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -971,6 +1617,8 @@ type VideoProjectAddTargetLangsToExistingDramaInput struct {
 	// ProjectId is a required field
 	ProjectId *string `type:"string" json:"projectId,omitempty" required:"true"`
 
+	SourceStyleMap *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput `type:"structure" json:"sourceStyleMap,omitempty"`
+
 	TargetLanguages []*string `type:"list" json:"targetLanguages,omitempty"`
 
 	TargetStyleMap *TargetStyleMapForVideoProjectAddTargetLangsToExistingDramaInput `type:"structure" json:"targetStyleMap,omitempty"`
@@ -1054,6 +1702,12 @@ func (s *VideoProjectAddTargetLangsToExistingDramaInput) SetNeedTermValidation(v
 // SetProjectId sets the ProjectId field's value.
 func (s *VideoProjectAddTargetLangsToExistingDramaInput) SetProjectId(v string) *VideoProjectAddTargetLangsToExistingDramaInput {
 	s.ProjectId = &v
+	return s
+}
+
+// SetSourceStyleMap sets the SourceStyleMap field's value.
+func (s *VideoProjectAddTargetLangsToExistingDramaInput) SetSourceStyleMap(v *SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput) *VideoProjectAddTargetLangsToExistingDramaInput {
+	s.SourceStyleMap = v
 	return s
 }
 

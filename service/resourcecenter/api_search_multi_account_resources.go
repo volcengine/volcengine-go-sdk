@@ -342,15 +342,15 @@ type SearchMultiAccountResourcesInput struct {
 
 	Filter []*FilterForSearchMultiAccountResourcesInput `type:"list" json:",omitempty"`
 
-	MaxResults *int32 `type:"int32" json:",omitempty"`
+	MaxResults *int32 `min:"1" max:"100" type:"int32" json:",omitempty"`
 
 	NextToken *string `type:"string" json:",omitempty"`
 
 	Scope *ScopeForSearchMultiAccountResourcesInput `type:"structure" json:",omitempty"`
 
-	SortBy *string `type:"string" json:",omitempty"`
+	SortBy *string `type:"string" json:",omitempty" enum:"EnumOfSortByForSearchMultiAccountResourcesInput"`
 
-	SortOrder *string `type:"string" json:",omitempty"`
+	SortOrder *string `type:"string" json:",omitempty" enum:"EnumOfSortOrderForSearchMultiAccountResourcesInput"`
 }
 
 // String returns the string representation
@@ -361,6 +361,22 @@ func (s SearchMultiAccountResourcesInput) String() string {
 // GoString returns the string representation
 func (s SearchMultiAccountResourcesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *SearchMultiAccountResourcesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "SearchMultiAccountResourcesInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFilter sets the Filter field's value.
@@ -460,3 +476,16 @@ func (s *TagForSearchMultiAccountResourcesOutput) SetValue(v string) *TagForSear
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfSortByForSearchMultiAccountResourcesInputCreateTime is a EnumOfSortByForSearchMultiAccountResourcesInput enum value
+	EnumOfSortByForSearchMultiAccountResourcesInputCreateTime = "CreateTime"
+)
+
+const (
+	// EnumOfSortOrderForSearchMultiAccountResourcesInputAsc is a EnumOfSortOrderForSearchMultiAccountResourcesInput enum value
+	EnumOfSortOrderForSearchMultiAccountResourcesInputAsc = "Asc"
+
+	// EnumOfSortOrderForSearchMultiAccountResourcesInputDesc is a EnumOfSortOrderForSearchMultiAccountResourcesInput enum value
+	EnumOfSortOrderForSearchMultiAccountResourcesInputDesc = "Desc"
+)

@@ -278,6 +278,8 @@ type GetDropShippingOrderOutput struct {
 
 	ErrorMessage *string `type:"string" json:",omitempty"`
 
+	OrderIDList []*string `type:"list" json:",omitempty"`
+
 	Result *bool `type:"boolean" json:",omitempty"`
 }
 
@@ -336,6 +338,12 @@ func (s *GetDropShippingOrderOutput) SetErrorCode(v string) *GetDropShippingOrde
 // SetErrorMessage sets the ErrorMessage field's value.
 func (s *GetDropShippingOrderOutput) SetErrorMessage(v string) *GetDropShippingOrderOutput {
 	s.ErrorMessage = &v
+	return s
+}
+
+// SetOrderIDList sets the OrderIDList field's value.
+func (s *GetDropShippingOrderOutput) SetOrderIDList(v []*string) *GetDropShippingOrderOutput {
+	s.OrderIDList = v
 	return s
 }
 

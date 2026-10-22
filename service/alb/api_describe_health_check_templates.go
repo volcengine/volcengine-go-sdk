@@ -274,7 +274,7 @@ type HealthCheckTemplateForDescribeHealthCheckTemplatesOutput struct {
 
 	HealthCheckMethod *string `type:"string"`
 
-	HealthCheckPort *int64 `max:"65535" type:"integer"`
+	HealthCheckPort *int64 `type:"integer"`
 
 	HealthCheckProtocol *string `type:"string"`
 

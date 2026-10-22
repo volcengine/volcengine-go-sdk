@@ -362,6 +362,8 @@ type RowForListHostOutput struct {
 
 	HostId *string `type:"string" json:",omitempty"`
 
+	InitAutoCreatePod *bool `type:"boolean" json:",omitempty"`
+
 	LastRebootTime *string `type:"string" json:",omitempty"`
 
 	PodIdList []*string `type:"list"`
@@ -454,6 +456,12 @@ func (s *RowForListHostOutput) SetExpireAt(v int64) *RowForListHostOutput {
 // SetHostId sets the HostId field's value.
 func (s *RowForListHostOutput) SetHostId(v string) *RowForListHostOutput {
 	s.HostId = &v
+	return s
+}
+
+// SetInitAutoCreatePod sets the InitAutoCreatePod field's value.
+func (s *RowForListHostOutput) SetInitAutoCreatePod(v bool) *RowForListHostOutput {
+	s.InitAutoCreatePod = &v
 	return s
 }
 

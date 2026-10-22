@@ -222,6 +222,14 @@ type EFSAPI interface {
 	DescribeFileSystemsWithContext(volcengine.Context, *DescribeFileSystemsInput, ...request.Option) (*DescribeFileSystemsOutput, error)
 	DescribeFileSystemsRequest(*DescribeFileSystemsInput) (*request.Request, *DescribeFileSystemsOutput)
 
+	DescribeFilespaceAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeFilespaceAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeFilespaceAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeFilespaceAttribute(*DescribeFilespaceAttributeInput) (*DescribeFilespaceAttributeOutput, error)
+	DescribeFilespaceAttributeWithContext(volcengine.Context, *DescribeFilespaceAttributeInput, ...request.Option) (*DescribeFilespaceAttributeOutput, error)
+	DescribeFilespaceAttributeRequest(*DescribeFilespaceAttributeInput) (*request.Request, *DescribeFilespaceAttributeOutput)
+
 	DescribeMountPointsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeMountPointsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeMountPointsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -294,6 +302,14 @@ type EFSAPI interface {
 	StopDataFlowPolicyWithContext(volcengine.Context, *StopDataFlowPolicyInput, ...request.Option) (*StopDataFlowPolicyOutput, error)
 	StopDataFlowPolicyRequest(*StopDataFlowPolicyInput) (*request.Request, *StopDataFlowPolicyOutput)
 
+	SyncCreateFilespaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SyncCreateFilespaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SyncCreateFilespaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SyncCreateFilespace(*SyncCreateFilespaceInput) (*SyncCreateFilespaceOutput, error)
+	SyncCreateFilespaceWithContext(volcengine.Context, *SyncCreateFilespaceInput, ...request.Option) (*SyncCreateFilespaceOutput, error)
+	SyncCreateFilespaceRequest(*SyncCreateFilespaceInput) (*request.Request, *SyncCreateFilespaceOutput)
+
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -326,6 +342,14 @@ type EFSAPI interface {
 	UpdateDataFlowPolicyWithContext(volcengine.Context, *UpdateDataFlowPolicyInput, ...request.Option) (*UpdateDataFlowPolicyOutput, error)
 	UpdateDataFlowPolicyRequest(*UpdateDataFlowPolicyInput) (*request.Request, *UpdateDataFlowPolicyOutput)
 
+	UpdateDataFlowTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateDataFlowTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateDataFlowTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateDataFlowTask(*UpdateDataFlowTaskInput) (*UpdateDataFlowTaskOutput, error)
+	UpdateDataFlowTaskWithContext(volcengine.Context, *UpdateDataFlowTaskInput, ...request.Option) (*UpdateDataFlowTaskOutput, error)
+	UpdateDataFlowTaskRequest(*UpdateDataFlowTaskInput) (*request.Request, *UpdateDataFlowTaskOutput)
+
 	UpdateFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateFileSystemCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -333,6 +357,14 @@ type EFSAPI interface {
 	UpdateFileSystem(*UpdateFileSystemInput) (*UpdateFileSystemOutput, error)
 	UpdateFileSystemWithContext(volcengine.Context, *UpdateFileSystemInput, ...request.Option) (*UpdateFileSystemOutput, error)
 	UpdateFileSystemRequest(*UpdateFileSystemInput) (*request.Request, *UpdateFileSystemOutput)
+
+	UpdateFilespaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateFilespaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateFilespaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateFilespace(*UpdateFilespaceInput) (*UpdateFilespaceOutput, error)
+	UpdateFilespaceWithContext(volcengine.Context, *UpdateFilespaceInput, ...request.Option) (*UpdateFilespaceOutput, error)
+	UpdateFilespaceRequest(*UpdateFilespaceInput) (*request.Request, *UpdateFilespaceOutput)
 
 	UpdateMountPointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateMountPointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

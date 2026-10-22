@@ -312,7 +312,7 @@ type ParameterGroupInfoForDescribeParameterGroupDetailOutput struct {
 
 	Parameters []*ParameterForDescribeParameterGroupDetailOutput `type:"list"`
 
-	Source *string `type:"string" json:",omitempty" enum:"EnumOfSourceForDescribeParameterGroupDetailOutput"`
+	Source *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 }
@@ -380,11 +380,3 @@ func (s *ParameterGroupInfoForDescribeParameterGroupDetailOutput) SetUpdateTime(
 	s.UpdateTime = &v
 	return s
 }
-
-const (
-	// EnumOfSourceForDescribeParameterGroupDetailOutputSystem is a EnumOfSourceForDescribeParameterGroupDetailOutput enum value
-	EnumOfSourceForDescribeParameterGroupDetailOutputSystem = "System"
-
-	// EnumOfSourceForDescribeParameterGroupDetailOutputUser is a EnumOfSourceForDescribeParameterGroupDetailOutput enum value
-	EnumOfSourceForDescribeParameterGroupDetailOutputUser = "User"
-)

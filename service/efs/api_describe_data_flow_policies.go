@@ -641,6 +641,36 @@ func (s *DescribeDataFlowPoliciesOutput) SetTotalCount(v int32) *DescribeDataFlo
 	return s
 }
 
+type ExportIntervalForDescribeDataFlowPoliciesOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Unit *string `type:"string" json:",omitempty" enum:"EnumOfUnitForDescribeDataFlowPoliciesOutput"`
+
+	Value *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ExportIntervalForDescribeDataFlowPoliciesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExportIntervalForDescribeDataFlowPoliciesOutput) GoString() string {
+	return s.String()
+}
+
+// SetUnit sets the Unit field's value.
+func (s *ExportIntervalForDescribeDataFlowPoliciesOutput) SetUnit(v string) *ExportIntervalForDescribeDataFlowPoliciesOutput {
+	s.Unit = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ExportIntervalForDescribeDataFlowPoliciesOutput) SetValue(v int32) *ExportIntervalForDescribeDataFlowPoliciesOutput {
+	s.Value = &v
+	return s
+}
+
 type ImmediateExportForDescribeDataFlowPoliciesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -746,7 +776,7 @@ type PeriodExportForDescribeDataFlowPoliciesOutput struct {
 
 	ExcludePaths []*string `type:"list" json:",omitempty"`
 
-	ExportInterval *LastAccessTimeIntervalForDescribeDataFlowPoliciesOutput `type:"structure" json:",omitempty"`
+	ExportInterval *ExportIntervalForDescribeDataFlowPoliciesOutput `type:"structure" json:",omitempty"`
 
 	IncludePaths []*string `type:"list" json:",omitempty"`
 
@@ -776,7 +806,7 @@ func (s *PeriodExportForDescribeDataFlowPoliciesOutput) SetExcludePaths(v []*str
 }
 
 // SetExportInterval sets the ExportInterval field's value.
-func (s *PeriodExportForDescribeDataFlowPoliciesOutput) SetExportInterval(v *LastAccessTimeIntervalForDescribeDataFlowPoliciesOutput) *PeriodExportForDescribeDataFlowPoliciesOutput {
+func (s *PeriodExportForDescribeDataFlowPoliciesOutput) SetExportInterval(v *ExportIntervalForDescribeDataFlowPoliciesOutput) *PeriodExportForDescribeDataFlowPoliciesOutput {
 	s.ExportInterval = v
 	return s
 }

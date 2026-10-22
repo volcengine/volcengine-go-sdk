@@ -214,6 +214,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	AddressIpVersion *string `type:"string"`
 
+	ArkClawEnabled *string `type:"string"`
+
 	BusinessStatus *string `type:"string"`
 
 	CreateTime *string `type:"string"`
@@ -270,6 +272,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	SniAutoMatch *string `type:"string"`
 
+	SpaceNetworkId *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
@@ -310,6 +314,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetAccessLog(v *AccessLogForDescr
 // SetAddressIpVersion sets the AddressIpVersion field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetAddressIpVersion(v string) *DescribeLoadBalancerAttributesOutput {
 	s.AddressIpVersion = &v
+	return s
+}
+
+// SetArkClawEnabled sets the ArkClawEnabled field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetArkClawEnabled(v string) *DescribeLoadBalancerAttributesOutput {
+	s.ArkClawEnabled = &v
 	return s
 }
 
@@ -478,6 +488,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetSecurityGroupIds(v []*string) 
 // SetSniAutoMatch sets the SniAutoMatch field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetSniAutoMatch(v string) *DescribeLoadBalancerAttributesOutput {
 	s.SniAutoMatch = &v
+	return s
+}
+
+// SetSpaceNetworkId sets the SpaceNetworkId field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetSpaceNetworkId(v string) *DescribeLoadBalancerAttributesOutput {
+	s.SpaceNetworkId = &v
 	return s
 }
 

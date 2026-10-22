@@ -144,6 +144,8 @@ type CreateLoadBalancerInput struct {
 
 	AddressIpVersion *string `type:"string"`
 
+	ArkClawEnabled *string `type:"string"`
+
 	BandwidthPackageId *string `type:"string"`
 
 	ClientToken *string `type:"string"`
@@ -172,6 +174,8 @@ type CreateLoadBalancerInput struct {
 
 	// RegionId is a required field
 	RegionId *string `type:"string" required:"true"`
+
+	SpaceNetworkId *string `type:"string"`
 
 	SubnetId *string `type:"string"`
 
@@ -214,6 +218,12 @@ func (s *CreateLoadBalancerInput) Validate() error {
 // SetAddressIpVersion sets the AddressIpVersion field's value.
 func (s *CreateLoadBalancerInput) SetAddressIpVersion(v string) *CreateLoadBalancerInput {
 	s.AddressIpVersion = &v
+	return s
+}
+
+// SetArkClawEnabled sets the ArkClawEnabled field's value.
+func (s *CreateLoadBalancerInput) SetArkClawEnabled(v string) *CreateLoadBalancerInput {
+	s.ArkClawEnabled = &v
 	return s
 }
 
@@ -298,6 +308,12 @@ func (s *CreateLoadBalancerInput) SetProjectName(v string) *CreateLoadBalancerIn
 // SetRegionId sets the RegionId field's value.
 func (s *CreateLoadBalancerInput) SetRegionId(v string) *CreateLoadBalancerInput {
 	s.RegionId = &v
+	return s
+}
+
+// SetSpaceNetworkId sets the SpaceNetworkId field's value.
+func (s *CreateLoadBalancerInput) SetSpaceNetworkId(v string) *CreateLoadBalancerInput {
+	s.SpaceNetworkId = &v
 	return s
 }
 

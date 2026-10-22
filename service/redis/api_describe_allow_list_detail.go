@@ -324,7 +324,7 @@ func (s *DescribeAllowListDetailOutput) SetSecurityGroupBindInfos(v []*SecurityG
 type SecurityGroupBindInfoForDescribeAllowListDetailOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BindMode *string `type:"string" json:",omitempty" enum:"EnumOfBindModeForDescribeAllowListDetailOutput"`
+	BindMode *string `type:"string" json:",omitempty"`
 
 	IpList []*string `type:"list"`
 
@@ -366,11 +366,3 @@ func (s *SecurityGroupBindInfoForDescribeAllowListDetailOutput) SetSecurityGroup
 	s.SecurityGroupName = &v
 	return s
 }
-
-const (
-	// EnumOfBindModeForDescribeAllowListDetailOutputAssociateEcsIp is a EnumOfBindModeForDescribeAllowListDetailOutput enum value
-	EnumOfBindModeForDescribeAllowListDetailOutputAssociateEcsIp = "AssociateEcsIp"
-
-	// EnumOfBindModeForDescribeAllowListDetailOutputIngressDirectionIp is a EnumOfBindModeForDescribeAllowListDetailOutput enum value
-	EnumOfBindModeForDescribeAllowListDetailOutputIngressDirectionIp = "IngressDirectionIp"
-)

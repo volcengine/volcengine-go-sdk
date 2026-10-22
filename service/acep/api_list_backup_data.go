@@ -158,6 +158,8 @@ type ListBackupDataInput struct {
 	SourcePodId *string `type:"string" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
+
+	VolcRegion *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,6 +218,12 @@ func (s *ListBackupDataInput) SetSourcePodId(v string) *ListBackupDataInput {
 // SetStatus sets the Status field's value.
 func (s *ListBackupDataInput) SetStatus(v string) *ListBackupDataInput {
 	s.Status = &v
+	return s
+}
+
+// SetVolcRegion sets the VolcRegion field's value.
+func (s *ListBackupDataInput) SetVolcRegion(v string) *ListBackupDataInput {
+	s.VolcRegion = &v
 	return s
 }
 
@@ -311,6 +319,10 @@ type RowForListBackupDataOutput struct {
 	StorageType *string `type:"string" json:",omitempty"`
 
 	UpdatedTime *int64 `type:"int64" json:",omitempty"`
+
+	VolcRegion *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -494,5 +506,17 @@ func (s *RowForListBackupDataOutput) SetStorageType(v string) *RowForListBackupD
 // SetUpdatedTime sets the UpdatedTime field's value.
 func (s *RowForListBackupDataOutput) SetUpdatedTime(v int64) *RowForListBackupDataOutput {
 	s.UpdatedTime = &v
+	return s
+}
+
+// SetVolcRegion sets the VolcRegion field's value.
+func (s *RowForListBackupDataOutput) SetVolcRegion(v string) *RowForListBackupDataOutput {
+	s.VolcRegion = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *RowForListBackupDataOutput) SetZoneId(v string) *RowForListBackupDataOutput {
+	s.ZoneId = &v
 	return s
 }
