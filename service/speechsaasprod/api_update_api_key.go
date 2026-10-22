@@ -146,7 +146,7 @@ func (c *SPEECHSAASPROD) UpdateAPIKeyWithContext(ctx volcengine.Context, input *
 type UpdateAPIKeyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Disable *string `type:"string" json:",omitempty"`
+	Disable *bool `type:"boolean" json:",omitempty"`
 
 	// ID is a required field
 	ID *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -184,7 +184,7 @@ func (s *UpdateAPIKeyInput) Validate() error {
 }
 
 // SetDisable sets the Disable field's value.
-func (s *UpdateAPIKeyInput) SetDisable(v string) *UpdateAPIKeyInput {
+func (s *UpdateAPIKeyInput) SetDisable(v bool) *UpdateAPIKeyInput {
 	s.Disable = &v
 	return s
 }

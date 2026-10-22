@@ -296,9 +296,9 @@ type HarvestForResourcePacksStatusOutput struct {
 
 	CropType *string `type:"string" json:",omitempty"`
 
-	CurrentUsage *float64 `type:"float" json:",omitempty"`
+	CurrentUsage *float32 `type:"float" json:",omitempty"`
 
-	PurchasedAmount *float64 `type:"float" json:",omitempty"`
+	PurchasedAmount *float32 `type:"float" json:",omitempty"`
 
 	ResourceID *string `type:"string" json:",omitempty"`
 
@@ -322,13 +322,13 @@ func (s *HarvestForResourcePacksStatusOutput) SetCropType(v string) *HarvestForR
 }
 
 // SetCurrentUsage sets the CurrentUsage field's value.
-func (s *HarvestForResourcePacksStatusOutput) SetCurrentUsage(v float64) *HarvestForResourcePacksStatusOutput {
+func (s *HarvestForResourcePacksStatusOutput) SetCurrentUsage(v float32) *HarvestForResourcePacksStatusOutput {
 	s.CurrentUsage = &v
 	return s
 }
 
 // SetPurchasedAmount sets the PurchasedAmount field's value.
-func (s *HarvestForResourcePacksStatusOutput) SetPurchasedAmount(v float64) *HarvestForResourcePacksStatusOutput {
+func (s *HarvestForResourcePacksStatusOutput) SetPurchasedAmount(v float32) *HarvestForResourcePacksStatusOutput {
 	s.PurchasedAmount = &v
 	return s
 }
@@ -789,9 +789,9 @@ type TotalHarvestForResourcePacksStatusOutput struct {
 
 	CropType *string `type:"string" json:",omitempty"`
 
-	CurrentUsage *float64 `type:"float" json:",omitempty"`
+	CurrentUsage *float32 `type:"float" json:",omitempty"`
 
-	PurchasedAmount *float64 `type:"float" json:",omitempty"`
+	PurchasedAmount *float32 `type:"float" json:",omitempty"`
 
 	ResourceID *string `type:"string" json:",omitempty"`
 
@@ -815,13 +815,13 @@ func (s *TotalHarvestForResourcePacksStatusOutput) SetCropType(v string) *TotalH
 }
 
 // SetCurrentUsage sets the CurrentUsage field's value.
-func (s *TotalHarvestForResourcePacksStatusOutput) SetCurrentUsage(v float64) *TotalHarvestForResourcePacksStatusOutput {
+func (s *TotalHarvestForResourcePacksStatusOutput) SetCurrentUsage(v float32) *TotalHarvestForResourcePacksStatusOutput {
 	s.CurrentUsage = &v
 	return s
 }
 
 // SetPurchasedAmount sets the PurchasedAmount field's value.
-func (s *TotalHarvestForResourcePacksStatusOutput) SetPurchasedAmount(v float64) *TotalHarvestForResourcePacksStatusOutput {
+func (s *TotalHarvestForResourcePacksStatusOutput) SetPurchasedAmount(v float32) *TotalHarvestForResourcePacksStatusOutput {
 	s.PurchasedAmount = &v
 	return s
 }
