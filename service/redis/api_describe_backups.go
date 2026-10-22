@@ -152,9 +152,9 @@ type BackupForDescribeBackupsOutput struct {
 
 	BackupProgress *int32 `type:"int32" json:",omitempty"`
 
-	BackupStrategy *string `type:"string" json:",omitempty" enum:"EnumOfBackupStrategyForDescribeBackupsOutput"`
+	BackupStrategy *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string" json:",omitempty" enum:"EnumOfBackupTypeForDescribeBackupsOutput"`
+	BackupType *string `type:"string" json:",omitempty"`
 
 	EndTime *string `type:"string" json:",omitempty"`
 
@@ -168,7 +168,7 @@ type BackupForDescribeBackupsOutput struct {
 
 	StartTime *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeBackupsOutput"`
+	Status *string `type:"string" json:",omitempty"`
 
 	TTL *int32 `type:"int32" json:",omitempty"`
 }
@@ -538,20 +538,6 @@ func (s *InstanceInfoForDescribeBackupsOutput) SetZoneIds(v []*string) *Instance
 }
 
 const (
-	// EnumOfBackupStrategyForDescribeBackupsOutputManualBackup is a EnumOfBackupStrategyForDescribeBackupsOutput enum value
-	EnumOfBackupStrategyForDescribeBackupsOutputManualBackup = "ManualBackup"
-
-	// EnumOfBackupStrategyForDescribeBackupsOutputAutomatedBackup is a EnumOfBackupStrategyForDescribeBackupsOutput enum value
-	EnumOfBackupStrategyForDescribeBackupsOutputAutomatedBackup = "AutomatedBackup"
-
-	// EnumOfBackupStrategyForDescribeBackupsOutputDataFlashBack is a EnumOfBackupStrategyForDescribeBackupsOutput enum value
-	EnumOfBackupStrategyForDescribeBackupsOutputDataFlashBack = "DataFlashBack"
-
-	// EnumOfBackupStrategyForDescribeBackupsOutputAllStrategy is a EnumOfBackupStrategyForDescribeBackupsOutput enum value
-	EnumOfBackupStrategyForDescribeBackupsOutputAllStrategy = "AllStrategy"
-)
-
-const (
 	// EnumOfBackupStrategyListListForDescribeBackupsInputManualBackup is a EnumOfBackupStrategyListListForDescribeBackupsInput enum value
 	EnumOfBackupStrategyListListForDescribeBackupsInputManualBackup = "ManualBackup"
 
@@ -566,20 +552,6 @@ const (
 )
 
 const (
-	// EnumOfBackupTypeForDescribeBackupsOutputInvalid is a EnumOfBackupTypeForDescribeBackupsOutput enum value
-	EnumOfBackupTypeForDescribeBackupsOutputInvalid = "Invalid"
-
-	// EnumOfBackupTypeForDescribeBackupsOutputFull is a EnumOfBackupTypeForDescribeBackupsOutput enum value
-	EnumOfBackupTypeForDescribeBackupsOutputFull = "Full"
-
-	// EnumOfBackupTypeForDescribeBackupsOutputInc is a EnumOfBackupTypeForDescribeBackupsOutput enum value
-	EnumOfBackupTypeForDescribeBackupsOutputInc = "Inc"
-
-	// EnumOfBackupTypeForDescribeBackupsOutputAll is a EnumOfBackupTypeForDescribeBackupsOutput enum value
-	EnumOfBackupTypeForDescribeBackupsOutputAll = "All"
-)
-
-const (
 	// EnumOfScopeForDescribeBackupsInputOneInstance is a EnumOfScopeForDescribeBackupsInput enum value
 	EnumOfScopeForDescribeBackupsInputOneInstance = "OneInstance"
 
@@ -588,18 +560,4 @@ const (
 
 	// EnumOfScopeForDescribeBackupsInputAccountInstances is a EnumOfScopeForDescribeBackupsInput enum value
 	EnumOfScopeForDescribeBackupsInputAccountInstances = "AccountInstances"
-)
-
-const (
-	// EnumOfStatusForDescribeBackupsOutputCreating is a EnumOfStatusForDescribeBackupsOutput enum value
-	EnumOfStatusForDescribeBackupsOutputCreating = "Creating"
-
-	// EnumOfStatusForDescribeBackupsOutputAvailable is a EnumOfStatusForDescribeBackupsOutput enum value
-	EnumOfStatusForDescribeBackupsOutputAvailable = "Available"
-
-	// EnumOfStatusForDescribeBackupsOutputUnavailable is a EnumOfStatusForDescribeBackupsOutput enum value
-	EnumOfStatusForDescribeBackupsOutputUnavailable = "Unavailable"
-
-	// EnumOfStatusForDescribeBackupsOutputDeleting is a EnumOfStatusForDescribeBackupsOutput enum value
-	EnumOfStatusForDescribeBackupsOutputDeleting = "Deleting"
 )

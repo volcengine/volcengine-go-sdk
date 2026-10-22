@@ -247,6 +247,52 @@ func (s *DescribePlannedEventsOutput) SetTotal(v int32) *DescribePlannedEventsOu
 	return s
 }
 
+type ImpactSummaryForDescribePlannedEventsOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	NotGenerated *bool `type:"boolean" json:",omitempty"`
+
+	PrimaryCount *int32 `type:"int32" json:",omitempty"`
+
+	ProxyCount *int32 `type:"int32" json:",omitempty"`
+
+	SecondaryCount *int32 `type:"int32" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ImpactSummaryForDescribePlannedEventsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ImpactSummaryForDescribePlannedEventsOutput) GoString() string {
+	return s.String()
+}
+
+// SetNotGenerated sets the NotGenerated field's value.
+func (s *ImpactSummaryForDescribePlannedEventsOutput) SetNotGenerated(v bool) *ImpactSummaryForDescribePlannedEventsOutput {
+	s.NotGenerated = &v
+	return s
+}
+
+// SetPrimaryCount sets the PrimaryCount field's value.
+func (s *ImpactSummaryForDescribePlannedEventsOutput) SetPrimaryCount(v int32) *ImpactSummaryForDescribePlannedEventsOutput {
+	s.PrimaryCount = &v
+	return s
+}
+
+// SetProxyCount sets the ProxyCount field's value.
+func (s *ImpactSummaryForDescribePlannedEventsOutput) SetProxyCount(v int32) *ImpactSummaryForDescribePlannedEventsOutput {
+	s.ProxyCount = &v
+	return s
+}
+
+// SetSecondaryCount sets the SecondaryCount field's value.
+func (s *ImpactSummaryForDescribePlannedEventsOutput) SetSecondaryCount(v int32) *ImpactSummaryForDescribePlannedEventsOutput {
+	s.SecondaryCount = &v
+	return s
+}
+
 type PlannedEventForDescribePlannedEventsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -260,6 +306,12 @@ type PlannedEventForDescribePlannedEventsOutput struct {
 
 	EventId *string `type:"string" json:",omitempty"`
 
+	ExeEndTime *string `type:"string" json:",omitempty"`
+
+	ExeStartTime *string `type:"string" json:",omitempty"`
+
+	ImpactSummary *ImpactSummaryForDescribePlannedEventsOutput `type:"structure" json:",omitempty"`
+
 	InstanceId *string `type:"string" json:",omitempty"`
 
 	InstanceName *string `type:"string" json:",omitempty"`
@@ -270,7 +322,7 @@ type PlannedEventForDescribePlannedEventsOutput struct {
 
 	PlanStartTime *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribePlannedEventsOutput"`
+	Status *string `type:"string" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 }
@@ -315,6 +367,24 @@ func (s *PlannedEventForDescribePlannedEventsOutput) SetEventId(v string) *Plann
 	return s
 }
 
+// SetExeEndTime sets the ExeEndTime field's value.
+func (s *PlannedEventForDescribePlannedEventsOutput) SetExeEndTime(v string) *PlannedEventForDescribePlannedEventsOutput {
+	s.ExeEndTime = &v
+	return s
+}
+
+// SetExeStartTime sets the ExeStartTime field's value.
+func (s *PlannedEventForDescribePlannedEventsOutput) SetExeStartTime(v string) *PlannedEventForDescribePlannedEventsOutput {
+	s.ExeStartTime = &v
+	return s
+}
+
+// SetImpactSummary sets the ImpactSummary field's value.
+func (s *PlannedEventForDescribePlannedEventsOutput) SetImpactSummary(v *ImpactSummaryForDescribePlannedEventsOutput) *PlannedEventForDescribePlannedEventsOutput {
+	s.ImpactSummary = v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *PlannedEventForDescribePlannedEventsOutput) SetInstanceId(v string) *PlannedEventForDescribePlannedEventsOutput {
 	s.InstanceId = &v
@@ -356,26 +426,3 @@ func (s *PlannedEventForDescribePlannedEventsOutput) SetType(v string) *PlannedE
 	s.Type = &v
 	return s
 }
-
-const (
-	// EnumOfStatusForDescribePlannedEventsOutputInitiated is a EnumOfStatusForDescribePlannedEventsOutput enum value
-	EnumOfStatusForDescribePlannedEventsOutputInitiated = "Initiated"
-
-	// EnumOfStatusForDescribePlannedEventsOutputWaiting is a EnumOfStatusForDescribePlannedEventsOutput enum value
-	EnumOfStatusForDescribePlannedEventsOutputWaiting = "Waiting"
-
-	// EnumOfStatusForDescribePlannedEventsOutputRunning is a EnumOfStatusForDescribePlannedEventsOutput enum value
-	EnumOfStatusForDescribePlannedEventsOutputRunning = "Running"
-
-	// EnumOfStatusForDescribePlannedEventsOutputSuccess is a EnumOfStatusForDescribePlannedEventsOutput enum value
-	EnumOfStatusForDescribePlannedEventsOutputSuccess = "Success"
-
-	// EnumOfStatusForDescribePlannedEventsOutputFailed is a EnumOfStatusForDescribePlannedEventsOutput enum value
-	EnumOfStatusForDescribePlannedEventsOutputFailed = "Failed"
-
-	// EnumOfStatusForDescribePlannedEventsOutputCanceled is a EnumOfStatusForDescribePlannedEventsOutput enum value
-	EnumOfStatusForDescribePlannedEventsOutputCanceled = "Canceled"
-
-	// EnumOfStatusForDescribePlannedEventsOutputAbandoned is a EnumOfStatusForDescribePlannedEventsOutput enum value
-	EnumOfStatusForDescribePlannedEventsOutputAbandoned = "Abandoned"
-)

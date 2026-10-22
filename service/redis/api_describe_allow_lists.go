@@ -146,7 +146,7 @@ func (c *REDIS) DescribeAllowListsWithContext(ctx volcengine.Context, input *Des
 type AllowListForDescribeAllowListsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListCategory *string `type:"string" json:",omitempty" enum:"EnumOfAllowListCategoryForDescribeAllowListsOutput"`
+	AllowListCategory *string `type:"string" json:",omitempty"`
 
 	AllowListDesc *string `type:"string" json:",omitempty"`
 
@@ -332,7 +332,7 @@ func (s *DescribeAllowListsOutput) SetAllowLists(v []*AllowListForDescribeAllowL
 type SecurityGroupBindInfoForDescribeAllowListsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	BindMode *string `type:"string" json:",omitempty" enum:"EnumOfBindModeForDescribeAllowListsOutput"`
+	BindMode *string `type:"string" json:",omitempty"`
 
 	IpList []*string `type:"list"`
 
@@ -374,19 +374,3 @@ func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetSecurityGroupName(
 	s.SecurityGroupName = &v
 	return s
 }
-
-const (
-	// EnumOfAllowListCategoryForDescribeAllowListsOutputOrdinary is a EnumOfAllowListCategoryForDescribeAllowListsOutput enum value
-	EnumOfAllowListCategoryForDescribeAllowListsOutputOrdinary = "Ordinary"
-
-	// EnumOfAllowListCategoryForDescribeAllowListsOutputDefault is a EnumOfAllowListCategoryForDescribeAllowListsOutput enum value
-	EnumOfAllowListCategoryForDescribeAllowListsOutputDefault = "Default"
-)
-
-const (
-	// EnumOfBindModeForDescribeAllowListsOutputAssociateEcsIp is a EnumOfBindModeForDescribeAllowListsOutput enum value
-	EnumOfBindModeForDescribeAllowListsOutputAssociateEcsIp = "AssociateEcsIp"
-
-	// EnumOfBindModeForDescribeAllowListsOutputIngressDirectionIp is a EnumOfBindModeForDescribeAllowListsOutput enum value
-	EnumOfBindModeForDescribeAllowListsOutputIngressDirectionIp = "IngressDirectionIp"
-)

@@ -160,7 +160,7 @@ type BlueGreenDeploymentForDescribeBlueGreenDeploymentsOutput struct {
 
 	SourceInstanceName *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeBlueGreenDeploymentsOutput"`
+	Status *string `type:"string" json:",omitempty"`
 
 	TargetEngineVersion *string `type:"string" json:",omitempty"`
 
@@ -312,38 +312,3 @@ func (s *DescribeBlueGreenDeploymentsOutput) SetBlueGreenDeployments(v []*BlueGr
 	s.BlueGreenDeployments = v
 	return s
 }
-
-const (
-	// EnumOfStatusForDescribeBlueGreenDeploymentsOutputInit is a EnumOfStatusForDescribeBlueGreenDeploymentsOutput enum value
-	EnumOfStatusForDescribeBlueGreenDeploymentsOutputInit = "INIT"
-
-	// EnumOfStatusForDescribeBlueGreenDeploymentsOutputProvisioning is a EnumOfStatusForDescribeBlueGreenDeploymentsOutput enum value
-	EnumOfStatusForDescribeBlueGreenDeploymentsOutputProvisioning = "PROVISIONING"
-
-	// EnumOfStatusForDescribeBlueGreenDeploymentsOutputAvailable is a EnumOfStatusForDescribeBlueGreenDeploymentsOutput enum value
-	EnumOfStatusForDescribeBlueGreenDeploymentsOutputAvailable = "AVAILABLE"
-
-	// EnumOfStatusForDescribeBlueGreenDeploymentsOutputDataSynchronizing is a EnumOfStatusForDescribeBlueGreenDeploymentsOutput enum value
-	EnumOfStatusForDescribeBlueGreenDeploymentsOutputDataSynchronizing = "DATA_SYNCHRONIZING"
-
-	// EnumOfStatusForDescribeBlueGreenDeploymentsOutputSwitchoverAvailable is a EnumOfStatusForDescribeBlueGreenDeploymentsOutput enum value
-	EnumOfStatusForDescribeBlueGreenDeploymentsOutputSwitchoverAvailable = "SWITCHOVER_AVAILABLE"
-
-	// EnumOfStatusForDescribeBlueGreenDeploymentsOutputSwitchoverInProgress is a EnumOfStatusForDescribeBlueGreenDeploymentsOutput enum value
-	EnumOfStatusForDescribeBlueGreenDeploymentsOutputSwitchoverInProgress = "SWITCHOVER_IN_PROGRESS"
-
-	// EnumOfStatusForDescribeBlueGreenDeploymentsOutputSwitchoverPending is a EnumOfStatusForDescribeBlueGreenDeploymentsOutput enum value
-	EnumOfStatusForDescribeBlueGreenDeploymentsOutputSwitchoverPending = "SWITCHOVER_PENDING"
-
-	// EnumOfStatusForDescribeBlueGreenDeploymentsOutputSwitchoverCompleted is a EnumOfStatusForDescribeBlueGreenDeploymentsOutput enum value
-	EnumOfStatusForDescribeBlueGreenDeploymentsOutputSwitchoverCompleted = "SWITCHOVER_COMPLETED"
-
-	// EnumOfStatusForDescribeBlueGreenDeploymentsOutputSwitchoverFailed is a EnumOfStatusForDescribeBlueGreenDeploymentsOutput enum value
-	EnumOfStatusForDescribeBlueGreenDeploymentsOutputSwitchoverFailed = "SWITCHOVER_FAILED"
-
-	// EnumOfStatusForDescribeBlueGreenDeploymentsOutputDeleting is a EnumOfStatusForDescribeBlueGreenDeploymentsOutput enum value
-	EnumOfStatusForDescribeBlueGreenDeploymentsOutputDeleting = "DELETING"
-
-	// EnumOfStatusForDescribeBlueGreenDeploymentsOutputDeleteCompleted is a EnumOfStatusForDescribeBlueGreenDeploymentsOutput enum value
-	EnumOfStatusForDescribeBlueGreenDeploymentsOutputDeleteCompleted = "DELETE_COMPLETED"
-)
