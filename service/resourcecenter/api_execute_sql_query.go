@@ -147,10 +147,10 @@ type ExecuteSQLQueryInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Expression is a required field
-	Expression *string `type:"string" json:",omitempty" required:"true"`
+	Expression *string `max:"2048" type:"string" json:",omitempty" required:"true"`
 
 	// MaxResults is a required field
-	MaxResults *int32 `type:"int32" json:",omitempty" required:"true"`
+	MaxResults *int32 `min:"1" max:"500" type:"int32" json:",omitempty" required:"true"`
 
 	NextToken *string `type:"string" json:",omitempty"`
 }
@@ -171,8 +171,17 @@ func (s *ExecuteSQLQueryInput) Validate() error {
 	if s.Expression == nil {
 		invalidParams.Add(request.NewErrParamRequired("Expression"))
 	}
+	if s.Expression != nil && len(*s.Expression) > 2048 {
+		invalidParams.Add(request.NewErrParamMaxLen("Expression", 2048, *s.Expression))
+	}
 	if s.MaxResults == nil {
 		invalidParams.Add(request.NewErrParamRequired("MaxResults"))
+	}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.MaxResults != nil && *s.MaxResults > 500 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 500))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -205,6 +214,8 @@ type ExecuteSQLQueryOutput struct {
 	Metadata *response.ResponseMetadata
 
 	NextToken *string `type:"string" json:",omitempty"`
+
+	Rows []interface{} `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,5 +231,11 @@ func (s ExecuteSQLQueryOutput) GoString() string {
 // SetNextToken sets the NextToken field's value.
 func (s *ExecuteSQLQueryOutput) SetNextToken(v string) *ExecuteSQLQueryOutput {
 	s.NextToken = &v
+	return s
+}
+
+// SetRows sets the Rows field's value.
+func (s *ExecuteSQLQueryOutput) SetRows(v []interface{}) *ExecuteSQLQueryOutput {
+	s.Rows = v
 	return s
 }

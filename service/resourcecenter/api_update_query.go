@@ -146,14 +146,14 @@ func (c *RESOURCECENTER) UpdateQueryWithContext(ctx volcengine.Context, input *U
 type UpdateQueryInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Description *string `type:"string" json:",omitempty"`
+	Description *string `max:"256" type:"string" json:",omitempty"`
 
-	Expression *string `type:"string" json:",omitempty"`
+	Expression *string `max:"2048" type:"string" json:",omitempty"`
 
 	// QueryID is a required field
 	QueryID *int64 `type:"int64" json:",omitempty" required:"true"`
 
-	QueryName *string `type:"string" json:",omitempty"`
+	QueryName *string `max:"64" type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -169,8 +169,17 @@ func (s UpdateQueryInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UpdateQueryInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateQueryInput"}
+	if s.Description != nil && len(*s.Description) > 256 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 256, *s.Description))
+	}
+	if s.Expression != nil && len(*s.Expression) > 2048 {
+		invalidParams.Add(request.NewErrParamMaxLen("Expression", 2048, *s.Expression))
+	}
 	if s.QueryID == nil {
 		invalidParams.Add(request.NewErrParamRequired("QueryID"))
+	}
+	if s.QueryName != nil && len(*s.QueryName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("QueryName", 64, *s.QueryName))
 	}
 
 	if invalidParams.Len() > 0 {

@@ -162,7 +162,7 @@ type GetMultiAccountResourceCenterStatusOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InitialStatus *string `type:"string" json:",omitempty"`
+	InitStatus *string `type:"string" json:",omitempty"`
 
 	ServiceStatus *string `type:"string" json:",omitempty"`
 }
@@ -177,9 +177,9 @@ func (s GetMultiAccountResourceCenterStatusOutput) GoString() string {
 	return s.String()
 }
 
-// SetInitialStatus sets the InitialStatus field's value.
-func (s *GetMultiAccountResourceCenterStatusOutput) SetInitialStatus(v string) *GetMultiAccountResourceCenterStatusOutput {
-	s.InitialStatus = &v
+// SetInitStatus sets the InitStatus field's value.
+func (s *GetMultiAccountResourceCenterStatusOutput) SetInitStatus(v string) *GetMultiAccountResourceCenterStatusOutput {
+	s.InitStatus = &v
 	return s
 }
 
