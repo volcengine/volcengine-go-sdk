@@ -1,12 +1,17 @@
 {
   "actions": [
-    "VideoEditorSaveSubtitle",
-    "VideoProjectSerialDubTaskCreateFromTranslation",
+    "ProjectTaskTargetDownload",
+    "ProjectNamespaceTextDownload",
+    "VideoProjectSuppressionStart",
     "VideoProjectAddTargetLangsToExistingDrama",
-    "VideoEditorAddSubtitle",
-    "VideoEditorListSubtitles"
+    "VideoProjectSerialDubTaskCreate",
+    "VideoProjectSerialDubTaskCreateFromTranslation",
+    "VideoProjectSerialTaskCreate",
+    "ProjectTermSourceAdd",
+    "ImportGetBytedUploaderToken",
+    "ProjectDownloadTaskQuery"
   ],
-  "description": "I18N_OPENAPI: 新增 VideoProjectSerialDubTaskCreateFromTranslation；修改 VideoProjectAddTargetLangsToExistingDrama, VideoEditorAddSubtitle, VideoEditorListSubtitles, VideoEditorSaveSubtitle",
+  "description": "I18N_OPENAPI: 新增 ProjectTaskTargetDownload, ProjectTermSourceAdd, ImportGetBytedUploaderToken, ProjectDownloadTaskQuery, ProjectNamespaceTextDownload；修改 VideoProjectSuppressionStart, VideoProjectAddTargetLangsToExistingDrama, VideoProjectSerialDubTaskCreate, VideoProjectSerialDubTaskCreateFromTranslation, VideoProjectSerialTaskCreate",
   "modules": "service/i18n_openapi",
-  "type": "breaking-change"
+  "type": "feature"
 }
