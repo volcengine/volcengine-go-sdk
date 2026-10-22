@@ -544,7 +544,7 @@ type TaskForDescribeTasksOutput struct {
 
 	TaskParams *string `type:"string" json:",omitempty"`
 
-	TaskStatus *string `type:"string" json:",omitempty" enum:"EnumOfTaskStatusForDescribeTasksOutput"`
+	TaskStatus *string `type:"string" json:",omitempty"`
 
 	TaskStepInfo []*TaskStepInfoForDescribeTasksOutput `type:"list"`
 }
@@ -658,7 +658,7 @@ type TaskStepInfoForDescribeTasksOutput struct {
 
 	StepProgress *int32 `type:"int32" json:",omitempty"`
 
-	StepStatus *string `type:"string" json:",omitempty" enum:"EnumOfStepStatusForDescribeTasksOutput"`
+	StepStatus *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -694,34 +694,3 @@ func (s *TaskStepInfoForDescribeTasksOutput) SetStepStatus(v string) *TaskStepIn
 	s.StepStatus = &v
 	return s
 }
-
-const (
-	// EnumOfStepStatusForDescribeTasksOutputRunning is a EnumOfStepStatusForDescribeTasksOutput enum value
-	EnumOfStepStatusForDescribeTasksOutputRunning = "Running"
-
-	// EnumOfStepStatusForDescribeTasksOutputSuccess is a EnumOfStepStatusForDescribeTasksOutput enum value
-	EnumOfStepStatusForDescribeTasksOutputSuccess = "Success"
-
-	// EnumOfStepStatusForDescribeTasksOutputFailed is a EnumOfStepStatusForDescribeTasksOutput enum value
-	EnumOfStepStatusForDescribeTasksOutputFailed = "Failed"
-
-	// EnumOfStepStatusForDescribeTasksOutputWaiting is a EnumOfStepStatusForDescribeTasksOutput enum value
-	EnumOfStepStatusForDescribeTasksOutputWaiting = "Waiting"
-)
-
-const (
-	// EnumOfTaskStatusForDescribeTasksOutputRunning is a EnumOfTaskStatusForDescribeTasksOutput enum value
-	EnumOfTaskStatusForDescribeTasksOutputRunning = "Running"
-
-	// EnumOfTaskStatusForDescribeTasksOutputSuccess is a EnumOfTaskStatusForDescribeTasksOutput enum value
-	EnumOfTaskStatusForDescribeTasksOutputSuccess = "Success"
-
-	// EnumOfTaskStatusForDescribeTasksOutputFailed is a EnumOfTaskStatusForDescribeTasksOutput enum value
-	EnumOfTaskStatusForDescribeTasksOutputFailed = "Failed"
-
-	// EnumOfTaskStatusForDescribeTasksOutputWaiting is a EnumOfTaskStatusForDescribeTasksOutput enum value
-	EnumOfTaskStatusForDescribeTasksOutputWaiting = "Waiting"
-
-	// EnumOfTaskStatusForDescribeTasksOutputCanceled is a EnumOfTaskStatusForDescribeTasksOutput enum value
-	EnumOfTaskStatusForDescribeTasksOutputCanceled = "Canceled"
-)

@@ -256,7 +256,7 @@ type ParameterGroupForDescribeParameterGroupsOutput struct {
 
 	ParameterNum *int32 `type:"int32" json:",omitempty"`
 
-	Source *string `type:"string" json:",omitempty" enum:"EnumOfSourceForDescribeParameterGroupsOutput"`
+	Source *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 }
@@ -331,12 +331,4 @@ const (
 
 	// EnumOfSourceForDescribeParameterGroupsInputUser is a EnumOfSourceForDescribeParameterGroupsInput enum value
 	EnumOfSourceForDescribeParameterGroupsInputUser = "User"
-)
-
-const (
-	// EnumOfSourceForDescribeParameterGroupsOutputSystem is a EnumOfSourceForDescribeParameterGroupsOutput enum value
-	EnumOfSourceForDescribeParameterGroupsOutputSystem = "System"
-
-	// EnumOfSourceForDescribeParameterGroupsOutputUser is a EnumOfSourceForDescribeParameterGroupsOutput enum value
-	EnumOfSourceForDescribeParameterGroupsOutputUser = "User"
 )
