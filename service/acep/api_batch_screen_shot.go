@@ -301,6 +301,8 @@ type DetailForBatchScreenShotOutput struct {
 	ErrorMsg *string `type:"string" json:",omitempty"`
 
 	PodId *string `type:"string" json:",omitempty"`
+
+	TosInfo *TosInfoForBatchScreenShotOutput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -334,6 +336,12 @@ func (s *DetailForBatchScreenShotOutput) SetErrorMsg(v string) *DetailForBatchSc
 // SetPodId sets the PodId field's value.
 func (s *DetailForBatchScreenShotOutput) SetPodId(v string) *DetailForBatchScreenShotOutput {
 	s.PodId = &v
+	return s
+}
+
+// SetTosInfo sets the TosInfo field's value.
+func (s *DetailForBatchScreenShotOutput) SetTosInfo(v *TosInfoForBatchScreenShotOutput) *DetailForBatchScreenShotOutput {
+	s.TosInfo = v
 	return s
 }
 
@@ -372,5 +380,51 @@ func (s *TosInfoForBatchScreenShotInput) SetEndpoint(v string) *TosInfoForBatchS
 // SetRegion sets the Region field's value.
 func (s *TosInfoForBatchScreenShotInput) SetRegion(v string) *TosInfoForBatchScreenShotInput {
 	s.Region = &v
+	return s
+}
+
+type TosInfoForBatchScreenShotOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Bucket *string `type:"string" json:",omitempty"`
+
+	Endpoint *string `type:"string" json:",omitempty"`
+
+	Region *string `type:"string" json:",omitempty"`
+
+	TosFilePath *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TosInfoForBatchScreenShotOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TosInfoForBatchScreenShotOutput) GoString() string {
+	return s.String()
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *TosInfoForBatchScreenShotOutput) SetBucket(v string) *TosInfoForBatchScreenShotOutput {
+	s.Bucket = &v
+	return s
+}
+
+// SetEndpoint sets the Endpoint field's value.
+func (s *TosInfoForBatchScreenShotOutput) SetEndpoint(v string) *TosInfoForBatchScreenShotOutput {
+	s.Endpoint = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *TosInfoForBatchScreenShotOutput) SetRegion(v string) *TosInfoForBatchScreenShotOutput {
+	s.Region = &v
+	return s
+}
+
+// SetTosFilePath sets the TosFilePath field's value.
+func (s *TosInfoForBatchScreenShotOutput) SetTosFilePath(v string) *TosInfoForBatchScreenShotOutput {
+	s.TosFilePath = &v
 	return s
 }
