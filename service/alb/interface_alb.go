@@ -182,6 +182,14 @@ type ALBAPI interface {
 	DeleteServerGroupWithContext(volcengine.Context, *DeleteServerGroupInput, ...request.Option) (*DeleteServerGroupOutput, error)
 	DeleteServerGroupRequest(*DeleteServerGroupInput) (*request.Request, *DeleteServerGroupOutput)
 
+	DeleteServerGroupMcpRestToolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteServerGroupMcpRestToolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteServerGroupMcpRestToolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteServerGroupMcpRestTool(*DeleteServerGroupMcpRestToolInput) (*DeleteServerGroupMcpRestToolOutput, error)
+	DeleteServerGroupMcpRestToolWithContext(volcengine.Context, *DeleteServerGroupMcpRestToolInput, ...request.Option) (*DeleteServerGroupMcpRestToolOutput, error)
+	DeleteServerGroupMcpRestToolRequest(*DeleteServerGroupMcpRestToolInput) (*request.Request, *DeleteServerGroupMcpRestToolOutput)
+
 	DescribeAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAclAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -309,6 +317,14 @@ type ALBAPI interface {
 	DescribeServerGroupBackendServers(*DescribeServerGroupBackendServersInput) (*DescribeServerGroupBackendServersOutput, error)
 	DescribeServerGroupBackendServersWithContext(volcengine.Context, *DescribeServerGroupBackendServersInput, ...request.Option) (*DescribeServerGroupBackendServersOutput, error)
 	DescribeServerGroupBackendServersRequest(*DescribeServerGroupBackendServersInput) (*request.Request, *DescribeServerGroupBackendServersOutput)
+
+	DescribeServerGroupMcpRestToolsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeServerGroupMcpRestToolsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeServerGroupMcpRestToolsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeServerGroupMcpRestTools(*DescribeServerGroupMcpRestToolsInput) (*DescribeServerGroupMcpRestToolsOutput, error)
+	DescribeServerGroupMcpRestToolsWithContext(volcengine.Context, *DescribeServerGroupMcpRestToolsInput, ...request.Option) (*DescribeServerGroupMcpRestToolsOutput, error)
+	DescribeServerGroupMcpRestToolsRequest(*DescribeServerGroupMcpRestToolsInput) (*request.Request, *DescribeServerGroupMcpRestToolsOutput)
 
 	DescribeServerGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeServerGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

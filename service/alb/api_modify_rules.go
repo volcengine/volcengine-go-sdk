@@ -183,6 +183,8 @@ type ConvertRedirectConfigForModifyRulesInput struct {
 	Port *string `type:"string"`
 
 	Protocol *string `type:"string"`
+
+	Query *string `type:"string"`
 }
 
 // String returns the string representation
@@ -222,6 +224,12 @@ func (s *ConvertRedirectConfigForModifyRulesInput) SetPort(v string) *ConvertRed
 // SetProtocol sets the Protocol field's value.
 func (s *ConvertRedirectConfigForModifyRulesInput) SetProtocol(v string) *ConvertRedirectConfigForModifyRulesInput {
 	s.Protocol = &v
+	return s
+}
+
+// SetQuery sets the Query field's value.
+func (s *ConvertRedirectConfigForModifyRulesInput) SetQuery(v string) *ConvertRedirectConfigForModifyRulesInput {
+	s.Query = &v
 	return s
 }
 
@@ -524,6 +532,44 @@ func (s HostConfigForModifyRulesInput) GoString() string {
 // SetValues sets the Values field's value.
 func (s *HostConfigForModifyRulesInput) SetValues(v []*string) *HostConfigForModifyRulesInput {
 	s.Values = v
+	return s
+}
+
+type InsertHeaderConfigForModifyRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+
+	ValueType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InsertHeaderConfigForModifyRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InsertHeaderConfigForModifyRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *InsertHeaderConfigForModifyRulesInput) SetKey(v string) *InsertHeaderConfigForModifyRulesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *InsertHeaderConfigForModifyRulesInput) SetValue(v string) *InsertHeaderConfigForModifyRulesInput {
+	s.Value = &v
+	return s
+}
+
+// SetValueType sets the ValueType field's value.
+func (s *InsertHeaderConfigForModifyRulesInput) SetValueType(v string) *InsertHeaderConfigForModifyRulesInput {
+	s.ValueType = &v
 	return s
 }
 
@@ -951,6 +997,8 @@ type RulesRuleActionForModifyRulesInput struct {
 
 	ForwardGroupConfig *ConvertForwardGroupConfigForModifyRulesInput `type:"structure"`
 
+	InsertHeaderConfig *InsertHeaderConfigForModifyRulesInput `type:"structure"`
+
 	RedirectConfig *ConvertRedirectConfigForModifyRulesInput `type:"structure"`
 
 	RewriteConfig *ConvertRewriteConfigForModifyRulesInput `type:"structure"`
@@ -985,6 +1033,12 @@ func (s *RulesRuleActionForModifyRulesInput) SetFixedResponseConfig(v *FixedResp
 // SetForwardGroupConfig sets the ForwardGroupConfig field's value.
 func (s *RulesRuleActionForModifyRulesInput) SetForwardGroupConfig(v *ConvertForwardGroupConfigForModifyRulesInput) *RulesRuleActionForModifyRulesInput {
 	s.ForwardGroupConfig = v
+	return s
+}
+
+// SetInsertHeaderConfig sets the InsertHeaderConfig field's value.
+func (s *RulesRuleActionForModifyRulesInput) SetInsertHeaderConfig(v *InsertHeaderConfigForModifyRulesInput) *RulesRuleActionForModifyRulesInput {
+	s.InsertHeaderConfig = v
 	return s
 }
 
