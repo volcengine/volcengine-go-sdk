@@ -250,6 +250,8 @@ type AddBaselineCheckConfigOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	ConfigID *string `type:"string" json:",omitempty"`
+
 	Status *string `type:"string" json:",omitempty"`
 }
 
@@ -261,6 +263,12 @@ func (s AddBaselineCheckConfigOutput) String() string {
 // GoString returns the string representation
 func (s AddBaselineCheckConfigOutput) GoString() string {
 	return s.String()
+}
+
+// SetConfigID sets the ConfigID field's value.
+func (s *AddBaselineCheckConfigOutput) SetConfigID(v string) *AddBaselineCheckConfigOutput {
+	s.ConfigID = &v
+	return s
 }
 
 // SetStatus sets the Status field's value.

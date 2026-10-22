@@ -1006,6 +1006,14 @@ type SECCENTER20240508API interface {
 	GetAutoProtectConfigWithContext(volcengine.Context, *GetAutoProtectConfigInput, ...request.Option) (*GetAutoProtectConfigOutput, error)
 	GetAutoProtectConfigRequest(*GetAutoProtectConfigInput) (*request.Request, *GetAutoProtectConfigOutput)
 
+	GetBaselineCheckConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetBaselineCheckConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetBaselineCheckConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetBaselineCheckConfig(*GetBaselineCheckConfigInput) (*GetBaselineCheckConfigOutput, error)
+	GetBaselineCheckConfigWithContext(volcengine.Context, *GetBaselineCheckConfigInput, ...request.Option) (*GetBaselineCheckConfigOutput, error)
+	GetBaselineCheckConfigRequest(*GetBaselineCheckConfigInput) (*request.Request, *GetBaselineCheckConfigOutput)
+
 	GetBaselineDetectProgressDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetBaselineDetectProgressDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetBaselineDetectProgressDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
