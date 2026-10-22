@@ -712,12 +712,21 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 	if err != nil {
 		return client.Config{}, err
 	}
-	if s.Config.HTTPClient.Transport == nil {
-		s.Config.HTTPClient.Transport = http.DefaultTransport.(*http.Transport).Clone()
+	// Session copies may share the process-wide default client or a caller's
+	// client. Clone both the client and its transport before configuring the
+	// proxy so creating service clients cannot mutate shared HTTP state.
+	httpClient := *s.Config.HTTPClient
+	switch t := httpClient.Transport.(type) {
+	case nil:
+		transport := http.DefaultTransport.(*http.Transport).Clone()
+		transport.Proxy = http.ProxyURL(proxy)
+		httpClient.Transport = transport
+	case *http.Transport:
+		transport := t.Clone()
+		transport.Proxy = http.ProxyURL(proxy)
+		httpClient.Transport = transport
 	}
-	if t, ok := s.Config.HTTPClient.Transport.(*http.Transport); ok {
-		t.Proxy = http.ProxyURL(proxy)
-	}
+	s.Config.HTTPClient = &httpClient
 
 	return client.Config{
 		Config:             s.Config,
