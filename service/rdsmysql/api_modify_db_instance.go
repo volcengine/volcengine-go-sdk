@@ -29,6 +29,9 @@ const opModifyDBInstanceCommon = "ModifyDBInstance"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) ModifyDBInstanceCommonRequest(input *map[string]interface{}) 
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ModifyDBInstanceCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstanceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyDBInstanceCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) ModifyDBInstanceCommon(input *map[string]interface{}) (*map[s
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstanceCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyDBInstanceCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opModifyDBInstance = "ModifyDBInstance"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstanceRequest(input *ModifyDBInstanceInput) (req *request.Request, output *ModifyDBInstanceOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstance,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) ModifyDBInstanceRequest(input *ModifyDBInstanceInput) (req *r
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ModifyDBInstance for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstance(input *ModifyDBInstanceInput) (*ModifyDBInstanceOutput, error) {
 	req, out := c.ModifyDBInstanceRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) ModifyDBInstance(input *ModifyDBInstanceInput) (*ModifyDBInst
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstanceWithContext(ctx volcengine.Context, input *ModifyDBInstanceInput, opts ...request.Option) (*ModifyDBInstanceOutput, error) {
 	req, out := c.ModifyDBInstanceRequest(input)
 	req.SetContext(ctx)

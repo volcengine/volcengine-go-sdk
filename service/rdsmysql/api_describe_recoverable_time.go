@@ -29,6 +29,9 @@ const opDescribeRecoverableTimeCommon = "DescribeRecoverableTime"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeRecoverableTimeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeRecoverableTimeCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) DescribeRecoverableTimeCommonRequest(input *map[string]interf
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DescribeRecoverableTimeCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeRecoverableTimeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeRecoverableTimeCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) DescribeRecoverableTimeCommon(input *map[string]interface{}) 
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeRecoverableTimeCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeRecoverableTimeCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opDescribeRecoverableTime = "DescribeRecoverableTime"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeRecoverableTimeRequest(input *DescribeRecoverableTimeInput) (req *request.Request, output *DescribeRecoverableTimeOutput) {
 	op := &request.Operation{
 		Name:       opDescribeRecoverableTime,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) DescribeRecoverableTimeRequest(input *DescribeRecoverableTime
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DescribeRecoverableTime for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeRecoverableTime(input *DescribeRecoverableTimeInput) (*DescribeRecoverableTimeOutput, error) {
 	req, out := c.DescribeRecoverableTimeRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) DescribeRecoverableTime(input *DescribeRecoverableTimeInput) 
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeRecoverableTimeWithContext(ctx volcengine.Context, input *DescribeRecoverableTimeInput, opts ...request.Option) (*DescribeRecoverableTimeOutput, error) {
 	req, out := c.DescribeRecoverableTimeRequest(input)
 	req.SetContext(ctx)

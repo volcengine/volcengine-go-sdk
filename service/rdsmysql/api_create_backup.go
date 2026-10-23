@@ -29,6 +29,9 @@ const opCreateBackupCommon = "CreateBackup"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateBackupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateBackupCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) CreateBackupCommonRequest(input *map[string]interface{}) (req
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CreateBackupCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateBackupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateBackupCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) CreateBackupCommon(input *map[string]interface{}) (*map[strin
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateBackupCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateBackupCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opCreateBackup = "CreateBackup"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateBackupRequest(input *CreateBackupInput) (req *request.Request, output *CreateBackupOutput) {
 	op := &request.Operation{
 		Name:       opCreateBackup,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) CreateBackupRequest(input *CreateBackupInput) (req *request.R
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CreateBackup for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateBackup(input *CreateBackupInput) (*CreateBackupOutput, error) {
 	req, out := c.CreateBackupRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) CreateBackup(input *CreateBackupInput) (*CreateBackupOutput, 
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateBackupWithContext(ctx volcengine.Context, input *CreateBackupInput, opts ...request.Option) (*CreateBackupOutput, error) {
 	req, out := c.CreateBackupRequest(input)
 	req.SetContext(ctx)

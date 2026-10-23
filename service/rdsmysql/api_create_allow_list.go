@@ -29,6 +29,9 @@ const opCreateAllowListCommon = "CreateAllowList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAllowListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateAllowListCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) CreateAllowListCommonRequest(input *map[string]interface{}) (
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CreateAllowListCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAllowListCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateAllowListCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) CreateAllowListCommon(input *map[string]interface{}) (*map[st
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAllowListCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateAllowListCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opCreateAllowList = "CreateAllowList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAllowListRequest(input *CreateAllowListInput) (req *request.Request, output *CreateAllowListOutput) {
 	op := &request.Operation{
 		Name:       opCreateAllowList,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) CreateAllowListRequest(input *CreateAllowListInput) (req *req
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CreateAllowList for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAllowList(input *CreateAllowListInput) (*CreateAllowListOutput, error) {
 	req, out := c.CreateAllowListRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) CreateAllowList(input *CreateAllowListInput) (*CreateAllowLis
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAllowListWithContext(ctx volcengine.Context, input *CreateAllowListInput, opts ...request.Option) (*CreateAllowListOutput, error) {
 	req, out := c.CreateAllowListRequest(input)
 	req.SetContext(ctx)

@@ -29,6 +29,9 @@ const opModifyInstanceParamsCommon = "ModifyInstanceParams"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyInstanceParamsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyInstanceParamsCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) ModifyInstanceParamsCommonRequest(input *map[string]interface
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ModifyInstanceParamsCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyInstanceParamsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyInstanceParamsCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) ModifyInstanceParamsCommon(input *map[string]interface{}) (*m
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyInstanceParamsCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyInstanceParamsCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opModifyInstanceParams = "ModifyInstanceParams"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyInstanceParamsRequest(input *ModifyInstanceParamsInput) (req *request.Request, output *ModifyInstanceParamsOutput) {
 	op := &request.Operation{
 		Name:       opModifyInstanceParams,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) ModifyInstanceParamsRequest(input *ModifyInstanceParamsInput)
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ModifyInstanceParams for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyInstanceParams(input *ModifyInstanceParamsInput) (*ModifyInstanceParamsOutput, error) {
 	req, out := c.ModifyInstanceParamsRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) ModifyInstanceParams(input *ModifyInstanceParamsInput) (*Modi
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyInstanceParamsWithContext(ctx volcengine.Context, input *ModifyInstanceParamsInput, opts ...request.Option) (*ModifyInstanceParamsOutput, error) {
 	req, out := c.ModifyInstanceParamsRequest(input)
 	req.SetContext(ctx)

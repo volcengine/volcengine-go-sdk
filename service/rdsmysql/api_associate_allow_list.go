@@ -29,6 +29,9 @@ const opAssociateAllowListCommon = "AssociateAllowList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) AssociateAllowListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateAllowListCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) AssociateAllowListCommonRequest(input *map[string]interface{}
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation AssociateAllowListCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) AssociateAllowListCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AssociateAllowListCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) AssociateAllowListCommon(input *map[string]interface{}) (*map
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) AssociateAllowListCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.AssociateAllowListCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opAssociateAllowList = "AssociateAllowList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) AssociateAllowListRequest(input *AssociateAllowListInput) (req *request.Request, output *AssociateAllowListOutput) {
 	op := &request.Operation{
 		Name:       opAssociateAllowList,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) AssociateAllowListRequest(input *AssociateAllowListInput) (re
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation AssociateAllowList for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) AssociateAllowList(input *AssociateAllowListInput) (*AssociateAllowListOutput, error) {
 	req, out := c.AssociateAllowListRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) AssociateAllowList(input *AssociateAllowListInput) (*Associat
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) AssociateAllowListWithContext(ctx volcengine.Context, input *AssociateAllowListInput, opts ...request.Option) (*AssociateAllowListOutput, error) {
 	req, out := c.AssociateAllowListRequest(input)
 	req.SetContext(ctx)

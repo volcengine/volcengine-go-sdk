@@ -29,6 +29,9 @@ const opResetAccountPasswordCommon = "ResetAccountPassword"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ResetAccountPasswordCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opResetAccountPasswordCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) ResetAccountPasswordCommonRequest(input *map[string]interface
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ResetAccountPasswordCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ResetAccountPasswordCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ResetAccountPasswordCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) ResetAccountPasswordCommon(input *map[string]interface{}) (*m
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ResetAccountPasswordCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ResetAccountPasswordCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opResetAccountPassword = "ResetAccountPassword"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ResetAccountPasswordRequest(input *ResetAccountPasswordInput) (req *request.Request, output *ResetAccountPasswordOutput) {
 	op := &request.Operation{
 		Name:       opResetAccountPassword,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) ResetAccountPasswordRequest(input *ResetAccountPasswordInput)
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ResetAccountPassword for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ResetAccountPassword(input *ResetAccountPasswordInput) (*ResetAccountPasswordOutput, error) {
 	req, out := c.ResetAccountPasswordRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) ResetAccountPassword(input *ResetAccountPasswordInput) (*Rese
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ResetAccountPasswordWithContext(ctx volcengine.Context, input *ResetAccountPasswordInput, opts ...request.Option) (*ResetAccountPasswordOutput, error) {
 	req, out := c.ResetAccountPasswordRequest(input)
 	req.SetContext(ctx)

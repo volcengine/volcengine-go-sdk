@@ -29,6 +29,9 @@ const opDeleteAllowListCommon = "DeleteAllowList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAllowListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteAllowListCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) DeleteAllowListCommonRequest(input *map[string]interface{}) (
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DeleteAllowListCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAllowListCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteAllowListCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) DeleteAllowListCommon(input *map[string]interface{}) (*map[st
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAllowListCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteAllowListCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opDeleteAllowList = "DeleteAllowList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAllowListRequest(input *DeleteAllowListInput) (req *request.Request, output *DeleteAllowListOutput) {
 	op := &request.Operation{
 		Name:       opDeleteAllowList,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) DeleteAllowListRequest(input *DeleteAllowListInput) (req *req
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DeleteAllowList for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAllowList(input *DeleteAllowListInput) (*DeleteAllowListOutput, error) {
 	req, out := c.DeleteAllowListRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) DeleteAllowList(input *DeleteAllowListInput) (*DeleteAllowLis
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAllowListWithContext(ctx volcengine.Context, input *DeleteAllowListInput, opts ...request.Option) (*DeleteAllowListOutput, error) {
 	req, out := c.DeleteAllowListRequest(input)
 	req.SetContext(ctx)

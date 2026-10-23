@@ -29,6 +29,9 @@ const opModifyDBInstanceIPListCommon = "ModifyDBInstanceIPList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstanceIPListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceIPListCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) ModifyDBInstanceIPListCommonRequest(input *map[string]interfa
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ModifyDBInstanceIPListCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstanceIPListCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyDBInstanceIPListCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) ModifyDBInstanceIPListCommon(input *map[string]interface{}) (
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstanceIPListCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyDBInstanceIPListCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opModifyDBInstanceIPList = "ModifyDBInstanceIPList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstanceIPListRequest(input *ModifyDBInstanceIPListInput) (req *request.Request, output *ModifyDBInstanceIPListOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceIPList,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) ModifyDBInstanceIPListRequest(input *ModifyDBInstanceIPListIn
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ModifyDBInstanceIPList for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstanceIPList(input *ModifyDBInstanceIPListInput) (*ModifyDBInstanceIPListOutput, error) {
 	req, out := c.ModifyDBInstanceIPListRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) ModifyDBInstanceIPList(input *ModifyDBInstanceIPListInput) (*
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyDBInstanceIPListWithContext(ctx volcengine.Context, input *ModifyDBInstanceIPListInput, opts ...request.Option) (*ModifyDBInstanceIPListOutput, error) {
 	req, out := c.ModifyDBInstanceIPListRequest(input)
 	req.SetContext(ctx)

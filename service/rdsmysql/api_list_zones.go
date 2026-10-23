@@ -29,6 +29,9 @@ const opListZonesCommon = "ListZones"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListZonesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListZonesCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) ListZonesCommonRequest(input *map[string]interface{}) (req *r
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ListZonesCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListZonesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ListZonesCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) ListZonesCommon(input *map[string]interface{}) (*map[string]i
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListZonesCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ListZonesCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opListZones = "ListZones"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListZonesRequest(input *ListZonesInput) (req *request.Request, output *ListZonesOutput) {
 	op := &request.Operation{
 		Name:       opListZones,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) ListZonesRequest(input *ListZonesInput) (req *request.Request
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ListZones for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListZones(input *ListZonesInput) (*ListZonesOutput, error) {
 	req, out := c.ListZonesRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) ListZones(input *ListZonesInput) (*ListZonesOutput, error) {
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListZonesWithContext(ctx volcengine.Context, input *ListZonesInput, opts ...request.Option) (*ListZonesOutput, error) {
 	req, out := c.ListZonesRequest(input)
 	req.SetContext(ctx)

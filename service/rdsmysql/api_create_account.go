@@ -29,6 +29,9 @@ const opCreateAccountCommon = "CreateAccount"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAccountCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateAccountCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) CreateAccountCommonRequest(input *map[string]interface{}) (re
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CreateAccountCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAccountCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateAccountCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) CreateAccountCommon(input *map[string]interface{}) (*map[stri
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAccountCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateAccountCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opCreateAccount = "CreateAccount"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAccountRequest(input *CreateAccountInput) (req *request.Request, output *CreateAccountOutput) {
 	op := &request.Operation{
 		Name:       opCreateAccount,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) CreateAccountRequest(input *CreateAccountInput) (req *request
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CreateAccount for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAccount(input *CreateAccountInput) (*CreateAccountOutput, error) {
 	req, out := c.CreateAccountRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) CreateAccount(input *CreateAccountInput) (*CreateAccountOutpu
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateAccountWithContext(ctx volcengine.Context, input *CreateAccountInput, opts ...request.Option) (*CreateAccountOutput, error) {
 	req, out := c.CreateAccountRequest(input)
 	req.SetContext(ctx)
