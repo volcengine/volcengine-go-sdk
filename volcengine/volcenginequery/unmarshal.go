@@ -129,6 +129,15 @@ func processBodyError(r *request.Request, volcengineResponse *response.Volcengin
 		return true
 	}
 
+	// JSON null clears the decoded pointer; stop before reading its fields.
+	if volcengineResponse == nil {
+		r.Error = newResponseError(unmarshalErrorInfo{
+			Request:  r,
+			Response: volcengineResponse,
+			Body:     body,
+		}, "UnknownError", "non-standard response body: null response", nil)
+		return true
+	}
 	if volcengineResponse.ResponseMetadata == nil {
 		return false
 	}
