@@ -146,6 +146,8 @@ func (c *AIDAP) DeleteWorkspaceWithContext(ctx volcengine.Context, input *Delete
 type DeleteWorkspaceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	DelayedDelete *bool `type:"boolean" json:",omitempty"`
+
 	// WorkspaceId is a required field
 	WorkspaceId *string `type:"string" json:",omitempty" required:"true"`
 }
@@ -171,6 +173,12 @@ func (s *DeleteWorkspaceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetDelayedDelete sets the DelayedDelete field's value.
+func (s *DeleteWorkspaceInput) SetDelayedDelete(v bool) *DeleteWorkspaceInput {
+	s.DelayedDelete = &v
+	return s
 }
 
 // SetWorkspaceId sets the WorkspaceId field's value.

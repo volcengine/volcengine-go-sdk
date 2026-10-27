@@ -646,6 +646,14 @@ type AIDAPAPI interface {
 	ModifyWorkspaceSettingsWithContext(volcengine.Context, *ModifyWorkspaceSettingsInput, ...request.Option) (*ModifyWorkspaceSettingsOutput, error)
 	ModifyWorkspaceSettingsRequest(*ModifyWorkspaceSettingsInput) (*request.Request, *ModifyWorkspaceSettingsOutput)
 
+	RecoverDelayedDeleteWorkspaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RecoverDelayedDeleteWorkspaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RecoverDelayedDeleteWorkspaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RecoverDelayedDeleteWorkspace(*RecoverDelayedDeleteWorkspaceInput) (*RecoverDelayedDeleteWorkspaceOutput, error)
+	RecoverDelayedDeleteWorkspaceWithContext(volcengine.Context, *RecoverDelayedDeleteWorkspaceInput, ...request.Option) (*RecoverDelayedDeleteWorkspaceOutput, error)
+	RecoverDelayedDeleteWorkspaceRequest(*RecoverDelayedDeleteWorkspaceInput) (*request.Request, *RecoverDelayedDeleteWorkspaceOutput)
+
 	RemoveTagsFromWorkspacesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveTagsFromWorkspacesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RemoveTagsFromWorkspacesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
