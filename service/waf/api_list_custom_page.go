@@ -427,6 +427,8 @@ type ListCustomPageInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RuleTag *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -466,6 +468,12 @@ func (s *ListCustomPageInput) SetProjectName(v string) *ListCustomPageInput {
 // SetRuleTag sets the RuleTag field's value.
 func (s *ListCustomPageInput) SetRuleTag(v string) *ListCustomPageInput {
 	s.RuleTag = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListCustomPageInput) SetWAFInstanceID(v string) *ListCustomPageInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

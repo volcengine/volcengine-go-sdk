@@ -275,6 +275,8 @@ type ListGlobalBanItemsInput struct {
 	StartTimeMs *int32 `type:"int32" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -344,6 +346,12 @@ func (s *ListGlobalBanItemsInput) SetStartTimeMs(v int32) *ListGlobalBanItemsInp
 // SetStatus sets the Status field's value.
 func (s *ListGlobalBanItemsInput) SetStatus(v string) *ListGlobalBanItemsInput {
 	s.Status = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListGlobalBanItemsInput) SetWAFInstanceID(v string) *ListGlobalBanItemsInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

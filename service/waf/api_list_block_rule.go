@@ -342,6 +342,8 @@ type ListBlockRuleInput struct {
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -388,6 +390,12 @@ func (s *ListBlockRuleInput) SetPageSize(v int32) *ListBlockRuleInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *ListBlockRuleInput) SetProjectName(v string) *ListBlockRuleInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListBlockRuleInput) SetWAFInstanceID(v string) *ListBlockRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

@@ -242,6 +242,8 @@ type ListProhibitionInput struct {
 	Status []*int32 `type:"list" json:",omitempty"`
 
 	TimeOrderBy *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -342,6 +344,12 @@ func (s *ListProhibitionInput) SetStatus(v []*int32) *ListProhibitionInput {
 // SetTimeOrderBy sets the TimeOrderBy field's value.
 func (s *ListProhibitionInput) SetTimeOrderBy(v string) *ListProhibitionInput {
 	s.TimeOrderBy = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListProhibitionInput) SetWAFInstanceID(v string) *ListProhibitionInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

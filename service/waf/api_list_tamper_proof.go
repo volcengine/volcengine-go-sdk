@@ -271,6 +271,8 @@ type ListTamperProofInput struct {
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,6 +306,12 @@ func (s *ListTamperProofInput) SetPageSize(v int32) *ListTamperProofInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *ListTamperProofInput) SetProjectName(v string) *ListTamperProofInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListTamperProofInput) SetWAFInstanceID(v string) *ListTamperProofInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

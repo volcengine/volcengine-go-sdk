@@ -152,6 +152,8 @@ type DeleteVolcWafServiceInput struct {
 	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,6 +194,12 @@ func (s *DeleteVolcWafServiceInput) SetHost(v string) *DeleteVolcWafServiceInput
 // SetProjectName sets the ProjectName field's value.
 func (s *DeleteVolcWafServiceInput) SetProjectName(v string) *DeleteVolcWafServiceInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteVolcWafServiceInput) SetWAFInstanceID(v string) *DeleteVolcWafServiceInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

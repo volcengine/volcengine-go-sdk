@@ -466,6 +466,8 @@ type UpdateDomainInput struct {
 	VolcCertificateID *string `type:"string" json:",omitempty"`
 
 	VpcID *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -716,6 +718,12 @@ func (s *UpdateDomainInput) SetVolcCertificateID(v string) *UpdateDomainInput {
 // SetVpcID sets the VpcID field's value.
 func (s *UpdateDomainInput) SetVpcID(v string) *UpdateDomainInput {
 	s.VpcID = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UpdateDomainInput) SetWAFInstanceID(v string) *UpdateDomainInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

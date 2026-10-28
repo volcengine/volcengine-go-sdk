@@ -149,6 +149,8 @@ type GetInstanceCtlInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -170,6 +172,12 @@ func (s *GetInstanceCtlInput) SetProjectName(v string) *GetInstanceCtlInput {
 // SetRegion sets the Region field's value.
 func (s *GetInstanceCtlInput) SetRegion(v string) *GetInstanceCtlInput {
 	s.Region = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *GetInstanceCtlInput) SetWAFInstanceID(v string) *GetInstanceCtlInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

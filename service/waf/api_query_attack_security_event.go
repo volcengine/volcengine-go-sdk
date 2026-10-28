@@ -177,6 +177,8 @@ type QueryAttackSecurityEventInput struct {
 
 	// StartTime is a required field
 	StartTime *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -292,6 +294,12 @@ func (s *QueryAttackSecurityEventInput) SetSortFlag(v string) *QueryAttackSecuri
 // SetStartTime sets the StartTime field's value.
 func (s *QueryAttackSecurityEventInput) SetStartTime(v int32) *QueryAttackSecurityEventInput {
 	s.StartTime = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *QueryAttackSecurityEventInput) SetWAFInstanceID(v string) *QueryAttackSecurityEventInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

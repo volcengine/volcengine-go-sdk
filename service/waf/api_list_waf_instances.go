@@ -205,6 +205,8 @@ type ListWafInstancesInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	Region *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,6 +234,12 @@ func (s *ListWafInstancesInput) SetProjectName(v string) *ListWafInstancesInput 
 // SetRegion sets the Region field's value.
 func (s *ListWafInstancesInput) SetRegion(v string) *ListWafInstancesInput {
 	s.Region = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListWafInstancesInput) SetWAFInstanceID(v string) *ListWafInstancesInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

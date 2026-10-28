@@ -158,6 +158,8 @@ type UpdateSystemBotConfigInput struct {
 	RuleTagList []*string `type:"list" json:",omitempty"`
 
 	VerificationExemptionTime *int32 `type:"int32" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,6 +218,12 @@ func (s *UpdateSystemBotConfigInput) SetRuleTagList(v []*string) *UpdateSystemBo
 // SetVerificationExemptionTime sets the VerificationExemptionTime field's value.
 func (s *UpdateSystemBotConfigInput) SetVerificationExemptionTime(v int32) *UpdateSystemBotConfigInput {
 	s.VerificationExemptionTime = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UpdateSystemBotConfigInput) SetWAFInstanceID(v string) *UpdateSystemBotConfigInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

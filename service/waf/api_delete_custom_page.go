@@ -153,6 +153,8 @@ type DeleteCustomPageInput struct {
 	Id *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,6 +198,12 @@ func (s *DeleteCustomPageInput) SetId(v int32) *DeleteCustomPageInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DeleteCustomPageInput) SetProjectName(v string) *DeleteCustomPageInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteCustomPageInput) SetWAFInstanceID(v string) *DeleteCustomPageInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

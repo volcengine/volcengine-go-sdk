@@ -334,6 +334,8 @@ type UpdateCCRuleInput struct {
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
 
+	WAFInstanceID *string `type:"string" json:",omitempty"`
+
 	WSCdnByteThreshold *int32 `type:"int32" json:",omitempty"`
 
 	WSCdnEnable *int32 `type:"int32" json:",omitempty"`
@@ -510,6 +512,12 @@ func (s *UpdateCCRuleInput) SetUpdateTime(v string) *UpdateCCRuleInput {
 // SetUrl sets the Url field's value.
 func (s *UpdateCCRuleInput) SetUrl(v string) *UpdateCCRuleInput {
 	s.Url = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UpdateCCRuleInput) SetWAFInstanceID(v string) *UpdateCCRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

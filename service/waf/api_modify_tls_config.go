@@ -208,6 +208,8 @@ type ModifyTLSConfigInput struct {
 
 	TLSStorageTime *int32 `type:"int32" json:",omitempty"`
 
+	WAFInstanceID *string `type:"string" json:",omitempty"`
+
 	WafActionList *WafActionListForModifyTLSConfigInput `type:"structure" json:",omitempty"`
 
 	WafActionSelectAll *bool `type:"boolean" json:",omitempty"`
@@ -268,6 +270,12 @@ func (s *ModifyTLSConfigInput) SetProjectName(v string) *ModifyTLSConfigInput {
 // SetTLSStorageTime sets the TLSStorageTime field's value.
 func (s *ModifyTLSConfigInput) SetTLSStorageTime(v int32) *ModifyTLSConfigInput {
 	s.TLSStorageTime = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ModifyTLSConfigInput) SetWAFInstanceID(v string) *ModifyTLSConfigInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

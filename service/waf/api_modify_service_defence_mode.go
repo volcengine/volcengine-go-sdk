@@ -185,6 +185,8 @@ type ModifyServiceDefenceModeInput struct {
 	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -234,6 +236,12 @@ func (s *ModifyServiceDefenceModeInput) SetHost(v string) *ModifyServiceDefenceM
 // SetProjectName sets the ProjectName field's value.
 func (s *ModifyServiceDefenceModeInput) SetProjectName(v string) *ModifyServiceDefenceModeInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ModifyServiceDefenceModeInput) SetWAFInstanceID(v string) *ModifyServiceDefenceModeInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

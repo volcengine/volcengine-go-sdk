@@ -195,6 +195,8 @@ type QueryAttackAnalysisWithRuleAggLbInput struct {
 
 	// StartTime is a required field
 	StartTime *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -250,6 +252,12 @@ func (s *QueryAttackAnalysisWithRuleAggLbInput) SetPlugins(v []*string) *QueryAt
 // SetStartTime sets the StartTime field's value.
 func (s *QueryAttackAnalysisWithRuleAggLbInput) SetStartTime(v int32) *QueryAttackAnalysisWithRuleAggLbInput {
 	s.StartTime = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *QueryAttackAnalysisWithRuleAggLbInput) SetWAFInstanceID(v string) *QueryAttackAnalysisWithRuleAggLbInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

@@ -153,6 +153,8 @@ type DeleteDomainInput struct {
 
 	// Region is a required field
 	Region *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,6 +198,12 @@ func (s *DeleteDomainInput) SetProjectName(v string) *DeleteDomainInput {
 // SetRegion sets the Region field's value.
 func (s *DeleteDomainInput) SetRegion(v string) *DeleteDomainInput {
 	s.Region = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteDomainInput) SetWAFInstanceID(v string) *DeleteDomainInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

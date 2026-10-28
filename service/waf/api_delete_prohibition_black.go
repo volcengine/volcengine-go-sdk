@@ -152,6 +152,8 @@ type DeleteProhibitionBlackInput struct {
 	IpList []*string `type:"list" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,6 +194,12 @@ func (s *DeleteProhibitionBlackInput) SetIpList(v []*string) *DeleteProhibitionB
 // SetProjectName sets the ProjectName field's value.
 func (s *DeleteProhibitionBlackInput) SetProjectName(v string) *DeleteProhibitionBlackInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteProhibitionBlackInput) SetWAFInstanceID(v string) *DeleteProhibitionBlackInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

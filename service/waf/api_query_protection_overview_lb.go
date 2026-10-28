@@ -153,6 +153,8 @@ type QueryProtectionOverviewLbInput struct {
 
 	// StartTime is a required field
 	StartTime *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,6 +198,12 @@ func (s *QueryProtectionOverviewLbInput) SetHost(v string) *QueryProtectionOverv
 // SetStartTime sets the StartTime field's value.
 func (s *QueryProtectionOverviewLbInput) SetStartTime(v int32) *QueryProtectionOverviewLbInput {
 	s.StartTime = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *QueryProtectionOverviewLbInput) SetWAFInstanceID(v string) *QueryProtectionOverviewLbInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

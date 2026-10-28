@@ -150,6 +150,8 @@ type DeleteWafServiceCertificateInput struct {
 	Id *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -184,6 +186,12 @@ func (s *DeleteWafServiceCertificateInput) SetId(v string) *DeleteWafServiceCert
 // SetProjectName sets the ProjectName field's value.
 func (s *DeleteWafServiceCertificateInput) SetProjectName(v string) *DeleteWafServiceCertificateInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteWafServiceCertificateInput) SetWAFInstanceID(v string) *DeleteWafServiceCertificateInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

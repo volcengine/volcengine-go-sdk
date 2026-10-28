@@ -153,6 +153,8 @@ type DeleteTamperProofInput struct {
 	ID *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,6 +198,12 @@ func (s *DeleteTamperProofInput) SetID(v int32) *DeleteTamperProofInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DeleteTamperProofInput) SetProjectName(v string) *DeleteTamperProofInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteTamperProofInput) SetWAFInstanceID(v string) *DeleteTamperProofInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

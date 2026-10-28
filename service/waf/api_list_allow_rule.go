@@ -344,6 +344,8 @@ type ListAllowRuleInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	Url *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -396,6 +398,12 @@ func (s *ListAllowRuleInput) SetProjectName(v string) *ListAllowRuleInput {
 // SetUrl sets the Url field's value.
 func (s *ListAllowRuleInput) SetUrl(v string) *ListAllowRuleInput {
 	s.Url = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListAllowRuleInput) SetWAFInstanceID(v string) *ListAllowRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

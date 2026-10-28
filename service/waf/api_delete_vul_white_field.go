@@ -150,6 +150,8 @@ type DeleteVulWhiteFieldInput struct {
 	ID *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -184,6 +186,12 @@ func (s *DeleteVulWhiteFieldInput) SetID(v int32) *DeleteVulWhiteFieldInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DeleteVulWhiteFieldInput) SetProjectName(v string) *DeleteVulWhiteFieldInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteVulWhiteFieldInput) SetWAFInstanceID(v string) *DeleteVulWhiteFieldInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

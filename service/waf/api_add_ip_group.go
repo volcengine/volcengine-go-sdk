@@ -155,6 +155,8 @@ type AddIpGroupInput struct {
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,6 +206,12 @@ func (s *AddIpGroupInput) SetName(v string) *AddIpGroupInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *AddIpGroupInput) SetProjectName(v string) *AddIpGroupInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *AddIpGroupInput) SetWAFInstanceID(v string) *AddIpGroupInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

@@ -193,6 +193,8 @@ type GetTLSConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -208,6 +210,12 @@ func (s GetTLSConfigInput) GoString() string {
 // SetProjectName sets the ProjectName field's value.
 func (s *GetTLSConfigInput) SetProjectName(v string) *GetTLSConfigInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *GetTLSConfigInput) SetWAFInstanceID(v string) *GetTLSConfigInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

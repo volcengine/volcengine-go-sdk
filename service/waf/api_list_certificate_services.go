@@ -152,6 +152,8 @@ type ListCertificateServicesInput struct {
 	Id *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,6 +194,12 @@ func (s *ListCertificateServicesInput) SetId(v int32) *ListCertificateServicesIn
 // SetProjectName sets the ProjectName field's value.
 func (s *ListCertificateServicesInput) SetProjectName(v string) *ListCertificateServicesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListCertificateServicesInput) SetWAFInstanceID(v string) *ListCertificateServicesInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

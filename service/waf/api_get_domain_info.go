@@ -201,6 +201,8 @@ type GetDomainInfoInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -216,6 +218,12 @@ func (s GetDomainInfoInput) GoString() string {
 // SetProjectName sets the ProjectName field's value.
 func (s *GetDomainInfoInput) SetProjectName(v string) *GetDomainInfoInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *GetDomainInfoInput) SetWAFInstanceID(v string) *GetDomainInfoInput {
+	s.WAFInstanceID = &v
 	return s
 }
 
