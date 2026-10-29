@@ -153,6 +153,8 @@ type DeleteBlockRuleInput struct {
 	Id *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,6 +198,12 @@ func (s *DeleteBlockRuleInput) SetId(v string) *DeleteBlockRuleInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DeleteBlockRuleInput) SetProjectName(v string) *DeleteBlockRuleInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteBlockRuleInput) SetWAFInstanceID(v string) *DeleteBlockRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

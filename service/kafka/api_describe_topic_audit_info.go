@@ -146,6 +146,8 @@ func (c *KAFKA) DescribeTopicAuditInfoWithContext(ctx volcengine.Context, input 
 type DescribeTopicAuditInfoInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AggregateBySourceIp *bool `type:"boolean" json:",omitempty"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -201,6 +203,12 @@ func (s *DescribeTopicAuditInfoInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAggregateBySourceIp sets the AggregateBySourceIp field's value.
+func (s *DescribeTopicAuditInfoInput) SetAggregateBySourceIp(v bool) *DescribeTopicAuditInfoInput {
+	s.AggregateBySourceIp = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -286,9 +294,9 @@ func (s *DescribeTopicAuditInfoOutput) SetTotal(v int32) *DescribeTopicAuditInfo
 type RecordForDescribeTopicAuditInfoOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string" json:",omitempty"`
+	CloseTime *string `type:"string" json:",omitempty"`
 
-	DeleteTime *string `type:"string" json:",omitempty"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
 	LastUpdateTime *string `type:"string" json:",omitempty"`
 
@@ -309,15 +317,15 @@ func (s RecordForDescribeTopicAuditInfoOutput) GoString() string {
 	return s.String()
 }
 
-// SetCreateTime sets the CreateTime field's value.
-func (s *RecordForDescribeTopicAuditInfoOutput) SetCreateTime(v string) *RecordForDescribeTopicAuditInfoOutput {
-	s.CreateTime = &v
+// SetCloseTime sets the CloseTime field's value.
+func (s *RecordForDescribeTopicAuditInfoOutput) SetCloseTime(v string) *RecordForDescribeTopicAuditInfoOutput {
+	s.CloseTime = &v
 	return s
 }
 
-// SetDeleteTime sets the DeleteTime field's value.
-func (s *RecordForDescribeTopicAuditInfoOutput) SetDeleteTime(v string) *RecordForDescribeTopicAuditInfoOutput {
-	s.DeleteTime = &v
+// SetCreateTime sets the CreateTime field's value.
+func (s *RecordForDescribeTopicAuditInfoOutput) SetCreateTime(v string) *RecordForDescribeTopicAuditInfoOutput {
+	s.CreateTime = &v
 	return s
 }
 

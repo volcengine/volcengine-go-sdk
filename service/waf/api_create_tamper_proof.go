@@ -163,6 +163,8 @@ type CreateTamperProofInput struct {
 
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,6 +238,12 @@ func (s *CreateTamperProofInput) SetProjectName(v string) *CreateTamperProofInpu
 // SetUrl sets the Url field's value.
 func (s *CreateTamperProofInput) SetUrl(v string) *CreateTamperProofInput {
 	s.Url = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *CreateTamperProofInput) SetWAFInstanceID(v string) *CreateTamperProofInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

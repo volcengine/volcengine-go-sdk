@@ -153,6 +153,8 @@ type DeleteCustomBotConfigInput struct {
 	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,6 +198,12 @@ func (s *DeleteCustomBotConfigInput) SetHost(v string) *DeleteCustomBotConfigInp
 // SetProjectName sets the ProjectName field's value.
 func (s *DeleteCustomBotConfigInput) SetProjectName(v string) *DeleteCustomBotConfigInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteCustomBotConfigInput) SetWAFInstanceID(v string) *DeleteCustomBotConfigInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

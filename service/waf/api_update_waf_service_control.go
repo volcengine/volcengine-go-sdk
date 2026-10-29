@@ -183,6 +183,8 @@ type UpdateWafServiceControlInput struct {
 
 	TamperProofEnable *int32 `type:"int32" json:",omitempty"`
 
+	WAFInstanceID *string `type:"string" json:",omitempty"`
+
 	WafEnable *int32 `type:"int32" json:",omitempty"`
 
 	WafWhiteReqEnable *int32 `type:"int32" json:",omitempty"`
@@ -320,6 +322,12 @@ func (s *UpdateWafServiceControlInput) SetTLSEnable(v int32) *UpdateWafServiceCo
 // SetTamperProofEnable sets the TamperProofEnable field's value.
 func (s *UpdateWafServiceControlInput) SetTamperProofEnable(v int32) *UpdateWafServiceControlInput {
 	s.TamperProofEnable = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UpdateWafServiceControlInput) SetWAFInstanceID(v string) *UpdateWafServiceControlInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

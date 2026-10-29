@@ -335,6 +335,8 @@ type UpdateBotAnalyseProtectRuleInput struct {
 	StatisticalType *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -510,6 +512,12 @@ func (s *UpdateBotAnalyseProtectRuleInput) SetStatisticalType(v int32) *UpdateBo
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *UpdateBotAnalyseProtectRuleInput) SetUpdateTime(v string) *UpdateBotAnalyseProtectRuleInput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UpdateBotAnalyseProtectRuleInput) SetWAFInstanceID(v string) *UpdateBotAnalyseProtectRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

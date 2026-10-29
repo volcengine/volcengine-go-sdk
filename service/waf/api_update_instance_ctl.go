@@ -154,6 +154,8 @@ type UpdateInstanceCtlInput struct {
 
 	// Region is a required field
 	Region *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,6 +202,12 @@ func (s *UpdateInstanceCtlInput) SetProjectName(v string) *UpdateInstanceCtlInpu
 // SetRegion sets the Region field's value.
 func (s *UpdateInstanceCtlInput) SetRegion(v string) *UpdateInstanceCtlInput {
 	s.Region = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UpdateInstanceCtlInput) SetWAFInstanceID(v string) *UpdateInstanceCtlInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

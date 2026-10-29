@@ -155,6 +155,8 @@ type QueryCertificateIfReplaceInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	PublicRealServer *int32 `type:"int32" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,6 +206,12 @@ func (s *QueryCertificateIfReplaceInput) SetProjectName(v string) *QueryCertific
 // SetPublicRealServer sets the PublicRealServer field's value.
 func (s *QueryCertificateIfReplaceInput) SetPublicRealServer(v int32) *QueryCertificateIfReplaceInput {
 	s.PublicRealServer = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *QueryCertificateIfReplaceInput) SetWAFInstanceID(v string) *QueryCertificateIfReplaceInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

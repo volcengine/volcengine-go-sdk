@@ -165,6 +165,8 @@ type UpdateTamperProofInput struct {
 
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -244,6 +246,12 @@ func (s *UpdateTamperProofInput) SetProjectName(v string) *UpdateTamperProofInpu
 // SetUrl sets the Url field's value.
 func (s *UpdateTamperProofInput) SetUrl(v string) *UpdateTamperProofInput {
 	s.Url = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UpdateTamperProofInput) SetWAFInstanceID(v string) *UpdateTamperProofInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

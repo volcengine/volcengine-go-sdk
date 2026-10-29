@@ -149,6 +149,8 @@ type DeleteIpGroupInput struct {
 	IpGroupIds []*int32 `type:"list" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -170,6 +172,12 @@ func (s *DeleteIpGroupInput) SetIpGroupIds(v []*int32) *DeleteIpGroupInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DeleteIpGroupInput) SetProjectName(v string) *DeleteIpGroupInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteIpGroupInput) SetWAFInstanceID(v string) *DeleteIpGroupInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

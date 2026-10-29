@@ -466,9 +466,9 @@ type HarvestForAliasResourcePackOutput struct {
 
 	CropType *string `type:"string" json:",omitempty"`
 
-	CurrentUsage *float64 `type:"float" json:",omitempty"`
+	CurrentUsage *float32 `type:"float" json:",omitempty"`
 
-	PurchasedAmount *float64 `type:"float" json:",omitempty"`
+	PurchasedAmount *float32 `type:"float" json:",omitempty"`
 
 	ResourceID *string `type:"string" json:",omitempty"`
 
@@ -492,13 +492,13 @@ func (s *HarvestForAliasResourcePackOutput) SetCropType(v string) *HarvestForAli
 }
 
 // SetCurrentUsage sets the CurrentUsage field's value.
-func (s *HarvestForAliasResourcePackOutput) SetCurrentUsage(v float64) *HarvestForAliasResourcePackOutput {
+func (s *HarvestForAliasResourcePackOutput) SetCurrentUsage(v float32) *HarvestForAliasResourcePackOutput {
 	s.CurrentUsage = &v
 	return s
 }
 
 // SetPurchasedAmount sets the PurchasedAmount field's value.
-func (s *HarvestForAliasResourcePackOutput) SetPurchasedAmount(v float64) *HarvestForAliasResourcePackOutput {
+func (s *HarvestForAliasResourcePackOutput) SetPurchasedAmount(v float32) *HarvestForAliasResourcePackOutput {
 	s.PurchasedAmount = &v
 	return s
 }

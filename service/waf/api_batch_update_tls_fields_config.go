@@ -154,6 +154,8 @@ type BatchUpdateTLSFieldsConfigInput struct {
 	Region *string `type:"string" json:",omitempty" required:"true"`
 
 	TLSFieldsConfig *TLSFieldsConfigForBatchUpdateTLSFieldsConfigInput `type:"structure" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,6 +202,12 @@ func (s *BatchUpdateTLSFieldsConfigInput) SetRegion(v string) *BatchUpdateTLSFie
 // SetTLSFieldsConfig sets the TLSFieldsConfig field's value.
 func (s *BatchUpdateTLSFieldsConfigInput) SetTLSFieldsConfig(v *TLSFieldsConfigForBatchUpdateTLSFieldsConfigInput) *BatchUpdateTLSFieldsConfigInput {
 	s.TLSFieldsConfig = v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *BatchUpdateTLSFieldsConfigInput) SetWAFInstanceID(v string) *BatchUpdateTLSFieldsConfigInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

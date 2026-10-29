@@ -245,6 +245,8 @@ type ListLoadBalancerInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -272,6 +274,12 @@ func (s *ListLoadBalancerInput) SetProjectName(v string) *ListLoadBalancerInput 
 // SetType sets the Type field's value.
 func (s *ListLoadBalancerInput) SetType(v string) *ListLoadBalancerInput {
 	s.Type = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListLoadBalancerInput) SetWAFInstanceID(v string) *ListLoadBalancerInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

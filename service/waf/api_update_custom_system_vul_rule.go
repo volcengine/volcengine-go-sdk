@@ -185,6 +185,8 @@ type UpdateCustomSystemVulRuleInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	SystemRuleSwitch []*SystemRuleSwitchForUpdateCustomSystemVulRuleInput `type:"list" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,6 +226,12 @@ func (s *UpdateCustomSystemVulRuleInput) SetProjectName(v string) *UpdateCustomS
 // SetSystemRuleSwitch sets the SystemRuleSwitch field's value.
 func (s *UpdateCustomSystemVulRuleInput) SetSystemRuleSwitch(v []*SystemRuleSwitchForUpdateCustomSystemVulRuleInput) *UpdateCustomSystemVulRuleInput {
 	s.SystemRuleSwitch = v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UpdateCustomSystemVulRuleInput) SetWAFInstanceID(v string) *UpdateCustomSystemVulRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

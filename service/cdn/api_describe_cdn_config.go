@@ -825,6 +825,44 @@ func (s *CacheKeyForDescribeCdnConfigOutput) SetCondition(v *ConditionForDescrib
 	return s
 }
 
+type CdnImageStudioForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Condition *ConditionForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+
+	WebpAdaptive *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CdnImageStudioForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CdnImageStudioForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *CdnImageStudioForDescribeCdnConfigOutput) SetCondition(v *ConditionForDescribeCdnConfigOutput) *CdnImageStudioForDescribeCdnConfigOutput {
+	s.Condition = v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *CdnImageStudioForDescribeCdnConfigOutput) SetSwitch(v bool) *CdnImageStudioForDescribeCdnConfigOutput {
+	s.Switch = &v
+	return s
+}
+
+// SetWebpAdaptive sets the WebpAdaptive field's value.
+func (s *CdnImageStudioForDescribeCdnConfigOutput) SetWebpAdaptive(v bool) *CdnImageStudioForDescribeCdnConfigOutput {
+	s.WebpAdaptive = &v
+	return s
+}
+
 type CertCheckForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1880,6 +1918,8 @@ type DomainConfigForDescribeCdnConfigOutput struct {
 
 	CacheKey []*CacheKeyForDescribeCdnConfigOutput `type:"list"`
 
+	CdnImageStudio *CdnImageStudioForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
+
 	Cname *string `type:"string" json:",omitempty"`
 
 	Compression *CompressionForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
@@ -1897,6 +1937,8 @@ type DomainConfigForDescribeCdnConfigOutput struct {
 	DownloadSpeedLimit *DownloadSpeedLimitForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
 
 	FollowRedirect *bool `type:"boolean" json:",omitempty"`
+
+	HTMLToMarkdown *HTMLToMarkdownForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
 
 	HTTPS *HTTPSForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
 
@@ -1936,6 +1978,8 @@ type DomainConfigForDescribeCdnConfigOutput struct {
 
 	OriginRange *bool `type:"boolean" json:",omitempty"`
 
+	OriginResponseHeader []*OriginResponseHeaderForDescribeCdnConfigOutput `type:"list"`
+
 	OriginRetry *OriginRetryForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
 
 	OriginRewrite *OriginRewriteForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
@@ -1947,6 +1991,8 @@ type DomainConfigForDescribeCdnConfigOutput struct {
 	Project *string `type:"string" json:",omitempty"`
 
 	Quic *QuicForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
+
+	Range *RangeForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
 
 	RedirectionRewrite *RedirectionRewriteForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
 
@@ -2035,6 +2081,12 @@ func (s *DomainConfigForDescribeCdnConfigOutput) SetCacheKey(v []*CacheKeyForDes
 	return s
 }
 
+// SetCdnImageStudio sets the CdnImageStudio field's value.
+func (s *DomainConfigForDescribeCdnConfigOutput) SetCdnImageStudio(v *CdnImageStudioForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
+	s.CdnImageStudio = v
+	return s
+}
+
 // SetCname sets the Cname field's value.
 func (s *DomainConfigForDescribeCdnConfigOutput) SetCname(v string) *DomainConfigForDescribeCdnConfigOutput {
 	s.Cname = &v
@@ -2086,6 +2138,12 @@ func (s *DomainConfigForDescribeCdnConfigOutput) SetDownloadSpeedLimit(v *Downlo
 // SetFollowRedirect sets the FollowRedirect field's value.
 func (s *DomainConfigForDescribeCdnConfigOutput) SetFollowRedirect(v bool) *DomainConfigForDescribeCdnConfigOutput {
 	s.FollowRedirect = &v
+	return s
+}
+
+// SetHTMLToMarkdown sets the HTMLToMarkdown field's value.
+func (s *DomainConfigForDescribeCdnConfigOutput) SetHTMLToMarkdown(v *HTMLToMarkdownForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
+	s.HTMLToMarkdown = v
 	return s
 }
 
@@ -2203,6 +2261,12 @@ func (s *DomainConfigForDescribeCdnConfigOutput) SetOriginRange(v bool) *DomainC
 	return s
 }
 
+// SetOriginResponseHeader sets the OriginResponseHeader field's value.
+func (s *DomainConfigForDescribeCdnConfigOutput) SetOriginResponseHeader(v []*OriginResponseHeaderForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
+	s.OriginResponseHeader = v
+	return s
+}
+
 // SetOriginRetry sets the OriginRetry field's value.
 func (s *DomainConfigForDescribeCdnConfigOutput) SetOriginRetry(v *OriginRetryForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
 	s.OriginRetry = v
@@ -2236,6 +2300,12 @@ func (s *DomainConfigForDescribeCdnConfigOutput) SetProject(v string) *DomainCon
 // SetQuic sets the Quic field's value.
 func (s *DomainConfigForDescribeCdnConfigOutput) SetQuic(v *QuicForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
 	s.Quic = v
+	return s
+}
+
+// SetRange sets the Range field's value.
+func (s *DomainConfigForDescribeCdnConfigOutput) SetRange(v *RangeForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
+	s.Range = v
 	return s
 }
 
@@ -2602,6 +2672,28 @@ func (s *ForcedRedirectForDescribeCdnConfigOutput) SetEnableForcedRedirect(v boo
 // SetStatusCode sets the StatusCode field's value.
 func (s *ForcedRedirectForDescribeCdnConfigOutput) SetStatusCode(v string) *ForcedRedirectForDescribeCdnConfigOutput {
 	s.StatusCode = &v
+	return s
+}
+
+type HTMLToMarkdownForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HTMLToMarkdownForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HTMLToMarkdownForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *HTMLToMarkdownForDescribeCdnConfigOutput) SetSwitch(v bool) *HTMLToMarkdownForDescribeCdnConfigOutput {
+	s.Switch = &v
 	return s
 }
 
@@ -3675,6 +3767,104 @@ func (s *OriginLineForDescribeCdnConfigOutput) SetOriginHost(v string) *OriginLi
 	return s
 }
 
+type OriginResponseHeaderActionForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	OriginResponseHeaderInstances []*OriginResponseHeaderInstanceForDescribeCdnConfigOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s OriginResponseHeaderActionForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginResponseHeaderActionForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetOriginResponseHeaderInstances sets the OriginResponseHeaderInstances field's value.
+func (s *OriginResponseHeaderActionForDescribeCdnConfigOutput) SetOriginResponseHeaderInstances(v []*OriginResponseHeaderInstanceForDescribeCdnConfigOutput) *OriginResponseHeaderActionForDescribeCdnConfigOutput {
+	s.OriginResponseHeaderInstances = v
+	return s
+}
+
+type OriginResponseHeaderForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	OriginResponseHeaderAction *OriginResponseHeaderActionForDescribeCdnConfigOutput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OriginResponseHeaderForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginResponseHeaderForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetOriginResponseHeaderAction sets the OriginResponseHeaderAction field's value.
+func (s *OriginResponseHeaderForDescribeCdnConfigOutput) SetOriginResponseHeaderAction(v *OriginResponseHeaderActionForDescribeCdnConfigOutput) *OriginResponseHeaderForDescribeCdnConfigOutput {
+	s.OriginResponseHeaderAction = v
+	return s
+}
+
+type OriginResponseHeaderInstanceForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Object *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+
+	ValueType *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OriginResponseHeaderInstanceForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginResponseHeaderInstanceForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *OriginResponseHeaderInstanceForDescribeCdnConfigOutput) SetAction(v string) *OriginResponseHeaderInstanceForDescribeCdnConfigOutput {
+	s.Action = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *OriginResponseHeaderInstanceForDescribeCdnConfigOutput) SetKey(v string) *OriginResponseHeaderInstanceForDescribeCdnConfigOutput {
+	s.Key = &v
+	return s
+}
+
+// SetObject sets the Object field's value.
+func (s *OriginResponseHeaderInstanceForDescribeCdnConfigOutput) SetObject(v string) *OriginResponseHeaderInstanceForDescribeCdnConfigOutput {
+	s.Object = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *OriginResponseHeaderInstanceForDescribeCdnConfigOutput) SetValue(v string) *OriginResponseHeaderInstanceForDescribeCdnConfigOutput {
+	s.Value = &v
+	return s
+}
+
+// SetValueType sets the ValueType field's value.
+func (s *OriginResponseHeaderInstanceForDescribeCdnConfigOutput) SetValueType(v string) *OriginResponseHeaderInstanceForDescribeCdnConfigOutput {
+	s.ValueType = &v
+	return s
+}
+
 type OriginRetryForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -4056,6 +4246,44 @@ func (s QuicForDescribeCdnConfigOutput) GoString() string {
 // SetSwitch sets the Switch field's value.
 func (s *QuicForDescribeCdnConfigOutput) SetSwitch(v bool) *QuicForDescribeCdnConfigOutput {
 	s.Switch = &v
+	return s
+}
+
+type RangeForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	RangeSize *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+
+	Unit *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RangeForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RangeForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetRangeSize sets the RangeSize field's value.
+func (s *RangeForDescribeCdnConfigOutput) SetRangeSize(v int64) *RangeForDescribeCdnConfigOutput {
+	s.RangeSize = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *RangeForDescribeCdnConfigOutput) SetSwitch(v bool) *RangeForDescribeCdnConfigOutput {
+	s.Switch = &v
+	return s
+}
+
+// SetUnit sets the Unit field's value.
+func (s *RangeForDescribeCdnConfigOutput) SetUnit(v string) *RangeForDescribeCdnConfigOutput {
+	s.Unit = &v
 	return s
 }
 

@@ -249,6 +249,8 @@ type CreateCustomBotConfigInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	VerificationExemptionTime *int32 `type:"int32" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -328,6 +330,12 @@ func (s *CreateCustomBotConfigInput) SetProjectName(v string) *CreateCustomBotCo
 // SetVerificationExemptionTime sets the VerificationExemptionTime field's value.
 func (s *CreateCustomBotConfigInput) SetVerificationExemptionTime(v int32) *CreateCustomBotConfigInput {
 	s.VerificationExemptionTime = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *CreateCustomBotConfigInput) SetWAFInstanceID(v string) *CreateCustomBotConfigInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

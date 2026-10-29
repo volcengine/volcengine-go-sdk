@@ -291,6 +291,8 @@ type CreateCCRuleInput struct {
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
 
+	WAFInstanceID *string `type:"string" json:",omitempty"`
+
 	WSCdnByteThreshold *int32 `type:"int32" json:",omitempty"`
 
 	WSCdnEnable *int32 `type:"int32" json:",omitempty"`
@@ -452,6 +454,12 @@ func (s *CreateCCRuleInput) SetSingleThreshold(v int32) *CreateCCRuleInput {
 // SetUrl sets the Url field's value.
 func (s *CreateCCRuleInput) SetUrl(v string) *CreateCCRuleInput {
 	s.Url = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *CreateCCRuleInput) SetWAFInstanceID(v string) *CreateCCRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

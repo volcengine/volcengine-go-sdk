@@ -150,6 +150,8 @@ type DeleteBotAnalyseProtectRuleInput struct {
 	Id *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -184,6 +186,12 @@ func (s *DeleteBotAnalyseProtectRuleInput) SetId(v int32) *DeleteBotAnalyseProte
 // SetProjectName sets the ProjectName field's value.
 func (s *DeleteBotAnalyseProtectRuleInput) SetProjectName(v string) *DeleteBotAnalyseProtectRuleInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteBotAnalyseProtectRuleInput) SetWAFInstanceID(v string) *DeleteBotAnalyseProtectRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

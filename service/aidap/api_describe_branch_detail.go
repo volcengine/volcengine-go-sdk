@@ -425,8 +425,9 @@ type DescribeBranchDetailInput struct {
 	// BranchId is a required field
 	BranchId *string `type:"string" json:",omitempty" required:"true"`
 
-	// WorkspaceId is a required field
-	WorkspaceId *string `type:"string" json:",omitempty" required:"true"`
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	WorkspaceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -445,9 +446,6 @@ func (s *DescribeBranchDetailInput) Validate() error {
 	if s.BranchId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BranchId"))
 	}
-	if s.WorkspaceId == nil {
-		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -458,6 +456,12 @@ func (s *DescribeBranchDetailInput) Validate() error {
 // SetBranchId sets the BranchId field's value.
 func (s *DescribeBranchDetailInput) SetBranchId(v string) *DescribeBranchDetailInput {
 	s.BranchId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeBranchDetailInput) SetProjectName(v string) *DescribeBranchDetailInput {
+	s.ProjectName = &v
 	return s
 }
 

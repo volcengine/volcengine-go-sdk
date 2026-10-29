@@ -258,6 +258,8 @@ type CreateBlockRuleInput struct {
 
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -364,6 +366,12 @@ func (s *CreateBlockRuleInput) SetProjectName(v string) *CreateBlockRuleInput {
 // SetUrl sets the Url field's value.
 func (s *CreateBlockRuleInput) SetUrl(v string) *CreateBlockRuleInput {
 	s.Url = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *CreateBlockRuleInput) SetWAFInstanceID(v string) *CreateBlockRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

@@ -281,6 +281,8 @@ type UpdateAreaBlockRuleInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	SubRegion []*string `type:"list" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -342,6 +344,12 @@ func (s *UpdateAreaBlockRuleInput) SetProjectName(v string) *UpdateAreaBlockRule
 // SetSubRegion sets the SubRegion field's value.
 func (s *UpdateAreaBlockRuleInput) SetSubRegion(v []*string) *UpdateAreaBlockRuleInput {
 	s.SubRegion = v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UpdateAreaBlockRuleInput) SetWAFInstanceID(v string) *UpdateAreaBlockRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

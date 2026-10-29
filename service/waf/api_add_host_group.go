@@ -154,6 +154,8 @@ type AddHostGroupInput struct {
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,6 +202,12 @@ func (s *AddHostGroupInput) SetName(v string) *AddHostGroupInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *AddHostGroupInput) SetProjectName(v string) *AddHostGroupInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *AddHostGroupInput) SetWAFInstanceID(v string) *AddHostGroupInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

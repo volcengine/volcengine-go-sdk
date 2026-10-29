@@ -149,6 +149,8 @@ type BatchDeleteGlobalBanItemsInput struct {
 	IDs []*int32 `type:"list" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -170,6 +172,12 @@ func (s *BatchDeleteGlobalBanItemsInput) SetIDs(v []*int32) *BatchDeleteGlobalBa
 // SetProjectName sets the ProjectName field's value.
 func (s *BatchDeleteGlobalBanItemsInput) SetProjectName(v string) *BatchDeleteGlobalBanItemsInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *BatchDeleteGlobalBanItemsInput) SetWAFInstanceID(v string) *BatchDeleteGlobalBanItemsInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

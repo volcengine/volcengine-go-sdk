@@ -152,6 +152,8 @@ type GetReqQPSAnalysisInput struct {
 
 	// StartTime is a required field
 	StartTime *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,6 +194,12 @@ func (s *GetReqQPSAnalysisInput) SetEndTime(v string) *GetReqQPSAnalysisInput {
 // SetStartTime sets the StartTime field's value.
 func (s *GetReqQPSAnalysisInput) SetStartTime(v string) *GetReqQPSAnalysisInput {
 	s.StartTime = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *GetReqQPSAnalysisInput) SetWAFInstanceID(v string) *GetReqQPSAnalysisInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

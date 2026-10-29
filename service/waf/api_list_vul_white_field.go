@@ -253,6 +253,8 @@ type ListVulWhiteFieldInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RuleTag *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -304,6 +306,12 @@ func (s *ListVulWhiteFieldInput) SetProjectName(v string) *ListVulWhiteFieldInpu
 // SetRuleTag sets the RuleTag field's value.
 func (s *ListVulWhiteFieldInput) SetRuleTag(v string) *ListVulWhiteFieldInput {
 	s.RuleTag = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListVulWhiteFieldInput) SetWAFInstanceID(v string) *ListVulWhiteFieldInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

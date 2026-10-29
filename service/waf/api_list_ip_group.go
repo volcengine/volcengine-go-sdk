@@ -160,6 +160,8 @@ type ListIpGroupInput struct {
 	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -224,6 +226,12 @@ func (s *ListIpGroupInput) SetPageSize(v int32) *ListIpGroupInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *ListIpGroupInput) SetProjectName(v string) *ListIpGroupInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListIpGroupInput) SetWAFInstanceID(v string) *ListIpGroupInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

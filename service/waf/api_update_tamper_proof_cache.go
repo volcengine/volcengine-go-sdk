@@ -153,6 +153,8 @@ type UpdateTamperProofCacheInput struct {
 	ID *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,6 +198,12 @@ func (s *UpdateTamperProofCacheInput) SetID(v int32) *UpdateTamperProofCacheInpu
 // SetProjectName sets the ProjectName field's value.
 func (s *UpdateTamperProofCacheInput) SetProjectName(v string) *UpdateTamperProofCacheInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UpdateTamperProofCacheInput) SetWAFInstanceID(v string) *UpdateTamperProofCacheInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

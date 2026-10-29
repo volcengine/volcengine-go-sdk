@@ -292,6 +292,8 @@ type CreateBotAnalyseProtectRuleInput struct {
 
 	// StatisticalType is a required field
 	StatisticalType *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -452,6 +454,12 @@ func (s *CreateBotAnalyseProtectRuleInput) SetStatisticalDuration(v int32) *Crea
 // SetStatisticalType sets the StatisticalType field's value.
 func (s *CreateBotAnalyseProtectRuleInput) SetStatisticalType(v int32) *CreateBotAnalyseProtectRuleInput {
 	s.StatisticalType = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *CreateBotAnalyseProtectRuleInput) SetWAFInstanceID(v string) *CreateBotAnalyseProtectRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

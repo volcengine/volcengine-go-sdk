@@ -472,6 +472,8 @@ type BatchUpdateCdnConfigInput struct {
 
 	CacheKey []*CacheKeyForBatchUpdateCdnConfigInput `type:"list"`
 
+	CdnImageStudio *CdnImageStudioForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
+
 	Compression *CompressionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
 	ConditionalOrigin *ConditionalOriginForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
@@ -485,6 +487,8 @@ type BatchUpdateCdnConfigInput struct {
 	DownloadSpeedLimit *DownloadSpeedLimitForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
 	FollowRedirect *bool `type:"boolean" json:",omitempty"`
+
+	HTMLToMarkdown *HTMLToMarkdownForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
 	HTTPS *HTTPSForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
@@ -520,6 +524,8 @@ type BatchUpdateCdnConfigInput struct {
 
 	OriginRange *bool `type:"boolean" json:",omitempty"`
 
+	OriginResponseHeader []*OriginResponseHeaderForBatchUpdateCdnConfigInput `type:"list"`
+
 	OriginRetry *OriginRetryForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
 	OriginRewrite *OriginRewriteForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
@@ -529,6 +535,8 @@ type BatchUpdateCdnConfigInput struct {
 	PageOptimization *PageOptimizationForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
 	Quic *QuicForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
+
+	Range *RangeForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
 	RedirectionRewrite *RedirectionRewriteForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
 
@@ -611,6 +619,12 @@ func (s *BatchUpdateCdnConfigInput) SetCacheKey(v []*CacheKeyForBatchUpdateCdnCo
 	return s
 }
 
+// SetCdnImageStudio sets the CdnImageStudio field's value.
+func (s *BatchUpdateCdnConfigInput) SetCdnImageStudio(v *CdnImageStudioForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
+	s.CdnImageStudio = v
+	return s
+}
+
 // SetCompression sets the Compression field's value.
 func (s *BatchUpdateCdnConfigInput) SetCompression(v *CompressionForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
 	s.Compression = v
@@ -650,6 +664,12 @@ func (s *BatchUpdateCdnConfigInput) SetDownloadSpeedLimit(v *DownloadSpeedLimitF
 // SetFollowRedirect sets the FollowRedirect field's value.
 func (s *BatchUpdateCdnConfigInput) SetFollowRedirect(v bool) *BatchUpdateCdnConfigInput {
 	s.FollowRedirect = &v
+	return s
+}
+
+// SetHTMLToMarkdown sets the HTMLToMarkdown field's value.
+func (s *BatchUpdateCdnConfigInput) SetHTMLToMarkdown(v *HTMLToMarkdownForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
+	s.HTMLToMarkdown = v
 	return s
 }
 
@@ -755,6 +775,12 @@ func (s *BatchUpdateCdnConfigInput) SetOriginRange(v bool) *BatchUpdateCdnConfig
 	return s
 }
 
+// SetOriginResponseHeader sets the OriginResponseHeader field's value.
+func (s *BatchUpdateCdnConfigInput) SetOriginResponseHeader(v []*OriginResponseHeaderForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
+	s.OriginResponseHeader = v
+	return s
+}
+
 // SetOriginRetry sets the OriginRetry field's value.
 func (s *BatchUpdateCdnConfigInput) SetOriginRetry(v *OriginRetryForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
 	s.OriginRetry = v
@@ -782,6 +808,12 @@ func (s *BatchUpdateCdnConfigInput) SetPageOptimization(v *PageOptimizationForBa
 // SetQuic sets the Quic field's value.
 func (s *BatchUpdateCdnConfigInput) SetQuic(v *QuicForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
 	s.Quic = v
+	return s
+}
+
+// SetRange sets the Range field's value.
+func (s *BatchUpdateCdnConfigInput) SetRange(v *RangeForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
+	s.Range = v
 	return s
 }
 
@@ -1260,6 +1292,44 @@ func (s *CacheKeyForBatchUpdateCdnConfigInput) SetCacheKeyAction(v *CacheKeyActi
 // SetCondition sets the Condition field's value.
 func (s *CacheKeyForBatchUpdateCdnConfigInput) SetCondition(v *ConditionForBatchUpdateCdnConfigInput) *CacheKeyForBatchUpdateCdnConfigInput {
 	s.Condition = v
+	return s
+}
+
+type CdnImageStudioForBatchUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Condition *ConditionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+
+	WebpAdaptive *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s CdnImageStudioForBatchUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CdnImageStudioForBatchUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *CdnImageStudioForBatchUpdateCdnConfigInput) SetCondition(v *ConditionForBatchUpdateCdnConfigInput) *CdnImageStudioForBatchUpdateCdnConfigInput {
+	s.Condition = v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *CdnImageStudioForBatchUpdateCdnConfigInput) SetSwitch(v bool) *CdnImageStudioForBatchUpdateCdnConfigInput {
+	s.Switch = &v
+	return s
+}
+
+// SetWebpAdaptive sets the WebpAdaptive field's value.
+func (s *CdnImageStudioForBatchUpdateCdnConfigInput) SetWebpAdaptive(v bool) *CdnImageStudioForBatchUpdateCdnConfigInput {
+	s.WebpAdaptive = &v
 	return s
 }
 
@@ -2489,6 +2559,28 @@ func (s *ForcedRedirectForBatchUpdateCdnConfigInput) SetStatusCode(v string) *Fo
 	return s
 }
 
+type HTMLToMarkdownForBatchUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HTMLToMarkdownForBatchUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HTMLToMarkdownForBatchUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *HTMLToMarkdownForBatchUpdateCdnConfigInput) SetSwitch(v bool) *HTMLToMarkdownForBatchUpdateCdnConfigInput {
+	s.Switch = &v
+	return s
+}
+
 type HTTPSForBatchUpdateCdnConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -3263,6 +3355,104 @@ func (s *OriginLineForBatchUpdateCdnConfigInput) SetOriginHost(v string) *Origin
 	return s
 }
 
+type OriginResponseHeaderActionForBatchUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	OriginResponseHeaderInstances []*OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput `type:"list"`
+}
+
+// String returns the string representation
+func (s OriginResponseHeaderActionForBatchUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginResponseHeaderActionForBatchUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetOriginResponseHeaderInstances sets the OriginResponseHeaderInstances field's value.
+func (s *OriginResponseHeaderActionForBatchUpdateCdnConfigInput) SetOriginResponseHeaderInstances(v []*OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput) *OriginResponseHeaderActionForBatchUpdateCdnConfigInput {
+	s.OriginResponseHeaderInstances = v
+	return s
+}
+
+type OriginResponseHeaderForBatchUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	OriginResponseHeaderAction *OriginResponseHeaderActionForBatchUpdateCdnConfigInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OriginResponseHeaderForBatchUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginResponseHeaderForBatchUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetOriginResponseHeaderAction sets the OriginResponseHeaderAction field's value.
+func (s *OriginResponseHeaderForBatchUpdateCdnConfigInput) SetOriginResponseHeaderAction(v *OriginResponseHeaderActionForBatchUpdateCdnConfigInput) *OriginResponseHeaderForBatchUpdateCdnConfigInput {
+	s.OriginResponseHeaderAction = v
+	return s
+}
+
+type OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Action *string `type:"string" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Object *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+
+	ValueType *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput) SetAction(v string) *OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput {
+	s.Action = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput) SetKey(v string) *OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput {
+	s.Key = &v
+	return s
+}
+
+// SetObject sets the Object field's value.
+func (s *OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput) SetObject(v string) *OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput {
+	s.Object = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput) SetValue(v string) *OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput {
+	s.Value = &v
+	return s
+}
+
+// SetValueType sets the ValueType field's value.
+func (s *OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput) SetValueType(v string) *OriginResponseHeaderInstanceForBatchUpdateCdnConfigInput {
+	s.ValueType = &v
+	return s
+}
+
 type OriginRetryForBatchUpdateCdnConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -3644,6 +3834,44 @@ func (s QuicForBatchUpdateCdnConfigInput) GoString() string {
 // SetSwitch sets the Switch field's value.
 func (s *QuicForBatchUpdateCdnConfigInput) SetSwitch(v bool) *QuicForBatchUpdateCdnConfigInput {
 	s.Switch = &v
+	return s
+}
+
+type RangeForBatchUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	RangeSize *int64 `type:"int64" json:",omitempty"`
+
+	Switch *bool `type:"boolean" json:",omitempty"`
+
+	Unit *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s RangeForBatchUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RangeForBatchUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetRangeSize sets the RangeSize field's value.
+func (s *RangeForBatchUpdateCdnConfigInput) SetRangeSize(v int64) *RangeForBatchUpdateCdnConfigInput {
+	s.RangeSize = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *RangeForBatchUpdateCdnConfigInput) SetSwitch(v bool) *RangeForBatchUpdateCdnConfigInput {
+	s.Switch = &v
+	return s
+}
+
+// SetUnit sets the Unit field's value.
+func (s *RangeForBatchUpdateCdnConfigInput) SetUnit(v string) *RangeForBatchUpdateCdnConfigInput {
+	s.Unit = &v
 	return s
 }
 

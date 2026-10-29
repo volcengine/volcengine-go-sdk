@@ -216,6 +216,8 @@ type ListAllIpGroupsInput struct {
 
 	// TimeOrderBy is a required field
 	TimeOrderBy *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -286,6 +288,12 @@ func (s *ListAllIpGroupsInput) SetRuleTag(v string) *ListAllIpGroupsInput {
 // SetTimeOrderBy sets the TimeOrderBy field's value.
 func (s *ListAllIpGroupsInput) SetTimeOrderBy(v string) *ListAllIpGroupsInput {
 	s.TimeOrderBy = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListAllIpGroupsInput) SetWAFInstanceID(v string) *ListAllIpGroupsInput {
+	s.WAFInstanceID = &v
 	return s
 }
 
