@@ -212,7 +212,7 @@ type AutoSnapshotConfigForCreateSandboxInput struct {
 
 	MaxRetained *int32 `type:"int32" json:",omitempty"`
 
-	Metadata map[string]*string `type:"map" json:",omitempty"`
+	Metadata *MetadataForCreateSandboxInput `type:"structure" json:",omitempty"`
 
 	RetentionDays *int32 `type:"int32" json:",omitempty"`
 
@@ -250,7 +250,7 @@ func (s *AutoSnapshotConfigForCreateSandboxInput) SetMaxRetained(v int32) *AutoS
 }
 
 // SetMetadata sets the Metadata field's value.
-func (s *AutoSnapshotConfigForCreateSandboxInput) SetMetadata(v map[string]*string) *AutoSnapshotConfigForCreateSandboxInput {
+func (s *AutoSnapshotConfigForCreateSandboxInput) SetMetadata(v *MetadataForCreateSandboxInput) *AutoSnapshotConfigForCreateSandboxInput {
 	s.Metadata = v
 	return s
 }
@@ -1145,6 +1145,20 @@ func (s *InstanceTosMountConfigForCreateSandboxInput) SetMode(v string) *Instanc
 func (s *InstanceTosMountConfigForCreateSandboxInput) SetTosMountPoints(v []*TosMountPointForCreateSandboxInput) *InstanceTosMountConfigForCreateSandboxInput {
 	s.TosMountPoints = v
 	return s
+}
+
+type MetadataForCreateSandboxInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MetadataForCreateSandboxInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MetadataForCreateSandboxInput) GoString() string {
+	return s.String()
 }
 
 type MountPointForCreateSandboxInput struct {
