@@ -163,6 +163,8 @@ type CreateVulWhiteFieldInput struct {
 	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,6 +238,12 @@ func (s *CreateVulWhiteFieldInput) SetName(v string) *CreateVulWhiteFieldInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateVulWhiteFieldInput) SetProjectName(v string) *CreateVulWhiteFieldInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *CreateVulWhiteFieldInput) SetWAFInstanceID(v string) *CreateVulWhiteFieldInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

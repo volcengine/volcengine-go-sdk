@@ -544,6 +544,8 @@ type ListAclRuleInput struct {
 	RuleTag *string `type:"string" json:",omitempty"`
 
 	TimeOrderBy *string `type:"string" json:",omitempty" enum:"EnumOfTimeOrderByForListAclRuleInput"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -626,6 +628,12 @@ func (s *ListAclRuleInput) SetRuleTag(v string) *ListAclRuleInput {
 // SetTimeOrderBy sets the TimeOrderBy field's value.
 func (s *ListAclRuleInput) SetTimeOrderBy(v string) *ListAclRuleInput {
 	s.TimeOrderBy = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListAclRuleInput) SetWAFInstanceID(v string) *ListAclRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

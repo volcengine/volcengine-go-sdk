@@ -277,6 +277,8 @@ type ListSystemBotConfigInput struct {
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	RuleTag *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -334,6 +336,12 @@ func (s *ListSystemBotConfigInput) SetProjectName(v string) *ListSystemBotConfig
 // SetRuleTag sets the RuleTag field's value.
 func (s *ListSystemBotConfigInput) SetRuleTag(v string) *ListSystemBotConfigInput {
 	s.RuleTag = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListSystemBotConfigInput) SetWAFInstanceID(v string) *ListSystemBotConfigInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

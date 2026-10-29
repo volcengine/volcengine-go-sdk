@@ -268,6 +268,8 @@ type CreateCustomPageInput struct {
 
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -404,6 +406,12 @@ func (s *CreateCustomPageInput) SetRedirectUrl(v string) *CreateCustomPageInput 
 // SetUrl sets the Url field's value.
 func (s *CreateCustomPageInput) SetUrl(v string) *CreateCustomPageInput {
 	s.Url = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *CreateCustomPageInput) SetWAFInstanceID(v string) *CreateCustomPageInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

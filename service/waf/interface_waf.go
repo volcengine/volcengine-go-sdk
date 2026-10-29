@@ -582,6 +582,14 @@ type WAFAPI interface {
 	QueryAttackSecurityEventWithContext(volcengine.Context, *QueryAttackSecurityEventInput, ...request.Option) (*QueryAttackSecurityEventOutput, error)
 	QueryAttackSecurityEventRequest(*QueryAttackSecurityEventInput) (*request.Request, *QueryAttackSecurityEventOutput)
 
+	QueryBytePlusCDNDomainsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryBytePlusCDNDomainsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryBytePlusCDNDomainsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryBytePlusCDNDomains(*QueryBytePlusCDNDomainsInput) (*QueryBytePlusCDNDomainsOutput, error)
+	QueryBytePlusCDNDomainsWithContext(volcengine.Context, *QueryBytePlusCDNDomainsInput, ...request.Option) (*QueryBytePlusCDNDomainsOutput, error)
+	QueryBytePlusCDNDomainsRequest(*QueryBytePlusCDNDomainsInput) (*request.Request, *QueryBytePlusCDNDomainsOutput)
+
 	QueryCertificateIfReplaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryCertificateIfReplaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	QueryCertificateIfReplaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

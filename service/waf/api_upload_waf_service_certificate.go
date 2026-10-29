@@ -159,6 +159,8 @@ type UploadWafServiceCertificateInput struct {
 
 	// PublicKey is a required field
 	PublicKey *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -220,6 +222,12 @@ func (s *UploadWafServiceCertificateInput) SetProjectName(v string) *UploadWafSe
 // SetPublicKey sets the PublicKey field's value.
 func (s *UploadWafServiceCertificateInput) SetPublicKey(v string) *UploadWafServiceCertificateInput {
 	s.PublicKey = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UploadWafServiceCertificateInput) SetWAFInstanceID(v string) *UploadWafServiceCertificateInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

@@ -153,6 +153,8 @@ type DeleteAclRuleInput struct {
 	ID *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,6 +198,12 @@ func (s *DeleteAclRuleInput) SetID(v int32) *DeleteAclRuleInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DeleteAclRuleInput) SetProjectName(v string) *DeleteAclRuleInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *DeleteAclRuleInput) SetWAFInstanceID(v string) *DeleteAclRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

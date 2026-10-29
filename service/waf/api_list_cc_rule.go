@@ -582,6 +582,8 @@ type ListCCRuleInput struct {
 	RuleTag *string `type:"string" json:",omitempty"`
 
 	Url *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -658,6 +660,12 @@ func (s *ListCCRuleInput) SetRuleTag(v string) *ListCCRuleInput {
 // SetUrl sets the Url field's value.
 func (s *ListCCRuleInput) SetUrl(v string) *ListCCRuleInput {
 	s.Url = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListCCRuleInput) SetWAFInstanceID(v string) *ListCCRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

@@ -351,6 +351,8 @@ type ListBotAnalyseProtectRuleInput struct {
 	Region *string `type:"string" json:",omitempty" required:"true"`
 
 	RuleTag *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -436,6 +438,12 @@ func (s *ListBotAnalyseProtectRuleInput) SetRegion(v string) *ListBotAnalyseProt
 // SetRuleTag sets the RuleTag field's value.
 func (s *ListBotAnalyseProtectRuleInput) SetRuleTag(v string) *ListBotAnalyseProtectRuleInput {
 	s.RuleTag = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListBotAnalyseProtectRuleInput) SetWAFInstanceID(v string) *ListBotAnalyseProtectRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

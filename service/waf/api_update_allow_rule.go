@@ -257,6 +257,8 @@ type UpdateAllowRuleInput struct {
 
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -360,6 +362,12 @@ func (s *UpdateAllowRuleInput) SetProjectName(v string) *UpdateAllowRuleInput {
 // SetUrl sets the Url field's value.
 func (s *UpdateAllowRuleInput) SetUrl(v string) *UpdateAllowRuleInput {
 	s.Url = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *UpdateAllowRuleInput) SetWAFInstanceID(v string) *UpdateAllowRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

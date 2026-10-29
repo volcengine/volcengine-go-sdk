@@ -163,6 +163,8 @@ type ListAreaBlockRuleInput struct {
 	Host *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -184,6 +186,12 @@ func (s *ListAreaBlockRuleInput) SetHost(v string) *ListAreaBlockRuleInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *ListAreaBlockRuleInput) SetProjectName(v string) *ListAreaBlockRuleInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListAreaBlockRuleInput) SetWAFInstanceID(v string) *ListAreaBlockRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

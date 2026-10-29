@@ -287,6 +287,8 @@ type CreateAclRuleInput struct {
 
 	// Url is a required field
 	Url *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -432,6 +434,12 @@ func (s *CreateAclRuleInput) SetProjectName(v string) *CreateAclRuleInput {
 // SetUrl sets the Url field's value.
 func (s *CreateAclRuleInput) SetUrl(v string) *CreateAclRuleInput {
 	s.Url = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *CreateAclRuleInput) SetWAFInstanceID(v string) *CreateAclRuleInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

@@ -273,6 +273,8 @@ type ListWafServiceCertificateInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -288,6 +290,12 @@ func (s ListWafServiceCertificateInput) GoString() string {
 // SetProjectName sets the ProjectName field's value.
 func (s *ListWafServiceCertificateInput) SetProjectName(v string) *ListWafServiceCertificateInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListWafServiceCertificateInput) SetWAFInstanceID(v string) *ListWafServiceCertificateInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

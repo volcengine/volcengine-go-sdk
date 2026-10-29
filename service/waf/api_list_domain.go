@@ -1028,6 +1028,8 @@ type ListDomainInput struct {
 	VpcOwnerId *string `type:"string" json:",omitempty"`
 
 	VpcOwnerName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1188,6 +1190,12 @@ func (s *ListDomainInput) SetVpcOwnerId(v string) *ListDomainInput {
 // SetVpcOwnerName sets the VpcOwnerName field's value.
 func (s *ListDomainInput) SetVpcOwnerName(v string) *ListDomainInput {
 	s.VpcOwnerName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *ListDomainInput) SetWAFInstanceID(v string) *ListDomainInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

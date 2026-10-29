@@ -155,6 +155,8 @@ type CreateVolcWafServicesByBytePlusCDNInput struct {
 	TLSEnable *int32 `type:"int32" json:",omitempty"`
 
 	TLSFieldConfig *TLSFieldConfigForCreateVolcWafServicesByBytePlusCDNInput `type:"structure" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -194,6 +196,12 @@ func (s *CreateVolcWafServicesByBytePlusCDNInput) SetTLSEnable(v int32) *CreateV
 // SetTLSFieldConfig sets the TLSFieldConfig field's value.
 func (s *CreateVolcWafServicesByBytePlusCDNInput) SetTLSFieldConfig(v *TLSFieldConfigForCreateVolcWafServicesByBytePlusCDNInput) *CreateVolcWafServicesByBytePlusCDNInput {
 	s.TLSFieldConfig = v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *CreateVolcWafServicesByBytePlusCDNInput) SetWAFInstanceID(v string) *CreateVolcWafServicesByBytePlusCDNInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

@@ -152,6 +152,8 @@ type AddProhibitionWhiteInput struct {
 	IpList []*string `type:"list" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -192,6 +194,12 @@ func (s *AddProhibitionWhiteInput) SetIpList(v []*string) *AddProhibitionWhiteIn
 // SetProjectName sets the ProjectName field's value.
 func (s *AddProhibitionWhiteInput) SetProjectName(v string) *AddProhibitionWhiteInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *AddProhibitionWhiteInput) SetWAFInstanceID(v string) *AddProhibitionWhiteInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

@@ -154,6 +154,8 @@ type BatchCopySystemBotConfigInput struct {
 
 	// SrcHost is a required field
 	SrcHost *string `type:"string" json:",omitempty" required:"true"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -200,6 +202,12 @@ func (s *BatchCopySystemBotConfigInput) SetRuleTagList(v []*string) *BatchCopySy
 // SetSrcHost sets the SrcHost field's value.
 func (s *BatchCopySystemBotConfigInput) SetSrcHost(v string) *BatchCopySystemBotConfigInput {
 	s.SrcHost = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *BatchCopySystemBotConfigInput) SetWAFInstanceID(v string) *BatchCopySystemBotConfigInput {
+	s.WAFInstanceID = &v
 	return s
 }
 

@@ -474,6 +474,8 @@ type CreateDomainInput struct {
 	VolcCertificateID *string `type:"string" json:",omitempty"`
 
 	VpcID *string `type:"string" json:",omitempty"`
+
+	WAFInstanceID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -724,6 +726,12 @@ func (s *CreateDomainInput) SetVolcCertificateID(v string) *CreateDomainInput {
 // SetVpcID sets the VpcID field's value.
 func (s *CreateDomainInput) SetVpcID(v string) *CreateDomainInput {
 	s.VpcID = &v
+	return s
+}
+
+// SetWAFInstanceID sets the WAFInstanceID field's value.
+func (s *CreateDomainInput) SetWAFInstanceID(v string) *CreateDomainInput {
+	s.WAFInstanceID = &v
 	return s
 }
 
