@@ -182,7 +182,7 @@ type AutoSnapshotConfigForDescribeSandboxOutput struct {
 
 	MaxRetained *int32 `type:"int32" json:",omitempty"`
 
-	Metadata *MetadataForDescribeSandboxOutput `type:"structure" json:",omitempty"`
+	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	RetentionDays *int32 `type:"int32" json:",omitempty"`
 
@@ -220,7 +220,7 @@ func (s *AutoSnapshotConfigForDescribeSandboxOutput) SetMaxRetained(v int32) *Au
 }
 
 // SetMetadata sets the Metadata field's value.
-func (s *AutoSnapshotConfigForDescribeSandboxOutput) SetMetadata(v *MetadataForDescribeSandboxOutput) *AutoSnapshotConfigForDescribeSandboxOutput {
+func (s *AutoSnapshotConfigForDescribeSandboxOutput) SetMetadata(v map[string]*string) *AutoSnapshotConfigForDescribeSandboxOutput {
 	s.Metadata = v
 	return s
 }
@@ -317,7 +317,7 @@ type DescribeSandboxInput struct {
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
-	Metadata *MetadataForDescribeSandboxInput `type:"structure" json:",omitempty"`
+	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	// SandboxId is a required field
 	SandboxId *string `type:"string" json:",omitempty" required:"true"`
@@ -356,7 +356,7 @@ func (s *DescribeSandboxInput) SetFunctionId(v string) *DescribeSandboxInput {
 }
 
 // SetMetadata sets the Metadata field's value.
-func (s *DescribeSandboxInput) SetMetadata(v *MetadataForDescribeSandboxInput) *DescribeSandboxInput {
+func (s *DescribeSandboxInput) SetMetadata(v map[string]*string) *DescribeSandboxInput {
 	s.Metadata = v
 	return s
 }
@@ -917,34 +917,6 @@ func (s *InstanceTosMountConfigForDescribeSandboxOutput) SetMode(v string) *Inst
 func (s *InstanceTosMountConfigForDescribeSandboxOutput) SetTosMountPoints(v []*TosMountPointForDescribeSandboxOutput) *InstanceTosMountConfigForDescribeSandboxOutput {
 	s.TosMountPoints = v
 	return s
-}
-
-type MetadataForDescribeSandboxInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetadataForDescribeSandboxInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetadataForDescribeSandboxInput) GoString() string {
-	return s.String()
-}
-
-type MetadataForDescribeSandboxOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetadataForDescribeSandboxOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetadataForDescribeSandboxOutput) GoString() string {
-	return s.String()
 }
 
 type MetadataListForDescribeSandboxOutput struct {

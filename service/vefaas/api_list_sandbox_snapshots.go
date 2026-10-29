@@ -363,20 +363,6 @@ func (s *ListSandboxSnapshotsOutput) SetTotal(v int32) *ListSandboxSnapshotsOutp
 	return s
 }
 
-type MetadataForListSandboxSnapshotsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetadataForListSandboxSnapshotsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetadataForListSandboxSnapshotsOutput) GoString() string {
-	return s.String()
-}
-
 type SandboxInfoForListSandboxSnapshotsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -406,7 +392,7 @@ type SandboxInfoForListSandboxSnapshotsOutput struct {
 
 	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
-	Metadata *MetadataForListSandboxSnapshotsOutput `type:"structure" json:",omitempty"`
+	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	PausedAt *string `type:"string" json:",omitempty"`
 
@@ -514,7 +500,7 @@ func (s *SandboxInfoForListSandboxSnapshotsOutput) SetMemoryMB(v int32) *Sandbox
 }
 
 // SetMetadata sets the Metadata field's value.
-func (s *SandboxInfoForListSandboxSnapshotsOutput) SetMetadata(v *MetadataForListSandboxSnapshotsOutput) *SandboxInfoForListSandboxSnapshotsOutput {
+func (s *SandboxInfoForListSandboxSnapshotsOutput) SetMetadata(v map[string]*string) *SandboxInfoForListSandboxSnapshotsOutput {
 	s.Metadata = v
 	return s
 }
@@ -660,7 +646,7 @@ type SnapshotForListSandboxSnapshotsOutput struct {
 
 	CreatedByJobId *string `type:"string" json:",omitempty"`
 
-	Metadata *MetadataForListSandboxSnapshotsOutput `type:"structure" json:",omitempty"`
+	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	RetentionDays *int32 `type:"int32" json:",omitempty"`
 
@@ -702,7 +688,7 @@ func (s *SnapshotForListSandboxSnapshotsOutput) SetCreatedByJobId(v string) *Sna
 }
 
 // SetMetadata sets the Metadata field's value.
-func (s *SnapshotForListSandboxSnapshotsOutput) SetMetadata(v *MetadataForListSandboxSnapshotsOutput) *SnapshotForListSandboxSnapshotsOutput {
+func (s *SnapshotForListSandboxSnapshotsOutput) SetMetadata(v map[string]*string) *SnapshotForListSandboxSnapshotsOutput {
 	s.Metadata = v
 	return s
 }

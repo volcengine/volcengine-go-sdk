@@ -149,7 +149,7 @@ type CreateSandboxSnapshotInput struct {
 	// FunctionId is a required field
 	FunctionId *string `type:"string" json:",omitempty" required:"true"`
 
-	Metadata *MetadataForCreateSandboxSnapshotInput `type:"structure" json:",omitempty"`
+	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	RetentionDays *int32 `type:"int32" json:",omitempty"`
 
@@ -192,7 +192,7 @@ func (s *CreateSandboxSnapshotInput) SetFunctionId(v string) *CreateSandboxSnaps
 }
 
 // SetMetadata sets the Metadata field's value.
-func (s *CreateSandboxSnapshotInput) SetMetadata(v *MetadataForCreateSandboxSnapshotInput) *CreateSandboxSnapshotInput {
+func (s *CreateSandboxSnapshotInput) SetMetadata(v map[string]*string) *CreateSandboxSnapshotInput {
 	s.Metadata = v
 	return s
 }
@@ -237,18 +237,4 @@ func (s CreateSandboxSnapshotOutput) GoString() string {
 func (s *CreateSandboxSnapshotOutput) SetSnapshotId(v string) *CreateSandboxSnapshotOutput {
 	s.SnapshotId = &v
 	return s
-}
-
-type MetadataForCreateSandboxSnapshotInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetadataForCreateSandboxSnapshotInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetadataForCreateSandboxSnapshotInput) GoString() string {
-	return s.String()
 }

@@ -455,20 +455,6 @@ func (s *ListSandboxesOutput) SetTotal(v int32) *ListSandboxesOutput {
 	return s
 }
 
-type MetadataForListSandboxesOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetadataForListSandboxesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetadataForListSandboxesOutput) GoString() string {
-	return s.String()
-}
-
 type MountPointForListSandboxesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -552,7 +538,7 @@ type SandboxForListSandboxesOutput struct {
 
 	MemoryMB *int32 `type:"int32" json:",omitempty"`
 
-	Metadata *MetadataForListSandboxesOutput `type:"structure" json:",omitempty"`
+	Metadata map[string]*string `type:"map" json:",omitempty"`
 
 	PausedAt *string `type:"string" json:",omitempty"`
 
@@ -666,7 +652,7 @@ func (s *SandboxForListSandboxesOutput) SetMemoryMB(v int32) *SandboxForListSand
 }
 
 // SetMetadata sets the Metadata field's value.
-func (s *SandboxForListSandboxesOutput) SetMetadata(v *MetadataForListSandboxesOutput) *SandboxForListSandboxesOutput {
+func (s *SandboxForListSandboxesOutput) SetMetadata(v map[string]*string) *SandboxForListSandboxesOutput {
 	s.Metadata = v
 	return s
 }
