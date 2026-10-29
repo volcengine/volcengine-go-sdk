@@ -143,36 +143,6 @@ func (c *VEFAAS) ListFunctionsWithContext(ctx volcengine.Context, input *ListFun
 	return out, req.Send()
 }
 
-type AuthForListFunctionsOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Mode *string `type:"string" json:",omitempty"`
-
-	RoleTrn *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AuthForListFunctionsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AuthForListFunctionsOutput) GoString() string {
-	return s.String()
-}
-
-// SetMode sets the Mode field's value.
-func (s *AuthForListFunctionsOutput) SetMode(v string) *AuthForListFunctionsOutput {
-	s.Mode = &v
-	return s
-}
-
-// SetRoleTrn sets the RoleTrn field's value.
-func (s *AuthForListFunctionsOutput) SetRoleTrn(v string) *AuthForListFunctionsOutput {
-	s.RoleTrn = &v
-	return s
-}
-
 type BackendForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -290,8 +260,6 @@ func (s *CredentialsForListFunctionsOutput) SetSecretAccessKey(v string) *Creden
 type EfsMountConfigForListFunctionsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Auth *AuthForListFunctionsOutput `type:"structure" json:",omitempty"`
-
 	MountPoints []*MountPointForListFunctionsOutput `type:"list"`
 }
 
@@ -303,12 +271,6 @@ func (s EfsMountConfigForListFunctionsOutput) String() string {
 // GoString returns the string representation
 func (s EfsMountConfigForListFunctionsOutput) GoString() string {
 	return s.String()
-}
-
-// SetAuth sets the Auth field's value.
-func (s *EfsMountConfigForListFunctionsOutput) SetAuth(v *AuthForListFunctionsOutput) *EfsMountConfigForListFunctionsOutput {
-	s.Auth = v
-	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.
