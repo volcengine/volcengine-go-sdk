@@ -219,66 +219,6 @@ func (s *AsyncTaskConfigForCreateFunctionOutput) SetMaxRetry(v int32) *AsyncTask
 	return s
 }
 
-type AuthForCreateFunctionInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Mode *string `type:"string" json:",omitempty"`
-
-	RoleTrn *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AuthForCreateFunctionInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AuthForCreateFunctionInput) GoString() string {
-	return s.String()
-}
-
-// SetMode sets the Mode field's value.
-func (s *AuthForCreateFunctionInput) SetMode(v string) *AuthForCreateFunctionInput {
-	s.Mode = &v
-	return s
-}
-
-// SetRoleTrn sets the RoleTrn field's value.
-func (s *AuthForCreateFunctionInput) SetRoleTrn(v string) *AuthForCreateFunctionInput {
-	s.RoleTrn = &v
-	return s
-}
-
-type AuthForCreateFunctionOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Mode *string `type:"string" json:",omitempty"`
-
-	RoleTrn *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AuthForCreateFunctionOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AuthForCreateFunctionOutput) GoString() string {
-	return s.String()
-}
-
-// SetMode sets the Mode field's value.
-func (s *AuthForCreateFunctionOutput) SetMode(v string) *AuthForCreateFunctionOutput {
-	s.Mode = &v
-	return s
-}
-
-// SetRoleTrn sets the RoleTrn field's value.
-func (s *AuthForCreateFunctionOutput) SetRoleTrn(v string) *AuthForCreateFunctionOutput {
-	s.RoleTrn = &v
-	return s
-}
-
 type BackendForCreateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1154,8 +1094,6 @@ func (s *DestinationConfigForCreateFunctionOutput) SetOnSuccess(v *OnSuccessForC
 type EfsMountConfigForCreateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Auth *AuthForCreateFunctionInput `type:"structure" json:",omitempty"`
-
 	MountPoints []*MountPointForCreateFunctionInput `type:"list"`
 }
 
@@ -1169,12 +1107,6 @@ func (s EfsMountConfigForCreateFunctionInput) GoString() string {
 	return s.String()
 }
 
-// SetAuth sets the Auth field's value.
-func (s *EfsMountConfigForCreateFunctionInput) SetAuth(v *AuthForCreateFunctionInput) *EfsMountConfigForCreateFunctionInput {
-	s.Auth = v
-	return s
-}
-
 // SetMountPoints sets the MountPoints field's value.
 func (s *EfsMountConfigForCreateFunctionInput) SetMountPoints(v []*MountPointForCreateFunctionInput) *EfsMountConfigForCreateFunctionInput {
 	s.MountPoints = v
@@ -1183,8 +1115,6 @@ func (s *EfsMountConfigForCreateFunctionInput) SetMountPoints(v []*MountPointFor
 
 type EfsMountConfigForCreateFunctionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	Auth *AuthForCreateFunctionOutput `type:"structure" json:",omitempty"`
 
 	MountPoints []*MountPointForCreateFunctionOutput `type:"list"`
 }
@@ -1197,12 +1127,6 @@ func (s EfsMountConfigForCreateFunctionOutput) String() string {
 // GoString returns the string representation
 func (s EfsMountConfigForCreateFunctionOutput) GoString() string {
 	return s.String()
-}
-
-// SetAuth sets the Auth field's value.
-func (s *EfsMountConfigForCreateFunctionOutput) SetAuth(v *AuthForCreateFunctionOutput) *EfsMountConfigForCreateFunctionOutput {
-	s.Auth = v
-	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.

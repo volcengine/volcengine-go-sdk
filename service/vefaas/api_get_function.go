@@ -181,36 +181,6 @@ func (s *AsyncTaskConfigForGetFunctionOutput) SetMaxRetry(v int32) *AsyncTaskCon
 	return s
 }
 
-type AuthForGetFunctionOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Mode *string `type:"string" json:",omitempty"`
-
-	RoleTrn *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AuthForGetFunctionOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AuthForGetFunctionOutput) GoString() string {
-	return s.String()
-}
-
-// SetMode sets the Mode field's value.
-func (s *AuthForGetFunctionOutput) SetMode(v string) *AuthForGetFunctionOutput {
-	s.Mode = &v
-	return s
-}
-
-// SetRoleTrn sets the RoleTrn field's value.
-func (s *AuthForGetFunctionOutput) SetRoleTrn(v string) *AuthForGetFunctionOutput {
-	s.RoleTrn = &v
-	return s
-}
-
 type BackendForGetFunctionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -358,8 +328,6 @@ func (s *DestinationConfigForGetFunctionOutput) SetOnSuccess(v *OnSuccessForGetF
 type EfsMountConfigForGetFunctionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Auth *AuthForGetFunctionOutput `type:"structure" json:",omitempty"`
-
 	MountPoints []*MountPointForGetFunctionOutput `type:"list"`
 }
 
@@ -371,12 +339,6 @@ func (s EfsMountConfigForGetFunctionOutput) String() string {
 // GoString returns the string representation
 func (s EfsMountConfigForGetFunctionOutput) GoString() string {
 	return s.String()
-}
-
-// SetAuth sets the Auth field's value.
-func (s *EfsMountConfigForGetFunctionOutput) SetAuth(v *AuthForGetFunctionOutput) *EfsMountConfigForGetFunctionOutput {
-	s.Auth = v
-	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.
