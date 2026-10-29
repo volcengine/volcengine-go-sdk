@@ -181,36 +181,6 @@ func (s *AsyncTaskConfigForGetRevisionOutput) SetMaxRetry(v int32) *AsyncTaskCon
 	return s
 }
 
-type AuthForGetRevisionOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Mode *string `type:"string" json:",omitempty"`
-
-	RoleTrn *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AuthForGetRevisionOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AuthForGetRevisionOutput) GoString() string {
-	return s.String()
-}
-
-// SetMode sets the Mode field's value.
-func (s *AuthForGetRevisionOutput) SetMode(v string) *AuthForGetRevisionOutput {
-	s.Mode = &v
-	return s
-}
-
-// SetRoleTrn sets the RoleTrn field's value.
-func (s *AuthForGetRevisionOutput) SetRoleTrn(v string) *AuthForGetRevisionOutput {
-	s.RoleTrn = &v
-	return s
-}
-
 type BackendForGetRevisionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -358,8 +328,6 @@ func (s *DestinationConfigForGetRevisionOutput) SetOnSuccess(v *OnSuccessForGetR
 type EfsMountConfigForGetRevisionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Auth *AuthForGetRevisionOutput `type:"structure" json:",omitempty"`
-
 	MountPoints []*MountPointForGetRevisionOutput `type:"list"`
 }
 
@@ -371,12 +339,6 @@ func (s EfsMountConfigForGetRevisionOutput) String() string {
 // GoString returns the string representation
 func (s EfsMountConfigForGetRevisionOutput) GoString() string {
 	return s.String()
-}
-
-// SetAuth sets the Auth field's value.
-func (s *EfsMountConfigForGetRevisionOutput) SetAuth(v *AuthForGetRevisionOutput) *EfsMountConfigForGetRevisionOutput {
-	s.Auth = v
-	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.

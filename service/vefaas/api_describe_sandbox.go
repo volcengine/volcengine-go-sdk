@@ -143,36 +143,6 @@ func (c *VEFAAS) DescribeSandboxWithContext(ctx volcengine.Context, input *Descr
 	return out, req.Send()
 }
 
-type AuthForDescribeSandboxOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Mode *string `type:"string" json:",omitempty"`
-
-	RoleTrn *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AuthForDescribeSandboxOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AuthForDescribeSandboxOutput) GoString() string {
-	return s.String()
-}
-
-// SetMode sets the Mode field's value.
-func (s *AuthForDescribeSandboxOutput) SetMode(v string) *AuthForDescribeSandboxOutput {
-	s.Mode = &v
-	return s
-}
-
-// SetRoleTrn sets the RoleTrn field's value.
-func (s *AuthForDescribeSandboxOutput) SetRoleTrn(v string) *AuthForDescribeSandboxOutput {
-	s.RoleTrn = &v
-	return s
-}
-
 type AutoPauseConfigForDescribeSandboxOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -846,8 +816,6 @@ func (s *ImageInfoForDescribeSandboxOutput) SetSourceImageUrl(v string) *ImageIn
 type InstanceEfsMountConfigForDescribeSandboxOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Auth *AuthForDescribeSandboxOutput `type:"structure" json:",omitempty"`
-
 	MountPoints []*MountPointForDescribeSandboxOutput `type:"list"`
 }
 
@@ -859,12 +827,6 @@ func (s InstanceEfsMountConfigForDescribeSandboxOutput) String() string {
 // GoString returns the string representation
 func (s InstanceEfsMountConfigForDescribeSandboxOutput) GoString() string {
 	return s.String()
-}
-
-// SetAuth sets the Auth field's value.
-func (s *InstanceEfsMountConfigForDescribeSandboxOutput) SetAuth(v *AuthForDescribeSandboxOutput) *InstanceEfsMountConfigForDescribeSandboxOutput {
-	s.Auth = v
-	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.

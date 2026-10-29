@@ -219,66 +219,6 @@ func (s *AsyncTaskConfigForUpdateFunctionOutput) SetMaxRetry(v int32) *AsyncTask
 	return s
 }
 
-type AuthForUpdateFunctionInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Mode *string `type:"string" json:",omitempty"`
-
-	RoleTrn *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AuthForUpdateFunctionInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AuthForUpdateFunctionInput) GoString() string {
-	return s.String()
-}
-
-// SetMode sets the Mode field's value.
-func (s *AuthForUpdateFunctionInput) SetMode(v string) *AuthForUpdateFunctionInput {
-	s.Mode = &v
-	return s
-}
-
-// SetRoleTrn sets the RoleTrn field's value.
-func (s *AuthForUpdateFunctionInput) SetRoleTrn(v string) *AuthForUpdateFunctionInput {
-	s.RoleTrn = &v
-	return s
-}
-
-type AuthForUpdateFunctionOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Mode *string `type:"string" json:",omitempty"`
-
-	RoleTrn *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s AuthForUpdateFunctionOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AuthForUpdateFunctionOutput) GoString() string {
-	return s.String()
-}
-
-// SetMode sets the Mode field's value.
-func (s *AuthForUpdateFunctionOutput) SetMode(v string) *AuthForUpdateFunctionOutput {
-	s.Mode = &v
-	return s
-}
-
-// SetRoleTrn sets the RoleTrn field's value.
-func (s *AuthForUpdateFunctionOutput) SetRoleTrn(v string) *AuthForUpdateFunctionOutput {
-	s.RoleTrn = &v
-	return s
-}
-
 type BackendForUpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -586,8 +526,6 @@ func (s *DestinationConfigForUpdateFunctionOutput) SetOnSuccess(v *OnSuccessForU
 type EfsMountConfigForUpdateFunctionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Auth *AuthForUpdateFunctionInput `type:"structure" json:",omitempty"`
-
 	MountPoints []*MountPointForUpdateFunctionInput `type:"list"`
 }
 
@@ -601,12 +539,6 @@ func (s EfsMountConfigForUpdateFunctionInput) GoString() string {
 	return s.String()
 }
 
-// SetAuth sets the Auth field's value.
-func (s *EfsMountConfigForUpdateFunctionInput) SetAuth(v *AuthForUpdateFunctionInput) *EfsMountConfigForUpdateFunctionInput {
-	s.Auth = v
-	return s
-}
-
 // SetMountPoints sets the MountPoints field's value.
 func (s *EfsMountConfigForUpdateFunctionInput) SetMountPoints(v []*MountPointForUpdateFunctionInput) *EfsMountConfigForUpdateFunctionInput {
 	s.MountPoints = v
@@ -615,8 +547,6 @@ func (s *EfsMountConfigForUpdateFunctionInput) SetMountPoints(v []*MountPointFor
 
 type EfsMountConfigForUpdateFunctionOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	Auth *AuthForUpdateFunctionOutput `type:"structure" json:",omitempty"`
 
 	MountPoints []*MountPointForUpdateFunctionOutput `type:"list"`
 }
@@ -629,12 +559,6 @@ func (s EfsMountConfigForUpdateFunctionOutput) String() string {
 // GoString returns the string representation
 func (s EfsMountConfigForUpdateFunctionOutput) GoString() string {
 	return s.String()
-}
-
-// SetAuth sets the Auth field's value.
-func (s *EfsMountConfigForUpdateFunctionOutput) SetAuth(v *AuthForUpdateFunctionOutput) *EfsMountConfigForUpdateFunctionOutput {
-	s.Auth = v
-	return s
 }
 
 // SetMountPoints sets the MountPoints field's value.
