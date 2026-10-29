@@ -109,6 +109,7 @@ When the check runs and what it covers:
 
 - When no endpoint is set explicitly (`Config.Endpoint` is nil), the session runs the check before any endpoint resolution, so generated service clients (e.g. `ecs.New(sess)`) and the `universal` client are covered. With a custom `EndpointResolver` the check still runs first, and an invalid value is never passed to the resolver.
 - On failure `ecs.New(sess)` and similar constructors do not panic; the error is returned in the request Validate stage, before signing and sending, so no network request is made.
+- `session.ClientConfigWithError(serviceName, ...)` returns the error produced while resolving the client config (such as an invalid region or service, or an error returned by a custom `EndpointResolver`) at construction time instead, so callers can fail fast. It returns exactly the same error as the one carried by `session.ClientConfig(...)` (which keeps its no-error signature and is used by the generated clients); the error is returned as is, without any message prefix, and can be inspected with `errors.As` as shown below.
 - `EndpointFor` of the standard resolver `endpoints.NewStandardEndpointResolver()` runs the same check itself, so calling it directly also returns the error.
 - `BuildAuthToken` in `feature/rds/auth` runs the check before building the token and returns the error without building a token.
 - When an endpoint is set explicitly (`WithEndpoint`), the host is not built from the region or service and the check is skipped.
@@ -164,6 +165,8 @@ The exported functions `endpoints.ValidateRegion`, `endpoints.ValidateService` a
 
 - A region with leading or trailing whitespace (e.g. `" cn-beijing "`) is no longer trimmed; the client request returns `InvalidRegion`. Previous versions only ignored the whitespace when matching the bootstrap region list, and always signed with the raw value including the whitespace.
 - This only applies to regions set in code (such as `WithRegion`). A region read from the `VOLCSTACK_REGION` / `VOLCSTACK_DEFAULT_REGION` environment variables or from the shared config file is trimmed when it is read (leading and trailing whitespace such as spaces, tabs and line breaks are removed, quoted values included), and a whitespace-only environment variable is treated as not set. The trimmed value is then validated like any other region.
+- `VOLCSTACK_DEFAULT_REGION` and the shared config / shared credentials files are only read when `VOLCSTACK_SDK_LOAD_CONFIG=1` is set (`VOLCSTACK_REGION` is always read); without it only `VOLCSTACK_REGION` is used.
+- When the shared config file and the shared credentials file both define `region` for the profile, the later file (the shared credentials file) wins. An unquoted blank value (`region =`) is ignored, but a quoted whitespace-only value (`region = "   "`) counts as defined: it becomes empty after trimming and clears the value from the earlier file, so the region is then treated as not set.
 - The exported function `volcengineutil.GetDefaultEndpointByServiceInfo` has no error return. For an invalid service or region it does not fail; it logs a Warn message (when the given logger is not nil) and falls back to the default endpoint `open.volcengineapi.com`. Callers of this function that need to detect the error should call `endpoints.ValidateServiceAndRegion` first.
 
 #### Standard Endpoint Resolution
