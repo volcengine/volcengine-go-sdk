@@ -344,6 +344,10 @@ type WorkspaceForDescribeWorkspaceDetailOutput struct {
 
 	DNSVisibility *bool `type:"boolean" json:",omitempty"`
 
+	DelayedDeleteExpiredAt *string `type:"string" json:",omitempty"`
+
+	DelayedDeleteStartedAt *string `type:"string" json:",omitempty"`
+
 	DeletionProtectionStatus *string `type:"string" json:",omitempty" enum:"EnumOfDeletionProtectionStatusForDescribeWorkspaceDetailOutput"`
 
 	EngineType *string `type:"string" json:",omitempty" enum:"EnumOfEngineTypeForDescribeWorkspaceDetailOutput"`
@@ -438,6 +442,18 @@ func (s *WorkspaceForDescribeWorkspaceDetailOutput) SetCreationSource(v string) 
 // SetDNSVisibility sets the DNSVisibility field's value.
 func (s *WorkspaceForDescribeWorkspaceDetailOutput) SetDNSVisibility(v bool) *WorkspaceForDescribeWorkspaceDetailOutput {
 	s.DNSVisibility = &v
+	return s
+}
+
+// SetDelayedDeleteExpiredAt sets the DelayedDeleteExpiredAt field's value.
+func (s *WorkspaceForDescribeWorkspaceDetailOutput) SetDelayedDeleteExpiredAt(v string) *WorkspaceForDescribeWorkspaceDetailOutput {
+	s.DelayedDeleteExpiredAt = &v
+	return s
+}
+
+// SetDelayedDeleteStartedAt sets the DelayedDeleteStartedAt field's value.
+func (s *WorkspaceForDescribeWorkspaceDetailOutput) SetDelayedDeleteStartedAt(v string) *WorkspaceForDescribeWorkspaceDetailOutput {
+	s.DelayedDeleteStartedAt = &v
 	return s
 }
 
@@ -877,4 +893,7 @@ const (
 
 	// EnumOfWorkspaceStatusForDescribeWorkspaceDetailOutputSuspended is a EnumOfWorkspaceStatusForDescribeWorkspaceDetailOutput enum value
 	EnumOfWorkspaceStatusForDescribeWorkspaceDetailOutputSuspended = "Suspended"
+
+	// EnumOfWorkspaceStatusForDescribeWorkspaceDetailOutputDelayedDelete is a EnumOfWorkspaceStatusForDescribeWorkspaceDetailOutput enum value
+	EnumOfWorkspaceStatusForDescribeWorkspaceDetailOutputDelayedDelete = "DelayedDelete"
 )
