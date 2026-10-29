@@ -244,7 +244,7 @@ func (s *LanguageForListSpeakersOutput) SetText(v string) *LanguageForListSpeake
 type ListSpeakersInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	Limit *string `type:"string" json:",omitempty"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
 	Page *int32 `type:"int32" json:",omitempty"`
 
@@ -264,7 +264,7 @@ func (s ListSpeakersInput) GoString() string {
 }
 
 // SetLimit sets the Limit field's value.
-func (s *ListSpeakersInput) SetLimit(v string) *ListSpeakersInput {
+func (s *ListSpeakersInput) SetLimit(v int32) *ListSpeakersInput {
 	s.Limit = &v
 	return s
 }

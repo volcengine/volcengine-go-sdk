@@ -238,9 +238,6 @@ func (s *QuotaResourceForServiceStatusOutput) SetQuotaPurchaseButtonName(v strin
 type ServiceStatusInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// BlueprintID is a required field
-	BlueprintID *int32 `type:"int32" json:",omitempty" required:"true"`
-
 	// ProjectName is a required field
 	ProjectName *string `type:"string" json:",omitempty" required:"true"`
 
@@ -261,9 +258,6 @@ func (s ServiceStatusInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ServiceStatusInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ServiceStatusInput"}
-	if s.BlueprintID == nil {
-		invalidParams.Add(request.NewErrParamRequired("BlueprintID"))
-	}
 	if s.ProjectName == nil {
 		invalidParams.Add(request.NewErrParamRequired("ProjectName"))
 	}
@@ -275,12 +269,6 @@ func (s *ServiceStatusInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetBlueprintID sets the BlueprintID field's value.
-func (s *ServiceStatusInput) SetBlueprintID(v int32) *ServiceStatusInput {
-	s.BlueprintID = &v
-	return s
 }
 
 // SetProjectName sets the ProjectName field's value.
