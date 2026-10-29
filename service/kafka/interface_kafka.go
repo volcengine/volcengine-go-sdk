@@ -254,6 +254,14 @@ type KAFKAAPI interface {
 	DescribeInstancesWithContext(volcengine.Context, *DescribeInstancesInput, ...request.Option) (*DescribeInstancesOutput, error)
 	DescribeInstancesRequest(*DescribeInstancesInput) (*request.Request, *DescribeInstancesOutput)
 
+	DescribeOffsetCommitAuditInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeOffsetCommitAuditInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeOffsetCommitAuditInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeOffsetCommitAuditInfo(*DescribeOffsetCommitAuditInfoInput) (*DescribeOffsetCommitAuditInfoOutput, error)
+	DescribeOffsetCommitAuditInfoWithContext(volcengine.Context, *DescribeOffsetCommitAuditInfoInput, ...request.Option) (*DescribeOffsetCommitAuditInfoOutput, error)
+	DescribeOffsetCommitAuditInfoRequest(*DescribeOffsetCommitAuditInfoInput) (*request.Request, *DescribeOffsetCommitAuditInfoOutput)
+
 	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -477,14 +485,6 @@ type KAFKAAPI interface {
 	VerifyImportGroups(*VerifyImportGroupsInput) (*VerifyImportGroupsOutput, error)
 	VerifyImportGroupsWithContext(volcengine.Context, *VerifyImportGroupsInput, ...request.Option) (*VerifyImportGroupsOutput, error)
 	VerifyImportGroupsRequest(*VerifyImportGroupsInput) (*request.Request, *VerifyImportGroupsOutput)
-
-	VerifyMigrateSubTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	VerifyMigrateSubTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	VerifyMigrateSubTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	VerifyMigrateSubTasks(*VerifyMigrateSubTasksInput) (*VerifyMigrateSubTasksOutput, error)
-	VerifyMigrateSubTasksWithContext(volcengine.Context, *VerifyMigrateSubTasksInput, ...request.Option) (*VerifyMigrateSubTasksOutput, error)
-	VerifyMigrateSubTasksRequest(*VerifyMigrateSubTasksInput) (*request.Request, *VerifyMigrateSubTasksOutput)
 }
 
 var _ KAFKAAPI = (*KAFKA)(nil)
