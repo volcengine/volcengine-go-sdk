@@ -209,6 +209,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	"origin_defence":              {Service: "origin_defence", IsGlobal: false},
 	"pca":                         {Service: "pca", IsGlobal: true},
 	"inframanager":                {Service: "inframanager", IsGlobal: false},
+	"mse":                         {Service: "mse", IsGlobal: false},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {
