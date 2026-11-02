@@ -18,13 +18,18 @@ Error classification:
 
 ### Error diagnostics for non-standard responses
 
-When the HTTP status code is abnormal (e.g. 504), the response body may not be a standard TOP gateway JSON structure. Such responses are consistently returned as `volcengineerr.RequestFailure` to make troubleshooting easier:
+When the HTTP status code is non-2xx (e.g. 504), the response body may not be a standard TOP gateway JSON structure. The default error handler returns `volcengineerr.RequestFailure` according to the following rules to make troubleshooting easier:
 
-- **Body is not JSON** (e.g. the gateway returns HTML, plain text, or an empty response): returns `RequestFailure` with `Code()` set to `SerializationError`, the raw response body attached to `Message()`, and the HTTP status code and request ID exposed via `StatusCode()` and `RequestID()`.
-- **Body is valid JSON but does not meet the TOP gateway standard** (missing `ResponseMetadata` or missing error code): returns `RequestFailure` with `Code()` set to `UnknownError`, also preserving the HTTP status code, request ID, and response body.
+- **Body cannot be decoded into the expected response structure** (e.g. HTML, plain text, an empty response, a top-level array, or incompatible types for fields such as `ResponseMetadata`): returns `RequestFailure` with `Code()` set to `SerializationError`, the raw response body attached to `Message()`, and the HTTP status code and request ID exposed via `StatusCode()` and `RequestID()`.
+- **Body can be decoded but has no valid error code** (e.g. missing `ResponseMetadata` with no non-empty simple error code, or metadata with no error code): returns `RequestFailure` with `Code()` set to `UnknownError`, also preserving the HTTP status code, request ID, and response body.
+- **Body uses the simple error format** (missing `ResponseMetadata`, but matching `{"errorcode":"error code","message":"error description"}` with a non-empty `errorcode`): returns `RequestFailure` with `Code()` preserving the actual `errorcode`, `Message()` including the description and raw body, and the HTTP status code and request ID preserved.
 - **Body is a standard TOP JSON error**: behavior is unchanged; returns `RequestFailure` from which the server-side `Code()`, `Message()`, and `RequestID()` can be parsed.
 
-The request ID is resolved in order from the body's `ResponseMetadata.RequestId`, then the request context, then the `X-Top-Requestid` / `X-Top-Request-Id` / `X-Tt-Logid` response headers, ensuring a usable request ID is available even for non-standard responses.
+For the non-standard responses above, the request ID is resolved in order from a non-empty `ResponseMetadata.RequestId` in the body, an existing `r.RequestID` on the request object, then the `X-Top-Requestid` / `X-Top-Request-Id` / `X-Tt-Logid` response headers. `RequestID()` returns an empty string if none of these sources has a value.
+
+In addition, when an HTTP 200 response has a JSON `null` body, decoding into a struct or `*map[string]interface{}` with output data returns `RequestFailure` with `Code()` set to `UnknownError` and `StatusCode()` set to 200, preserving the request ID and raw body. This applies to both normal decoding and `ForceJsonNumberDecode`. Other malformed HTTP 200 bodies (e.g. HTML) are outside the non-2xx diagnostics described above and may still return a native JSON decoding error.
+
+Compatibility: some native JSON decoding errors that were previously returned directly are now wrapped in `RequestFailure`; callers can obtain the underlying error through `OrigErr()`. The error classification also affects default retries: with `MaxRetries=3`, an HTTP 400 response with an HTML body changes from at most 4 attempts to 1 attempt. HTTP 500, 502, 503, and 504 responses still retry under the existing status-code rules. `SimpleError` changes only the display of `Error()`, leaving `StatusCode()`, `RequestID()`, and `Message()` unchanged. Custom error handlers and retryers follow their own implementations.
 
 ### Code Example
 

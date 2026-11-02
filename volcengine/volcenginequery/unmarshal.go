@@ -54,7 +54,14 @@ func Unmarshal(r *request.Request) {
 			}
 			var info interface{}
 
-			ptr := r.Data.(*map[string]interface{})
+			ptr, ok := r.Data.(*map[string]interface{})
+			if !ok || ptr == nil {
+				r.Error = newResponseError(unmarshalErrorInfo{
+					Request: r,
+					Body:    body,
+				}, "UnknownError", "non-standard response body: null response", nil)
+				return
+			}
 			info, err = volcengineutil.ObtainSdkValue("ResponseMetadata.Error.Code", *ptr)
 			if err != nil {
 				r.Error = err

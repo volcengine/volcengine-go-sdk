@@ -18,13 +18,18 @@
 
 ### 非标准响应的错误诊断
 
-当 HTTP 状态码异常（如 504 等）时，响应体可能不是标准的 TOP 网关 JSON 结构。此类响应统一返回 `volcengineerr.RequestFailure`，便于排查问题：
+当 HTTP 状态码为非 2xx（如 504 等）时，响应体可能不是标准的 TOP 网关 JSON 结构。默认错误处理按以下规则返回 `volcengineerr.RequestFailure`，便于排查问题：
 
-- **响应体非 JSON 格式**（如网关直接返回 HTML、纯文本或空响应）：返回 `RequestFailure`，`Code()` 为 `SerializationError`，`Message()` 中附带原始响应正文，并通过 `StatusCode()`、`RequestID()` 暴露 HTTP 状态码与请求 ID。
-- **响应体为合法 JSON 但不满足 TOP 网关标准**（缺少 `ResponseMetadata` 或缺少错误码）：返回 `RequestFailure`，`Code()` 为 `UnknownError`，同样保留 HTTP 状态码、请求 ID 与响应正文。
+- **响应体无法解码为预期响应结构**（如 HTML、纯文本、空响应、顶层数组，或 `ResponseMetadata` 等字段的类型不兼容）：返回 `RequestFailure`，`Code()` 为 `SerializationError`，`Message()` 中附带原始响应正文，并通过 `StatusCode()`、`RequestID()` 暴露 HTTP 状态码与请求 ID。
+- **响应体可解码但缺少有效错误码**（如缺少 `ResponseMetadata`，且没有非空的简易错误码，或元数据中缺少错误码）：返回 `RequestFailure`，`Code()` 为 `UnknownError`，同样保留 HTTP 状态码、请求 ID 与响应正文。
+- **响应体为简易错误格式**（缺少 `ResponseMetadata`，但符合 `{"errorcode":"错误码","message":"错误描述"}` 且 `errorcode` 非空）：返回 `RequestFailure`，`Code()` 保留真实的 `errorcode`，`Message()` 附带错误描述与原始正文，同时保留 HTTP 状态码与请求 ID。
 - **响应体为标准 TOP JSON 错误**：行为保持不变，返回 `RequestFailure`，可解析出服务端的 `Code()`、`Message()`、`RequestID()`。
 
-其中请求 ID 依次从响应体的 `ResponseMetadata.RequestId`、请求上下文、以及 `X-Top-Requestid` / `X-Top-Request-Id` / `X-Tt-Logid` 响应头中解析，确保非标准响应也能拿到可用的请求 ID。
+上述非标准响应的请求 ID 依次取自响应体中非空的 `ResponseMetadata.RequestId`、请求对象中已有的 `r.RequestID`、以及 `X-Top-Requestid` / `X-Top-Request-Id` / `X-Tt-Logid` 响应头；所有来源均无值时，`RequestID()` 返回空字符串。
+
+此外，有输出数据的结构体和 `*map[string]interface{}` 解码路径收到 HTTP 200、正文为 JSON `null` 时，均返回 `RequestFailure`，`Code()` 为 `UnknownError`，`StatusCode()` 为 200，并保留请求 ID 与原始正文。普通解码和 `ForceJsonNumberDecode` 均适用。HTTP 200 下其它异常正文（如 HTML）不属于上述非 2xx 错误诊断范围，仍可能返回原生 JSON 解码错误。
+
+兼容性说明：此前直接返回的部分原生 JSON 解码错误现在封装为 `RequestFailure`，调用方可通过 `OrigErr()` 获取底层错误。默认重试行为也会受错误分类影响：以 `MaxRetries=3` 为例，HTTP 400、正文为 HTML 的请求从原先最多 4 次尝试变为 1 次；HTTP 500、502、503、504 仍按既有状态码规则重试。`SimpleError` 仅改变 `Error()` 的显示形式，不影响 `StatusCode()`、`RequestID()` 和 `Message()`。自定义错误处理或重试器以其实现为准。
 
 ### 代码示例
 
