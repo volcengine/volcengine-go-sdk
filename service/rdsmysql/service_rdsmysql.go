@@ -43,6 +43,7 @@ const (
 // Deprecated: RDS MySQL API 2018-01-01 is deprecated.
 // Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func New(p client.ConfigProvider, cfgs ...*volcengine.Config) *RDSMYSQL {
+	warnDeprecated()
 	c := p.ClientConfig(EndpointsID, cfgs...)
 	return newClient(*c.Config, c.Handlers, c.Endpoint, c.SigningRegion, c.SigningName)
 }
