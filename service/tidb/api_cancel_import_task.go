@@ -146,11 +146,11 @@ func (c *TIDB) CancelImportTaskWithContext(ctx volcengine.Context, input *Cancel
 type CancelImportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// ImportId is a required field
+	ImportId *string `type:"string" json:",omitempty" required:"true"`
 
-	// Id is a required field
-	Id *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -168,11 +168,11 @@ func (s CancelImportTaskInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CancelImportTaskInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CancelImportTaskInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.ImportId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImportId"))
 	}
-	if s.Id == nil {
-		invalidParams.Add(request.NewErrParamRequired("Id"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -181,15 +181,15 @@ func (s *CancelImportTaskInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *CancelImportTaskInput) SetClusterId(v string) *CancelImportTaskInput {
-	s.ClusterId = &v
+// SetImportId sets the ImportId field's value.
+func (s *CancelImportTaskInput) SetImportId(v string) *CancelImportTaskInput {
+	s.ImportId = &v
 	return s
 }
 
-// SetId sets the Id field's value.
-func (s *CancelImportTaskInput) SetId(v string) *CancelImportTaskInput {
-	s.Id = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *CancelImportTaskInput) SetInstanceId(v string) *CancelImportTaskInput {
+	s.InstanceId = &v
 	return s
 }
 

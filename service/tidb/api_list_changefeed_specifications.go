@@ -184,8 +184,8 @@ func (s *ItemForListChangefeedSpecificationsOutput) SetRpsLimit(v int64) *ItemFo
 type ListChangefeedSpecificationsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -203,8 +203,8 @@ func (s ListChangefeedSpecificationsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListChangefeedSpecificationsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListChangefeedSpecificationsInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -213,9 +213,9 @@ func (s *ListChangefeedSpecificationsInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListChangefeedSpecificationsInput) SetClusterId(v string) *ListChangefeedSpecificationsInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListChangefeedSpecificationsInput) SetInstanceId(v string) *ListChangefeedSpecificationsInput {
+	s.InstanceId = &v
 	return s
 }
 

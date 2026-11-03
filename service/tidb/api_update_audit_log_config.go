@@ -148,9 +148,9 @@ type AuditLogConfigForUpdateAuditLogConfigOutput struct {
 
 	CloudStorage *CloudStorageForUpdateAuditLogConfigOutput `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	Enabled *bool `type:"boolean" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	RotationIntervalMinutes *int32 `type:"int32" json:",omitempty"`
 
@@ -175,15 +175,15 @@ func (s *AuditLogConfigForUpdateAuditLogConfigOutput) SetCloudStorage(v *CloudSt
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *AuditLogConfigForUpdateAuditLogConfigOutput) SetClusterId(v string) *AuditLogConfigForUpdateAuditLogConfigOutput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetEnabled sets the Enabled field's value.
 func (s *AuditLogConfigForUpdateAuditLogConfigOutput) SetEnabled(v bool) *AuditLogConfigForUpdateAuditLogConfigOutput {
 	s.Enabled = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AuditLogConfigForUpdateAuditLogConfigOutput) SetInstanceId(v string) *AuditLogConfigForUpdateAuditLogConfigOutput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -230,11 +230,11 @@ func (s *CloudStorageForUpdateAuditLogConfigOutput) SetType(v string) *CloudStor
 type UpdateAuditLogConfigInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	// Enabled is a required field
 	Enabled *bool `type:"boolean" json:",omitempty" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -252,11 +252,11 @@ func (s UpdateAuditLogConfigInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UpdateAuditLogConfigInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateAuditLogConfigInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
-	}
 	if s.Enabled == nil {
 		invalidParams.Add(request.NewErrParamRequired("Enabled"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -265,15 +265,15 @@ func (s *UpdateAuditLogConfigInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *UpdateAuditLogConfigInput) SetClusterId(v string) *UpdateAuditLogConfigInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetEnabled sets the Enabled field's value.
 func (s *UpdateAuditLogConfigInput) SetEnabled(v bool) *UpdateAuditLogConfigInput {
 	s.Enabled = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *UpdateAuditLogConfigInput) SetInstanceId(v string) *UpdateAuditLogConfigInput {
+	s.InstanceId = &v
 	return s
 }
 

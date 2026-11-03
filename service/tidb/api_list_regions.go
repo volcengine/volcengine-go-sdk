@@ -145,6 +145,8 @@ func (c *TIDB) ListRegionsWithContext(ctx volcengine.Context, input *ListRegions
 
 type ListRegionsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
+
+	ServicePlan *string `type:"string" json:",omitempty" enum:"EnumOfServicePlanForListRegionsInput"`
 }
 
 // String returns the string representation
@@ -155,6 +157,12 @@ func (s ListRegionsInput) String() string {
 // GoString returns the string representation
 func (s ListRegionsInput) GoString() string {
 	return s.String()
+}
+
+// SetServicePlan sets the ServicePlan field's value.
+func (s *ListRegionsInput) SetServicePlan(v string) *ListRegionsInput {
+	s.ServicePlan = &v
+	return s
 }
 
 type ListRegionsOutput struct {
@@ -189,8 +197,6 @@ type RegionForListRegionsOutput struct {
 	RegionName *string `type:"string" json:",omitempty"`
 
 	ServicePlans []*string `type:"list"`
-
-	ZoneId []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -221,11 +227,13 @@ func (s *RegionForListRegionsOutput) SetServicePlans(v []*string) *RegionForList
 	return s
 }
 
-// SetZoneId sets the ZoneId field's value.
-func (s *RegionForListRegionsOutput) SetZoneId(v []*string) *RegionForListRegionsOutput {
-	s.ZoneId = v
-	return s
-}
+const (
+	// EnumOfServicePlanForListRegionsInputEssential is a EnumOfServicePlanForListRegionsInput enum value
+	EnumOfServicePlanForListRegionsInputEssential = "Essential"
+
+	// EnumOfServicePlanForListRegionsInputPremium is a EnumOfServicePlanForListRegionsInput enum value
+	EnumOfServicePlanForListRegionsInputPremium = "Premium"
+)
 
 const (
 	// EnumOfServicePlanListForListRegionsOutputStarter is a EnumOfServicePlanListForListRegionsOutput enum value

@@ -148,13 +148,13 @@ type AttachDomainForAttachPrivateLinkConnectionDomainsInput struct {
 
 	AttachDomainId *string `type:"string" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	CreatedBy *string `type:"string" json:",omitempty"`
 
 	Domains []*DomainForAttachPrivateLinkConnectionDomainsInput `type:"list"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	PrivateLinkConnectionId *string `type:"string" json:",omitempty"`
 
@@ -179,12 +179,6 @@ func (s *AttachDomainForAttachPrivateLinkConnectionDomainsInput) SetAttachDomain
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *AttachDomainForAttachPrivateLinkConnectionDomainsInput) SetClusterId(v string) *AttachDomainForAttachPrivateLinkConnectionDomainsInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetCreateTime sets the CreateTime field's value.
 func (s *AttachDomainForAttachPrivateLinkConnectionDomainsInput) SetCreateTime(v string) *AttachDomainForAttachPrivateLinkConnectionDomainsInput {
 	s.CreateTime = &v
@@ -200,6 +194,12 @@ func (s *AttachDomainForAttachPrivateLinkConnectionDomainsInput) SetCreatedBy(v 
 // SetDomains sets the Domains field's value.
 func (s *AttachDomainForAttachPrivateLinkConnectionDomainsInput) SetDomains(v []*DomainForAttachPrivateLinkConnectionDomainsInput) *AttachDomainForAttachPrivateLinkConnectionDomainsInput {
 	s.Domains = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AttachDomainForAttachPrivateLinkConnectionDomainsInput) SetInstanceId(v string) *AttachDomainForAttachPrivateLinkConnectionDomainsInput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -226,13 +226,13 @@ type AttachDomainForAttachPrivateLinkConnectionDomainsOutput struct {
 
 	AttachDomainId *string `type:"string" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	CreatedBy *string `type:"string" json:",omitempty"`
 
 	Domains []*DomainForAttachPrivateLinkConnectionDomainsOutput `type:"list"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	PrivateLinkConnectionId *string `type:"string" json:",omitempty"`
 
@@ -257,12 +257,6 @@ func (s *AttachDomainForAttachPrivateLinkConnectionDomainsOutput) SetAttachDomai
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *AttachDomainForAttachPrivateLinkConnectionDomainsOutput) SetClusterId(v string) *AttachDomainForAttachPrivateLinkConnectionDomainsOutput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetCreateTime sets the CreateTime field's value.
 func (s *AttachDomainForAttachPrivateLinkConnectionDomainsOutput) SetCreateTime(v string) *AttachDomainForAttachPrivateLinkConnectionDomainsOutput {
 	s.CreateTime = &v
@@ -278,6 +272,12 @@ func (s *AttachDomainForAttachPrivateLinkConnectionDomainsOutput) SetCreatedBy(v
 // SetDomains sets the Domains field's value.
 func (s *AttachDomainForAttachPrivateLinkConnectionDomainsOutput) SetDomains(v []*DomainForAttachPrivateLinkConnectionDomainsOutput) *AttachDomainForAttachPrivateLinkConnectionDomainsOutput {
 	s.Domains = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AttachDomainForAttachPrivateLinkConnectionDomainsOutput) SetInstanceId(v string) *AttachDomainForAttachPrivateLinkConnectionDomainsOutput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -304,8 +304,8 @@ type AttachPrivateLinkConnectionDomainsInput struct {
 
 	AttachDomain *AttachDomainForAttachPrivateLinkConnectionDomainsInput `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// PrivateLinkConnectionId is a required field
 	PrivateLinkConnectionId *string `type:"string" json:",omitempty" required:"true"`
@@ -328,8 +328,8 @@ func (s AttachPrivateLinkConnectionDomainsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AttachPrivateLinkConnectionDomainsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AttachPrivateLinkConnectionDomainsInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 	if s.PrivateLinkConnectionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("PrivateLinkConnectionId"))
@@ -347,9 +347,9 @@ func (s *AttachPrivateLinkConnectionDomainsInput) SetAttachDomain(v *AttachDomai
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *AttachPrivateLinkConnectionDomainsInput) SetClusterId(v string) *AttachPrivateLinkConnectionDomainsInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *AttachPrivateLinkConnectionDomainsInput) SetInstanceId(v string) *AttachPrivateLinkConnectionDomainsInput {
+	s.InstanceId = &v
 	return s
 }
 

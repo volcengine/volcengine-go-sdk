@@ -226,19 +226,19 @@ type BranchForListBranchesOutput struct {
 
 	BranchId *string `type:"string" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
+	BranchName *string `type:"string" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	CreatedBy *string `type:"string" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
 	Endpoints *EndpointsForListBranchesOutput `type:"structure" json:",omitempty"`
 
 	HasSetPwd *bool `type:"boolean" json:",omitempty"`
 
-	ParentDisplayName *string `type:"string" json:",omitempty"`
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	ParentBranchName *string `type:"string" json:",omitempty"`
 
 	ParentId *string `type:"string" json:",omitempty"`
 
@@ -277,9 +277,9 @@ func (s *BranchForListBranchesOutput) SetBranchId(v string) *BranchForListBranch
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *BranchForListBranchesOutput) SetClusterId(v string) *BranchForListBranchesOutput {
-	s.ClusterId = &v
+// SetBranchName sets the BranchName field's value.
+func (s *BranchForListBranchesOutput) SetBranchName(v string) *BranchForListBranchesOutput {
+	s.BranchName = &v
 	return s
 }
 
@@ -295,12 +295,6 @@ func (s *BranchForListBranchesOutput) SetCreatedBy(v string) *BranchForListBranc
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *BranchForListBranchesOutput) SetDisplayName(v string) *BranchForListBranchesOutput {
-	s.DisplayName = &v
-	return s
-}
-
 // SetEndpoints sets the Endpoints field's value.
 func (s *BranchForListBranchesOutput) SetEndpoints(v *EndpointsForListBranchesOutput) *BranchForListBranchesOutput {
 	s.Endpoints = v
@@ -313,9 +307,15 @@ func (s *BranchForListBranchesOutput) SetHasSetPwd(v bool) *BranchForListBranche
 	return s
 }
 
-// SetParentDisplayName sets the ParentDisplayName field's value.
-func (s *BranchForListBranchesOutput) SetParentDisplayName(v string) *BranchForListBranchesOutput {
-	s.ParentDisplayName = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *BranchForListBranchesOutput) SetInstanceId(v string) *BranchForListBranchesOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetParentBranchName sets the ParentBranchName field's value.
+func (s *BranchForListBranchesOutput) SetParentBranchName(v string) *BranchForListBranchesOutput {
+	s.ParentBranchName = &v
 	return s
 }
 
@@ -386,8 +386,8 @@ func (s *EndpointsForListBranchesOutput) SetPrivateEndpoint(v *PrivateEndpointFo
 type ListBranchesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
@@ -409,8 +409,8 @@ func (s ListBranchesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListBranchesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListBranchesInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -419,9 +419,9 @@ func (s *ListBranchesInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListBranchesInput) SetClusterId(v string) *ListBranchesInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListBranchesInput) SetInstanceId(v string) *ListBranchesInput {
+	s.InstanceId = &v
 	return s
 }
 

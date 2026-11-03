@@ -306,12 +306,12 @@ type ListStatementsInput struct {
 
 	BeginTime *string `type:"string" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	EndTime *string `type:"string" json:",omitempty"`
 
 	Fields []*string `type:"list"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -333,8 +333,8 @@ func (s ListStatementsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListStatementsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListStatementsInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -349,12 +349,6 @@ func (s *ListStatementsInput) SetBeginTime(v string) *ListStatementsInput {
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListStatementsInput) SetClusterId(v string) *ListStatementsInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetEndTime sets the EndTime field's value.
 func (s *ListStatementsInput) SetEndTime(v string) *ListStatementsInput {
 	s.EndTime = &v
@@ -364,6 +358,12 @@ func (s *ListStatementsInput) SetEndTime(v string) *ListStatementsInput {
 // SetFields sets the Fields field's value.
 func (s *ListStatementsInput) SetFields(v []*string) *ListStatementsInput {
 	s.Fields = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListStatementsInput) SetInstanceId(v string) *ListStatementsInput {
+	s.InstanceId = &v
 	return s
 }
 

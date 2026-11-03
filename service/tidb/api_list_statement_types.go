@@ -146,8 +146,8 @@ func (c *TIDB) ListStatementTypesWithContext(ctx volcengine.Context, input *List
 type ListStatementTypesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -165,8 +165,8 @@ func (s ListStatementTypesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListStatementTypesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListStatementTypesInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -175,9 +175,9 @@ func (s *ListStatementTypesInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListStatementTypesInput) SetClusterId(v string) *ListStatementTypesInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListStatementTypesInput) SetInstanceId(v string) *ListStatementTypesInput {
+	s.InstanceId = &v
 	return s
 }
 

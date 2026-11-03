@@ -146,8 +146,8 @@ func (c *TIDB) GetRestoreProgressWithContext(ctx volcengine.Context, input *GetR
 type GetRestoreProgressInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -165,8 +165,8 @@ func (s GetRestoreProgressInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetRestoreProgressInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetRestoreProgressInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -175,9 +175,9 @@ func (s *GetRestoreProgressInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *GetRestoreProgressInput) SetClusterId(v string) *GetRestoreProgressInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *GetRestoreProgressInput) SetInstanceId(v string) *GetRestoreProgressInput {
+	s.InstanceId = &v
 	return s
 }
 

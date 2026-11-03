@@ -216,13 +216,13 @@ func (s *CsvFormatForPreviewLocalImportInput) SetTrimLastSeparator(v bool) *CsvF
 type PreviewLocalImportInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	CsvFormat *CsvFormatForPreviewLocalImportInput `type:"structure" json:",omitempty"`
 
 	// FileType is a required field
 	FileType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfFileTypeForPreviewLocalImportInput"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -243,11 +243,11 @@ func (s PreviewLocalImportInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *PreviewLocalImportInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "PreviewLocalImportInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
-	}
 	if s.FileType == nil {
 		invalidParams.Add(request.NewErrParamRequired("FileType"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 	if s.UploadId == nil {
 		invalidParams.Add(request.NewErrParamRequired("UploadId"))
@@ -259,12 +259,6 @@ func (s *PreviewLocalImportInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *PreviewLocalImportInput) SetClusterId(v string) *PreviewLocalImportInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetCsvFormat sets the CsvFormat field's value.
 func (s *PreviewLocalImportInput) SetCsvFormat(v *CsvFormatForPreviewLocalImportInput) *PreviewLocalImportInput {
 	s.CsvFormat = v
@@ -274,6 +268,12 @@ func (s *PreviewLocalImportInput) SetCsvFormat(v *CsvFormatForPreviewLocalImport
 // SetFileType sets the FileType field's value.
 func (s *PreviewLocalImportInput) SetFileType(v string) *PreviewLocalImportInput {
 	s.FileType = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *PreviewLocalImportInput) SetInstanceId(v string) *PreviewLocalImportInput {
+	s.InstanceId = &v
 	return s
 }
 

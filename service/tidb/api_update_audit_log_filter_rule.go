@@ -222,17 +222,17 @@ func (s *FilterForUpdateAuditLogFilterRuleOutput) SetTables(v []*string) *Filter
 type FilterRuleForUpdateAuditLogFilterRuleOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
 	FilterRuleId *string `type:"string" json:",omitempty"`
 
+	FilterRuleName *string `type:"string" json:",omitempty"`
+
 	Filters []*FilterForUpdateAuditLogFilterRuleOutput `type:"list"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 
@@ -249,12 +249,6 @@ func (s FilterRuleForUpdateAuditLogFilterRuleOutput) GoString() string {
 	return s.String()
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *FilterRuleForUpdateAuditLogFilterRuleOutput) SetClusterId(v string) *FilterRuleForUpdateAuditLogFilterRuleOutput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetCreateTime sets the CreateTime field's value.
 func (s *FilterRuleForUpdateAuditLogFilterRuleOutput) SetCreateTime(v string) *FilterRuleForUpdateAuditLogFilterRuleOutput {
 	s.CreateTime = &v
@@ -267,21 +261,27 @@ func (s *FilterRuleForUpdateAuditLogFilterRuleOutput) SetDisabled(v bool) *Filte
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *FilterRuleForUpdateAuditLogFilterRuleOutput) SetDisplayName(v string) *FilterRuleForUpdateAuditLogFilterRuleOutput {
-	s.DisplayName = &v
-	return s
-}
-
 // SetFilterRuleId sets the FilterRuleId field's value.
 func (s *FilterRuleForUpdateAuditLogFilterRuleOutput) SetFilterRuleId(v string) *FilterRuleForUpdateAuditLogFilterRuleOutput {
 	s.FilterRuleId = &v
 	return s
 }
 
+// SetFilterRuleName sets the FilterRuleName field's value.
+func (s *FilterRuleForUpdateAuditLogFilterRuleOutput) SetFilterRuleName(v string) *FilterRuleForUpdateAuditLogFilterRuleOutput {
+	s.FilterRuleName = &v
+	return s
+}
+
 // SetFilters sets the Filters field's value.
 func (s *FilterRuleForUpdateAuditLogFilterRuleOutput) SetFilters(v []*FilterForUpdateAuditLogFilterRuleOutput) *FilterRuleForUpdateAuditLogFilterRuleOutput {
 	s.Filters = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *FilterRuleForUpdateAuditLogFilterRuleOutput) SetInstanceId(v string) *FilterRuleForUpdateAuditLogFilterRuleOutput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -300,9 +300,6 @@ func (s *FilterRuleForUpdateAuditLogFilterRuleOutput) SetUsers(v []*string) *Fil
 type UpdateAuditLogFilterRuleInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	Disabled *bool `type:"boolean" json:",omitempty"`
 
 	// FilterRuleId is a required field
@@ -311,6 +308,9 @@ type UpdateAuditLogFilterRuleInput struct {
 	FilterRuleName *string `type:"string" json:",omitempty"`
 
 	Filters []*FilterForUpdateAuditLogFilterRuleInput `type:"list"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -330,23 +330,17 @@ func (s UpdateAuditLogFilterRuleInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UpdateAuditLogFilterRuleInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateAuditLogFilterRuleInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
-	}
 	if s.FilterRuleId == nil {
 		invalidParams.Add(request.NewErrParamRequired("FilterRuleId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetClusterId sets the ClusterId field's value.
-func (s *UpdateAuditLogFilterRuleInput) SetClusterId(v string) *UpdateAuditLogFilterRuleInput {
-	s.ClusterId = &v
-	return s
 }
 
 // SetDisabled sets the Disabled field's value.
@@ -370,6 +364,12 @@ func (s *UpdateAuditLogFilterRuleInput) SetFilterRuleName(v string) *UpdateAudit
 // SetFilters sets the Filters field's value.
 func (s *UpdateAuditLogFilterRuleInput) SetFilters(v []*FilterForUpdateAuditLogFilterRuleInput) *UpdateAuditLogFilterRuleInput {
 	s.Filters = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *UpdateAuditLogFilterRuleInput) SetInstanceId(v string) *UpdateAuditLogFilterRuleInput {
+	s.InstanceId = &v
 	return s
 }
 

@@ -146,11 +146,11 @@ func (c *TIDB) CreateImportUploadUrlWithContext(ctx volcengine.Context, input *C
 type CreateImportUploadUrlInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Cluster_id is a required field
-	Cluster_id *string `type:"string" json:"cluster_id,omitempty" required:"true"`
-
 	// File_name is a required field
 	File_name *string `type:"string" json:"file_name,omitempty" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -168,11 +168,11 @@ func (s CreateImportUploadUrlInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateImportUploadUrlInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateImportUploadUrlInput"}
-	if s.Cluster_id == nil {
-		invalidParams.Add(request.NewErrParamRequired("Cluster_id"))
-	}
 	if s.File_name == nil {
 		invalidParams.Add(request.NewErrParamRequired("File_name"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -181,15 +181,15 @@ func (s *CreateImportUploadUrlInput) Validate() error {
 	return nil
 }
 
-// SetCluster_id sets the Cluster_id field's value.
-func (s *CreateImportUploadUrlInput) SetCluster_id(v string) *CreateImportUploadUrlInput {
-	s.Cluster_id = &v
-	return s
-}
-
 // SetFile_name sets the File_name field's value.
 func (s *CreateImportUploadUrlInput) SetFile_name(v string) *CreateImportUploadUrlInput {
 	s.File_name = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *CreateImportUploadUrlInput) SetInstanceId(v string) *CreateImportUploadUrlInput {
+	s.InstanceId = &v
 	return s
 }
 

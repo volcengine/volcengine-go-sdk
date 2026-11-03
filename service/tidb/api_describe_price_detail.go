@@ -334,11 +334,11 @@ type CreateReqForDescribePriceDetailInput struct {
 
 	AutoScaling *AutoScalingForDescribePriceDetailInput `type:"structure" json:",omitempty"`
 
-	ClusterName *string `type:"string" json:",omitempty"`
-
 	EncryptionConfig *EncryptionConfigForDescribePriceDetailInput `type:"structure" json:",omitempty"`
 
 	HighAvailabilityType *string `type:"string" json:",omitempty" enum:"EnumOfHighAvailabilityTypeForDescribePriceDetailInput"`
+
+	InstanceName *string `type:"string" json:",omitempty"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -369,12 +369,6 @@ func (s *CreateReqForDescribePriceDetailInput) SetAutoScaling(v *AutoScalingForD
 	return s
 }
 
-// SetClusterName sets the ClusterName field's value.
-func (s *CreateReqForDescribePriceDetailInput) SetClusterName(v string) *CreateReqForDescribePriceDetailInput {
-	s.ClusterName = &v
-	return s
-}
-
 // SetEncryptionConfig sets the EncryptionConfig field's value.
 func (s *CreateReqForDescribePriceDetailInput) SetEncryptionConfig(v *EncryptionConfigForDescribePriceDetailInput) *CreateReqForDescribePriceDetailInput {
 	s.EncryptionConfig = v
@@ -384,6 +378,12 @@ func (s *CreateReqForDescribePriceDetailInput) SetEncryptionConfig(v *Encryption
 // SetHighAvailabilityType sets the HighAvailabilityType field's value.
 func (s *CreateReqForDescribePriceDetailInput) SetHighAvailabilityType(v string) *CreateReqForDescribePriceDetailInput {
 	s.HighAvailabilityType = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *CreateReqForDescribePriceDetailInput) SetInstanceName(v string) *CreateReqForDescribePriceDetailInput {
+	s.InstanceName = &v
 	return s
 }
 

@@ -242,9 +242,6 @@ type ListStatementSlowQueriesInput struct {
 
 	BeginTime *string `type:"string" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	Desc *bool `type:"boolean" json:",omitempty"`
 
 	Digest *string `type:"string" json:",omitempty"`
@@ -252,6 +249,9 @@ type ListStatementSlowQueriesInput struct {
 	EndTime *string `type:"string" json:",omitempty"`
 
 	Fields []*string `type:"list"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	Limit *int32 `type:"int32" json:",omitempty"`
 
@@ -275,8 +275,8 @@ func (s ListStatementSlowQueriesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListStatementSlowQueriesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListStatementSlowQueriesInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -288,12 +288,6 @@ func (s *ListStatementSlowQueriesInput) Validate() error {
 // SetBeginTime sets the BeginTime field's value.
 func (s *ListStatementSlowQueriesInput) SetBeginTime(v string) *ListStatementSlowQueriesInput {
 	s.BeginTime = &v
-	return s
-}
-
-// SetClusterId sets the ClusterId field's value.
-func (s *ListStatementSlowQueriesInput) SetClusterId(v string) *ListStatementSlowQueriesInput {
-	s.ClusterId = &v
 	return s
 }
 
@@ -318,6 +312,12 @@ func (s *ListStatementSlowQueriesInput) SetEndTime(v string) *ListStatementSlowQ
 // SetFields sets the Fields field's value.
 func (s *ListStatementSlowQueriesInput) SetFields(v []*string) *ListStatementSlowQueriesInput {
 	s.Fields = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListStatementSlowQueriesInput) SetInstanceId(v string) *ListStatementSlowQueriesInput {
+	s.InstanceId = &v
 	return s
 }
 
