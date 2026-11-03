@@ -29,6 +29,8 @@
 
 此外，有输出数据的结构体和 `*map[string]interface{}` 解码路径收到 HTTP 200、正文为 JSON `null` 时，均返回 `RequestFailure`，`Code()` 为 `UnknownError`，`StatusCode()` 为 200，并保留请求 ID 与原始正文。普通解码和 `ForceJsonNumberDecode` 均适用。HTTP 200 下其它异常正文（如 HTML）不属于上述非 2xx 错误诊断范围，仍可能返回原生 JSON 解码错误。
 
+map 解码拒绝 JSON `null` 时会保留原输出指针。若自定义重试器重试 `UnknownError`，后续响应会继续解析到原输出对象，`After` 拦截器也能获取该对象；重试耗尽仍返回错误。默认重试器不会仅因 `UnknownError` 而重试 HTTP 200 响应。
+
 兼容性说明：此前直接返回的部分原生 JSON 解码错误现在封装为 `RequestFailure`，调用方可通过 `OrigErr()` 获取底层错误。默认重试行为也会受错误分类影响：以 `MaxRetries=3` 为例，HTTP 400、正文为 HTML 的请求从原先最多 4 次尝试变为 1 次；HTTP 500、502、503、504 仍按既有状态码规则重试。`SimpleError` 仅改变 `Error()` 的显示形式，不影响 `StatusCode()`、`RequestID()` 和 `Message()`。自定义错误处理或重试器以其实现为准。
 
 ### 代码示例
