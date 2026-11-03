@@ -280,7 +280,7 @@ type NatIpForDescribeNatIpsOutput struct {
 
 	Status *string `type:"string"`
 
-	UsingStatus *string `type:"string" enum:"UsingStatusForDescribeNatIpsOutput"`
+	UsingStatus *string `type:"string"`
 }
 
 // String returns the string representation
@@ -340,17 +340,3 @@ func (s *NatIpForDescribeNatIpsOutput) SetUsingStatus(v string) *NatIpForDescrib
 	s.UsingStatus = &v
 	return s
 }
-
-const (
-	// UsingStatusForDescribeNatIpsOutputIdle is a UsingStatusForDescribeNatIpsOutput enum value
-	UsingStatusForDescribeNatIpsOutputIdle = "Idle"
-
-	// UsingStatusForDescribeNatIpsOutputUsedBySnat is a UsingStatusForDescribeNatIpsOutput enum value
-	UsingStatusForDescribeNatIpsOutputUsedBySnat = "UsedBySnat"
-
-	// UsingStatusForDescribeNatIpsOutputUsedByDnat is a UsingStatusForDescribeNatIpsOutput enum value
-	UsingStatusForDescribeNatIpsOutputUsedByDnat = "UsedByDnat"
-
-	// UsingStatusForDescribeNatIpsOutputUsedByNat is a UsingStatusForDescribeNatIpsOutput enum value
-	UsingStatusForDescribeNatIpsOutputUsedByNat = "UsedByNat"
-)

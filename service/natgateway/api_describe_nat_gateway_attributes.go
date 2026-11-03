@@ -190,6 +190,8 @@ type DescribeNatGatewayAttributesOutput struct {
 
 	Description *string `type:"string"`
 
+	DirectMode *bool `type:"boolean"`
+
 	DnatEntryIds []*string `type:"list"`
 
 	EipAddresses []*EipAddressForDescribeNatGatewayAttributesOutput `type:"list"`
@@ -272,6 +274,12 @@ func (s *DescribeNatGatewayAttributesOutput) SetDeletedTime(v string) *DescribeN
 // SetDescription sets the Description field's value.
 func (s *DescribeNatGatewayAttributesOutput) SetDescription(v string) *DescribeNatGatewayAttributesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDirectMode sets the DirectMode field's value.
+func (s *DescribeNatGatewayAttributesOutput) SetDirectMode(v bool) *DescribeNatGatewayAttributesOutput {
+	s.DirectMode = &v
 	return s
 }
 
