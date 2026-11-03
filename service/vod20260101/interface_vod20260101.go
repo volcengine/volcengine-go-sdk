@@ -46,6 +46,22 @@ type VOD20260101API interface {
 	DeleteVodDomainWithContext(volcengine.Context, *DeleteVodDomainInput, ...request.Option) (*DeleteVodDomainOutput, error)
 	DeleteVodDomainRequest(*DeleteVodDomainInput) (*request.Request, *DeleteVodDomainOutput)
 
+	DescribeVodContentQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeVodContentQuotaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeVodContentQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeVodContentQuota(*DescribeVodContentQuotaInput) (*DescribeVodContentQuotaOutput, error)
+	DescribeVodContentQuotaWithContext(volcengine.Context, *DescribeVodContentQuotaInput, ...request.Option) (*DescribeVodContentQuotaOutput, error)
+	DescribeVodContentQuotaRequest(*DescribeVodContentQuotaInput) (*request.Request, *DescribeVodContentQuotaOutput)
+
+	DescribeVodContentTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeVodContentTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeVodContentTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeVodContentTasks(*DescribeVodContentTasksInput) (*DescribeVodContentTasksOutput, error)
+	DescribeVodContentTasksWithContext(volcengine.Context, *DescribeVodContentTasksInput, ...request.Option) (*DescribeVodContentTasksOutput, error)
+	DescribeVodContentTasksRequest(*DescribeVodContentTasksInput) (*request.Request, *DescribeVodContentTasksOutput)
+
 	DescribeVodDomainConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVodDomainConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeVodDomainConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +69,14 @@ type VOD20260101API interface {
 	DescribeVodDomainConfig(*DescribeVodDomainConfigInput) (*DescribeVodDomainConfigOutput, error)
 	DescribeVodDomainConfigWithContext(volcengine.Context, *DescribeVodDomainConfigInput, ...request.Option) (*DescribeVodDomainConfigOutput, error)
 	DescribeVodDomainConfigRequest(*DescribeVodDomainConfigInput) (*request.Request, *DescribeVodDomainConfigOutput)
+
+	GetContentBlockTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetContentBlockTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetContentBlockTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetContentBlockTasks(*GetContentBlockTasksInput) (*GetContentBlockTasksOutput, error)
+	GetContentBlockTasksWithContext(volcengine.Context, *GetContentBlockTasksInput, ...request.Option) (*GetContentBlockTasksOutput, error)
+	GetContentBlockTasksRequest(*GetContentBlockTasksInput) (*request.Request, *GetContentBlockTasksOutput)
 
 	ListVodDomainsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListVodDomainsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -77,6 +101,38 @@ type VOD20260101API interface {
 	StopVodDomain(*StopVodDomainInput) (*StopVodDomainOutput, error)
 	StopVodDomainWithContext(volcengine.Context, *StopVodDomainInput, ...request.Option) (*StopVodDomainOutput, error)
 	StopVodDomainRequest(*StopVodDomainInput) (*request.Request, *StopVodDomainOutput)
+
+	SubmitVodPreloadTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SubmitVodPreloadTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SubmitVodPreloadTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SubmitVodPreloadTask(*SubmitVodPreloadTaskInput) (*SubmitVodPreloadTaskOutput, error)
+	SubmitVodPreloadTaskWithContext(volcengine.Context, *SubmitVodPreloadTaskInput, ...request.Option) (*SubmitVodPreloadTaskOutput, error)
+	SubmitVodPreloadTaskRequest(*SubmitVodPreloadTaskInput) (*request.Request, *SubmitVodPreloadTaskOutput)
+
+	SubmitVodRefreshTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SubmitVodRefreshTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SubmitVodRefreshTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SubmitVodRefreshTask(*SubmitVodRefreshTaskInput) (*SubmitVodRefreshTaskOutput, error)
+	SubmitVodRefreshTaskWithContext(volcengine.Context, *SubmitVodRefreshTaskInput, ...request.Option) (*SubmitVodRefreshTaskOutput, error)
+	SubmitVodRefreshTaskRequest(*SubmitVodRefreshTaskInput) (*request.Request, *SubmitVodRefreshTaskOutput)
+
+	SubmitVodUrlBlockTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SubmitVodUrlBlockTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SubmitVodUrlBlockTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SubmitVodUrlBlockTask(*SubmitVodUrlBlockTaskInput) (*SubmitVodUrlBlockTaskOutput, error)
+	SubmitVodUrlBlockTaskWithContext(volcengine.Context, *SubmitVodUrlBlockTaskInput, ...request.Option) (*SubmitVodUrlBlockTaskOutput, error)
+	SubmitVodUrlBlockTaskRequest(*SubmitVodUrlBlockTaskInput) (*request.Request, *SubmitVodUrlBlockTaskOutput)
+
+	SubmitVodUrlUnblockTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SubmitVodUrlUnblockTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SubmitVodUrlUnblockTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SubmitVodUrlUnblockTask(*SubmitVodUrlUnblockTaskInput) (*SubmitVodUrlUnblockTaskOutput, error)
+	SubmitVodUrlUnblockTaskWithContext(volcengine.Context, *SubmitVodUrlUnblockTaskInput, ...request.Option) (*SubmitVodUrlUnblockTaskOutput, error)
+	SubmitVodUrlUnblockTaskRequest(*SubmitVodUrlUnblockTaskInput) (*request.Request, *SubmitVodUrlUnblockTaskOutput)
 
 	UpdateVodDomainConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateVodDomainConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
