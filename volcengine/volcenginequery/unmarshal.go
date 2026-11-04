@@ -41,6 +41,7 @@ func Unmarshal(r *request.Request) {
 		}
 
 		if reflect.TypeOf(r.Data) == reflect.TypeOf(&map[string]interface{}{}) {
+			originalData := r.Data
 			//如果使用map返回 发现精度丢失了 请设置强制JsonNumber 注意返回的整型会动float64->int64
 			if err = json.Unmarshal(body, &r.Data); err != nil || forceJsonNumberDecoder {
 				//try next
@@ -54,7 +55,16 @@ func Unmarshal(r *request.Request) {
 			}
 			var info interface{}
 
-			ptr := r.Data.(*map[string]interface{})
+			ptr, ok := r.Data.(*map[string]interface{})
+			if !ok || ptr == nil {
+				// Keep the output target available for retries and interceptors.
+				r.Data = originalData
+				r.Error = newResponseError(unmarshalErrorInfo{
+					Request: r,
+					Body:    body,
+				}, "UnknownError", "non-standard response body: null response", nil)
+				return
+			}
 			info, err = volcengineutil.ObtainSdkValue("ResponseMetadata.Error.Code", *ptr)
 			if err != nil {
 				r.Error = err
@@ -129,6 +139,15 @@ func processBodyError(r *request.Request, volcengineResponse *response.Volcengin
 		return true
 	}
 
+	// JSON null clears the decoded pointer; stop before reading its fields.
+	if volcengineResponse == nil {
+		r.Error = newResponseError(unmarshalErrorInfo{
+			Request:  r,
+			Response: volcengineResponse,
+			Body:     body,
+		}, "UnknownError", "non-standard response body: null response", nil)
+		return true
+	}
 	if volcengineResponse.ResponseMetadata == nil {
 		return false
 	}

@@ -34,32 +34,19 @@ type unmarshalErrorInfo struct {
 }
 
 func processUnmarshalError(info unmarshalErrorInfo) {
-	var (
-		body []byte
-		err  error
-	)
 	r := info.Request
-	if info.Response == nil && info.Body == nil {
+	if info.Response == nil {
 		info.Response = &response.VolcengineResponse{}
-		if r.DataFilled() {
-			body, err = ioutil.ReadAll(r.HTTPResponse.Body)
-			if err != nil {
-				fmt.Printf("read volcenginebody err, %v\n", err)
-				r.Error = err
-				return
-			}
+		if info.Body == nil {
+			body, err := ioutil.ReadAll(r.HTTPResponse.Body)
 			info.Body = body
-			if err = json.Unmarshal(body, info.Response); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
+			if err != nil {
+				r.Error = newResponseError(info, request.ErrCodeRead, "failed to read error response", err)
 				return
 			}
-		} else {
-			r.Error = volcengineerr.NewRequestFailure(
-				volcengineerr.New("ServiceUnavailableException", "service is unavailable", nil),
-				r.HTTPResponse.StatusCode,
-				r.RequestID,
-			)
+		}
+		if err := json.Unmarshal(info.Body, info.Response); err != nil {
+			r.Error = newResponseError(info, request.ErrCodeSerialization, "failed to decode error response", err)
 			return
 		}
 	}
@@ -78,19 +65,25 @@ func processUnmarshalError(info unmarshalErrorInfo) {
 		}
 	}
 
+	// Non-standard responses (non-JSON, or JSON without a TOP ResponseMetadata)
+	// are surfaced as RequestFailure carrying the HTTP status, request id and raw
+	// body. They return early and never touch r.Data.Metadata, preserving the
+	// original behavior for these paths.
 	if info.Response.ResponseMetadata == nil {
 		simple := response.VolcengineSimpleError{}
-		if err = json.Unmarshal(info.Body, &simple); err != nil {
-			fmt.Printf("Unmarshal err, %v\n", err)
-			r.Error = err
+		if err := json.Unmarshal(info.Body, &simple); err != nil {
+			r.Error = newResponseError(info, request.ErrCodeSerialization, "failed to decode error response", err)
 			return
 		}
-		info.Response.ResponseMetadata = &response.ResponseMetadata{
-			Error: &response.Error{
-				Code:    simple.ErrorCode,
-				Message: simple.Message,
-			},
+		code, message := simple.ErrorCode, simple.Message
+		if code == "" {
+			code, message = "UnknownError", "non-standard error response"
 		}
+		r.Error = newResponseError(info, code, message, nil)
+		return
+	}
+	if info.Err == nil && (info.Response.ResponseMetadata.Error == nil || info.Response.ResponseMetadata.Error.Code == "") {
+		r.Error = newResponseError(info, "UnknownError", "non-standard error response", nil)
 		return
 	}
 
@@ -104,7 +97,7 @@ func processUnmarshalError(info unmarshalErrorInfo) {
 			r.Config.SimpleError,
 		)
 	}
-	if reflect.TypeOf(r.Data) != reflect.TypeOf(&map[string]interface{}{}) {
+	if r.DataFilled() && reflect.TypeOf(r.Data) != reflect.TypeOf(&map[string]interface{}{}) {
 
 		if _, ok := reflect.TypeOf(r.Data).Elem().FieldByName("Metadata"); ok {
 			if info.Response.ResponseMetadata != nil {
@@ -114,6 +107,35 @@ func processUnmarshalError(info unmarshalErrorInfo) {
 			reflect.ValueOf(r.Data).Elem().FieldByName("Metadata").Set(reflect.ValueOf(info.Response.ResponseMetadata))
 		}
 	}
-	return
+}
 
+// newResponseError surfaces HTTP diagnostics (status code, request id and raw
+// response body) when the body cannot be decoded as a standard TOP error, so
+// callers no longer lose the real failure. SimpleError only changes Error(),
+// not the StatusCode()/RequestID()/Message() accessors.
+func newResponseError(info unmarshalErrorInfo, code, message string, err error) volcengineerr.RequestFailure {
+	return volcengineerr.NewRequestFailure(
+		volcengineerr.New(code, fmt.Sprintf("%s; response body: %s", message, info.Body), err),
+		info.Request.HTTPResponse.StatusCode,
+		responseRequestID(info),
+		info.Request.Config.SimpleError,
+	)
+}
+
+// responseRequestID resolves the request id from the parsed metadata first, then
+// the request context, then the TOP gateway headers, so non-standard responses
+// still expose a usable id for troubleshooting.
+func responseRequestID(info unmarshalErrorInfo) string {
+	if info.Response != nil && info.Response.ResponseMetadata != nil && info.Response.ResponseMetadata.RequestId != "" {
+		return info.Response.ResponseMetadata.RequestId
+	}
+	if info.Request.RequestID != "" {
+		return info.Request.RequestID
+	}
+	for _, header := range []string{"X-Top-Requestid", "X-Top-Request-Id", "X-Tt-Logid"} {
+		if id := info.Request.HTTPResponse.Header.Get(header); id != "" {
+			return id
+		}
+	}
+	return ""
 }
