@@ -148,8 +148,9 @@ type SetRenewalTypeInput struct {
 
 	ClientToken *string `type:"string" json:",omitempty"`
 
-	// InstanceID is a required field
-	InstanceID *string `type:"string" json:",omitempty" required:"true"`
+	InstanceID *string `type:"string" json:",omitempty"`
+
+	InstanceIDs []*string `type:"list" json:",omitempty"`
 
 	// Product is a required field
 	Product *string `type:"string" json:",omitempty" required:"true"`
@@ -179,9 +180,6 @@ func (s SetRenewalTypeInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *SetRenewalTypeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "SetRenewalTypeInput"}
-	if s.InstanceID == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceID"))
-	}
 	if s.Product == nil {
 		invalidParams.Add(request.NewErrParamRequired("Product"))
 	}
@@ -204,6 +202,12 @@ func (s *SetRenewalTypeInput) SetClientToken(v string) *SetRenewalTypeInput {
 // SetInstanceID sets the InstanceID field's value.
 func (s *SetRenewalTypeInput) SetInstanceID(v string) *SetRenewalTypeInput {
 	s.InstanceID = &v
+	return s
+}
+
+// SetInstanceIDs sets the InstanceIDs field's value.
+func (s *SetRenewalTypeInput) SetInstanceIDs(v []*string) *SetRenewalTypeInput {
+	s.InstanceIDs = v
 	return s
 }
 

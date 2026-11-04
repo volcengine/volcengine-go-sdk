@@ -126,6 +126,14 @@ type BILLINGAPI interface {
 	GetOrderWithContext(volcengine.Context, *GetOrderInput, ...request.Option) (*GetOrderOutput, error)
 	GetOrderRequest(*GetOrderInput) (*request.Request, *GetOrderOutput)
 
+	GetPaymentQualificationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetPaymentQualificationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetPaymentQualificationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetPaymentQualification(*GetPaymentQualificationInput) (*GetPaymentQualificationOutput, error)
+	GetPaymentQualificationWithContext(volcengine.Context, *GetPaymentQualificationInput, ...request.Option) (*GetPaymentQualificationOutput, error)
+	GetPaymentQualificationRequest(*GetPaymentQualificationInput) (*request.Request, *GetPaymentQualificationOutput)
+
 	HandleInvitationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	HandleInvitationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	HandleInvitationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -326,6 +334,14 @@ type BILLINGAPI interface {
 	ListCouponsWithContext(volcengine.Context, *ListCouponsInput, ...request.Option) (*ListCouponsOutput, error)
 	ListCouponsRequest(*ListCouponsInput) (*request.Request, *ListCouponsOutput)
 
+	ListElementCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListElementCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListElementCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListElement(*ListElementInput) (*ListElementOutput, error)
+	ListElementWithContext(volcengine.Context, *ListElementInput, ...request.Option) (*ListElementOutput, error)
+	ListElementRequest(*ListElementInput) (*request.Request, *ListElementOutput)
+
 	ListFinancialRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListFinancialRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListFinancialRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -365,6 +381,22 @@ type BILLINGAPI interface {
 	ListPackageUsageDetails(*ListPackageUsageDetailsInput) (*ListPackageUsageDetailsOutput, error)
 	ListPackageUsageDetailsWithContext(volcengine.Context, *ListPackageUsageDetailsInput, ...request.Option) (*ListPackageUsageDetailsOutput, error)
 	ListPackageUsageDetailsRequest(*ListPackageUsageDetailsInput) (*request.Request, *ListPackageUsageDetailsOutput)
+
+	ListProductCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListProductCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListProductCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListProduct(*ListProductInput) (*ListProductOutput, error)
+	ListProductWithContext(volcengine.Context, *ListProductInput, ...request.Option) (*ListProductOutput, error)
+	ListProductRequest(*ListProductInput) (*request.Request, *ListProductOutput)
+
+	ListProductStructureCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListProductStructureCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListProductStructureCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListProductStructure(*ListProductStructureInput) (*ListProductStructureOutput, error)
+	ListProductStructureWithContext(volcengine.Context, *ListProductStructureInput, ...request.Option) (*ListProductStructureOutput, error)
+	ListProductStructureRequest(*ListProductStructureInput) (*request.Request, *ListProductStructureOutput)
 
 	ListRecipientInformationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListRecipientInformationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
