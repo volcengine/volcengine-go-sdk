@@ -147,6 +147,10 @@ type DataForVideoProjectSubtitleUploadOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	BatchId *string `type:"string" json:"batchId,omitempty"`
+
+	HasMaterialIssues *bool `type:"boolean" json:"hasMaterialIssues,omitempty"`
+
+	MaterialIssues []*MaterialIssueForVideoProjectSubtitleUploadOutput `type:"list" json:"materialIssues,omitempty"`
 }
 
 // String returns the string representation
@@ -162,6 +166,152 @@ func (s DataForVideoProjectSubtitleUploadOutput) GoString() string {
 // SetBatchId sets the BatchId field's value.
 func (s *DataForVideoProjectSubtitleUploadOutput) SetBatchId(v string) *DataForVideoProjectSubtitleUploadOutput {
 	s.BatchId = &v
+	return s
+}
+
+// SetHasMaterialIssues sets the HasMaterialIssues field's value.
+func (s *DataForVideoProjectSubtitleUploadOutput) SetHasMaterialIssues(v bool) *DataForVideoProjectSubtitleUploadOutput {
+	s.HasMaterialIssues = &v
+	return s
+}
+
+// SetMaterialIssues sets the MaterialIssues field's value.
+func (s *DataForVideoProjectSubtitleUploadOutput) SetMaterialIssues(v []*MaterialIssueForVideoProjectSubtitleUploadOutput) *DataForVideoProjectSubtitleUploadOutput {
+	s.MaterialIssues = v
+	return s
+}
+
+type MaterialIssueForVideoProjectSubtitleUploadOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EndTime *string `type:"string" json:"endTime,omitempty"`
+
+	EpisodeNum *string `type:"string" json:"episodeNum,omitempty"`
+
+	InspectionLevel *int32 `type:"int32" json:"inspectionLevel,omitempty"`
+
+	InspectionType *int32 `type:"int32" json:"inspectionType,omitempty"`
+
+	ProjectId *string `type:"string" json:"projectId,omitempty"`
+
+	Reason *string `type:"string" json:"reason,omitempty"`
+
+	ReasonCode *string `type:"string" json:"reasonCode,omitempty"`
+
+	ReportId *string `type:"string" json:"reportId,omitempty"`
+
+	ResourceId *string `type:"string" json:"resourceId,omitempty"`
+
+	ResourceType *int32 `type:"int32" json:"resourceType,omitempty"`
+
+	StartTime *string `type:"string" json:"startTime,omitempty"`
+
+	SubInspectionType *int32 `type:"int32" json:"subInspectionType,omitempty"`
+
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty"`
+
+	TaskId *string `type:"string" json:"taskId,omitempty"`
+
+	VideoName *string `type:"string" json:"videoName,omitempty"`
+}
+
+// String returns the string representation
+func (s MaterialIssueForVideoProjectSubtitleUploadOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaterialIssueForVideoProjectSubtitleUploadOutput) GoString() string {
+	return s.String()
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetEndTime(v string) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.EndTime = &v
+	return s
+}
+
+// SetEpisodeNum sets the EpisodeNum field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetEpisodeNum(v string) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.EpisodeNum = &v
+	return s
+}
+
+// SetInspectionLevel sets the InspectionLevel field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetInspectionLevel(v int32) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.InspectionLevel = &v
+	return s
+}
+
+// SetInspectionType sets the InspectionType field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetInspectionType(v int32) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.InspectionType = &v
+	return s
+}
+
+// SetProjectId sets the ProjectId field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetProjectId(v string) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.ProjectId = &v
+	return s
+}
+
+// SetReason sets the Reason field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetReason(v string) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.Reason = &v
+	return s
+}
+
+// SetReasonCode sets the ReasonCode field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetReasonCode(v string) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.ReasonCode = &v
+	return s
+}
+
+// SetReportId sets the ReportId field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetReportId(v string) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.ReportId = &v
+	return s
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetResourceId(v string) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.ResourceId = &v
+	return s
+}
+
+// SetResourceType sets the ResourceType field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetResourceType(v int32) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.ResourceType = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetStartTime(v string) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.StartTime = &v
+	return s
+}
+
+// SetSubInspectionType sets the SubInspectionType field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetSubInspectionType(v int32) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.SubInspectionType = &v
+	return s
+}
+
+// SetSubtaskId sets the SubtaskId field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetSubtaskId(v string) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.SubtaskId = &v
+	return s
+}
+
+// SetTaskId sets the TaskId field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetTaskId(v string) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.TaskId = &v
+	return s
+}
+
+// SetVideoName sets the VideoName field's value.
+func (s *MaterialIssueForVideoProjectSubtitleUploadOutput) SetVideoName(v string) *MaterialIssueForVideoProjectSubtitleUploadOutput {
+	s.VideoName = &v
 	return s
 }
 
