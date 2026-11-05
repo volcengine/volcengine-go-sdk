@@ -146,8 +146,7 @@ func (c *I18NOPENAPI) VideoProjectSuppressionStartWithContext(ctx volcengine.Con
 type VideoProjectSuppressionStartInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ArrangeMent is a required field
-	ArrangeMent *int32 `type:"int32" json:"arrangeMent,omitempty" required:"true"`
+	ArrangeMent *int32 `type:"int32" json:"arrangeMent,omitempty"`
 
 	// Encode is a required field
 	Encode *int32 `type:"int32" json:"encode,omitempty" required:"true"`
@@ -185,9 +184,6 @@ func (s VideoProjectSuppressionStartInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *VideoProjectSuppressionStartInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "VideoProjectSuppressionStartInput"}
-	if s.ArrangeMent == nil {
-		invalidParams.Add(request.NewErrParamRequired("ArrangeMent"))
-	}
 	if s.Encode == nil {
 		invalidParams.Add(request.NewErrParamRequired("Encode"))
 	}

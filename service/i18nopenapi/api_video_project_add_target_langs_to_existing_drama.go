@@ -148,6 +148,14 @@ type DataForVideoProjectAddTargetLangsToExistingDramaOutput struct {
 
 	DubTaskIDs []*string `type:"list" json:"dubTaskIDs,omitempty"`
 
+	FailedTargetLanguages []*string `type:"list" json:"failedTargetLanguages,omitempty"`
+
+	HasMaterialIssues *bool `type:"boolean" json:"hasMaterialIssues,omitempty"`
+
+	MaterialIssues []*MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput `type:"list" json:"materialIssues,omitempty"`
+
+	SuccessfulTargetLanguages []*string `type:"list" json:"successfulTargetLanguages,omitempty"`
+
 	TaskIDs []*string `type:"list" json:"taskIDs,omitempty"`
 }
 
@@ -167,9 +175,167 @@ func (s *DataForVideoProjectAddTargetLangsToExistingDramaOutput) SetDubTaskIDs(v
 	return s
 }
 
+// SetFailedTargetLanguages sets the FailedTargetLanguages field's value.
+func (s *DataForVideoProjectAddTargetLangsToExistingDramaOutput) SetFailedTargetLanguages(v []*string) *DataForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.FailedTargetLanguages = v
+	return s
+}
+
+// SetHasMaterialIssues sets the HasMaterialIssues field's value.
+func (s *DataForVideoProjectAddTargetLangsToExistingDramaOutput) SetHasMaterialIssues(v bool) *DataForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.HasMaterialIssues = &v
+	return s
+}
+
+// SetMaterialIssues sets the MaterialIssues field's value.
+func (s *DataForVideoProjectAddTargetLangsToExistingDramaOutput) SetMaterialIssues(v []*MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) *DataForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.MaterialIssues = v
+	return s
+}
+
+// SetSuccessfulTargetLanguages sets the SuccessfulTargetLanguages field's value.
+func (s *DataForVideoProjectAddTargetLangsToExistingDramaOutput) SetSuccessfulTargetLanguages(v []*string) *DataForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.SuccessfulTargetLanguages = v
+	return s
+}
+
 // SetTaskIDs sets the TaskIDs field's value.
 func (s *DataForVideoProjectAddTargetLangsToExistingDramaOutput) SetTaskIDs(v []*string) *DataForVideoProjectAddTargetLangsToExistingDramaOutput {
 	s.TaskIDs = v
+	return s
+}
+
+type MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EndTime *string `type:"string" json:"endTime,omitempty"`
+
+	EpisodeNum *string `type:"string" json:"episodeNum,omitempty"`
+
+	InspectionLevel *int32 `type:"int32" json:"inspectionLevel,omitempty"`
+
+	InspectionType *int32 `type:"int32" json:"inspectionType,omitempty"`
+
+	ProjectId *string `type:"string" json:"projectId,omitempty"`
+
+	Reason *string `type:"string" json:"reason,omitempty"`
+
+	ReasonCode *string `type:"string" json:"reasonCode,omitempty"`
+
+	ReportId *string `type:"string" json:"reportId,omitempty"`
+
+	ResourceId *string `type:"string" json:"resourceId,omitempty"`
+
+	ResourceType *int32 `type:"int32" json:"resourceType,omitempty"`
+
+	StartTime *string `type:"string" json:"startTime,omitempty"`
+
+	SubInspectionType *int32 `type:"int32" json:"subInspectionType,omitempty"`
+
+	SubtaskId *string `type:"string" json:"subtaskId,omitempty"`
+
+	TaskId *string `type:"string" json:"taskId,omitempty"`
+
+	VideoName *string `type:"string" json:"videoName,omitempty"`
+}
+
+// String returns the string representation
+func (s MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) GoString() string {
+	return s.String()
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetEndTime(v string) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.EndTime = &v
+	return s
+}
+
+// SetEpisodeNum sets the EpisodeNum field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetEpisodeNum(v string) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.EpisodeNum = &v
+	return s
+}
+
+// SetInspectionLevel sets the InspectionLevel field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetInspectionLevel(v int32) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.InspectionLevel = &v
+	return s
+}
+
+// SetInspectionType sets the InspectionType field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetInspectionType(v int32) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.InspectionType = &v
+	return s
+}
+
+// SetProjectId sets the ProjectId field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetProjectId(v string) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.ProjectId = &v
+	return s
+}
+
+// SetReason sets the Reason field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetReason(v string) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.Reason = &v
+	return s
+}
+
+// SetReasonCode sets the ReasonCode field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetReasonCode(v string) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.ReasonCode = &v
+	return s
+}
+
+// SetReportId sets the ReportId field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetReportId(v string) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.ReportId = &v
+	return s
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetResourceId(v string) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.ResourceId = &v
+	return s
+}
+
+// SetResourceType sets the ResourceType field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetResourceType(v int32) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.ResourceType = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetStartTime(v string) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.StartTime = &v
+	return s
+}
+
+// SetSubInspectionType sets the SubInspectionType field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetSubInspectionType(v int32) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.SubInspectionType = &v
+	return s
+}
+
+// SetSubtaskId sets the SubtaskId field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetSubtaskId(v string) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.SubtaskId = &v
+	return s
+}
+
+// SetTaskId sets the TaskId field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetTaskId(v string) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.TaskId = &v
+	return s
+}
+
+// SetVideoName sets the VideoName field's value.
+func (s *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput) SetVideoName(v string) *MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput {
+	s.VideoName = &v
 	return s
 }
 
@@ -889,6 +1055,36 @@ func (s *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput) SetS
 	return s
 }
 
+type TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	SubtitleFileInfo *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput `type:"structure" json:"subtitleFileInfo,omitempty"`
+
+	TargetLang *string `type:"string" json:"targetLang,omitempty"`
+}
+
+// String returns the string representation
+func (s TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput) GoString() string {
+	return s.String()
+}
+
+// SetSubtitleFileInfo sets the SubtitleFileInfo field's value.
+func (s *TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput) SetSubtitleFileInfo(v *SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput) *TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.SubtitleFileInfo = v
+	return s
+}
+
+// SetTargetLang sets the TargetLang field's value.
+func (s *TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput) SetTargetLang(v string) *TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.TargetLang = &v
+	return s
+}
+
 type TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -1570,6 +1766,8 @@ type VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput struct {
 
 	EpisodeNum *int32 `type:"int32" json:"episodeNum,omitempty"`
 
+	TargetLang2EffectSubtitle []*TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput `type:"list" json:"targetLang2EffectSubtitle,omitempty"`
+
 	TargetLang2Subtitle []*TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput `type:"list" json:"targetLang2Subtitle,omitempty"`
 }
 
@@ -1586,6 +1784,12 @@ func (s VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput) GoStri
 // SetEpisodeNum sets the EpisodeNum field's value.
 func (s *VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput) SetEpisodeNum(v int32) *VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
 	s.EpisodeNum = &v
+	return s
+}
+
+// SetTargetLang2EffectSubtitle sets the TargetLang2EffectSubtitle field's value.
+func (s *VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput) SetTargetLang2EffectSubtitle(v []*TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput) *VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
+	s.TargetLang2EffectSubtitle = v
 	return s
 }
 
