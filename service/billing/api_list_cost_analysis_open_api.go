@@ -143,6 +143,36 @@ func (c *BILLING) ListCostAnalysisOpenApiWithContext(ctx volcengine.Context, inp
 	return out, req.Send()
 }
 
+type ClassifyDimensionForListCostAnalysisOpenApiInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClassifyDimension *int32 `type:"int32" json:",omitempty"`
+
+	ClassifyDimensionValue *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ClassifyDimensionForListCostAnalysisOpenApiInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClassifyDimensionForListCostAnalysisOpenApiInput) GoString() string {
+	return s.String()
+}
+
+// SetClassifyDimension sets the ClassifyDimension field's value.
+func (s *ClassifyDimensionForListCostAnalysisOpenApiInput) SetClassifyDimension(v int32) *ClassifyDimensionForListCostAnalysisOpenApiInput {
+	s.ClassifyDimension = &v
+	return s
+}
+
+// SetClassifyDimensionValue sets the ClassifyDimensionValue field's value.
+func (s *ClassifyDimensionForListCostAnalysisOpenApiInput) SetClassifyDimensionValue(v string) *ClassifyDimensionForListCostAnalysisOpenApiInput {
+	s.ClassifyDimensionValue = &v
+	return s
+}
+
 type CostDataForListCostAnalysisOpenApiOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -151,6 +181,8 @@ type CostDataForListCostAnalysisOpenApiOutput struct {
 	ClassifyItem *string `type:"string" json:",omitempty"`
 
 	Costs []*CostForListCostAnalysisOpenApiOutput `type:"list" json:",omitempty"`
+
+	Dimensions []*DimensionForListCostAnalysisOpenApiOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -181,6 +213,12 @@ func (s *CostDataForListCostAnalysisOpenApiOutput) SetCosts(v []*CostForListCost
 	return s
 }
 
+// SetDimensions sets the Dimensions field's value.
+func (s *CostDataForListCostAnalysisOpenApiOutput) SetDimensions(v []*DimensionForListCostAnalysisOpenApiOutput) *CostDataForListCostAnalysisOpenApiOutput {
+	s.Dimensions = v
+	return s
+}
+
 type CostForListCostAnalysisOpenApiOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -208,6 +246,36 @@ func (s *CostForListCostAnalysisOpenApiOutput) SetAmount(v string) *CostForListC
 // SetTimeStr sets the TimeStr field's value.
 func (s *CostForListCostAnalysisOpenApiOutput) SetTimeStr(v string) *CostForListCostAnalysisOpenApiOutput {
 	s.TimeStr = &v
+	return s
+}
+
+type DimensionForListCostAnalysisOpenApiOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ClassifyDimension *int32 `type:"int32" json:",omitempty"`
+
+	ClassifyItem *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DimensionForListCostAnalysisOpenApiOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DimensionForListCostAnalysisOpenApiOutput) GoString() string {
+	return s.String()
+}
+
+// SetClassifyDimension sets the ClassifyDimension field's value.
+func (s *DimensionForListCostAnalysisOpenApiOutput) SetClassifyDimension(v int32) *DimensionForListCostAnalysisOpenApiOutput {
+	s.ClassifyDimension = &v
+	return s
+}
+
+// SetClassifyItem sets the ClassifyItem field's value.
+func (s *DimensionForListCostAnalysisOpenApiOutput) SetClassifyItem(v string) *DimensionForListCostAnalysisOpenApiOutput {
+	s.ClassifyItem = &v
 	return s
 }
 
@@ -255,10 +323,11 @@ type ListCostAnalysisOpenApiInput struct {
 	// BeginTimeStr is a required field
 	BeginTimeStr *string `type:"string" json:",omitempty" required:"true"`
 
-	// ClassifyDimension is a required field
-	ClassifyDimension *int32 `type:"int32" json:",omitempty" required:"true"`
+	ClassifyDimension *int32 `type:"int32" json:",omitempty"`
 
 	ClassifyDimensionValue *string `type:"string" json:",omitempty"`
+
+	ClassifyDimensions []*ClassifyDimensionForListCostAnalysisOpenApiInput `type:"list" json:",omitempty"`
 
 	// CostType is a required field
 	CostType *int32 `type:"int32" json:",omitempty" required:"true"`
@@ -293,9 +362,6 @@ func (s *ListCostAnalysisOpenApiInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListCostAnalysisOpenApiInput"}
 	if s.BeginTimeStr == nil {
 		invalidParams.Add(request.NewErrParamRequired("BeginTimeStr"))
-	}
-	if s.ClassifyDimension == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClassifyDimension"))
 	}
 	if s.CostType == nil {
 		invalidParams.Add(request.NewErrParamRequired("CostType"))
@@ -334,6 +400,12 @@ func (s *ListCostAnalysisOpenApiInput) SetClassifyDimension(v int32) *ListCostAn
 // SetClassifyDimensionValue sets the ClassifyDimensionValue field's value.
 func (s *ListCostAnalysisOpenApiInput) SetClassifyDimensionValue(v string) *ListCostAnalysisOpenApiInput {
 	s.ClassifyDimensionValue = &v
+	return s
+}
+
+// SetClassifyDimensions sets the ClassifyDimensions field's value.
+func (s *ListCostAnalysisOpenApiInput) SetClassifyDimensions(v []*ClassifyDimensionForListCostAnalysisOpenApiInput) *ListCostAnalysisOpenApiInput {
+	s.ClassifyDimensions = v
 	return s
 }
 
