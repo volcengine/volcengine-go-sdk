@@ -148,15 +148,21 @@ type BackupForListRecycledInstanceBackupsOutput struct {
 
 	BackupId *string `type:"string" json:",omitempty"`
 
-	BackupTime *string `type:"string" json:",omitempty"`
+	BackupName *string `type:"string" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
+	BackupTime *string `type:"string" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	ExpireTime *string `type:"string" json:",omitempty"`
 
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	SizeBytes *int64 `type:"int64" json:",omitempty"`
+
 	State *string `type:"string" json:",omitempty" enum:"EnumOfStateForListRecycledInstanceBackupsOutput"`
+
+	TriggerType *string `type:"string" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 }
@@ -177,15 +183,15 @@ func (s *BackupForListRecycledInstanceBackupsOutput) SetBackupId(v string) *Back
 	return s
 }
 
-// SetBackupTime sets the BackupTime field's value.
-func (s *BackupForListRecycledInstanceBackupsOutput) SetBackupTime(v string) *BackupForListRecycledInstanceBackupsOutput {
-	s.BackupTime = &v
+// SetBackupName sets the BackupName field's value.
+func (s *BackupForListRecycledInstanceBackupsOutput) SetBackupName(v string) *BackupForListRecycledInstanceBackupsOutput {
+	s.BackupName = &v
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *BackupForListRecycledInstanceBackupsOutput) SetClusterId(v string) *BackupForListRecycledInstanceBackupsOutput {
-	s.ClusterId = &v
+// SetBackupTime sets the BackupTime field's value.
+func (s *BackupForListRecycledInstanceBackupsOutput) SetBackupTime(v string) *BackupForListRecycledInstanceBackupsOutput {
+	s.BackupTime = &v
 	return s
 }
 
@@ -201,9 +207,27 @@ func (s *BackupForListRecycledInstanceBackupsOutput) SetExpireTime(v string) *Ba
 	return s
 }
 
+// SetInstanceId sets the InstanceId field's value.
+func (s *BackupForListRecycledInstanceBackupsOutput) SetInstanceId(v string) *BackupForListRecycledInstanceBackupsOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetSizeBytes sets the SizeBytes field's value.
+func (s *BackupForListRecycledInstanceBackupsOutput) SetSizeBytes(v int64) *BackupForListRecycledInstanceBackupsOutput {
+	s.SizeBytes = &v
+	return s
+}
+
 // SetState sets the State field's value.
 func (s *BackupForListRecycledInstanceBackupsOutput) SetState(v string) *BackupForListRecycledInstanceBackupsOutput {
 	s.State = &v
+	return s
+}
+
+// SetTriggerType sets the TriggerType field's value.
+func (s *BackupForListRecycledInstanceBackupsOutput) SetTriggerType(v string) *BackupForListRecycledInstanceBackupsOutput {
+	s.TriggerType = &v
 	return s
 }
 
@@ -216,8 +240,8 @@ func (s *BackupForListRecycledInstanceBackupsOutput) SetType(v string) *BackupFo
 type ListRecycledInstanceBackupsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	OrderBy *string `type:"string" json:",omitempty"`
 
@@ -241,8 +265,8 @@ func (s ListRecycledInstanceBackupsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListRecycledInstanceBackupsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListRecycledInstanceBackupsInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -251,9 +275,9 @@ func (s *ListRecycledInstanceBackupsInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListRecycledInstanceBackupsInput) SetClusterId(v string) *ListRecycledInstanceBackupsInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListRecycledInstanceBackupsInput) SetInstanceId(v string) *ListRecycledInstanceBackupsInput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -327,4 +351,13 @@ const (
 
 	// EnumOfStateForListRecycledInstanceBackupsOutputFailed is a EnumOfStateForListRecycledInstanceBackupsOutput enum value
 	EnumOfStateForListRecycledInstanceBackupsOutputFailed = "FAILED"
+
+	// EnumOfStateForListRecycledInstanceBackupsOutputPending is a EnumOfStateForListRecycledInstanceBackupsOutput enum value
+	EnumOfStateForListRecycledInstanceBackupsOutputPending = "PENDING"
+
+	// EnumOfStateForListRecycledInstanceBackupsOutputRunning is a EnumOfStateForListRecycledInstanceBackupsOutput enum value
+	EnumOfStateForListRecycledInstanceBackupsOutputRunning = "RUNNING"
+
+	// EnumOfStateForListRecycledInstanceBackupsOutputCancelled is a EnumOfStateForListRecycledInstanceBackupsOutput enum value
+	EnumOfStateForListRecycledInstanceBackupsOutputCancelled = "CANCELLED"
 )

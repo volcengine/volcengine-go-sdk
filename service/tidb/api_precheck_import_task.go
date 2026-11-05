@@ -332,9 +332,9 @@ type ImportOptionsForPrecheckImportTaskInput struct {
 
 	CsvFormat *CsvFormatForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
 	FileType *string `type:"string" json:",omitempty" enum:"EnumOfFileTypeForPrecheckImportTaskInput"`
+
+	ImportTaskName *string `type:"string" json:",omitempty"`
 
 	NeedDropTable *bool `type:"boolean" json:",omitempty"`
 }
@@ -355,15 +355,15 @@ func (s *ImportOptionsForPrecheckImportTaskInput) SetCsvFormat(v *CsvFormatForPr
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ImportOptionsForPrecheckImportTaskInput) SetDisplayName(v string) *ImportOptionsForPrecheckImportTaskInput {
-	s.DisplayName = &v
-	return s
-}
-
 // SetFileType sets the FileType field's value.
 func (s *ImportOptionsForPrecheckImportTaskInput) SetFileType(v string) *ImportOptionsForPrecheckImportTaskInput {
 	s.FileType = &v
+	return s
+}
+
+// SetImportTaskName sets the ImportTaskName field's value.
+func (s *ImportOptionsForPrecheckImportTaskInput) SetImportTaskName(v string) *ImportOptionsForPrecheckImportTaskInput {
+	s.ImportTaskName = &v
 	return s
 }
 
@@ -438,14 +438,16 @@ func (s *LocalForPrecheckImportTaskInput) SetUploadId(v string) *LocalForPrechec
 type PrecheckImportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	ImportOptions *ImportOptionsForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	Source *SourceForPrecheckImportTaskInput `type:"structure" json:",omitempty"`
+
+	TableMetas []*TableMetaForPrecheckImportTaskInput `type:"list"`
 }
 
 // String returns the string representation
@@ -461,8 +463,8 @@ func (s PrecheckImportTaskInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *PrecheckImportTaskInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "PrecheckImportTaskInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -471,15 +473,15 @@ func (s *PrecheckImportTaskInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *PrecheckImportTaskInput) SetClusterId(v string) *PrecheckImportTaskInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetImportOptions sets the ImportOptions field's value.
 func (s *PrecheckImportTaskInput) SetImportOptions(v *ImportOptionsForPrecheckImportTaskInput) *PrecheckImportTaskInput {
 	s.ImportOptions = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *PrecheckImportTaskInput) SetInstanceId(v string) *PrecheckImportTaskInput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -495,6 +497,12 @@ func (s *PrecheckImportTaskInput) SetSource(v *SourceForPrecheckImportTaskInput)
 	return s
 }
 
+// SetTableMetas sets the TableMetas field's value.
+func (s *PrecheckImportTaskInput) SetTableMetas(v []*TableMetaForPrecheckImportTaskInput) *PrecheckImportTaskInput {
+	s.TableMetas = v
+	return s
+}
+
 type PrecheckImportTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -504,9 +512,15 @@ type PrecheckImportTaskOutput struct {
 
 	Status *string `type:"string" json:",omitempty"`
 
+	Success *bool `type:"boolean" json:",omitempty"`
+
+	TableMetas []*TableMetaForPrecheckImportTaskOutput `type:"list"`
+
 	TargetTables []*ConvertTargetTableForPrecheckImportTaskOutput `type:"list"`
 
 	TotalDataFilesCount *string `type:"string" json:",omitempty"`
+
+	TotalScannedObjects *int64 `type:"int64" json:",omitempty"`
 
 	TotalTablesCount *string `type:"string" json:",omitempty"`
 }
@@ -533,6 +547,18 @@ func (s *PrecheckImportTaskOutput) SetStatus(v string) *PrecheckImportTaskOutput
 	return s
 }
 
+// SetSuccess sets the Success field's value.
+func (s *PrecheckImportTaskOutput) SetSuccess(v bool) *PrecheckImportTaskOutput {
+	s.Success = &v
+	return s
+}
+
+// SetTableMetas sets the TableMetas field's value.
+func (s *PrecheckImportTaskOutput) SetTableMetas(v []*TableMetaForPrecheckImportTaskOutput) *PrecheckImportTaskOutput {
+	s.TableMetas = v
+	return s
+}
+
 // SetTargetTables sets the TargetTables field's value.
 func (s *PrecheckImportTaskOutput) SetTargetTables(v []*ConvertTargetTableForPrecheckImportTaskOutput) *PrecheckImportTaskOutput {
 	s.TargetTables = v
@@ -542,6 +568,12 @@ func (s *PrecheckImportTaskOutput) SetTargetTables(v []*ConvertTargetTableForPre
 // SetTotalDataFilesCount sets the TotalDataFilesCount field's value.
 func (s *PrecheckImportTaskOutput) SetTotalDataFilesCount(v string) *PrecheckImportTaskOutput {
 	s.TotalDataFilesCount = &v
+	return s
+}
+
+// SetTotalScannedObjects sets the TotalScannedObjects field's value.
+func (s *PrecheckImportTaskOutput) SetTotalScannedObjects(v int64) *PrecheckImportTaskOutput {
+	s.TotalScannedObjects = &v
 	return s
 }
 
@@ -594,6 +626,82 @@ func (s *SourceForPrecheckImportTaskInput) SetTos(v *TosForPrecheckImportTaskInp
 // SetType sets the Type field's value.
 func (s *SourceForPrecheckImportTaskInput) SetType(v string) *SourceForPrecheckImportTaskInput {
 	s.Type = &v
+	return s
+}
+
+type TableMetaForPrecheckImportTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Database *string `type:"string" json:",omitempty"`
+
+	FilesWildcard *string `type:"string" json:",omitempty"`
+
+	Table *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TableMetaForPrecheckImportTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableMetaForPrecheckImportTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetDatabase sets the Database field's value.
+func (s *TableMetaForPrecheckImportTaskInput) SetDatabase(v string) *TableMetaForPrecheckImportTaskInput {
+	s.Database = &v
+	return s
+}
+
+// SetFilesWildcard sets the FilesWildcard field's value.
+func (s *TableMetaForPrecheckImportTaskInput) SetFilesWildcard(v string) *TableMetaForPrecheckImportTaskInput {
+	s.FilesWildcard = &v
+	return s
+}
+
+// SetTable sets the Table field's value.
+func (s *TableMetaForPrecheckImportTaskInput) SetTable(v string) *TableMetaForPrecheckImportTaskInput {
+	s.Table = &v
+	return s
+}
+
+type TableMetaForPrecheckImportTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Database *string `type:"string" json:",omitempty"`
+
+	FilesWildcard *string `type:"string" json:",omitempty"`
+
+	Table *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TableMetaForPrecheckImportTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableMetaForPrecheckImportTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetDatabase sets the Database field's value.
+func (s *TableMetaForPrecheckImportTaskOutput) SetDatabase(v string) *TableMetaForPrecheckImportTaskOutput {
+	s.Database = &v
+	return s
+}
+
+// SetFilesWildcard sets the FilesWildcard field's value.
+func (s *TableMetaForPrecheckImportTaskOutput) SetFilesWildcard(v string) *TableMetaForPrecheckImportTaskOutput {
+	s.FilesWildcard = &v
+	return s
+}
+
+// SetTable sets the Table field's value.
+func (s *TableMetaForPrecheckImportTaskOutput) SetTable(v string) *TableMetaForPrecheckImportTaskOutput {
+	s.Table = &v
 	return s
 }
 

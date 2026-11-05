@@ -226,19 +226,19 @@ type BranchForGetBranchDetailsOutput struct {
 
 	BranchId *string `type:"string" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
+	BranchName *string `type:"string" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	CreatedBy *string `type:"string" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
 	Endpoints *EndpointsForGetBranchDetailsOutput `type:"structure" json:",omitempty"`
 
 	HasSetPwd *bool `type:"boolean" json:",omitempty"`
 
-	ParentDisplayName *string `type:"string" json:",omitempty"`
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	ParentBranchName *string `type:"string" json:",omitempty"`
 
 	ParentId *string `type:"string" json:",omitempty"`
 
@@ -277,9 +277,9 @@ func (s *BranchForGetBranchDetailsOutput) SetBranchId(v string) *BranchForGetBra
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *BranchForGetBranchDetailsOutput) SetClusterId(v string) *BranchForGetBranchDetailsOutput {
-	s.ClusterId = &v
+// SetBranchName sets the BranchName field's value.
+func (s *BranchForGetBranchDetailsOutput) SetBranchName(v string) *BranchForGetBranchDetailsOutput {
+	s.BranchName = &v
 	return s
 }
 
@@ -295,12 +295,6 @@ func (s *BranchForGetBranchDetailsOutput) SetCreatedBy(v string) *BranchForGetBr
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *BranchForGetBranchDetailsOutput) SetDisplayName(v string) *BranchForGetBranchDetailsOutput {
-	s.DisplayName = &v
-	return s
-}
-
 // SetEndpoints sets the Endpoints field's value.
 func (s *BranchForGetBranchDetailsOutput) SetEndpoints(v *EndpointsForGetBranchDetailsOutput) *BranchForGetBranchDetailsOutput {
 	s.Endpoints = v
@@ -313,9 +307,15 @@ func (s *BranchForGetBranchDetailsOutput) SetHasSetPwd(v bool) *BranchForGetBran
 	return s
 }
 
-// SetParentDisplayName sets the ParentDisplayName field's value.
-func (s *BranchForGetBranchDetailsOutput) SetParentDisplayName(v string) *BranchForGetBranchDetailsOutput {
-	s.ParentDisplayName = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *BranchForGetBranchDetailsOutput) SetInstanceId(v string) *BranchForGetBranchDetailsOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetParentBranchName sets the ParentBranchName field's value.
+func (s *BranchForGetBranchDetailsOutput) SetParentBranchName(v string) *BranchForGetBranchDetailsOutput {
+	s.ParentBranchName = &v
 	return s
 }
 
@@ -389,8 +389,8 @@ type GetBranchDetailsInput struct {
 	// BranchId is a required field
 	BranchId *string `type:"string" json:",omitempty" required:"true"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -413,8 +413,8 @@ func (s *GetBranchDetailsInput) Validate() error {
 	if s.BranchId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BranchId"))
 	}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -429,9 +429,9 @@ func (s *GetBranchDetailsInput) SetBranchId(v string) *GetBranchDetailsInput {
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *GetBranchDetailsInput) SetClusterId(v string) *GetBranchDetailsInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *GetBranchDetailsInput) SetInstanceId(v string) *GetBranchDetailsInput {
+	s.InstanceId = &v
 	return s
 }
 

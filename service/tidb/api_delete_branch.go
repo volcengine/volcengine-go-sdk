@@ -149,8 +149,8 @@ type DeleteBranchInput struct {
 	// BranchId is a required field
 	BranchId *string `type:"string" json:",omitempty" required:"true"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -171,8 +171,8 @@ func (s *DeleteBranchInput) Validate() error {
 	if s.BranchId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BranchId"))
 	}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -187,9 +187,9 @@ func (s *DeleteBranchInput) SetBranchId(v string) *DeleteBranchInput {
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *DeleteBranchInput) SetClusterId(v string) *DeleteBranchInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *DeleteBranchInput) SetInstanceId(v string) *DeleteBranchInput {
+	s.InstanceId = &v
 	return s
 }
 

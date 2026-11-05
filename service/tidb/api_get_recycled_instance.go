@@ -176,8 +176,8 @@ func (s *AutoScalingForGetRecycledInstanceOutput) SetMinRcu(v int32) *AutoScalin
 type GetRecycledInstanceInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -195,8 +195,8 @@ func (s GetRecycledInstanceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetRecycledInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetRecycledInstanceInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -205,9 +205,9 @@ func (s *GetRecycledInstanceInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *GetRecycledInstanceInput) SetClusterId(v string) *GetRecycledInstanceInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *GetRecycledInstanceInput) SetInstanceId(v string) *GetRecycledInstanceInput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -246,13 +246,15 @@ type RecycledInstanceForGetRecycledInstanceOutput struct {
 
 	AutoScaling *AutoScalingForGetRecycledInstanceOutput `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	DeleteTime *string `type:"string" json:",omitempty"`
 
 	DisplayName *string `type:"string" json:",omitempty"`
 
 	EnhancedEncryptionEnabled *bool `type:"boolean" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	InstanceName *string `type:"string" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
 
@@ -281,12 +283,6 @@ func (s *RecycledInstanceForGetRecycledInstanceOutput) SetAutoScaling(v *AutoSca
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *RecycledInstanceForGetRecycledInstanceOutput) SetClusterId(v string) *RecycledInstanceForGetRecycledInstanceOutput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetDeleteTime sets the DeleteTime field's value.
 func (s *RecycledInstanceForGetRecycledInstanceOutput) SetDeleteTime(v string) *RecycledInstanceForGetRecycledInstanceOutput {
 	s.DeleteTime = &v
@@ -302,6 +298,18 @@ func (s *RecycledInstanceForGetRecycledInstanceOutput) SetDisplayName(v string) 
 // SetEnhancedEncryptionEnabled sets the EnhancedEncryptionEnabled field's value.
 func (s *RecycledInstanceForGetRecycledInstanceOutput) SetEnhancedEncryptionEnabled(v bool) *RecycledInstanceForGetRecycledInstanceOutput {
 	s.EnhancedEncryptionEnabled = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *RecycledInstanceForGetRecycledInstanceOutput) SetInstanceId(v string) *RecycledInstanceForGetRecycledInstanceOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *RecycledInstanceForGetRecycledInstanceOutput) SetInstanceName(v string) *RecycledInstanceForGetRecycledInstanceOutput {
+	s.InstanceName = &v
 	return s
 }
 

@@ -162,7 +162,7 @@ type QueryBalanceAcctOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AccountID *int32 `type:"int32" json:",omitempty"`
+	AccountID *int64 `type:"int64" json:",omitempty"`
 
 	ArrearsBalance *string `type:"string" json:",omitempty"`
 
@@ -188,7 +188,7 @@ func (s QueryBalanceAcctOutput) GoString() string {
 }
 
 // SetAccountID sets the AccountID field's value.
-func (s *QueryBalanceAcctOutput) SetAccountID(v int32) *QueryBalanceAcctOutput {
+func (s *QueryBalanceAcctOutput) SetAccountID(v int64) *QueryBalanceAcctOutput {
 	s.AccountID = &v
 	return s
 }

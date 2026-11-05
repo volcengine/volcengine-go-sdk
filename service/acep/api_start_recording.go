@@ -151,6 +151,8 @@ type StartRecordingInput struct {
 
 	IsSavedOnPod *bool `type:"boolean" json:",omitempty"`
 
+	ObjectKeyPrefix *string `type:"string" json:",omitempty"`
+
 	// PodId is a required field
 	PodId *string `type:"string" json:",omitempty" required:"true"`
 
@@ -202,6 +204,12 @@ func (s *StartRecordingInput) SetDurationLimit(v int32) *StartRecordingInput {
 // SetIsSavedOnPod sets the IsSavedOnPod field's value.
 func (s *StartRecordingInput) SetIsSavedOnPod(v bool) *StartRecordingInput {
 	s.IsSavedOnPod = &v
+	return s
+}
+
+// SetObjectKeyPrefix sets the ObjectKeyPrefix field's value.
+func (s *StartRecordingInput) SetObjectKeyPrefix(v string) *StartRecordingInput {
+	s.ObjectKeyPrefix = &v
 	return s
 }
 

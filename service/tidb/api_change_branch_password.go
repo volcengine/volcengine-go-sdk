@@ -149,8 +149,8 @@ type ChangeBranchPasswordInput struct {
 	// BranchId is a required field
 	BranchId *string `type:"string" json:",omitempty" required:"true"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// Password is a required field
 	Password *string `type:"string" json:",omitempty" required:"true"`
@@ -174,8 +174,8 @@ func (s *ChangeBranchPasswordInput) Validate() error {
 	if s.BranchId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BranchId"))
 	}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 	if s.Password == nil {
 		invalidParams.Add(request.NewErrParamRequired("Password"))
@@ -193,9 +193,9 @@ func (s *ChangeBranchPasswordInput) SetBranchId(v string) *ChangeBranchPasswordI
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ChangeBranchPasswordInput) SetClusterId(v string) *ChangeBranchPasswordInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *ChangeBranchPasswordInput) SetInstanceId(v string) *ChangeBranchPasswordInput {
+	s.InstanceId = &v
 	return s
 }
 

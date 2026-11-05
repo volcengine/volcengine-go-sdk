@@ -182,7 +182,15 @@ type DataForVideoProjectSerialTaskCreateOutput struct {
 
 	EffectSubtitleFileCheckReports []*EffectSubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput `type:"list" json:",omitempty"`
 
+	FailedTargetLanguages []*string `type:"list" json:",omitempty"`
+
+	HasMaterialIssues *bool `type:"boolean" json:",omitempty"`
+
+	MaterialIssues []*MaterialIssueForVideoProjectSerialTaskCreateOutput `type:"list" json:",omitempty"`
+
 	SubtitleFileCheckReports []*SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput `type:"list" json:",omitempty"`
+
+	SuccessfulTargetLanguages []*string `type:"list" json:",omitempty"`
 
 	TaskIDs []*string `type:"list" json:",omitempty"`
 }
@@ -215,9 +223,33 @@ func (s *DataForVideoProjectSerialTaskCreateOutput) SetEffectSubtitleFileCheckRe
 	return s
 }
 
+// SetFailedTargetLanguages sets the FailedTargetLanguages field's value.
+func (s *DataForVideoProjectSerialTaskCreateOutput) SetFailedTargetLanguages(v []*string) *DataForVideoProjectSerialTaskCreateOutput {
+	s.FailedTargetLanguages = v
+	return s
+}
+
+// SetHasMaterialIssues sets the HasMaterialIssues field's value.
+func (s *DataForVideoProjectSerialTaskCreateOutput) SetHasMaterialIssues(v bool) *DataForVideoProjectSerialTaskCreateOutput {
+	s.HasMaterialIssues = &v
+	return s
+}
+
+// SetMaterialIssues sets the MaterialIssues field's value.
+func (s *DataForVideoProjectSerialTaskCreateOutput) SetMaterialIssues(v []*MaterialIssueForVideoProjectSerialTaskCreateOutput) *DataForVideoProjectSerialTaskCreateOutput {
+	s.MaterialIssues = v
+	return s
+}
+
 // SetSubtitleFileCheckReports sets the SubtitleFileCheckReports field's value.
 func (s *DataForVideoProjectSerialTaskCreateOutput) SetSubtitleFileCheckReports(v []*SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput) *DataForVideoProjectSerialTaskCreateOutput {
 	s.SubtitleFileCheckReports = v
+	return s
+}
+
+// SetSuccessfulTargetLanguages sets the SuccessfulTargetLanguages field's value.
+func (s *DataForVideoProjectSerialTaskCreateOutput) SetSuccessfulTargetLanguages(v []*string) *DataForVideoProjectSerialTaskCreateOutput {
+	s.SuccessfulTargetLanguages = v
 	return s
 }
 
@@ -370,6 +402,140 @@ func (s *IssueForVideoProjectSerialTaskCreateOutput) SetCode(v int32) *IssueForV
 // SetMsg sets the Msg field's value.
 func (s *IssueForVideoProjectSerialTaskCreateOutput) SetMsg(v string) *IssueForVideoProjectSerialTaskCreateOutput {
 	s.Msg = &v
+	return s
+}
+
+type MaterialIssueForVideoProjectSerialTaskCreateOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	EndTime *string `type:"string" json:",omitempty"`
+
+	EpisodeNum *string `type:"string" json:",omitempty"`
+
+	InspectionLevel *int32 `type:"int32" json:",omitempty"`
+
+	InspectionType *int32 `type:"int32" json:",omitempty"`
+
+	ProjectID *string `type:"string" json:",omitempty"`
+
+	Reason *string `type:"string" json:",omitempty"`
+
+	ReasonCode *string `type:"string" json:",omitempty"`
+
+	ReportID *string `type:"string" json:",omitempty"`
+
+	ResourceID *string `type:"string" json:",omitempty"`
+
+	ResourceType *int32 `type:"int32" json:",omitempty"`
+
+	StartTime *string `type:"string" json:",omitempty"`
+
+	SubInspectionType *int32 `type:"int32" json:",omitempty"`
+
+	SubtaskID *string `type:"string" json:",omitempty"`
+
+	TaskID *string `type:"string" json:",omitempty"`
+
+	VideoName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MaterialIssueForVideoProjectSerialTaskCreateOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaterialIssueForVideoProjectSerialTaskCreateOutput) GoString() string {
+	return s.String()
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetEndTime(v string) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.EndTime = &v
+	return s
+}
+
+// SetEpisodeNum sets the EpisodeNum field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetEpisodeNum(v string) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.EpisodeNum = &v
+	return s
+}
+
+// SetInspectionLevel sets the InspectionLevel field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetInspectionLevel(v int32) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.InspectionLevel = &v
+	return s
+}
+
+// SetInspectionType sets the InspectionType field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetInspectionType(v int32) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.InspectionType = &v
+	return s
+}
+
+// SetProjectID sets the ProjectID field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetProjectID(v string) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.ProjectID = &v
+	return s
+}
+
+// SetReason sets the Reason field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetReason(v string) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.Reason = &v
+	return s
+}
+
+// SetReasonCode sets the ReasonCode field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetReasonCode(v string) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.ReasonCode = &v
+	return s
+}
+
+// SetReportID sets the ReportID field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetReportID(v string) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.ReportID = &v
+	return s
+}
+
+// SetResourceID sets the ResourceID field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetResourceID(v string) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.ResourceID = &v
+	return s
+}
+
+// SetResourceType sets the ResourceType field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetResourceType(v int32) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.ResourceType = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetStartTime(v string) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.StartTime = &v
+	return s
+}
+
+// SetSubInspectionType sets the SubInspectionType field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetSubInspectionType(v int32) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.SubInspectionType = &v
+	return s
+}
+
+// SetSubtaskID sets the SubtaskID field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetSubtaskID(v string) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.SubtaskID = &v
+	return s
+}
+
+// SetTaskID sets the TaskID field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetTaskID(v string) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.TaskID = &v
+	return s
+}
+
+// SetVideoName sets the VideoName field's value.
+func (s *MaterialIssueForVideoProjectSerialTaskCreateOutput) SetVideoName(v string) *MaterialIssueForVideoProjectSerialTaskCreateOutput {
+	s.VideoName = &v
 	return s
 }
 

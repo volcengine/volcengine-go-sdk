@@ -149,8 +149,8 @@ type DeleteRecycledInstanceBackupInput struct {
 	// BackupId is a required field
 	BackupId *string `type:"string" json:",omitempty" required:"true"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -171,8 +171,8 @@ func (s *DeleteRecycledInstanceBackupInput) Validate() error {
 	if s.BackupId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BackupId"))
 	}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -187,9 +187,9 @@ func (s *DeleteRecycledInstanceBackupInput) SetBackupId(v string) *DeleteRecycle
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *DeleteRecycledInstanceBackupInput) SetClusterId(v string) *DeleteRecycledInstanceBackupInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *DeleteRecycledInstanceBackupInput) SetInstanceId(v string) *DeleteRecycledInstanceBackupInput {
+	s.InstanceId = &v
 	return s
 }
 

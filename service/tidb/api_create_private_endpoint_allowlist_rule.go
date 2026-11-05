@@ -194,8 +194,8 @@ type CreatePrivateEndpointAllowlistRuleInput struct {
 
 	AuthorizedNetworkName *string `type:"string" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -216,8 +216,8 @@ func (s CreatePrivateEndpointAllowlistRuleInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreatePrivateEndpointAllowlistRuleInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreatePrivateEndpointAllowlistRuleInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 	if s.VpcEndpointId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcEndpointId"))
@@ -235,9 +235,9 @@ func (s *CreatePrivateEndpointAllowlistRuleInput) SetAuthorizedNetworkName(v str
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *CreatePrivateEndpointAllowlistRuleInput) SetClusterId(v string) *CreatePrivateEndpointAllowlistRuleInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *CreatePrivateEndpointAllowlistRuleInput) SetInstanceId(v string) *CreatePrivateEndpointAllowlistRuleInput {
+	s.InstanceId = &v
 	return s
 }
 

@@ -149,8 +149,8 @@ type CreateBranchInput struct {
 	// BranchName is a required field
 	BranchName *string `type:"string" json:",omitempty" required:"true"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ParentId *string `type:"string" json:",omitempty"`
 
@@ -175,8 +175,8 @@ func (s *CreateBranchInput) Validate() error {
 	if s.BranchName == nil {
 		invalidParams.Add(request.NewErrParamRequired("BranchName"))
 	}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -191,9 +191,9 @@ func (s *CreateBranchInput) SetBranchName(v string) *CreateBranchInput {
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *CreateBranchInput) SetClusterId(v string) *CreateBranchInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *CreateBranchInput) SetInstanceId(v string) *CreateBranchInput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -222,7 +222,7 @@ type CreateBranchOutput struct {
 
 	BranchId *string `type:"string" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
+	InstanceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -241,8 +241,8 @@ func (s *CreateBranchOutput) SetBranchId(v string) *CreateBranchOutput {
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *CreateBranchOutput) SetClusterId(v string) *CreateBranchOutput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *CreateBranchOutput) SetInstanceId(v string) *CreateBranchOutput {
+	s.InstanceId = &v
 	return s
 }

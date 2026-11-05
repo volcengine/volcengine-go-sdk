@@ -78,6 +78,14 @@ type DBWAPI interface {
 	DescribeAuditLogDetailWithContext(volcengine.Context, *DescribeAuditLogDetailInput, ...request.Option) (*DescribeAuditLogDetailOutput, error)
 	DescribeAuditLogDetailRequest(*DescribeAuditLogDetailInput) (*request.Request, *DescribeAuditLogDetailOutput)
 
+	DescribeInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeInstances(*DescribeInstancesInput) (*DescribeInstancesOutput, error)
+	DescribeInstancesWithContext(volcengine.Context, *DescribeInstancesInput, ...request.Option) (*DescribeInstancesOutput, error)
+	DescribeInstancesRequest(*DescribeInstancesInput) (*request.Request, *DescribeInstancesOutput)
+
 	DescribeSlowLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSlowLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeSlowLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

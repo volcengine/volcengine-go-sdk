@@ -330,13 +330,13 @@ type ChangefeedForListChangefeedsOutput struct {
 
 	Checkpoint *CheckpointForListChangefeedsOutput `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	Error *string `type:"string" json:",omitempty"`
 
 	Filter *FilterForListChangefeedsOutput `type:"structure" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	Rcu *int64 `type:"int64" json:",omitempty"`
 
@@ -383,12 +383,6 @@ func (s *ChangefeedForListChangefeedsOutput) SetCheckpoint(v *CheckpointForListC
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ChangefeedForListChangefeedsOutput) SetClusterId(v string) *ChangefeedForListChangefeedsOutput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetCreateTime sets the CreateTime field's value.
 func (s *ChangefeedForListChangefeedsOutput) SetCreateTime(v string) *ChangefeedForListChangefeedsOutput {
 	s.CreateTime = &v
@@ -404,6 +398,12 @@ func (s *ChangefeedForListChangefeedsOutput) SetError(v string) *ChangefeedForLi
 // SetFilter sets the Filter field's value.
 func (s *ChangefeedForListChangefeedsOutput) SetFilter(v *FilterForListChangefeedsOutput) *ChangefeedForListChangefeedsOutput {
 	s.Filter = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ChangefeedForListChangefeedsOutput) SetInstanceId(v string) *ChangefeedForListChangefeedsOutput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -846,8 +846,8 @@ type ListChangefeedsInput struct {
 
 	ChangefeedType *string `type:"string" json:",omitempty" enum:"EnumOfChangefeedTypeForListChangefeedsInput"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
@@ -869,8 +869,8 @@ func (s ListChangefeedsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListChangefeedsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListChangefeedsInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -885,9 +885,9 @@ func (s *ListChangefeedsInput) SetChangefeedType(v string) *ListChangefeedsInput
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListChangefeedsInput) SetClusterId(v string) *ListChangefeedsInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListChangefeedsInput) SetInstanceId(v string) *ListChangefeedsInput {
+	s.InstanceId = &v
 	return s
 }
 

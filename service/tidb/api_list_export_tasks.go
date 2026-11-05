@@ -222,8 +222,6 @@ func (s *CsvFormatForListExportTasksOutput) SetSkipHeader(v bool) *CsvFormatForL
 type ExportForListExportTasksOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	CompleteTime *string `type:"string" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
@@ -235,6 +233,8 @@ type ExportForListExportTasksOutput struct {
 	ExportOptions *ExportOptionsForListExportTasksOutput `type:"structure" json:",omitempty"`
 
 	ExportTaskName *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	Reason *string `type:"string" json:",omitempty"`
 
@@ -255,12 +255,6 @@ func (s ExportForListExportTasksOutput) String() string {
 // GoString returns the string representation
 func (s ExportForListExportTasksOutput) GoString() string {
 	return s.String()
-}
-
-// SetClusterId sets the ClusterId field's value.
-func (s *ExportForListExportTasksOutput) SetClusterId(v string) *ExportForListExportTasksOutput {
-	s.ClusterId = &v
-	return s
 }
 
 // SetCompleteTime sets the CompleteTime field's value.
@@ -296,6 +290,12 @@ func (s *ExportForListExportTasksOutput) SetExportOptions(v *ExportOptionsForLis
 // SetExportTaskName sets the ExportTaskName field's value.
 func (s *ExportForListExportTasksOutput) SetExportTaskName(v string) *ExportForListExportTasksOutput {
 	s.ExportTaskName = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ExportForListExportTasksOutput) SetInstanceId(v string) *ExportForListExportTasksOutput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -416,8 +416,8 @@ func (s *FilterForListExportTasksOutput) SetTable(v *TableForListExportTasksOutp
 type ListExportTasksInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	OrderBy *string `type:"string" json:",omitempty"`
 
@@ -441,8 +441,8 @@ func (s ListExportTasksInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListExportTasksInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListExportTasksInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -451,9 +451,9 @@ func (s *ListExportTasksInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListExportTasksInput) SetClusterId(v string) *ListExportTasksInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListExportTasksInput) SetInstanceId(v string) *ListExportTasksInput {
+	s.InstanceId = &v
 	return s
 }
 

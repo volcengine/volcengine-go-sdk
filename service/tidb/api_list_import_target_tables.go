@@ -176,8 +176,8 @@ func (s *DatabaseForListImportTargetTablesOutput) SetTables(v []*string) *Databa
 type ListImportTargetTablesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -195,8 +195,8 @@ func (s ListImportTargetTablesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListImportTargetTablesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListImportTargetTablesInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -205,9 +205,9 @@ func (s *ListImportTargetTablesInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListImportTargetTablesInput) SetClusterId(v string) *ListImportTargetTablesInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListImportTargetTablesInput) SetInstanceId(v string) *ListImportTargetTablesInput {
+	s.InstanceId = &v
 	return s
 }
 

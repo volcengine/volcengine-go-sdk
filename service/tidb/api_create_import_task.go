@@ -312,14 +312,18 @@ func (s *ColumnForCreateImportTaskOutput) SetColumnType(v string) *ColumnForCrea
 type CreateImportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	DatabaseCredential *DatabaseCredentialForCreateImportTaskInput `type:"structure" json:",omitempty"`
 
 	ImportOptions *ImportOptionsForCreateImportTaskInput `type:"structure" json:",omitempty"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
 	Source *SourceForCreateImportTaskInput `type:"structure" json:",omitempty"`
+
+	TableMetas []*TableMetaForCreateImportTaskInput `type:"list"`
 }
 
 // String returns the string representation
@@ -335,8 +339,8 @@ func (s CreateImportTaskInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateImportTaskInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateImportTaskInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -345,15 +349,21 @@ func (s *CreateImportTaskInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *CreateImportTaskInput) SetClusterId(v string) *CreateImportTaskInput {
-	s.ClusterId = &v
+// SetDatabaseCredential sets the DatabaseCredential field's value.
+func (s *CreateImportTaskInput) SetDatabaseCredential(v *DatabaseCredentialForCreateImportTaskInput) *CreateImportTaskInput {
+	s.DatabaseCredential = v
 	return s
 }
 
 // SetImportOptions sets the ImportOptions field's value.
 func (s *CreateImportTaskInput) SetImportOptions(v *ImportOptionsForCreateImportTaskInput) *CreateImportTaskInput {
 	s.ImportOptions = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *CreateImportTaskInput) SetInstanceId(v string) *CreateImportTaskInput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -366,6 +376,12 @@ func (s *CreateImportTaskInput) SetProjectName(v string) *CreateImportTaskInput 
 // SetSource sets the Source field's value.
 func (s *CreateImportTaskInput) SetSource(v *SourceForCreateImportTaskInput) *CreateImportTaskInput {
 	s.Source = v
+	return s
+}
+
+// SetTableMetas sets the TableMetas field's value.
+func (s *CreateImportTaskInput) SetTableMetas(v []*TableMetaForCreateImportTaskInput) *CreateImportTaskInput {
+	s.TableMetas = v
 	return s
 }
 
@@ -563,14 +579,44 @@ func (s *CsvFormatForCreateImportTaskOutput) SetTrimLastSeparator(v bool) *CsvFo
 	return s
 }
 
+type DatabaseCredentialForCreateImportTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Password *string `type:"string" json:",omitempty"`
+
+	Username *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s DatabaseCredentialForCreateImportTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DatabaseCredentialForCreateImportTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetPassword sets the Password field's value.
+func (s *DatabaseCredentialForCreateImportTaskInput) SetPassword(v string) *DatabaseCredentialForCreateImportTaskInput {
+	s.Password = &v
+	return s
+}
+
+// SetUsername sets the Username field's value.
+func (s *DatabaseCredentialForCreateImportTaskInput) SetUsername(v string) *DatabaseCredentialForCreateImportTaskInput {
+	s.Username = &v
+	return s
+}
+
 type ImportOptionsForCreateImportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	CsvFormat *CsvFormatForCreateImportTaskInput `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
 	FileType *string `type:"string" json:",omitempty" enum:"EnumOfFileTypeForCreateImportTaskInput"`
+
+	ImportTaskName *string `type:"string" json:",omitempty"`
 
 	NeedDropTable *bool `type:"boolean" json:",omitempty"`
 }
@@ -591,15 +637,15 @@ func (s *ImportOptionsForCreateImportTaskInput) SetCsvFormat(v *CsvFormatForCrea
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ImportOptionsForCreateImportTaskInput) SetDisplayName(v string) *ImportOptionsForCreateImportTaskInput {
-	s.DisplayName = &v
-	return s
-}
-
 // SetFileType sets the FileType field's value.
 func (s *ImportOptionsForCreateImportTaskInput) SetFileType(v string) *ImportOptionsForCreateImportTaskInput {
 	s.FileType = &v
+	return s
+}
+
+// SetImportTaskName sets the ImportTaskName field's value.
+func (s *ImportOptionsForCreateImportTaskInput) SetImportTaskName(v string) *ImportOptionsForCreateImportTaskInput {
+	s.ImportTaskName = &v
 	return s
 }
 
@@ -614,9 +660,9 @@ type ImportOptionsForCreateImportTaskOutput struct {
 
 	CsvFormat *CsvFormatForCreateImportTaskOutput `type:"structure" json:",omitempty"`
 
-	DisplayName *string `type:"string" json:",omitempty"`
-
 	FileType *string `type:"string" json:",omitempty" enum:"EnumOfFileTypeForCreateImportTaskOutput"`
+
+	ImportTaskName *string `type:"string" json:",omitempty"`
 
 	NeedDropTable *bool `type:"boolean" json:",omitempty"`
 }
@@ -637,15 +683,15 @@ func (s *ImportOptionsForCreateImportTaskOutput) SetCsvFormat(v *CsvFormatForCre
 	return s
 }
 
-// SetDisplayName sets the DisplayName field's value.
-func (s *ImportOptionsForCreateImportTaskOutput) SetDisplayName(v string) *ImportOptionsForCreateImportTaskOutput {
-	s.DisplayName = &v
-	return s
-}
-
 // SetFileType sets the FileType field's value.
 func (s *ImportOptionsForCreateImportTaskOutput) SetFileType(v string) *ImportOptionsForCreateImportTaskOutput {
 	s.FileType = &v
+	return s
+}
+
+// SetImportTaskName sets the ImportTaskName field's value.
+func (s *ImportOptionsForCreateImportTaskOutput) SetImportTaskName(v string) *ImportOptionsForCreateImportTaskOutput {
+	s.ImportTaskName = &v
 	return s
 }
 
@@ -660,8 +706,6 @@ type Import_ForCreateImportTaskOutput struct {
 
 	AllCompletedTables []*AllCompletedTableForCreateImportTaskOutput `type:"list"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	CompatibleId *string `type:"string" json:",omitempty"`
 
 	CompletePercent *int32 `type:"int32" json:",omitempty"`
@@ -672,9 +716,11 @@ type Import_ForCreateImportTaskOutput struct {
 
 	CreationDetails *CreationDetailsForCreateImportTaskOutput `type:"structure" json:",omitempty"`
 
-	Id *string `type:"string" json:",omitempty"`
-
 	ImportId *string `type:"string" json:",omitempty"`
+
+	ImportTaskName *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	Message *string `type:"string" json:",omitempty"`
 
@@ -683,6 +729,8 @@ type Import_ForCreateImportTaskOutput struct {
 	StartTime *string `type:"string" json:",omitempty"`
 
 	State *string `type:"string" json:",omitempty" enum:"EnumOfStateForCreateImportTaskOutput"`
+
+	Subtasks []*SubtaskForCreateImportTaskOutput `type:"list"`
 
 	TotalSize *string `type:"string" json:",omitempty"`
 
@@ -702,12 +750,6 @@ func (s Import_ForCreateImportTaskOutput) GoString() string {
 // SetAllCompletedTables sets the AllCompletedTables field's value.
 func (s *Import_ForCreateImportTaskOutput) SetAllCompletedTables(v []*AllCompletedTableForCreateImportTaskOutput) *Import_ForCreateImportTaskOutput {
 	s.AllCompletedTables = v
-	return s
-}
-
-// SetClusterId sets the ClusterId field's value.
-func (s *Import_ForCreateImportTaskOutput) SetClusterId(v string) *Import_ForCreateImportTaskOutput {
-	s.ClusterId = &v
 	return s
 }
 
@@ -741,15 +783,21 @@ func (s *Import_ForCreateImportTaskOutput) SetCreationDetails(v *CreationDetails
 	return s
 }
 
-// SetId sets the Id field's value.
-func (s *Import_ForCreateImportTaskOutput) SetId(v string) *Import_ForCreateImportTaskOutput {
-	s.Id = &v
-	return s
-}
-
 // SetImportId sets the ImportId field's value.
 func (s *Import_ForCreateImportTaskOutput) SetImportId(v string) *Import_ForCreateImportTaskOutput {
 	s.ImportId = &v
+	return s
+}
+
+// SetImportTaskName sets the ImportTaskName field's value.
+func (s *Import_ForCreateImportTaskOutput) SetImportTaskName(v string) *Import_ForCreateImportTaskOutput {
+	s.ImportTaskName = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *Import_ForCreateImportTaskOutput) SetInstanceId(v string) *Import_ForCreateImportTaskOutput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -774,6 +822,12 @@ func (s *Import_ForCreateImportTaskOutput) SetStartTime(v string) *Import_ForCre
 // SetState sets the State field's value.
 func (s *Import_ForCreateImportTaskOutput) SetState(v string) *Import_ForCreateImportTaskOutput {
 	s.State = &v
+	return s
+}
+
+// SetSubtasks sets the Subtasks field's value.
+func (s *Import_ForCreateImportTaskOutput) SetSubtasks(v []*SubtaskForCreateImportTaskOutput) *Import_ForCreateImportTaskOutput {
+	s.Subtasks = v
 	return s
 }
 
@@ -1002,6 +1056,154 @@ func (s *SourceForCreateImportTaskOutput) SetTos(v *TosForCreateImportTaskOutput
 // SetType sets the Type field's value.
 func (s *SourceForCreateImportTaskOutput) SetType(v string) *SourceForCreateImportTaskOutput {
 	s.Type = &v
+	return s
+}
+
+type SubtaskForCreateImportTaskOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	CurrentStep *string `type:"string" json:",omitempty"`
+
+	CurrentStepProgressPercent *int32 `type:"int32" json:",omitempty"`
+
+	Database *string `type:"string" json:",omitempty"`
+
+	FilesWildcard *string `type:"string" json:",omitempty"`
+
+	FinishedTime *string `type:"string" json:",omitempty"`
+
+	ImportedRows *string `type:"string" json:",omitempty"`
+
+	JobId *string `type:"string" json:",omitempty"`
+
+	ResultMessage *string `type:"string" json:",omitempty"`
+
+	StartedTime *string `type:"string" json:",omitempty"`
+
+	Status *string `type:"string" json:",omitempty"`
+
+	Table *string `type:"string" json:",omitempty"`
+
+	TotalSize *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s SubtaskForCreateImportTaskOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SubtaskForCreateImportTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetCurrentStep sets the CurrentStep field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetCurrentStep(v string) *SubtaskForCreateImportTaskOutput {
+	s.CurrentStep = &v
+	return s
+}
+
+// SetCurrentStepProgressPercent sets the CurrentStepProgressPercent field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetCurrentStepProgressPercent(v int32) *SubtaskForCreateImportTaskOutput {
+	s.CurrentStepProgressPercent = &v
+	return s
+}
+
+// SetDatabase sets the Database field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetDatabase(v string) *SubtaskForCreateImportTaskOutput {
+	s.Database = &v
+	return s
+}
+
+// SetFilesWildcard sets the FilesWildcard field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetFilesWildcard(v string) *SubtaskForCreateImportTaskOutput {
+	s.FilesWildcard = &v
+	return s
+}
+
+// SetFinishedTime sets the FinishedTime field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetFinishedTime(v string) *SubtaskForCreateImportTaskOutput {
+	s.FinishedTime = &v
+	return s
+}
+
+// SetImportedRows sets the ImportedRows field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetImportedRows(v string) *SubtaskForCreateImportTaskOutput {
+	s.ImportedRows = &v
+	return s
+}
+
+// SetJobId sets the JobId field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetJobId(v string) *SubtaskForCreateImportTaskOutput {
+	s.JobId = &v
+	return s
+}
+
+// SetResultMessage sets the ResultMessage field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetResultMessage(v string) *SubtaskForCreateImportTaskOutput {
+	s.ResultMessage = &v
+	return s
+}
+
+// SetStartedTime sets the StartedTime field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetStartedTime(v string) *SubtaskForCreateImportTaskOutput {
+	s.StartedTime = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetStatus(v string) *SubtaskForCreateImportTaskOutput {
+	s.Status = &v
+	return s
+}
+
+// SetTable sets the Table field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetTable(v string) *SubtaskForCreateImportTaskOutput {
+	s.Table = &v
+	return s
+}
+
+// SetTotalSize sets the TotalSize field's value.
+func (s *SubtaskForCreateImportTaskOutput) SetTotalSize(v string) *SubtaskForCreateImportTaskOutput {
+	s.TotalSize = &v
+	return s
+}
+
+type TableMetaForCreateImportTaskInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Database *string `type:"string" json:",omitempty"`
+
+	FilesWildcard *string `type:"string" json:",omitempty"`
+
+	Table *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TableMetaForCreateImportTaskInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableMetaForCreateImportTaskInput) GoString() string {
+	return s.String()
+}
+
+// SetDatabase sets the Database field's value.
+func (s *TableMetaForCreateImportTaskInput) SetDatabase(v string) *TableMetaForCreateImportTaskInput {
+	s.Database = &v
+	return s
+}
+
+// SetFilesWildcard sets the FilesWildcard field's value.
+func (s *TableMetaForCreateImportTaskInput) SetFilesWildcard(v string) *TableMetaForCreateImportTaskInput {
+	s.FilesWildcard = &v
+	return s
+}
+
+// SetTable sets the Table field's value.
+func (s *TableMetaForCreateImportTaskInput) SetTable(v string) *TableMetaForCreateImportTaskInput {
+	s.Table = &v
 	return s
 }
 

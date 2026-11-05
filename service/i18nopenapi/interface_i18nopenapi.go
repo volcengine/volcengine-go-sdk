@@ -830,6 +830,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectAddTargetLangsToExistingDramaWithContext(volcengine.Context, *VideoProjectAddTargetLangsToExistingDramaInput, ...request.Option) (*VideoProjectAddTargetLangsToExistingDramaOutput, error)
 	VideoProjectAddTargetLangsToExistingDramaRequest(*VideoProjectAddTargetLangsToExistingDramaInput) (*request.Request, *VideoProjectAddTargetLangsToExistingDramaOutput)
 
+	VideoProjectBatchMaterialQualityCheckCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectBatchMaterialQualityCheckCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectBatchMaterialQualityCheckCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectBatchMaterialQualityCheck(*VideoProjectBatchMaterialQualityCheckInput) (*VideoProjectBatchMaterialQualityCheckOutput, error)
+	VideoProjectBatchMaterialQualityCheckWithContext(volcengine.Context, *VideoProjectBatchMaterialQualityCheckInput, ...request.Option) (*VideoProjectBatchMaterialQualityCheckOutput, error)
+	VideoProjectBatchMaterialQualityCheckRequest(*VideoProjectBatchMaterialQualityCheckInput) (*request.Request, *VideoProjectBatchMaterialQualityCheckOutput)
+
 	VideoProjectBatchReuploadForSubtasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectBatchReuploadForSubtasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	VideoProjectBatchReuploadForSubtasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -837,6 +845,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectBatchReuploadForSubtasks(*VideoProjectBatchReuploadForSubtasksInput) (*VideoProjectBatchReuploadForSubtasksOutput, error)
 	VideoProjectBatchReuploadForSubtasksWithContext(volcengine.Context, *VideoProjectBatchReuploadForSubtasksInput, ...request.Option) (*VideoProjectBatchReuploadForSubtasksOutput, error)
 	VideoProjectBatchReuploadForSubtasksRequest(*VideoProjectBatchReuploadForSubtasksInput) (*request.Request, *VideoProjectBatchReuploadForSubtasksOutput)
+
+	VideoProjectBatchUploadForSubtasksV2Common(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectBatchUploadForSubtasksV2CommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectBatchUploadForSubtasksV2CommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectBatchUploadForSubtasksV2(*VideoProjectBatchUploadForSubtasksV2Input) (*VideoProjectBatchUploadForSubtasksV2Output, error)
+	VideoProjectBatchUploadForSubtasksV2WithContext(volcengine.Context, *VideoProjectBatchUploadForSubtasksV2Input, ...request.Option) (*VideoProjectBatchUploadForSubtasksV2Output, error)
+	VideoProjectBatchUploadForSubtasksV2Request(*VideoProjectBatchUploadForSubtasksV2Input) (*request.Request, *VideoProjectBatchUploadForSubtasksV2Output)
 
 	VideoProjectCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -925,6 +941,14 @@ type I18NOPENAPIAPI interface {
 	VideoProjectListVideoDrama(*VideoProjectListVideoDramaInput) (*VideoProjectListVideoDramaOutput, error)
 	VideoProjectListVideoDramaWithContext(volcengine.Context, *VideoProjectListVideoDramaInput, ...request.Option) (*VideoProjectListVideoDramaOutput, error)
 	VideoProjectListVideoDramaRequest(*VideoProjectListVideoDramaInput) (*request.Request, *VideoProjectListVideoDramaOutput)
+
+	VideoProjectMaterialQualityIssuesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	VideoProjectMaterialQualityIssuesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	VideoProjectMaterialQualityIssuesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	VideoProjectMaterialQualityIssues(*VideoProjectMaterialQualityIssuesInput) (*VideoProjectMaterialQualityIssuesOutput, error)
+	VideoProjectMaterialQualityIssuesWithContext(volcengine.Context, *VideoProjectMaterialQualityIssuesInput, ...request.Option) (*VideoProjectMaterialQualityIssuesOutput, error)
+	VideoProjectMaterialQualityIssuesRequest(*VideoProjectMaterialQualityIssuesInput) (*request.Request, *VideoProjectMaterialQualityIssuesOutput)
 
 	VideoProjectSerialDubTaskCreateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	VideoProjectSerialDubTaskCreateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -192,11 +192,11 @@ func (s *AuditLogFileForListAuditLogFilesOutput) SetUrl(v string) *AuditLogFileF
 type ListAuditLogFilesInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	// Date is a required field
 	Date *string `type:"string" json:",omitempty" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	PageSize *int32 `type:"int32" json:",omitempty"`
 
@@ -218,11 +218,11 @@ func (s ListAuditLogFilesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListAuditLogFilesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListAuditLogFilesInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
-	}
 	if s.Date == nil {
 		invalidParams.Add(request.NewErrParamRequired("Date"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -231,15 +231,15 @@ func (s *ListAuditLogFilesInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListAuditLogFilesInput) SetClusterId(v string) *ListAuditLogFilesInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetDate sets the Date field's value.
 func (s *ListAuditLogFilesInput) SetDate(v string) *ListAuditLogFilesInput {
 	s.Date = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListAuditLogFilesInput) SetInstanceId(v string) *ListAuditLogFilesInput {
+	s.InstanceId = &v
 	return s
 }
 

@@ -190,7 +190,11 @@ type CreateClawInput struct {
 
 	Name *string `max:"100" type:"string" json:",omitempty"`
 
+	PersonalClaw *PersonalClawForCreateClawInput `type:"structure" json:",omitempty"`
+
 	Source *string `type:"string" json:",omitempty" enum:"EnumOfSourceForCreateClawInput"`
+
+	Tags []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -221,6 +225,11 @@ func (s *CreateClawInput) Validate() error {
 	if s.Base != nil {
 		if err := s.Base.Validate(); err != nil {
 			invalidParams.AddNested("Base", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.PersonalClaw != nil {
+		if err := s.PersonalClaw.Validate(); err != nil {
+			invalidParams.AddNested("PersonalClaw", err.(request.ErrInvalidParams))
 		}
 	}
 
@@ -254,9 +263,21 @@ func (s *CreateClawInput) SetName(v string) *CreateClawInput {
 	return s
 }
 
+// SetPersonalClaw sets the PersonalClaw field's value.
+func (s *CreateClawInput) SetPersonalClaw(v *PersonalClawForCreateClawInput) *CreateClawInput {
+	s.PersonalClaw = v
+	return s
+}
+
 // SetSource sets the Source field's value.
 func (s *CreateClawInput) SetSource(v string) *CreateClawInput {
 	s.Source = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateClawInput) SetTags(v []*string) *CreateClawInput {
+	s.Tags = v
 	return s
 }
 
@@ -332,6 +353,44 @@ func (s *CreateClawOutput) SetScheme(v string) *CreateClawOutput {
 	return s
 }
 
+type PersonalClawForCreateClawInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Token *string `min:"1" max:"100" type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s PersonalClawForCreateClawInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PersonalClawForCreateClawInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *PersonalClawForCreateClawInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "PersonalClawForCreateClawInput"}
+	if s.Token != nil && len(*s.Token) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Token", 1))
+	}
+	if s.Token != nil && len(*s.Token) > 100 {
+		invalidParams.Add(request.NewErrParamMaxLen("Token", 100, *s.Token))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetToken sets the Token field's value.
+func (s *PersonalClawForCreateClawInput) SetToken(v string) *PersonalClawForCreateClawInput {
+	s.Token = &v
+	return s
+}
+
 const (
 	// EnumOfClawTypeForCreateClawInputArkclaw is a EnumOfClawTypeForCreateClawInput enum value
 	EnumOfClawTypeForCreateClawInputArkclaw = "arkclaw"
@@ -359,6 +418,51 @@ const (
 
 	// EnumOfClawTypeForCreateClawInputTrae is a EnumOfClawTypeForCreateClawInput enum value
 	EnumOfClawTypeForCreateClawInputTrae = "trae"
+
+	// EnumOfClawTypeForCreateClawInputWorkBuddy is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputWorkBuddy = "work_buddy"
+
+	// EnumOfClawTypeForCreateClawInputDify is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputDify = "dify"
+
+	// EnumOfClawTypeForCreateClawInputHiagent is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputHiagent = "hiagent"
+
+	// EnumOfClawTypeForCreateClawInputArkclawDesktop is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputArkclawDesktop = "arkclaw_desktop"
+
+	// EnumOfClawTypeForCreateClawInputExternal is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputExternal = "external"
+
+	// EnumOfClawTypeForCreateClawInputTraeWork is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputTraeWork = "trae_work"
+
+	// EnumOfClawTypeForCreateClawInputClaudeCode is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputClaudeCode = "claude_code"
+
+	// EnumOfClawTypeForCreateClawInputCursor is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputCursor = "cursor"
+
+	// EnumOfClawTypeForCreateClawInputZcode is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputZcode = "zcode"
+
+	// EnumOfClawTypeForCreateClawInputQwenpaw is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputQwenpaw = "qwenpaw"
+
+	// EnumOfClawTypeForCreateClawInputModelRoute is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputModelRoute = "model_route"
+
+	// EnumOfClawTypeForCreateClawInputCopilot is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputCopilot = "copilot"
+
+	// EnumOfClawTypeForCreateClawInputQoder is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputQoder = "qoder"
+
+	// EnumOfClawTypeForCreateClawInputEndpoint is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputEndpoint = "endpoint"
+
+	// EnumOfClawTypeForCreateClawInputOther is a EnumOfClawTypeForCreateClawInput enum value
+	EnumOfClawTypeForCreateClawInputOther = "other"
 )
 
 const (
@@ -370,4 +474,19 @@ const (
 
 	// EnumOfSourceForCreateClawInputHibot is a EnumOfSourceForCreateClawInput enum value
 	EnumOfSourceForCreateClawInputHibot = "hibot"
+
+	// EnumOfSourceForCreateClawInputDify is a EnumOfSourceForCreateClawInput enum value
+	EnumOfSourceForCreateClawInputDify = "dify"
+
+	// EnumOfSourceForCreateClawInputCoze is a EnumOfSourceForCreateClawInput enum value
+	EnumOfSourceForCreateClawInputCoze = "coze"
+
+	// EnumOfSourceForCreateClawInputHiagent is a EnumOfSourceForCreateClawInput enum value
+	EnumOfSourceForCreateClawInputHiagent = "hiagent"
+
+	// EnumOfSourceForCreateClawInputPingan is a EnumOfSourceForCreateClawInput enum value
+	EnumOfSourceForCreateClawInputPingan = "pingan"
+
+	// EnumOfSourceForCreateClawInputSystem is a EnumOfSourceForCreateClawInput enum value
+	EnumOfSourceForCreateClawInputSystem = "system"
 )

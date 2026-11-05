@@ -148,14 +148,14 @@ type GetSlowQueryDetailsInput struct {
 
 	BeginTime *string `type:"string" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	ConnectionId *string `type:"string" json:",omitempty"`
 
 	Digest *string `type:"string" json:",omitempty"`
 
 	EndTime *string `type:"string" json:",omitempty"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -177,8 +177,8 @@ func (s GetSlowQueryDetailsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetSlowQueryDetailsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetSlowQueryDetailsInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -190,12 +190,6 @@ func (s *GetSlowQueryDetailsInput) Validate() error {
 // SetBeginTime sets the BeginTime field's value.
 func (s *GetSlowQueryDetailsInput) SetBeginTime(v string) *GetSlowQueryDetailsInput {
 	s.BeginTime = &v
-	return s
-}
-
-// SetClusterId sets the ClusterId field's value.
-func (s *GetSlowQueryDetailsInput) SetClusterId(v string) *GetSlowQueryDetailsInput {
-	s.ClusterId = &v
 	return s
 }
 
@@ -214,6 +208,12 @@ func (s *GetSlowQueryDetailsInput) SetDigest(v string) *GetSlowQueryDetailsInput
 // SetEndTime sets the EndTime field's value.
 func (s *GetSlowQueryDetailsInput) SetEndTime(v string) *GetSlowQueryDetailsInput {
 	s.EndTime = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *GetSlowQueryDetailsInput) SetInstanceId(v string) *GetSlowQueryDetailsInput {
+	s.InstanceId = &v
 	return s
 }
 

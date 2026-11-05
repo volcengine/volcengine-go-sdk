@@ -330,13 +330,13 @@ type ChangefeedForScaleChangefeedOutput struct {
 
 	Checkpoint *CheckpointForScaleChangefeedOutput `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	Error *string `type:"string" json:",omitempty"`
 
 	Filter *FilterForScaleChangefeedOutput `type:"structure" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	Rcu *int64 `type:"int64" json:",omitempty"`
 
@@ -383,12 +383,6 @@ func (s *ChangefeedForScaleChangefeedOutput) SetCheckpoint(v *CheckpointForScale
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ChangefeedForScaleChangefeedOutput) SetClusterId(v string) *ChangefeedForScaleChangefeedOutput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetCreateTime sets the CreateTime field's value.
 func (s *ChangefeedForScaleChangefeedOutput) SetCreateTime(v string) *ChangefeedForScaleChangefeedOutput {
 	s.CreateTime = &v
@@ -404,6 +398,12 @@ func (s *ChangefeedForScaleChangefeedOutput) SetError(v string) *ChangefeedForSc
 // SetFilter sets the Filter field's value.
 func (s *ChangefeedForScaleChangefeedOutput) SetFilter(v *FilterForScaleChangefeedOutput) *ChangefeedForScaleChangefeedOutput {
 	s.Filter = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ChangefeedForScaleChangefeedOutput) SetInstanceId(v string) *ChangefeedForScaleChangefeedOutput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -991,8 +991,8 @@ type ScaleChangefeedInput struct {
 	// ChangefeedId is a required field
 	ChangefeedId *string `type:"string" json:",omitempty" required:"true"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -1016,8 +1016,8 @@ func (s *ScaleChangefeedInput) Validate() error {
 	if s.ChangefeedId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ChangefeedId"))
 	}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 	if s.Rcu == nil {
 		invalidParams.Add(request.NewErrParamRequired("Rcu"))
@@ -1035,9 +1035,9 @@ func (s *ScaleChangefeedInput) SetChangefeedId(v string) *ScaleChangefeedInput {
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ScaleChangefeedInput) SetClusterId(v string) *ScaleChangefeedInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *ScaleChangefeedInput) SetInstanceId(v string) *ScaleChangefeedInput {
+	s.InstanceId = &v
 	return s
 }
 
