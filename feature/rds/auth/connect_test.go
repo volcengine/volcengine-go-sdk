@@ -2,12 +2,16 @@ package auth
 
 import (
 	"context"
+	"errors"
 	"strings"
 	"testing"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/endpoints"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 func newTestSession(t *testing.T, ak, sk, region string, disableSSL *bool, endpoint ...string) *session.Session {
@@ -176,5 +180,52 @@ func TestBuildAuthToken(t *testing.T) {
 				t.Errorf("BuildAuthToken() token should contain endpoint host %s, got %s", expectedHost, token)
 			}
 		})
+	}
+}
+
+func TestBuildAuthTokenInvalidRegionReturnsError(t *testing.T) {
+	for _, region := range []string{"cn-beijing@127.0.0.1", "cn/beijing", "cn beijing", "cn\x00beijing", "evil.com"} {
+		sess := newTestSession(t, "ak", "sk", region, nil)
+		token, err := BuildAuthToken(context.Background(), sess, "user", "mysql-xxx", 0)
+		if err == nil {
+			t.Fatalf("region %q: expect error, got token %q", region, token)
+		}
+		if token != "" {
+			t.Fatalf("region %q: expect empty token, got %q", region, token)
+		}
+		// The prefix is only produced when the Validate handlers carried by the
+		// failed client config are run, i.e. no token is built from it.
+		if !strings.HasPrefix(err.Error(), "unable to resolve client config") {
+			t.Fatalf("region %q: unexpected error %v", region, err)
+		}
+		var vErr volcengineerr.Error
+		if !errors.As(err, &vErr) || vErr.Code() != endpoints.ErrCodeInvalidRegion {
+			t.Fatalf("region %q: expect error code %s, got %v", region, endpoints.ErrCodeInvalidRegion, err)
+		}
+	}
+}
+
+// BuildAuthToken must only check the config resolution error, it must not run
+// the Validate handlers registered on the session.
+func TestBuildAuthTokenDoesNotRunSessionValidateHandlers(t *testing.T) {
+	sess := newTestSession(t, "ak", "sk", "cn-beijing", nil)
+	calls := 0
+	sess.Handlers.Validate.PushBack(func(r *request.Request) { calls++ })
+
+	if _, err := BuildAuthToken(context.Background(), sess, "user", "mysql-xxx", 900); err != nil {
+		t.Fatalf("BuildAuthToken() unexpected error = %v", err)
+	}
+	if calls != 0 {
+		t.Errorf("session Validate handler was run %d times, want 0", calls)
+	}
+
+	// An invalid region still fails, and still without running the handlers.
+	bad := newTestSession(t, "ak", "sk", "evil.com/", nil)
+	bad.Handlers.Validate.PushBack(func(r *request.Request) { calls++ })
+	if _, err := BuildAuthToken(context.Background(), bad, "user", "mysql-xxx", 900); err == nil {
+		t.Fatal("BuildAuthToken() expected error for invalid region")
+	}
+	if calls != 0 {
+		t.Errorf("session Validate handler was run %d times, want 0", calls)
 	}
 }
