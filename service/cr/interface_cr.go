@@ -70,6 +70,14 @@ type CRAPI interface {
 	CreateRobotAccountWithContext(volcengine.Context, *CreateRobotAccountInput, ...request.Option) (*CreateRobotAccountOutput, error)
 	CreateRobotAccountRequest(*CreateRobotAccountInput) (*request.Request, *CreateRobotAccountOutput)
 
+	CreateTagCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTagCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTagCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTag(*CreateTagInput) (*CreateTagOutput, error)
+	CreateTagWithContext(volcengine.Context, *CreateTagInput, ...request.Option) (*CreateTagOutput, error)
+	CreateTagRequest(*CreateTagInput) (*request.Request, *CreateTagOutput)
+
 	DeleteEndpointAclPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteEndpointAclPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteEndpointAclPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
