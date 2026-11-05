@@ -244,9 +244,9 @@ type ListEventsInput struct {
 
 	ActionStatus *string `type:"string" json:",omitempty" enum:"EnumOfActionStatusForListEventsInput"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	EndTime *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
 
@@ -279,15 +279,15 @@ func (s *ListEventsInput) SetActionStatus(v string) *ListEventsInput {
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListEventsInput) SetClusterId(v string) *ListEventsInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetEndTime sets the EndTime field's value.
 func (s *ListEventsInput) SetEndTime(v string) *ListEventsInput {
 	s.EndTime = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListEventsInput) SetInstanceId(v string) *ListEventsInput {
+	s.InstanceId = &v
 	return s
 }
 

@@ -506,13 +506,13 @@ type ChangefeedForCreateChangefeedOutput struct {
 
 	Checkpoint *CheckpointForCreateChangefeedOutput `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	Error *string `type:"string" json:",omitempty"`
 
 	Filter *FilterForCreateChangefeedOutput `type:"structure" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	Rcu *int64 `type:"int64" json:",omitempty"`
 
@@ -559,12 +559,6 @@ func (s *ChangefeedForCreateChangefeedOutput) SetCheckpoint(v *CheckpointForCrea
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ChangefeedForCreateChangefeedOutput) SetClusterId(v string) *ChangefeedForCreateChangefeedOutput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetCreateTime sets the CreateTime field's value.
 func (s *ChangefeedForCreateChangefeedOutput) SetCreateTime(v string) *ChangefeedForCreateChangefeedOutput {
 	s.CreateTime = &v
@@ -580,6 +574,12 @@ func (s *ChangefeedForCreateChangefeedOutput) SetError(v string) *ChangefeedForC
 // SetFilter sets the Filter field's value.
 func (s *ChangefeedForCreateChangefeedOutput) SetFilter(v *FilterForCreateChangefeedOutput) *ChangefeedForCreateChangefeedOutput {
 	s.Filter = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ChangefeedForCreateChangefeedOutput) SetInstanceId(v string) *ChangefeedForCreateChangefeedOutput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -954,10 +954,10 @@ type CreateChangefeedInput struct {
 
 	ChangefeedName *string `type:"string" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	Filter *FilterForCreateChangefeedInput `type:"structure" json:",omitempty"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -981,8 +981,8 @@ func (s CreateChangefeedInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateChangefeedInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateChangefeedInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -1003,15 +1003,15 @@ func (s *CreateChangefeedInput) SetChangefeedName(v string) *CreateChangefeedInp
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *CreateChangefeedInput) SetClusterId(v string) *CreateChangefeedInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetFilter sets the Filter field's value.
 func (s *CreateChangefeedInput) SetFilter(v *FilterForCreateChangefeedInput) *CreateChangefeedInput {
 	s.Filter = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *CreateChangefeedInput) SetInstanceId(v string) *CreateChangefeedInput {
+	s.InstanceId = &v
 	return s
 }
 

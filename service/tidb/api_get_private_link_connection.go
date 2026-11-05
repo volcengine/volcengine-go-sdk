@@ -148,13 +148,13 @@ type AttachedDomainForGetPrivateLinkConnectionOutput struct {
 
 	AttachDomainId *string `type:"string" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	CreatedBy *string `type:"string" json:",omitempty"`
 
 	Domains []*DomainForGetPrivateLinkConnectionOutput `type:"list"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	PrivateLinkConnectionId *string `type:"string" json:",omitempty"`
 
@@ -179,12 +179,6 @@ func (s *AttachedDomainForGetPrivateLinkConnectionOutput) SetAttachDomainId(v st
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *AttachedDomainForGetPrivateLinkConnectionOutput) SetClusterId(v string) *AttachedDomainForGetPrivateLinkConnectionOutput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetCreateTime sets the CreateTime field's value.
 func (s *AttachedDomainForGetPrivateLinkConnectionOutput) SetCreateTime(v string) *AttachedDomainForGetPrivateLinkConnectionOutput {
 	s.CreateTime = &v
@@ -200,6 +194,12 @@ func (s *AttachedDomainForGetPrivateLinkConnectionOutput) SetCreatedBy(v string)
 // SetDomains sets the Domains field's value.
 func (s *AttachedDomainForGetPrivateLinkConnectionOutput) SetDomains(v []*DomainForGetPrivateLinkConnectionOutput) *AttachedDomainForGetPrivateLinkConnectionOutput {
 	s.Domains = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AttachedDomainForGetPrivateLinkConnectionOutput) SetInstanceId(v string) *AttachedDomainForGetPrivateLinkConnectionOutput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -262,8 +262,8 @@ func (s *DomainForGetPrivateLinkConnectionOutput) SetState(v string) *DomainForG
 type GetPrivateLinkConnectionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	// PrivateLinkConnectionId is a required field
 	PrivateLinkConnectionId *string `type:"string" json:",omitempty" required:"true"`
@@ -284,8 +284,8 @@ func (s GetPrivateLinkConnectionInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetPrivateLinkConnectionInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetPrivateLinkConnectionInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 	if s.PrivateLinkConnectionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("PrivateLinkConnectionId"))
@@ -297,9 +297,9 @@ func (s *GetPrivateLinkConnectionInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *GetPrivateLinkConnectionInput) SetClusterId(v string) *GetPrivateLinkConnectionInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *GetPrivateLinkConnectionInput) SetInstanceId(v string) *GetPrivateLinkConnectionInput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -344,11 +344,11 @@ type PrivateLinkConnectionForGetPrivateLinkConnectionOutput struct {
 
 	AttachedDomains []*AttachedDomainForGetPrivateLinkConnectionOutput `type:"list"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	CreatedBy *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	Message *string `type:"string" json:",omitempty"`
 
@@ -381,12 +381,6 @@ func (s *PrivateLinkConnectionForGetPrivateLinkConnectionOutput) SetAttachedDoma
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *PrivateLinkConnectionForGetPrivateLinkConnectionOutput) SetClusterId(v string) *PrivateLinkConnectionForGetPrivateLinkConnectionOutput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetCreateTime sets the CreateTime field's value.
 func (s *PrivateLinkConnectionForGetPrivateLinkConnectionOutput) SetCreateTime(v string) *PrivateLinkConnectionForGetPrivateLinkConnectionOutput {
 	s.CreateTime = &v
@@ -396,6 +390,12 @@ func (s *PrivateLinkConnectionForGetPrivateLinkConnectionOutput) SetCreateTime(v
 // SetCreatedBy sets the CreatedBy field's value.
 func (s *PrivateLinkConnectionForGetPrivateLinkConnectionOutput) SetCreatedBy(v string) *PrivateLinkConnectionForGetPrivateLinkConnectionOutput {
 	s.CreatedBy = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *PrivateLinkConnectionForGetPrivateLinkConnectionOutput) SetInstanceId(v string) *PrivateLinkConnectionForGetPrivateLinkConnectionOutput {
+	s.InstanceId = &v
 	return s
 }
 

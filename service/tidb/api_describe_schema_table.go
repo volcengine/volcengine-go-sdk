@@ -148,10 +148,10 @@ type DescribeSchemaTableInput struct {
 
 	CaseSensitive *bool `type:"boolean" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	FilterRules []*string `type:"list"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -169,8 +169,8 @@ func (s DescribeSchemaTableInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeSchemaTableInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeSchemaTableInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -185,15 +185,15 @@ func (s *DescribeSchemaTableInput) SetCaseSensitive(v bool) *DescribeSchemaTable
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *DescribeSchemaTableInput) SetClusterId(v string) *DescribeSchemaTableInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetFilterRules sets the FilterRules field's value.
 func (s *DescribeSchemaTableInput) SetFilterRules(v []*string) *DescribeSchemaTableInput {
 	s.FilterRules = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeSchemaTableInput) SetInstanceId(v string) *DescribeSchemaTableInput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -208,11 +208,11 @@ type DescribeSchemaTableOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	GcSafePoint *string `type:"string" json:",omitempty"`
 
 	HandleKeyTables []*string `type:"list"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	NonHandleKeyTables []*string `type:"list"`
 }
@@ -227,12 +227,6 @@ func (s DescribeSchemaTableOutput) GoString() string {
 	return s.String()
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *DescribeSchemaTableOutput) SetClusterId(v string) *DescribeSchemaTableOutput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetGcSafePoint sets the GcSafePoint field's value.
 func (s *DescribeSchemaTableOutput) SetGcSafePoint(v string) *DescribeSchemaTableOutput {
 	s.GcSafePoint = &v
@@ -242,6 +236,12 @@ func (s *DescribeSchemaTableOutput) SetGcSafePoint(v string) *DescribeSchemaTabl
 // SetHandleKeyTables sets the HandleKeyTables field's value.
 func (s *DescribeSchemaTableOutput) SetHandleKeyTables(v []*string) *DescribeSchemaTableOutput {
 	s.HandleKeyTables = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeSchemaTableOutput) SetInstanceId(v string) *DescribeSchemaTableOutput {
+	s.InstanceId = &v
 	return s
 }
 

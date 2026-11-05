@@ -146,8 +146,8 @@ func (c *TIDB) GetBackupRetentionWithContext(ctx volcengine.Context, input *GetB
 type GetBackupRetentionInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -165,8 +165,8 @@ func (s GetBackupRetentionInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetBackupRetentionInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetBackupRetentionInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -175,9 +175,9 @@ func (s *GetBackupRetentionInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *GetBackupRetentionInput) SetClusterId(v string) *GetBackupRetentionInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *GetBackupRetentionInput) SetInstanceId(v string) *GetBackupRetentionInput {
+	s.InstanceId = &v
 	return s
 }
 

@@ -148,12 +148,12 @@ type GetStatementPlanDetailsInput struct {
 
 	BeginTime *string `type:"string" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	Digest *string `type:"string" json:",omitempty"`
 
 	EndTime *string `type:"string" json:",omitempty"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	Plans []*string `type:"list"`
 
@@ -175,8 +175,8 @@ func (s GetStatementPlanDetailsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetStatementPlanDetailsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetStatementPlanDetailsInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -191,12 +191,6 @@ func (s *GetStatementPlanDetailsInput) SetBeginTime(v string) *GetStatementPlanD
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *GetStatementPlanDetailsInput) SetClusterId(v string) *GetStatementPlanDetailsInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetDigest sets the Digest field's value.
 func (s *GetStatementPlanDetailsInput) SetDigest(v string) *GetStatementPlanDetailsInput {
 	s.Digest = &v
@@ -206,6 +200,12 @@ func (s *GetStatementPlanDetailsInput) SetDigest(v string) *GetStatementPlanDeta
 // SetEndTime sets the EndTime field's value.
 func (s *GetStatementPlanDetailsInput) SetEndTime(v string) *GetStatementPlanDetailsInput {
 	s.EndTime = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *GetStatementPlanDetailsInput) SetInstanceId(v string) *GetStatementPlanDetailsInput {
+	s.InstanceId = &v
 	return s
 }
 

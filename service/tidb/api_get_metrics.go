@@ -146,11 +146,11 @@ func (c *TIDB) GetMetricsWithContext(ctx volcengine.Context, input *GetMetricsIn
 type GetMetricsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	// End is a required field
 	End *int64 `type:"int64" json:",omitempty" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -176,11 +176,11 @@ func (s GetMetricsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetMetricsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetMetricsInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
-	}
 	if s.End == nil {
 		invalidParams.Add(request.NewErrParamRequired("End"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 	if s.Query == nil {
 		invalidParams.Add(request.NewErrParamRequired("Query"))
@@ -195,15 +195,15 @@ func (s *GetMetricsInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *GetMetricsInput) SetClusterId(v string) *GetMetricsInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetEnd sets the End field's value.
 func (s *GetMetricsInput) SetEnd(v int64) *GetMetricsInput {
 	s.End = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *GetMetricsInput) SetInstanceId(v string) *GetMetricsInput {
+	s.InstanceId = &v
 	return s
 }
 

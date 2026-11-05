@@ -206,12 +206,12 @@ func (s *AccessKeyForCreateExportTaskOutput) SetSecret(v string) *AccessKeyForCr
 type CreateExportTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	ExportOptions *ExportOptionsForCreateExportTaskInput `type:"structure" json:",omitempty"`
 
 	ExportTaskName *string `type:"string" json:",omitempty"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -231,20 +231,14 @@ func (s CreateExportTaskInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateExportTaskInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateExportTaskInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetClusterId sets the ClusterId field's value.
-func (s *CreateExportTaskInput) SetClusterId(v string) *CreateExportTaskInput {
-	s.ClusterId = &v
-	return s
 }
 
 // SetExportOptions sets the ExportOptions field's value.
@@ -256,6 +250,12 @@ func (s *CreateExportTaskInput) SetExportOptions(v *ExportOptionsForCreateExport
 // SetExportTaskName sets the ExportTaskName field's value.
 func (s *CreateExportTaskInput) SetExportTaskName(v string) *CreateExportTaskInput {
 	s.ExportTaskName = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *CreateExportTaskInput) SetInstanceId(v string) *CreateExportTaskInput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -498,8 +498,6 @@ func (s *ExportOptionsForCreateExportTaskOutput) SetParquetFormat(v *ParquetForm
 type Export_ForCreateExportTaskOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	CompleteTime *string `type:"string" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
@@ -511,6 +509,8 @@ type Export_ForCreateExportTaskOutput struct {
 	ExportOptions *ExportOptionsForCreateExportTaskOutput `type:"structure" json:",omitempty"`
 
 	ExportTaskName *string `type:"string" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
 
 	Reason *string `type:"string" json:",omitempty"`
 
@@ -531,12 +531,6 @@ func (s Export_ForCreateExportTaskOutput) String() string {
 // GoString returns the string representation
 func (s Export_ForCreateExportTaskOutput) GoString() string {
 	return s.String()
-}
-
-// SetClusterId sets the ClusterId field's value.
-func (s *Export_ForCreateExportTaskOutput) SetClusterId(v string) *Export_ForCreateExportTaskOutput {
-	s.ClusterId = &v
-	return s
 }
 
 // SetCompleteTime sets the CompleteTime field's value.
@@ -572,6 +566,12 @@ func (s *Export_ForCreateExportTaskOutput) SetExportOptions(v *ExportOptionsForC
 // SetExportTaskName sets the ExportTaskName field's value.
 func (s *Export_ForCreateExportTaskOutput) SetExportTaskName(v string) *Export_ForCreateExportTaskOutput {
 	s.ExportTaskName = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *Export_ForCreateExportTaskOutput) SetInstanceId(v string) *Export_ForCreateExportTaskOutput {
+	s.InstanceId = &v
 	return s
 }
 

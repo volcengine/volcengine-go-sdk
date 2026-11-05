@@ -152,8 +152,8 @@ type UpdateBranchInput struct {
 	// BranchName is a required field
 	BranchName *string `type:"string" json:",omitempty" required:"true"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -177,8 +177,8 @@ func (s *UpdateBranchInput) Validate() error {
 	if s.BranchName == nil {
 		invalidParams.Add(request.NewErrParamRequired("BranchName"))
 	}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -199,9 +199,9 @@ func (s *UpdateBranchInput) SetBranchName(v string) *UpdateBranchInput {
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *UpdateBranchInput) SetClusterId(v string) *UpdateBranchInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *UpdateBranchInput) SetInstanceId(v string) *UpdateBranchInput {
+	s.InstanceId = &v
 	return s
 }
 

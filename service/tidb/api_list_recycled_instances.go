@@ -178,13 +178,15 @@ type ItemForListRecycledInstancesOutput struct {
 
 	AutoScaling *AutoScalingForListRecycledInstancesOutput `type:"structure" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
-
 	DeleteTime *string `type:"string" json:",omitempty"`
 
 	DisplayName *string `type:"string" json:",omitempty"`
 
 	EnhancedEncryptionEnabled *bool `type:"boolean" json:",omitempty"`
+
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	InstanceName *string `type:"string" json:",omitempty"`
 
 	RegionId *string `type:"string" json:",omitempty"`
 
@@ -213,12 +215,6 @@ func (s *ItemForListRecycledInstancesOutput) SetAutoScaling(v *AutoScalingForLis
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ItemForListRecycledInstancesOutput) SetClusterId(v string) *ItemForListRecycledInstancesOutput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetDeleteTime sets the DeleteTime field's value.
 func (s *ItemForListRecycledInstancesOutput) SetDeleteTime(v string) *ItemForListRecycledInstancesOutput {
 	s.DeleteTime = &v
@@ -234,6 +230,18 @@ func (s *ItemForListRecycledInstancesOutput) SetDisplayName(v string) *ItemForLi
 // SetEnhancedEncryptionEnabled sets the EnhancedEncryptionEnabled field's value.
 func (s *ItemForListRecycledInstancesOutput) SetEnhancedEncryptionEnabled(v bool) *ItemForListRecycledInstancesOutput {
 	s.EnhancedEncryptionEnabled = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ItemForListRecycledInstancesOutput) SetInstanceId(v string) *ItemForListRecycledInstancesOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *ItemForListRecycledInstancesOutput) SetInstanceName(v string) *ItemForListRecycledInstancesOutput {
+	s.InstanceName = &v
 	return s
 }
 

@@ -242,9 +242,6 @@ type ListSlowQueriesInput struct {
 
 	BeginTime *string `type:"string" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	Desc *bool `type:"boolean" json:",omitempty"`
 
 	Digest *string `type:"string" json:",omitempty"`
@@ -252,6 +249,9 @@ type ListSlowQueriesInput struct {
 	EndTime *string `type:"string" json:",omitempty"`
 
 	Fields []*string `type:"list"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	Limit *int32 `type:"int32" json:",omitempty"`
 
@@ -283,8 +283,8 @@ func (s ListSlowQueriesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListSlowQueriesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListSlowQueriesInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -296,12 +296,6 @@ func (s *ListSlowQueriesInput) Validate() error {
 // SetBeginTime sets the BeginTime field's value.
 func (s *ListSlowQueriesInput) SetBeginTime(v string) *ListSlowQueriesInput {
 	s.BeginTime = &v
-	return s
-}
-
-// SetClusterId sets the ClusterId field's value.
-func (s *ListSlowQueriesInput) SetClusterId(v string) *ListSlowQueriesInput {
-	s.ClusterId = &v
 	return s
 }
 
@@ -326,6 +320,12 @@ func (s *ListSlowQueriesInput) SetEndTime(v string) *ListSlowQueriesInput {
 // SetFields sets the Fields field's value.
 func (s *ListSlowQueriesInput) SetFields(v []*string) *ListSlowQueriesInput {
 	s.Fields = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListSlowQueriesInput) SetInstanceId(v string) *ListSlowQueriesInput {
+	s.InstanceId = &v
 	return s
 }
 

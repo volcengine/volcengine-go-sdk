@@ -148,15 +148,21 @@ type BackupForGetBackupOutput struct {
 
 	BackupId *string `type:"string" json:",omitempty"`
 
-	BackupTime *string `type:"string" json:",omitempty"`
+	BackupName *string `type:"string" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
+	BackupTime *string `type:"string" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	ExpireTime *string `type:"string" json:",omitempty"`
 
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	SizeBytes *int64 `type:"int64" json:",omitempty"`
+
 	State *string `type:"string" json:",omitempty" enum:"EnumOfStateForGetBackupOutput"`
+
+	TriggerType *string `type:"string" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 }
@@ -177,15 +183,15 @@ func (s *BackupForGetBackupOutput) SetBackupId(v string) *BackupForGetBackupOutp
 	return s
 }
 
-// SetBackupTime sets the BackupTime field's value.
-func (s *BackupForGetBackupOutput) SetBackupTime(v string) *BackupForGetBackupOutput {
-	s.BackupTime = &v
+// SetBackupName sets the BackupName field's value.
+func (s *BackupForGetBackupOutput) SetBackupName(v string) *BackupForGetBackupOutput {
+	s.BackupName = &v
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *BackupForGetBackupOutput) SetClusterId(v string) *BackupForGetBackupOutput {
-	s.ClusterId = &v
+// SetBackupTime sets the BackupTime field's value.
+func (s *BackupForGetBackupOutput) SetBackupTime(v string) *BackupForGetBackupOutput {
+	s.BackupTime = &v
 	return s
 }
 
@@ -201,9 +207,27 @@ func (s *BackupForGetBackupOutput) SetExpireTime(v string) *BackupForGetBackupOu
 	return s
 }
 
+// SetInstanceId sets the InstanceId field's value.
+func (s *BackupForGetBackupOutput) SetInstanceId(v string) *BackupForGetBackupOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetSizeBytes sets the SizeBytes field's value.
+func (s *BackupForGetBackupOutput) SetSizeBytes(v int64) *BackupForGetBackupOutput {
+	s.SizeBytes = &v
+	return s
+}
+
 // SetState sets the State field's value.
 func (s *BackupForGetBackupOutput) SetState(v string) *BackupForGetBackupOutput {
 	s.State = &v
+	return s
+}
+
+// SetTriggerType sets the TriggerType field's value.
+func (s *BackupForGetBackupOutput) SetTriggerType(v string) *BackupForGetBackupOutput {
+	s.TriggerType = &v
 	return s
 }
 
@@ -219,8 +243,8 @@ type GetBackupInput struct {
 	// BackupId is a required field
 	BackupId *string `type:"string" json:",omitempty" required:"true"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -241,8 +265,8 @@ func (s *GetBackupInput) Validate() error {
 	if s.BackupId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BackupId"))
 	}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -257,9 +281,9 @@ func (s *GetBackupInput) SetBackupId(v string) *GetBackupInput {
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *GetBackupInput) SetClusterId(v string) *GetBackupInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *GetBackupInput) SetInstanceId(v string) *GetBackupInput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -299,4 +323,13 @@ const (
 
 	// EnumOfStateForGetBackupOutputFailed is a EnumOfStateForGetBackupOutput enum value
 	EnumOfStateForGetBackupOutputFailed = "FAILED"
+
+	// EnumOfStateForGetBackupOutputPending is a EnumOfStateForGetBackupOutput enum value
+	EnumOfStateForGetBackupOutputPending = "PENDING"
+
+	// EnumOfStateForGetBackupOutputRunning is a EnumOfStateForGetBackupOutput enum value
+	EnumOfStateForGetBackupOutputRunning = "RUNNING"
+
+	// EnumOfStateForGetBackupOutputCancelled is a EnumOfStateForGetBackupOutput enum value
+	EnumOfStateForGetBackupOutputCancelled = "CANCELLED"
 )

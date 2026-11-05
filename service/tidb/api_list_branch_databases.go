@@ -149,8 +149,8 @@ type ListBranchDatabasesInput struct {
 	// BranchId is a required field
 	BranchId *string `type:"string" json:",omitempty" required:"true"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 }
@@ -171,8 +171,8 @@ func (s *ListBranchDatabasesInput) Validate() error {
 	if s.BranchId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BranchId"))
 	}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -187,9 +187,9 @@ func (s *ListBranchDatabasesInput) SetBranchId(v string) *ListBranchDatabasesInp
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListBranchDatabasesInput) SetClusterId(v string) *ListBranchDatabasesInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListBranchDatabasesInput) SetInstanceId(v string) *ListBranchDatabasesInput {
+	s.InstanceId = &v
 	return s
 }
 

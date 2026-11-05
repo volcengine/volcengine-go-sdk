@@ -242,12 +242,12 @@ type ListStatementPlansInput struct {
 
 	BeginTime *string `type:"string" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
-
 	Digest *string `type:"string" json:",omitempty"`
 
 	EndTime *string `type:"string" json:",omitempty"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -267,8 +267,8 @@ func (s ListStatementPlansInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListStatementPlansInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListStatementPlansInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -283,12 +283,6 @@ func (s *ListStatementPlansInput) SetBeginTime(v string) *ListStatementPlansInpu
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListStatementPlansInput) SetClusterId(v string) *ListStatementPlansInput {
-	s.ClusterId = &v
-	return s
-}
-
 // SetDigest sets the Digest field's value.
 func (s *ListStatementPlansInput) SetDigest(v string) *ListStatementPlansInput {
 	s.Digest = &v
@@ -298,6 +292,12 @@ func (s *ListStatementPlansInput) SetDigest(v string) *ListStatementPlansInput {
 // SetEndTime sets the EndTime field's value.
 func (s *ListStatementPlansInput) SetEndTime(v string) *ListStatementPlansInput {
 	s.EndTime = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListStatementPlansInput) SetInstanceId(v string) *ListStatementPlansInput {
+	s.InstanceId = &v
 	return s
 }
 

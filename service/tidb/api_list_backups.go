@@ -148,15 +148,21 @@ type BackupForListBackupsOutput struct {
 
 	BackupId *string `type:"string" json:",omitempty"`
 
-	BackupTime *string `type:"string" json:",omitempty"`
+	BackupName *string `type:"string" json:",omitempty"`
 
-	ClusterId *string `type:"string" json:",omitempty"`
+	BackupTime *string `type:"string" json:",omitempty"`
 
 	CreateTime *string `type:"string" json:",omitempty"`
 
 	ExpireTime *string `type:"string" json:",omitempty"`
 
+	InstanceId *string `type:"string" json:",omitempty"`
+
+	SizeBytes *int64 `type:"int64" json:",omitempty"`
+
 	State *string `type:"string" json:",omitempty" enum:"EnumOfStateForListBackupsOutput"`
+
+	TriggerType *string `type:"string" json:",omitempty"`
 
 	Type *string `type:"string" json:",omitempty"`
 }
@@ -177,15 +183,15 @@ func (s *BackupForListBackupsOutput) SetBackupId(v string) *BackupForListBackups
 	return s
 }
 
-// SetBackupTime sets the BackupTime field's value.
-func (s *BackupForListBackupsOutput) SetBackupTime(v string) *BackupForListBackupsOutput {
-	s.BackupTime = &v
+// SetBackupName sets the BackupName field's value.
+func (s *BackupForListBackupsOutput) SetBackupName(v string) *BackupForListBackupsOutput {
+	s.BackupName = &v
 	return s
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *BackupForListBackupsOutput) SetClusterId(v string) *BackupForListBackupsOutput {
-	s.ClusterId = &v
+// SetBackupTime sets the BackupTime field's value.
+func (s *BackupForListBackupsOutput) SetBackupTime(v string) *BackupForListBackupsOutput {
+	s.BackupTime = &v
 	return s
 }
 
@@ -201,9 +207,27 @@ func (s *BackupForListBackupsOutput) SetExpireTime(v string) *BackupForListBacku
 	return s
 }
 
+// SetInstanceId sets the InstanceId field's value.
+func (s *BackupForListBackupsOutput) SetInstanceId(v string) *BackupForListBackupsOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetSizeBytes sets the SizeBytes field's value.
+func (s *BackupForListBackupsOutput) SetSizeBytes(v int64) *BackupForListBackupsOutput {
+	s.SizeBytes = &v
+	return s
+}
+
 // SetState sets the State field's value.
 func (s *BackupForListBackupsOutput) SetState(v string) *BackupForListBackupsOutput {
 	s.State = &v
+	return s
+}
+
+// SetTriggerType sets the TriggerType field's value.
+func (s *BackupForListBackupsOutput) SetTriggerType(v string) *BackupForListBackupsOutput {
+	s.TriggerType = &v
 	return s
 }
 
@@ -216,8 +240,8 @@ func (s *BackupForListBackupsOutput) SetType(v string) *BackupForListBackupsOutp
 type ListBackupsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// ClusterId is a required field
-	ClusterId *string `type:"string" json:",omitempty" required:"true"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	OrderBy *string `type:"string" json:",omitempty"`
 
@@ -241,8 +265,8 @@ func (s ListBackupsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListBackupsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListBackupsInput"}
-	if s.ClusterId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -251,9 +275,9 @@ func (s *ListBackupsInput) Validate() error {
 	return nil
 }
 
-// SetClusterId sets the ClusterId field's value.
-func (s *ListBackupsInput) SetClusterId(v string) *ListBackupsInput {
-	s.ClusterId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *ListBackupsInput) SetInstanceId(v string) *ListBackupsInput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -327,4 +351,13 @@ const (
 
 	// EnumOfStateForListBackupsOutputFailed is a EnumOfStateForListBackupsOutput enum value
 	EnumOfStateForListBackupsOutputFailed = "FAILED"
+
+	// EnumOfStateForListBackupsOutputPending is a EnumOfStateForListBackupsOutput enum value
+	EnumOfStateForListBackupsOutputPending = "PENDING"
+
+	// EnumOfStateForListBackupsOutputRunning is a EnumOfStateForListBackupsOutput enum value
+	EnumOfStateForListBackupsOutputRunning = "RUNNING"
+
+	// EnumOfStateForListBackupsOutputCancelled is a EnumOfStateForListBackupsOutput enum value
+	EnumOfStateForListBackupsOutputCancelled = "CANCELLED"
 )

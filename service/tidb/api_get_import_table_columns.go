@@ -146,11 +146,11 @@ func (c *TIDB) GetImportTableColumnsWithContext(ctx volcengine.Context, input *G
 type GetImportTableColumnsInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	// Cluster_id is a required field
-	Cluster_id *string `type:"string" json:"cluster_id,omitempty" required:"true"`
-
 	// Database is a required field
 	Database *string `type:"string" json:"database,omitempty" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
 	ProjectName *string `type:"string" json:",omitempty"`
 
@@ -171,11 +171,11 @@ func (s GetImportTableColumnsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetImportTableColumnsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetImportTableColumnsInput"}
-	if s.Cluster_id == nil {
-		invalidParams.Add(request.NewErrParamRequired("Cluster_id"))
-	}
 	if s.Database == nil {
 		invalidParams.Add(request.NewErrParamRequired("Database"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 	if s.Table == nil {
 		invalidParams.Add(request.NewErrParamRequired("Table"))
@@ -187,15 +187,15 @@ func (s *GetImportTableColumnsInput) Validate() error {
 	return nil
 }
 
-// SetCluster_id sets the Cluster_id field's value.
-func (s *GetImportTableColumnsInput) SetCluster_id(v string) *GetImportTableColumnsInput {
-	s.Cluster_id = &v
-	return s
-}
-
 // SetDatabase sets the Database field's value.
 func (s *GetImportTableColumnsInput) SetDatabase(v string) *GetImportTableColumnsInput {
 	s.Database = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *GetImportTableColumnsInput) SetInstanceId(v string) *GetImportTableColumnsInput {
+	s.InstanceId = &v
 	return s
 }
 
