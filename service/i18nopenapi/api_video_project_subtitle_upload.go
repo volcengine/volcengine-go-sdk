@@ -326,6 +326,8 @@ type SubtitleForVideoProjectSubtitleUploadInput struct {
 
 	SubtitleUrl *string `type:"string" json:"subtitleUrl,omitempty"`
 
+	Type *int32 `type:"int32" json:"type,omitempty"`
+
 	Vid *string `type:"string" json:"vid,omitempty"`
 }
 
@@ -360,6 +362,12 @@ func (s *SubtitleForVideoProjectSubtitleUploadInput) SetSubtitleName(v string) *
 // SetSubtitleUrl sets the SubtitleUrl field's value.
 func (s *SubtitleForVideoProjectSubtitleUploadInput) SetSubtitleUrl(v string) *SubtitleForVideoProjectSubtitleUploadInput {
 	s.SubtitleUrl = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *SubtitleForVideoProjectSubtitleUploadInput) SetType(v int32) *SubtitleForVideoProjectSubtitleUploadInput {
+	s.Type = &v
 	return s
 }
 
