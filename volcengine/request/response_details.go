@@ -10,9 +10,27 @@ func (r *Request) SetResponseDetails(details *volcengineerr.ResponseDetails) {
 }
 
 // SetResponseBody records bytes from an existing body read, including partial
-// reads, and captures trailers populated by that read.
+// reads, and captures trailers populated by that read. Existing response
+// metadata is preserved.
 func (r *Request) SetResponseBody(body []byte, readErr error) {
 	if r.responseDetailsInitialized && r.responseDetails == nil {
+		return
+	}
+	if r.responseDetails != nil {
+		details := *r.responseDetails
+		details.Headers = details.Headers.Clone()
+		details.Body = nil
+		if body != nil {
+			details.Body = append([]byte{}, body...)
+		}
+		details.BodyCaptured = true
+		details.BodyComplete = readErr == nil
+		if r.HTTPResponse != nil {
+			details.Trailers = r.HTTPResponse.Trailer.Clone()
+		} else {
+			details.Trailers = details.Trailers.Clone()
+		}
+		r.SetResponseDetails(&details)
 		return
 	}
 	r.SetResponseDetails(volcengineerr.NewResponseDetails(r.HTTPResponse, body, true, readErr == nil))

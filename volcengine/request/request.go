@@ -526,7 +526,9 @@ func (r *Request) GetBody() io.ReadSeeker {
 func (r *Request) Send() error {
 	interceptorMapping := make(map[int]interface{})
 	defer func() {
-		r.responseDetails = nil
+		defer func() {
+			r.responseDetails = nil
+		}()
 		// Regardless of success or failure of the request trigger the Complete
 		// request handlers.
 		r.Handlers.Complete.Run(r)

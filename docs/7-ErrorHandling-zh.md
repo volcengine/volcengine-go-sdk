@@ -93,6 +93,8 @@ if errors.As(err, &failure) {
 
 完整快照覆盖默认 TOP 解析器自己构造的请求错误，以及 STS / AssumeRole / OIDC / SAML 凭证请求错误，包含 OIDC/SAML 过期时间解析失败。复用原有正文读取，不额外发请求或读取关闭后的 body，仅保存错误对应的尝试。读取中断保留部分字节，`body_complete` 为 false，原因位于 `causes`。
 
+`Request.SetResponseBody` 补充已有快照的正文时，保留状态码、协议、RequestID 和 headers，只更新正文、`BodyCaptured` / `BodyComplete` 以及 trailers。更新使用快照副本，不修改调用方传入的旧快照。正文复制保存；有 `HTTPResponse` 时复制其 trailers，没有时保留已有 trailers。已明确初始化为 nil 的快照不会从占位响应重新创建。
+
 通过 `request.WithResponseReadTimeout` 触发的默认 TOP 响应读取超时，也保留已读取的部分正文、HTTP 状态码、响应头及请求 ID；仍返回原有 `ResponseTimeout` 类型和文本，`OrigErr()` 为 nil，此类错误不额外生成 `causes`。每个请求独立保存快照，不修改共享超时错误。
 
 没有 HTTP 响应时，`response` 为 `null`；旧接口只能提供状态码和 RequestID 时，`headers` 为 `null`、`body_captured` 为 false。采集到空正文时，`body_captured` 为 true、`body` 为 `""`。JSON 中 UTF-8 正文使用文本和 `body_encoding: "utf-8"`，其它字节使用可还原的 Base64。`GetErrorDetails` 返回深拷贝；支持 `%w`、`OrigErr()`、`OrigErrs()` 及多分支标准包装，遍历具有循环保护和深度上限。
