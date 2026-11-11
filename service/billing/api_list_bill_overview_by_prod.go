@@ -158,7 +158,11 @@ type ListBillOverviewByProdInput struct {
 	// Limit is a required field
 	Limit *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	MaxResults *int32 `type:"int32" json:",omitempty"`
+
 	NeedRecordNum *int32 `type:"int32" json:",omitempty"`
+
+	NextToken *string `type:"string" json:",omitempty"`
 
 	Offset *int32 `type:"int32" json:",omitempty"`
 
@@ -225,9 +229,21 @@ func (s *ListBillOverviewByProdInput) SetLimit(v int32) *ListBillOverviewByProdI
 	return s
 }
 
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListBillOverviewByProdInput) SetMaxResults(v int32) *ListBillOverviewByProdInput {
+	s.MaxResults = &v
+	return s
+}
+
 // SetNeedRecordNum sets the NeedRecordNum field's value.
 func (s *ListBillOverviewByProdInput) SetNeedRecordNum(v int32) *ListBillOverviewByProdInput {
 	s.NeedRecordNum = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListBillOverviewByProdInput) SetNextToken(v string) *ListBillOverviewByProdInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -264,6 +280,8 @@ type ListBillOverviewByProdOutput struct {
 
 	List []*ListForListBillOverviewByProdOutput `type:"list" json:",omitempty"`
 
+	NextToken *string `type:"string" json:",omitempty"`
+
 	Offset *int32 `type:"int32" json:",omitempty"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
@@ -288,6 +306,12 @@ func (s *ListBillOverviewByProdOutput) SetLimit(v int32) *ListBillOverviewByProd
 // SetList sets the List field's value.
 func (s *ListBillOverviewByProdOutput) SetList(v []*ListForListBillOverviewByProdOutput) *ListBillOverviewByProdOutput {
 	s.List = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListBillOverviewByProdOutput) SetNextToken(v string) *ListBillOverviewByProdOutput {
+	s.NextToken = &v
 	return s
 }
 
