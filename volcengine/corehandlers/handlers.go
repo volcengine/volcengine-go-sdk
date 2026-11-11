@@ -138,6 +138,7 @@ var SendHandler = request.NamedHandler{
 
 		var err error
 		r.HTTPResponse, err = sender(r)
+		r.SetResponseDetails(volcengineerr.NewResponseDetails(r.HTTPResponse, nil, false, false))
 		if err != nil {
 			handleSendError(r, err)
 		}
@@ -200,6 +201,7 @@ func handleSendError(r *request.Request, err error) {
 		r.Retryable = volcengine.Bool(false)
 	default:
 	}
+	r.Error = r.WithResponseDetails(r.Error)
 }
 
 // ValidateResponseHandler is a request handler to validate service response.

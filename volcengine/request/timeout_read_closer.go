@@ -68,6 +68,14 @@ func adaptToResponseTimeoutError(req *Request) {
 			req.Error = aerr
 		}
 	}
+	// Keep diagnostics when normalizing our body-read timeout, without mutating
+	// the shared sentinel or attaching details to customer-created errors.
+	if req.Error == timeoutErr && req.responseDetails != nil &&
+		req.responseDetails.BodyCaptured && !req.responseDetails.BodyComplete {
+		req.Error = req.WithResponseDetails(volcengineerr.New(
+			timeoutErr.Code(), timeoutErr.Message(), timeoutErr.OrigErr(),
+		))
+	}
 }
 
 // WithResponseReadTimeout is a request option that will wrap the volcenginebody in a timeout read closer.

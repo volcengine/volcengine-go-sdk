@@ -4,6 +4,7 @@ package request
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
+	"errors"
 	"net"
 	"net/url"
 	"strings"
@@ -112,15 +113,8 @@ func isNestedErrorRetryable(parentErr volcengineerr.Error) bool {
 		return false
 	}
 
-	if aerr, ok := err.(volcengineerr.Error); ok {
-		return isCodeRetryable(aerr.Code())
-	}
-
-	if t, ok := err.(temporary); ok {
-		return t.Temporary() || isErrConnectionReset(err)
-	}
-
-	return isErrConnectionReset(err)
+	// Read and serialization errors require a known retryable cause.
+	return retryableError(err, false)
 }
 
 // IsErrorRetryable returns whether the error is retryable, based on its Code.
@@ -137,19 +131,23 @@ type temporary interface {
 }
 
 func shouldRetryError(origErr error) bool {
+	return retryableError(origErr, true)
+}
+
+func retryableError(origErr error, retryUnknown bool) bool {
 	switch err := origErr.(type) {
 	case volcengineerr.Error:
 		if err.Code() == CanceledErrorCode {
 			return false
 		}
-		if isNestedErrorRetryable(err) {
-			return true
+		if _, ok := validParentCodes[err.Code()]; ok {
+			return isNestedErrorRetryable(err)
 		}
 
 		origErr := err.OrigErr()
 		var shouldRetry bool
 		if origErr != nil {
-			shouldRetry := shouldRetryError(origErr)
+			shouldRetry = retryableError(origErr, retryUnknown)
 			if err.Code() == "RequestError" && !shouldRetry {
 				return false
 			}
@@ -168,7 +166,7 @@ func shouldRetryError(origErr error) bool {
 		}
 		// *url.Error only implements Temporary after golang 1.6 but since
 		// url.Error only wraps the error:
-		return shouldRetryError(err.Err)
+		return retryableError(err.Err, retryUnknown)
 
 	case temporary:
 		if netErr, ok := err.(*net.OpError); ok && netErr.Op == "dial" {
@@ -179,27 +177,28 @@ func shouldRetryError(origErr error) bool {
 		return err.Temporary() || isErrConnectionReset(origErr)
 
 	case nil:
-		// `volcengineerr.Error.OrigErr()` can be nil, meaning there was an error but
-		// because we don't know the cause, it is marked as retryable. See
-		// TestRequest4xxUnretryable for an example.
-		return true
+		return retryUnknown
 
 	default:
+		if unwrapped := errors.Unwrap(origErr); unwrapped != nil {
+			return retryableError(unwrapped, retryUnknown)
+		}
 		switch err.Error() {
 		case "net/http: request canceled",
 			"net/http: request canceled while waiting for connection":
 			// known 1.5 error case when an http request is cancelled
 			return false
 		}
-		// here we don't know the error; so we allow a retry.
-		return true
+		// Preserve the fallback policy, except under read/serialization errors.
+		return retryUnknown || isErrConnectionReset(origErr)
 	}
 }
 
 // IsErrorThrottle returns whether the error is to be throttled based on its code.
 // Returns false if error is nil.
 func IsErrorThrottle(err error) bool {
-	if aerr, ok := err.(volcengineerr.Error); ok && aerr != nil {
+	var aerr volcengineerr.Error
+	if errors.As(err, &aerr) && aerr != nil {
 		return isCodeThrottle(aerr.Code())
 	}
 	return false
@@ -208,7 +207,8 @@ func IsErrorThrottle(err error) bool {
 // IsErrorExpiredCreds returns whether the error code is a credential expiry
 // error. Returns false if error is nil.
 func IsErrorExpiredCreds(err error) bool {
-	if aerr, ok := err.(volcengineerr.Error); ok && aerr != nil {
+	var aerr volcengineerr.Error
+	if errors.As(err, &aerr) && aerr != nil {
 		return isCodeExpiredCreds(aerr.Code())
 	}
 	return false
@@ -268,7 +268,8 @@ func (r *Request) IsErrorThrottle() bool {
 }
 
 func isErrCode(err error, codes []string) bool {
-	if aerr, ok := err.(volcengineerr.Error); ok && aerr != nil {
+	var aerr volcengineerr.Error
+	if errors.As(err, &aerr) && aerr != nil {
 		for _, code := range codes {
 			if code == aerr.Code() {
 				return true

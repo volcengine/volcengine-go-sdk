@@ -1,7 +1,6 @@
 package credentials
 
 import (
-	"encoding/json"
 	"fmt"
 	"time"
 
@@ -78,19 +77,6 @@ func (s *StsProvider) Retrieve() (Value, error) {
 	output, _, err := assumeRoleWithRetry(ins, input, maxRetriesPtr, s.RetryInterval)
 	if err != nil {
 		return Value{}, err
-	}
-	if output == nil {
-		return Value{}, fmt.Errorf("StsProvider: AssumeRole returned nil response")
-	}
-	if output.ResponseMetadata.Error != nil {
-		bb, _err := json.Marshal(output.ResponseMetadata.Error)
-		if _err != nil {
-			return Value{}, _err
-		}
-		return Value{}, fmt.Errorf(string(bb))
-	}
-	if output.Result == nil || output.Result.Credentials == nil {
-		return Value{}, fmt.Errorf("StsProvider: AssumeRole returned empty credentials")
 	}
 	v := Value{
 		AccessKeyID:     output.Result.Credentials.AccessKeyId,

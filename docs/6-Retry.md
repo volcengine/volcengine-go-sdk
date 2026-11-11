@@ -6,6 +6,12 @@
 
 The SDK includes retry logic for network errors and throttling. Business logic errors (invalid params, resource not found) are not retried.
 
+### Wrapped errors and underlying causes
+
+Retry decisions preserve recursive results from SDK errors' `OrigErr()` and recognize standard wrappers such as `fmt.Errorf("...: %w", err)`. Throttling, credential expiration, and custom `RetryErrorCodes` / `ThrottleErrorCodes` use `errors.As` to obtain the first SDK error code in the wrapping chain. Wrapping alone does not make a terminal business error retryable.
+
+`ReadError` and `SerializationError` retry only when an underlying cause is known to be retryable, such as a temporary network error, a timeout error code, or an existing connection-reset/broken-pipe match. Syntax errors and unrecognized read failures still stop retries. Existing HTTP status, explicit `Retryable`, and custom error-code rules continue to apply.
+
 ### Enable/Disable Retries
 
 > **Default**

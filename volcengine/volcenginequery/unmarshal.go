@@ -13,7 +13,6 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/special"
-	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
@@ -28,6 +27,7 @@ func Unmarshal(r *request.Request) {
 	defer r.HTTPResponse.Body.Close()
 	if r.DataFilled() {
 		body, err := ioutil.ReadAll(r.HTTPResponse.Body)
+		r.SetResponseBody(body, err)
 		if err != nil {
 			fmt.Printf("read volcenginebody err, %v\n", err)
 			r.Error = err
@@ -152,16 +152,10 @@ func processBodyError(r *request.Request, volcengineResponse *response.Volcengin
 		return false
 	}
 	if volcengineResponse.ResponseMetadata.Error != nil && volcengineResponse.ResponseMetadata.Error.Code != "" {
-		r.Error = volcengineerr.NewRequestFailure(
-			volcengineerr.New(volcengineResponse.ResponseMetadata.Error.Code, volcengineResponse.ResponseMetadata.Error.Message, nil),
-			r.HTTPResponse.StatusCode,
-			volcengineResponse.ResponseMetadata.RequestId,
-		)
 		processUnmarshalError(unmarshalErrorInfo{
 			Request:  r,
 			Response: volcengineResponse,
 			Body:     body,
-			Err:      r.Error,
 		})
 		return true
 	}
