@@ -142,17 +142,20 @@ func (c *NATGATEWAY) CreateNatIpLimitRuleWithContext(ctx volcengine.Context, inp
 type CreateNatIpLimitRuleInput struct {
 	_ struct{} `type:"structure"`
 
-	// InboundMbpsLimit is a required field
-	InboundMbpsLimit *int64 `type:"integer" required:"true"`
+	ConnectionLimit *int64 `type:"integer"`
 
-	// InternalIp is a required field
-	InternalIp *string `type:"string" required:"true"`
+	CpsLimit *int64 `type:"integer"`
+
+	InboundMbpsLimit *int64 `type:"integer"`
+
+	InternalIp *string `type:"string"`
+
+	IsDefault *bool `type:"boolean"`
 
 	// NatGatewayId is a required field
 	NatGatewayId *string `type:"string" required:"true"`
 
-	// OutboundMbpsLimit is a required field
-	OutboundMbpsLimit *int64 `type:"integer" required:"true"`
+	OutboundMbpsLimit *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -168,23 +171,26 @@ func (s CreateNatIpLimitRuleInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateNatIpLimitRuleInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateNatIpLimitRuleInput"}
-	if s.InboundMbpsLimit == nil {
-		invalidParams.Add(request.NewErrParamRequired("InboundMbpsLimit"))
-	}
-	if s.InternalIp == nil {
-		invalidParams.Add(request.NewErrParamRequired("InternalIp"))
-	}
 	if s.NatGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NatGatewayId"))
-	}
-	if s.OutboundMbpsLimit == nil {
-		invalidParams.Add(request.NewErrParamRequired("OutboundMbpsLimit"))
 	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetConnectionLimit sets the ConnectionLimit field's value.
+func (s *CreateNatIpLimitRuleInput) SetConnectionLimit(v int64) *CreateNatIpLimitRuleInput {
+	s.ConnectionLimit = &v
+	return s
+}
+
+// SetCpsLimit sets the CpsLimit field's value.
+func (s *CreateNatIpLimitRuleInput) SetCpsLimit(v int64) *CreateNatIpLimitRuleInput {
+	s.CpsLimit = &v
+	return s
 }
 
 // SetInboundMbpsLimit sets the InboundMbpsLimit field's value.
@@ -196,6 +202,12 @@ func (s *CreateNatIpLimitRuleInput) SetInboundMbpsLimit(v int64) *CreateNatIpLim
 // SetInternalIp sets the InternalIp field's value.
 func (s *CreateNatIpLimitRuleInput) SetInternalIp(v string) *CreateNatIpLimitRuleInput {
 	s.InternalIp = &v
+	return s
+}
+
+// SetIsDefault sets the IsDefault field's value.
+func (s *CreateNatIpLimitRuleInput) SetIsDefault(v bool) *CreateNatIpLimitRuleInput {
+	s.IsDefault = &v
 	return s
 }
 

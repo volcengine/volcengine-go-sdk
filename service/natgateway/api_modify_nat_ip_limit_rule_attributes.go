@@ -142,6 +142,10 @@ func (c *NATGATEWAY) ModifyNatIpLimitRuleAttributesWithContext(ctx volcengine.Co
 type ModifyNatIpLimitRuleAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	ConnectionLimit *string `type:"string"`
+
+	CpsLimit *int64 `type:"integer"`
+
 	InboundMbpsLimit *int64 `type:"integer"`
 
 	// LimitRuleId is a required field
@@ -171,6 +175,18 @@ func (s *ModifyNatIpLimitRuleAttributesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetConnectionLimit sets the ConnectionLimit field's value.
+func (s *ModifyNatIpLimitRuleAttributesInput) SetConnectionLimit(v string) *ModifyNatIpLimitRuleAttributesInput {
+	s.ConnectionLimit = &v
+	return s
+}
+
+// SetCpsLimit sets the CpsLimit field's value.
+func (s *ModifyNatIpLimitRuleAttributesInput) SetCpsLimit(v int64) *ModifyNatIpLimitRuleAttributesInput {
+	s.CpsLimit = &v
+	return s
 }
 
 // SetInboundMbpsLimit sets the InboundMbpsLimit field's value.

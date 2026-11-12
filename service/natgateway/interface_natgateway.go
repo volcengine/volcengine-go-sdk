@@ -62,6 +62,14 @@ type NATGATEWAYAPI interface {
 	CreateNatIpLimitRuleWithContext(volcengine.Context, *CreateNatIpLimitRuleInput, ...request.Option) (*CreateNatIpLimitRuleOutput, error)
 	CreateNatIpLimitRuleRequest(*CreateNatIpLimitRuleInput) (*request.Request, *CreateNatIpLimitRuleOutput)
 
+	CreateSessionLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSessionLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSessionLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSessionLog(*CreateSessionLogInput) (*CreateSessionLogOutput, error)
+	CreateSessionLogWithContext(volcengine.Context, *CreateSessionLogInput, ...request.Option) (*CreateSessionLogOutput, error)
+	CreateSessionLogRequest(*CreateSessionLogInput) (*request.Request, *CreateSessionLogOutput)
+
 	CreateSnatEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSnatEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateSnatEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +109,14 @@ type NATGATEWAYAPI interface {
 	DeleteNatIpLimitRule(*DeleteNatIpLimitRuleInput) (*DeleteNatIpLimitRuleOutput, error)
 	DeleteNatIpLimitRuleWithContext(volcengine.Context, *DeleteNatIpLimitRuleInput, ...request.Option) (*DeleteNatIpLimitRuleOutput, error)
 	DeleteNatIpLimitRuleRequest(*DeleteNatIpLimitRuleInput) (*request.Request, *DeleteNatIpLimitRuleOutput)
+
+	DeleteSessionLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSessionLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSessionLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSessionLog(*DeleteSessionLogInput) (*DeleteSessionLogOutput, error)
+	DeleteSessionLogWithContext(volcengine.Context, *DeleteSessionLogInput, ...request.Option) (*DeleteSessionLogOutput, error)
+	DeleteSessionLogRequest(*DeleteSessionLogInput) (*request.Request, *DeleteSessionLogOutput)
 
 	DeleteSnatEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteSnatEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -166,6 +182,14 @@ type NATGATEWAYAPI interface {
 	DescribeNatIpsWithContext(volcengine.Context, *DescribeNatIpsInput, ...request.Option) (*DescribeNatIpsOutput, error)
 	DescribeNatIpsRequest(*DescribeNatIpsInput) (*request.Request, *DescribeNatIpsOutput)
 
+	DescribeSessionLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSessionLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSessionLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSessionLogs(*DescribeSessionLogsInput) (*DescribeSessionLogsOutput, error)
+	DescribeSessionLogsWithContext(volcengine.Context, *DescribeSessionLogsInput, ...request.Option) (*DescribeSessionLogsOutput, error)
+	DescribeSessionLogsRequest(*DescribeSessionLogsInput) (*request.Request, *DescribeSessionLogsOutput)
+
 	DescribeSnatEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSnatEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeSnatEntriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -181,6 +205,22 @@ type NATGATEWAYAPI interface {
 	DescribeSnatEntryAttributes(*DescribeSnatEntryAttributesInput) (*DescribeSnatEntryAttributesOutput, error)
 	DescribeSnatEntryAttributesWithContext(volcengine.Context, *DescribeSnatEntryAttributesInput, ...request.Option) (*DescribeSnatEntryAttributesOutput, error)
 	DescribeSnatEntryAttributesRequest(*DescribeSnatEntryAttributesInput) (*request.Request, *DescribeSnatEntryAttributesOutput)
+
+	DisableSessionLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableSessionLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableSessionLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableSessionLog(*DisableSessionLogInput) (*DisableSessionLogOutput, error)
+	DisableSessionLogWithContext(volcengine.Context, *DisableSessionLogInput, ...request.Option) (*DisableSessionLogOutput, error)
+	DisableSessionLogRequest(*DisableSessionLogInput) (*request.Request, *DisableSessionLogOutput)
+
+	EnableSessionLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableSessionLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableSessionLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableSessionLog(*EnableSessionLogInput) (*EnableSessionLogOutput, error)
+	EnableSessionLogWithContext(volcengine.Context, *EnableSessionLogInput, ...request.Option) (*EnableSessionLogOutput, error)
+	EnableSessionLogRequest(*EnableSessionLogInput) (*request.Request, *EnableSessionLogOutput)
 
 	ListNatGatewayAvailableZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListNatGatewayAvailableZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -229,6 +269,14 @@ type NATGATEWAYAPI interface {
 	ModifyNatIpLimitRuleAttributes(*ModifyNatIpLimitRuleAttributesInput) (*ModifyNatIpLimitRuleAttributesOutput, error)
 	ModifyNatIpLimitRuleAttributesWithContext(volcengine.Context, *ModifyNatIpLimitRuleAttributesInput, ...request.Option) (*ModifyNatIpLimitRuleAttributesOutput, error)
 	ModifyNatIpLimitRuleAttributesRequest(*ModifyNatIpLimitRuleAttributesInput) (*request.Request, *ModifyNatIpLimitRuleAttributesOutput)
+
+	ModifySessionLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySessionLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySessionLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySessionLog(*ModifySessionLogInput) (*ModifySessionLogOutput, error)
+	ModifySessionLogWithContext(volcengine.Context, *ModifySessionLogInput, ...request.Option) (*ModifySessionLogOutput, error)
+	ModifySessionLogRequest(*ModifySessionLogInput) (*request.Request, *ModifySessionLogOutput)
 
 	ModifySnatEntryAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifySnatEntryAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

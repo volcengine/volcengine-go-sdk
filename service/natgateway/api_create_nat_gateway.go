@@ -160,6 +160,8 @@ type CreateNatGatewayInput struct {
 
 	ProjectName *string `type:"string"`
 
+	RenewType *int64 `type:"integer"`
+
 	Spec *string `type:"string"`
 
 	SubnetId *string `type:"string"`
@@ -262,6 +264,12 @@ func (s *CreateNatGatewayInput) SetPeriodUnit(v string) *CreateNatGatewayInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateNatGatewayInput) SetProjectName(v string) *CreateNatGatewayInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *CreateNatGatewayInput) SetRenewType(v int64) *CreateNatGatewayInput {
+	s.RenewType = &v
 	return s
 }
 
