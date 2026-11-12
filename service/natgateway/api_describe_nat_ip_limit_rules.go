@@ -261,9 +261,15 @@ func (s *DescribeNatIpLimitRulesOutput) SetTotalCount(v int64) *DescribeNatIpLim
 type NatIpLimitRuleForDescribeNatIpLimitRulesOutput struct {
 	_ struct{} `type:"structure"`
 
+	ConnectionLimit *int64 `type:"integer"`
+
+	CpsLimit *int64 `type:"integer"`
+
 	InboundMbpsLimit *string `type:"string"`
 
 	InternalIp *string `type:"string"`
+
+	IsDefault *bool `type:"boolean"`
 
 	LimitRuleId *string `type:"string"`
 
@@ -282,6 +288,18 @@ func (s NatIpLimitRuleForDescribeNatIpLimitRulesOutput) GoString() string {
 	return s.String()
 }
 
+// SetConnectionLimit sets the ConnectionLimit field's value.
+func (s *NatIpLimitRuleForDescribeNatIpLimitRulesOutput) SetConnectionLimit(v int64) *NatIpLimitRuleForDescribeNatIpLimitRulesOutput {
+	s.ConnectionLimit = &v
+	return s
+}
+
+// SetCpsLimit sets the CpsLimit field's value.
+func (s *NatIpLimitRuleForDescribeNatIpLimitRulesOutput) SetCpsLimit(v int64) *NatIpLimitRuleForDescribeNatIpLimitRulesOutput {
+	s.CpsLimit = &v
+	return s
+}
+
 // SetInboundMbpsLimit sets the InboundMbpsLimit field's value.
 func (s *NatIpLimitRuleForDescribeNatIpLimitRulesOutput) SetInboundMbpsLimit(v string) *NatIpLimitRuleForDescribeNatIpLimitRulesOutput {
 	s.InboundMbpsLimit = &v
@@ -291,6 +309,12 @@ func (s *NatIpLimitRuleForDescribeNatIpLimitRulesOutput) SetInboundMbpsLimit(v s
 // SetInternalIp sets the InternalIp field's value.
 func (s *NatIpLimitRuleForDescribeNatIpLimitRulesOutput) SetInternalIp(v string) *NatIpLimitRuleForDescribeNatIpLimitRulesOutput {
 	s.InternalIp = &v
+	return s
+}
+
+// SetIsDefault sets the IsDefault field's value.
+func (s *NatIpLimitRuleForDescribeNatIpLimitRulesOutput) SetIsDefault(v bool) *NatIpLimitRuleForDescribeNatIpLimitRulesOutput {
+	s.IsDefault = &v
 	return s
 }
 
