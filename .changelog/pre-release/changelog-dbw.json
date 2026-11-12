@@ -1,9 +1,0 @@
-{
-  "actions": [
-    "DescribeFullSqlStatus",
-    "DescribeSqlAuditStatus"
-  ],
-  "description": "DBW: 新增 DescribeSqlAuditStatus, DescribeFullSqlStatus",
-  "modules": "service/dbw",
-  "type": "feature"
-}
