@@ -310,6 +310,14 @@ type FWCENTERAPI interface {
 	DescribeVpcsWithContext(volcengine.Context, *DescribeVpcsInput, ...request.Option) (*DescribeVpcsOutput, error)
 	DescribeVpcsRequest(*DescribeVpcsInput) (*request.Request, *DescribeVpcsOutput)
 
+	GetIpsConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetIpsConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetIpsConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetIpsConfig(*GetIpsConfigInput) (*GetIpsConfigOutput, error)
+	GetIpsConfigWithContext(volcengine.Context, *GetIpsConfigInput, ...request.Option) (*GetIpsConfigOutput, error)
+	GetIpsConfigRequest(*GetIpsConfigInput) (*request.Request, *GetIpsConfigOutput)
+
 	GetPolicyAnalyzeDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetPolicyAnalyzeDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetPolicyAnalyzeDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -341,6 +349,14 @@ type FWCENTERAPI interface {
 	GetPolicyCheckResult(*GetPolicyCheckResultInput) (*GetPolicyCheckResultOutput, error)
 	GetPolicyCheckResultWithContext(volcengine.Context, *GetPolicyCheckResultInput, ...request.Option) (*GetPolicyCheckResultOutput, error)
 	GetPolicyCheckResultRequest(*GetPolicyCheckResultInput) (*request.Request, *GetPolicyCheckResultOutput)
+
+	ListFwInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListFwInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListFwInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListFwInstance(*ListFwInstanceInput) (*ListFwInstanceOutput, error)
+	ListFwInstanceWithContext(volcengine.Context, *ListFwInstanceInput, ...request.Option) (*ListFwInstanceOutput, error)
+	ListFwInstanceRequest(*ListFwInstanceInput) (*request.Request, *ListFwInstanceOutput)
 
 	ModifyAddressBookCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAddressBookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -429,6 +445,14 @@ type FWCENTERAPI interface {
 	ModifyVpcFirewallRoutePolicy(*ModifyVpcFirewallRoutePolicyInput) (*ModifyVpcFirewallRoutePolicyOutput, error)
 	ModifyVpcFirewallRoutePolicyWithContext(volcengine.Context, *ModifyVpcFirewallRoutePolicyInput, ...request.Option) (*ModifyVpcFirewallRoutePolicyOutput, error)
 	ModifyVpcFirewallRoutePolicyRequest(*ModifyVpcFirewallRoutePolicyInput) (*request.Request, *ModifyVpcFirewallRoutePolicyOutput)
+
+	QueryTlsConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryTlsConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryTlsConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryTlsConfig(*QueryTlsConfigInput) (*QueryTlsConfigOutput, error)
+	QueryTlsConfigWithContext(volcengine.Context, *QueryTlsConfigInput, ...request.Option) (*QueryTlsConfigOutput, error)
+	QueryTlsConfigRequest(*QueryTlsConfigInput) (*request.Request, *QueryTlsConfigOutput)
 
 	QueryUserAlarmConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryUserAlarmConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
