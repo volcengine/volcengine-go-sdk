@@ -184,6 +184,8 @@ type DataForDescribeVpcFirewallAclRuleListOutput struct {
 
 	IsEffected *bool `type:"boolean" json:",omitempty"`
 
+	LastHitTime *int64 `type:"int64" json:",omitempty"`
+
 	Prio *int64 `type:"int64" json:",omitempty"`
 
 	Proto *string `type:"string" json:",omitempty"`
@@ -342,6 +344,12 @@ func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetHitCnt(v int64) *DataFo
 // SetIsEffected sets the IsEffected field's value.
 func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetIsEffected(v bool) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.IsEffected = &v
+	return s
+}
+
+// SetLastHitTime sets the LastHitTime field's value.
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetLastHitTime(v int64) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.LastHitTime = &v
 	return s
 }
 

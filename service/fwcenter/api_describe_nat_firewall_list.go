@@ -156,6 +156,10 @@ type DataForDescribeNatFirewallListOutput struct {
 
 	FirewallStatus *string `type:"string" json:",omitempty"`
 
+	MemberAccountID *string `type:"string" json:",omitempty"`
+
+	MemberAccountName *string `type:"string" json:",omitempty"`
+
 	NatFirewallId *string `type:"string" json:",omitempty"`
 
 	NatFirewallName *string `type:"string" json:",omitempty"`
@@ -218,6 +222,18 @@ func (s *DataForDescribeNatFirewallListOutput) SetErrMessage(v string) *DataForD
 // SetFirewallStatus sets the FirewallStatus field's value.
 func (s *DataForDescribeNatFirewallListOutput) SetFirewallStatus(v string) *DataForDescribeNatFirewallListOutput {
 	s.FirewallStatus = &v
+	return s
+}
+
+// SetMemberAccountID sets the MemberAccountID field's value.
+func (s *DataForDescribeNatFirewallListOutput) SetMemberAccountID(v string) *DataForDescribeNatFirewallListOutput {
+	s.MemberAccountID = &v
+	return s
+}
+
+// SetMemberAccountName sets the MemberAccountName field's value.
+func (s *DataForDescribeNatFirewallListOutput) SetMemberAccountName(v string) *DataForDescribeNatFirewallListOutput {
+	s.MemberAccountName = &v
 	return s
 }
 
@@ -300,6 +316,8 @@ type DescribeNatFirewallListInput struct {
 
 	FirewallStatus []*string `type:"list" json:",omitempty"`
 
+	MemberAccountID *string `max:"128" type:"string" json:",omitempty"`
+
 	NatFirewallId *string `type:"string" json:",omitempty"`
 
 	NatFirewallName *string `type:"string" json:",omitempty"`
@@ -336,6 +354,9 @@ func (s DescribeNatFirewallListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeNatFirewallListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeNatFirewallListInput"}
+	if s.MemberAccountID != nil && len(*s.MemberAccountID) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("MemberAccountID", 128, *s.MemberAccountID))
+	}
 	if s.PageSize != nil && *s.PageSize > 1000 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 1000))
 	}
@@ -355,6 +376,12 @@ func (s *DescribeNatFirewallListInput) SetCloudFirewallId(v string) *DescribeNat
 // SetFirewallStatus sets the FirewallStatus field's value.
 func (s *DescribeNatFirewallListInput) SetFirewallStatus(v []*string) *DescribeNatFirewallListInput {
 	s.FirewallStatus = v
+	return s
+}
+
+// SetMemberAccountID sets the MemberAccountID field's value.
+func (s *DescribeNatFirewallListInput) SetMemberAccountID(v string) *DescribeNatFirewallListInput {
+	s.MemberAccountID = &v
 	return s
 }
 
