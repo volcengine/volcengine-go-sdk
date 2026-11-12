@@ -29,6 +29,9 @@ const opCreateDBInstanceIPListCommon = "CreateDBInstanceIPList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDBInstanceIPListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDBInstanceIPListCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) CreateDBInstanceIPListCommonRequest(input *map[string]interfa
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CreateDBInstanceIPListCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDBInstanceIPListCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateDBInstanceIPListCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) CreateDBInstanceIPListCommon(input *map[string]interface{}) (
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDBInstanceIPListCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateDBInstanceIPListCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opCreateDBInstanceIPList = "CreateDBInstanceIPList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDBInstanceIPListRequest(input *CreateDBInstanceIPListInput) (req *request.Request, output *CreateDBInstanceIPListOutput) {
 	op := &request.Operation{
 		Name:       opCreateDBInstanceIPList,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) CreateDBInstanceIPListRequest(input *CreateDBInstanceIPListIn
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CreateDBInstanceIPList for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDBInstanceIPList(input *CreateDBInstanceIPListInput) (*CreateDBInstanceIPListOutput, error) {
 	req, out := c.CreateDBInstanceIPListRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) CreateDBInstanceIPList(input *CreateDBInstanceIPListInput) (*
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDBInstanceIPListWithContext(ctx volcengine.Context, input *CreateDBInstanceIPListInput, opts ...request.Option) (*CreateDBInstanceIPListOutput, error) {
 	req, out := c.CreateDBInstanceIPListRequest(input)
 	req.SetContext(ctx)

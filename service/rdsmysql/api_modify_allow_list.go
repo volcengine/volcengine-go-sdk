@@ -29,6 +29,9 @@ const opModifyAllowListCommon = "ModifyAllowList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyAllowListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyAllowListCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) ModifyAllowListCommonRequest(input *map[string]interface{}) (
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ModifyAllowListCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyAllowListCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyAllowListCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) ModifyAllowListCommon(input *map[string]interface{}) (*map[st
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyAllowListCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyAllowListCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opModifyAllowList = "ModifyAllowList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyAllowListRequest(input *ModifyAllowListInput) (req *request.Request, output *ModifyAllowListOutput) {
 	op := &request.Operation{
 		Name:       opModifyAllowList,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) ModifyAllowListRequest(input *ModifyAllowListInput) (req *req
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ModifyAllowList for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyAllowList(input *ModifyAllowListInput) (*ModifyAllowListOutput, error) {
 	req, out := c.ModifyAllowListRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) ModifyAllowList(input *ModifyAllowListInput) (*ModifyAllowLis
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ModifyAllowListWithContext(ctx volcengine.Context, input *ModifyAllowListInput, opts ...request.Option) (*ModifyAllowListOutput, error) {
 	req, out := c.ModifyAllowListRequest(input)
 	req.SetContext(ctx)

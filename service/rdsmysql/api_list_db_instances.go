@@ -29,6 +29,9 @@ const opListDBInstancesCommon = "ListDBInstances"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListDBInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListDBInstancesCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) ListDBInstancesCommonRequest(input *map[string]interface{}) (
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ListDBInstancesCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListDBInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ListDBInstancesCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) ListDBInstancesCommon(input *map[string]interface{}) (*map[st
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListDBInstancesCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ListDBInstancesCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opListDBInstances = "ListDBInstances"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListDBInstancesRequest(input *ListDBInstancesInput) (req *request.Request, output *ListDBInstancesOutput) {
 	op := &request.Operation{
 		Name:       opListDBInstances,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) ListDBInstancesRequest(input *ListDBInstancesInput) (req *req
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ListDBInstances for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListDBInstances(input *ListDBInstancesInput) (*ListDBInstancesOutput, error) {
 	req, out := c.ListDBInstancesRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) ListDBInstances(input *ListDBInstancesInput) (*ListDBInstance
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListDBInstancesWithContext(ctx volcengine.Context, input *ListDBInstancesInput, opts ...request.Option) (*ListDBInstancesOutput, error) {
 	req, out := c.ListDBInstancesRequest(input)
 	req.SetContext(ctx)

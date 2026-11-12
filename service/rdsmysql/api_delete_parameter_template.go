@@ -29,6 +29,9 @@ const opDeleteParameterTemplateCommon = "DeleteParameterTemplate"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteParameterTemplateCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) DeleteParameterTemplateCommonRequest(input *map[string]interf
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DeleteParameterTemplateCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteParameterTemplateCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteParameterTemplateCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) DeleteParameterTemplateCommon(input *map[string]interface{}) 
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteParameterTemplateCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteParameterTemplateCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opDeleteParameterTemplate = "DeleteParameterTemplate"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteParameterTemplateRequest(input *DeleteParameterTemplateInput) (req *request.Request, output *DeleteParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opDeleteParameterTemplate,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) DeleteParameterTemplateRequest(input *DeleteParameterTemplate
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DeleteParameterTemplate for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteParameterTemplate(input *DeleteParameterTemplateInput) (*DeleteParameterTemplateOutput, error) {
 	req, out := c.DeleteParameterTemplateRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) DeleteParameterTemplate(input *DeleteParameterTemplateInput) 
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteParameterTemplateWithContext(ctx volcengine.Context, input *DeleteParameterTemplateInput, opts ...request.Option) (*DeleteParameterTemplateOutput, error) {
 	req, out := c.DeleteParameterTemplateRequest(input)
 	req.SetContext(ctx)

@@ -29,6 +29,9 @@ const opListVpcsCommon = "ListVpcs"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListVpcsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListVpcsCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) ListVpcsCommonRequest(input *map[string]interface{}) (req *re
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ListVpcsCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListVpcsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ListVpcsCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) ListVpcsCommon(input *map[string]interface{}) (*map[string]in
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListVpcsCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ListVpcsCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opListVpcs = "ListVpcs"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListVpcsRequest(input *ListVpcsInput) (req *request.Request, output *ListVpcsOutput) {
 	op := &request.Operation{
 		Name:       opListVpcs,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) ListVpcsRequest(input *ListVpcsInput) (req *request.Request, 
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ListVpcs for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListVpcs(input *ListVpcsInput) (*ListVpcsOutput, error) {
 	req, out := c.ListVpcsRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) ListVpcs(input *ListVpcsInput) (*ListVpcsOutput, error) {
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListVpcsWithContext(ctx volcengine.Context, input *ListVpcsInput, opts ...request.Option) (*ListVpcsOutput, error) {
 	req, out := c.ListVpcsRequest(input)
 	req.SetContext(ctx)

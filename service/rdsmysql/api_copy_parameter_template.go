@@ -29,6 +29,9 @@ const opCopyParameterTemplateCommon = "CopyParameterTemplate"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CopyParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCopyParameterTemplateCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) CopyParameterTemplateCommonRequest(input *map[string]interfac
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CopyParameterTemplateCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CopyParameterTemplateCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CopyParameterTemplateCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) CopyParameterTemplateCommon(input *map[string]interface{}) (*
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CopyParameterTemplateCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CopyParameterTemplateCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opCopyParameterTemplate = "CopyParameterTemplate"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CopyParameterTemplateRequest(input *CopyParameterTemplateInput) (req *request.Request, output *CopyParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opCopyParameterTemplate,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) CopyParameterTemplateRequest(input *CopyParameterTemplateInpu
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CopyParameterTemplate for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CopyParameterTemplate(input *CopyParameterTemplateInput) (*CopyParameterTemplateOutput, error) {
 	req, out := c.CopyParameterTemplateRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) CopyParameterTemplate(input *CopyParameterTemplateInput) (*Co
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CopyParameterTemplateWithContext(ctx volcengine.Context, input *CopyParameterTemplateInput, opts ...request.Option) (*CopyParameterTemplateOutput, error) {
 	req, out := c.CopyParameterTemplateRequest(input)
 	req.SetContext(ctx)

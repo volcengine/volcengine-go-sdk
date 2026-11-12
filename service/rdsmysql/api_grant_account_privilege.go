@@ -29,6 +29,9 @@ const opGrantAccountPrivilegeCommon = "GrantAccountPrivilege"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) GrantAccountPrivilegeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGrantAccountPrivilegeCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) GrantAccountPrivilegeCommonRequest(input *map[string]interfac
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation GrantAccountPrivilegeCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) GrantAccountPrivilegeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.GrantAccountPrivilegeCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) GrantAccountPrivilegeCommon(input *map[string]interface{}) (*
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) GrantAccountPrivilegeCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.GrantAccountPrivilegeCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opGrantAccountPrivilege = "GrantAccountPrivilege"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) GrantAccountPrivilegeRequest(input *GrantAccountPrivilegeInput) (req *request.Request, output *GrantAccountPrivilegeOutput) {
 	op := &request.Operation{
 		Name:       opGrantAccountPrivilege,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) GrantAccountPrivilegeRequest(input *GrantAccountPrivilegeInpu
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation GrantAccountPrivilege for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) GrantAccountPrivilege(input *GrantAccountPrivilegeInput) (*GrantAccountPrivilegeOutput, error) {
 	req, out := c.GrantAccountPrivilegeRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) GrantAccountPrivilege(input *GrantAccountPrivilegeInput) (*Gr
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) GrantAccountPrivilegeWithContext(ctx volcengine.Context, input *GrantAccountPrivilegeInput, opts ...request.Option) (*GrantAccountPrivilegeOutput, error) {
 	req, out := c.GrantAccountPrivilegeRequest(input)
 	req.SetContext(ctx)

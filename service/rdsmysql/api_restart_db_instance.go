@@ -29,6 +29,9 @@ const opRestartDBInstanceCommon = "RestartDBInstance"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) RestartDBInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRestartDBInstanceCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) RestartDBInstanceCommonRequest(input *map[string]interface{})
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation RestartDBInstanceCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) RestartDBInstanceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RestartDBInstanceCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) RestartDBInstanceCommon(input *map[string]interface{}) (*map[
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) RestartDBInstanceCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.RestartDBInstanceCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opRestartDBInstance = "RestartDBInstance"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) RestartDBInstanceRequest(input *RestartDBInstanceInput) (req *request.Request, output *RestartDBInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRestartDBInstance,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) RestartDBInstanceRequest(input *RestartDBInstanceInput) (req 
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation RestartDBInstance for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) RestartDBInstance(input *RestartDBInstanceInput) (*RestartDBInstanceOutput, error) {
 	req, out := c.RestartDBInstanceRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) RestartDBInstance(input *RestartDBInstanceInput) (*RestartDBI
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) RestartDBInstanceWithContext(ctx volcengine.Context, input *RestartDBInstanceInput, opts ...request.Option) (*RestartDBInstanceOutput, error) {
 	req, out := c.RestartDBInstanceRequest(input)
 	req.SetContext(ctx)

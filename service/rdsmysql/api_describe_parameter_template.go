@@ -29,6 +29,9 @@ const opDescribeParameterTemplateCommon = "DescribeParameterTemplate"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeParameterTemplateCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) DescribeParameterTemplateCommonRequest(input *map[string]inte
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DescribeParameterTemplateCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeParameterTemplateCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeParameterTemplateCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) DescribeParameterTemplateCommon(input *map[string]interface{}
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeParameterTemplateCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeParameterTemplateCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opDescribeParameterTemplate = "DescribeParameterTemplate"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeParameterTemplateRequest(input *DescribeParameterTemplateInput) (req *request.Request, output *DescribeParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opDescribeParameterTemplate,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) DescribeParameterTemplateRequest(input *DescribeParameterTemp
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DescribeParameterTemplate for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeParameterTemplate(input *DescribeParameterTemplateInput) (*DescribeParameterTemplateOutput, error) {
 	req, out := c.DescribeParameterTemplateRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) DescribeParameterTemplate(input *DescribeParameterTemplateInp
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DescribeParameterTemplateWithContext(ctx volcengine.Context, input *DescribeParameterTemplateInput, opts ...request.Option) (*DescribeParameterTemplateOutput, error) {
 	req, out := c.DescribeParameterTemplateRequest(input)
 	req.SetContext(ctx)

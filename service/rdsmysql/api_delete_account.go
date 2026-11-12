@@ -29,6 +29,9 @@ const opDeleteAccountCommon = "DeleteAccount"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAccountCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteAccountCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) DeleteAccountCommonRequest(input *map[string]interface{}) (re
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DeleteAccountCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAccountCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteAccountCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) DeleteAccountCommon(input *map[string]interface{}) (*map[stri
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAccountCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteAccountCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opDeleteAccount = "DeleteAccount"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAccountRequest(input *DeleteAccountInput) (req *request.Request, output *DeleteAccountOutput) {
 	op := &request.Operation{
 		Name:       opDeleteAccount,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) DeleteAccountRequest(input *DeleteAccountInput) (req *request
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DeleteAccount for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAccount(input *DeleteAccountInput) (*DeleteAccountOutput, error) {
 	req, out := c.DeleteAccountRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) DeleteAccount(input *DeleteAccountInput) (*DeleteAccountOutpu
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteAccountWithContext(ctx volcengine.Context, input *DeleteAccountInput, opts ...request.Option) (*DeleteAccountOutput, error) {
 	req, out := c.DeleteAccountRequest(input)
 	req.SetContext(ctx)

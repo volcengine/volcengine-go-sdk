@@ -29,6 +29,9 @@ const opDeleteDBInstanceCommon = "DeleteDBInstance"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteDBInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDBInstanceCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) DeleteDBInstanceCommonRequest(input *map[string]interface{}) 
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DeleteDBInstanceCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteDBInstanceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteDBInstanceCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) DeleteDBInstanceCommon(input *map[string]interface{}) (*map[s
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteDBInstanceCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteDBInstanceCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opDeleteDBInstance = "DeleteDBInstance"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteDBInstanceRequest(input *DeleteDBInstanceInput) (req *request.Request, output *DeleteDBInstanceOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDBInstance,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) DeleteDBInstanceRequest(input *DeleteDBInstanceInput) (req *r
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DeleteDBInstance for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteDBInstance(input *DeleteDBInstanceInput) (*DeleteDBInstanceOutput, error) {
 	req, out := c.DeleteDBInstanceRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) DeleteDBInstance(input *DeleteDBInstanceInput) (*DeleteDBInst
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DeleteDBInstanceWithContext(ctx volcengine.Context, input *DeleteDBInstanceInput, opts ...request.Option) (*DeleteDBInstanceOutput, error) {
 	req, out := c.DeleteDBInstanceRequest(input)
 	req.SetContext(ctx)

@@ -29,6 +29,9 @@ const opListBackupsCommon = "ListBackups"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListBackupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListBackupsCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) ListBackupsCommonRequest(input *map[string]interface{}) (req 
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ListBackupsCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListBackupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ListBackupsCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) ListBackupsCommon(input *map[string]interface{}) (*map[string
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListBackupsCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ListBackupsCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opListBackups = "ListBackups"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListBackupsRequest(input *ListBackupsInput) (req *request.Request, output *ListBackupsOutput) {
 	op := &request.Operation{
 		Name:       opListBackups,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) ListBackupsRequest(input *ListBackupsInput) (req *request.Req
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ListBackups for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListBackups(input *ListBackupsInput) (*ListBackupsOutput, error) {
 	req, out := c.ListBackupsRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) ListBackups(input *ListBackupsInput) (*ListBackupsOutput, err
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListBackupsWithContext(ctx volcengine.Context, input *ListBackupsInput, opts ...request.Option) (*ListBackupsOutput, error) {
 	req, out := c.ListBackupsRequest(input)
 	req.SetContext(ctx)

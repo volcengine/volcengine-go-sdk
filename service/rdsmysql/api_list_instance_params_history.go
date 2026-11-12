@@ -29,6 +29,9 @@ const opListInstanceParamsHistoryCommon = "ListInstanceParamsHistory"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListInstanceParamsHistoryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListInstanceParamsHistoryCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) ListInstanceParamsHistoryCommonRequest(input *map[string]inte
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ListInstanceParamsHistoryCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListInstanceParamsHistoryCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ListInstanceParamsHistoryCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) ListInstanceParamsHistoryCommon(input *map[string]interface{}
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListInstanceParamsHistoryCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ListInstanceParamsHistoryCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opListInstanceParamsHistory = "ListInstanceParamsHistory"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListInstanceParamsHistoryRequest(input *ListInstanceParamsHistoryInput) (req *request.Request, output *ListInstanceParamsHistoryOutput) {
 	op := &request.Operation{
 		Name:       opListInstanceParamsHistory,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) ListInstanceParamsHistoryRequest(input *ListInstanceParamsHis
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation ListInstanceParamsHistory for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListInstanceParamsHistory(input *ListInstanceParamsHistoryInput) (*ListInstanceParamsHistoryOutput, error) {
 	req, out := c.ListInstanceParamsHistoryRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) ListInstanceParamsHistory(input *ListInstanceParamsHistoryInp
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) ListInstanceParamsHistoryWithContext(ctx volcengine.Context, input *ListInstanceParamsHistoryInput, opts ...request.Option) (*ListInstanceParamsHistoryOutput, error) {
 	req, out := c.ListInstanceParamsHistoryRequest(input)
 	req.SetContext(ctx)

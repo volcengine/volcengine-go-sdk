@@ -29,6 +29,9 @@ const opDisassociateAllowListCommon = "DisassociateAllowList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DisassociateAllowListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateAllowListCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) DisassociateAllowListCommonRequest(input *map[string]interfac
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DisassociateAllowListCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DisassociateAllowListCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DisassociateAllowListCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) DisassociateAllowListCommon(input *map[string]interface{}) (*
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DisassociateAllowListCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DisassociateAllowListCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opDisassociateAllowList = "DisassociateAllowList"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DisassociateAllowListRequest(input *DisassociateAllowListInput) (req *request.Request, output *DisassociateAllowListOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateAllowList,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) DisassociateAllowListRequest(input *DisassociateAllowListInpu
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation DisassociateAllowList for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DisassociateAllowList(input *DisassociateAllowListInput) (*DisassociateAllowListOutput, error) {
 	req, out := c.DisassociateAllowListRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) DisassociateAllowList(input *DisassociateAllowListInput) (*Di
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) DisassociateAllowListWithContext(ctx volcengine.Context, input *DisassociateAllowListInput, opts ...request.Option) (*DisassociateAllowListOutput, error) {
 	req, out := c.DisassociateAllowListRequest(input)
 	req.SetContext(ctx)

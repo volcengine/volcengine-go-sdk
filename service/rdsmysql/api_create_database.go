@@ -29,6 +29,9 @@ const opCreateDatabaseCommon = "CreateDatabase"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDatabaseCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDatabaseCommon,
@@ -56,6 +59,9 @@ func (c *RDSMYSQL) CreateDatabaseCommonRequest(input *map[string]interface{}) (r
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CreateDatabaseCommon for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDatabaseCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateDatabaseCommonRequest(input)
 	return out, req.Send()
@@ -69,6 +75,9 @@ func (c *RDSMYSQL) CreateDatabaseCommon(input *map[string]interface{}) (*map[str
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDatabaseCommonWithContext(ctx volcengine.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateDatabaseCommonRequest(input)
 	req.SetContext(ctx)
@@ -96,6 +105,9 @@ const opCreateDatabase = "CreateDatabase"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDatabaseRequest(input *CreateDatabaseInput) (req *request.Request, output *CreateDatabaseOutput) {
 	op := &request.Operation{
 		Name:       opCreateDatabase,
@@ -123,6 +135,9 @@ func (c *RDSMYSQL) CreateDatabaseRequest(input *CreateDatabaseInput) (req *reque
 //
 // See the VOLCENGINE API reference guide for RDS_MYSQL's
 // API operation CreateDatabase for usage and error information.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDatabase(input *CreateDatabaseInput) (*CreateDatabaseOutput, error) {
 	req, out := c.CreateDatabaseRequest(input)
 	return out, req.Send()
@@ -136,6 +151,9 @@ func (c *RDSMYSQL) CreateDatabase(input *CreateDatabaseInput) (*CreateDatabaseOu
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use service/rdsmysqlv2 with API version 2022-01-01 instead.
 func (c *RDSMYSQL) CreateDatabaseWithContext(ctx volcengine.Context, input *CreateDatabaseInput, opts ...request.Option) (*CreateDatabaseOutput, error) {
 	req, out := c.CreateDatabaseRequest(input)
 	req.SetContext(ctx)

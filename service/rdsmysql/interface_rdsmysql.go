@@ -29,6 +29,8 @@ import (
 //        myFunc(svc)
 //    }
 //
+// Deprecated: RDS MySQL API 2018-01-01 is deprecated.
+// Use the RDSMYSQLV2API interface in service/rdsmysqlv2 with API version 2022-01-01 instead.
 type RDSMYSQLAPI interface {
 	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
