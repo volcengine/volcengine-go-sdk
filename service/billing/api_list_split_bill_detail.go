@@ -975,6 +975,8 @@ type ListSplitBillDetailInput struct {
 
 	BillingMode []*string `type:"list" json:",omitempty"`
 
+	CostUnit []*string `type:"list" json:",omitempty"`
+
 	ExpenseDate *string `type:"string" json:",omitempty"`
 
 	GroupPeriod *int32 `type:"int32" json:",omitempty"`
@@ -986,7 +988,11 @@ type ListSplitBillDetailInput struct {
 	// Limit is a required field
 	Limit *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	MaxResults *int32 `type:"int32" json:",omitempty"`
+
 	NeedRecordNum *int32 `type:"int32" json:",omitempty"`
+
+	NextToken *string `type:"string" json:",omitempty"`
 
 	Offset *int32 `type:"int32" json:",omitempty"`
 
@@ -1053,6 +1059,12 @@ func (s *ListSplitBillDetailInput) SetBillingMode(v []*string) *ListSplitBillDet
 	return s
 }
 
+// SetCostUnit sets the CostUnit field's value.
+func (s *ListSplitBillDetailInput) SetCostUnit(v []*string) *ListSplitBillDetailInput {
+	s.CostUnit = v
+	return s
+}
+
 // SetExpenseDate sets the ExpenseDate field's value.
 func (s *ListSplitBillDetailInput) SetExpenseDate(v string) *ListSplitBillDetailInput {
 	s.ExpenseDate = &v
@@ -1083,9 +1095,21 @@ func (s *ListSplitBillDetailInput) SetLimit(v int32) *ListSplitBillDetailInput {
 	return s
 }
 
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListSplitBillDetailInput) SetMaxResults(v int32) *ListSplitBillDetailInput {
+	s.MaxResults = &v
+	return s
+}
+
 // SetNeedRecordNum sets the NeedRecordNum field's value.
 func (s *ListSplitBillDetailInput) SetNeedRecordNum(v int32) *ListSplitBillDetailInput {
 	s.NeedRecordNum = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListSplitBillDetailInput) SetNextToken(v string) *ListSplitBillDetailInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -1158,6 +1182,8 @@ type ListSplitBillDetailOutput struct {
 
 	List []*ListForListSplitBillDetailOutput `type:"list" json:",omitempty"`
 
+	NextToken *string `type:"string" json:",omitempty"`
+
 	Offset *int32 `type:"int32" json:",omitempty"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
@@ -1184,6 +1210,12 @@ func (s *ListSplitBillDetailOutput) SetLimit(v int32) *ListSplitBillDetailOutput
 // SetList sets the List field's value.
 func (s *ListSplitBillDetailOutput) SetList(v []*ListForListSplitBillDetailOutput) *ListSplitBillDetailOutput {
 	s.List = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListSplitBillDetailOutput) SetNextToken(v string) *ListSplitBillDetailOutput {
+	s.NextToken = &v
 	return s
 }
 
