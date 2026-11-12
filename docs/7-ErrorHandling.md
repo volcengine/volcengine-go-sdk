@@ -27,11 +27,21 @@ When the HTTP status code is non-2xx (e.g. 504), the response body may not be a 
 
 For the standard and non-standard responses above, including standard business errors under HTTP 200, the request ID is resolved in order from a non-empty `ResponseMetadata.RequestId` in the body, an existing `r.RequestID` on the request object, then the `X-Top-Requestid` / `X-Top-Request-Id` / `X-Tt-Logid` response headers. `RequestID()` returns an empty string if none of these sources has a value. Standard business errors under HTTP 200 also apply `SimpleError`, which still affects only the display.
 
-In addition, when an HTTP 200 response has a JSON `null` body, decoding into a struct or `*map[string]interface{}` with output data returns `RequestFailure` with `Code()` set to `UnknownError` and `StatusCode()` set to 200, preserving the request ID and raw body. This applies to both normal decoding and `ForceJsonNumberDecode`. Other malformed HTTP 200 bodies (e.g. HTML) are outside the non-2xx diagnostics described above and may still return a native JSON decoding error.
+In addition, when an HTTP 200 response has a JSON `null` body, decoding into a struct or `*map[string]interface{}` with output data returns `RequestFailure` with `Code()` set to `UnknownError` and `StatusCode()` set to 200, preserving the request ID and raw body. This applies to both normal decoding and `ForceJsonNumberDecode`.
+
+The default TOP parser also records diagnostics for failures while processing output data under successful HTTP statuses:
+
+- **Body read failure**: returns `RequestFailure` with `Code()` set to `ReadError`, preserving the original read error in `OrigErr()`. The snapshot contains partial bytes with `BodyCaptured: true` and `BodyComplete: false`.
+- **Body decoding failure** (such as HTML, an empty body, or incompatible JSON structure): returns `RequestFailure` with `Code()` set to `SerializationError` and the decoding error in `OrigErr()`.
+- **Result serialization, output decoding, or map field access failure**: also returns `SerializationError`, preserving the underlying cause and original HTTP body rather than the transformed result bytes. This includes SDK encoding/decoding of data returned by `CustomerUnmarshalData`; errors returned by `CustomerUnmarshalError` retain their original identity, and callback panics retain existing behavior.
+
+For these SDK-created errors, `StatusCode()`, `RequestID()`, and `PrintError` expose the HTTP status, request ID, headers, and body snapshot; HTTP 200 remains 200. Even when other fields have incompatible types, the parser attempts to extract `ResponseMetadata.RequestId` separately from the saved valid JSON before applying the existing fallback order, without rereading the response stream. Normal decoding and `ForceJsonNumberDecode` are both covered.
 
 When map decoding rejects JSON `null`, it preserves the original output pointer. If a custom retryer retries `UnknownError`, subsequent responses are decoded into the original output object, which remains available to `After` interceptors. Exhausted retries still return an error. The default retryer does not retry an HTTP 200 response solely because of `UnknownError`.
 
 Compatibility: some native JSON decoding errors that were previously returned directly are now wrapped in `RequestFailure`; callers can obtain the underlying error through `OrigErr()`. The error classification also affects default retries: with `MaxRetries=3`, an HTTP 400 response with an HTML body changes from at most 4 attempts to 1 attempt. HTTP 500, 502, 503, and 504 responses still retry under the existing status-code rules. `SimpleError` changes only the display of `Error()`, leaving `StatusCode()`, `RequestID()`, and `Message()` unchanged. Custom error handlers and retryers follow their own implementations.
+
+Read, decoding, and result conversion failures under HTTP 200 now use the SDK error types above instead of native errors. Non-retryable causes such as HTML or ordinary type mismatches no longer use the unknown-error retry fallback: with `MaxRetries=3`, they are attempted once. Read errors with explicitly retryable causes still follow existing retry rules. Read timeouts triggered by `request.WithResponseReadTimeout` are still normalized to the original `ResponseTimeout` with a snapshot, as described below.
 
 ### Error handling for STS credential requests
 
@@ -99,7 +109,7 @@ Default TOP response-read timeouts triggered by `request.WithResponseReadTimeout
 
 Without an HTTP response, `response` is `null`. Legacy interfaces exposing only status and request ID yield `headers: null` and `body_captured: false`. A captured empty body has `body_captured: true` and `body: ""`. JSON renders UTF-8 bodies as text with `body_encoding: "utf-8"` and other bytes as reversible Base64. Returned details are deep copies. Extraction supports `%w`, `OrigErr()`, `OrigErrs()` and multi-cause standard wrapping, with cycle protection and bounded depth.
 
-Native read/decoding errors returned unchanged, customer errors, and paths without capture such as ECS/IMDS, endpoint credentials and CLI OAuth/Portal provide only available information. Package functions fall back to legacy fields when optional customer `ResponseDetails()` methods return nil. `GetErrorDetails(nil)` returns nil; `PrintError(writer, nil)` writes nothing. Write failures and short writes return wrapped output errors. Full bodies may contain credentials; callers can modify the returned copy before logging.
+Customer errors and unchanged native read/decoding errors in paths without capture, such as ECS/IMDS, endpoint credentials and CLI OAuth/Portal, provide only available information. Package functions fall back to legacy fields when optional customer `ResponseDetails()` methods return nil. `GetErrorDetails(nil)` returns nil; `PrintError(writer, nil)` writes nothing. Write failures and short writes return wrapped output errors. Full bodies may contain credentials; callers can modify the returned copy before logging.
 
 Error-tree deduplication supports custom value errors containing slice or map fields. Distinct pointer errors remain separate even when their contents match.
 

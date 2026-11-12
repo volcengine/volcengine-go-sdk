@@ -124,12 +124,20 @@ func newResponseError(info unmarshalErrorInfo, code, message string, err error) 
 	return info.Request.WithResponseDetails(failure).(volcengineerr.RequestFailure)
 }
 
-// responseRequestID resolves the request id from the parsed metadata first, then
-// the request context, then the TOP gateway headers, so non-standard responses
-// still expose a usable id for troubleshooting.
+// responseRequestID resolves the request id from the parsed metadata or saved
+// body first, then the request context and TOP gateway headers.
 func responseRequestID(info unmarshalErrorInfo) string {
 	if info.Response != nil && info.Response.ResponseMetadata != nil && info.Response.ResponseMetadata.RequestId != "" {
 		return info.Response.ResponseMetadata.RequestId
+	}
+	// Decode only the id so incompatible Error/Result fields cannot hide it.
+	// Reuse saved bytes; never read the response stream again.
+	var metadata struct {
+		ResponseMetadata *struct{ RequestId string }
+	}
+	if json.Unmarshal(info.Body, &metadata) == nil && metadata.ResponseMetadata != nil &&
+		metadata.ResponseMetadata.RequestId != "" {
+		return metadata.ResponseMetadata.RequestId
 	}
 	if info.Request.RequestID != "" {
 		return info.Request.RequestID

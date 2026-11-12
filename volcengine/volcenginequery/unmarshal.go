@@ -30,7 +30,10 @@ func Unmarshal(r *request.Request) {
 		r.SetResponseBody(body, err)
 		if err != nil {
 			fmt.Printf("read volcenginebody err, %v\n", err)
-			r.Error = err
+			r.Error = newResponseError(unmarshalErrorInfo{
+				Request: r,
+				Body:    body,
+			}, request.ErrCodeRead, "failed to read response", err)
 			return
 		}
 
@@ -49,7 +52,10 @@ func Unmarshal(r *request.Request) {
 				decoder.UseNumber()
 				if err = decoder.Decode(&r.Data); err != nil {
 					fmt.Printf("Unmarshal err, %v\n", err)
-					r.Error = err
+					r.Error = newResponseError(unmarshalErrorInfo{
+						Request: r,
+						Body:    body,
+					}, request.ErrCodeSerialization, "failed to decode response", err)
 					return
 				}
 			}
@@ -67,7 +73,10 @@ func Unmarshal(r *request.Request) {
 			}
 			info, err = volcengineutil.ObtainSdkValue("ResponseMetadata.Error.Code", *ptr)
 			if err != nil {
-				r.Error = err
+				r.Error = newResponseError(unmarshalErrorInfo{
+					Request: r,
+					Body:    body,
+				}, request.ErrCodeSerialization, "failed to access response error code", err)
 				return
 			}
 			if info != nil {
@@ -107,7 +116,11 @@ func Unmarshal(r *request.Request) {
 
 			if b, err = json.Marshal(source); err != nil {
 				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
+				r.Error = newResponseError(unmarshalErrorInfo{
+					Request:  r,
+					Response: &volcengineResponse,
+					Body:     body,
+				}, request.ErrCodeSerialization, "failed to encode response result", err)
 				return
 			}
 			if err = json.Unmarshal(b, &r.Data); err != nil || forceJsonNumberDecoder {
@@ -115,7 +128,11 @@ func Unmarshal(r *request.Request) {
 				decoder.UseNumber()
 				if err = decoder.Decode(&r.Data); err != nil {
 					fmt.Printf("Unmarshal err, %v\n", err)
-					r.Error = err
+					r.Error = newResponseError(unmarshalErrorInfo{
+						Request:  r,
+						Response: &volcengineResponse,
+						Body:     body,
+					}, request.ErrCodeSerialization, "failed to decode response result", err)
 					return
 				}
 			}
@@ -135,7 +152,11 @@ func processBodyError(r *request.Request, volcengineResponse *response.Volcengin
 	decoder.UseNumber()
 	if err := decoder.Decode(&volcengineResponse); err != nil {
 		fmt.Printf("Unmarshal err, %v\n", err)
-		r.Error = err
+		r.Error = newResponseError(unmarshalErrorInfo{
+			Request:  r,
+			Response: volcengineResponse,
+			Body:     body,
+		}, request.ErrCodeSerialization, "failed to decode response", err)
 		return true
 	}
 

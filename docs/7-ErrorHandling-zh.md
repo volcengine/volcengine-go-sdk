@@ -27,11 +27,21 @@
 
 上述标准及非标准响应（包括 HTTP 200 下的标准业务错误）的请求 ID 依次取自响应体中非空的 `ResponseMetadata.RequestId`、请求对象中已有的 `r.RequestID`、以及 `X-Top-Requestid` / `X-Top-Request-Id` / `X-Tt-Logid` 响应头；所有来源均无值时，`RequestID()` 返回空字符串。标准业务错误在 HTTP 200 下也应用 `SimpleError`，该选项仍只影响显示。
 
-此外，有输出数据的结构体和 `*map[string]interface{}` 解码路径收到 HTTP 200、正文为 JSON `null` 时，均返回 `RequestFailure`，`Code()` 为 `UnknownError`，`StatusCode()` 为 200，并保留请求 ID 与原始正文。普通解码和 `ForceJsonNumberDecode` 均适用。HTTP 200 下其它异常正文（如 HTML）不属于上述非 2xx 错误诊断范围，仍可能返回原生 JSON 解码错误。
+此外，有输出数据的结构体和 `*map[string]interface{}` 解码路径收到 HTTP 200、正文为 JSON `null` 时，均返回 `RequestFailure`，`Code()` 为 `UnknownError`，`StatusCode()` 为 200，并保留请求 ID 与原始正文。普通解码和 `ForceJsonNumberDecode` 均适用。
+
+成功状态码下，默认 TOP 解析器处理输出数据时也统一保存异常诊断：
+
+- **读取正文失败**：返回 `RequestFailure`，`Code()` 为 `ReadError`，通过 `OrigErr()` 保留原始读取错误；快照保存已读字节，`BodyCaptured` 为 true，`BodyComplete` 为 false。
+- **正文解码失败**（如 HTML、空正文、JSON 结构不兼容）：返回 `RequestFailure`，`Code()` 为 `SerializationError`，底层解码错误保留在 `OrigErr()` 中。
+- **结果序列化、输出对象解码或 map 字段访问失败**：同样返回 `SerializationError`，保留底层原因和原始 HTTP 正文，而非转换后的结果字节。客户 `CustomerUnmarshalData` 返回的数据在 SDK 编解码时出错也适用；客户 `CustomerUnmarshalError` 返回的错误对象仍原样返回，客户回调中的 panic 沿用原行为。
+
+上述 SDK 构造的错误通过 `StatusCode()`、`RequestID()` 和 `PrintError` 暴露 HTTP 状态码、请求 ID、响应头及正文快照；HTTP 200 仍记录为 200。即使其它字段类型不兼容，也会尝试从已读取的有效 JSON 中单独提取 `ResponseMetadata.RequestId`，再按既有顺序兜底，不重新读取响应流。普通解码和 `ForceJsonNumberDecode` 均适用。
 
 map 解码拒绝 JSON `null` 时会保留原输出指针。若自定义重试器重试 `UnknownError`，后续响应会继续解析到原输出对象，`After` 拦截器也能获取该对象；重试耗尽仍返回错误。默认重试器不会仅因 `UnknownError` 而重试 HTTP 200 响应。
 
 兼容性说明：此前直接返回的部分原生 JSON 解码错误现在封装为 `RequestFailure`，调用方可通过 `OrigErr()` 获取底层错误。默认重试行为也会受错误分类影响：以 `MaxRetries=3` 为例，HTTP 400、正文为 HTML 的请求从原先最多 4 次尝试变为 1 次；HTTP 500、502、503、504 仍按既有状态码规则重试。`SimpleError` 仅改变 `Error()` 的显示形式，不影响 `StatusCode()`、`RequestID()` 和 `Message()`。自定义错误处理或重试器以其实现为准。
+
+HTTP 200 下的读取、解码及结果转换错误也由原生错误改为上述 SDK 错误类型。HTML 或普通类型不匹配等不可重试原因不再走“未知错误可重试”的兜底，`MaxRetries=3` 时只尝试 1 次；具有明确可重试底层原因的读取错误仍按既有规则重试。通过 `request.WithResponseReadTimeout` 触发的读取超时最终仍归一化为原有 `ResponseTimeout`，保留快照，详见下文。
 
 ### STS 凭证请求的错误处理
 
@@ -101,7 +111,7 @@ if errors.As(err, &failure) {
 
 错误树去重支持字段中含 slice 或 map 的自定义值类型错误；不同指针错误保持独立，不会仅因内容相同而合并。
 
-保持原样返回的原生读取/解码错误、客户自定义错误、ECS/IMDS、Endpoint credentials 和 CLI OAuth/Portal 等未接入路径仅输出实际已有信息，不承诺完整快照。客户实现可选 `ResponseDetails()` 方法且返回 nil 时，包函数自动退回旧接口字段。`GetErrorDetails(nil)` 返回 nil，`PrintError(writer, nil)` 不输出；写失败和短写作为可解包的打印错误返回。完整正文可能包含凭证等内容，调用方可修改详情副本后自行输出。
+客户自定义错误，以及 ECS/IMDS、Endpoint credentials 和 CLI OAuth/Portal 等未接入路径中仍原样返回的读取/解码错误，仅输出实际已有信息，不承诺完整快照。客户实现可选 `ResponseDetails()` 方法且返回 nil 时，包函数自动退回旧接口字段。`GetErrorDetails(nil)` 返回 nil，`PrintError(writer, nil)` 不输出；写失败和短写作为可解包的打印错误返回。完整正文可能包含凭证等内容，调用方可修改详情副本后自行输出。
 
 ### 代码示例
 
