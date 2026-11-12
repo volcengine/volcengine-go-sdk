@@ -154,6 +154,8 @@ type ResumeSandboxInput struct {
 	// SandboxId is a required field
 	SandboxId *string `type:"string" json:",omitempty" required:"true"`
 
+	SnapshotId *string `type:"string" json:",omitempty"`
+
 	Timeout *int32 `type:"int32" json:",omitempty"`
 
 	TimeoutUnit *string `type:"string" json:",omitempty"`
@@ -200,6 +202,12 @@ func (s *ResumeSandboxInput) SetFunctionId(v string) *ResumeSandboxInput {
 // SetSandboxId sets the SandboxId field's value.
 func (s *ResumeSandboxInput) SetSandboxId(v string) *ResumeSandboxInput {
 	s.SandboxId = &v
+	return s
+}
+
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *ResumeSandboxInput) SetSnapshotId(v string) *ResumeSandboxInput {
+	s.SnapshotId = &v
 	return s
 }
 

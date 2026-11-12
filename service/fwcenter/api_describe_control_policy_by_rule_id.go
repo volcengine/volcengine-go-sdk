@@ -188,6 +188,8 @@ type DataForDescribeControlPolicyByRuleIdOutput struct {
 
 	IsEffected *bool `type:"boolean" json:",omitempty"`
 
+	LastHitTime *int64 `type:"int64" json:",omitempty"`
+
 	Prio *int64 `type:"int64" json:",omitempty"`
 
 	Proto *string `type:"string" json:",omitempty"`
@@ -354,6 +356,12 @@ func (s *DataForDescribeControlPolicyByRuleIdOutput) SetIpType(v string) *DataFo
 // SetIsEffected sets the IsEffected field's value.
 func (s *DataForDescribeControlPolicyByRuleIdOutput) SetIsEffected(v bool) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.IsEffected = &v
+	return s
+}
+
+// SetLastHitTime sets the LastHitTime field's value.
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetLastHitTime(v int64) *DataForDescribeControlPolicyByRuleIdOutput {
+	s.LastHitTime = &v
 	return s
 }
 

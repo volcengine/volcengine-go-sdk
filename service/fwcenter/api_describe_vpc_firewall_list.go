@@ -146,6 +146,8 @@ func (c *FWCENTER) DescribeVpcFirewallListWithContext(ctx volcengine.Context, in
 type DataForDescribeVpcFirewallListOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccountID *string `type:"string" json:",omitempty"`
+
 	Bandwidth *int64 `type:"int64" json:",omitempty"`
 
 	BypassStatus *string `type:"string" json:",omitempty"`
@@ -157,6 +159,10 @@ type DataForDescribeVpcFirewallListOutput struct {
 	FirewallStatus *string `type:"string" json:",omitempty"`
 
 	InstanceType *int32 `type:"int32" json:",omitempty"`
+
+	MemberAccountID *string `type:"string" json:",omitempty"`
+
+	MemberAccountName *string `type:"string" json:",omitempty"`
 
 	PeakTrafficWithin7Day *int64 `type:"int64" json:",omitempty"`
 
@@ -201,6 +207,12 @@ func (s DataForDescribeVpcFirewallListOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccountID sets the AccountID field's value.
+func (s *DataForDescribeVpcFirewallListOutput) SetAccountID(v string) *DataForDescribeVpcFirewallListOutput {
+	s.AccountID = &v
+	return s
+}
+
 // SetBandwidth sets the Bandwidth field's value.
 func (s *DataForDescribeVpcFirewallListOutput) SetBandwidth(v int64) *DataForDescribeVpcFirewallListOutput {
 	s.Bandwidth = &v
@@ -234,6 +246,18 @@ func (s *DataForDescribeVpcFirewallListOutput) SetFirewallStatus(v string) *Data
 // SetInstanceType sets the InstanceType field's value.
 func (s *DataForDescribeVpcFirewallListOutput) SetInstanceType(v int32) *DataForDescribeVpcFirewallListOutput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetMemberAccountID sets the MemberAccountID field's value.
+func (s *DataForDescribeVpcFirewallListOutput) SetMemberAccountID(v string) *DataForDescribeVpcFirewallListOutput {
+	s.MemberAccountID = &v
+	return s
+}
+
+// SetMemberAccountName sets the MemberAccountName field's value.
+func (s *DataForDescribeVpcFirewallListOutput) SetMemberAccountName(v string) *DataForDescribeVpcFirewallListOutput {
+	s.MemberAccountName = &v
 	return s
 }
 
@@ -340,6 +364,8 @@ type DescribeVpcFirewallListInput struct {
 
 	FirewallStatus []*string `type:"list" json:",omitempty"`
 
+	MemberAccountID *string `max:"128" type:"string" json:",omitempty"`
+
 	OrderDir *string `type:"string" json:",omitempty" enum:"EnumOfOrderDirForDescribeVpcFirewallListInput"`
 
 	PageNumber *int32 `type:"int32" json:",omitempty"`
@@ -376,6 +402,9 @@ func (s DescribeVpcFirewallListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeVpcFirewallListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeVpcFirewallListInput"}
+	if s.MemberAccountID != nil && len(*s.MemberAccountID) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("MemberAccountID", 128, *s.MemberAccountID))
+	}
 	if s.PageSize != nil && *s.PageSize > 1000 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 1000))
 	}
@@ -395,6 +424,12 @@ func (s *DescribeVpcFirewallListInput) SetCloudFirewallId(v string) *DescribeVpc
 // SetFirewallStatus sets the FirewallStatus field's value.
 func (s *DescribeVpcFirewallListInput) SetFirewallStatus(v []*string) *DescribeVpcFirewallListInput {
 	s.FirewallStatus = v
+	return s
+}
+
+// SetMemberAccountID sets the MemberAccountID field's value.
+func (s *DescribeVpcFirewallListInput) SetMemberAccountID(v string) *DescribeVpcFirewallListInput {
+	s.MemberAccountID = &v
 	return s
 }
 

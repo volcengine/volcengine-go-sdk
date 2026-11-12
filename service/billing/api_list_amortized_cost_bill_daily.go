@@ -166,7 +166,11 @@ type ListAmortizedCostBillDailyInput struct {
 	// Limit is a required field
 	Limit *int32 `type:"int32" json:",omitempty" required:"true"`
 
+	MaxResults *int32 `type:"int32" json:",omitempty"`
+
 	NeedRecordNum *int32 `type:"int32" json:",omitempty"`
+
+	NextToken *string `type:"string" json:",omitempty"`
 
 	Offset *int32 `type:"int32" json:",omitempty"`
 
@@ -261,9 +265,21 @@ func (s *ListAmortizedCostBillDailyInput) SetLimit(v int32) *ListAmortizedCostBi
 	return s
 }
 
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListAmortizedCostBillDailyInput) SetMaxResults(v int32) *ListAmortizedCostBillDailyInput {
+	s.MaxResults = &v
+	return s
+}
+
 // SetNeedRecordNum sets the NeedRecordNum field's value.
 func (s *ListAmortizedCostBillDailyInput) SetNeedRecordNum(v int32) *ListAmortizedCostBillDailyInput {
 	s.NeedRecordNum = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListAmortizedCostBillDailyInput) SetNextToken(v string) *ListAmortizedCostBillDailyInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -312,6 +328,8 @@ type ListAmortizedCostBillDailyOutput struct {
 
 	List []*ListForListAmortizedCostBillDailyOutput `type:"list" json:",omitempty"`
 
+	NextToken *string `type:"string" json:",omitempty"`
+
 	Offset *int32 `type:"int32" json:",omitempty"`
 
 	Total *int32 `type:"int32" json:",omitempty"`
@@ -338,6 +356,12 @@ func (s *ListAmortizedCostBillDailyOutput) SetLimit(v int32) *ListAmortizedCostB
 // SetList sets the List field's value.
 func (s *ListAmortizedCostBillDailyOutput) SetList(v []*ListForListAmortizedCostBillDailyOutput) *ListAmortizedCostBillDailyOutput {
 	s.List = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListAmortizedCostBillDailyOutput) SetNextToken(v string) *ListAmortizedCostBillDailyOutput {
+	s.NextToken = &v
 	return s
 }
 

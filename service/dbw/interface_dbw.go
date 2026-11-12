@@ -78,6 +78,14 @@ type DBWAPI interface {
 	DescribeAuditLogDetailWithContext(volcengine.Context, *DescribeAuditLogDetailInput, ...request.Option) (*DescribeAuditLogDetailOutput, error)
 	DescribeAuditLogDetailRequest(*DescribeAuditLogDetailInput) (*request.Request, *DescribeAuditLogDetailOutput)
 
+	DescribeFullSqlStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeFullSqlStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeFullSqlStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeFullSqlStatus(*DescribeFullSqlStatusInput) (*DescribeFullSqlStatusOutput, error)
+	DescribeFullSqlStatusWithContext(volcengine.Context, *DescribeFullSqlStatusInput, ...request.Option) (*DescribeFullSqlStatusOutput, error)
+	DescribeFullSqlStatusRequest(*DescribeFullSqlStatusInput) (*request.Request, *DescribeFullSqlStatusOutput)
+
 	DescribeInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +101,14 @@ type DBWAPI interface {
 	DescribeSlowLogs(*DescribeSlowLogsInput) (*DescribeSlowLogsOutput, error)
 	DescribeSlowLogsWithContext(volcengine.Context, *DescribeSlowLogsInput, ...request.Option) (*DescribeSlowLogsOutput, error)
 	DescribeSlowLogsRequest(*DescribeSlowLogsInput) (*request.Request, *DescribeSlowLogsOutput)
+
+	DescribeSqlAuditStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSqlAuditStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSqlAuditStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSqlAuditStatus(*DescribeSqlAuditStatusInput) (*DescribeSqlAuditStatusOutput, error)
+	DescribeSqlAuditStatusWithContext(volcengine.Context, *DescribeSqlAuditStatusInput, ...request.Option) (*DescribeSqlAuditStatusOutput, error)
+	DescribeSqlAuditStatusRequest(*DescribeSqlAuditStatusInput) (*request.Request, *DescribeSqlAuditStatusOutput)
 
 	DescribeTicketDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeTicketDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

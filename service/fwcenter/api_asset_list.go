@@ -162,6 +162,8 @@ type AssetListInput struct {
 
 	Ip_type *string `type:"string" json:"ip_type,omitempty" enum:"EnumOfip_typeForAssetListInput"`
 
+	MemberAccountID *string `max:"128" type:"string" json:",omitempty"`
+
 	Order_dir *string `type:"string" json:"order_dir,omitempty" enum:"EnumOforder_dirForAssetListInput"`
 
 	Page_size *int32 `max:"1e+06" type:"int32" json:"page_size,omitempty"`
@@ -184,6 +186,9 @@ func (s AssetListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AssetListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AssetListInput"}
+	if s.MemberAccountID != nil && len(*s.MemberAccountID) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("MemberAccountID", 128, *s.MemberAccountID))
+	}
 	if s.Page_size != nil && *s.Page_size > 1e+06 {
 		invalidParams.Add(request.NewErrParamMaxValue("Page_size", 1e+06))
 	}
@@ -239,6 +244,12 @@ func (s *AssetListInput) SetInternetFirewallId(v string) *AssetListInput {
 // SetIp_type sets the Ip_type field's value.
 func (s *AssetListInput) SetIp_type(v string) *AssetListInput {
 	s.Ip_type = &v
+	return s
+}
+
+// SetMemberAccountID sets the MemberAccountID field's value.
+func (s *AssetListInput) SetMemberAccountID(v string) *AssetListInput {
+	s.MemberAccountID = &v
 	return s
 }
 
@@ -341,6 +352,10 @@ type DataForAssetListOutput struct {
 
 	Latest_7_days_peak_traffic *int64 `type:"int64" json:"latest_7_days_peak_traffic,omitempty"`
 
+	MemberAccountID *string `type:"string" json:",omitempty"`
+
+	MemberAccountName *string `type:"string" json:",omitempty"`
+
 	Name *string `type:"string" json:"name,omitempty"`
 
 	Region *string `type:"string" json:"region,omitempty"`
@@ -405,6 +420,18 @@ func (s *DataForAssetListOutput) SetIp_type(v string) *DataForAssetListOutput {
 // SetLatest_7_days_peak_traffic sets the Latest_7_days_peak_traffic field's value.
 func (s *DataForAssetListOutput) SetLatest_7_days_peak_traffic(v int64) *DataForAssetListOutput {
 	s.Latest_7_days_peak_traffic = &v
+	return s
+}
+
+// SetMemberAccountID sets the MemberAccountID field's value.
+func (s *DataForAssetListOutput) SetMemberAccountID(v string) *DataForAssetListOutput {
+	s.MemberAccountID = &v
+	return s
+}
+
+// SetMemberAccountName sets the MemberAccountName field's value.
+func (s *DataForAssetListOutput) SetMemberAccountName(v string) *DataForAssetListOutput {
+	s.MemberAccountName = &v
 	return s
 }
 
