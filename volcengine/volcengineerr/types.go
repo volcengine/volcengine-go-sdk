@@ -127,7 +127,6 @@ type requestError struct {
 	volcengineerror
 	statusCode      int
 	requestID       string
-	bytes           []byte
 	simpleError     bool
 	responseDetails *ResponseDetails
 }

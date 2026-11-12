@@ -130,7 +130,9 @@ func doSTSHTTPRequestOnce(client *http.Client, req *http.Request, out interface{
 	decodeErr := json.Unmarshal(respBody, &envelope)
 	metadata = stsResponseMetadata(envelope.ResponseMetadata, resp)
 	details = volcengineerr.NewResponseDetails(resp, respBody, true, readErr == nil)
-	details.RequestID = metadata.RequestId
+	if details != nil {
+		details.RequestID = metadata.RequestId
+	}
 	if readErr != nil {
 		return metadata, details, stsResponseError(metadata, "ReadError", "failed to read STS response body", respBody, readErr, details)
 	}
