@@ -10,8 +10,8 @@ func (r *Request) SetResponseDetails(details *volcengineerr.ResponseDetails) {
 }
 
 // SetResponseBody records bytes from an existing body read, including partial
-// reads, and captures trailers populated by that read. Existing response
-// metadata is preserved.
+// reads, and captures trailers after a completed read. Interrupted reads retain
+// the existing trailer snapshot without inspecting an in-flight response.
 func (r *Request) SetResponseBody(body []byte, readErr error) {
 	if r.responseDetailsInitialized && r.responseDetails == nil {
 		return
@@ -25,7 +25,7 @@ func (r *Request) SetResponseBody(body []byte, readErr error) {
 		}
 		details.BodyCaptured = true
 		details.BodyComplete = readErr == nil
-		if r.HTTPResponse != nil {
+		if r.HTTPResponse != nil && readErr == nil {
 			details.Trailers = r.HTTPResponse.Trailer.Clone()
 		} else {
 			details.Trailers = details.Trailers.Clone()
@@ -33,7 +33,14 @@ func (r *Request) SetResponseBody(body []byte, readErr error) {
 		r.SetResponseDetails(&details)
 		return
 	}
-	r.SetResponseDetails(volcengineerr.NewResponseDetails(r.HTTPResponse, body, true, readErr == nil))
+	resp := r.HTTPResponse
+	if resp != nil && readErr != nil {
+		// An outstanding timeout read may still be publishing trailers.
+		snapshot := *resp
+		snapshot.Trailer = nil
+		resp = &snapshot
+	}
+	r.SetResponseDetails(volcengineerr.NewResponseDetails(resp, body, true, readErr == nil))
 }
 
 // WithResponseDetails is used only when a handler creates an SDK error.

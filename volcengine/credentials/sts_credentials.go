@@ -197,6 +197,10 @@ func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRo
 
 // assumeRoleWithRetry invokes signed AssumeRole requests with retries.
 func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries *int, retryInterval time.Duration) (*sts.AssumeRoleResp, int, error) {
+	req, err := buildAssumeRoleRequest(ins, input)
+	if err != nil {
+		return nil, 0, err
+	}
 	resolvedMaxRetries := resolveCredentialMaxRetries(maxRetries)
 	if retryInterval <= 0 {
 		retryInterval = DefaultRetryerRetryDelay
@@ -204,10 +208,9 @@ func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries 
 	var (
 		output     *sts.AssumeRoleResp
 		statusCode int
-		err        error
 	)
 	for attempt := 0; attempt <= resolvedMaxRetries; attempt++ {
-		output, statusCode, err = assumeRoleRequestOnce(ins, input)
+		output, statusCode, err = assumeRoleRequestOnce(ins, req)
 		if err == nil {
 			return output, statusCode, err
 		}
@@ -221,12 +224,11 @@ func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries 
 	return output, statusCode, err
 }
 
-// assumeRoleRequestOnce retains the upstream client's query, headers, signing
-// and timeout rules while decoding the HTTP response before diagnostics are lost.
-func assumeRoleRequestOnce(ins *sts.STS, input *sts.AssumeRoleRequest) (*sts.AssumeRoleResp, int, error) {
+// buildAssumeRoleRequest validates local configuration before entering retries.
+func buildAssumeRoleRequest(ins *sts.STS, input *sts.AssumeRoleRequest) (*http.Request, error) {
 	apiInfo := ins.Client.ApiInfoList["AssumeRole"]
 	if apiInfo == nil {
-		return nil, 0, stsRequestError(response.ResponseMetadata{}, "RequestError", "STS AssumeRole API is not configured", nil)
+		return nil, stsRequestError(response.ResponseMetadata{}, "RequestError", "STS AssumeRole API is not configured", nil)
 	}
 	query := url.Values{}
 	if input.DurationSeconds > 0 {
@@ -246,14 +248,22 @@ func assumeRoleRequestOnce(ins *sts.STS, input *sts.AssumeRoleRequest) (*sts.Ass
 	u := url.URL{Scheme: serviceInfo.Scheme, Host: serviceInfo.Host, Path: apiInfo.Path, RawQuery: query.Encode()}
 	req, err := http.NewRequest(strings.ToUpper(apiInfo.Method), u.String(), nil)
 	if err != nil {
-		return nil, 0, stsRequestError(response.ResponseMetadata{}, "RequestError", "failed to build STS AssumeRole request", err)
+		return nil, stsRequestError(response.ResponseMetadata{}, "RequestError", "failed to build STS AssumeRole request", err)
 	}
 	for _, header := range []http.Header{serviceInfo.Header, apiInfo.Header} {
 		for key, values := range header {
 			req.Header.Set(key, strings.Join(values, ";"))
 		}
 	}
-	req = serviceInfo.Credentials.Sign(req)
+	return req, nil
+}
+
+// assumeRoleRequestOnce retains the upstream client's signing and timeout rules,
+// using an independent request copy for each attempt.
+func assumeRoleRequestOnce(ins *sts.STS, req *http.Request) (*sts.AssumeRoleResp, int, error) {
+	serviceInfo := ins.Client.ServiceInfo
+	apiInfo := ins.Client.ApiInfoList["AssumeRole"]
+	req = serviceInfo.Credentials.Sign(req.Clone(context.Background()))
 	timeout := time.Second
 	if serviceInfo.Timeout != 0 {
 		timeout = serviceInfo.Timeout

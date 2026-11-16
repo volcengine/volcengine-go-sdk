@@ -10,7 +10,15 @@
 
 重试判断会递归保留 SDK 错误 `OrigErr()` 的结果，并识别 `fmt.Errorf("...: %w", err)` 等标准包装。限流、凭证过期及自定义 `RetryErrorCodes` / `ThrottleErrorCodes` 通过 `errors.As` 获取包装链中的首个 SDK 错误码；包装本身不会使终止性业务错误变为可重试。
 
+默认错误分支会在调用 `Unwrap()` 前，先检查 `net/http: request canceled` 和 `net/http: request canceled while waiting for connection` 两个精确的旧取消文本。包装错误返回任一文本时，即使底层原因是临时错误或具有可重试错误码，仍按不可重试处理。
+
 `ReadError` 和 `SerializationError` 仅在底层存在已知可重试原因（如临时网络错误、超时错误码或既有连接重置/断管识别）时重试。语法错误及无法识别的读取原因仍停止重试；HTTP 状态码、显式 `Retryable` 和自定义错误码的既有规则继续生效。
+
+批量底层原因通过 `OrigErrs()` 有限遍历，不反复调用可能生成相同批量错误的 `OrigErr()`。当 `ReadError`、`SerializationError` 或 `RequestError` 需要依据底层原因判定时，非空原因必须全部可重试；任一原因不可重试即停止。单次判定最多检查 256 个错误或原因，包装深度最多 64 层；预算耗尽时尚未判定的底层原因按不可重试处理。HTTP 状态码及显式配置的既有优先级保持不变。
+
+### STS 凭证重试
+
+AssumeRole、OIDC 和 SAML 会在进入重试循环前完成请求构造检查。请求 URL 无效或 AssumeRole API 配置缺失时立即返回，不发送请求，也不等待重试。进入 HTTP 调用后的网络失败仍按既有 STS 策略重试；每轮 AssumeRole 使用独立请求重新签名并创建独立超时上下文，每轮 OIDC/SAML 都重新发送完整表单正文。
 
 ### 重试延迟说明
 

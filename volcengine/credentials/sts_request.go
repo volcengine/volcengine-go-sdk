@@ -81,6 +81,12 @@ func doSTSFormRequest(
 	retryInterval time.Duration,
 ) (response.ResponseMetadata, *volcengineerr.ResponseDetails, error) {
 	requestURL := scheme + "://" + endpoint + "/?Action=" + action + "&Version=2018-01-01"
+	body := params.Encode()
+	req, err := http.NewRequest(http.MethodPost, requestURL, strings.NewReader(body))
+	if err != nil {
+		return response.ResponseMetadata{}, nil, stsRequestError(response.ResponseMetadata{}, "RequestError", "failed to build STS request", err)
+	}
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	retries := resolveCredentialMaxRetries(maxRetries)
 	if retryInterval <= 0 {
 		retryInterval = DefaultRetryerRetryDelay
@@ -93,7 +99,12 @@ func doSTSFormRequest(
 		if attempt > 0 {
 			time.Sleep(retryInterval)
 		}
-		metadata, details, lastErr = doSTSFormRequestOnce(client, requestURL, params.Encode(), out)
+		attemptReq := req.Clone(req.Context())
+		if body != "" {
+			// Clone does not copy Body; each attempt must start at byte zero.
+			attemptReq.Body = ioutil.NopCloser(strings.NewReader(body))
+		}
+		metadata, details, lastErr = doSTSHTTPRequestOnce(client, attemptReq, out)
 		if lastErr == nil {
 			return metadata, details, nil
 		}
@@ -102,16 +113,6 @@ func doSTSFormRequest(
 		}
 	}
 	return metadata, details, lastErr
-}
-
-// doSTSFormRequestOnce performs a single STS HTTP call and decodes the response.
-func doSTSFormRequestOnce(client *http.Client, requestURL, body string, out interface{}) (response.ResponseMetadata, *volcengineerr.ResponseDetails, error) {
-	req, err := http.NewRequest(http.MethodPost, requestURL, strings.NewReader(body))
-	if err != nil {
-		return response.ResponseMetadata{}, nil, stsRequestError(response.ResponseMetadata{}, "RequestError", "failed to build STS request", err)
-	}
-	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-	return doSTSHTTPRequestOnce(client, req, out)
 }
 
 // doSTSHTTPRequestOnce preserves diagnostics for both signed AssumeRole and

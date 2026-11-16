@@ -99,24 +99,6 @@ var validParentCodes = map[string]struct{}{
 	ErrCodeRead:          {},
 }
 
-func isNestedErrorRetryable(parentErr volcengineerr.Error) bool {
-	if parentErr == nil {
-		return false
-	}
-
-	if _, ok := validParentCodes[parentErr.Code()]; !ok {
-		return false
-	}
-
-	err := parentErr.OrigErr()
-	if err == nil {
-		return false
-	}
-
-	// Read and serialization errors require a known retryable cause.
-	return retryableError(err, false)
-}
-
 // IsErrorRetryable returns whether the error is retryable, based on its Code.
 // Returns false if error is nil.
 func IsErrorRetryable(err error) bool {
@@ -135,22 +117,59 @@ func shouldRetryError(origErr error) bool {
 }
 
 func retryableError(origErr error, retryUnknown bool) bool {
+	return (&retryErrorWalk{}).retry(origErr, retryUnknown, 0)
+}
+
+type retryErrorWalk struct {
+	nodes int
+}
+
+func (w *retryErrorWalk) retry(origErr error, retryUnknown bool, depth int) bool {
+	if depth >= 64 || w.nodes >= 256 {
+		return false
+	}
+	w.nodes++
+
 	switch err := origErr.(type) {
 	case volcengineerr.Error:
 		if err.Code() == CanceledErrorCode {
 			return false
 		}
-		if _, ok := validParentCodes[err.Code()]; ok {
-			return isNestedErrorRetryable(err)
+		_, nested := validParentCodes[err.Code()]
+		if nested {
+			// Read and serialization errors require known retryable causes.
+			retryUnknown = false
 		}
 
-		origErr := err.OrigErr()
 		var shouldRetry bool
-		if origErr != nil {
-			shouldRetry = retryableError(origErr, retryUnknown)
-			if err.Code() == "RequestError" && !shouldRetry {
-				return false
+		var hasOrigErr bool
+		if batch, ok := err.(volcengineerr.BatchedErrors); ok {
+			// OrigErr can manufacture another batch containing the same list.
+			// Inspect the actual causes instead, requiring each cause to retry.
+			for _, child := range batch.OrigErrs() {
+				if w.nodes >= 256 {
+					hasOrigErr, shouldRetry = true, false
+					break
+				}
+				if child == nil {
+					w.nodes++
+					continue
+				}
+				hasOrigErr = true
+				shouldRetry = w.retry(child, retryUnknown, depth+1)
+				if !shouldRetry {
+					break
+				}
 			}
+		} else if child := err.OrigErr(); child != nil {
+			hasOrigErr = true
+			shouldRetry = w.retry(child, retryUnknown, depth+1)
+		}
+		if nested {
+			return shouldRetry
+		}
+		if err.Code() == "RequestError" && hasOrigErr && !shouldRetry {
+			return false
 		}
 		if isCodeRetryable(err.Code()) {
 			return true
@@ -166,7 +185,7 @@ func retryableError(origErr error, retryUnknown bool) bool {
 		}
 		// *url.Error only implements Temporary after golang 1.6 but since
 		// url.Error only wraps the error:
-		return retryableError(err.Err, retryUnknown)
+		return w.retry(err.Err, retryUnknown, depth+1)
 
 	case temporary:
 		if netErr, ok := err.(*net.OpError); ok && netErr.Op == "dial" {
@@ -180,14 +199,14 @@ func retryableError(origErr error, retryUnknown bool) bool {
 		return retryUnknown
 
 	default:
-		if unwrapped := errors.Unwrap(origErr); unwrapped != nil {
-			return retryableError(unwrapped, retryUnknown)
-		}
 		switch err.Error() {
 		case "net/http: request canceled",
 			"net/http: request canceled while waiting for connection":
 			// known 1.5 error case when an http request is cancelled
 			return false
+		}
+		if unwrapped := errors.Unwrap(origErr); unwrapped != nil {
+			return w.retry(unwrapped, retryUnknown, depth+1)
 		}
 		// Preserve the fallback policy, except under read/serialization errors.
 		return retryUnknown || isErrConnectionReset(origErr)

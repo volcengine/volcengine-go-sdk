@@ -255,31 +255,48 @@ func (w *detailWalk) build(err error, depth int) *ErrorDetails {
 		d.Response = &ResponseDetails{StatusCode: failure.StatusCode(), RequestID: failure.RequestID()}
 	}
 
+	if depth+1 >= 64 || w.nodes >= 256 {
+		return d
+	}
+	remaining := 256 - w.nodes
+	inspected := 0
 	var children []error
-	add := func(child error) {
+	add := func(child error) bool {
+		// Bound candidate inspection too, including duplicate and nil causes.
+		if inspected >= remaining {
+			return false
+		}
+		inspected++
 		if nilError(child) {
-			return
+			return true
 		}
 		for _, previous := range children {
 			if sameError(previous, child) {
-				return
+				return true
 			}
 		}
 		children = append(children, child)
+		return true
 	}
 	if multi, ok := err.(interface{ Unwrap() []error }); ok {
 		for _, child := range multi.Unwrap() {
-			add(child)
+			if !add(child) {
+				break
+			}
 		}
 	} else {
 		add(errors.Unwrap(err))
 	}
-	if batch, ok := err.(interface{ OrigErrs() []error }); ok {
-		for _, child := range batch.OrigErrs() {
-			add(child)
+	if inspected < remaining {
+		if batch, ok := err.(interface{ OrigErrs() []error }); ok {
+			for _, child := range batch.OrigErrs() {
+				if !add(child) {
+					break
+				}
+			}
+		} else if original, ok := err.(interface{ OrigErr() error }); ok {
+			add(original.OrigErr())
 		}
-	} else if original, ok := err.(interface{ OrigErr() error }); ok {
-		add(original.OrigErr())
 	}
 	for _, child := range children {
 		if cause := w.build(child, depth+1); cause != nil {

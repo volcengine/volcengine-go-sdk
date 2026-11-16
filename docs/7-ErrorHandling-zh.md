@@ -51,6 +51,7 @@ HTTP 200 下的读取、解码及结果转换错误也由原生错误改为上�
 - 请求 ID 优先取正文中非空的 `ResponseMetadata.RequestId`，再依次取 `X-Top-Requestid`、`X-Top-Request-Id`、`X-Tt-Logid` 响应头。
 - 非标准错误正文采用上述 `SerializationError`、`UnknownError` 或简易错误码规则。读取失败返回 `ReadError`，保留已读取的正文；读取和解码错误可通过 `OrigErr()` 获取底层原因。
 - 网络或超时错误返回 `RequestError`；没有收到 HTTP 响应时，`StatusCode()` 为 0、`RequestID()` 为空，不伪造 HTTP 500。
+- URL 无效或 AssumeRole API 配置缺失等本地请求构造失败，也立即返回原有 `RequestError`，状态码为 0、请求 ID 为空，且没有响应快照。
 - 成功状态码下的 JSON `null`、缺失结果或不完整凭证返回 `UnknownError`；OIDC/SAML 的凭证过期时间无法解析时返回 `SerializationError`，保留 HTTP 状态码、请求 ID 和底层解析错误，且不更新缓存。
 
 STS 凭证请求继续按网络错误、HTTP 429/502/503/504 和已有的限流/瞬时错误码重试，最终错误携带最后一次尝试的信息。普通 HTTP 500 且没有可重试错误码时不重试；终止性 4xx 不重试。OIDC/SAML 的 `MaxRetries` 为 `nil` 时默认重试 3 次，指向 0 时不重试；AssumeRole 的整型 `MaxRetries` 小于等于 0 时仍采用默认值。
@@ -103,13 +104,17 @@ if errors.As(err, &failure) {
 
 完整快照覆盖默认 TOP 解析器自己构造的请求错误，以及 STS / AssumeRole / OIDC / SAML 凭证请求错误，包含 OIDC/SAML 过期时间解析失败。复用原有正文读取，不额外发请求或读取关闭后的 body，仅保存错误对应的尝试。读取中断保留部分字节，`body_complete` 为 false，原因位于 `causes`。
 
-`Request.SetResponseBody` 补充已有快照的正文时，保留状态码、协议、RequestID 和 headers，只更新正文、`BodyCaptured` / `BodyComplete` 以及 trailers。更新使用快照副本，不修改调用方传入的旧快照。正文复制保存；有 `HTTPResponse` 时复制其 trailers，没有时保留已有 trailers。已明确初始化为 nil 的快照不会从占位响应重新创建。
+发送阶段同时返回 HTTP 响应和错误时，SDK 保留真实响应并返回 `RequestError`；请求上下文已取消时返回 `RequestCanceled`。即使重定向拒绝文本以状态码开头，也不会用合成状态码替换真实响应。`PrintError` 保留真实状态码、响应头和响应头中的请求 ID；已被 HTTP 客户端关闭的正文保持未采集（`body_captured: false`、`body_complete: false`）。数字 URL 错误仅在没有真实响应时使用只含状态码的占位响应。
 
-通过 `request.WithResponseReadTimeout` 触发的默认 TOP 响应读取超时，也保留已读取的部分正文、HTTP 状态码、响应头及请求 ID；仍返回原有 `ResponseTimeout` 类型和文本，`OrigErr()` 为 nil，此类错误不额外生成 `causes`。每个请求独立保存快照，不修改共享超时错误。
+`Request.SetResponseBody` 补充已有快照的正文时，保留状态码、协议、RequestID 和 headers，只更新正文、`BodyCaptured` / `BodyComplete` 以及 trailers。更新使用快照副本，不修改调用方传入的旧快照。正文复制保存；完整读取且有 `HTTPResponse` 时复制其 trailers，读取中断或没有响应时保留已有 trailers。读取中断且没有旧快照时不采集 trailers，避免访问尚未结束的后台读取正在更新的 map。已明确初始化为 nil 的快照不会从占位响应重新创建。
+
+通过 `request.WithResponseReadTimeout` 触发的默认 TOP 响应读取超时，也保留已读取的部分正文、HTTP 状态码、响应头及请求 ID；若已读取字节是包含非空 `ResponseMetadata.RequestId` 的有效 JSON，归一化后的超时快照保留该正文 ID，而非被响应头 ID 覆盖。仍返回原有 `ResponseTimeout` 类型和文本，`OrigErr()` 为 nil，此类错误不额外生成 `causes`。每个请求独立保存快照，不修改共享超时错误。
 
 没有 HTTP 响应时，`response` 为 `null`；旧接口只能提供状态码和 RequestID 时，`headers` 为 `null`、`body_captured` 为 false。采集到空正文时，`body_captured` 为 true、`body` 为 `""`。JSON 中 UTF-8 正文使用文本和 `body_encoding: "utf-8"`，其它字节使用可还原的 Base64。`GetErrorDetails` 返回深拷贝；支持 `%w`、`OrigErr()`、`OrigErrs()` 及多分支标准包装，遍历具有循环保护和深度上限。
 
 错误树去重支持字段中含 slice 或 map 的自定义值类型错误；不同指针错误保持独立，不会仅因内容相同而合并。
+
+错误树最多输出 256 个节点，深度最多 64 层。每个节点收集子错误时，最多检查剩余节点预算数量的候选，包括重复和 nil 原因；超过预算的候选不再收集或去重，因此大量底层原因不会在输出截断前触发无界的两两比较。达到任一上限时，详情仅包含已保留的部分原因。
 
 客户自定义错误，以及 ECS/IMDS、Endpoint credentials 和 CLI OAuth/Portal 等未接入路径中仍原样返回的读取/解码错误，仅输出实际已有信息，不承诺完整快照。客户实现可选 `ResponseDetails()` 方法且返回 nil 时，包函数自动退回旧接口字段。`GetErrorDetails(nil)` 返回 nil，`PrintError(writer, nil)` 不输出；写失败和短写作为可解包的打印错误返回。完整正文可能包含凭证等内容，调用方可修改详情副本后自行输出。
 

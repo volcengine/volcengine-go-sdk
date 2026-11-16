@@ -167,8 +167,8 @@ func handleSendError(r *request.Request, err error) {
 	// Capture the case where url.Error is returned for error processing
 	// response. e.g. 301 without location header comes back as string
 	// error and r.HTTPResponse is nil. Other URL redirect errors will
-	// comeback in a similar method.
-	if e, ok := err.(*url.Error); ok && e.Err != nil {
+	// comeback in a similar method. Preserve any actual HTTP response.
+	if e, ok := err.(*url.Error); ok && e.Err != nil && r.HTTPResponse == nil {
 		if s := reStatusCode.FindStringSubmatch(e.Err.Error()); s != nil {
 			code, _ := strconv.ParseInt(s[1], 10, 64)
 			r.HTTPResponse = &http.Response{
