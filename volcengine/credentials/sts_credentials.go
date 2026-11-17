@@ -17,6 +17,7 @@ import (
 const (
 	defaultSTSRegion = "cn-beijing"
 	defaultSTSHost   = "sts.volcengineapi.com"
+	defaultSTSSchema = "https"
 )
 
 type StsAssumeRoleProvider struct {
@@ -138,6 +139,7 @@ func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRo
 	ins := sts.NewInstance()
 	ins.Client.ServiceInfo.Credentials.Region = defaultSTSRegion
 	ins.SetHost(defaultSTSHost)
+	ins.SetSchema(defaultSTSSchema)
 	if p.Region != "" {
 		ins.Client.ServiceInfo.Credentials.Region = p.Region
 	}

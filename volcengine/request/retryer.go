@@ -139,6 +139,10 @@ func (w *retryErrorWalk) retry(origErr error, retryUnknown bool, depth int) bool
 		if nested {
 			// Read and serialization errors require known retryable causes.
 			retryUnknown = false
+		} else if !isCodeRetryable(err.Code()) {
+			// An ordinary cause must not make a terminal SDK code retryable.
+			// Keep known transient causes and the RequestError fallback.
+			retryUnknown = false
 		}
 
 		var shouldRetry bool
@@ -208,7 +212,7 @@ func (w *retryErrorWalk) retry(origErr error, retryUnknown bool, depth int) bool
 		if unwrapped := errors.Unwrap(origErr); unwrapped != nil {
 			return w.retry(unwrapped, retryUnknown, depth+1)
 		}
-		// Preserve the fallback policy, except under read/serialization errors.
+		// Preserve the fallback for native errors and retryable SDK codes.
 		return retryUnknown || isErrConnectionReset(origErr)
 	}
 }

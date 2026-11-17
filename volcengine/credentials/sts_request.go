@@ -130,8 +130,10 @@ func doSTSHTTPRequestOnce(client *http.Client, req *http.Request, out interface{
 	var envelope stsEnvelope
 	decodeErr := json.Unmarshal(respBody, &envelope)
 	metadata = stsResponseMetadata(envelope.ResponseMetadata, resp)
-	details = volcengineerr.NewResponseDetails(resp, respBody, true, readErr == nil)
+	details = volcengineerr.NewResponseDetails(resp, nil, true, readErr == nil)
 	if details != nil {
+		// ReadAll owns these bytes; error construction still copies snapshots.
+		details.Body = respBody
 		details.RequestID = metadata.RequestId
 	}
 	if readErr != nil {

@@ -43,7 +43,19 @@ map 解码拒绝 JSON `null` 时会保留原输出指针。若自定义重试器
 
 HTTP 200 下的读取、解码及结果转换错误也由原生错误改为上述 SDK 错误类型。HTML 或普通类型不匹配等不可重试原因不再走“未知错误可重试”的兜底，`MaxRetries=3` 时只尝试 1 次；具有明确可重试底层原因的读取错误仍按既有规则重试。通过 `request.WithResponseReadTimeout` 触发的读取超时最终仍归一化为原有 `ResponseTimeout`，保留快照，详见下文。
 
+HTTP 200 解析路径的 `Message()` 使用下列前缀，并追加 `; response body: ` 和原始 HTTP 正文；底层原因由 `OrigErr()` 提供。
+
+| 触发阶段 | 错误码 | Message 前缀 |
+| --- | --- | --- |
+| 读取响应正文 | `ReadError` | `failed to read response` |
+| 解码响应正文 | `SerializationError` | `failed to decode response` |
+| 访问 map 中的错误码字段 | `SerializationError` | `failed to access response error code` |
+| 序列化响应结果 | `SerializationError` | `failed to encode response result` |
+| 解码结果到输出对象 | `SerializationError` | `failed to decode response result` |
+
 ### STS 凭证请求的错误处理
+
+AssumeRole 及 `StsProvider` 凭证请求的 `Schema` 留空时默认使用 HTTPS，与 OIDC/SAML 默认协议一致；显式设置 `Schema: "http"` 仍生效。默认 Host、Region、自定义端点和代理选择规则保持原有优先级。
 
 `StsAssumeRole`、`StsAssumeRoleWithOptions`、`StsProvider`（含 `NewStsCredentials` / `NewStsCredentialsWithOptions`）、OIDC 和 SAML 凭证请求统一返回 `volcengineerr.RequestFailure`，支持通过 `errors.As` 获取错误：
 
@@ -107,6 +119,8 @@ if errors.As(err, &failure) {
 发送阶段同时返回 HTTP 响应和错误时，SDK 保留真实响应并返回 `RequestError`；请求上下文已取消时返回 `RequestCanceled`。即使重定向拒绝文本以状态码开头，也不会用合成状态码替换真实响应。`PrintError` 保留真实状态码、响应头和响应头中的请求 ID；已被 HTTP 客户端关闭的正文保持未采集（`body_captured: false`、`body_complete: false`）。数字 URL 错误仅在没有真实响应时使用只含状态码的占位响应。
 
 `Request.SetResponseBody` 补充已有快照的正文时，保留状态码、协议、RequestID 和 headers，只更新正文、`BodyCaptured` / `BodyComplete` 以及 trailers。更新使用快照副本，不修改调用方传入的旧快照。正文复制保存；完整读取且有 `HTTPResponse` 时复制其 trailers，读取中断或没有响应时保留已有 trailers。读取中断且没有旧快照时不采集 trailers，避免访问尚未结束的后台读取正在更新的 map。已明确初始化为 nil 的快照不会从占位响应重新创建。
+
+默认 TOP 解析器使用 `Request.ReadResponseBody` 读取正文并保存快照，复用 SDK 自己读取的字节，避免成功响应再次完整复制正文。返回字节供协议解析器只读使用，不得修改。STS 内部读取采用同样的缓冲区复用；构造错误及读取 `ResponseDetails()` 时仍深拷贝。公共 `SetResponseBody` 仍复制调用方字节，`Complete` / `After` 回调期间仍可使用快照，请求结束后按原生命周期清理。
 
 通过 `request.WithResponseReadTimeout` 触发的默认 TOP 响应读取超时，也保留已读取的部分正文、HTTP 状态码、响应头及请求 ID；若已读取字节是包含非空 `ResponseMetadata.RequestId` 的有效 JSON，归一化后的超时快照保留该正文 ID，而非被响应头 ID 覆盖。仍返回原有 `ResponseTimeout` 类型和文本，`OrigErr()` 为 nil，此类错误不额外生成 `causes`。每个请求独立保存快照，不修改共享超时错误。
 

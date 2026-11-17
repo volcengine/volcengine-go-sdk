@@ -6,7 +6,6 @@ package volcenginequery
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"reflect"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine/custom"
@@ -41,9 +40,8 @@ func processUnmarshalError(info unmarshalErrorInfo) {
 	if info.Response == nil {
 		info.Response = &response.VolcengineResponse{}
 		if info.Body == nil {
-			body, err := ioutil.ReadAll(r.HTTPResponse.Body)
+			body, err := r.ReadResponseBody()
 			info.Body = body
-			r.SetResponseBody(body, err)
 			if err != nil {
 				r.Error = newResponseError(info, request.ErrCodeRead, "failed to read error response", err)
 				return

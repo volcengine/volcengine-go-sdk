@@ -43,7 +43,19 @@ Compatibility: some native JSON decoding errors that were previously returned di
 
 Read, decoding, and result conversion failures under HTTP 200 now use the SDK error types above instead of native errors. Non-retryable causes such as HTML or ordinary type mismatches no longer use the unknown-error retry fallback: with `MaxRetries=3`, they are attempted once. Read errors with explicitly retryable causes still follow existing retry rules. Read timeouts triggered by `request.WithResponseReadTimeout` are still normalized to the original `ResponseTimeout` with a snapshot, as described below.
 
+The HTTP 200 decoding paths use these `Message()` prefixes, followed by `; response body: ` and the original HTTP body. `OrigErr()` provides the underlying cause.
+
+| Stage | Error code | Message prefix |
+| --- | --- | --- |
+| Reading the response body | `ReadError` | `failed to read response` |
+| Decoding the response body | `SerializationError` | `failed to decode response` |
+| Accessing the error-code field in map output | `SerializationError` | `failed to access response error code` |
+| Encoding the response result | `SerializationError` | `failed to encode response result` |
+| Decoding the result into output data | `SerializationError` | `failed to decode response result` |
+
 ### Error handling for STS credential requests
+
+AssumeRole and `StsProvider` credential requests now default to HTTPS when `Schema` is empty, matching OIDC/SAML. An explicit `Schema: "http"` remains supported. Default Host and Region values and the priority of custom endpoints and proxy settings are preserved.
 
 `StsAssumeRole`, `StsAssumeRoleWithOptions`, `StsProvider` (including `NewStsCredentials` / `NewStsCredentialsWithOptions`), OIDC, and SAML credential requests return `volcengineerr.RequestFailure`, accessible through `errors.As`:
 
@@ -117,6 +129,8 @@ The error tree emits at most 256 nodes with at most 64 levels. At each node, chi
 Customer errors and unchanged native read/decoding errors in paths without capture, such as ECS/IMDS, endpoint credentials and CLI OAuth/Portal, provide only available information. Package functions fall back to legacy fields when optional customer `ResponseDetails()` methods return nil. `GetErrorDetails(nil)` returns nil; `PrintError(writer, nil)` writes nothing. Write failures and short writes return wrapped output errors. Full bodies may contain credentials; callers can modify the returned copy before logging.
 
 Error-tree deduplication supports custom value errors containing slice or map fields. Distinct pointer errors remain separate even when their contents match.
+
+The default TOP parser uses `Request.ReadResponseBody` to read and snapshot the SDK-owned bytes without another full body copy on successful responses. Protocol handlers must treat the returned bytes as read-only. STS internal reads reuse their buffers in the same way; error construction and `ResponseDetails()` access still deep-copy snapshots. Public `SetResponseBody` still copies caller-owned bytes. Snapshots remain available during `Complete` / `After` callbacks and are cleared according to the existing request lifecycle.
 
 ### Code Example
 

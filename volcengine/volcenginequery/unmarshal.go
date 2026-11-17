@@ -7,7 +7,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"reflect"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
@@ -26,8 +25,7 @@ var UnmarshalMetaHandler = request.NamedHandler{Name: "volcenginesdk.volcengineq
 func Unmarshal(r *request.Request) {
 	defer r.HTTPResponse.Body.Close()
 	if r.DataFilled() {
-		body, err := ioutil.ReadAll(r.HTTPResponse.Body)
-		r.SetResponseBody(body, err)
+		body, err := r.ReadResponseBody()
 		if err != nil {
 			fmt.Printf("read volcenginebody err, %v\n", err)
 			r.Error = newResponseError(unmarshalErrorInfo{

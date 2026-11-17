@@ -12,7 +12,9 @@
 
 默认错误分支会在调用 `Unwrap()` 前，先检查 `net/http: request canceled` 和 `net/http: request canceled while waiting for connection` 两个精确的旧取消文本。包装错误返回任一文本时，即使底层原因是临时错误或具有可重试错误码，仍按不可重试处理。
 
-`ReadError` 和 `SerializationError` 仅在底层存在已知可重试原因（如临时网络错误、超时错误码或既有连接重置/断管识别）时重试。语法错误及无法识别的读取原因仍停止重试；HTTP 状态码、显式 `Retryable` 和自定义错误码的既有规则继续生效。
+`ReadError` 和 `SerializationError` 仅在底层存在已知可重试原因（如临时网络错误、超时错误码或既有连接重置/断管识别）时重试。普通文本形式的 `read: connection reset` 不重试，写端 `connection reset` 或 `broken pipe` 仍可重试；独立的临时错误、超时及状态码规则仍可使读取错误重试。语法错误及无法识别的读取原因仍停止重试；HTTP 状态码、显式 `Retryable` 和自定义错误码的既有规则继续生效。
+
+顶层普通原生错误及 `RequestError` 下的未知原生原因保留既有可重试兜底。不可重试 SDK 错误码（如 `AccessDenied`、`UnknownError`）及普通批量错误下的未知原因不使用该兜底，避免仅因附带普通错误详情而重复发送；明确的临时错误、超时等底层原因仍按原规则判断。
 
 批量底层原因通过 `OrigErrs()` 有限遍历，不反复调用可能生成相同批量错误的 `OrigErr()`。当 `ReadError`、`SerializationError` 或 `RequestError` 需要依据底层原因判定时，非空原因必须全部可重试；任一原因不可重试即停止。单次判定最多检查 256 个错误或原因，包装深度最多 64 层；预算耗尽时尚未判定的底层原因按不可重试处理。HTTP 状态码及显式配置的既有优先级保持不变。
 

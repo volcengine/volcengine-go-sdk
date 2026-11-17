@@ -1,6 +1,10 @@
 package request
 
-import "github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
+import (
+	"io/ioutil"
+
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
+)
 
 // SetResponseDetails records the current attempt's response snapshot. SDK send
 // handlers call it before error handling can construct a placeholder response.
@@ -13,14 +17,27 @@ func (r *Request) SetResponseDetails(details *volcengineerr.ResponseDetails) {
 // reads, and captures trailers after a completed read. Interrupted reads retain
 // the existing trailer snapshot without inspecting an in-flight response.
 func (r *Request) SetResponseBody(body []byte, readErr error) {
+	r.setResponseBody(body, readErr, true)
+}
+
+// ReadResponseBody reads the current response body and records its snapshot.
+// SDK protocol handlers must treat the returned bytes as read-only: the snapshot
+// shares this SDK-owned buffer until it is copied into an error.
+func (r *Request) ReadResponseBody() ([]byte, error) {
+	body, err := ioutil.ReadAll(r.HTTPResponse.Body)
+	r.setResponseBody(body, err, false)
+	return body, err
+}
+
+func (r *Request) setResponseBody(body []byte, readErr error, copyBody bool) {
 	if r.responseDetailsInitialized && r.responseDetails == nil {
 		return
 	}
 	if r.responseDetails != nil {
 		details := *r.responseDetails
 		details.Headers = details.Headers.Clone()
-		details.Body = nil
-		if body != nil {
+		details.Body = body
+		if copyBody && body != nil {
 			details.Body = append([]byte{}, body...)
 		}
 		details.BodyCaptured = true
@@ -40,7 +57,14 @@ func (r *Request) SetResponseBody(body []byte, readErr error) {
 		snapshot.Trailer = nil
 		resp = &snapshot
 	}
-	r.SetResponseDetails(volcengineerr.NewResponseDetails(resp, body, true, readErr == nil))
+	details := volcengineerr.NewResponseDetails(resp, nil, true, readErr == nil)
+	if details != nil {
+		details.Body = body
+		if copyBody && body != nil {
+			details.Body = append([]byte{}, body...)
+		}
+	}
+	r.SetResponseDetails(details)
 }
 
 // WithResponseDetails is used only when a handler creates an SDK error.
