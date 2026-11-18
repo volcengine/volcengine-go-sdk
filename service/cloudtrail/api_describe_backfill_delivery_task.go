@@ -317,6 +317,8 @@ type EventScopeForDescribeBackfillDeliveryTaskOutput struct {
 	EventRW *int32 `type:"int32"`
 
 	EventSources []*string `type:"list"`
+
+	IncludeAllEventSources *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -338,6 +340,12 @@ func (s *EventScopeForDescribeBackfillDeliveryTaskOutput) SetEventRW(v int32) *E
 // SetEventSources sets the EventSources field's value.
 func (s *EventScopeForDescribeBackfillDeliveryTaskOutput) SetEventSources(v []*string) *EventScopeForDescribeBackfillDeliveryTaskOutput {
 	s.EventSources = v
+	return s
+}
+
+// SetIncludeAllEventSources sets the IncludeAllEventSources field's value.
+func (s *EventScopeForDescribeBackfillDeliveryTaskOutput) SetIncludeAllEventSources(v bool) *EventScopeForDescribeBackfillDeliveryTaskOutput {
+	s.IncludeAllEventSources = &v
 	return s
 }
 

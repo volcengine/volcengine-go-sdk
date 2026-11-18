@@ -94,6 +94,14 @@ type CLOUDTRAILAPI interface {
 	LookupEventsWithContext(volcengine.Context, *LookupEventsInput, ...request.Option) (*LookupEventsOutput, error)
 	LookupEventsRequest(*LookupEventsInput) (*request.Request, *LookupEventsOutput)
 
+	PutEventSelectorsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PutEventSelectorsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PutEventSelectorsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PutEventSelectors(*PutEventSelectorsInput) (*PutEventSelectorsOutput, error)
+	PutEventSelectorsWithContext(volcengine.Context, *PutEventSelectorsInput, ...request.Option) (*PutEventSelectorsOutput, error)
+	PutEventSelectorsRequest(*PutEventSelectorsInput) (*request.Request, *PutEventSelectorsOutput)
+
 	StartLoggingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartLoggingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	StartLoggingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
