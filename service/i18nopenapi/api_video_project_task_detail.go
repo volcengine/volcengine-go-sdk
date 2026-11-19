@@ -462,6 +462,8 @@ func (s *SubTaskForVideoProjectTaskDetailOutput) SetWorkflow(v int32) *SubTaskFo
 type SuppressionVideoInfoForVideoProjectTaskDetailOutput struct {
 	_ struct{} `type:"structure"`
 
+	LipSyncVideoUrl *string `type:"string" json:"lipSyncVideoUrl"`
+
 	PosterUrl *string `type:"string" json:"posterUrl"`
 
 	SourceLastTime *string `type:"string" json:"sourceLastTime"`
@@ -495,6 +497,12 @@ func (s SuppressionVideoInfoForVideoProjectTaskDetailOutput) String() string {
 // GoString returns the string representation
 func (s SuppressionVideoInfoForVideoProjectTaskDetailOutput) GoString() string {
 	return s.String()
+}
+
+// SetLipSyncVideoUrl sets the LipSyncVideoUrl field's value.
+func (s *SuppressionVideoInfoForVideoProjectTaskDetailOutput) SetLipSyncVideoUrl(v string) *SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+	s.LipSyncVideoUrl = &v
+	return s
 }
 
 // SetPosterUrl sets the PosterUrl field's value.
@@ -632,6 +640,8 @@ type TaskForVideoProjectTaskDetailOutput struct {
 
 	Id *string `type:"string" json:"id"`
 
+	LipSyncEnabled *bool `type:"boolean" json:"lipSyncEnabled"`
+
 	Name *string `type:"string" json:"name"`
 
 	NeedTermValidation *bool `type:"boolean" json:"needTermValidation"`
@@ -710,6 +720,12 @@ func (s *TaskForVideoProjectTaskDetailOutput) SetDurationCount(v string) *TaskFo
 // SetId sets the Id field's value.
 func (s *TaskForVideoProjectTaskDetailOutput) SetId(v string) *TaskForVideoProjectTaskDetailOutput {
 	s.Id = &v
+	return s
+}
+
+// SetLipSyncEnabled sets the LipSyncEnabled field's value.
+func (s *TaskForVideoProjectTaskDetailOutput) SetLipSyncEnabled(v bool) *TaskForVideoProjectTaskDetailOutput {
+	s.LipSyncEnabled = &v
 	return s
 }
 

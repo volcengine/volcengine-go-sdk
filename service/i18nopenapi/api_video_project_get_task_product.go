@@ -271,6 +271,44 @@ func (s *FinishedVideoForVideoProjectGetTaskProductOutput) SetVid(v string) *Fin
 	return s
 }
 
+type LipSyncFinishedVideoForVideoProjectGetTaskProductOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Name *string `type:"string" json:"name,omitempty"`
+
+	Url *string `type:"string" json:"url,omitempty"`
+
+	Vid *string `type:"string" json:"vid,omitempty"`
+}
+
+// String returns the string representation
+func (s LipSyncFinishedVideoForVideoProjectGetTaskProductOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LipSyncFinishedVideoForVideoProjectGetTaskProductOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *LipSyncFinishedVideoForVideoProjectGetTaskProductOutput) SetName(v string) *LipSyncFinishedVideoForVideoProjectGetTaskProductOutput {
+	s.Name = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *LipSyncFinishedVideoForVideoProjectGetTaskProductOutput) SetUrl(v string) *LipSyncFinishedVideoForVideoProjectGetTaskProductOutput {
+	s.Url = &v
+	return s
+}
+
+// SetVid sets the Vid field's value.
+func (s *LipSyncFinishedVideoForVideoProjectGetTaskProductOutput) SetVid(v string) *LipSyncFinishedVideoForVideoProjectGetTaskProductOutput {
+	s.Vid = &v
+	return s
+}
+
 type OriginVideoForVideoProjectGetTaskProductOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -350,6 +388,8 @@ type SubtaskProductForVideoProjectGetTaskProductOutput struct {
 
 	FinishedVideo *FinishedVideoForVideoProjectGetTaskProductOutput `type:"structure" json:"finishedVideo,omitempty"`
 
+	LipSyncFinishedVideo *LipSyncFinishedVideoForVideoProjectGetTaskProductOutput `type:"structure" json:"lipSyncFinishedVideo,omitempty"`
+
 	OriginVideo *OriginVideoForVideoProjectGetTaskProductOutput `type:"structure" json:"originVideo,omitempty"`
 
 	SourceSubtitle *SourceSubtitleForVideoProjectGetTaskProductOutput `type:"structure" json:"sourceSubtitle,omitempty"`
@@ -392,6 +432,12 @@ func (s *SubtaskProductForVideoProjectGetTaskProductOutput) SetFinishedAudio(v *
 // SetFinishedVideo sets the FinishedVideo field's value.
 func (s *SubtaskProductForVideoProjectGetTaskProductOutput) SetFinishedVideo(v *FinishedVideoForVideoProjectGetTaskProductOutput) *SubtaskProductForVideoProjectGetTaskProductOutput {
 	s.FinishedVideo = v
+	return s
+}
+
+// SetLipSyncFinishedVideo sets the LipSyncFinishedVideo field's value.
+func (s *SubtaskProductForVideoProjectGetTaskProductOutput) SetLipSyncFinishedVideo(v *LipSyncFinishedVideoForVideoProjectGetTaskProductOutput) *SubtaskProductForVideoProjectGetTaskProductOutput {
+	s.LipSyncFinishedVideo = v
 	return s
 }
 

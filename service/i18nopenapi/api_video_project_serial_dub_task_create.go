@@ -2234,6 +2234,8 @@ type TaskInfoForVideoProjectSerialDubTaskCreateInput struct {
 
 	DubVoiceMode *int32 `type:"int32" json:"dubVoiceMode,omitempty"`
 
+	EnableLipSync *bool `type:"boolean" json:"enableLipSync,omitempty"`
+
 	IsDub *bool `type:"boolean" json:"isDub,omitempty"`
 
 	LlmVideoUnderstandingType *int32 `type:"int32" json:"llmVideoUnderstandingType,omitempty"`
@@ -2342,6 +2344,12 @@ func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetDubOrTranslationTas
 // SetDubVoiceMode sets the DubVoiceMode field's value.
 func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetDubVoiceMode(v int32) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
 	s.DubVoiceMode = &v
+	return s
+}
+
+// SetEnableLipSync sets the EnableLipSync field's value.
+func (s *TaskInfoForVideoProjectSerialDubTaskCreateInput) SetEnableLipSync(v bool) *TaskInfoForVideoProjectSerialDubTaskCreateInput {
+	s.EnableLipSync = &v
 	return s
 }
 
