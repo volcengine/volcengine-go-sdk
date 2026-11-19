@@ -244,6 +244,8 @@ type TrailForDescribeTrailsOutput struct {
 
 	TrailName *string `type:"string"`
 
+	TrailRegion *string `type:"string"`
+
 	TrailType *int32 `type:"int32"`
 
 	UpdatedTime *string `type:"string"`
@@ -400,6 +402,12 @@ func (s *TrailForDescribeTrailsOutput) SetTosWriteRoleTrn(v string) *TrailForDes
 // SetTrailName sets the TrailName field's value.
 func (s *TrailForDescribeTrailsOutput) SetTrailName(v string) *TrailForDescribeTrailsOutput {
 	s.TrailName = &v
+	return s
+}
+
+// SetTrailRegion sets the TrailRegion field's value.
+func (s *TrailForDescribeTrailsOutput) SetTrailRegion(v string) *TrailForDescribeTrailsOutput {
+	s.TrailRegion = &v
 	return s
 }
 

@@ -146,8 +146,7 @@ type CreateTrailInput struct {
 
 	EventSources []*string `type:"list"`
 
-	// IncludeAllEventSources is a required field
-	IncludeAllEventSources *bool `type:"boolean" required:"true"`
+	IncludeAllEventSources *bool `type:"boolean"`
 
 	TlsAccountId *int64 `type:"int64"`
 
@@ -196,9 +195,6 @@ func (s CreateTrailInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateTrailInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateTrailInput"}
-	if s.IncludeAllEventSources == nil {
-		invalidParams.Add(request.NewErrParamRequired("IncludeAllEventSources"))
-	}
 	if s.TrailName == nil {
 		invalidParams.Add(request.NewErrParamRequired("TrailName"))
 	}

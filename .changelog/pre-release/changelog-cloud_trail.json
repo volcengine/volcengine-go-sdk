@@ -1,0 +1,12 @@
+{
+  "actions": [
+    "DescribeBackfillDeliveryTask",
+    "DescribeTrails",
+    "LookupEvents",
+    "PutEventSelectors",
+    "CreateTrail"
+  ],
+  "description": "CLOUD_TRAIL: 新增 PutEventSelectors；修改 CreateTrail, DescribeBackfillDeliveryTask, DescribeTrails, LookupEvents",
+  "modules": "service/cloud_trail",
+  "type": "feature"
+}
