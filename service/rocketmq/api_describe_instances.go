@@ -480,7 +480,7 @@ type InstancesInfoForDescribeInstancesOutput struct {
 
 	SSLMode *string `type:"string" json:",omitempty"`
 
-	SendReceiveRatio *int32 `min:"1" max:"99" type:"int32" json:",omitempty"`
+	SendReceiveRatio *int32 `type:"int32" json:",omitempty"`
 
 	StorageSpace *int32 `type:"int32" json:",omitempty"`
 

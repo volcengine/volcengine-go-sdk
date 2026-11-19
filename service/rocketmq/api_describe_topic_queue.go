@@ -258,15 +258,15 @@ func (s *DescribeTopicQueueOutput) SetTotal(v int32) *DescribeTopicQueueOutput {
 type QueuesInfoForDescribeTopicQueueOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	EndOffset *int32 `type:"int32" json:",omitempty"`
+	EndOffset *int64 `type:"int64" json:",omitempty"`
 
 	LastUpdateTimestamp *int64 `type:"int64" json:",omitempty"`
 
-	MessageCount *int32 `type:"int32" json:",omitempty"`
+	MessageCount *int64 `type:"int64" json:",omitempty"`
 
 	QueueId *string `type:"string" json:",omitempty"`
 
-	StartOffset *int32 `type:"int32" json:",omitempty"`
+	StartOffset *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -280,7 +280,7 @@ func (s QueuesInfoForDescribeTopicQueueOutput) GoString() string {
 }
 
 // SetEndOffset sets the EndOffset field's value.
-func (s *QueuesInfoForDescribeTopicQueueOutput) SetEndOffset(v int32) *QueuesInfoForDescribeTopicQueueOutput {
+func (s *QueuesInfoForDescribeTopicQueueOutput) SetEndOffset(v int64) *QueuesInfoForDescribeTopicQueueOutput {
 	s.EndOffset = &v
 	return s
 }
@@ -292,7 +292,7 @@ func (s *QueuesInfoForDescribeTopicQueueOutput) SetLastUpdateTimestamp(v int64) 
 }
 
 // SetMessageCount sets the MessageCount field's value.
-func (s *QueuesInfoForDescribeTopicQueueOutput) SetMessageCount(v int32) *QueuesInfoForDescribeTopicQueueOutput {
+func (s *QueuesInfoForDescribeTopicQueueOutput) SetMessageCount(v int64) *QueuesInfoForDescribeTopicQueueOutput {
 	s.MessageCount = &v
 	return s
 }
@@ -304,7 +304,7 @@ func (s *QueuesInfoForDescribeTopicQueueOutput) SetQueueId(v string) *QueuesInfo
 }
 
 // SetStartOffset sets the StartOffset field's value.
-func (s *QueuesInfoForDescribeTopicQueueOutput) SetStartOffset(v int32) *QueuesInfoForDescribeTopicQueueOutput {
+func (s *QueuesInfoForDescribeTopicQueueOutput) SetStartOffset(v int64) *QueuesInfoForDescribeTopicQueueOutput {
 	s.StartOffset = &v
 	return s
 }

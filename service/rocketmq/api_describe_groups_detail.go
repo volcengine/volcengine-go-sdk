@@ -226,7 +226,7 @@ type DescribeGroupsDetailOutput struct {
 
 	TotalConsumedRate *string `type:"string" json:",omitempty"`
 
-	TotalDiff *int32 `type:"int32" json:",omitempty"`
+	TotalDiff *int64 `type:"int64" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -330,7 +330,7 @@ func (s *DescribeGroupsDetailOutput) SetTotalConsumedRate(v string) *DescribeGro
 }
 
 // SetTotalDiff sets the TotalDiff field's value.
-func (s *DescribeGroupsDetailOutput) SetTotalDiff(v int32) *DescribeGroupsDetailOutput {
+func (s *DescribeGroupsDetailOutput) SetTotalDiff(v int64) *DescribeGroupsDetailOutput {
 	s.TotalDiff = &v
 	return s
 }
