@@ -262,6 +262,8 @@ type TaskForVideoProjectTaskListOutput struct {
 
 	IsExpedited *bool `type:"boolean" json:"isExpedited"`
 
+	LipSyncEnabled *bool `type:"boolean" json:"lipSyncEnabled"`
+
 	Name *string `type:"string" json:"name"`
 
 	ProjectName *string `type:"string" json:"projectName"`
@@ -326,6 +328,12 @@ func (s *TaskForVideoProjectTaskListOutput) SetDramaTaskWorkflow(v int32) *TaskF
 // SetIsExpedited sets the IsExpedited field's value.
 func (s *TaskForVideoProjectTaskListOutput) SetIsExpedited(v bool) *TaskForVideoProjectTaskListOutput {
 	s.IsExpedited = &v
+	return s
+}
+
+// SetLipSyncEnabled sets the LipSyncEnabled field's value.
+func (s *TaskForVideoProjectTaskListOutput) SetLipSyncEnabled(v bool) *TaskForVideoProjectTaskListOutput {
+	s.LipSyncEnabled = &v
 	return s
 }
 

@@ -227,6 +227,8 @@ type ResumeSandboxOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
+
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -237,4 +239,10 @@ func (s ResumeSandboxOutput) String() string {
 // GoString returns the string representation
 func (s ResumeSandboxOutput) GoString() string {
 	return s.String()
+}
+
+// SetStatus sets the Status field's value.
+func (s *ResumeSandboxOutput) SetStatus(v string) *ResumeSandboxOutput {
+	s.Status = &v
+	return s
 }

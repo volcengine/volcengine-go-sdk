@@ -1536,6 +1536,8 @@ type VideoProjectSerialDubTaskCreateFromTranslationInput struct {
 
 	DubVoiceMode *int32 `type:"int32" json:"dubVoiceMode,omitempty"`
 
+	EnableLipSync *bool `type:"boolean" json:"enableLipSync,omitempty"`
+
 	MaxTargetSubtitleLines *int32 `type:"int32" json:"maxTargetSubtitleLines,omitempty"`
 
 	NeedVideoSpeed *bool `type:"boolean" json:"needVideoSpeed,omitempty"`
@@ -1598,6 +1600,12 @@ func (s *VideoProjectSerialDubTaskCreateFromTranslationInput) SetBgmPolicy(v int
 // SetDubVoiceMode sets the DubVoiceMode field's value.
 func (s *VideoProjectSerialDubTaskCreateFromTranslationInput) SetDubVoiceMode(v int32) *VideoProjectSerialDubTaskCreateFromTranslationInput {
 	s.DubVoiceMode = &v
+	return s
+}
+
+// SetEnableLipSync sets the EnableLipSync field's value.
+func (s *VideoProjectSerialDubTaskCreateFromTranslationInput) SetEnableLipSync(v bool) *VideoProjectSerialDubTaskCreateFromTranslationInput {
+	s.EnableLipSync = &v
 	return s
 }
 

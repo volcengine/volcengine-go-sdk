@@ -262,6 +262,8 @@ func (s *LookupEventsOutput) SetTrails(v []*TrailForLookupEventsOutput) *LookupE
 type RelatedResourceForLookupEventsOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AccountID *string `type:"string" json:",omitempty"`
+
 	IntegratedTrn *string `type:"string" json:",omitempty"`
 
 	ResourceID *string `type:"string" json:",omitempty"`
@@ -283,6 +285,12 @@ func (s RelatedResourceForLookupEventsOutput) String() string {
 // GoString returns the string representation
 func (s RelatedResourceForLookupEventsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountID sets the AccountID field's value.
+func (s *RelatedResourceForLookupEventsOutput) SetAccountID(v string) *RelatedResourceForLookupEventsOutput {
+	s.AccountID = &v
+	return s
 }
 
 // SetIntegratedTrn sets the IntegratedTrn field's value.
@@ -328,6 +336,8 @@ type TrailForLookupEventsOutput struct {
 
 	ErrorCode *string `type:"string" json:",omitempty"`
 
+	EventCategory *string `type:"string" json:",omitempty"`
+
 	EventDetail *string `type:"string" json:",omitempty"`
 
 	EventID *string `type:"string" json:",omitempty"`
@@ -342,11 +352,15 @@ type TrailForLookupEventsOutput struct {
 
 	EventTime *string `type:"string" json:",omitempty"`
 
+	RecipientAccountID *string `type:"string" json:",omitempty"`
+
 	Region *string `type:"string" json:",omitempty"`
 
 	RelatedResources []*RelatedResourceForLookupEventsOutput `type:"list" json:",omitempty"`
 
 	RequestID *string `type:"string" json:",omitempty"`
+
+	SharedEventID *string `type:"string" json:",omitempty"`
 
 	SourceIPAddress *string `type:"string" json:",omitempty"`
 
@@ -372,6 +386,12 @@ func (s *TrailForLookupEventsOutput) SetAccessKeyID(v string) *TrailForLookupEve
 // SetErrorCode sets the ErrorCode field's value.
 func (s *TrailForLookupEventsOutput) SetErrorCode(v string) *TrailForLookupEventsOutput {
 	s.ErrorCode = &v
+	return s
+}
+
+// SetEventCategory sets the EventCategory field's value.
+func (s *TrailForLookupEventsOutput) SetEventCategory(v string) *TrailForLookupEventsOutput {
+	s.EventCategory = &v
 	return s
 }
 
@@ -417,6 +437,12 @@ func (s *TrailForLookupEventsOutput) SetEventTime(v string) *TrailForLookupEvent
 	return s
 }
 
+// SetRecipientAccountID sets the RecipientAccountID field's value.
+func (s *TrailForLookupEventsOutput) SetRecipientAccountID(v string) *TrailForLookupEventsOutput {
+	s.RecipientAccountID = &v
+	return s
+}
+
 // SetRegion sets the Region field's value.
 func (s *TrailForLookupEventsOutput) SetRegion(v string) *TrailForLookupEventsOutput {
 	s.Region = &v
@@ -432,6 +458,12 @@ func (s *TrailForLookupEventsOutput) SetRelatedResources(v []*RelatedResourceFor
 // SetRequestID sets the RequestID field's value.
 func (s *TrailForLookupEventsOutput) SetRequestID(v string) *TrailForLookupEventsOutput {
 	s.RequestID = &v
+	return s
+}
+
+// SetSharedEventID sets the SharedEventID field's value.
+func (s *TrailForLookupEventsOutput) SetSharedEventID(v string) *TrailForLookupEventsOutput {
+	s.SharedEventID = &v
 	return s
 }
 
@@ -486,4 +518,7 @@ const (
 
 	// EnumOfLookupConditionKeyForLookupEventsInputErrorCode is a EnumOfLookupConditionKeyForLookupEventsInput enum value
 	EnumOfLookupConditionKeyForLookupEventsInputErrorCode = "ErrorCode"
+
+	// EnumOfLookupConditionKeyForLookupEventsInputSourceIpaddress is a EnumOfLookupConditionKeyForLookupEventsInput enum value
+	EnumOfLookupConditionKeyForLookupEventsInputSourceIpaddress = "SourceIPAddress"
 )

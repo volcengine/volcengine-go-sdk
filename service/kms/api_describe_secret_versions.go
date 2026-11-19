@@ -295,6 +295,8 @@ type SecretVersionForDescribeSecretVersionsOutput struct {
 
 	VersionID *string `type:"string" json:",omitempty"`
 
+	VersionName *string `type:"string" json:",omitempty"`
+
 	VersionStage *string `type:"string" json:",omitempty" enum:"EnumOfVersionStageForDescribeSecretVersionsOutput"`
 }
 
@@ -317,6 +319,12 @@ func (s *SecretVersionForDescribeSecretVersionsOutput) SetCreationDate(v int64) 
 // SetVersionID sets the VersionID field's value.
 func (s *SecretVersionForDescribeSecretVersionsOutput) SetVersionID(v string) *SecretVersionForDescribeSecretVersionsOutput {
 	s.VersionID = &v
+	return s
+}
+
+// SetVersionName sets the VersionName field's value.
+func (s *SecretVersionForDescribeSecretVersionsOutput) SetVersionName(v string) *SecretVersionForDescribeSecretVersionsOutput {
+	s.VersionName = &v
 	return s
 }
 

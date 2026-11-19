@@ -1811,6 +1811,8 @@ type VideoProjectAddTargetLangsToExistingDramaInput struct {
 
 	DubVoiceMode *int32 `type:"int32" json:"dubVoiceMode,omitempty"`
 
+	EnableLipSync *bool `type:"boolean" json:"enableLipSync,omitempty"`
+
 	// FromTaskType is a required field
 	FromTaskType *int32 `type:"int32" json:"fromTaskType,omitempty" required:"true"`
 
@@ -1882,6 +1884,12 @@ func (s *VideoProjectAddTargetLangsToExistingDramaInput) SetDramaId(v string) *V
 // SetDubVoiceMode sets the DubVoiceMode field's value.
 func (s *VideoProjectAddTargetLangsToExistingDramaInput) SetDubVoiceMode(v int32) *VideoProjectAddTargetLangsToExistingDramaInput {
 	s.DubVoiceMode = &v
+	return s
+}
+
+// SetEnableLipSync sets the EnableLipSync field's value.
+func (s *VideoProjectAddTargetLangsToExistingDramaInput) SetEnableLipSync(v bool) *VideoProjectAddTargetLangsToExistingDramaInput {
+	s.EnableLipSync = &v
 	return s
 }
 
