@@ -189,6 +189,52 @@ func (s *BucketForDescribeDataFlowTasksOutput) SetVersionStatus(v string) *Bucke
 	return s
 }
 
+type ConvertEntryListFileForDescribeDataFlowTasksOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DownloadUrl *string `type:"string" json:",omitempty"`
+
+	FileBucket *string `type:"string" json:",omitempty"`
+
+	FileKey *string `type:"string" json:",omitempty"`
+
+	FileName *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ConvertEntryListFileForDescribeDataFlowTasksOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertEntryListFileForDescribeDataFlowTasksOutput) GoString() string {
+	return s.String()
+}
+
+// SetDownloadUrl sets the DownloadUrl field's value.
+func (s *ConvertEntryListFileForDescribeDataFlowTasksOutput) SetDownloadUrl(v string) *ConvertEntryListFileForDescribeDataFlowTasksOutput {
+	s.DownloadUrl = &v
+	return s
+}
+
+// SetFileBucket sets the FileBucket field's value.
+func (s *ConvertEntryListFileForDescribeDataFlowTasksOutput) SetFileBucket(v string) *ConvertEntryListFileForDescribeDataFlowTasksOutput {
+	s.FileBucket = &v
+	return s
+}
+
+// SetFileKey sets the FileKey field's value.
+func (s *ConvertEntryListFileForDescribeDataFlowTasksOutput) SetFileKey(v string) *ConvertEntryListFileForDescribeDataFlowTasksOutput {
+	s.FileKey = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *ConvertEntryListFileForDescribeDataFlowTasksOutput) SetFileName(v string) *ConvertEntryListFileForDescribeDataFlowTasksOutput {
+	s.FileName = &v
+	return s
+}
+
 type DataFlowTaskForDescribeDataFlowTasksOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -215,10 +261,6 @@ type DataFlowTaskForDescribeDataFlowTasksOutput struct {
 	EvictRule *EvictRuleForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
 
 	ExportRule *ExportRuleForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
-
-	FileDiffResult *FileDiffResultForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
-
-	FileDiffRule *FileDiffRuleForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
 
 	FileSystemId *string `type:"string" json:",omitempty"`
 
@@ -323,18 +365,6 @@ func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetExportRule(v *ExportRule
 	return s
 }
 
-// SetFileDiffResult sets the FileDiffResult field's value.
-func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetFileDiffResult(v *FileDiffResultForDescribeDataFlowTasksOutput) *DataFlowTaskForDescribeDataFlowTasksOutput {
-	s.FileDiffResult = v
-	return s
-}
-
-// SetFileDiffRule sets the FileDiffRule field's value.
-func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetFileDiffRule(v *FileDiffRuleForDescribeDataFlowTasksOutput) *DataFlowTaskForDescribeDataFlowTasksOutput {
-	s.FileDiffRule = v
-	return s
-}
-
 // SetFileSystemId sets the FileSystemId field's value.
 func (s *DataFlowTaskForDescribeDataFlowTasksOutput) SetFileSystemId(v string) *DataFlowTaskForDescribeDataFlowTasksOutput {
 	s.FileSystemId = &v
@@ -402,7 +432,17 @@ type DeleteRuleForDescribeDataFlowTasksOutput struct {
 
 	DataLocation *string `type:"string" json:",omitempty" enum:"EnumOfDataLocationForDescribeDataFlowTasksOutput"`
 
+	DownloadUrl *string `type:"string" json:",omitempty"`
+
+	EntryListFile *EntryListFileForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
+
 	ExcludePaths []*string `type:"list" json:",omitempty"`
+
+	FileBucket *string `type:"string" json:",omitempty"`
+
+	FileKey *string `type:"string" json:",omitempty"`
+
+	FileName *string `type:"string" json:",omitempty"`
 
 	IncludePaths []*string `type:"list" json:",omitempty"`
 
@@ -431,9 +471,39 @@ func (s *DeleteRuleForDescribeDataFlowTasksOutput) SetDataLocation(v string) *De
 	return s
 }
 
+// SetDownloadUrl sets the DownloadUrl field's value.
+func (s *DeleteRuleForDescribeDataFlowTasksOutput) SetDownloadUrl(v string) *DeleteRuleForDescribeDataFlowTasksOutput {
+	s.DownloadUrl = &v
+	return s
+}
+
+// SetEntryListFile sets the EntryListFile field's value.
+func (s *DeleteRuleForDescribeDataFlowTasksOutput) SetEntryListFile(v *EntryListFileForDescribeDataFlowTasksOutput) *DeleteRuleForDescribeDataFlowTasksOutput {
+	s.EntryListFile = v
+	return s
+}
+
 // SetExcludePaths sets the ExcludePaths field's value.
 func (s *DeleteRuleForDescribeDataFlowTasksOutput) SetExcludePaths(v []*string) *DeleteRuleForDescribeDataFlowTasksOutput {
 	s.ExcludePaths = v
+	return s
+}
+
+// SetFileBucket sets the FileBucket field's value.
+func (s *DeleteRuleForDescribeDataFlowTasksOutput) SetFileBucket(v string) *DeleteRuleForDescribeDataFlowTasksOutput {
+	s.FileBucket = &v
+	return s
+}
+
+// SetFileKey sets the FileKey field's value.
+func (s *DeleteRuleForDescribeDataFlowTasksOutput) SetFileKey(v string) *DeleteRuleForDescribeDataFlowTasksOutput {
+	s.FileKey = &v
+	return s
+}
+
+// SetFileName sets the FileName field's value.
+func (s *DeleteRuleForDescribeDataFlowTasksOutput) SetFileName(v string) *DeleteRuleForDescribeDataFlowTasksOutput {
+	s.FileName = &v
 	return s
 }
 
@@ -599,14 +669,6 @@ func (s *DescribeDataFlowTasksOutput) SetTotalCount(v int32) *DescribeDataFlowTa
 
 type EntryListFileForDescribeDataFlowTasksOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
-
-	DownloadUrl *string `type:"string" json:",omitempty"`
-
-	FileBucket *string `type:"string" json:",omitempty"`
-
-	FileKey *string `type:"string" json:",omitempty"`
-
-	FileName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -619,36 +681,12 @@ func (s EntryListFileForDescribeDataFlowTasksOutput) GoString() string {
 	return s.String()
 }
 
-// SetDownloadUrl sets the DownloadUrl field's value.
-func (s *EntryListFileForDescribeDataFlowTasksOutput) SetDownloadUrl(v string) *EntryListFileForDescribeDataFlowTasksOutput {
-	s.DownloadUrl = &v
-	return s
-}
-
-// SetFileBucket sets the FileBucket field's value.
-func (s *EntryListFileForDescribeDataFlowTasksOutput) SetFileBucket(v string) *EntryListFileForDescribeDataFlowTasksOutput {
-	s.FileBucket = &v
-	return s
-}
-
-// SetFileKey sets the FileKey field's value.
-func (s *EntryListFileForDescribeDataFlowTasksOutput) SetFileKey(v string) *EntryListFileForDescribeDataFlowTasksOutput {
-	s.FileKey = &v
-	return s
-}
-
-// SetFileName sets the FileName field's value.
-func (s *EntryListFileForDescribeDataFlowTasksOutput) SetFileName(v string) *EntryListFileForDescribeDataFlowTasksOutput {
-	s.FileName = &v
-	return s
-}
-
 type EvictRuleForDescribeDataFlowTasksOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
 	DataType *string `type:"string" json:",omitempty" enum:"EnumOfDataTypeForDescribeDataFlowTasksOutput"`
 
-	EntryListFile *EntryListFileForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
+	EntryListFile *ConvertEntryListFileForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
 
 	IncludePaths []*string `type:"list" json:",omitempty"`
 
@@ -674,7 +712,7 @@ func (s *EvictRuleForDescribeDataFlowTasksOutput) SetDataType(v string) *EvictRu
 }
 
 // SetEntryListFile sets the EntryListFile field's value.
-func (s *EvictRuleForDescribeDataFlowTasksOutput) SetEntryListFile(v *EntryListFileForDescribeDataFlowTasksOutput) *EvictRuleForDescribeDataFlowTasksOutput {
+func (s *EvictRuleForDescribeDataFlowTasksOutput) SetEntryListFile(v *ConvertEntryListFileForDescribeDataFlowTasksOutput) *EvictRuleForDescribeDataFlowTasksOutput {
 	s.EntryListFile = v
 	return s
 }
@@ -704,7 +742,7 @@ type ExportRuleForDescribeDataFlowTasksOutput struct {
 
 	DataType *string `type:"string" json:",omitempty" enum:"ConvertEnumOfDataTypeForDescribeDataFlowTasksOutput"`
 
-	EntryListFile *EntryListFileForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
+	EntryListFile *ConvertEntryListFileForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
 
 	ExcludePaths []*string `type:"list" json:",omitempty"`
 
@@ -736,7 +774,7 @@ func (s *ExportRuleForDescribeDataFlowTasksOutput) SetDataType(v string) *Export
 }
 
 // SetEntryListFile sets the EntryListFile field's value.
-func (s *ExportRuleForDescribeDataFlowTasksOutput) SetEntryListFile(v *EntryListFileForDescribeDataFlowTasksOutput) *ExportRuleForDescribeDataFlowTasksOutput {
+func (s *ExportRuleForDescribeDataFlowTasksOutput) SetEntryListFile(v *ConvertEntryListFileForDescribeDataFlowTasksOutput) *ExportRuleForDescribeDataFlowTasksOutput {
 	s.EntryListFile = v
 	return s
 }
@@ -759,90 +797,6 @@ func (s *ExportRuleForDescribeDataFlowTasksOutput) SetLogicOperator(v string) *E
 	return s
 }
 
-type FileDiffResultForDescribeDataFlowTasksOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	BucketName *string `type:"string" json:",omitempty"`
-
-	Name *string `type:"string" json:",omitempty"`
-
-	Prefix *string `type:"string" json:",omitempty"`
-
-	Url *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s FileDiffResultForDescribeDataFlowTasksOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s FileDiffResultForDescribeDataFlowTasksOutput) GoString() string {
-	return s.String()
-}
-
-// SetBucketName sets the BucketName field's value.
-func (s *FileDiffResultForDescribeDataFlowTasksOutput) SetBucketName(v string) *FileDiffResultForDescribeDataFlowTasksOutput {
-	s.BucketName = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *FileDiffResultForDescribeDataFlowTasksOutput) SetName(v string) *FileDiffResultForDescribeDataFlowTasksOutput {
-	s.Name = &v
-	return s
-}
-
-// SetPrefix sets the Prefix field's value.
-func (s *FileDiffResultForDescribeDataFlowTasksOutput) SetPrefix(v string) *FileDiffResultForDescribeDataFlowTasksOutput {
-	s.Prefix = &v
-	return s
-}
-
-// SetUrl sets the Url field's value.
-func (s *FileDiffResultForDescribeDataFlowTasksOutput) SetUrl(v string) *FileDiffResultForDescribeDataFlowTasksOutput {
-	s.Url = &v
-	return s
-}
-
-type FileDiffRuleForDescribeDataFlowTasksOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	EnableVerifyData *bool `type:"boolean" json:",omitempty"`
-
-	Prefix *string `type:"string" json:",omitempty"`
-
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForDescribeDataFlowTasksOutput"`
-}
-
-// String returns the string representation
-func (s FileDiffRuleForDescribeDataFlowTasksOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s FileDiffRuleForDescribeDataFlowTasksOutput) GoString() string {
-	return s.String()
-}
-
-// SetEnableVerifyData sets the EnableVerifyData field's value.
-func (s *FileDiffRuleForDescribeDataFlowTasksOutput) SetEnableVerifyData(v bool) *FileDiffRuleForDescribeDataFlowTasksOutput {
-	s.EnableVerifyData = &v
-	return s
-}
-
-// SetPrefix sets the Prefix field's value.
-func (s *FileDiffRuleForDescribeDataFlowTasksOutput) SetPrefix(v string) *FileDiffRuleForDescribeDataFlowTasksOutput {
-	s.Prefix = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *FileDiffRuleForDescribeDataFlowTasksOutput) SetType(v string) *FileDiffRuleForDescribeDataFlowTasksOutput {
-	s.Type = &v
-	return s
-}
-
 type ImportRuleForDescribeDataFlowTasksOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -850,7 +804,7 @@ type ImportRuleForDescribeDataFlowTasksOutput struct {
 
 	DataType *string `type:"string" json:",omitempty" enum:"ConvertConvertEnumOfDataTypeForDescribeDataFlowTasksOutput"`
 
-	EntryListFile *EntryListFileForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
+	EntryListFile *ConvertEntryListFileForDescribeDataFlowTasksOutput `type:"structure" json:",omitempty"`
 
 	IncludePaths []*string `type:"list" json:",omitempty"`
 
@@ -880,7 +834,7 @@ func (s *ImportRuleForDescribeDataFlowTasksOutput) SetDataType(v string) *Import
 }
 
 // SetEntryListFile sets the EntryListFile field's value.
-func (s *ImportRuleForDescribeDataFlowTasksOutput) SetEntryListFile(v *EntryListFileForDescribeDataFlowTasksOutput) *ImportRuleForDescribeDataFlowTasksOutput {
+func (s *ImportRuleForDescribeDataFlowTasksOutput) SetEntryListFile(v *ConvertEntryListFileForDescribeDataFlowTasksOutput) *ImportRuleForDescribeDataFlowTasksOutput {
 	s.EntryListFile = v
 	return s
 }
@@ -1120,9 +1074,6 @@ const (
 
 	// EnumOfDataFlowTaskTypeForDescribeDataFlowTasksOutputDelete is a EnumOfDataFlowTaskTypeForDescribeDataFlowTasksOutput enum value
 	EnumOfDataFlowTaskTypeForDescribeDataFlowTasksOutputDelete = "Delete"
-
-	// EnumOfDataFlowTaskTypeForDescribeDataFlowTasksOutputFileDiff is a EnumOfDataFlowTaskTypeForDescribeDataFlowTasksOutput enum value
-	EnumOfDataFlowTaskTypeForDescribeDataFlowTasksOutputFileDiff = "FileDiff"
 )
 
 const (
@@ -1148,6 +1099,9 @@ const (
 
 	// EnumOfDataLocationForDescribeDataFlowTasksOutputAll is a EnumOfDataLocationForDescribeDataFlowTasksOutput enum value
 	EnumOfDataLocationForDescribeDataFlowTasksOutputAll = "All"
+
+	// EnumOfDataLocationForDescribeDataFlowTasksOutputFileSystemCorruptedFiles is a EnumOfDataLocationForDescribeDataFlowTasksOutput enum value
+	EnumOfDataLocationForDescribeDataFlowTasksOutputFileSystemCorruptedFiles = "FileSystemCorruptedFiles"
 )
 
 const (
@@ -1225,14 +1179,6 @@ const (
 
 	// EnumOfStatusListForDescribeDataFlowTasksInputConflict is a EnumOfStatusListForDescribeDataFlowTasksInput enum value
 	EnumOfStatusListForDescribeDataFlowTasksInputConflict = "Conflict"
-)
-
-const (
-	// EnumOfTypeForDescribeDataFlowTasksOutputTosBased is a EnumOfTypeForDescribeDataFlowTasksOutput enum value
-	EnumOfTypeForDescribeDataFlowTasksOutputTosBased = "TosBased"
-
-	// EnumOfTypeForDescribeDataFlowTasksOutputNasBased is a EnumOfTypeForDescribeDataFlowTasksOutput enum value
-	EnumOfTypeForDescribeDataFlowTasksOutputNasBased = "NasBased"
 )
 
 const (

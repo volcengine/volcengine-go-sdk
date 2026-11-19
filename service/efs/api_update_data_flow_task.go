@@ -32,7 +32,7 @@ const opUpdateDataFlowTaskCommon = "UpdateDataFlowTask"
 func (c *EFS) UpdateDataFlowTaskCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateDataFlowTaskCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *EFS) UpdateDataFlowTaskCommonRequest(input *map[string]interface{}) (re
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opUpdateDataFlowTask = "UpdateDataFlowTask"
 func (c *EFS) UpdateDataFlowTaskRequest(input *UpdateDataFlowTaskInput) (req *request.Request, output *UpdateDataFlowTaskOutput) {
 	op := &request.Operation{
 		Name:       opUpdateDataFlowTask,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *EFS) UpdateDataFlowTaskRequest(input *UpdateDataFlowTaskInput) (req *re
 
 	output = &UpdateDataFlowTaskOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -140,15 +144,15 @@ func (c *EFS) UpdateDataFlowTaskWithContext(ctx volcengine.Context, input *Updat
 }
 
 type UpdateDataFlowTaskInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DataFlowTaskId is a required field
-	DataFlowTaskId *string `type:"string" required:"true"`
+	DataFlowTaskId *string `type:"string" json:",omitempty" required:"true"`
 
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
 
-	Pinned *bool `type:"boolean"`
+	Pinned *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -196,7 +200,7 @@ func (s *UpdateDataFlowTaskInput) SetPinned(v bool) *UpdateDataFlowTaskInput {
 }
 
 type UpdateDataFlowTaskOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

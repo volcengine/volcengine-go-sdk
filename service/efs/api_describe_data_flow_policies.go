@@ -370,8 +370,6 @@ type DataFlowPolicyForDescribeDataFlowPoliciesOutput struct {
 
 	FileSystemPath *string `type:"string" json:",omitempty"`
 
-	LazyloadRule *LazyloadRuleForDescribeDataFlowPoliciesOutput `type:"structure" json:",omitempty"`
-
 	RunningTaskCount *int32 `type:"int32" json:",omitempty"`
 
 	Status *string `type:"string" json:",omitempty" enum:"ConvertEnumOfStatusForDescribeDataFlowPoliciesOutput"`
@@ -464,12 +462,6 @@ func (s *DataFlowPolicyForDescribeDataFlowPoliciesOutput) SetFileSystemName(v st
 // SetFileSystemPath sets the FileSystemPath field's value.
 func (s *DataFlowPolicyForDescribeDataFlowPoliciesOutput) SetFileSystemPath(v string) *DataFlowPolicyForDescribeDataFlowPoliciesOutput {
 	s.FileSystemPath = &v
-	return s
-}
-
-// SetLazyloadRule sets the LazyloadRule field's value.
-func (s *DataFlowPolicyForDescribeDataFlowPoliciesOutput) SetLazyloadRule(v *LazyloadRuleForDescribeDataFlowPoliciesOutput) *DataFlowPolicyForDescribeDataFlowPoliciesOutput {
-	s.LazyloadRule = v
 	return s
 }
 
@@ -739,36 +731,6 @@ func (s *LastAccessTimeIntervalForDescribeDataFlowPoliciesOutput) SetValue(v int
 	return s
 }
 
-type LazyloadRuleForDescribeDataFlowPoliciesOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	DataLazyloadMode *string `type:"string" json:",omitempty" enum:"EnumOfDataLazyloadModeForDescribeDataFlowPoliciesOutput"`
-
-	EnableMetaLazyload *bool `type:"boolean" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s LazyloadRuleForDescribeDataFlowPoliciesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s LazyloadRuleForDescribeDataFlowPoliciesOutput) GoString() string {
-	return s.String()
-}
-
-// SetDataLazyloadMode sets the DataLazyloadMode field's value.
-func (s *LazyloadRuleForDescribeDataFlowPoliciesOutput) SetDataLazyloadMode(v string) *LazyloadRuleForDescribeDataFlowPoliciesOutput {
-	s.DataLazyloadMode = &v
-	return s
-}
-
-// SetEnableMetaLazyload sets the EnableMetaLazyload field's value.
-func (s *LazyloadRuleForDescribeDataFlowPoliciesOutput) SetEnableMetaLazyload(v bool) *LazyloadRuleForDescribeDataFlowPoliciesOutput {
-	s.EnableMetaLazyload = &v
-	return s
-}
-
 type PeriodExportForDescribeDataFlowPoliciesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -952,11 +914,6 @@ const (
 
 	// EnumOfConflictPolicyForDescribeDataFlowPoliciesOutputOverwrite is a EnumOfConflictPolicyForDescribeDataFlowPoliciesOutput enum value
 	EnumOfConflictPolicyForDescribeDataFlowPoliciesOutputOverwrite = "Overwrite"
-)
-
-const (
-	// EnumOfDataLazyloadModeForDescribeDataFlowPoliciesOutputCache is a EnumOfDataLazyloadModeForDescribeDataFlowPoliciesOutput enum value
-	EnumOfDataLazyloadModeForDescribeDataFlowPoliciesOutputCache = "Cache"
 )
 
 const (
