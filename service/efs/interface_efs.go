@@ -78,14 +78,6 @@ type EFSAPI interface {
 	CreateDirWithContext(volcengine.Context, *CreateDirInput, ...request.Option) (*CreateDirOutput, error)
 	CreateDirRequest(*CreateDirInput) (*request.Request, *CreateDirOutput)
 
-	CreateFilePreSignedUrlCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateFilePreSignedUrlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateFilePreSignedUrlCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateFilePreSignedUrl(*CreateFilePreSignedUrlInput) (*CreateFilePreSignedUrlOutput, error)
-	CreateFilePreSignedUrlWithContext(volcengine.Context, *CreateFilePreSignedUrlInput, ...request.Option) (*CreateFilePreSignedUrlOutput, error)
-	CreateFilePreSignedUrlRequest(*CreateFilePreSignedUrlInput) (*request.Request, *CreateFilePreSignedUrlOutput)
-
 	CreateFileSystemCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFileSystemCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateFileSystemCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

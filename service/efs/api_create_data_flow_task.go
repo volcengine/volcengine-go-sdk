@@ -148,8 +148,6 @@ type CreateDataFlowTaskInput struct {
 
 	BucketName *string `type:"string" json:",omitempty"`
 
-	BucketOwner *string `type:"string" json:",omitempty"`
-
 	BucketPrefix *string `type:"string" json:",omitempty"`
 
 	DataFlowPolicyId *string `type:"string" json:",omitempty"`
@@ -164,8 +162,6 @@ type CreateDataFlowTaskInput struct {
 	EvictRule *EvictRuleForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
 
 	ExportRule *ExportRuleForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
-
-	FileDiffRule *FileDiffRuleForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
 
 	FileSystemId *string `type:"string" json:",omitempty"`
 
@@ -202,12 +198,6 @@ func (s *CreateDataFlowTaskInput) Validate() error {
 // SetBucketName sets the BucketName field's value.
 func (s *CreateDataFlowTaskInput) SetBucketName(v string) *CreateDataFlowTaskInput {
 	s.BucketName = &v
-	return s
-}
-
-// SetBucketOwner sets the BucketOwner field's value.
-func (s *CreateDataFlowTaskInput) SetBucketOwner(v string) *CreateDataFlowTaskInput {
-	s.BucketOwner = &v
 	return s
 }
 
@@ -250,12 +240,6 @@ func (s *CreateDataFlowTaskInput) SetEvictRule(v *EvictRuleForCreateDataFlowTask
 // SetExportRule sets the ExportRule field's value.
 func (s *CreateDataFlowTaskInput) SetExportRule(v *ExportRuleForCreateDataFlowTaskInput) *CreateDataFlowTaskInput {
 	s.ExportRule = v
-	return s
-}
-
-// SetFileDiffRule sets the FileDiffRule field's value.
-func (s *CreateDataFlowTaskInput) SetFileDiffRule(v *FileDiffRuleForCreateDataFlowTaskInput) *CreateDataFlowTaskInput {
-	s.FileDiffRule = v
 	return s
 }
 
@@ -314,6 +298,8 @@ type DeleteRuleForCreateDataFlowTaskInput struct {
 
 	DataLocation *string `type:"string" json:",omitempty" enum:"EnumOfDataLocationForCreateDataFlowTaskInput"`
 
+	EntryListFile *EntryListFileForCreateDataFlowTaskInput `type:"structure" json:",omitempty"`
+
 	ExcludePaths []*string `type:"list" json:",omitempty"`
 
 	IncludePaths []*string `type:"list" json:",omitempty"`
@@ -343,6 +329,12 @@ func (s *DeleteRuleForCreateDataFlowTaskInput) SetDataLocation(v string) *Delete
 	return s
 }
 
+// SetEntryListFile sets the EntryListFile field's value.
+func (s *DeleteRuleForCreateDataFlowTaskInput) SetEntryListFile(v *EntryListFileForCreateDataFlowTaskInput) *DeleteRuleForCreateDataFlowTaskInput {
+	s.EntryListFile = v
+	return s
+}
+
 // SetExcludePaths sets the ExcludePaths field's value.
 func (s *DeleteRuleForCreateDataFlowTaskInput) SetExcludePaths(v []*string) *DeleteRuleForCreateDataFlowTaskInput {
 	s.ExcludePaths = v
@@ -364,13 +356,9 @@ func (s *DeleteRuleForCreateDataFlowTaskInput) SetLastAccessTimePoint(v string) 
 type EntryListFileForCreateDataFlowTaskInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	DownloadUrl *string `type:"string" json:",omitempty"`
-
 	FileBucket *string `type:"string" json:",omitempty"`
 
 	FileKey *string `type:"string" json:",omitempty"`
-
-	FileName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -383,12 +371,6 @@ func (s EntryListFileForCreateDataFlowTaskInput) GoString() string {
 	return s.String()
 }
 
-// SetDownloadUrl sets the DownloadUrl field's value.
-func (s *EntryListFileForCreateDataFlowTaskInput) SetDownloadUrl(v string) *EntryListFileForCreateDataFlowTaskInput {
-	s.DownloadUrl = &v
-	return s
-}
-
 // SetFileBucket sets the FileBucket field's value.
 func (s *EntryListFileForCreateDataFlowTaskInput) SetFileBucket(v string) *EntryListFileForCreateDataFlowTaskInput {
 	s.FileBucket = &v
@@ -398,12 +380,6 @@ func (s *EntryListFileForCreateDataFlowTaskInput) SetFileBucket(v string) *Entry
 // SetFileKey sets the FileKey field's value.
 func (s *EntryListFileForCreateDataFlowTaskInput) SetFileKey(v string) *EntryListFileForCreateDataFlowTaskInput {
 	s.FileKey = &v
-	return s
-}
-
-// SetFileName sets the FileName field's value.
-func (s *EntryListFileForCreateDataFlowTaskInput) SetFileName(v string) *EntryListFileForCreateDataFlowTaskInput {
-	s.FileName = &v
 	return s
 }
 
@@ -520,44 +496,6 @@ func (s *ExportRuleForCreateDataFlowTaskInput) SetIncludePaths(v []*string) *Exp
 // SetLogicOperator sets the LogicOperator field's value.
 func (s *ExportRuleForCreateDataFlowTaskInput) SetLogicOperator(v string) *ExportRuleForCreateDataFlowTaskInput {
 	s.LogicOperator = &v
-	return s
-}
-
-type FileDiffRuleForCreateDataFlowTaskInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	EnableVerifyData *bool `type:"boolean" json:",omitempty"`
-
-	Prefix *string `type:"string" json:",omitempty"`
-
-	Type *string `type:"string" json:",omitempty" enum:"EnumOfTypeForCreateDataFlowTaskInput"`
-}
-
-// String returns the string representation
-func (s FileDiffRuleForCreateDataFlowTaskInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s FileDiffRuleForCreateDataFlowTaskInput) GoString() string {
-	return s.String()
-}
-
-// SetEnableVerifyData sets the EnableVerifyData field's value.
-func (s *FileDiffRuleForCreateDataFlowTaskInput) SetEnableVerifyData(v bool) *FileDiffRuleForCreateDataFlowTaskInput {
-	s.EnableVerifyData = &v
-	return s
-}
-
-// SetPrefix sets the Prefix field's value.
-func (s *FileDiffRuleForCreateDataFlowTaskInput) SetPrefix(v string) *FileDiffRuleForCreateDataFlowTaskInput {
-	s.Prefix = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *FileDiffRuleForCreateDataFlowTaskInput) SetType(v string) *FileDiffRuleForCreateDataFlowTaskInput {
-	s.Type = &v
 	return s
 }
 
@@ -695,9 +633,6 @@ const (
 
 	// EnumOfDataFlowTaskTypeForCreateDataFlowTaskInputDelete is a EnumOfDataFlowTaskTypeForCreateDataFlowTaskInput enum value
 	EnumOfDataFlowTaskTypeForCreateDataFlowTaskInputDelete = "Delete"
-
-	// EnumOfDataFlowTaskTypeForCreateDataFlowTaskInputFileDiff is a EnumOfDataFlowTaskTypeForCreateDataFlowTaskInput enum value
-	EnumOfDataFlowTaskTypeForCreateDataFlowTaskInputFileDiff = "FileDiff"
 )
 
 const (
@@ -706,6 +641,9 @@ const (
 
 	// EnumOfDataLocationForCreateDataFlowTaskInputAll is a EnumOfDataLocationForCreateDataFlowTaskInput enum value
 	EnumOfDataLocationForCreateDataFlowTaskInputAll = "All"
+
+	// EnumOfDataLocationForCreateDataFlowTaskInputFileSystemCorruptedFiles is a EnumOfDataLocationForCreateDataFlowTaskInput enum value
+	EnumOfDataLocationForCreateDataFlowTaskInputFileSystemCorruptedFiles = "FileSystemCorruptedFiles"
 )
 
 const (
@@ -725,19 +663,8 @@ const (
 	// EnumOfTaskModeForCreateDataFlowTaskInputManual is a EnumOfTaskModeForCreateDataFlowTaskInput enum value
 	EnumOfTaskModeForCreateDataFlowTaskInputManual = "Manual"
 
-	// EnumOfTaskModeForCreateDataFlowTaskInputInitial is a EnumOfTaskModeForCreateDataFlowTaskInput enum value
-	EnumOfTaskModeForCreateDataFlowTaskInputInitial = "Initial"
-
 	// EnumOfTaskModeForCreateDataFlowTaskInputPeriod is a EnumOfTaskModeForCreateDataFlowTaskInput enum value
 	EnumOfTaskModeForCreateDataFlowTaskInputPeriod = "Period"
-)
-
-const (
-	// EnumOfTypeForCreateDataFlowTaskInputTosBased is a EnumOfTypeForCreateDataFlowTaskInput enum value
-	EnumOfTypeForCreateDataFlowTaskInputTosBased = "TosBased"
-
-	// EnumOfTypeForCreateDataFlowTaskInputNasBased is a EnumOfTypeForCreateDataFlowTaskInput enum value
-	EnumOfTypeForCreateDataFlowTaskInputNasBased = "NasBased"
 )
 
 const (

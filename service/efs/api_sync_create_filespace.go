@@ -156,7 +156,7 @@ type FilespaceForSyncCreateFilespaceOutput struct {
 
 	Quota *int64 `type:"int64" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForSyncCreateFilespaceOutput"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 
@@ -350,3 +350,29 @@ func (s *SyncCreateFilespaceOutput) SetFilespace(v *FilespaceForSyncCreateFilesp
 	s.Filespace = v
 	return s
 }
+
+const (
+	// EnumOfStatusForSyncCreateFilespaceOutputUnknown is a EnumOfStatusForSyncCreateFilespaceOutput enum value
+	EnumOfStatusForSyncCreateFilespaceOutputUnknown = "Unknown"
+
+	// EnumOfStatusForSyncCreateFilespaceOutputCreating is a EnumOfStatusForSyncCreateFilespaceOutput enum value
+	EnumOfStatusForSyncCreateFilespaceOutputCreating = "Creating"
+
+	// EnumOfStatusForSyncCreateFilespaceOutputCreateError is a EnumOfStatusForSyncCreateFilespaceOutput enum value
+	EnumOfStatusForSyncCreateFilespaceOutputCreateError = "CreateError"
+
+	// EnumOfStatusForSyncCreateFilespaceOutputRunning is a EnumOfStatusForSyncCreateFilespaceOutput enum value
+	EnumOfStatusForSyncCreateFilespaceOutputRunning = "Running"
+
+	// EnumOfStatusForSyncCreateFilespaceOutputUpdating is a EnumOfStatusForSyncCreateFilespaceOutput enum value
+	EnumOfStatusForSyncCreateFilespaceOutputUpdating = "Updating"
+
+	// EnumOfStatusForSyncCreateFilespaceOutputDeleting is a EnumOfStatusForSyncCreateFilespaceOutput enum value
+	EnumOfStatusForSyncCreateFilespaceOutputDeleting = "Deleting"
+
+	// EnumOfStatusForSyncCreateFilespaceOutputDeleteError is a EnumOfStatusForSyncCreateFilespaceOutput enum value
+	EnumOfStatusForSyncCreateFilespaceOutputDeleteError = "DeleteError"
+
+	// EnumOfStatusForSyncCreateFilespaceOutputDeleted is a EnumOfStatusForSyncCreateFilespaceOutput enum value
+	EnumOfStatusForSyncCreateFilespaceOutputDeleted = "Deleted"
+)

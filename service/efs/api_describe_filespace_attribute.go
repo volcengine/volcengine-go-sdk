@@ -228,7 +228,7 @@ type FilespaceForDescribeFilespaceAttributeOutput struct {
 
 	Quota *int64 `type:"int64" json:",omitempty"`
 
-	Status *string `type:"string" json:",omitempty"`
+	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForDescribeFilespaceAttributeOutput"`
 
 	UpdateTime *string `type:"string" json:",omitempty"`
 
@@ -338,3 +338,29 @@ func (s *MountInfoForDescribeFilespaceAttributeOutput) SetMountTarget(v string) 
 	s.MountTarget = &v
 	return s
 }
+
+const (
+	// EnumOfStatusForDescribeFilespaceAttributeOutputUnknown is a EnumOfStatusForDescribeFilespaceAttributeOutput enum value
+	EnumOfStatusForDescribeFilespaceAttributeOutputUnknown = "Unknown"
+
+	// EnumOfStatusForDescribeFilespaceAttributeOutputCreating is a EnumOfStatusForDescribeFilespaceAttributeOutput enum value
+	EnumOfStatusForDescribeFilespaceAttributeOutputCreating = "Creating"
+
+	// EnumOfStatusForDescribeFilespaceAttributeOutputCreateError is a EnumOfStatusForDescribeFilespaceAttributeOutput enum value
+	EnumOfStatusForDescribeFilespaceAttributeOutputCreateError = "CreateError"
+
+	// EnumOfStatusForDescribeFilespaceAttributeOutputRunning is a EnumOfStatusForDescribeFilespaceAttributeOutput enum value
+	EnumOfStatusForDescribeFilespaceAttributeOutputRunning = "Running"
+
+	// EnumOfStatusForDescribeFilespaceAttributeOutputUpdating is a EnumOfStatusForDescribeFilespaceAttributeOutput enum value
+	EnumOfStatusForDescribeFilespaceAttributeOutputUpdating = "Updating"
+
+	// EnumOfStatusForDescribeFilespaceAttributeOutputDeleting is a EnumOfStatusForDescribeFilespaceAttributeOutput enum value
+	EnumOfStatusForDescribeFilespaceAttributeOutputDeleting = "Deleting"
+
+	// EnumOfStatusForDescribeFilespaceAttributeOutputDeleteError is a EnumOfStatusForDescribeFilespaceAttributeOutput enum value
+	EnumOfStatusForDescribeFilespaceAttributeOutputDeleteError = "DeleteError"
+
+	// EnumOfStatusForDescribeFilespaceAttributeOutputDeleted is a EnumOfStatusForDescribeFilespaceAttributeOutput enum value
+	EnumOfStatusForDescribeFilespaceAttributeOutputDeleted = "Deleted"
+)
