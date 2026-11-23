@@ -146,6 +146,8 @@ func (c *TIS) UpdateVoicePrintWithContext(ctx volcengine.Context, input *UpdateV
 type UpdateVoicePrintInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
+	AudioBase64 *string `type:"string" json:"audioBase64,omitempty"`
+
 	// DeviceName is a required field
 	DeviceName *string `type:"string" json:",omitempty" required:"true"`
 
@@ -191,6 +193,12 @@ func (s *UpdateVoicePrintInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAudioBase64 sets the AudioBase64 field's value.
+func (s *UpdateVoicePrintInput) SetAudioBase64(v string) *UpdateVoicePrintInput {
+	s.AudioBase64 = &v
+	return s
 }
 
 // SetDeviceName sets the DeviceName field's value.
