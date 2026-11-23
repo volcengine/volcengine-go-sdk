@@ -146,9 +146,9 @@ func (c *ROCKETMQ) DescribeTopicAccessPoliciesWithContext(ctx volcengine.Context
 type AccessPolicyForDescribeTopicAccessPoliciesOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessKey *string `min:"24" max:"24" type:"string" json:",omitempty"`
+	AccessKey *string `type:"string" json:",omitempty"`
 
-	Authority *string `min:"3" max:"4" type:"string" json:",omitempty"`
+	Authority *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

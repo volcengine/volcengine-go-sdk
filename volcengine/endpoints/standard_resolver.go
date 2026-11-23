@@ -114,7 +114,7 @@ var ServiceInfos = map[string]ServiceInfo{
 	"vepfs":                       {Service: "vepfs", IsGlobal: false},
 	"seccenter":                   {Service: "seccenter", IsGlobal: true},
 	"advdefence":                  {Service: "advdefence", IsGlobal: true},
-	"tis":                         {Service: "tis", IsGlobal: true},
+	"tis":                         {Service: "tis", IsGlobal: false},
 	"organization":                {Service: "organization", IsGlobal: true},
 	"vke":                         {Service: "vke", IsGlobal: false},
 	"Redis":                       {Service: "Redis", IsGlobal: false},

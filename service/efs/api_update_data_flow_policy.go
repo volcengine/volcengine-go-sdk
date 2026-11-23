@@ -153,8 +153,6 @@ type AutoEvictRuleForUpdateDataFlowPolicyInput struct {
 	LastAccessTimeInterval *LastAccessTimeIntervalForUpdateDataFlowPolicyInput `type:"structure" json:",omitempty"`
 
 	LogicOperator *string `type:"string" json:",omitempty" enum:"EnumOfLogicOperatorForUpdateDataFlowPolicyInput"`
-
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForUpdateDataFlowPolicyInput"`
 }
 
 // String returns the string representation
@@ -191,12 +189,6 @@ func (s *AutoEvictRuleForUpdateDataFlowPolicyInput) SetLogicOperator(v string) *
 	return s
 }
 
-// SetStatus sets the Status field's value.
-func (s *AutoEvictRuleForUpdateDataFlowPolicyInput) SetStatus(v string) *AutoEvictRuleForUpdateDataFlowPolicyInput {
-	s.Status = &v
-	return s
-}
-
 type AutoExportRuleForUpdateDataFlowPolicyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -205,8 +197,6 @@ type AutoExportRuleForUpdateDataFlowPolicyInput struct {
 	ImmediateExport *ImmediateExportForUpdateDataFlowPolicyInput `type:"structure" json:",omitempty"`
 
 	PeriodExport *PeriodExportForUpdateDataFlowPolicyInput `type:"structure" json:",omitempty"`
-
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForUpdateDataFlowPolicyInput"`
 }
 
 // String returns the string representation
@@ -237,12 +227,6 @@ func (s *AutoExportRuleForUpdateDataFlowPolicyInput) SetPeriodExport(v *PeriodEx
 	return s
 }
 
-// SetStatus sets the Status field's value.
-func (s *AutoExportRuleForUpdateDataFlowPolicyInput) SetStatus(v string) *AutoExportRuleForUpdateDataFlowPolicyInput {
-	s.Status = &v
-	return s
-}
-
 type AutoImportRuleForUpdateDataFlowPolicyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -253,8 +237,6 @@ type AutoImportRuleForUpdateDataFlowPolicyInput struct {
 	FileSystemDeletePolicy *string `type:"string" json:",omitempty" enum:"EnumOfFileSystemDeletePolicyForUpdateDataFlowPolicyInput"`
 
 	ImmediateImport *bool `type:"boolean" json:",omitempty"`
-
-	Status *string `type:"string" json:",omitempty" enum:"EnumOfStatusForUpdateDataFlowPolicyInput"`
 }
 
 // String returns the string representation
@@ -288,12 +270,6 @@ func (s *AutoImportRuleForUpdateDataFlowPolicyInput) SetFileSystemDeletePolicy(v
 // SetImmediateImport sets the ImmediateImport field's value.
 func (s *AutoImportRuleForUpdateDataFlowPolicyInput) SetImmediateImport(v bool) *AutoImportRuleForUpdateDataFlowPolicyInput {
 	s.ImmediateImport = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *AutoImportRuleForUpdateDataFlowPolicyInput) SetStatus(v string) *AutoImportRuleForUpdateDataFlowPolicyInput {
-	s.Status = &v
 	return s
 }
 
@@ -395,36 +371,6 @@ func (s *LastAccessTimeIntervalForUpdateDataFlowPolicyInput) SetValue(v int32) *
 	return s
 }
 
-type LazyloadRuleForUpdateDataFlowPolicyInput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	DataLazyloadMode *string `type:"string" json:",omitempty" enum:"EnumOfDataLazyloadModeForUpdateDataFlowPolicyInput"`
-
-	EnableMetaLazyload *bool `type:"boolean" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s LazyloadRuleForUpdateDataFlowPolicyInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s LazyloadRuleForUpdateDataFlowPolicyInput) GoString() string {
-	return s.String()
-}
-
-// SetDataLazyloadMode sets the DataLazyloadMode field's value.
-func (s *LazyloadRuleForUpdateDataFlowPolicyInput) SetDataLazyloadMode(v string) *LazyloadRuleForUpdateDataFlowPolicyInput {
-	s.DataLazyloadMode = &v
-	return s
-}
-
-// SetEnableMetaLazyload sets the EnableMetaLazyload field's value.
-func (s *LazyloadRuleForUpdateDataFlowPolicyInput) SetEnableMetaLazyload(v bool) *LazyloadRuleForUpdateDataFlowPolicyInput {
-	s.EnableMetaLazyload = &v
-	return s
-}
-
 type PeriodExportForUpdateDataFlowPolicyInput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -499,8 +445,6 @@ type UpdateDataFlowPolicyInput struct {
 
 	// FileSystemId is a required field
 	FileSystemId *string `type:"string" json:",omitempty" required:"true"`
-
-	LazyloadRule *LazyloadRuleForUpdateDataFlowPolicyInput `type:"structure" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -577,12 +521,6 @@ func (s *UpdateDataFlowPolicyInput) SetFileSystemId(v string) *UpdateDataFlowPol
 	return s
 }
 
-// SetLazyloadRule sets the LazyloadRule field's value.
-func (s *UpdateDataFlowPolicyInput) SetLazyloadRule(v *LazyloadRuleForUpdateDataFlowPolicyInput) *UpdateDataFlowPolicyInput {
-	s.LazyloadRule = v
-	return s
-}
-
 type UpdateDataFlowPolicyOutput struct {
 	_ struct{} `type:"structure" json:",omitempty"`
 
@@ -646,11 +584,6 @@ const (
 )
 
 const (
-	// EnumOfDataLazyloadModeForUpdateDataFlowPolicyInputCache is a EnumOfDataLazyloadModeForUpdateDataFlowPolicyInput enum value
-	EnumOfDataLazyloadModeForUpdateDataFlowPolicyInputCache = "Cache"
-)
-
-const (
 	// EnumOfDataTypeForUpdateDataFlowPolicyInputDataOnly is a EnumOfDataTypeForUpdateDataFlowPolicyInput enum value
 	EnumOfDataTypeForUpdateDataFlowPolicyInputDataOnly = "DataOnly"
 )
@@ -685,20 +618,6 @@ const (
 
 	// EnumOfLogicOperatorForUpdateDataFlowPolicyInputOr is a EnumOfLogicOperatorForUpdateDataFlowPolicyInput enum value
 	EnumOfLogicOperatorForUpdateDataFlowPolicyInputOr = "Or"
-)
-
-const (
-	// EnumOfStatusForUpdateDataFlowPolicyInputStopped is a EnumOfStatusForUpdateDataFlowPolicyInput enum value
-	EnumOfStatusForUpdateDataFlowPolicyInputStopped = "Stopped"
-
-	// EnumOfStatusForUpdateDataFlowPolicyInputStarting is a EnumOfStatusForUpdateDataFlowPolicyInput enum value
-	EnumOfStatusForUpdateDataFlowPolicyInputStarting = "Starting"
-
-	// EnumOfStatusForUpdateDataFlowPolicyInputRunning is a EnumOfStatusForUpdateDataFlowPolicyInput enum value
-	EnumOfStatusForUpdateDataFlowPolicyInputRunning = "Running"
-
-	// EnumOfStatusForUpdateDataFlowPolicyInputStopping is a EnumOfStatusForUpdateDataFlowPolicyInput enum value
-	EnumOfStatusForUpdateDataFlowPolicyInputStopping = "Stopping"
 )
 
 const (
