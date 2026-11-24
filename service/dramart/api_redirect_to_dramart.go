@@ -154,6 +154,8 @@ type RedirectToDramartInput struct {
 	// Password is a required field
 	Password *string `type:"string" json:",omitempty" required:"true"`
 
+	TeamID *string `type:"string" json:",omitempty"`
+
 	// Type is a required field
 	Type *string `type:"string" json:",omitempty" required:"true"`
 
@@ -204,6 +206,12 @@ func (s *RedirectToDramartInput) SetDomain(v string) *RedirectToDramartInput {
 // SetPassword sets the Password field's value.
 func (s *RedirectToDramartInput) SetPassword(v string) *RedirectToDramartInput {
 	s.Password = &v
+	return s
+}
+
+// SetTeamID sets the TeamID field's value.
+func (s *RedirectToDramartInput) SetTeamID(v string) *RedirectToDramartInput {
+	s.TeamID = &v
 	return s
 }
 
