@@ -54,6 +54,22 @@ type DBWAPI interface {
 	CreateDmlSqlChangeTicketWithContext(volcengine.Context, *CreateDmlSqlChangeTicketInput, ...request.Option) (*CreateDmlSqlChangeTicketOutput, error)
 	CreateDmlSqlChangeTicketRequest(*CreateDmlSqlChangeTicketInput) (*request.Request, *CreateDmlSqlChangeTicketOutput)
 
+	CreateFullSqlOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateFullSqlOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateFullSqlOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateFullSqlOrder(*CreateFullSqlOrderInput) (*CreateFullSqlOrderOutput, error)
+	CreateFullSqlOrderWithContext(volcengine.Context, *CreateFullSqlOrderInput, ...request.Option) (*CreateFullSqlOrderOutput, error)
+	CreateFullSqlOrderRequest(*CreateFullSqlOrderInput) (*request.Request, *CreateFullSqlOrderOutput)
+
+	CreateTerminateFullSqlOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTerminateFullSqlOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTerminateFullSqlOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTerminateFullSqlOrder(*CreateTerminateFullSqlOrderInput) (*CreateTerminateFullSqlOrderOutput, error)
+	CreateTerminateFullSqlOrderWithContext(volcengine.Context, *CreateTerminateFullSqlOrderInput, ...request.Option) (*CreateTerminateFullSqlOrderOutput, error)
+	CreateTerminateFullSqlOrderRequest(*CreateTerminateFullSqlOrderInput) (*request.Request, *CreateTerminateFullSqlOrderOutput)
+
 	DescribeAggregateSlowLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAggregateSlowLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAggregateSlowLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -197,6 +213,22 @@ type DBWAPI interface {
 	ModifyAuditLogConfig(*ModifyAuditLogConfigInput) (*ModifyAuditLogConfigOutput, error)
 	ModifyAuditLogConfigWithContext(volcengine.Context, *ModifyAuditLogConfigInput, ...request.Option) (*ModifyAuditLogConfigOutput, error)
 	ModifyAuditLogConfigRequest(*ModifyAuditLogConfigInput) (*request.Request, *ModifyAuditLogConfigOutput)
+
+	OrderCreateAuditCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	OrderCreateAuditCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	OrderCreateAuditCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	OrderCreateAudit(*OrderCreateAuditInput) (*OrderCreateAuditOutput, error)
+	OrderCreateAuditWithContext(volcengine.Context, *OrderCreateAuditInput, ...request.Option) (*OrderCreateAuditOutput, error)
+	OrderCreateAuditRequest(*OrderCreateAuditInput) (*request.Request, *OrderCreateAuditOutput)
+
+	OrderTerminateAuditCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	OrderTerminateAuditCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	OrderTerminateAuditCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	OrderTerminateAudit(*OrderTerminateAuditInput) (*OrderTerminateAuditOutput, error)
+	OrderTerminateAuditWithContext(volcengine.Context, *OrderTerminateAuditInput, ...request.Option) (*OrderTerminateAuditOutput, error)
+	OrderTerminateAuditRequest(*OrderTerminateAuditInput) (*request.Request, *OrderTerminateAuditOutput)
 
 	SlowQueryAdviceTaskHistoryApiCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SlowQueryAdviceTaskHistoryApiCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
