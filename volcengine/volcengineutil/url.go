@@ -211,6 +211,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 	"pca":                         {Service: "pca", IsGlobal: true},
 	"inframanager":                {Service: "inframanager", IsGlobal: false},
 	"mse":                         {Service: "mse", IsGlobal: false},
+	"agentkit":                    {Service: "agentkit", IsGlobal: false},
 }
 
 func standardizeDomainServiceCode(serviceCode string) string {
