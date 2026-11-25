@@ -442,6 +442,8 @@ type GetFunctionOutput struct {
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
+	FunctionType *string `type:"string" json:",omitempty"`
+
 	Id *string `type:"string" json:",omitempty"`
 
 	InitializerSec *int32 `type:"int32" json:",omitempty"`
@@ -564,6 +566,12 @@ func (s *GetFunctionOutput) SetEnvs(v []*EnvForGetFunctionOutput) *GetFunctionOu
 // SetExclusiveMode sets the ExclusiveMode field's value.
 func (s *GetFunctionOutput) SetExclusiveMode(v bool) *GetFunctionOutput {
 	s.ExclusiveMode = &v
+	return s
+}
+
+// SetFunctionType sets the FunctionType field's value.
+func (s *GetFunctionOutput) SetFunctionType(v string) *GetFunctionOutput {
+	s.FunctionType = &v
 	return s
 }
 
