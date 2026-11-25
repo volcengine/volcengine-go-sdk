@@ -174,6 +174,14 @@ type BILLINGAPI interface {
 	ListAvailableInstancesWithContext(volcengine.Context, *ListAvailableInstancesInput, ...request.Option) (*ListAvailableInstancesOutput, error)
 	ListAvailableInstancesRequest(*ListAvailableInstancesInput) (*request.Request, *ListAvailableInstancesOutput)
 
+	ListBcFocusBillCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBcFocusBillCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBcFocusBillCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBcFocusBill(*ListBcFocusBillInput) (*ListBcFocusBillOutput, error)
+	ListBcFocusBillWithContext(volcengine.Context, *ListBcFocusBillInput, ...request.Option) (*ListBcFocusBillOutput, error)
+	ListBcFocusBillRequest(*ListBcFocusBillInput) (*request.Request, *ListBcFocusBillOutput)
+
 	ListBillCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListBillCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListBillCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

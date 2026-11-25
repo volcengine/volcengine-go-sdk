@@ -446,6 +446,8 @@ type GetRevisionOutput struct {
 
 	ExclusiveMode *bool `type:"boolean" json:",omitempty"`
 
+	FunctionType *string `type:"string" json:",omitempty"`
+
 	HealthCheckConfig *HealthCheckConfigForGetRevisionOutput `type:"structure" json:",omitempty"`
 
 	Id *string `type:"string" json:",omitempty"`
@@ -544,6 +546,12 @@ func (s *GetRevisionOutput) SetEnvs(v []*EnvForGetRevisionOutput) *GetRevisionOu
 // SetExclusiveMode sets the ExclusiveMode field's value.
 func (s *GetRevisionOutput) SetExclusiveMode(v bool) *GetRevisionOutput {
 	s.ExclusiveMode = &v
+	return s
+}
+
+// SetFunctionType sets the FunctionType field's value.
+func (s *GetRevisionOutput) SetFunctionType(v string) *GetRevisionOutput {
+	s.FunctionType = &v
 	return s
 }
 
