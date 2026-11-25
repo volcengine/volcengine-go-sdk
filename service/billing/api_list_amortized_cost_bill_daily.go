@@ -163,8 +163,7 @@ type ListAmortizedCostBillDailyInput struct {
 
 	InstanceNo *string `type:"string" json:",omitempty"`
 
-	// Limit is a required field
-	Limit *int32 `type:"int32" json:",omitempty" required:"true"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
 	MaxResults *int32 `type:"int32" json:",omitempty"`
 
@@ -200,9 +199,6 @@ func (s *ListAmortizedCostBillDailyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListAmortizedCostBillDailyInput"}
 	if s.AmortizedMonth == nil {
 		invalidParams.Add(request.NewErrParamRequired("AmortizedMonth"))
-	}
-	if s.Limit == nil {
-		invalidParams.Add(request.NewErrParamRequired("Limit"))
 	}
 
 	if invalidParams.Len() > 0 {

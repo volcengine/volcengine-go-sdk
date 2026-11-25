@@ -163,8 +163,7 @@ type ListBillDetailInput struct {
 
 	InstanceNo *string `type:"string" json:",omitempty"`
 
-	// Limit is a required field
-	Limit *int32 `type:"int32" json:",omitempty" required:"true"`
+	Limit *int32 `type:"int32" json:",omitempty"`
 
 	MaxResults *int32 `type:"int32" json:",omitempty"`
 
@@ -204,9 +203,6 @@ func (s *ListBillDetailInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListBillDetailInput"}
 	if s.BillPeriod == nil {
 		invalidParams.Add(request.NewErrParamRequired("BillPeriod"))
-	}
-	if s.Limit == nil {
-		invalidParams.Add(request.NewErrParamRequired("Limit"))
 	}
 
 	if invalidParams.Len() > 0 {
