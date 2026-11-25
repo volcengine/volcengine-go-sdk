@@ -246,8 +246,6 @@ type GetSessionOutput struct {
 
 	InternalEndpoint *string `type:"string" json:",omitempty"`
 
-	Metadata []*MetadataForGetSessionOutput `type:"list"`
-
 	Name *string `type:"string" json:",omitempty"`
 
 	SessionId *string `type:"string" json:",omitempty"`
@@ -309,12 +307,6 @@ func (s *GetSessionOutput) SetInternalEndpoint(v string) *GetSessionOutput {
 	return s
 }
 
-// SetMetadata sets the Metadata field's value.
-func (s *GetSessionOutput) SetMetadata(v []*MetadataForGetSessionOutput) *GetSessionOutput {
-	s.Metadata = v
-	return s
-}
-
 // SetName sets the Name field's value.
 func (s *GetSessionOutput) SetName(v string) *GetSessionOutput {
 	s.Name = &v
@@ -354,44 +346,6 @@ func (s *GetSessionOutput) SetTosMountPoints(v []*TosMountPointForGetSessionOutp
 // SetUserSessionId sets the UserSessionId field's value.
 func (s *GetSessionOutput) SetUserSessionId(v string) *GetSessionOutput {
 	s.UserSessionId = &v
-	return s
-}
-
-type MetadataForGetSessionOutput struct {
-	_ struct{} `type:"structure" json:",omitempty"`
-
-	Key *string `type:"string" json:",omitempty"`
-
-	Type *string `type:"string" json:",omitempty"`
-
-	Value *string `type:"string" json:",omitempty"`
-}
-
-// String returns the string representation
-func (s MetadataForGetSessionOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MetadataForGetSessionOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *MetadataForGetSessionOutput) SetKey(v string) *MetadataForGetSessionOutput {
-	s.Key = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *MetadataForGetSessionOutput) SetType(v string) *MetadataForGetSessionOutput {
-	s.Type = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *MetadataForGetSessionOutput) SetValue(v string) *MetadataForGetSessionOutput {
-	s.Value = &v
 	return s
 }
 
