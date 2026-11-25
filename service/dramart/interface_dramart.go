@@ -54,6 +54,22 @@ type DRAMARTAPI interface {
 	BatchDeleteUserWithContext(volcengine.Context, *BatchDeleteUserInput, ...request.Option) (*BatchDeleteUserOutput, error)
 	BatchDeleteUserRequest(*BatchDeleteUserInput) (*request.Request, *BatchDeleteUserOutput)
 
+	CreateProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateProject(*CreateProjectInput) (*CreateProjectOutput, error)
+	CreateProjectWithContext(volcengine.Context, *CreateProjectInput, ...request.Option) (*CreateProjectOutput, error)
+	CreateProjectRequest(*CreateProjectInput) (*request.Request, *CreateProjectOutput)
+
+	CreateTeamCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTeamCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTeamCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTeam(*CreateTeamInput) (*CreateTeamOutput, error)
+	CreateTeamWithContext(volcengine.Context, *CreateTeamInput, ...request.Option) (*CreateTeamOutput, error)
+	CreateTeamRequest(*CreateTeamInput) (*request.Request, *CreateTeamOutput)
+
 	ListAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +149,14 @@ type DRAMARTAPI interface {
 	UpdateAccount(*UpdateAccountInput) (*UpdateAccountOutput, error)
 	UpdateAccountWithContext(volcengine.Context, *UpdateAccountInput, ...request.Option) (*UpdateAccountOutput, error)
 	UpdateAccountRequest(*UpdateAccountInput) (*request.Request, *UpdateAccountOutput)
+
+	UploadFileUrlCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UploadFileUrlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UploadFileUrlCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UploadFileUrl(*UploadFileUrlInput) (*UploadFileUrlOutput, error)
+	UploadFileUrlWithContext(volcengine.Context, *UploadFileUrlInput, ...request.Option) (*UploadFileUrlOutput, error)
+	UploadFileUrlRequest(*UploadFileUrlInput) (*request.Request, *UploadFileUrlOutput)
 }
 
 var _ DRAMARTAPI = (*DRAMART)(nil)
