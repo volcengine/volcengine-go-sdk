@@ -23,15 +23,114 @@ When the HTTP status code is non-2xx (e.g. 504), the response body may not be a 
 - **Body cannot be decoded into the expected response structure** (e.g. HTML, plain text, an empty response, a top-level array, or incompatible types for fields such as `ResponseMetadata`): returns `RequestFailure` with `Code()` set to `SerializationError`, the raw response body attached to `Message()`, and the HTTP status code and request ID exposed via `StatusCode()` and `RequestID()`.
 - **Body can be decoded but has no valid error code** (e.g. missing `ResponseMetadata` with no non-empty simple error code, or metadata with no error code): returns `RequestFailure` with `Code()` set to `UnknownError`, also preserving the HTTP status code, request ID, and response body.
 - **Body uses the simple error format** (missing `ResponseMetadata`, but matching `{"errorcode":"error code","message":"error description"}` with a non-empty `errorcode`): returns `RequestFailure` with `Code()` preserving the actual `errorcode`, `Message()` including the description and raw body, and the HTTP status code and request ID preserved.
-- **Body is a standard TOP JSON error**: behavior is unchanged; returns `RequestFailure` from which the server-side `Code()`, `Message()`, and `RequestID()` can be parsed.
+- **Body is a standard TOP JSON error**: returns `RequestFailure`, preserving the server-side `Code()` and `Message()`; if the body has no non-empty request ID, the fallback below applies.
 
-For the non-standard responses above, the request ID is resolved in order from a non-empty `ResponseMetadata.RequestId` in the body, an existing `r.RequestID` on the request object, then the `X-Top-Requestid` / `X-Top-Request-Id` / `X-Tt-Logid` response headers. `RequestID()` returns an empty string if none of these sources has a value.
+For the standard and non-standard responses above, including standard business errors under HTTP 200, the request ID is resolved in order from a non-empty `ResponseMetadata.RequestId` in the body, an existing `r.RequestID` on the request object, then the `X-Top-Requestid` / `X-Top-Request-Id` / `X-Tt-Logid` response headers. `RequestID()` returns an empty string if none of these sources has a value. Standard business errors under HTTP 200 also apply `SimpleError`, which still affects only the display.
 
-In addition, when an HTTP 200 response has a JSON `null` body, decoding into a struct or `*map[string]interface{}` with output data returns `RequestFailure` with `Code()` set to `UnknownError` and `StatusCode()` set to 200, preserving the request ID and raw body. This applies to both normal decoding and `ForceJsonNumberDecode`. Other malformed HTTP 200 bodies (e.g. HTML) are outside the non-2xx diagnostics described above and may still return a native JSON decoding error.
+In addition, when an HTTP 200 response has a JSON `null` body, decoding into a struct or `*map[string]interface{}` with output data returns `RequestFailure` with `Code()` set to `UnknownError` and `StatusCode()` set to 200, preserving the request ID and raw body. This applies to both normal decoding and `ForceJsonNumberDecode`.
+
+The default TOP parser also records diagnostics for failures while processing output data under successful HTTP statuses:
+
+- **Body read failure**: returns `RequestFailure` with `Code()` set to `ReadError`, preserving the original read error in `OrigErr()`. The snapshot contains partial bytes with `BodyCaptured: true` and `BodyComplete: false`.
+- **Body decoding failure** (such as HTML, an empty body, or incompatible JSON structure): returns `RequestFailure` with `Code()` set to `SerializationError` and the decoding error in `OrigErr()`.
+- **Result serialization, output decoding, or map field access failure**: also returns `SerializationError`, preserving the underlying cause and original HTTP body rather than the transformed result bytes. This includes SDK encoding/decoding of data returned by `CustomerUnmarshalData`; errors returned by `CustomerUnmarshalError` retain their original identity, and callback panics retain existing behavior.
+
+For these SDK-created errors, `StatusCode()`, `RequestID()`, and `PrintError` expose the HTTP status, request ID, headers, and body snapshot; HTTP 200 remains 200. Even when other fields have incompatible types, the parser attempts to extract `ResponseMetadata.RequestId` separately from the saved valid JSON before applying the existing fallback order, without rereading the response stream. Normal decoding and `ForceJsonNumberDecode` are both covered.
 
 When map decoding rejects JSON `null`, it preserves the original output pointer. If a custom retryer retries `UnknownError`, subsequent responses are decoded into the original output object, which remains available to `After` interceptors. Exhausted retries still return an error. The default retryer does not retry an HTTP 200 response solely because of `UnknownError`.
 
 Compatibility: some native JSON decoding errors that were previously returned directly are now wrapped in `RequestFailure`; callers can obtain the underlying error through `OrigErr()`. The error classification also affects default retries: with `MaxRetries=3`, an HTTP 400 response with an HTML body changes from at most 4 attempts to 1 attempt. HTTP 500, 502, 503, and 504 responses still retry under the existing status-code rules. `SimpleError` changes only the display of `Error()`, leaving `StatusCode()`, `RequestID()`, and `Message()` unchanged. Custom error handlers and retryers follow their own implementations.
+
+Read, decoding, and result conversion failures under HTTP 200 now use the SDK error types above instead of native errors. Non-retryable causes such as HTML or ordinary type mismatches no longer use the unknown-error retry fallback: with `MaxRetries=3`, they are attempted once. Read errors with explicitly retryable causes still follow existing retry rules. Read timeouts triggered by `request.WithResponseReadTimeout` are still normalized to the original `ResponseTimeout` with a snapshot, as described below.
+
+The HTTP 200 decoding paths use these `Message()` prefixes, followed by `; response body: ` and the original HTTP body. `OrigErr()` provides the underlying cause.
+
+| Stage | Error code | Message prefix |
+| --- | --- | --- |
+| Reading the response body | `ReadError` | `failed to read response` |
+| Decoding the response body | `SerializationError` | `failed to decode response` |
+| Accessing the error-code field in map output | `SerializationError` | `failed to access response error code` |
+| Encoding the response result | `SerializationError` | `failed to encode response result` |
+| Decoding the result into output data | `SerializationError` | `failed to decode response result` |
+
+### Error handling for STS credential requests
+
+AssumeRole and `StsProvider` credential requests now default to HTTPS when `Schema` is empty, matching OIDC/SAML. An explicit `Schema: "http"` remains supported. Default Host and Region values and the priority of custom endpoints and proxy settings are preserved.
+
+`StsAssumeRole`, `StsAssumeRoleWithOptions`, `StsProvider` (including `NewStsCredentials` / `NewStsCredentialsWithOptions`), OIDC, and SAML credential requests return `volcengineerr.RequestFailure`, accessible through `errors.As`:
+
+- Standard TOP errors, including `ResponseMetadata.Error` under HTTP 200, preserve the server-side `Code()` and `Message()`. `StatusCode()` always uses the actual HTTP status, ignoring `HTTPCode` in the body.
+- Request IDs come first from a non-empty `ResponseMetadata.RequestId` in the body, then from the `X-Top-Requestid`, `X-Top-Request-Id`, and `X-Tt-Logid` response headers in that order.
+- Non-standard error bodies follow the `SerializationError`, `UnknownError`, or simple error-code rules above. Read failures return `ReadError`, preserving any partially read body. `OrigErr()` exposes underlying read and decoding errors.
+- Network and timeout errors return `RequestError`. If no HTTP response was received, `StatusCode()` is 0 and `RequestID()` is empty; no HTTP 500 is fabricated.
+- Local request-construction failures, such as an invalid URL or missing AssumeRole API configuration, also return the existing `RequestError` immediately, with status 0, an empty request ID, and no response snapshot.
+- A JSON `null` body, missing result, or incomplete credentials under a successful HTTP status returns `UnknownError`. Invalid OIDC/SAML credential expiration times return `SerializationError` with the HTTP status, request ID, and underlying parsing error, without updating the cache.
+
+STS credential requests continue to retry network failures, HTTP 429/502/503/504, and existing throttling/transient error codes. The final error carries the last attempt's diagnostics. HTTP 500 without a retryable error code is not retried; terminal 4xx responses are not retried. OIDC/SAML default to 3 retries when `MaxRetries` is `nil` and disable retries when it points to 0. AssumeRole retains the default when its integer `MaxRetries` is less than or equal to 0.
+
+Compatibility: these credential errors now use the SDK's default `Code: Message` format, followed by `status code` and `request id` on the next line, and `caused by` when an underlying error exists. Use accessor methods instead of parsing previous error strings. Credential Providers have no `SimpleError` option; Session's `SimpleError` applies only to API requests through `service/sts` and does not change credential-refresh error displays.
+
+```go
+var failure volcengineerr.RequestFailure
+if errors.As(err, &failure) {
+    fmt.Println(failure.StatusCode(), failure.Code(), failure.Message(), failure.RequestID())
+    // Underlying network, read, or decoding cause: failure.OrigErr()
+}
+```
+
+Local parameter validation, token-file reads, and proxy/TLS configuration errors retain each Provider's existing local error types.
+
+### Retry classification of wrapped errors
+
+Wrapping an SDK error with `%w` preserves default throttling, credential-expiration, and custom error-code classification, along with recursive retry decisions for `OrigErr()` causes. Unknown causes under `ReadError` or `SerializationError` remain non-retryable unless existing rules such as HTTP status apply; see [Wrapped errors and underlying causes](6-Retry.md#wrapped-errors-and-underlying-causes).
+
+Access underlying SDK error causes through `OrigErr()`. This change does not add `Unwrap()` to public error types.
+
+### Full error details
+
+`volcengineerr.PrintError(writer, err)` explicitly writes indented JSON with a trailing newline. Its return value reports output failures. `volcengineerr.GetErrorDetails(err)` provides the same read-only extraction for use with your own logger.
+
+```go
+// Import fmt, os and volcengineerr.
+if err != nil {
+    if printErr := volcengineerr.PrintError(os.Stderr, err); printErr != nil {
+        fmt.Fprintf(os.Stderr, "failed to print error: %v\n", printErr)
+    }
+}
+```
+
+Call `PrintError` directly when you only need output; no type assertion is required. To read the HTTP response separately, optionally match the new extension:
+
+```go
+var failure volcengineerr.DetailedRequestFailure
+if errors.As(err, &failure) {
+    if response := failure.ResponseDetails(); response != nil {
+        _ = response // A response snapshot copy with status, headers and body.
+    }
+}
+```
+
+The new `DetailedRequestFailure` extends `RequestFailure` with an optional `ResponseDetails() *ResponseDetails` method. It returns only a captured HTTP snapshot copy, or nil when no snapshot exists. Continue using `Code()` / `Message()` for error properties; use the package-level `volcengineerr.GetErrorDetails(err)` for the complete error tree. Existing `Error` / `RequestFailure` interfaces and constructor signatures are unchanged. Customer-defined errors require no new methods. Errors returned by customer parsing callbacks preserve their identity, concrete type, properties and `Error()` text, including errors created through SDK constructors. The SDK does not attach details to arbitrary final errors.
+
+`ErrorDetails` exposes `Type`, `Error`, `Code`, `Message`, `Response` and `Causes`. `ResponseDetails` exposes `StatusCode`, `Status`, `Proto`, `RequestID`, multi-value `Headers` / `Trailers`, original `Body` bytes, `BodyCaptured` and `BodyComplete`. Body request IDs still take precedence over headers, and HTTP 200 business errors retain status 200. `SimpleError` does not suppress structured fields; existing `Error()` / `String()` displays are unchanged.
+
+Full snapshots cover request errors constructed by the default TOP parser and STS / AssumeRole / OIDC / SAML credential requests, including OIDC/SAML expiration parsing failures. Capture reuses existing reads without additional requests or reading closed bodies, and retains only the attempt corresponding to the error. Interrupted reads preserve partial bytes with `body_complete: false` and the read cause in `causes`.
+
+When sending returns both an HTTP response and an error, the SDK retains the actual response and reports `RequestError`, or `RequestCanceled` when the request context is canceled. A redirect rejection whose text starts with a status code does not replace the real response with a synthetic status. `PrintError` preserves the actual status, headers, and header request ID; a body already closed by the HTTP client remains uncaptured (`body_captured: false`, `body_complete: false`). Status-only placeholder responses for numeric URL errors are used only when no actual response exists.
+
+When supplementing an existing snapshot, `Request.SetResponseBody` preserves its status, protocol, request ID and headers, updating only the body, `BodyCaptured` / `BodyComplete` and trailers. It updates a snapshot copy without modifying the previous snapshot supplied by the caller. It copies the body and copies response trailers only after a complete read with an available `HTTPResponse`; interrupted reads or absent responses retain existing trailers. An interrupted read without an earlier snapshot does not capture trailers, avoiding a map that an outstanding read may still be updating. An explicitly initialized nil snapshot is not recreated from a placeholder response.
+
+Default TOP response-read timeouts triggered by `request.WithResponseReadTimeout` also retain the partial body, HTTP status, headers and request ID. If the saved bytes form valid JSON containing a non-empty `ResponseMetadata.RequestId`, the normalized timeout snapshot preserves that body ID instead of replacing it with the header ID. The existing `ResponseTimeout` type and text remain unchanged, with a nil `OrigErr()` and no additional `causes`. Each request owns its snapshot without modifying the shared timeout error.
+
+Without an HTTP response, `response` is `null`. Legacy interfaces exposing only status and request ID yield `headers: null` and `body_captured: false`. A captured empty body has `body_captured: true` and `body: ""`. JSON renders UTF-8 bodies as text with `body_encoding: "utf-8"` and other bytes as reversible Base64. Returned details are deep copies. Extraction supports `%w`, `OrigErr()`, `OrigErrs()` and multi-cause standard wrapping, with cycle protection and bounded depth.
+
+The error tree emits at most 256 nodes with at most 64 levels. At each node, child collection inspects at most the remaining node budget of candidates, including duplicate and nil causes. Additional candidates are neither collected nor deduplicated, preventing unbounded pairwise comparisons before output is truncated. Reaching either limit returns only the retained subset of causes.
+
+Customer errors and unchanged native read/decoding errors in paths without capture, such as ECS/IMDS, endpoint credentials and CLI OAuth/Portal, provide only available information. Package functions fall back to legacy fields when optional customer `ResponseDetails()` methods return nil. `GetErrorDetails(nil)` returns nil; `PrintError(writer, nil)` writes nothing. Write failures and short writes return wrapped output errors. Full bodies may contain credentials; callers can modify the returned copy before logging.
+
+Error-tree deduplication supports custom value errors containing slice or map fields. Distinct pointer errors remain separate even when their contents match.
+
+The default TOP parser uses `Request.ReadResponseBody` to read and snapshot the SDK-owned bytes without another full body copy on successful responses. Protocol handlers must treat the returned bytes as read-only. STS internal reads reuse their buffers in the same way; error construction and `ResponseDetails()` access still deep-copy snapshots. Public `SetResponseBody` still copies caller-owned bytes. Snapshots remain available during `Complete` / `After` callbacks and are cleared according to the existing request lifecycle.
 
 ### Code Example
 

@@ -6,7 +6,6 @@ package volcenginequery
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"reflect"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine/custom"
@@ -30,15 +29,18 @@ type unmarshalErrorInfo struct {
 	Request  *request.Request
 	Response *response.VolcengineResponse
 	Body     []byte
-	Err      error
 }
 
 func processUnmarshalError(info unmarshalErrorInfo) {
 	r := info.Request
+	if info.Body != nil {
+		// HTTP 200 business errors reuse bytes read by Unmarshal.
+		r.SetResponseBody(info.Body, nil)
+	}
 	if info.Response == nil {
 		info.Response = &response.VolcengineResponse{}
 		if info.Body == nil {
-			body, err := ioutil.ReadAll(r.HTTPResponse.Body)
+			body, err := r.ReadResponseBody()
 			info.Body = body
 			if err != nil {
 				r.Error = newResponseError(info, request.ErrCodeRead, "failed to read error response", err)
@@ -82,21 +84,18 @@ func processUnmarshalError(info unmarshalErrorInfo) {
 		r.Error = newResponseError(info, code, message, nil)
 		return
 	}
-	if info.Err == nil && (info.Response.ResponseMetadata.Error == nil || info.Response.ResponseMetadata.Error.Code == "") {
+	if info.Response.ResponseMetadata.Error == nil || info.Response.ResponseMetadata.Error.Code == "" {
 		r.Error = newResponseError(info, "UnknownError", "non-standard error response", nil)
 		return
 	}
 
-	if info.Err != nil {
-		r.Error = info.Err
-	} else {
-		r.Error = volcengineerr.NewRequestFailure(
-			volcengineerr.New(info.Response.ResponseMetadata.Error.Code, info.Response.ResponseMetadata.Error.Message, nil),
-			r.HTTPResponse.StatusCode,
-			info.Response.ResponseMetadata.RequestId,
-			r.Config.SimpleError,
-		)
-	}
+	r.Error = volcengineerr.NewRequestFailure(
+		volcengineerr.New(info.Response.ResponseMetadata.Error.Code, info.Response.ResponseMetadata.Error.Message, nil),
+		r.HTTPResponse.StatusCode,
+		responseRequestID(info),
+		r.Config.SimpleError,
+	)
+	r.Error = r.WithResponseDetails(r.Error)
 	if r.DataFilled() && reflect.TypeOf(r.Data) != reflect.TypeOf(&map[string]interface{}{}) {
 
 		if _, ok := reflect.TypeOf(r.Data).Elem().FieldByName("Metadata"); ok {
@@ -114,20 +113,29 @@ func processUnmarshalError(info unmarshalErrorInfo) {
 // callers no longer lose the real failure. SimpleError only changes Error(),
 // not the StatusCode()/RequestID()/Message() accessors.
 func newResponseError(info unmarshalErrorInfo, code, message string, err error) volcengineerr.RequestFailure {
-	return volcengineerr.NewRequestFailure(
+	failure := volcengineerr.NewRequestFailure(
 		volcengineerr.New(code, fmt.Sprintf("%s; response body: %s", message, info.Body), err),
 		info.Request.HTTPResponse.StatusCode,
 		responseRequestID(info),
 		info.Request.Config.SimpleError,
 	)
+	return info.Request.WithResponseDetails(failure).(volcengineerr.RequestFailure)
 }
 
-// responseRequestID resolves the request id from the parsed metadata first, then
-// the request context, then the TOP gateway headers, so non-standard responses
-// still expose a usable id for troubleshooting.
+// responseRequestID resolves the request id from the parsed metadata or saved
+// body first, then the request context and TOP gateway headers.
 func responseRequestID(info unmarshalErrorInfo) string {
 	if info.Response != nil && info.Response.ResponseMetadata != nil && info.Response.ResponseMetadata.RequestId != "" {
 		return info.Response.ResponseMetadata.RequestId
+	}
+	// Decode only the id so incompatible Error/Result fields cannot hide it.
+	// Reuse saved bytes; never read the response stream again.
+	var metadata struct {
+		ResponseMetadata *struct{ RequestId string }
+	}
+	if json.Unmarshal(info.Body, &metadata) == nil && metadata.ResponseMetadata != nil &&
+		metadata.ResponseMetadata.RequestId != "" {
+		return metadata.ResponseMetadata.RequestId
 	}
 	if info.Request.RequestID != "" {
 		return info.Request.RequestID

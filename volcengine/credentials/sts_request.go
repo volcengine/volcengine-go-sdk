@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 // stsThrottleCodes mirrors throttleCodes in
@@ -62,17 +63,15 @@ func isRetryableSTSError(statusCode int, errCode string) bool {
 	return false
 }
 
-// stsEnvelope is used to extract ResponseMetadata from any STS response.
+// stsEnvelope is used to extract metadata and validate credential responses.
 type stsEnvelope struct {
-	ResponseMetadata response.ResponseMetadata `json:"ResponseMetadata"`
+	ResponseMetadata *response.ResponseMetadata `json:"ResponseMetadata"`
+	Result           json.RawMessage            `json:"Result"`
 }
 
 // doSTSFormRequest sends a form-encoded POST to the STS endpoint for the given
 // action, retries on failure, checks ResponseMetadata.Error, and unmarshals
 // the full JSON response into out.
-//
-// errorLabel is used as the prefix in service-level error messages to preserve
-// backward-compatible error strings (e.g. "STS AssumeRoleWithOIDC service error").
 func doSTSFormRequest(
 	client *http.Client,
 	scheme, endpoint, action string,
@@ -80,66 +79,145 @@ func doSTSFormRequest(
 	out interface{},
 	maxRetries *int,
 	retryInterval time.Duration,
-	errorLabel string,
-) error {
+) (response.ResponseMetadata, *volcengineerr.ResponseDetails, error) {
 	requestURL := scheme + "://" + endpoint + "/?Action=" + action + "&Version=2018-01-01"
+	body := params.Encode()
+	req, err := http.NewRequest(http.MethodPost, requestURL, strings.NewReader(body))
+	if err != nil {
+		return response.ResponseMetadata{}, nil, stsRequestError(response.ResponseMetadata{}, "RequestError", "failed to build STS request", err)
+	}
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	retries := resolveCredentialMaxRetries(maxRetries)
 	if retryInterval <= 0 {
 		retryInterval = DefaultRetryerRetryDelay
 	}
 
 	var lastErr error
+	var metadata response.ResponseMetadata
+	var details *volcengineerr.ResponseDetails
 	for attempt := 0; attempt <= retries; attempt++ {
 		if attempt > 0 {
 			time.Sleep(retryInterval)
 		}
-		var statusCode int
-		var errCode string
-		statusCode, errCode, lastErr = doSTSFormRequestOnce(client, requestURL, params.Encode(), out, errorLabel)
-		if lastErr == nil {
-			return nil
+		attemptReq := req.Clone(req.Context())
+		if body != "" {
+			// Clone does not copy Body; each attempt must start at byte zero.
+			attemptReq.Body = ioutil.NopCloser(strings.NewReader(body))
 		}
-		if !isRetryableSTSError(statusCode, errCode) {
-			return lastErr
+		metadata, details, lastErr = doSTSHTTPRequestOnce(client, attemptReq, out)
+		if lastErr == nil {
+			return metadata, details, nil
+		}
+		if !isRetryableSTSError(metadata.HTTPCode, stsErrorCode(lastErr)) {
+			return metadata, details, lastErr
 		}
 	}
-	return lastErr
+	return metadata, details, lastErr
 }
 
-// doSTSFormRequestOnce performs a single STS HTTP call and decodes the response.
-// It returns the HTTP status code (0 on network error), the STS error code if any, and an error.
-func doSTSFormRequestOnce(client *http.Client, requestURL, body string, out interface{}, errorLabel string) (statusCode int, errCode string, retErr error) {
-	resp, err := client.Post(requestURL, "application/x-www-form-urlencoded", strings.NewReader(body))
+// doSTSHTTPRequestOnce preserves diagnostics for both signed AssumeRole and
+// unsigned OIDC/SAML requests. HTTPCode always comes from the actual response.
+func doSTSHTTPRequestOnce(client *http.Client, req *http.Request, out interface{}) (response.ResponseMetadata, *volcengineerr.ResponseDetails, error) {
+	resp, err := client.Do(req)
+	metadata := stsResponseMetadata(nil, resp)
+	details := volcengineerr.NewResponseDetails(resp, nil, false, false)
 	if err != nil {
-		return 0, "", fmt.Errorf("failed to request STS service: %v", err)
+		return metadata, details, stsRequestError(metadata, "RequestError", "failed to request STS service", err, details)
 	}
 	defer resp.Body.Close()
 
-	statusCode = resp.StatusCode
-	respBody, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return statusCode, "", fmt.Errorf("failed to read STS response body: %v", err)
-	}
-	if resp.StatusCode != http.StatusOK {
-		// Try to extract error code from body for retryability decision.
-		var envelope stsEnvelope
-		if jsonErr := json.Unmarshal(respBody, &envelope); jsonErr == nil && envelope.ResponseMetadata.Error != nil {
-			errCode = envelope.ResponseMetadata.Error.Code
-		}
-		return statusCode, errCode, fmt.Errorf("STS service returned non-OK status: %d, body: %s", resp.StatusCode, string(respBody))
-	}
-
+	respBody, readErr := ioutil.ReadAll(resp.Body)
 	var envelope stsEnvelope
-	if err := json.Unmarshal(respBody, &envelope); err != nil {
-		return statusCode, "", fmt.Errorf("failed to decode STS response: %v", err)
+	decodeErr := json.Unmarshal(respBody, &envelope)
+	metadata = stsResponseMetadata(envelope.ResponseMetadata, resp)
+	details = volcengineerr.NewResponseDetails(resp, nil, true, readErr == nil)
+	if details != nil {
+		// ReadAll owns these bytes; error construction still copies snapshots.
+		details.Body = respBody
+		details.RequestID = metadata.RequestId
 	}
-	if envelope.ResponseMetadata.Error != nil {
-		errCode = envelope.ResponseMetadata.Error.Code
-		return statusCode, errCode, fmt.Errorf("%s: %v", errorLabel, envelope.ResponseMetadata)
+	if readErr != nil {
+		return metadata, details, stsResponseError(metadata, "ReadError", "failed to read STS response body", respBody, readErr, details)
+	}
+	if decodeErr != nil {
+		return metadata, details, stsResponseError(metadata, "SerializationError", "failed to decode STS response", respBody, decodeErr, details)
+	}
+	if metadata.Error != nil && metadata.Error.Code != "" {
+		return metadata, details, stsRequestError(metadata, metadata.Error.Code, metadata.Error.Message, nil, details)
+	}
+	if envelope.ResponseMetadata == nil {
+		var simple response.VolcengineSimpleError
+		if err := json.Unmarshal(respBody, &simple); err != nil {
+			return metadata, details, stsResponseError(metadata, "SerializationError", "failed to decode STS error response", respBody, err, details)
+		}
+		if simple.ErrorCode != "" {
+			return metadata, details, stsResponseError(metadata, simple.ErrorCode, simple.Message, respBody, nil, details)
+		}
+	}
+	if resp.StatusCode < 200 || resp.StatusCode >= 300 || metadata.Error != nil {
+		return metadata, details, stsResponseError(metadata, "UnknownError", "non-standard STS error response", respBody, nil, details)
+	}
+	if err := json.Unmarshal(respBody, out); err != nil {
+		return metadata, details, stsResponseError(metadata, "SerializationError", "failed to decode STS response", respBody, err, details)
 	}
 
-	if err := json.Unmarshal(respBody, out); err != nil {
-		return statusCode, "", fmt.Errorf("failed to decode STS response: %v", err)
+	// Missing/null results and empty credentials must not become a successful
+	// credential refresh. Successful responses may omit ResponseMetadata.
+	var result struct {
+		Credentials *struct {
+			AccessKeyId     string
+			SecretAccessKey string
+			SessionToken    string
+		}
 	}
-	return statusCode, "", nil
+	if len(envelope.Result) != 0 {
+		if err := json.Unmarshal(envelope.Result, &result); err != nil {
+			return metadata, details, stsResponseError(metadata, "SerializationError", "failed to decode STS credentials", respBody, err, details)
+		}
+	}
+	if result.Credentials == nil || result.Credentials.AccessKeyId == "" ||
+		result.Credentials.SecretAccessKey == "" || result.Credentials.SessionToken == "" {
+		return metadata, details, stsResponseError(metadata, "UnknownError", "STS response returned empty credentials", respBody, nil, details)
+	}
+	return metadata, details, nil
+}
+
+func stsResponseMetadata(parsed *response.ResponseMetadata, resp *http.Response) response.ResponseMetadata {
+	var metadata response.ResponseMetadata
+	if parsed != nil {
+		metadata = *parsed
+	}
+	if resp != nil {
+		metadata.HTTPCode = resp.StatusCode
+		if metadata.RequestId == "" {
+			for _, header := range []string{"X-Top-Requestid", "X-Top-Request-Id", "X-Tt-Logid"} {
+				if id := resp.Header.Get(header); id != "" {
+					metadata.RequestId = id
+					break
+				}
+			}
+		}
+	}
+	return metadata
+}
+
+func stsRequestError(metadata response.ResponseMetadata, code, message string, err error, details ...*volcengineerr.ResponseDetails) volcengineerr.RequestFailure {
+	failure := volcengineerr.NewRequestFailure(
+		volcengineerr.New(code, message, err), metadata.HTTPCode, metadata.RequestId,
+	)
+	if len(details) != 0 {
+		volcengineerr.WithResponseDetails(failure, details[0])
+	}
+	return failure
+}
+
+func stsResponseError(metadata response.ResponseMetadata, code, message string, body []byte, err error, details ...*volcengineerr.ResponseDetails) volcengineerr.RequestFailure {
+	return stsRequestError(metadata, code, fmt.Sprintf("%s; response body: %s", message, body), err, details...)
+}
+
+func stsErrorCode(err error) string {
+	if sdkErr, ok := err.(volcengineerr.Error); ok {
+		return sdkErr.Code()
+	}
+	return ""
 }

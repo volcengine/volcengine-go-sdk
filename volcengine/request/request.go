@@ -105,6 +105,9 @@ type Request struct {
 	holders []interface{}
 
 	Metadata response.ResponseMetadata
+
+	responseDetails            *volcengineerr.ResponseDetails
+	responseDetailsInitialized bool
 }
 
 // An Operation is the service API operation to be made.
@@ -523,6 +526,9 @@ func (r *Request) GetBody() io.ReadSeeker {
 func (r *Request) Send() error {
 	interceptorMapping := make(map[int]interface{})
 	defer func() {
+		defer func() {
+			r.responseDetails = nil
+		}()
 		// Regardless of success or failure of the request trigger the Complete
 		// request handlers.
 		r.Handlers.Complete.Run(r)
@@ -539,6 +545,8 @@ func (r *Request) Send() error {
 
 	for {
 		r.Error = nil
+		r.responseDetails = nil
+		r.responseDetailsInitialized = false
 		r.AttemptTime = time.Now()
 
 		if err := r.Sign(); err != nil {

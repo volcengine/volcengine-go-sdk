@@ -10,7 +10,6 @@ package volcengineerr
 //
 // Calling Error() or String() will always include the full information about
 // an error based on its underlying type.
-//
 type Error interface {
 	// Satisfy the generic error interface.
 	error
@@ -80,7 +79,6 @@ func NewBatchError(code, message string, errs []error) BatchedErrors {
 // an Error such as the request ID of the failed request returned by a service.
 // RequestFailures may not always have a requestID value if the request failed
 // prior to reaching the service such as a connection error.
-//
 type RequestFailure interface {
 	Error
 
@@ -91,6 +89,13 @@ type RequestFailure interface {
 	// be empty if no request ID is available such as the request failed due
 	// to a connection error.
 	RequestID() string
+}
+
+// DetailedRequestFailure optionally exposes an HTTP response snapshot without
+// adding requirements to the existing RequestFailure interface.
+type DetailedRequestFailure interface {
+	RequestFailure
+	ResponseDetails() *ResponseDetails
 }
 
 // NewRequestFailure returns a wrapped error with additional information for

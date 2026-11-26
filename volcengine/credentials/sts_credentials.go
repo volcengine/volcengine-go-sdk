@@ -1,16 +1,23 @@
 package credentials
 
 import (
+	"context"
 	"fmt"
+	"net/http"
+	"net/url"
+	"strconv"
+	"strings"
 	"time"
 
 	"github.com/google/uuid"
 	"github.com/volcengine/volc-sdk-golang/service/sts"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
 )
 
 const (
 	defaultSTSRegion = "cn-beijing"
 	defaultSTSHost   = "sts.volcengineapi.com"
+	defaultSTSSchema = "https"
 )
 
 type StsAssumeRoleProvider struct {
@@ -132,6 +139,7 @@ func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRo
 	ins := sts.NewInstance()
 	ins.Client.ServiceInfo.Credentials.Region = defaultSTSRegion
 	ins.SetHost(defaultSTSHost)
+	ins.SetSchema(defaultSTSSchema)
 	if p.Region != "" {
 		ins.Client.ServiceInfo.Credentials.Region = p.Region
 	}
@@ -175,23 +183,9 @@ func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRo
 	if p.MaxRetries > 0 {
 		maxRetriesPtr = &p.MaxRetries
 	}
-	output, statusCode, err := assumeRoleWithRetry(ins, input, maxRetriesPtr, p.RetryInterval)
-	var reqId string
-	if output != nil {
-		reqId = output.ResponseMetadata.RequestId
-	}
+	output, _, err := assumeRoleWithRetry(ins, input, maxRetriesPtr, p.RetryInterval)
 	if err != nil {
-		return nil, nil, fmt.Errorf("AssumeRole error,httpcode is %v and reqId is %s error is %s", statusCode, reqId, err.Error())
-	}
-	if output != nil && output.ResponseMetadata.Error != nil {
-		return nil, nil, fmt.Errorf("AssumeRole service error, reqId: %s, code: %s, message: %s",
-			reqId, output.ResponseMetadata.Error.Code, output.ResponseMetadata.Error.Message)
-	}
-	if statusCode >= 300 || statusCode < 200 {
-		return nil, nil, fmt.Errorf("AssumeRole error,httpcode is %v and reqId is %s", statusCode, reqId)
-	}
-	if output == nil || output.Result == nil || output.Result.Credentials == nil {
-		return nil, nil, fmt.Errorf("AssumeRole response error,httpcode is %v and reqId is %s", statusCode, reqId)
+		return nil, nil, err
 	}
 	return NewCredentials(&StaticProvider{Value: Value{
 			AccessKeyID:     output.Result.Credentials.AccessKeyId,
@@ -203,8 +197,12 @@ func stsAssumeRoleInternal(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRo
 		}, nil
 }
 
-// assumeRoleWithRetry invokes sts.AssumeRole with retries
+// assumeRoleWithRetry invokes signed AssumeRole requests with retries.
 func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries *int, retryInterval time.Duration) (*sts.AssumeRoleResp, int, error) {
+	req, err := buildAssumeRoleRequest(ins, input)
+	if err != nil {
+		return nil, 0, err
+	}
 	resolvedMaxRetries := resolveCredentialMaxRetries(maxRetries)
 	if retryInterval <= 0 {
 		retryInterval = DefaultRetryerRetryDelay
@@ -212,27 +210,13 @@ func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries 
 	var (
 		output     *sts.AssumeRoleResp
 		statusCode int
-		err        error
 	)
 	for attempt := 0; attempt <= resolvedMaxRetries; attempt++ {
-		output, statusCode, err = ins.AssumeRole(input)
-		failed := err != nil ||
-			statusCode < 200 || statusCode >= 300 ||
-			output == nil ||
-			output.ResponseMetadata.Error != nil
-		if !failed {
+		output, statusCode, err = assumeRoleRequestOnce(ins, req)
+		if err == nil {
 			return output, statusCode, err
 		}
-		// Determine STS error code for retryability check.
-		var errCode string
-		if output != nil && output.ResponseMetadata.Error != nil {
-			errCode = output.ResponseMetadata.Error.Code
-		}
-		httpStatusCode := statusCode
-		if err != nil && statusCode == 0 {
-			httpStatusCode = 0
-		}
-		if !isRetryableSTSError(httpStatusCode, errCode) {
+		if !isRetryableSTSError(statusCode, stsErrorCode(err)) {
 			return output, statusCode, err
 		}
 		if attempt < resolvedMaxRetries {
@@ -240,4 +224,62 @@ func assumeRoleWithRetry(ins *sts.STS, input *sts.AssumeRoleRequest, maxRetries 
 		}
 	}
 	return output, statusCode, err
+}
+
+// buildAssumeRoleRequest validates local configuration before entering retries.
+func buildAssumeRoleRequest(ins *sts.STS, input *sts.AssumeRoleRequest) (*http.Request, error) {
+	apiInfo := ins.Client.ApiInfoList["AssumeRole"]
+	if apiInfo == nil {
+		return nil, stsRequestError(response.ResponseMetadata{}, "RequestError", "STS AssumeRole API is not configured", nil)
+	}
+	query := url.Values{}
+	if input.DurationSeconds > 0 {
+		query.Set("DurationSeconds", strconv.Itoa(input.DurationSeconds))
+	}
+	if input.Policy != "" {
+		query.Set("Policy", input.Policy)
+	}
+	query.Set("RoleTrn", input.RoleTrn)
+	query.Set("RoleSessionName", input.RoleSessionName)
+	for key, values := range apiInfo.Query {
+		for _, value := range values {
+			query.Add(key, value)
+		}
+	}
+	serviceInfo := ins.Client.ServiceInfo
+	u := url.URL{Scheme: serviceInfo.Scheme, Host: serviceInfo.Host, Path: apiInfo.Path, RawQuery: query.Encode()}
+	req, err := http.NewRequest(strings.ToUpper(apiInfo.Method), u.String(), nil)
+	if err != nil {
+		return nil, stsRequestError(response.ResponseMetadata{}, "RequestError", "failed to build STS AssumeRole request", err)
+	}
+	for _, header := range []http.Header{serviceInfo.Header, apiInfo.Header} {
+		for key, values := range header {
+			req.Header.Set(key, strings.Join(values, ";"))
+		}
+	}
+	return req, nil
+}
+
+// assumeRoleRequestOnce retains the upstream client's signing and timeout rules,
+// using an independent request copy for each attempt.
+func assumeRoleRequestOnce(ins *sts.STS, req *http.Request) (*sts.AssumeRoleResp, int, error) {
+	serviceInfo := ins.Client.ServiceInfo
+	apiInfo := ins.Client.ApiInfoList["AssumeRole"]
+	req = serviceInfo.Credentials.Sign(req.Clone(context.Background()))
+	timeout := time.Second
+	if serviceInfo.Timeout != 0 {
+		timeout = serviceInfo.Timeout
+	}
+	if apiInfo.Timeout != 0 {
+		timeout = apiInfo.Timeout
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), timeout)
+	defer cancel()
+	var output sts.AssumeRoleResp
+	metadata, _, err := doSTSHTTPRequestOnce(ins.Client.Client, req.WithContext(ctx), &output)
+	if err != nil {
+		return nil, metadata.HTTPCode, err
+	}
+	output.ResponseMetadata.RequestId = metadata.RequestId
+	return &output, metadata.HTTPCode, nil
 }
