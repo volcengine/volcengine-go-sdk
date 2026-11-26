@@ -62,11 +62,30 @@ const (
 // adaptToResponseTimeoutError is a handler that will replace any top level error
 // to a ErrCodeResponseTimeout, if its child is that.
 func adaptToResponseTimeoutError(req *Request) {
+	details := req.responseDetails
 	if err, ok := req.Error.(volcengineerr.Error); ok {
 		aerr, ok := err.OrigErr().(volcengineerr.Error)
 		if ok && aerr.Code() == ErrCodeResponseTimeout {
+			if aerr == timeoutErr && details != nil &&
+				details.BodyCaptured && !details.BodyComplete {
+				if provider, ok := err.(interface {
+					ResponseDetails() *volcengineerr.ResponseDetails
+				}); ok {
+					if saved := provider.ResponseDetails(); saved != nil {
+						details = saved
+					}
+				}
+			}
 			req.Error = aerr
 		}
+	}
+	// Keep diagnostics when normalizing our body-read timeout, without mutating
+	// the shared sentinel or attaching details to customer-created errors.
+	if req.Error == timeoutErr && details != nil &&
+		details.BodyCaptured && !details.BodyComplete {
+		req.Error = volcengineerr.WithResponseDetails(volcengineerr.New(
+			timeoutErr.Code(), timeoutErr.Message(), timeoutErr.OrigErr(),
+		), details)
 	}
 }
 
@@ -74,7 +93,7 @@ func adaptToResponseTimeoutError(req *Request) {
 // This will allow for per read timeouts. If a timeout occurred, we will return the
 // ErrCodeResponseTimeout.
 //
-//     svc.PutObjectWithContext(ctx, params, request.WithTimeoutReadCloser(30 * time.Second)
+//	svc.PutObjectWithContext(ctx, params, request.WithTimeoutReadCloser(30 * time.Second)
 func WithResponseReadTimeout(duration time.Duration) Option {
 	return func(r *Request) {
 

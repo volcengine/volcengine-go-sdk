@@ -15,6 +15,10 @@ config := volcengine.NewConfig().
 	WithCredentials(credentials.NewEnvCredentials())
 ```
 
+### Print error details
+
+After a call fails, call `volcengineerr.PrintError(os.Stderr, err)` directly to print captured status, headers, body and underlying causes without enabling Debug or a type assertion. `DetailedRequestFailure.ResponseDetails()` returns an HTTP snapshot copy, or nil when none was captured. The package-level `volcengineerr.GetErrorDetails(err)` returns complete error details. See [Full error details](7-ErrorHandling.md#full-error-details) for capture scope, legacy fallback and body completeness. Output occurs only when explicitly requested; the return value reports output failures.
+
 ### Log Output
 
 By default, logs are written to `os.Stdout`. Use `WithLogWriter` to write to a file or other writer.

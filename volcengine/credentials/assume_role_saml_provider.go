@@ -162,11 +162,12 @@ func (p *SAMLCredentialsProvider) fetchOnce() (Value, error) {
 	}
 
 	var stsResp AssumeRoleWithSAMLResponse
-	if err := doSTSFormRequest(client, scheme, endpoint, "AssumeRoleWithSAML",
-		data, &stsResp, p.MaxRetries, p.RetryInterval,
-		"STS AssumeRoleWithSAML returned error"); err != nil {
+	metadata, details, err := doSTSFormRequest(client, scheme, endpoint, "AssumeRoleWithSAML",
+		data, &stsResp, p.MaxRetries, p.RetryInterval)
+	if err != nil {
 		return Value{}, err
 	}
+	stsResp.ResponseMetadata = metadata
 
 	creds := Value{
 		AccessKeyID:     stsResp.Result.Credentials.AccessKeyId,
@@ -174,11 +175,11 @@ func (p *SAMLCredentialsProvider) fetchOnce() (Value, error) {
 		SessionToken:    stsResp.Result.Credentials.SessionToken,
 		ProviderName:    "SAML",
 	}
-	p.lastUpdateTimestamp = time.Now().Unix()
 	expirationTime, err := time.Parse(time.RFC3339, stsResp.Result.Credentials.Expiration)
 	if err != nil {
-		return Value{}, fmt.Errorf("failed to parse expiration time: %v", err)
+		return Value{}, stsRequestError(metadata, "SerializationError", "failed to parse STS SAML expiration time", err, details)
 	}
+	p.lastUpdateTimestamp = time.Now().Unix()
 	p.expirationTimestamp = expirationTime.Add(-60 * time.Second).Unix()
 	p.sessionValue = &creds
 	return creds, nil

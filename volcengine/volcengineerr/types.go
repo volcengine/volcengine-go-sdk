@@ -38,6 +38,8 @@ type baseError struct {
 	// Optional original error this error is based off of. Allows building
 	// chained errors.
 	errs []error
+
+	responseDetails *ResponseDetails
 }
 
 // newBaseError returns an error object for the code, message, and errors.
@@ -123,10 +125,10 @@ type volcengineerror Error
 // Composed of baseError for code, message, and original error.
 type requestError struct {
 	volcengineerror
-	statusCode  int
-	requestID   string
-	bytes       []byte
-	simpleError bool
+	statusCode      int
+	requestID       string
+	simpleError     bool
+	responseDetails *ResponseDetails
 }
 
 // newRequestError returns a wrapped error with additional information for

@@ -211,11 +211,12 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 	}
 
 	var stsResp AssumeRoleWithOIDCResponse
-	if err := doSTSFormRequest(client, scheme, endpoint, "AssumeRoleWithOIDC",
-		data, &stsResp, p.MaxRetries, p.RetryInterval,
-		"STS AssumeRoleWithOIDC service error"); err != nil {
+	metadata, details, err := doSTSFormRequest(client, scheme, endpoint, "AssumeRoleWithOIDC",
+		data, &stsResp, p.MaxRetries, p.RetryInterval)
+	if err != nil {
 		return Value{}, err
 	}
+	stsResp.ResponseMetadata = metadata
 
 	creds := Value{
 		AccessKeyID:     stsResp.Result.Credentials.AccessKeyId,
@@ -223,11 +224,11 @@ func (p *OIDCCredentialsProvider) fetchOnce() (Value, error) {
 		SessionToken:    stsResp.Result.Credentials.SessionToken,
 		ProviderName:    "OIDC",
 	}
-	p.lastUpdateTimestamp = time.Now().Unix()
 	expirationTime, err := time.Parse(time.RFC3339, stsResp.Result.Credentials.Expiration)
 	if err != nil {
-		return Value{}, fmt.Errorf("failed to parse expiration time: %v", err)
+		return Value{}, stsRequestError(metadata, "SerializationError", "failed to parse STS OIDC expiration time", err, details)
 	}
+	p.lastUpdateTimestamp = time.Now().Unix()
 	earlyExpirationTime := expirationTime.Add(time.Duration(-60) * time.Second)
 	p.expirationTimestamp = earlyExpirationTime.Unix()
 	p.sessionValue = &creds

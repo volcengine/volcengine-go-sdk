@@ -4,6 +4,7 @@ package request
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
+	"errors"
 	"net"
 	"net/url"
 	"strings"
@@ -98,31 +99,6 @@ var validParentCodes = map[string]struct{}{
 	ErrCodeRead:          {},
 }
 
-func isNestedErrorRetryable(parentErr volcengineerr.Error) bool {
-	if parentErr == nil {
-		return false
-	}
-
-	if _, ok := validParentCodes[parentErr.Code()]; !ok {
-		return false
-	}
-
-	err := parentErr.OrigErr()
-	if err == nil {
-		return false
-	}
-
-	if aerr, ok := err.(volcengineerr.Error); ok {
-		return isCodeRetryable(aerr.Code())
-	}
-
-	if t, ok := err.(temporary); ok {
-		return t.Temporary() || isErrConnectionReset(err)
-	}
-
-	return isErrConnectionReset(err)
-}
-
 // IsErrorRetryable returns whether the error is retryable, based on its Code.
 // Returns false if error is nil.
 func IsErrorRetryable(err error) bool {
@@ -137,22 +113,67 @@ type temporary interface {
 }
 
 func shouldRetryError(origErr error) bool {
+	return retryableError(origErr, true)
+}
+
+func retryableError(origErr error, retryUnknown bool) bool {
+	return (&retryErrorWalk{}).retry(origErr, retryUnknown, 0)
+}
+
+type retryErrorWalk struct {
+	nodes int
+}
+
+func (w *retryErrorWalk) retry(origErr error, retryUnknown bool, depth int) bool {
+	if depth >= 64 || w.nodes >= 256 {
+		return false
+	}
+	w.nodes++
+
 	switch err := origErr.(type) {
 	case volcengineerr.Error:
 		if err.Code() == CanceledErrorCode {
 			return false
 		}
-		if isNestedErrorRetryable(err) {
-			return true
+		_, nested := validParentCodes[err.Code()]
+		if nested {
+			// Read and serialization errors require known retryable causes.
+			retryUnknown = false
+		} else if !isCodeRetryable(err.Code()) {
+			// An ordinary cause must not make a terminal SDK code retryable.
+			// Keep known transient causes and the RequestError fallback.
+			retryUnknown = false
 		}
 
-		origErr := err.OrigErr()
 		var shouldRetry bool
-		if origErr != nil {
-			shouldRetry := shouldRetryError(origErr)
-			if err.Code() == "RequestError" && !shouldRetry {
-				return false
+		var hasOrigErr bool
+		if batch, ok := err.(volcengineerr.BatchedErrors); ok {
+			// OrigErr can manufacture another batch containing the same list.
+			// Inspect the actual causes instead, requiring each cause to retry.
+			for _, child := range batch.OrigErrs() {
+				if w.nodes >= 256 {
+					hasOrigErr, shouldRetry = true, false
+					break
+				}
+				if child == nil {
+					w.nodes++
+					continue
+				}
+				hasOrigErr = true
+				shouldRetry = w.retry(child, retryUnknown, depth+1)
+				if !shouldRetry {
+					break
+				}
 			}
+		} else if child := err.OrigErr(); child != nil {
+			hasOrigErr = true
+			shouldRetry = w.retry(child, retryUnknown, depth+1)
+		}
+		if nested {
+			return shouldRetry
+		}
+		if err.Code() == "RequestError" && hasOrigErr && !shouldRetry {
+			return false
 		}
 		if isCodeRetryable(err.Code()) {
 			return true
@@ -168,7 +189,7 @@ func shouldRetryError(origErr error) bool {
 		}
 		// *url.Error only implements Temporary after golang 1.6 but since
 		// url.Error only wraps the error:
-		return shouldRetryError(err.Err)
+		return w.retry(err.Err, retryUnknown, depth+1)
 
 	case temporary:
 		if netErr, ok := err.(*net.OpError); ok && netErr.Op == "dial" {
@@ -179,10 +200,7 @@ func shouldRetryError(origErr error) bool {
 		return err.Temporary() || isErrConnectionReset(origErr)
 
 	case nil:
-		// `volcengineerr.Error.OrigErr()` can be nil, meaning there was an error but
-		// because we don't know the cause, it is marked as retryable. See
-		// TestRequest4xxUnretryable for an example.
-		return true
+		return retryUnknown
 
 	default:
 		switch err.Error() {
@@ -191,15 +209,19 @@ func shouldRetryError(origErr error) bool {
 			// known 1.5 error case when an http request is cancelled
 			return false
 		}
-		// here we don't know the error; so we allow a retry.
-		return true
+		if unwrapped := errors.Unwrap(origErr); unwrapped != nil {
+			return w.retry(unwrapped, retryUnknown, depth+1)
+		}
+		// Preserve the fallback for native errors and retryable SDK codes.
+		return retryUnknown || isErrConnectionReset(origErr)
 	}
 }
 
 // IsErrorThrottle returns whether the error is to be throttled based on its code.
 // Returns false if error is nil.
 func IsErrorThrottle(err error) bool {
-	if aerr, ok := err.(volcengineerr.Error); ok && aerr != nil {
+	var aerr volcengineerr.Error
+	if errors.As(err, &aerr) && aerr != nil {
 		return isCodeThrottle(aerr.Code())
 	}
 	return false
@@ -208,7 +230,8 @@ func IsErrorThrottle(err error) bool {
 // IsErrorExpiredCreds returns whether the error code is a credential expiry
 // error. Returns false if error is nil.
 func IsErrorExpiredCreds(err error) bool {
-	if aerr, ok := err.(volcengineerr.Error); ok && aerr != nil {
+	var aerr volcengineerr.Error
+	if errors.As(err, &aerr) && aerr != nil {
 		return isCodeExpiredCreds(aerr.Code())
 	}
 	return false
@@ -268,7 +291,8 @@ func (r *Request) IsErrorThrottle() bool {
 }
 
 func isErrCode(err error, codes []string) bool {
-	if aerr, ok := err.(volcengineerr.Error); ok && aerr != nil {
+	var aerr volcengineerr.Error
+	if errors.As(err, &aerr) && aerr != nil {
 		for _, code := range codes {
 			if code == aerr.Code() {
 				return true

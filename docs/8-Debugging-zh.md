@@ -33,6 +33,10 @@ func main() {
 }
 ```
 
+### 主动打印异常详情
+
+取得调用错误后，可直接使用 `volcengineerr.PrintError(os.Stderr, err)` 输出已保存的状态码、响应头、正文和底层原因，不需要开启 Debug 或先断言。`DetailedRequestFailure.ResponseDetails()` 提供响应快照副本，没有快照时返回 nil；包函数 `volcengineerr.GetErrorDetails(err)` 提供完整错误详情副本。覆盖范围、旧错误兜底及正文完整性见[全量异常详情](7-ErrorHandling-zh.md#全量异常详情)。该方法仅在主动调用时打印，返回值用于处理打印失败。
+
 ### 指定日志输出位置
 
 > **默认**
